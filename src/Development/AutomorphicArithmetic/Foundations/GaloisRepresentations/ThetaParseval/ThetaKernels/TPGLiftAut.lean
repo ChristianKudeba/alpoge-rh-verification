@@ -24,31 +24,6 @@ namespace UpperTheory.TP
 section Gen
 variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] {σ : E →ₐ[F] E} {n d : ℕ}
   {X : Spc F E n} {W : Spc F E d}
-open PositivityTheory.ThKEnd.Grp in
-private theorem stab_of_pk {m : ℕ} {Y : Spc F E m} {V : Type} [AddCommGroup V] [Module ℂ V] (τ : ∀ w : InfinitePlace F, EmbOver E w)
-    (A : UA σ Y.J →* Module.End ℂ V) (P : Submodule ℂ V)
-    (hlev : ∀ Φ ∈ P, ∀ᶠ u in 𝓝 (1 : UA σ Y.J), (∀ w, (mat u).map (piInf (τ w)) = 1) → A u Φ = Φ)
-    (hr : ∀ g ∈ UAt σ Y (evI F), ∀ Φ ∈ P, A g Φ ∈ P)
-    (hl : ∀ v : Pl F, ∀ g ∈ UAt σ Y (evFin F v), ∀ Φ ∈ P, A g Φ ∈ P) (g : UA σ Y.J) : ∀ Φ ∈ P, A g Φ ∈ P := by
-  intro Φ hΦ
-  have h1 : Tendsto (fun S : Finset (Pl F) => (piece (eps S) (eps_sq S) g)⁻¹ * g) atTop (𝓝 1) := by
-    rw [← inv_mul_cancel g]
-    exact (tendsto_piece g).inv.mul_const g
-  obtain ⟨S, h2⟩ := (h1.eventually (hlev Φ hΦ)).exists
-  have h4 : ∀ w, (mat ((piece (eps S) (eps_sq S) g)⁻¹ * g)).map (piInf (τ w)) = 1 := fun w => by
-    rw [mat_mul, Matrix.map_mul, ← piInf_piece S g, ← Matrix.map_mul, mat_inv_mul, Matrix.map_one _ (map_zero _) (map_one _)]
-  obtain ⟨l, l1, l2⟩ := piece_prod g S
-  have e : g = piece (eps ∅) (eps_sq ∅) g * l.prod * ((piece (eps S) (eps_sq S) g)⁻¹ * g) := by
-    rw [← l2, mul_inv_cancel_left]
-  rw [e, map_mul, map_mul, Module.End.mul_apply, Module.End.mul_apply, h2 h4]
-  refine hr _ (piece_inf g) _ ?_
-  clear e h2 h4 l2
-  induction l with
-  | nil => simpa using hΦ
-  | cons x l ih =>
-    obtain ⟨v, hv⟩ := l1 x List.mem_cons_self
-    rw [List.prod_cons, map_mul, Module.End.mul_apply]
-    exact hl v x hv _ (ih fun h hh => l1 h (List.mem_cons_of_mem _ hh))
 variable {B : Base F E} {M : Model σ X W} {χX χW : Chr F E} {om : Rep σ X W}
 theorem levelX_sch_k {r s r' s' : ℕ} (hp : _root_.GlobalTheory.ThK.IsPair_k B M χX χW om r s r' s') {Φ : Fn F n d} (hΦ : Φ ∈ schA F (Fin n × Fin d)) :
     ∀ᶠ u in 𝓝 (1 : UA σ X.J), (∀ w, (mat u).map (piInf (B.emb w)) = 1) → om (u, 1) Φ = Φ := by
@@ -69,10 +44,10 @@ theorem polStab_k (T : _root_.UpperTheory.TP.Tools_k) (hp : _root_.GlobalTheory.
   have e : ((x, y) : UA σ X.J × UA σ W.J) = (x, 1) * (1, y) := by simp
   intro Φ hΦ
   rw [e, map_mul, Module.End.mul_apply]
-  refine stab_of_pk B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => _root_.UpperTheory.TP.levelX_sch_k hp (hsch Φ h))
+  refine LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => _root_.UpperTheory.TP.levelX_sch_k hp (hsch Φ h))
     (fun g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_archimedean F E σ B n d X W M χX χW om hp g hg 1 (o2 W) Φ h)
     (fun v g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v g hg 1 (o1 W) Φ h) x _ ?_
-  exact stab_of_pk B.emb (om.comp (MonoidHom.inr _ _)) _
+  exact LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inr _ _)) _
     (fun Φ h => _root_.PositivityTheory.ThKEnd.Grp.level_sch_k _root_.PositivityTheory.ThKEst.level_k hp (hsch Φ h))
     (fun g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_archimedean F E σ B n d X W M χX χW om hp 1 (o2 X) g hg Φ h)
     (fun v g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v 1 (o1 X) g hg Φ h) y _ hΦ
@@ -84,20 +59,6 @@ theorem lift_left_k (T : _root_.UpperTheory.TP.Tools_k) (hp : _root_.GlobalTheor
   rw [one_mul] at h2
   show theta om Φ g (γ * h) * star (φ g) = theta om Φ g h * star (φ g)
   rw [h2]
-private theorem real_of_off_pk {τ : ∀ w : InfinitePlace F, EmbOver E w} {g : UA σ W.J} (hg : g ∈ gOff σ W ∅) (w : InfinitePlace F) :
-    (mat g).map (piInf (τ w)) = 1 := by
-  have h : ∀ w, (mat g).map (compInf F E w) = 1 := by
-    refine Subgroup.closure_induction (p := fun g _ => ∀ w, (mat g).map (compInf F E w) = 1) (fun x hx => hx.1) ?_ ?_ ?_ hg
-    · intro w; exact Matrix.map_one _ (map_zero _) (map_one _)
-    · intro x y _ _ hx hy w
-      rw [show mat (x * y) = mat x * mat y from rfl, Matrix.map_mul, hx, hy, one_mul]
-    · intro x _ hx w
-      have e : mat x⁻¹ * mat x = 1 := PositivityTheory.ThKEnd.Grp.mat_inv_mul x
-      have := congrArg (fun A => A.map (compInf F E w)) e
-      simp only [Matrix.map_mul, hx w, mul_one, Matrix.map_one _ (map_zero _) (map_one _)] at this
-      exact this
-  have e : (mat g).map (piInf (τ w)) = ((mat g).map (compInf F E w)).map (infEmb (τ w)) := by ext i j; rfl
-  rw [e, h, Matrix.map_one _ (map_zero _) (map_one _)]
 end Gen
 section CM
 variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ} {X : Spc (maximalRealSubfield E) E n}
@@ -137,7 +98,7 @@ theorem aut_lift_k (T : _root_.UpperTheory.TP.Tools_k) (hp : _root_.GlobalTheory
       (e'.continuous.comp continuous_subtype_val).tendsto' _ _ (map_one e')
     filter_upwards [c.eventually h1] with k hk
     show GlobalTheory.UnitaryBC.RU E d k.1 f = f
-    rw [_root_.UpperTheory.TP.RU_lift_k T hp hs hψ, hk fun w => real_of_off_pk ((he'.fin k.1).2 k.2) w]
+    rw [_root_.UpperTheory.TP.RU_lift_k T hp hs hψ, hk fun w => LiftAutCommon.real_of_off ((he'.fin k.1).2 k.2) w]
   · obtain ⟨V, hV, hVs, hk⟩ := _root_.UpperTheory.exists_finiteDimensional_weil_archimedean_orbit _ E (cj E) B n d X W M χX χW om hp Φ hΦ
     obtain ⟨l1, l2, -, -⟩ := _root_.UpperTheory.thetaLift_linear_in_schwartz T _ E (cj E) B n d X W M χX χW om hp
     let L : V →ₗ[ℂ] (GlobalTheory.UnitaryBC.UA E d → ℂ) :=

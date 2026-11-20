@@ -27,7 +27,7 @@ variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algeb
 
 open PositivityTheory.ThKEnd.Grp in
 
-private theorem stab_of {m : ℕ} {Y : Spc F E m} {V : Type} [AddCommGroup V] [Module ℂ V] (τ : ∀ w : InfinitePlace F, EmbOver E w)
+theorem LiftAutCommon.stab_of {m : ℕ} {Y : Spc F E m} {V : Type} [AddCommGroup V] [Module ℂ V] (τ : ∀ w : InfinitePlace F, EmbOver E w)
     (A : UA σ Y.J →* Module.End ℂ V) (P : Submodule ℂ V)
     (hlev : ∀ Φ ∈ P, ∀ᶠ u in 𝓝 (1 : UA σ Y.J), (∀ w, (mat u).map (piInf (τ w)) = 1) → A u Φ = Φ)
     (hr : ∀ g ∈ UAt σ Y (evI F), ∀ Φ ∈ P, A g Φ ∈ P)
@@ -74,10 +74,10 @@ private theorem polStab (T : Tools) (hp : IsPair B M χX χW om n 0 d 0) (x : UA
   have e : ((x, y) : UA σ X.J × UA σ W.J) = (x, 1) * (1, y) := by simp
   intro Φ hΦ
   rw [e, map_mul, Module.End.mul_apply]
-  refine stab_of B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => levelX_sch hp (hsch Φ h))
+  refine LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => levelX_sch hp (hsch Φ h))
     (fun g hg Φ h => UpperTheory.polynomial_data_stable_infinite_place F E σ B n d X W M χX χW om hp g hg 1 (o2 W) Φ h)
     (fun v g hg Φ h => UpperTheory.polynomial_data_stable_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v g hg 1 (o1 W) Φ h) x _ ?_
-  exact stab_of B.emb (om.comp (MonoidHom.inr _ _)) _
+  exact LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inr _ _)) _
     (fun Φ h => PositivityTheory.ThKEnd.Grp.level_sch PositivityTheory.ThKEst.level hp (hsch Φ h))
     (fun g hg Φ h => UpperTheory.polynomial_data_stable_infinite_place F E σ B n d X W M χX χW om hp 1 (o2 X) g hg Φ h)
     (fun v g hg Φ h => UpperTheory.polynomial_data_stable_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v 1 (o1 X) g hg Φ h) y _ hΦ
@@ -91,7 +91,7 @@ private theorem lift_left (T : Tools) (hp : IsPair B M χX χW om n 0 d 0) {Φ :
   show theta om Φ g (γ * h) * star (φ g) = theta om Φ g h * star (φ g)
   rw [h2]
 
-private theorem real_of_off {τ : ∀ w : InfinitePlace F, EmbOver E w} {g : UA σ W.J} (hg : g ∈ gOff σ W ∅) (w : InfinitePlace F) :
+theorem LiftAutCommon.real_of_off {τ : ∀ w : InfinitePlace F, EmbOver E w} {g : UA σ W.J} (hg : g ∈ gOff σ W ∅) (w : InfinitePlace F) :
     (mat g).map (piInf (τ w)) = 1 := by
   have h : ∀ w, (mat g).map (compInf F E w) = 1 := by
     refine Subgroup.closure_induction (p := fun g _ => ∀ w, (mat g).map (compInf F E w) = 1) (fun x hx => hx.1) ?_ ?_ ?_ hg
@@ -149,7 +149,7 @@ private theorem aut_lift (T : Tools) (hp : IsPair B M χX χW om n 0 d 0) {e' : 
       (e'.continuous.comp continuous_subtype_val).tendsto' _ _ (map_one e')
     filter_upwards [c.eventually h1] with k hk
     show GlobalTheory.UnitaryBC.RU E d k.1 f = f
-    rw [RU_lift T hp hs hψ, hk fun w => real_of_off ((he'.fin k.1).2 k.2) w]
+    rw [RU_lift T hp hs hψ, hk fun w => LiftAutCommon.real_of_off ((he'.fin k.1).2 k.2) w]
   · obtain ⟨V, hV, hVs, hk⟩ := UpperTheory.polynomial_data_finite_K_type _ E (cj E) B n d X W M χX χW om hp Φ hΦ
     obtain ⟨l1, l2, -, -⟩ := UpperTheory.theta_lift_linear T _ E (cj E) B n d X W M χX χW om hp
     let L : V →ₗ[ℂ] (GlobalTheory.UnitaryBC.UA E d → ℂ) :=

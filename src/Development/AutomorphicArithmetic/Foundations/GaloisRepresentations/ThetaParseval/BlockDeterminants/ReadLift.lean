@@ -20,21 +20,21 @@ section Gen
 variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] {σ : E →ₐ[F] E} {n d : ℕ}
   {X : Spc F E n} {W : Spc F E d}
 
-private theorem pure_mem_pol {B : Base F E} {M : Model σ X W} {f : SInf F (Fin n × Fin d)} (hf : f ∈ M.Pol B.ψ B.emb)
+theorem ReadLiftCommon.pure_mem_pol {B : Base F E} {M : Model σ X W} {f : SInf F (Fin n × Fin d)} (hf : f ∈ M.Pol B.ψ B.emb)
     {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) : pure f φ ∈ PolData B M :=
   Submodule.subset_span ⟨f, hf, φ, h.1, h.2, rfl⟩
 
-private theorem pure_add' {κ : Type} [Fintype κ] (f g : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
+theorem ReadLiftCommon.pure_add' {κ : Type} [Fintype κ] (f g : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
     pure (f + g) φ = pure f φ + pure g φ := by
   funext x
   simp [GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.pure, add_mul]
 
-private theorem pure_smul' {κ : Type} [Fintype κ] (a : ℂ) (f : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
+theorem ReadLiftCommon.pure_smul' {κ : Type} [Fintype κ] (a : ℂ) (f : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
     pure (a • f) φ = a • pure f φ := by
   funext x
   simp [GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.pure, mul_assoc]
 
-private theorem isFin_update {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) (v : Pl F)
+theorem ReadLiftCommon.isFin_update {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) (v : Pl F)
     {ψ : (Fin n × Fin d → Fv F v) → ℂ} (hψ : ψ ∈ SB (Fin n × Fin d → Fv F v)) : IsFin M (Function.update φ v ψ) := by
   refine ⟨fun u => ?_, ?_⟩
   · by_cases hu : u = v
@@ -47,7 +47,7 @@ private theorem isFin_update {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fi
 
 end Gen
 
-private theorem irr_pull {G H V : Type} [Group G] [Group H] [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ G V)
+theorem ReadLiftCommon.irr_pull {G H V : Type} [Group G] [Group H] [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ G V)
     (q : H →* G) (hq : Function.Surjective q) (h : ρ.IsIrreducible) : Representation.IsIrreducible (ρ.comp q : Representation ℂ H V) := by
   rw [GlobalTheory.CuspRep.isIrreducible_iff] at h ⊢
   refine ⟨h.1, fun U hU => h.2 U fun g v hv => ?_⟩
@@ -58,21 +58,21 @@ section CM
 
 variable {E : Type} [Field E] [NumberField E] [IsCMField E]
 
-private theorem isSplit_prime (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
+theorem ReadLiftCommon.isSplit_prime (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
     (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v) : GlobalTheory.UnitaryBC.IsSplitAt (splitPrime t) :=
   ⟨splitPrime (t.comp (cj E)), splitPrime_comp_ne hc t, by rw [splitPrime_under, splitPrime_under]⟩
 
-private theorem cLoc_surj (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) :
+theorem ReadLiftCommon.cLoc_surj (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) :
     Function.Surjective ((GlobalTheory.UnitaryBC.cLoc (n := a) w).comp (GlobalTheory.UnitaryBC.locU a w).subtype) := fun g => by
   obtain ⟨e, he⟩ := GlobalTheory.locU_equiv_GL E a w hw
   exact ⟨e.symm g, by rw [MonoidHom.comp_apply, Subgroup.coe_subtype, ← he, e.apply_symm_apply]⟩
 
-private theorem decomp_loc (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (g : GlobalTheory.UnitaryBC.UA E a) :
+theorem ReadLiftCommon.decomp_loc (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (g : GlobalTheory.UnitaryBC.UA E a) :
     ∃ h ∈ GlobalTheory.UnitaryBC.locU a w, ∀ h' ∈ GlobalTheory.UnitaryBC.locU a w, Commute (h⁻¹ * g) h' := by
   obtain ⟨x, hx, y, rfl, hy⟩ := GlobalTheory.Cong.exists_locU_mul_comm a w hw g
   exact ⟨x, hx, fun z hz => by rw [inv_mul_cancel_left]; exact hy z hz⟩
 
-private theorem read_pair {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (hA : AbsIso)
+theorem ReadLiftCommon.read_pair {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (hA : AbsIso)
     {U : Submodule ℂ (GlobalTheory.UnitaryBC.UA E n → ℂ)} {U' : Submodule ℂ (GlobalTheory.UnitaryBC.UA E d → ℂ)}
     (hU : GlobalTheory.UnitaryBC.IsAutRepU U) (hU' : GlobalTheory.UnitaryBC.IsAutRepU U')
     (τ : GlobalTheory.CuspRep.SmIrr (GL (Fin n) (w.adicCompletion E))) (τ' : GlobalTheory.CuspRep.SmIrr (GL (Fin d) (w.adicCompletion E)))
@@ -89,10 +89,10 @@ private theorem read_pair {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : Glo
   obtain ⟨hirr', f', hf0', hfU', hfe'⟩ := hτ'
   obtain ⟨⟨m, c, x, hcU, hce, hsum⟩, -⟩ := hA (GlobalTheory.UnitaryBC.UA E n) (GlobalTheory.UnitaryBC.UA E n → ℂ) τ.V (GlobalTheory.UnitaryBC.RU E n) U
     (GlobalTheory.UnitaryBC.locU n w) (τ.ρ.comp ((GlobalTheory.UnitaryBC.cLoc w).comp (GlobalTheory.UnitaryBC.locU n w).subtype))
-    (decomp_loc n w hw) hU.stable hU.irred (irr_pull _ _ (cLoc_surj n w hw) hirr) f hf0 hfU hfe φ hφ
+    (ReadLiftCommon.decomp_loc n w hw) hU.stable hU.irred (ReadLiftCommon.irr_pull _ _ (ReadLiftCommon.cLoc_surj n w hw) hirr) f hf0 hfU hfe φ hφ
   obtain ⟨p, hp0, hpe⟩ := (hA (GlobalTheory.UnitaryBC.UA E d) (GlobalTheory.UnitaryBC.UA E d → ℂ) τ'.V (GlobalTheory.UnitaryBC.RU E d) U'
     (GlobalTheory.UnitaryBC.locU d w) (τ'.ρ.comp ((GlobalTheory.UnitaryBC.cLoc w).comp (GlobalTheory.UnitaryBC.locU d w).subtype))
-    (decomp_loc d w hw) hU'.stable hU'.irred (irr_pull _ _ (cLoc_surj d w hw) hirr') f' hf0' hfU' hfe' (P φ) (hPU φ hφ)).2 hne
+    (ReadLiftCommon.decomp_loc d w hw) hU'.stable hU'.irred (ReadLiftCommon.irr_pull _ _ (ReadLiftCommon.cLoc_surj d w hw) hirr') f' hf0' hfU' hfe' (P φ) (hPU φ hφ)).2 hne
   have hs : ∑ i, p (P (c i (x i))) ≠ 0 := by
     rw [← map_sum, ← map_sum, ← hsum]
     exact hp0
@@ -121,17 +121,17 @@ private theorem real_part (hP : IsPair B M χX χW om n 0 d 0)
     (hp : ∀ f, GlobalTheory.UnitaryBC.IsAutFormU f → pr f ∈ U' ∧ ∀ x, pr (GlobalTheory.UnitaryBC.RU E d x f) = GlobalTheory.UnitaryBC.RU E d x (pr f))
     {f₀ : SInf (maximalRealSubfield E) (Fin n × Fin d)} (hf₀ : f₀ ∈ M.Pol B.ψ B.emb) {φ : GlobalTheory.UnitaryBC.UA E n → ℂ}
     (hφ : GlobalTheory.UnitaryBC.IsAutFormU φ) {φf : ∀ v : Pl (maximalRealSubfield E), (Fin n × Fin d → Fv (maximalRealSubfield E) v) → ℂ}
-    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
+    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
     {w : InfinitePlace (maximalRealSubfield E)} {lam' : DomWeight d} (hT : HasType B M om e' f₀ w lam') :
     GlobalTheory.UnitaryBC.HasWeightAt U' (B.emb w).1 lam' := by
   obtain ⟨hirr, i, hi, ⟨x₀, hx₀⟩, hact⟩ := hT
-  let Ψ : nablaSq ℂ d lam' → PolData B M := fun x => ⟨pure (i x) φf, pure_mem_pol (hi x) hfin⟩
+  let Ψ : nablaSq ℂ d lam' → PolData B M := fun x => ⟨pure (i x) φf, ReadLiftCommon.pure_mem_pol (hi x) hfin⟩
   have hadd : ∀ x y, Ψ (x + y) = Ψ x + Ψ y := fun x y => Subtype.ext (by
     change pure (i (x + y)) φf = pure (i x) φf + pure (i y) φf
-    rw [map_add, pure_add'])
+    rw [map_add, ReadLiftCommon.pure_add'])
   have hsm : ∀ (a : ℂ) x, Ψ (a • x) = a • Ψ x := fun a x => Subtype.ext (by
     change pure (i (a • x)) φf = a • pure (i x) φf
-    rw [map_smul, pure_smul'])
+    rw [map_smul, ReadLiftCommon.pure_smul'])
   refine ⟨hirr, { toFun := fun x => pr (Θ (Ψ x) φ), map_add' := fun x y => ?_, map_smul' := fun a x => ?_ }, ?_,
     fun x => (hp _ (hΘ _ _ hφ).2.1).1, fun k x => ?_⟩
   · simp only [hadd, map_add, LinearMap.add_apply]
@@ -139,7 +139,7 @@ private theorem real_part (hP : IsPair B M χX χW om n 0 d 0)
   · intro h0
     apply hne
     have h1 := LinearMap.congr_fun h0 x₀
-    have h2 : Ψ x₀ = ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ := Subtype.ext (by
+    have h2 : Ψ x₀ = ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ := Subtype.ext (by
       change pure (i x₀) φf = pure f₀ φf
       rw [hx₀])
     simpa [h2] using h1
@@ -161,13 +161,13 @@ variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ}
   {M : Model (cj E) X W} {χX χW : Chr (maximalRealSubfield E) E} {om : Rep (cj E) X W}
   {e : GlobalTheory.UnitaryBC.UA E n ≃ₜ* UA (cj E) X.J} {e' : GlobalTheory.UnitaryBC.UA E d ≃ₜ* UA (cj E) W.J}
 
-private theorem read_point {a : ℕ} {Y : Spc (maximalRealSubfield E) E a} {ε : GlobalTheory.UnitaryBC.UA E a ≃ₜ* UA (cj E) Y.J} (hε : IsBr Y ε)
+theorem ReadLiftCommon.read_point {a : ℕ} {Y : Spc (maximalRealSubfield E) E a} {ε : GlobalTheory.UnitaryBC.UA E a ≃ₜ* UA (cj E) Y.J} (hε : IsBr Y ε)
     (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
     (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v) (g : GL (Fin a) (Fv (maximalRealSubfield E) v)) :
     ∃ x : GlobalTheory.UnitaryBC.locU a (splitPrime t), ε x.1 ∈ UAt (cj E) Y (evFin (maximalRealSubfield E) v) ∧
       g.1 = (mat (ε x.1)).map (piW t) ∧
       GlobalTheory.UnitaryBC.cLoc (splitPrime t) x.1 = Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g := by
-  obtain ⟨x, hx⟩ := cLoc_surj a (splitPrime t) (isSplit_prime hc t) (Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g)
+  obtain ⟨x, hx⟩ := ReadLiftCommon.cLoc_surj a (splitPrime t) (ReadLiftCommon.isSplit_prime hc t) (Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g)
   have hx' : GlobalTheory.UnitaryBC.cLoc (splitPrime t) x.1 = Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g := hx
   refine ⟨x, ?_, ?_, hx'⟩
   · have h1 := (hε.loc (splitPrime t) x.1).2 x.2
@@ -198,17 +198,17 @@ private theorem split_part (T : Tools) (hA : AbsIso) (hP : IsPair B M χX χW om
     (hp : ∀ f, GlobalTheory.UnitaryBC.IsAutFormU f → pr f ∈ U' ∧ ∀ x, pr (GlobalTheory.UnitaryBC.RU E d x f) = GlobalTheory.UnitaryBC.RU E d x (pr f))
     {f₀ : SInf (maximalRealSubfield E) (Fin n × Fin d)} (hf₀ : f₀ ∈ M.Pol B.ψ B.emb) {φ : GlobalTheory.UnitaryBC.UA E n → ℂ}
     (hφ : φ ∈ U) {φf : ∀ v : Pl (maximalRealSubfield E), (Fin n × Fin d → Fv (maximalRealSubfield E) v) → ℂ}
-    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
+    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
     {v : Pl (maximalRealSubfield E)} (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v)
     (τ : GlobalTheory.CuspRep.SmIrr (GL (Fin n) ((splitPrime t).adicCompletion E)))
     (τ' : GlobalTheory.CuspRep.SmIrr (GL (Fin d) ((splitPrime t).adicCompletion E)))
     (hτ : CompAt U (splitPrime t) τ) (hτ' : CompAt U' (splitPrime t) τ') : LocPair t χX χW τ τ' := by
   have hc := hP.base.cm
-  have hw := isSplit_prime hc t
-  let Φ₀ : PolData B M := ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩
+  have hw := ReadLiftCommon.isSplit_prime hc t
+  let Φ₀ : PolData B M := ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩
   let P : (GlobalTheory.UnitaryBC.UA E n → ℂ) →+ (GlobalTheory.UnitaryBC.UA E d → ℂ) :=
     { toFun := fun y => pr (Θ Φ₀ y), map_zero' := by simp, map_add' := fun a b => by simp }
-  obtain ⟨c, p, x₀, hcU, hce, hpe, hp0⟩ := read_pair (splitPrime t) hw hA hU hU' τ τ' hτ hτ' P
+  obtain ⟨c, p, x₀, hcU, hce, hpe, hp0⟩ := ReadLiftCommon.read_pair (splitPrime t) hw hA hU hU' τ τ' hτ hτ' P
     (fun y hy => (hp _ (hΘ _ _ (hU.aut y hy)).2.1).1) hφ hne
   obtain ⟨⟨ι, hι⟩, hSM⟩ := T.split _ E (cj E) B n d X W M χX χW om n 0 d 0 hP v t
   have hSM := hSM ι hι
@@ -220,9 +220,9 @@ private theorem split_part (T : Tools) (hA : AbsIso) (hP : IsPair B M χX χW om
         obtain ⟨a, ha, hab⟩ := hbij.surjOn b.2
         exact ⟨⟨a, ha⟩, Subtype.ext hab⟩⟩
   have hfu : ∀ ψ : SB (Fin n × Fin d → Fv (maximalRealSubfield E) v), IsFin M (Function.update φf v ψ.1) :=
-    fun ψ => isFin_update hfin v ψ.2
+    fun ψ => ReadLiftCommon.isFin_update hfin v ψ.2
   let Ψ : SB (Fin n × Fin d → Fv (maximalRealSubfield E) v) → PolData B M :=
-    fun ψ => ⟨pure f₀ (Function.update φf v ψ.1), pure_mem_pol hf₀ (hfu ψ)⟩
+    fun ψ => ⟨pure f₀ (Function.update φf v ψ.1), ReadLiftCommon.pure_mem_pol hf₀ (hfu ψ)⟩
   have hPA := PositivityTheory.ThKF.pureAct (maximalRealSubfield E) (Fin n × Fin d) v id f₀ φf hfin.1 (std_of_fin hP hfin)
   have hz : pure f₀ (Function.update φf v 0) = 0 :=
     PositivityTheory.ThKG.Loc.Cone.pure_zero f₀ _ (GlobalTheory.PureFactor.update_eventually φf v 0 (std_of_fin hP hfin)) v (by simp)
@@ -248,8 +248,8 @@ private theorem split_part (T : Tools) (hA : AbsIso) (hP : IsPair B M χX χW om
       change pure f₀ (Function.update φf v (φf v)) = pure f₀ φf
       rw [Function.update_eq_self])
     simpa [A, h2, P] using h1
-  · obtain ⟨ĝ, hg1, hg2, hg3⟩ := read_point he hc t g
-    obtain ⟨ĥ, hh1, hh2, hh3⟩ := read_point he' hc t h
+  · obtain ⟨ĝ, hg1, hg2, hg3⟩ := ReadLiftCommon.read_point he hc t g
+    obtain ⟨ĥ, hh1, hh2, hh3⟩ := ReadLiftCommon.read_point he' hc t h
     set ψ := ιe.symm Φ with hψ
     have hιψ : ι ψ.1 = Φ.1 := by
       have := congrArg Subtype.val (ιe.apply_symm_apply Φ)
@@ -278,8 +278,8 @@ end Split2
 theorem readLift : Tools → LiftAut → AbsIso → ReadLift := by
   intro T hL hA E _ _ _ B n d X W M χX χW om hP hn e e' he he' U U' pr hU hU' hp f₀ hf₀ φ hφ φf hfin hne
   obtain ⟨Θ, hΘ⟩ := hL E B n d X W M χX χW om hP hn e e' he he'
-  have hne' : pr (Θ ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ φ) ≠ 0 := by
-    rw [(hΘ ⟨_, pure_mem_pol hf₀ hfin⟩ φ (hU.aut φ hφ)).1]
+  have hne' : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0 := by
+    rw [(hΘ ⟨_, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ (hU.aut φ hφ)).1]
     exact hne
   exact ⟨fun w lam' hT => real_part hP Θ hΘ hp hf₀ (hU.aut φ hφ) hfin hne' hT,
     fun v t τ τ' hτ hτ' => split_part T hA hP he he' Θ hΘ hU hU' hp hf₀ hφ hfin hne' t τ τ' hτ hτ'⟩

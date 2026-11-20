@@ -1,4 +1,5 @@
 import Mathlib
+import Formalism.GammaFactorNonvanishing.GammaFactor
 import Formalism.PeriodIntegrals.UnitaryGroupMassFormula.ZeroWindow.RightHalfWith
 
 noncomputable section
@@ -10,20 +11,12 @@ namespace PI.ZW
 open DirichletCharacter
 
 lemma differentiable_gammaFactor_inv {N : ℕ} (χ : DirichletCharacter ℂ N) :
-    Differentiable ℂ (fun s => (gammaFactor χ s)⁻¹) := by
-  by_cases h : χ.Even
-  · simp only [DirichletCharacter.gammaFactor, h, if_true]
-    exact Complex.differentiable_Gammaℝ_inv
-  · simp only [DirichletCharacter.gammaFactor, h, if_false]
-    exact Complex.differentiable_Gammaℝ_inv.comp (differentiable_id.add_const 1)
+    Differentiable ℂ (fun s => (gammaFactor χ s)⁻¹) :=
+  Formalism.VW.differentiable_gammaFactor_inv χ
 
 lemma gammaFactor_ne_zero_of_re_pos {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ}
-    (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
-  by_cases h : χ.Even
-  · simp only [DirichletCharacter.gammaFactor, h, if_true]
-    exact Complex.Gammaℝ_ne_zero_of_re_pos hs
-  · simp only [DirichletCharacter.gammaFactor, h, if_false]
-    exact Complex.Gammaℝ_ne_zero_of_re_pos (by simp; linarith)
+    (hs : 0 < s.re) : gammaFactor χ s ≠ 0 :=
+  Formalism.VW.gammaFactor_ne_zero χ hs
 
 lemma isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) :
     χ⁻¹.IsPrimitive := by
@@ -31,16 +24,8 @@ lemma isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrim
   exact (DirichletCharacter.isPrimitive_def χ).mp hχ
 
 lemma rootNumber_ne_zero {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) :
-    rootNumber χ ≠ 0 := by
-  intro h
-  have h2 := hχ.completedLFunction_one_sub (-1)
-  rw [h] at h2
-  simp only [mul_zero, zero_mul] at h2
-  norm_num at h2
-  have hne := DirichletCharacter.LFunction_ne_zero_of_one_le_re χ (Or.inr (by norm_num : (2 : ℂ) ≠ 1))
-    (by norm_num : (1 : ℝ) ≤ (2 : ℂ).re)
-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor χ 2 (Or.inl two_ne_zero), h2, zero_div] at hne
-  exact hne rfl
+    rootNumber χ ≠ 0 :=
+  Formalism.VW.rootNumber_ne_zero hχ
 
 lemma isOpen_strip : IsOpen {s : ℂ | 0 < s.re ∧ s.re < 1} := by
   exact (isOpen_lt continuous_const Complex.continuous_re).inter (isOpen_lt Complex.continuous_re continuous_const)

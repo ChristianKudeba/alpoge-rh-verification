@@ -1,4 +1,5 @@
 import Mathlib
+import Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip
 import Formalism.LocalRingCardinality.DataParams₂
 import Formalism.SharpRestriction.ParConsts
 import Formalism.SharpRestriction.GlobalSchurBounds.GeneralLinearActions.FiltrationCocycleLiftCriterion
@@ -167,37 +168,13 @@ theorem factorsThrough_inv {N : ℕ} {χ : DirichletCharacter ℂ N} {d : ℕ}
 
 theorem isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (h : χ.IsPrimitive) :
     χ⁻¹.IsPrimitive := by
-  unfold DirichletCharacter.IsPrimitive DirichletCharacter.conductor at *
-  have hs : χ⁻¹.conductorSet = χ.conductorSet := by
-    ext d
-    rw [DirichletCharacter.mem_conductorSet_iff, DirichletCharacter.mem_conductorSet_iff]
-    exact ⟨fun h' => by simpa using factorsThrough_inv h', factorsThrough_inv⟩
-  rw [hs]
+  rw [DirichletCharacter.isPrimitive_def, DirichletCharacter.conductor_inv]
   exact h
 
 theorem zero_symm {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) {ρ : ℂ}
     (h0 : 0 < ρ.re) (h1 : ρ.re < 1) (hz : DirichletCharacter.LFunction χ ρ = 0) :
-    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 := by
-  have hprim := isPrimitive_inv hχ
-  have hρ0 : ρ ≠ 0 := fun h => by
-    rw [h] at h0
-    simp at h0
-  have h1ρ : (1 - ρ) ≠ 0 := fun h => by
-    have e := congrArg Complex.re h
-    rw [Complex.sub_re, Complex.one_re, Complex.zero_re] at e
-    linarith
-  have hg : DirichletCharacter.gammaFactor χ ρ ≠ 0 := by
-    unfold DirichletCharacter.gammaFactor
-    split_ifs
-    · exact Complex.Gammaℝ_ne_zero_of_re_pos h0
-    · exact Complex.Gammaℝ_ne_zero_of_re_pos (by rw [Complex.add_re, Complex.one_re]; linarith)
-  have hc : DirichletCharacter.completedLFunction χ ρ = 0 := by
-    have e := DirichletCharacter.LFunction_eq_completed_div_gammaFactor (χ := χ) ρ (Or.inl hρ0)
-    rw [hz, eq_comm, div_eq_zero_iff] at e
-    exact e.resolve_right hg
-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor (χ := χ⁻¹) (1 - ρ) (Or.inl h1ρ),
-    hprim.completedLFunction_one_sub ρ, inv_inv, hc]
-  simp
+    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 :=
+  Claim.prim_reflect χ hχ h0 h1 hz
 
 def Conclusion1 (_D : D7) (C : ℝ) : Prop :=
   ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →

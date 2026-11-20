@@ -1,4 +1,5 @@
 import Development.AutomorphicArithmetic.MeanSquareBounds.PrimeSetTwoBounds
+import Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip
 import Formalism.PeriodIntegrals.ExplicitFormulaCounts.ExplicitFormula
 import Formalism.LandauZeroFreeBounds.NoZeroComplex
 
@@ -6,46 +7,10 @@ open Finset Formalism.HermitianLattices.ZeroFreeRegionGL2 Formalism.HermitianLat
 
 namespace QH
 
-private theorem pt_factorsThrough_inv {N : ℕ} {χ : DirichletCharacter ℂ N} {d : ℕ}
-    (h : χ.FactorsThrough d) : χ⁻¹.FactorsThrough d := by
-  obtain ⟨hd, χ0, rfl⟩ := h
-  exact ⟨hd, χ0⁻¹, (map_inv (DirichletCharacter.changeLevel hd) χ0).symm⟩
-
-private theorem pt_isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (h : χ.IsPrimitive) :
-    χ⁻¹.IsPrimitive := by
-  have hs : DirichletCharacter.conductorSet χ⁻¹ = DirichletCharacter.conductorSet χ := by
-    ext d
-    constructor
-    · intro hd
-      have := pt_factorsThrough_inv (χ := χ⁻¹) hd
-      rwa [inv_inv] at this
-    · intro hd
-      exact pt_factorsThrough_inv hd
-  unfold DirichletCharacter.IsPrimitive DirichletCharacter.conductor at *
-  rw [hs]; exact h
-
 private theorem pt_zero_symm {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) {ρ : ℂ}
     (h0 : 0 < ρ.re) (h1 : ρ.re < 1) (hz : DirichletCharacter.LFunction χ ρ = 0) :
-    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 := by
-  have hρ0 : ρ ≠ 0 := by rintro rfl; simp at h0
-  have hρ1 : (1 - ρ) ≠ 0 := by
-    intro h
-    have : (1 - ρ).re = 0 := by rw [h]; simp
-    simp at this
-    linarith
-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor χ ρ (Or.inl hρ0)] at hz
-  have hg : DirichletCharacter.gammaFactor χ ρ ≠ 0 := by
-    unfold DirichletCharacter.gammaFactor
-    split_ifs
-    · exact Complex.Gammaℝ_ne_zero_of_re_pos h0
-    · exact Complex.Gammaℝ_ne_zero_of_re_pos (by simp; linarith)
-  have hc : DirichletCharacter.completedLFunction χ ρ = 0 := by
-    rcases div_eq_zero_iff.mp hz with h | h
-    · exact h
-    · exact absurd h hg
-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor χ⁻¹ (1 - ρ) (Or.inl hρ1),
-    (pt_isPrimitive_inv hχ).completedLFunction_one_sub ρ, inv_inv, hc]
-  simp
+    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 :=
+  Claim.prim_reflect χ hχ h0 h1 hz
 
 private theorem pt_rpow_le {u v r k : ℝ} (hu0 : 0 < u) (hv : v = Real.log u) (hv0 : 0 ≤ v) (hr : r ≤ 1 - k) :
     u ^ r ≤ u * Real.exp (-k * v) := by

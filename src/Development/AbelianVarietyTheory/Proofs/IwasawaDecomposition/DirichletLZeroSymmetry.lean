@@ -1,4 +1,5 @@
 import Mathlib
+import Formalism.GammaFactorNonvanishing.GammaFactor
 import Development.AbelianVarietyTheory.Definitions.Foundations.RayPrimes
 
 open Filter Topology Complex GlobalTheory.Mem.An
@@ -9,27 +10,18 @@ section
 variable {q : ℕ}
 
 theorem zsym_gammaFactor_ne_zero (χ : DirichletCharacter ℂ q) {s : ℂ} (hs : 0 < s.re) :
-    χ.gammaFactor s ≠ 0 := by
-  rcases χ.even_or_odd with h | h <;> rw [h.gammaFactor_def]
-  · exact Gammaℝ_ne_zero_of_re_pos hs
-  · exact Gammaℝ_ne_zero_of_re_pos (by simp; linarith)
+    χ.gammaFactor s ≠ 0 :=
+  Formalism.VW.gammaFactor_ne_zero χ hs
 
 theorem zsym_differentiable_gammaFactor_inv (χ : DirichletCharacter ℂ q) :
-    Differentiable ℂ (fun s => (χ.gammaFactor s)⁻¹) := by
-  rcases χ.even_or_odd with h | h <;> simp only [h.gammaFactor_def]
-  · exact differentiable_Gammaℝ_inv
-  · exact differentiable_Gammaℝ_inv.comp (differentiable_id.add_const 1)
+    Differentiable ℂ (fun s => (χ.gammaFactor s)⁻¹) :=
+  Formalism.VW.differentiable_gammaFactor_inv χ
 
 variable [NeZero q]
 
 theorem zsym_rootNumber_ne_zero {χ : DirichletCharacter ℂ q} (hχ : χ.IsPrimitive) :
-    χ.rootNumber ≠ 0 := by
-  intro h
-  have h1 := hχ.completedLFunction_one_sub (-1)
-  rw [h, mul_zero, zero_mul] at h1
-  have h2 := χ.LFunction_eq_completed_div_gammaFactor (1 - -1) (Or.inl (by norm_num))
-  rw [h1, zero_div] at h2
-  exact χ.LFunction_ne_zero_of_one_le_re (Or.inr (by norm_num)) (by norm_num) h2
+    χ.rootNumber ≠ 0 :=
+  Formalism.VW.rootNumber_ne_zero hχ
 
 noncomputable def zsymFactor (χ : DirichletCharacter ℂ q) (s : ℂ) : ℂ :=
   (q : ℂ) ^ ((1 - s) - 1 / 2) * χ.rootNumber * (χ.gammaFactor s)⁻¹ / (χ⁻¹.gammaFactor (1 - s))⁻¹
