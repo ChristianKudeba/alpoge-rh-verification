@@ -1,10 +1,12 @@
 """Content-verified access to the hosted edition's release assets."""
 import hashlib
+import http.client
 import json
 import os
 from pathlib import Path
 import subprocess
 import time
+from urllib.parse import quote
 
 TAG = "rh-literal-kernel-v1"
 REPO = os.environ.get("GITHUB_REPOSITORY", "ChristianKudeba/alpoge-rh-verification")
@@ -72,6 +74,26 @@ def download(asset, path):
             time.sleep(2 ** attempt)
 
 
+def upload_asset(release_id, path):
+    if REPO.casefold() != EXPECTED_REPO.casefold():
+        raise RuntimeError("unexpected upload repository")
+    route = f"/repos/{REPO}/releases/{int(release_id)}/assets?name={quote(path.name, safe='')}"
+    headers = {"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Content-Type": "application/octet-stream",
+               "Content-Length": str(path.stat().st_size), "User-Agent": "rh-translation-publisher",
+               "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
+    connection = http.client.HTTPSConnection("uploads.github.com", timeout=150)
+    try:
+        with path.open("rb") as source:
+            connection.request("POST", route, body=source, headers=headers)
+        response = connection.getresponse()
+        body = response.read()
+        if response.status != 201:
+            raise RuntimeError(f"GitHub release asset {response.status}: {body[:400]!r}")
+        return json.loads(body)
+    finally:
+        connection.close()
+
+
 def put(rel, assets, path, *, tag=TAG):
     """Only identical completed uploads are reused. Transient empty uploads can retry."""
     path = Path(path)
@@ -89,10 +111,13 @@ def put(rel, assets, path, *, tag=TAG):
         if size >= 2 ** 31:
             raise ValueError("individual release asset exceeds GitHub's limit")
         try:
-            gh("release", "upload", tag, str(path), "--repo", REPO, capture_output=True)
-        except subprocess.CalledProcessError as exc:
+            receipt = upload_asset(rel["id"], path)
+            if matches(receipt, sha, size):
+                assets[path.name] = receipt
+                return receipt
+        except (http.client.HTTPException, OSError, RuntimeError) as exc:
             if attempt == 4:
-                raise RuntimeError(f"upload failed for {path.name}: {exc.stderr[-1000:]}") from exc
+                raise RuntimeError(f"upload failed for {path.name}: {exc}") from exc
         assets.update(listing(rel["id"]))
         if matches(assets.get(path.name), sha, size):
             return assets[path.name]

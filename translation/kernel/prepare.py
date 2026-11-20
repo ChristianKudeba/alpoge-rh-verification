@@ -6,6 +6,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 
+from fetch_export import fetch_export
 from release_store import TAG, download, info, listing, matches, put, release, write_json
 
 SOURCE = {
@@ -89,9 +90,7 @@ def verify_manifest(data, assets):
 
 def prepare(folder, rel, assets):
     compressed = folder / "solution.zst"
-    subprocess.run(["curl", "--proto", "=https", "--location", "--fail", "--silent",
-                    "--show-error", "--retry", "5", "--retry-all-errors", "--continue-at", "-",
-                    "--output", str(compressed), SOURCE["url"]], check=True)
+    fetch_export(compressed, SOURCE)
     if info(compressed) != (SOURCE["compressed_sha256"], SOURCE["compressed_bytes"]):
         raise ValueError("compressed source failed MIT checksum")
     digest = hashlib.sha256()
