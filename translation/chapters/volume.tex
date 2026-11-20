@@ -1,0 +1,145 @@
+\section{Cusp growth, component volume and the degree of the image}
+\label{sec:component-volume}
+We give the two inequalities behind \eqref{eq:rankshare-vol}. Let
+\(m=p+q\), let \(\Phi\) be the selected set of complex embeddings of the
+CM field, and set \(D=|\Phi|\binom m2\). For a weight \(w\) set
+\[
+ V(w)=\prod_{\tau\in\Phi}\prod_{0\le i< j<m}(w_{\tau i}-w_{\tau j}),
+ \qquad \eta_{\tau i}=m-1-i .
+\]
+Only differences of \(\eta\) matter below. On a good deep component \(Z\),
+let \(S_Z(rw)\) be the cusp space, taken at scalar twist zero, and put
+\(g_Z(w)=D!\limsup_{r\to\infty}\dim S_Z(rw)/r^D\). The source's
+extended nonnegative growth agrees with this expression once finite
+dimensionality holds. All weights used in the volume comparisons are
+strictly decreasing at each embedding.
+
+\paragraph{Nefness and restriction to the boundary.}
+On the smooth projective flag compactification let \(L_w\) be the weight
+bundle. For a weakly decreasing integer vector \(w_0,\ldots,w_{m-1}\)
+at one embedding put \(g_i=w_i-w_{i+1}\) for \(0\le i<m-1\).
+Write \(h_i\) for the vector with ones in positions \(0,\ldots,i\) and
+zero elsewhere, \(t_i=h_i-\mathbf 1\), and
+\(c=w_{m-1}+\sum_{i\ge p}g_i\), where the sum ends at \(m-2\). Then
+\[
+ w=\sum_{i<p}g_i h_i+\sum_{p\le i<m-1}g_i t_i+c\mathbf 1
+\]
+with indices in both sums restricted to \(0\le i<m-1\).
+Indeed the last coordinate is \(w_{m-1}\) and taking successive differences
+recovers every \(g_i\). The source's head and tail bundle estimates give
+nefness of \(L_{h_i}\) for \(i<p\) and \(L_{t_i}\) for \(i\ge p\).
+Both determinant weights \(\mathbf 1,-\mathbf 1\) give nef bundles.
+The weight-to-Picard-class map is additive. On every integral curve all
+degrees in this decomposition are nonnegative, using \(|c|\) copies
+of the appropriate determinant bundle. Summing over embeddings proves
+that \(L_w\) is nef. The head, tail and determinant estimates use the
+semiabelian and torus bundles on the compactification.
+
+Let \(B\) be the reduced boundary. The extension and boundary-vanishing
+theorems identify the cusp conditions in \(H^0(L_{rw})\). The kernel of
+restriction to \(B\) lies in the cusp space, and every cusp section lies
+in \(H^0(L_{rw})\). Thus
+\[
+ h^0(X,L_{rw})-h^0(B,L_{rw}|_B)
+ \ \le\ \dim S_Z(rw)\ \le\ h^0(X,L_{rw}) .
+\]
+Here \(L_{rw}\simeq L_w^{\otimes r}\). The interior is dense, so
+\(\dim B<D\). Nef asymptotic Riemann--Roch gives
+\(h^0(X,L_w^{\otimes r})/r^D\to L_w^D/D!\), and, on the reduced
+boundary, \(h^0(B,L_w^{\otimes r}|_B)/r^D\to0\).
+The squeeze thus proves the existence of the cusp growth limit and
+\begin{equation}\label{eq:volume-nef-growth}g_Z(w)=L_w^D.\end{equation}
+
+\paragraph{Normalization of the flag degree.}
+Use the compactification with toric boundary charts and the source's
+Mumford proportionality formula. It identifies \(L_w^D\) with the
+covolume \(c_Z\) of the uniformizing group, in the chosen measure,
+times the degree polynomial of the compact dual flag. In the source's
+alternating coefficient formula, expand the \(D\)-th power of the weight
+linear form. For a single embedding its factor, after extracting the common
+multinomial numerator \(D!\) across all embeddings, is
+\[
+ \sum_{\pi\in\mathfrak S_m}\operatorname{sgn}(\pi)
+ \prod_{i=0}^{m-1}\frac{w_{\tau i}^{\,m-1-\pi(i)}}{(m-1-\pi(i))!}
+ =\frac{\prod_{i<j}(w_{\tau i}-w_{\tau j})}
+             {\prod_{j=0}^{m-1}j!}.
+\]
+The sum is a determinant with descending powers. Reversing its columns
+and applying the Vandermonde determinant produces the displayed sign.
+Since \(\prod_jj!=\prod_{i<j}(j-i)\), multiplying the embedding factors
+gives
+\begin{equation}\label{eq:volume-flag}
+ g_Z(w)=c_Z D!\,\frac{V(w)}{V(\eta)} .
+\end{equation}
+The constant \(c_ZD!/V(\eta)\) is strictly positive. To compare two
+components one uses the equal-covolume result at the actual deep level.
+The good local level at each rational prime is inherited from the
+original two-prime construction. Complex uniformization supplies
+full-level self-dual data for each component with the same covolume as
+that component. Their complex types and signatures agree. Transport to
+one Hermitian space preserves the covolume; the self-dual lattice
+comparison there identifies the two volumes. In particular the
+right side of \eqref{eq:volume-flag} is independent of \(Z\) for fixed
+\(w\). This use of the self-dual lattice theorem is separate from the
+calculation of the flag degree.
+
+\paragraph{The two inequalities for the image degree.}
+Set \(u'=u'(u)\) equal to the lower weight of the window. Write
+\(\delta_Z\) for the degree of the birational image of the complete cusp
+system at weight \(u\). Then
+\begin{equation}\label{eq:volume-sandwich}
+ g_{Z'}(u')\ \le\ \delta_Z\ \le\ g_{Z'}(u)
+ \qquad\text{for every pair }Z,Z'.
+\end{equation}
+We prove this first with \(Z'=Z\). Use the function field \(\Omega\)
+of the generic component with the source's evaluation trivialization.
+Write \(W\) for the image of \(S_Z(u)\) there and form the standard
+graded domain \(R=\bigoplus_{j\ge0}W^j X^j\subset \Omega[X]\),
+where \(W^j\) denotes the span of products. Multiplication of cusp
+forms at these even weights identifies \(W^j\) with a subspace of
+the generic evaluations of \(S_Z(ju)\). The Hilbert polynomial of the
+projective image has leading term \(\delta_Z j^D/D!\). Dividing the
+inclusion of dimensions by \(j^D/D!\) gives \(\delta_Z\le g_Z(u)\).
+
+For the reverse comparison we spell out where the valuative estimate
+enters. It supplies \(a\ge1\) and a multiplier \(\theta\) with nonzero
+generic value. If \(k\ge1\), \(f\in S_Z(ak u')\), put
+\(z=\operatorname{ev}(\theta^k f)\). The valuation inequalities on the
+cone imply that \(zX^{ak}\) is integral over \(R\). Birationality and
+the ratio condition give \(zX^{ak}\in\operatorname{Frac}(R)\). The latter
+condition fixes the field in which normalization is taken. The integral
+closure \(\overline R\) is finite over \(R\), since \(R\) is a finitely
+generated domain over a number field. Clearing denominators of a finite
+set of module generators gives a nonzero \(c\in R\) with
+\(c\overline R\subset R\).
+
+Choose a nonzero homogeneous coefficient \(c_e\) of \(c\), so that
+\(c_e\in W^e\). The degree \(ak+e\) coefficient of \(czX^{ak}\in R\)
+gives \(c_ez\in W^{ak+e}\). Multiplying by \(c_e^{a-1}\) yields
+\(c_e^az\in W^{a(k+e)}\). All the multipliers have nonzero generic
+value. Evaluation of a cusp form on the generic component is injective
+on the space defined on that component. Consequently
+\[
+ \dim S_Z(ak u')\le \dim W^{a(k+e)} .
+\]
+Divide by \(k^D/D!\) and pass to the limit. By
+\eqref{eq:volume-nef-growth} the left side tends, after normalization,
+to \(a^Dg_Z(u')\). The Hilbert polynomial gives the limit
+\(a^D\delta_Z\) on the right, since \(e\) is fixed. Cancelling \(a^D\)
+proves the other half of \eqref{eq:volume-sandwich}. Equality of
+component covolumes now allows \(Z'\) to replace \(Z\) in the growth
+factors. In the window \(1-\rho=V(u')/V(u)>0\), so
+\(g_Z(u')=(1-\rho)g_Z(u)\) by \eqref{eq:volume-flag}. This gives
+\eqref{eq:rankshare-vol}.
+
+\paragraph{Source correspondences and geometric inputs.}
+The weight decomposition is \srcid{EqLastAddGaps}; nefness is
+\srcid{NefLineBundleWeightGap}. The limit on the boundary and the
+normalization of the covolume appear in \srcid{ExistsEffCartierCompl}
+and \srcid{FlagDegreeFormula}. The conductor calculation is in
+\srcid{ConeDegreeGrowthChowFormIntegrality}, and its application to cusp
+forms is \srcid{CuspFormGrowthLeImageDegreeLowerWeight}. The two-sided
+comparison is \srcid{ComponentImageDegreeBetweenOfProportionality}.
+These arguments use the toroidal model and comparison theorem, nef
+asymptotic Riemann--Roch, the comparison of self-dual lattices at good
+level, and the existence of the valuative multiplier at \(u,u'\).

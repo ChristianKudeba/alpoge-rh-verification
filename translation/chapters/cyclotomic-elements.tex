@@ -1,0 +1,214 @@
+\section{Cyclotomic elements with compatible divisors and residues}
+\label{sec:minus-cyclotomic-elements}
+
+We construct the elements \(X_n\) used in
+Section~\ref{sec:minus-derivatives}. Keep its integers \(P,r,b\),
+where \(0\le b<P\), and fix a place above \(r\) in
+\(\overline{\mathbb Q}\). For a positive integer \(a\) put
+\(F_a=\mathbb Q(\mu_a)\), \(G_a=(\mathbb Z/a\mathbb Z)^\times\),
+and let \(\sigma_t\) act on roots of unity by \(t\). Write
+\([t]_a\) for the least nonnegative residue, and put
+\[
+   h_a(t)=\left\lfloor b[t]_a/a\right\rfloor-
+            \left\lfloor b[-t]_a/a\right\rfloor,\qquad
+   \Theta_a=\sum_{t\in G_a} h_a(t)\sigma_t^{-1}.
+\]
+Use multiplicative group-ring notation \(I^{\Theta_a}\) for ideals
+and \(y^{\Theta_a}\) for elements. For a nonzero integral ideal
+\(I\) in \(F_a\), seek an element \(X_a(I)\) satisfying
+\[
+       X_a(I)\overline{X_a(I)}=1,\qquad
+       (X_a(I))=I^{\Theta_a}.
+\]
+Here the bar denotes complex conjugation. Any two choices differ by
+a root of unity of order dividing \(2a\). Indeed, their quotient
+is an algebraic unit of absolute value one in every embedding,
+since complex conjugation commutes with those embeddings.
+Kronecker's theorem makes it a root of unity, and the roots of
+unity of \(F_a\) have exponent dividing \(2a\).
+For \(I=(y)\) we can take \(y^{\Theta_a}\), by
+\(h_a(-t)=-h_a(t)\). The two identities are multiplicative in \(I\)
+and \(X\), and allow division in the group of fractional ideals.
+
+\subsection{Existence and the Jacobi sum divisor}
+
+Every ideal class of \(F_a\) contains a prime ideal of residue
+degree one over \(\mathbb Q\), avoiding any prescribed finite set.
+Indeed, the Hilbert class field of \(F_a\) is Galois over
+\(\mathbb Q\), since \(F_a/\mathbb Q\) is Galois. Apply Chebotarev
+over \(\mathbb Q\) to the Artin element of the class, an element
+of the Galois group over \(F_a\). Its restriction to \(F_a\) is
+trivial. Choosing the prime above the resulting rational prime to
+give that exact Artin element proves the assertion by Hilbert class
+field reciprocity. Choose in this manner a degree-one prime
+\(\mathfrak p\) in the inverse class of \(I\) over \(p\nmid a\).
+If \(I\mathfrak p=(y)\), dividing \(y^{\Theta_a}\) by a choice
+at \(\mathfrak p\) gives the desired choice at \(I\).
+
+The reduction map \(\pi:\mathcal O_{F_a}\to\mathbb F_p\) at
+\(\mathfrak p\) sends \(\mu_a\) bijectively to the \(a\)-th roots
+of unity in \(\mathbb F_p\), so \(a\mid p-1\). Write
+\(d=(p-1)/a\), and lift \(x\mapsto x^d\) uniquely to a character
+\(\chi:\mathbb F_p^\times\to\mu_a\). Extend every multiplicative
+character used in sums by zero at zero. Set
+\[
+ J_j=\sum_{x\in\mathbb F_p}\chi(x)\chi^j(1-x),\qquad
+ J=\prod_{1\le j<b}J_j,\qquad X_a(\mathfrak p)=\overline J/J .
+\]
+For \(1\le j<b<a\), all of \(\chi,\chi^j,\chi^{j+1}\) are
+nontrivial. In any complex embedding the Gauss sums
+\(G(\lambda)=\sum_x\lambda(x)e^{2\pi i x/p}\) have
+\(\lvert G(\lambda)\rvert^2=p\) for nontrivial \(\lambda\):
+put \(x=ty\) in the squared absolute value and sum
+\(e^{2\pi i(t-1)y/p}\) over \(y\ne0\), obtaining \(p-1\) at
+\(t=1\) and \(-1\) elsewhere. Moreover
+\(G(\chi)G(\chi^j)=J_jG(\chi^{j+1})\), by grouping according
+to \(x+y\); the terms with \(x+y=0\) sum to zero.
+Thus \(J_j\overline J_j=p\). Each \(J_j\) is integral and its
+ideal divides the squarefree ideal \((p)\).
+
+For \(t\in G_a\) let \(A=d[t]_a,\ B=d[jt]_a\), both between
+\(1\) and \(p-2\). The reduction of \(\sigma_t J_j\) at
+\(\mathfrak p\) is \(\sum_x x^A(1-x)^B\).
+Expanding the second power and using the power sums of
+\(\mathbb F_p^\times\) gives zero if \(A+B<p-1\). Otherwise the
+only contributing positive multiple of \(p-1\) is \(p-1\), and
+the coefficient is
+\(-(-1)^{p-1-A}\binom{B}{p-1-A}\ne0\bmod p\).
+The primes \(\sigma_t^{-1}\mathfrak p\) are distinct and exhaust
+the primes above \(p\). Hence the exponent of
+\(\sigma_t^{-1}\mathfrak p\) in \(J_j\) is
+\[
+       1-\left\lfloor\big([t]_a+[jt]_a\big)/a\right\rfloor .
+\]
+The floor is the increment in \(\lfloor j[t]_a/a\rfloor\)
+when \(j\) increases to \(j+1\). For \(b\ge1\) telescoping
+gives the exponent of \(J\) as \(b-1-\lfloor b[t]_a/a\rfloor\).
+Consequently \(\overline J/J\) has the required exponent
+\(h_a(t)\) at this prime. At \(b=0\) both the required
+exponents and the empty-product exponents are zero. This proves
+existence, including the divisor and the archimedean normalization.
+
+\subsection{Norm from a new prime layer}
+
+Fix \(a=Pn\) and an admissible \(q\nmid a\), with \(0\le b<P<q\).
+Write \(E=F_a,\ E'=F_{qa},\ u=q\bmod a\). Restriction of the group
+ring satisfies
+\begin{equation}
+       \left.\Theta_{qa}\right|_{G_a}
+                  =(1-\sigma_u^{-1})\Theta_a .
+ \label{eq:cyclotomic-distribution}
+\end{equation}
+To see this coefficientwise, the \(q\) representatives lifting
+\(t\bmod a\) are \([t]_a+ia\) for \(0\le i<q\). Exactly one,
+\(q[u^{-1}t]_a\), is excluded because it is divisible by \(q\).
+For \(b>0\), \(ib\bmod q\) permutes the residues modulo \(q\);
+summing the floors of
+\(b([t]_a+ia)/(qa)\) over all \(i\) therefore gives
+\(\lfloor b[t]_a/a\rfloor+\sum_{i<q}\lfloor ib/q\rfloor\).
+Indeed the fractional part of \(b[t]_a/a\), divided by \(q\),
+does not affect any of these floors, and adding its integral
+part permutes the residues in the numerator. Subtract the missing
+term \(\lfloor b[u^{-1}t]_a/a\rfloor\), then subtract the same
+calculation with \(-t\). The common constant cancels, giving
+\eqref{eq:cyclotomic-distribution}. For \(b=0\) it holds identically.
+
+For a nonzero ideal \(I'\) of \(E'\), put \(I=N_{E'/E}I'\).
+Norm commutes with conjugation and products of fractional ideals.
+Thus the divisor of \(N X_{qa}(I')\) is
+\(I^{(1-\sigma_u^{-1})\Theta_a}\). The latter is also the divisor
+of \(X_a(I)/\sigma_u^{-1}X_a(I)\). Both elements have product
+one with their complex conjugates. Their ratio is therefore an
+element of \(\mu_{2a}\), by the uniqueness argument.
+
+\subsection{Simultaneous reduction at every prime over \(q\)}
+
+Suppose \(I'\) is prime to \(q\). We prove, with a single root
+\(\eta\in\mu_{2qa}\), the congruence
+\[
+          X_{qa}(I')\equiv\eta\,\sigma_u^{-1}X_a(I)
+                       \pmod{\mathfrak q}
+          \qquad(\mathfrak q\mid q\ \text{in }E').
+\]
+Both sides are units at all such places by their divisors.
+
+First take a degree-one prime \(\mathfrak p'\) above \(p\nmid qa\).
+Its relative ideal norm is the contracted prime \(\mathfrak p\).
+Use the Jacobi choices already constructed, with characters
+\(\chi'\) at level \(qa\) and \(\chi\) at level \(a\), defined by
+reduction at \(\mathfrak p'\) and \(\mathfrak p\) respectively.
+For \(x\ne0\), \(\chi'(x)^q=\chi(x)\): these are \(a\)-th roots
+with equal reductions modulo \(\mathfrak p'\). Also
+\((\sigma_u^{-1}\chi(x))^q=\chi(x)\). In the residue field of
+any \(\mathfrak q\mid q\), the \(q\)-power map is injective, so
+\(\chi'(x)\equiv\sigma_u^{-1}\chi(x)\pmod{\mathfrak q}\).
+The same argument applies after complex conjugation. The two pairs
+of Jacobi products therefore have equal reductions, term by term.
+Each product and its conjugate is a unit at \(q\), since its
+factors divide \(p\). Dividing proves the congruence with
+\(\eta=1\) for the Jacobi choices. Changing either choice multiplies
+the ratio by a single global root of order dividing \(2qa\).
+
+For a principal ideal \((y)\), with \(y\) integral and prime to
+\(q\), use the explicit principal generators. Fix
+\(\mathfrak q\mid q\) and write \(f(t)\) for the reduction of
+\(\sigma_{\tilde t}^{-1}y\) at this place, for any lift
+\(\tilde t\in G_{qa}\) of \(t\). This is independent of the lift
+because \(\operatorname{Gal}(E'/E)\) fixes residues at \(q\):
+\(\mu_q\) reduces to \(1\) and
+\(\mathcal O_{E'}=\mathbb Z[\mu_{qa}]\). A lift of \(\sigma_u\)
+acts on these residues by \(q\)-power, as this is its action on
+the reductions of \(\mu_a\) and \(\mu_q\). Consequently
+\(f(ut)^q=f(t)\). All \(f(t)\) are nonzero. Using
+\eqref{eq:cyclotomic-distribution}, the reduction of
+\(y^{\Theta_{qa}}\) is
+\[
+ \prod_{t\in G_a} f(t)^{h_a(t)-h_a(u^{-1}t)}
+    =\prod_{t\in G_a}\big(f(ut)^{q-1}\big)^{h_a(t)}.
+\]
+Each of the \(q-1\) conjugates entering \(N_{E'/E}y\) has the
+same reduction after applying \(\sigma_{ut}^{-1}\). Hence the
+last product is exactly the reduction of
+\(\sigma_u^{-1}((Ny)^{\Theta_a})\).
+The equality holds at every place above \(q\).
+
+For general \(I'\) prime to \(q\), choose a degree-one
+\(\mathfrak p'\) in its inverse class with \(p\nmid qa\), and write
+\(I'\mathfrak p'=(y)\). Apply the principal calculation to
+\(y\) and the prime calculation to \(\mathfrak p'\). Divide
+the two congruences, using units at each place, and apply uniqueness
+of the choices at both levels. The resulting root \(\eta\) is a
+product of the same globally chosen roots at every place, as required.
+
+\subsection{The family at the fixed prime}
+
+Let \(\mathfrak r_a\) be the prime cut out on \(F_a\) by our
+fixed place at \(r\). For every admissible product \(n\) take
+\(X_n=X_{Pn}(\mathfrak r_{Pn})\); arbitrary choices suffice.
+Since \(\mathfrak r_{a}\) lies above \(r\), their divisors show
+that they are units away from \(r\). For \(a=P\), \(r\equiv1\bmod P\)
+implies complete splitting and unramifiedness. Thus for every
+\(t\in G_P\), the valuation of \(\sigma_t X_1\) at the fixed
+place, normalized by \(v(r)=1\), is precisely \(h_P(t)\).
+
+At the layer \(a\mapsto qa\) put
+\(s=[k(\mathfrak r_{qa}):k(\mathfrak r_a)]\).
+The norm of \(\mathfrak r_{qa}\) is \(\mathfrak r_a^s\), for
+which \(X_n^s\) is a normalized generator. The integer \(s\)
+divides the absolute residue degree
+\(\operatorname{ord}_{qa}(r)\), since \(r\nmid qa\).
+By the Chinese remainder theorem, the latter divides the product
+of the orders of \(r\bmod p\) over primes \(p\mid qn\), as
+\(r\equiv1\bmod P\) and those primes are distinct and coprime
+to \(P\). Every factor is prime to \(\ell\) by admissibility,
+so \(\ell\nmid s\). Applying the norm and simultaneous reduction
+just proved to \(X_{qn}\) and \(X_n^s\) gives exactly the two input
+relations in Section~\ref{sec:minus-derivatives}.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XJacPowNe.lean}{Jacobi sums and their prime divisors},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XEx.lean}{passage to arbitrary ideals},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ThDist.lean}{distribution of the signed floor coefficients},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XNormDiv.lean}{norm relation},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongJac.lean}{Jacobi congruence},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/XCongPrin.lean}{principal congruence},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AlgStep.lean}{division to obtain simultaneous congruences},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean}{assembly at the chosen place}.}

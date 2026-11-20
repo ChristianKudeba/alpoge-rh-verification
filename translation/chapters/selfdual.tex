@@ -1,0 +1,111 @@
+\section{Why the uniformizing lattices have equal covolume}
+\label{sec:selfdual-covol}
+Here we give the index argument used in \eqref{eq:volume-flag}.
+Let \(E/F\) be the CM extension with \(F=E^+\) and involution
+\(x\mapsto\bar x\). Let \(r=p+q\), with \(p,q\ge1\).
+Write \(G\) for the matrix of a nondegenerate Hermitian form.
+At the deep level the source takes the positive integer \(M=l.M'\)
+(the combined congruence modulus), with \(M\ge3\).
+At the chosen embedding, the components under comparison have the
+same CM type, signature and archimedean measure.
+
+\paragraph{Reduction to two lattices on one Hermitian space.}
+The full-level presentation of each component preserves its covolume
+and supplies a trace-self-dual lattice. To pass from two presentations
+to a single ambient space the source uses a rational similitude
+\(P\) supplied by the classification of the polarized data. In its
+normalization, for a move from \(X\) to \(Y\) the ratio of Hermitian
+forms satisfies
+\[
+ h_Y(Pv,Pw)=\frac{\kappa_X}{\kappa_Y}\,h_X(v,w).
+\]
+Thus the scalar-weighted trace pairing is carried exactly into the
+second one, the lattice becomes \(P\Lambda\), and reduction modulo
+\(M(P\Lambda)\) is transported by \(P\). In particular
+\(P\Gamma P^{-1}\) is the transported group. Its flag-domain
+identification preserves the invariant volume. In what follows the
+two full lattices, say \(\Lambda,\Lambda'\), have the same \(G\),
+CM type, trace parameter and signature. The local self-dual isometry
+theorem, assembled over the finite places, supplies
+\(g\in U(G)(\mathbb A_{F,f})\) with
+\(g\widehat\Lambda=\widehat{\Lambda'}\). The proof only needs a
+finite-adelic isometry at this point.
+
+\paragraph{Congruence groups and intersections.}
+Write \(\iota\) for the diagonal embedding of rational matrices into
+finite-adelic matrices. Let \(K\) be the subgroup of determinant-one
+isometries preserving \(\widehat\Lambda\) which act trivially modulo
+\(M\widehat\Lambda\). Put \(K'=gKg^{-1}\). The full-level congruence
+description identifies \(\Gamma=\iota^{-1}K\) and
+\(\Gamma'=\iota^{-1}K'\) with the two uniformizing groups. Here
+isometries are taken in the same ambient rational unitary group.
+In particular this description applies the determinant-one condition
+to the level group; \(g\) can have arbitrary norm-one determinant.
+
+We record how intersection indices pass to the rational points.
+If \(J=K\cap K'\), reduction to cosets gives injective maps
+\[
+ \Gamma/(\Gamma\cap\Gamma')\longrightarrow K/J,\qquad
+ \Gamma'/(\Gamma\cap\Gamma')\longrightarrow K'/J ,
+\]
+where each quotient denotes cosets and carries no normality assumption.
+Both maps are surjective. Indeed \(J\) contains a deeper principal
+congruence subgroup. Explicitly, denominators of \(g,g^{-1}\)
+are bounded on the completed lattice by positive integers \(b,a\).
+Then any isometry congruent to the identity modulo \(Mab\) on
+\(\widehat\Lambda\) lies in \(K\) and its conjugate back by \(g\)
+is congruent to the identity modulo \(M\). This follows by applying
+\(g^{-1}(s-1)g\) to a lattice vector and cancelling the two denominators;
+the condition for the inverse follows from the congruence subgroup
+property. The source obtains rational isotropy of \(G\) from indefinite
+signature and the trace-self-dual data and applies strong approximation
+for its special unitary group. It gives, for every \(s\in K\cup K'\),
+a rational isometry \(\gamma\) with
+\(\iota(\gamma)^{-1}s\) in this deeper subgroup. Thus each of the
+displayed cosets has a rational representative. The same argument works
+with \(g\) replaced by a power, or by a rational isometry.
+
+\paragraph{The ratio of two indices.}
+For commensurable groups \(A,B\) write
+\[
+ r(A,B)=\frac{[A:A\cap B]}{[B:A\cap B]} .
+\]
+If a third group is commensurable with both, one can compute all ratios
+using their triple intersection. This gives \(r(A,B)r(B,C)=r(A,C)\).
+Conjugation carries a pair of indices into a pair of the same sizes.
+Consequently \(r(K,g^jKg^{-j})=r(K,K')^j\) for positive \(j\).
+The indices here are finite since the groups intersect in a deeper open
+congruence subgroup of the compact level group.
+
+Put \(z=\overline{\det g}\) and \(s=(zI)g^r\).
+Unitarity gives \(z\det g=1\), so \(zI\) is unitary and
+\(\det s=z^r(\det g)^r=1\). The central scalar drops out under
+conjugation. Apply strong approximation at level \(M\) to \(s\), writing
+\(s=\iota(\gamma)k\) for a rational unitary \(\gamma\) and \(k\in K\).
+Then
+\[
+ g^rKg^{-r}=sKs^{-1}=\iota(\gamma)K\iota(\gamma)^{-1}.
+\]
+The corresponding rational groups are \(\Gamma\) and
+\(\gamma\Gamma\gamma^{-1}\). Their quotient volumes in the archimedean
+flag domain are equal by the isometry induced by \(\gamma\).
+For two commensurable uniformizing groups \(A,B\) acting freely at
+this level, the common covering for \(A\cap B\) has volume both
+\([A:A\cap B]\operatorname{covol}(A)\) and
+\([B:A\cap B]\operatorname{covol}(B)\), with identical measure
+normalization. Applying this to the two rationally conjugate groups,
+and using the coset bijections, gives \(r(K,g^rKg^{-r})=1\).
+The ratio \(r(K,K')\) is positive, so its \(r\)-th power being one
+implies \(r(K,K')=1\). Using the coset bijections for \(g\) and then
+the common-cover formula yields
+\(\operatorname{covol}(\Gamma)=\operatorname{covol}(\Gamma')\).
+
+\paragraph{Source and scope.}
+The two reductions to full-level data and a common Hermitian form are
+\srcid{ExistsFullLevelGroupDataSameCovolume} and
+\srcid{ExistsTransportSelfDualDataOneHermitianSpace}.
+The index proof is \srcid{CovolumeEqSelfDualLatticesSameHermitianSpace};
+the component application is \srcid{ComplexUniformisationComponentsCovolumeEq}.
+The input theorems here are the full-level uniformization, rational
+similitude and isotropy, finite-local equivalence of the relevant
+trace-self-dual lattices, and special unitary strong approximation.

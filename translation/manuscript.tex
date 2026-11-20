@@ -46,12 +46,18 @@ later estimates is explicit.
 \input{chapters/generators}
 \input{chapters/annihilator}
 \input{chapters/characterwise}
+\input{chapters/cyclotomic-elements}
+\input{chapters/derivatives}
 \input{chapters/selmer}
 \input{chapters/plus}
 \input{chapters/trace-integer}
+\input{chapters/single-character}
 \input{chapters/theta}
 \input{chapters/siegelweil}
+\input{chapters/thetadecay}
 \input{chapters/jets}
+\input{chapters/volume}
+\input{chapters/selfdual}
 \input{chapters/rankshare}
 \input{chapters/component}
 \input{chapters/covolume}
@@ -60,6 +66,7 @@ later estimates is explicit.
 \input{chapters/error}
 \input{chapters/primecomparison}
 \input{chapters/windows}
+\input{chapters/windowexceptions}
 \input{chapters/analytic}
 \section*{Proofs still to be translated}
 \addcontentsline{toc}{section}{Proofs still to be translated}
@@ -69,26 +76,31 @@ the passage from an admissible family of intervals to zero-freeness
 are given above. The following inputs carry substantive arithmetic or
 geometric content which the reader still needs for an independent proof.
 \begin{itemize}
-\item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-characterwise}
-give the generator count, the signed Stickelberger annihilator, and the
-characterwise bound from its derivative system. The initial and transition
-relations for the derivative classes and simultaneous Frobenius detection
-still enter the characterwise argument. Section~\ref{sec:common-trace-integer} constructs the common trace integer
-from two global spectrum counts. Its single-character deformation estimate
-and the input counts still enter the rank-three argument.
-\item Section~\ref{sec:sw-boundary} gives the two-cell argument,
-Fourier normalization and induction for the definite theta value. The
-local Whittaker identities, singular terms, Fock-space generation and
-the estimates used for rapid decrease still require upstream results.
-\item Sections~\ref{sec:rank-share} and~\ref{sec:hs-component} give the
-component rank comparison and its explicit contribution to the height
-budget. The inputs still include compactification proportionality,
-the nef and growth estimates for weight bundles, the underlying
-arithmetic Hilbert--Samuel bound, and uniform estimates on the model.
-\item The common-window construction uses both zero-density and
-mean-square estimates for the exceptional prime sets, the automorphic
-representation and host constructions, and the geometric divisibility
-and rank comparisons on those hosts.
+\item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-derivatives}
+give the generator count, the signed annihilator, the construction and
+local relations of the derivative classes, and the simultaneous choice
+of auxiliary primes. On the rank-three side,
+Sections~\ref{sec:common-trace-integer} and~\ref{sec:single-character}
+derive the trace product and length inequalities. The global spectrum
+counts, the integral deformation presentation, local comparison and
+automorphy results are substantive inputs to those arguments.
+\item Sections~\ref{sec:sw-boundary} and~\ref{sec:theta-decay-proof}
+give the two-cell argument, the normalization of the definite theta
+value, the decay estimate from a nonzero minor, and the indefinite
+chamber integral. The local Whittaker identities, singular terms,
+Fock-space generation, automorphic reduction and coefficient estimates
+still enter these derivations.
+\item Sections~\ref{sec:component-volume}--\ref{sec:hs-component}
+derive the component degree and rank comparisons, equality of the relevant
+covolumes, and the resulting height budget. Inputs include the toroidal
+model and proportionality theorem, local isometry and strong approximation,
+the valuative multiplier, the underlying arithmetic Hilbert--Samuel bound,
+and uniform norm estimates on the integral model.
+\item Section~\ref{sec:window-exceptions} proves the character-count
+bound and derives the required mean-square estimate on the two prime
+progressions. The relative prime number theorem, explicit formula for
+the prime sums, automorphic representations and host constructions,
+and geometric divisibility comparisons still enter the common windows.
 \end{itemize}
 These are outstanding translations from the formal development.
 The independent verification of the released formal proof is recorded

@@ -1,0 +1,423 @@
+\section{The deformation inequality for a single character}
+\label{sec:single-character}
+
+The estimate used in Section~\ref{sec:rh-plus-nonzero} first bounds one
+strict Selmer group by distances between traces. We give the lower
+comparison with the saturated cotangent module, the multiplicities in
+the upper comparison, and the passage to isomorphism classes. We state
+which deformation and automorphy results enter these comparisons.
+
+\subsection{The arithmetic hypotheses and the estimate}
+
+Take an algebraic closure \(\Omega/\mathbb Q\), an imaginary quadratic
+subfield \(K\), a prime \(\ell\), and the integers \(\mathcal O\) in a
+finite extension \(F/\mathbb Q_\ell\) inside \(\overline{\mathbb Q}_\ell\).
+Write \(e_\mathcal O=v_{\mathcal O}(\ell)\), with
+\(v_{\mathcal O}(\varpi)=1\). Fix an even positive integer \(N\), an
+integer \(e\ge1\) and an \(\mathcal O\)-valued Dirichlet character
+\(\psi\bmod N\). Write \(\psi_\ell\) for its component at the
+\(\ell\)-part of the level and \(\psi'=\psi/\psi_\ell\) on the units.
+The good-data assumptions of the source are
+\[
+\begin{gathered}
+ \ell\ne2,\qquad \ell\nmid\operatorname{ord}(\psi),\qquad
+ \psi_\ell^2=1,\qquad \psi(-1)=(-1)^e,\qquad
+ \ell-1\nmid 2e,\\
+ \ell\nmid |\operatorname{disc}K|\,h_K,\qquad
+ \gcd(|\operatorname{disc}K|,N)=1,\\
+ \ker\overline\chi_\ell\cap\ker\psi'\ \not\subseteq G_K .
+\end{gathered}
+\]
+Here \(\overline\chi_\ell\) is the mod-\(\ell\) cyclotomic character,
+\(h_K\) is the class number, and the last line uses Galois
+characters on \(G_{\mathbb Q}\). The prime-to-\(\ell\) order assumption
+makes \(\psi'\) precisely the character called \(\mathrm{chiP}\)
+in the source. In particular \(\ell\ge5\).
+
+Put \(\Gamma=G_{\mathbb Q}\), let \(\eta\) be the quadratic character
+with kernel \(G_K\), and put \(\Psi=\chi_\ell^e\psi\),
+\(\alpha=\Psi^{-1}\), and \(W=(F/\mathcal O)(\alpha)\).
+Let \(\mathcal D\) consist of the decomposition groups at places above
+primes dividing \(\ell N\) and the inertia groups at all finite primes.
+Define
+\[
+ V=\ker\left(H^1_{\rm cont}(\Gamma,W)\longrightarrow
+                      \prod_{D\in\mathcal D}H^1_{\rm cont}(D,W)\right).
+\]
+Fix a field isomorphism \(\iota:\overline{\mathbb Q}_\ell\to\mathbb C\)
+and an element \(\sigma\in G_K\). Set
+\[
+ t=\Psi(\sigma)+1+\Psi(\sigma)^{-1},\qquad
+ v_\ell(z)=-\log_\ell |z|_\ell\quad(z\ne0).
+\]
+The admissible \(\rho:G_K\to{\rm GL}_3(\overline{\mathbb Q}_\ell)\)
+are the two classes used in the integer estimate. The first consists
+of irreducible representations of level \(N\), with the source's
+weight tuple \((e,0,-e)\) and its unlinked local condition. Their
+twists \(\rho\otimes\chi_\ell^{-1}\) satisfy the conjugate-self-dual
+automorphy condition. In the second class,
+\(\rho\simeq{\bf1}\oplus W_2|_{G_K}\), where \(W_2\) is an irreducible
+two-dimensional \(\overline{\mathbb Q}_\ell\)-representation of
+\(G_{\mathbb Q}\). The source requires its level condition
+at \(N|\operatorname{disc}K|\), weights \((e,-e)\), determinant of
+cyclotomic weight zero, a newform of weight \(2e+1\) attached to
+\(W_2\otimes\chi_\ell^{-e}\), and the rational automorphic witness
+called \(\mathrm{WitAQ}\). These are the predicates
+\(\mathrm{Adm3U}_s\) and \(\mathrm{Adm2A}\), respectively. In
+particular the second class still supplies three-dimensional traces.
+
+Suppose \(\operatorname{tr}\rho(\sigma)\ne t\) for every admissible
+\(\rho\). Under the deformation, rigidity and automorphy inputs specified
+below, the source gives a finite set \(X\) of pairwise nonisomorphic
+admissible representations such that \(V\) has finite length and
+\begin{equation}
+ \frac{\operatorname{length}_{\mathcal O}V}{e_\mathcal O}
+ \ \le\ 2\sum_{\rho\in X}v_\ell(\operatorname{tr}\rho(\sigma)-t).
+ \label{eq:single-def-ineq}
+\end{equation}
+In the prime sum, \(\sigma\) is specialized to the inverse of the
+chosen Frobenius element. It is arbitrary in this assertion.
+
+\subsection{The strict cocycle in a marked deformation}
+
+Write \(c\) for a complex conjugation. Then \(c^2=1\) and
+\(\Psi(c)=1\). For now take the marked datum supplied over an
+unramified coefficient ring. It gives \(g_1\in\Gamma\) with
+\(\Psi(g_1)^2-1\) a unit. At the selected group \(D_\ell\) over
+\(\ell\) it gives \(s\in D_\ell\) with \(\Psi(s)^2-1\) a unit.
+If \(u^2-1\) is a unit, then so are \(u-1\) and
+\(u^{-1}-1=-u^{-1}(u-1)\). These two markings will be used for
+different purposes.
+
+Every class \(x\in H^1(\Gamma,W)\) has a unique cocycle \(f_x\)
+representing it with \(f_x(g_1)=0\). In fact if \(z\) represents \(x\),
+put
+\[
+ m=(\alpha(g_1)-1)^{-1}z(g_1),\qquad
+ f_x(g)=z(g)-(\alpha(g)-1)m .
+\]
+Changing \(z\) by the coboundary of \(u\) changes \(m\) by \(u\).
+A coboundary vanishing at \(g_1\) has zero parameter. Hence this
+normalization is \(\mathcal O\)-linear and injects cohomology into
+the locally constant functions on \(\Gamma\).
+
+Let \(b\in\mathcal O\setminus\{0\}\), \(Q_b=\mathcal O/(b)\).
+For \(x\in V[b]\) the function \(bf_x=f_{bx}\) vanishes identically.
+The map \(y\bmod b\mapsto y/b\bmod\mathcal O\) identifies \(Q_b\)
+with \((F/\mathcal O)[b]\). In these coordinates write the cocycle
+as \(u_x:\Gamma\to Q_b\). On any \(D\in\mathcal D\) there exists
+\(m_D\in F/\mathcal O\) with
+\(f_x(g)=(\alpha(g)-1)m_D\) for \(g\in D\). In particular
+\((\alpha(s)-1)bm_{D_\ell}=0\) and the factor in parentheses is a
+unit. Thus \(bm_{D_\ell}=0\) and the local coboundary at \(\ell\) has a
+parameter in \(Q_b\) itself. At elements \(g\) of the imposed
+inertia kernel, the marked datum has \(\Psi(g)=1\) and \(g\) belongs
+to a group in \(\mathcal D\). The same formula gives \(f_x(g)=0\).
+
+Also \(0=f_x(c^2)=2 f_x(c)\), hence \(f_x(c)=0\).
+The identities \(f_x(1)=0\) and
+\(f_x(gh)=f_x(g)+\alpha(g)f_x(h)\) show first
+\(f_x(g_1^{-1})=0\) and then \(f_x(cg_1^{-1}c)=0\).
+These vanishings impose the two marked off-diagonal conditions in
+the normalized representation.
+
+Let \(J_3\) be the antidiagonal identity and use on \({\rm GL}_3\)
+the involution \(M\mapsto J_3 M^{-{\rm t}} J_3\).
+The polarized reducible representation of \(\Gamma\) has matrix part
+\(\operatorname{diag}(\Psi,1,\Psi^{-1})\) and component \(\eta\).
+Put
+\[
+ B(u)=\begin{pmatrix}0&0&0\\u&0&0\\0&-u&0\end{pmatrix}.
+\]
+The differential of the involution fixes \(B(u)\), since
+\(-J_3 B(u)^{\rm t}J_3=B(u)\). Diagonal conjugation sends it to
+\(B(\alpha(g)u)\). Thus \(\gamma_x(g)=B(u_x(g))\) is an adjoint
+cocycle of weight \(-1\). Its \((2,1)\) entry recovers \(u_x\).
+It vanishes on the prescribed kernel, satisfies the marked
+conditions, and is a coboundary at \(D_\ell\). This gives an
+injective additive map from \(V[b]\) to the normalized matrix
+cocycles with coefficient module \(Q_b\).
+
+Let \(R\) be the ring representing the marked global deformation
+condition, \(r\) its universal representation and \(x_0:R\to\mathcal O\)
+the reducible point. The ring \(\mathcal O\oplus Q_b\) has product
+\((a,u)(a',u')=(aa',au'+a'u)\). Multiplying the base representation
+by \(1+\gamma_x(g)\) gives a representation over this ring because
+the cross-products of the infinitesimals vanish and the remaining
+identity is exactly the adjoint cocycle equation. The local coboundary
+can be lifted to a local change of basis by lifting its scalar
+parameter to \(\mathcal O\). The local deformation condition includes
+these conjugates of the base lift. Consequently the representing
+property gives a point of the form \((x_0,D_x)\). Multiplicativity
+gives the Leibniz rule
+\(D_x(uv)=x_0(u)D_x(v)+x_0(v)D_x(u)\).
+On each universal matrix entry the value is the corresponding
+entry of \(\gamma_x(g)\operatorname{diag}(\Psi(g),1,\Psi(g)^{-1})\).
+In particular these values determine \(u_x\).
+
+\subsection{The saturated cotangent lattice}
+
+Write \(\pi:A\to R\) for the map from the graded model, \(x_A=x_0\pi\),
+\(I=\ker x_A\), and
+\[
+ I^{(2)}_{\rm sat}
+   =\{a\in A:\ \exists\,0\ne d\in\mathcal O,\ da\in I^2\}.
+\]
+The weight \(-1\) part of the kernel maps to a lattice \(L_-\) in
+\(A/I^{(2)}_{\rm sat}\). In the presentation let
+\(F_1,\ldots,F_{r+1}\) be the equations of weight \(-1\), and put
+\(C_-=L_-/\sum_i\mathcal O[F_i]\). Here \(r\) is the rank of
+\(L_-\), and brackets indicate images in the saturated quotient.
+
+We use the following particular lifting property of the graded
+presentation. For the \(D_x\) above, their pullbacks to \(A\) are
+reductions modulo \(b\) of \(\mathcal O\)-valued derivations at
+\(x_A\) supported in weight \(-1\). This is the assertion constructed
+in the source's \(\mathrm{ModelLower.main\_der}\). Its local argument
+lifts the weight-\(-1\) coboundary parameter at \(\ell\), hence gives
+a compatible integral local derivation. The presentation theorem then
+extends that derivation across the weighted ambient variables. It
+only prescribes their reductions on the global quotient. The
+extension is a derivation on \(A\), whereas \(D_x\) on \(R\) can
+have intrinsically torsion coefficients.
+
+For an integral lift \(\widetilde D_x\), Leibniz gives
+\(\widetilde D_x(I^2)=0\). If \(df\in I^2\) with \(d\ne0\),
+then \(d\widetilde D_x(f)=0\) in the domain \(\mathcal O\), so
+\(\widetilde D_x(f)=0\). The reduction kills \(I^{(2)}_{\rm sat}\).
+Each \(F_i\) maps to zero in \(R\), so \(D_x\pi(F_i)=0\).
+The resulting map
+\[
+                 V[b]\longrightarrow
+            \operatorname{Hom}_{\mathcal O}(C_-,Q_b)
+\]
+is injective. Indeed agreement on \(C_-\) gives agreement on all
+of \(A_{-1}\). The pullbacks vanish on the other homogeneous pieces
+by the support of their integral lifts, so they agree on \(A\).
+Every universal matrix coordinate has a homogeneous lift to \(A\).
+The formula for the \((2,1)\) coordinate now recovers \(u_x\), hence
+\(x\). In particular saturation here uses torsion-free target
+coefficients before reduction.
+
+The presentation's spanning condition says that the classes of the
+\(F_i\) span \(L_-\otimes_{\mathcal O}F\), and \(L_-\) is finite free.
+Over the DVR write \(C_-\simeq\bigoplus_i\mathcal O/\varpi^{c_i}\).
+If \(v_{\mathcal O}(b)=j\), its Hom group above has length
+\(\sum_i\min(c_i,j)\), since the image of each cyclic generator can
+be any element of \(Q_b\) killed by \(\varpi^{c_i}\).
+An injection of finite sets of modules of finite length over
+\(\mathcal O\) compares their lengths, since each module of length \(k\)
+has \((\#\mathcal O/\varpi)^k\) elements by a composition series.
+Thus \(\operatorname{length}V[b]\le\sum_i c_i\).
+Every continuous cocycle into the discrete group \(W\) has finite
+image because \(\Gamma\) is compact. Some power of \(\varpi\) kills
+that image. Thus \(V=\bigcup_j V[\varpi^j]\). The lengths in this
+increasing chain are bounded integers, and equality of two successive
+finite lengths implies equality of the corresponding nested modules.
+After its last strict increase the chain is constant. We conclude
+\begin{equation}
+                   \operatorname{length}_{\mathcal O} V
+                        \le \sum_i c_i .
+ \label{eq:single-cot-lower}
+\end{equation}
+
+\subsection{The two multiplicities in the intersection estimate}
+
+We spell out the source of the coefficient \(2\) in
+\eqref{eq:single-def-ineq}. Lift the three diagonal coordinates of
+\(r(\sigma)\) to elements of \(A_0\) and let \(a\in A_0\) be their
+sum minus \(t\), which belongs to \(\mathcal O\) in our normalization.
+Then \(x_A(a)=0\). At each point \(f\) of the deformation ring,
+\[
+                 f(\pi(a))=\operatorname{tr}\rho_f(\sigma)-t
+\]
+because \(\eta(\sigma)=1\). Scaling a homogeneous coordinate of
+weight \(k\) by \(z^k\), \(z\in\overline{\mathbb Q}_\ell^\times\),
+fixes this trace. Call a geometric point mixed if both a positive
+and a negative weight have some coordinate with nonzero value.
+Take \(T\) meeting every mixed orbit on the equations. The
+point and rigidity results mentioned below yield a finite such set.
+
+One may change generators among the \(r+1\) weight \(-1\) equations.
+Smith normal form gives generators with unchanged span and elements
+\(y_i\in A_{-1}\) such that
+\[
+  F_i\equiv\varpi^{c_i}y_i\pmod{I^{(2)}_{\rm sat}}
+     \quad(1\le i\le r),\qquad
+  F_{r+1}\equiv0\pmod{I^{(2)}_{\rm sat}} .
+\]
+The other equations come in \(s\) of weight \(-2\), \(r'\) of weight
+\(1\), \(s'\) of weight \(2\), and \(m\) of weight zero. Denote them
+by \(G_i,E_i,E'_i,Z_i\), respectively. The chart used for the
+intersection kills the \(Z_i\). One can replace \(a\) by a
+weight-zero representative modulo the equations whose image in the
+chart is nonzero. Its value and hence its valuation at every point
+of \(T\) is unchanged.
+
+For clarity the graded ring in the comparison is the three-variable
+Rees algebra \(\mathcal R\) over \(A_0\) of the following
+\(A_0\)-submodules of \(A\),
+\[
+    A_{-2},\quad A_2,\quad A_0F_{r+1}^2+A_{-2}^2 A_2.
+\]
+Its component at \(d=(d_0,d_1,d_2)\in\mathbb N^3\) has coefficients
+in the product of the respective \(d_i\)-th powers. Let \(s_*\)
+denote the following sequence of homogeneous sections. In degree
+\((1,0,0)\) take \(F_1^2,\ldots,F_r^2\) and all \(G_i\). In
+\((0,1,0)\) take all \(E_i^2,E'_i\). In \((0,0,1)\) take
+\(F_{r+1}^2\). Let \(\mathcal J\) consist of polynomials whose
+coefficients are killed by the chart map. It is a homogeneous
+ideal. Write \(M=\mathcal R/\mathcal J\) and \(\chi(-;-)_d\)
+for the Euler characteristic of the prescribed homogeneous sections
+on the indicated module in multidegree \(d\), using lengths.
+
+The lower chart estimate and upper point estimate in the source
+give the following chain for all sufficiently large multidegrees
+in the product order, with \(v_{\mathcal O}=e_{\mathcal O}v_\ell\):
+\begin{align}
+  2^{r+r'}\sum_i c_i
+       &\le \chi(s_*;M/aM)_d
+        \le \chi(a;M/(s_*)M)_d \notag\\
+       &\le 2^{r+1+r'}\sum_{\xi\in T}v_{\mathcal O}(\xi(a)).
+       \label{eq:single-rees}
+\end{align}
+The middle comparison uses regularity of \(a\) on \(M\). Indeed, in
+each coefficient the chart sends it to a nonzero power series in a
+domain, so \(a h\in\mathcal J\) implies \(h\in\mathcal J\). Applying
+the nonzerodivisor rule for Euler characteristics, permuting the
+sections, and applying the upper bound by the quotient by \(s_*\)
+gives the stated comparison. The source proves the required
+admissibility for this sequence before it uses these Euler rules.
+
+Here is the coefficient calculation on the lower side. The leading
+chart quotient modulo \(\varpi\) has as Hilbert function the number
+of monomials with total negative weight \(2d_0+4d_2\) and total
+positive weight \(2d_1+2d_2\). This identification and the lower
+Euler bound on pulling out scalar factors from homogeneous sections
+are inputs of the chart argument. In this quotient the first \(r\)
+sections have leading parts \(\varpi^{2c_i}y_i^2\). The latter Euler
+bound gives \(\sum_i2c_i\) times a finite difference of the Hilbert
+function. The difference uses \(r-1+s\) steps in direction zero,
+\(r'+s'\) in direction one, and one in direction two.
+
+We compute this difference directly. The chart after cutting the
+weight-zero equations has \(r,s,r'+1,s'+1\) variables of weights
+\(-1,-2,1,2\), respectively. Thus its bivariate monomial generating
+function is
+\[
+ H(X,Y)=\frac{1}{(1-X)^r(1-X^2)^s(1-Y)^{r'+1}(1-Y^2)^{s'+1}} .
+\]
+The coefficient is read at \(X^{2d_0+4d_2}Y^{2d_1+2d_2}\).
+The differences therefore multiply \(H\) by
+\((1-X^2)^{r-1+s}(1-Y^2)^{r'+s'}(1-X^4Y^2)\).
+Writing \(P=(1+X)^{r-1}(1+Y)^{r'}\), the product equals
+\[
+ \frac{P}{(1-X)(1-Y)}
+   +\frac{PY^2(1+X+X^2+X^3)}{(1-Y)(1-Y^2)} .
+\]
+This identity follows by splitting \(1-X^4Y^2=(1-Y^2)+Y^2(1-X^4)\).
+The second summand has bounded \(X\)-degree. At large degrees in
+both variables the first summand has coefficient
+\(P(1,1)=2^{r-1+r'}\). Multiplying this by \(\sum_i2c_i\)
+gives exactly the leftmost side of \eqref{eq:single-rees}.
+
+On the upper side the generic local length of each weight piece at
+the restriction of a mixed point to \(A_0\) is at most one for the
+original equations. This uses the point rigidity and the graded
+slice theorem. Replacing a homogeneous equation \(u\) of weight
+\(k\) by its square at most doubles a uniform bound on the local
+lengths of all the weight pieces. Indeed in a graded quotient \(P'\)
+the map \(P'/u^2P'\to P'/uP'\) has kernel \(uP'/u^2P'\). The latter
+is a quotient of \(P'/uP'\) via multiplication by \(u\), with a
+shift by \(k\). This remains a right-exact sequence on each graded
+piece and on localization. Thus a weight-\(j\) piece of the squared
+quotient has length at most the sum for weights \(j\) and \(j-k\)
+of the original quotient. Iterating over the \(r+1\) equations \(F_i\)
+and the \(r'\) equations \(E_i\) gives \(2^{r+1+r'}\). The other
+equations are unchanged. The upper Euler estimate uses a surjection
+onto the relevant large Rees pieces, then the length-versus-valuation
+formula on their support. Only the restrictions of mixed points can
+contribute. Their values of \(a\) are nonzero and have nonnegative
+valuation. Summing over \(T\) majorizes the sum over distinct
+restrictions even when several elements restrict to the same point.
+
+The algebraic results used for these two estimates occur in
+\(\mathrm{AdmissibleMonoIdeal.low\_holds}\),
+\(\mathrm{TwoSigned.up\_holds}\), and
+\(\mathrm{AlgMemCoef.core\_holds}\). The calculations above prove
+the two powers of two and the regularity check. They use, as separate
+inputs, the chart identification, the Euler rules and support
+comparison, and the generic local-length-one assertion. Since
+\(r\ge1\), cancellation of the positive factor \(2^{r+r'}\) in
+\eqref{eq:single-rees} yields
+\[
+               \sum_i c_i\le
+                 2\sum_{\xi\in T}v_{\mathcal O}(\xi(a)).
+\]
+
+\subsection{Identification of the points and coefficient descent}
+
+The cohomological hypothesis used for the construction consists of
+the local deformation inputs, normalized Poitou--Tate duality, global
+cohomological finiteness and the global Euler characteristic theorem,
+and the size bound for \(H^2\) called Lemma~\(K\).
+Together with the presentation theorem called Lemma~\(P\), these
+give the marked ring and its graded model, including the integral
+lifting property used above. Over unramified coefficients the
+automorphy input supplies the marking, finiteness of the subalgebra
+of weight-zero matrix monomials over \(\mathcal O\), automorphy for
+points of the first type, and modularity for the two-dimensional
+extensions occurring at points of the second type.
+
+More precisely, the point condition is deduced in
+\(\mathrm{FPtHypU}\). It identifies a point that is both upper and
+lower with the base point, makes the prescribed tangent vectors at
+the base coboundaries by nonpositive-weight Bloch--Kato vanishing,
+and makes tangent vectors at mixed points coboundaries by adjoint
+Selmer vanishing. For points of the first type the last vanishing
+uses \(\mathrm{RigidityFirstCase}\) at the automorphic representation.
+For points of the second type, the proof uses the rank-two Kato input
+\(\mathrm{KatoTwoW}\), \(\mathrm{RigiditySecondCase}\) for the
+two-dimensional extension of determinant \(\eta\), and its modularity.
+These give the point, tangent and spanning hypotheses of the graded
+intersection estimate. The first type is admissible by
+\(\mathrm{AdmI}_s\). The second is admissible by the theorem on
+modular extensions of type II. These are arithmetic inputs, additional
+to the linear and intersection calculations above.
+
+The local-point comparison in the graded presentation puts every
+mixed point, up to the scaling action, over a point of \(R\). Conversely
+it identifies mixed points of \(R\) with those graded points having
+both signs. The matrix coordinates of weight \(j\) scale by \(z^j\). On representations this is conjugation by
+\(\operatorname{diag}(z,1,z^{-1})\). Choose one point of \(R\) per
+mixed orbit. The marked shape theorem says that for two mixed points
+an isomorphism between their restrictions to \(G_K\) is induced by
+such a diagonal conjugacy. Thus restriction to \(G_K\) gives a set
+\(X\) with one representative per isomorphism class in its image,
+and summing over these representatives preserves the valuation
+sum. Each term is the trace difference above. Combining the upper
+estimate with \eqref{eq:single-cot-lower} and dividing by
+\(e_\mathcal O\) proves \eqref{eq:single-def-ineq} for the
+unramified coefficient choice.
+
+Finally the order \(m_\psi\) of \(\psi\) is prime to \(\ell\).
+Choose \(f>0\) with \(m_\psi\mid\ell^f-1\). The required roots
+of unity lift by Hensel's lemma from \(\mathbb F_{\ell^f}\) to
+the unramified degree-\(f\) extension, so the same character values
+occur in an unramified coefficient ring. To compare with the original
+ring take a finite compositum. For an inclusion of coefficient rings
+\(\mathcal O_1\subset\mathcal O_2\) the latter is finite free, and
+\((F_1/\mathcal O_1)\otimes_{\mathcal O_1}\mathcal O_2
+ \simeq F_2/\mathcal O_2\).
+After choosing an \(\mathcal O_1\)-basis of \(\mathcal O_2\),
+continuous cochains and restrictions for this scalar extension are
+finite direct sums of their originals, so the kernels defining
+the strict group commute with extension. For a finite length
+module a composition series shows that its length is multiplied by
+the relative ramification index, since the extension of a residue
+field factor is \(\mathcal O_2/\varpi_1\). Finiteness also descends
+by finite freeness. The denominator \(v_{\mathcal O_i}(\ell)\)
+changes by the same index. Thus the normalized length, its finiteness,
+and the target trace are the same in both coefficient realizations.
+This is the coefficient comparison of \(\mathrm{CoefIndep}\) in the
+proof of \(\mathrm{FOneCharU}\).

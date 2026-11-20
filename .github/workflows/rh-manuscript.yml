@@ -115,10 +115,21 @@ jobs:
               exit 0
             fi
           else
-            gh release create "$tag" --repo "$repo" --target "$GITHUB_SHA" --draft --latest=false \
-              --title "RH manuscript at ${GITHUB_SHA:0:12}" \
-              --notes "PDF and single-file LaTeX from source commit $GITHUB_SHA."
+            notes="The PDF and single-file LaTeX were built from https://github.com/$repo/commit/$GITHUB_SHA. The assets identify the source edition even if the publication tag is created after another workflow change."
+            create_release() {
+              gh release create "$tag" --repo "$repo" --target "$1" --draft --latest=false \
+                --title "RH manuscript at ${GITHUB_SHA:0:12}" --notes "$notes"
+            }
+            if ! create_release "$GITHUB_SHA" 2>"$RUNNER_TEMP/rh-release-error"; then
+              cat "$RUNNER_TEMP/rh-release-error" >&2
+              grep -qi 'Resource not accessible by integration' "$RUNNER_TEMP/rh-release-error" || exit 1
+              create_release "${{ github.event.repository.default_branch }}"
+            fi
           fi
           gh release upload "$tag" paper/rh-translation.pdf paper/rh-translation.tex --repo "$repo" --clobber
-          gh release edit "$tag" --repo "$repo" --draft=false --latest=false
+          if ! gh release edit "$tag" --repo "$repo" --draft=false --latest=false 2>"$RUNNER_TEMP/rh-release-error"; then
+            cat "$RUNNER_TEMP/rh-release-error" >&2
+            grep -qi 'Resource not accessible by integration' "$RUNNER_TEMP/rh-release-error" || exit 1
+            gh release edit "$tag" --repo "$repo" --draft=false --latest=false --target "${{ github.event.repository.default_branch }}"
+          fi
           echo "Published https://github.com/$repo/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"

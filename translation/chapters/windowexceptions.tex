@@ -1,0 +1,335 @@
+\section{Counting the exceptional characters and primes}
+\label{sec:window-exceptions}
+
+We prove the zero-density estimate and give the progression mean-square
+reduction used in Section~\ref{sec:rh-common-windows}. The density
+estimate counts primitive characters for which at least one zero
+occurs. Each character contributes one to the count irrespective of
+the multiplicity or number of such zeros.
+
+\subsection{A detector for a single zero}
+
+Put \(\sigma_0=399/400\). For \(Q\ge3\) consider primitive
+characters \(\chi\) of conductor \(q\le Q\) with a zero \(\rho\)
+satisfying \(\Re\rho>\sigma_0\), \(|\Im\rho|\le Q\).
+There is an absolute constant \(C\) such that their number is at
+most \(CQ^{1/4}\).
+
+It suffices to treat large \(Q\), since a bounded conductor range
+contains only finitely many characters. The character of conductor
+one contributes at most one. For each of the others select one zero
+in the box. These characters are nonprincipal, and the classical
+nonvanishing theorem on \(\Re s\ge1\) gives \(\Re\rho<1\).
+For \(Q\ge20\) set
+\[
+ X=\lceil Q\rceil,\quad Y=X^4,\quad
+ J=8(\lfloor\log_2 X\rfloor+1),\quad N=2^J .
+\]
+Then \(X^8\le N\le256X^8\). Write \(P_\chi(s)=
+\sum_{b\le N}\chi(b)b^{-s}\) and \(M_\chi(s)=
+\sum_{a\le Y}\mu(a)\chi(a)a^{-s}\), with all sums starting at one.
+Character orthogonality over a complete period bounds each prefix
+sum of \(\chi\) by \(q\). In the half-plane \(\sigma=\Re s>0\)
+the resulting Dirichlet series converges to \(L(s,\chi)\) by partial
+summation and analytic continuation from \(\Re s>1\). More explicitly,
+the tail is bounded by \(2(q+1)(1+|s|/\sigma)N^{-\sigma}\):
+apply partial summation to \(t^{-s}\), use the prefix bound at the
+endpoint and integrate \(|s|t^{-\sigma-1}\) to infinity.
+At the selected zero this bounds \(|P_\chi(\rho)|\).
+Now \(q+1\le2X\), \(1+|\rho|/\Re\rho\le3X\), and
+\(N^{\Re\rho}\ge N^{15/16}\ge X^7\sqrt X\ge4X^7\).
+As \(|M_\chi(\rho)|\le Y\), we have
+\[
+     |P_\chi(\rho)M_\chi(\rho)|
+       \le\frac{2(2X)(3X)}{4X^7}X^4=\frac{3}{X}\le\tfrac12.
+\]
+The Möbius convolution makes this small product a detector. Define
+\(a_n=\sum_{a\le Y,\,b\le N,\,ab=n}\mu(a)\).
+Then \(a_1=1\), and for \(1<n\le Y\) the sum runs over every
+divisor of \(n\), so \(a_n=0\). Consequently
+\[
+ P_\chi(\rho)M_\chi(\rho)=
+     1+\sum_{Y<n\le YN}a_n\chi(n)n^{-\rho}.
+\]
+The last sum has magnitude at least \(1/2\). The \(J\) consecutive
+blocks \((U,2U]\), \(U=Y2^j,\ 0\le j<J\), partition its range.
+Select a block for which
+\[
+ \left|\sum_{U<n\le2U}a_n\chi(n)n^{-\rho}\right|
+              \ge\frac{1}{2J}.
+\]
+
+\subsection{How many characters can use one block?}
+
+The elementary divisor bound \(d(n)\le C_0 n^{1/400}\) applies
+uniformly in \(Y,N\), since \(|a_n|\le d(n)\).
+To obtain it, for sufficiently large primes \(p\) use
+\(e+1\le2^e\le p^{e/400}\) for every \(e\ge0\).
+For each of the finitely many smaller primes the supremum of
+\((e+1)p^{-e/400}\) is finite. Their product gives \(C_0\).
+Hence \(b_n=a_nn^{-\sigma_0}\) satisfies, for \(U\ge1\),
+\[
+ \sum_{U<n\le2U}|b_n|^2
+   \le C_0^2 U^{1-2(199/200)}
+   \le C_0^2 U^{-197/200}.
+\]
+Put \(C_1=C_0^2\). For the set \(T\) of characters assigned to this
+block define \(v_\chi(n)=\chi(n)n^{-(\rho_\chi-\sigma_0)}\).
+Each Gram matrix diagonal is at most \(U\). For distinct primitive
+\(\chi,\chi'\) the character \(\chi\overline{\chi'}\) lifted to
+modulus \(qq'\) is nonprincipal. Otherwise their inflations agree
+on units and have the same primitive inducing character, forcing
+the original characters, including conductors, to agree.
+Its sum over a full period vanishes and every prefix has absolute
+value at most \(qq'\). For \(w=\rho_\chi-\sigma_0+
+\overline{\rho_{\chi'}-\sigma_0}\), partial summation gives
+\[
+ \left|\sum_{U<n\le2U}\chi(n)\overline{\chi'(n)}n^{-w}\right|
+       \le 2qq'(1+|w|)\le8Q^3.
+\]
+Indeed \(\Re w>0\), \(|\Im w|\le2Q\), \(\Re w<2(1-\sigma_0)\);
+on the interval the total variation of \(t^{-w}\) is at most
+\(|w|\int_U^{2U}dt/t\le|w|\). Prefix differences cost at most
+\(2qq'\). The sum of the absolute values in each Gram row is
+therefore at most \(\Delta=U+8|T|Q^3\).
+
+For clarity, put \(s_\chi=\sum_n b_n v_\chi(n)\),
+\(Z=\sum_\chi|s_\chi|^2\), and \(w_n=\sum_\chi\overline{s_\chi}
+v_\chi(n)\). Then \(Z=\sum_n b_n w_n\). By Cauchy--Schwarz,
+\(Z^2\le\|b\|_2^2\sum_n|w_n|^2\). Expanding the second factor and
+using \(2|s_\chi||s_{\chi'}|\le |s_\chi|^2+|s_{\chi'}|^2\)
+bounds it by \(\Delta Z\), since the absolute Gram matrix is symmetric.
+Division by \(Z\) when \(Z>0\), with the zero case immediate, gives the claimed bound.
+The detector now gives
+\[
+ \frac{|T|}{4J^2}
+ \le C_1 U^{-197/200}\{U+8|T|Q^3\}.
+\]
+Since \(U\ge X^4\ge Q^4\), the coefficient of \(|T|\) on the right
+is at most \(8C_1Q^{-47/50}\), which is at most \(1/(8J^2)\)
+for all sufficiently large \(Q\). Moving that term to the left yields
+\[
+                 |T|\le8C_1 J^2 U^{3/200}.
+\]
+There are \(J\) possible blocks, each with
+\(U\le YN\le256X^{12}\le2^{20}Q^{12}\). For all sufficiently
+large \(Q\), \(J\le32\log Q\) and \(J^3\le Q^{7/100}\).
+Including the possible character of conductor one, the count is
+therefore bounded by
+\[
+ 1+8C_1 (2^{20})^{3/200}
+           Q^{7/100+12(3/200)}\ll Q^{1/4}.
+\]
+The classical inputs in this argument are orthogonality of
+Dirichlet characters, uniqueness of primitive induction, analytic
+continuation and nonvanishing on the line \(\Re s=1\) for
+nonprincipal Dirichlet characters. Each bound on the detector,
+the block Gram matrix and the final count has been derived above.
+
+In a prime stage with upper endpoint \(V\) and base conductor
+at most \(F\le\sqrt V\), put \(Q=FV\). A candidate \(p>\sqrt V\)
+failing the zero-free condition yields a primitive offending twist
+of conductor \(fp\) for \(1\le f\le F\). If the twists for \(p,p'\)
+coincide, then \(fp=f'p'\) and \(p>F\ge f'\) give \(p=p'\).
+There are at most \(O(Q^{1/4})=O(V^{3/8})\) failures. Against the
+source's separate prime-progression lower bound \(V^{9/10}\), this
+is a fraction \(O(V^{-21/40})\).
+
+\subsection{The quadratic mean square on the actual progressions}
+
+For this part write \(Y\) for the lower endpoint denoted \(U\) in
+Section~\ref{sec:rh-common-windows}, and \(V\) for the upper cutoff
+on candidate primes. Choose \(0<\epsilon\le1\) and \(K\ge1\).
+Set \(w=Y^{\epsilon/5}\), \(Z=(Y^K)^{400}\), \(N=\lfloor Z\rfloor\)
+and \(L=\log Y\). The base progression has modulus \(m_0>0\)
+divisible by \(8\), and a reduced class \(a_0\). Assume
+\[
+ \tfrac14 L^2\log m_0\le\log V,\qquad
+ Y^{\epsilon/6}\le\log V\le Y^{\epsilon/5}L^2,\qquad
+ p\mid m_0\ \Longrightarrow\ p\le w\ \text{or}\ p>Z
+\]
+for prime \(p\). Let \(\mathcal P=\{q:\sqrt V<q\le V,\,
+q\text{ prime},\ q\equiv a_0\bmod m_0\}\).
+For \(Y\) sufficiently large in terms of \(\epsilon,K\),
+every \(q\in\mathcal P\) exceeds \(N^2\), since
+\(1600K\log Y\le Y^{\epsilon/6}\le\log V\).
+For \(Y\le y\le Y^K\) put
+\[
+ c(n)=\Lambda(n)\min(1,y/n),\qquad
+ S_q=\sum_{1\le n\le N} c(n)\kappa(n)\left(\frac{n}{q}\right).
+\]
+We show that
+\begin{equation}
+ \sum_{q\in\mathcal P}|S_q|^2\le C y\log y\,|\mathcal P|
+ \qquad (|\kappa(n)|\le1).
+ \label{eq:window-progress-variance}
+\end{equation}
+The absolute constant \(C\) is independent of \(\epsilon,K\);
+the lower threshold on \(Y\) may depend on them.
+
+The input about primes in progressions is the following instance
+of \texttt{twistK}. For all but at most one odd squarefree
+\(s>1\) coprime to \(m_0\) and bounded by \(Y^{800K}\), one has
+\begin{equation}
+ \left|\sum_{q\in\mathcal P}\left(\frac{q}{s}\right)\right|
+       \le\eta|\mathcal P|,\qquad \eta=Y^{-(K+1)} .
+ \label{eq:window-jacobi}
+\end{equation}
+We give its classical inputs explicitly. The relative
+prime number theorem in arithmetic progressions in the source
+has main term \(\operatorname{li}(V)/\varphi(M)\), with a correction
+\(-\chi_1(b)\operatorname{li}(V^{\beta_1})/\varphi(M)\)
+when the real exceptional zero is present. Here
+\(M=m_0s\), \(b\) is reduced, and the relative error is
+\[
+ O\!\left(e^{-c\log V/\log M}+e^{-\sqrt{c\log V}}\right)
+ \quad\text{when}\quad C_0\log M\log(\log M+2)\le\log V .
+\]
+The zero-free region and the Landau--Page uniqueness bound are
+applied across the moduli \(M\le H=m_0Y^{800K}\).
+Summing the main term against the Jacobi character across the
+classes \(b\equiv a_0\bmod m_0\) gives zero by orthogonality.
+An exceptional term survives only if the exceptional character
+agrees with the Jacobi character on units congruent to \(1\bmod m_0\).
+Two such characters with \(1-\beta_1<c'/\log H\) induce the
+same primitive character by Landau--Page. Hence the two Jacobi
+characters coincide on those units. By the Chinese remainder
+theorem a differing odd prime factor in their squarefree moduli
+would allow a quadratic nonresidue there and ones at all other
+factors and modulo \(m_0\), forcing opposite values.
+There is thus at most one exceptional modulus \(s_*\).
+When \(1-\beta_1\ge c'/\log H\) the surviving correction
+relative to \(\operatorname{li}(V)\) is bounded by
+\(4\log V\exp(-c'\log V/\log H)\). For fixed \(\epsilon,K\)
+the hypotheses imply \(\log V/\log H\gg(\log Y)^2\) and
+\(\log\log V=O(\log Y)\), while \(\sqrt{\log V}\) grows faster
+than every fixed power of \(\log Y\). These errors are
+\(o(Y^{-(K+1)})\). Removing primes up to \(\sqrt V\)
+costs at most \(V^{1/2}\le V^{-2/5}|\mathcal P|\), by the
+separate progression-count input \(|\mathcal P|\ge V^{9/10}\).
+The relative-error estimate also applies to the unweighted count
+of the classes, which is the denominator in \eqref{eq:window-jacobi}.
+This is the role of the relative form of the prime number theorem.
+The source proves the uniform comparison in \texttt{twistK}
+and invokes the relative prime number theorem, the zero-free region
+and the exceptional-zero bound there.
+
+Expand the square of \(S_q\) and use \(|\kappa|\le1\).
+For \(h=nn'\), define \(s(h)\) to be the product of primes
+outside \(m_0\) having odd exponent in \(h\).
+Quadratic reciprocity and its supplement for \(2\) give
+\[
+ \left|\sum_{q\in\mathcal P}\left(\frac{nn'}q\right)\right|
+     =\left|\sum_{q\in\mathcal P}\left(\frac{q}{s(nn')}\right)\right|.
+\]
+Indeed every prime factor of \(nn'\) is less than \(q\);
+square factors contribute one. The sign in reciprocity depends
+only on \(q\bmod4\), the factor from \(2\) only on \(q\bmod8\),
+and the factors from primes dividing \(m_0\) are fixed by the
+progression. Their product is independent of \(q\).
+The bound \(s(nn')\le N^2\le Y^{800K}\) permits
+\eqref{eq:window-jacobi} at all pairs except those with
+\(s(nn')=1\) or \(s(nn')=s_*\).
+
+Write \(A_p=\sum_{p^j\le N,\,j\ge1}c(p^j)\),
+\(B=\sup_p A_p\), and let \(R\) be the sum of \(c(p^j)\)
+over powers for which \(j\) is even or \(p\mid m_0\).
+Only prime powers have nonzero coefficient.
+For \(s(nn')=1\), either both powers have the same base prime or
+both have trivial squarefree part outside \(m_0\). Their total
+weight is at most \(\sum_p A_p^2+R^2\).
+For a specified \(s_*>1\), if it is prime, pairs with different
+base primes have one factor with outside part \(s_*\) and the
+other with trivial outside part, giving at most \(2BR\); pairs
+with the same base prime have weight at most \(B^2\).
+If \(s_*\) has two distinct prime factors the only possible
+bases are those two, giving at most \(2B^2\).
+Three or more prime factors give no pairs.
+Use the sum \(2B^2+2BR\) in all cases. We have obtained
+\begin{equation}
+ \sum_{q\in\mathcal P}|S_q|^2\le|\mathcal P|
+ \left\{\sum_p A_p^2+R^2+2B^2+2BR+
+                      \eta\left(\sum_{n\le N}c(n)\right)^2\right\}.
+ \label{eq:window-pair-split}
+\end{equation}
+
+Here are the size estimates that keep the constant absolute.
+For \(y\ge3\), \(A_p\le3\log y\). If \(p\le y\) sum the terms
+through \(\lfloor\log y/\log p\rfloor\) and then the decreasing
+geometric tail, whose sum in units of \(\log p\) is at most \(2\).
+If \(p\ge y\), use \(A_p\le 2y\log p/p\le2\log y\) by
+monotonicity of \((\log t)/t\) for \(t\ge3\).
+The prime diagonal satisfies
+\(\sum_p A_p^2\le C_3 y\log y\). Indeed the primes up to
+\(\sqrt y\) contribute at most \(9\sqrt y(\log y)^2\);
+on \(\sqrt y<p\le y\) use
+\(A_p^2\le18\log y\log p\) and
+\(\sum_{p\le y}\log p\le y\log4\).
+For \(p>y\) use \(A_p^2\le4y^2(\log p)^2/p^2\).
+On \(t<p\le2t\), the sum of \((\log p)^2/p^2\) is at most
+\(2(\log4)\log(2t)/t\), by the same Chebyshev estimate. Summing
+the dyadic bounds \(t=2^j y\) gives \(O(\log y/y)\) and proves
+the diagonal estimate. The Chebyshev bound follows, for example,
+from the primorial bound \(\prod_{p\le n}p\le4^n\).
+
+For \(R\), the total from even powers is at most
+\(\sum_{a\le N}\Lambda(a)\min(1,y/a^2)\).
+Use \(\sum_{a\le t}\Lambda(a)\ll t\), the elementary Chebyshev
+bound, on \(a\le\sqrt y\) and on successive dyadic intervals above
+\(\sqrt y\). The first sum is \(O(\sqrt y)\), and interval \(j\)
+in the tail is \(O(2^{-j}\sqrt y)\).
+All remaining base primes in \(R\) divide \(m_0\) and are at most
+\(N\), hence at most \(w\). There are at most \(w\) of them,
+each contributing at most \(3\log y\).
+Thus \(R\le C_1(\sqrt y+w\log y)\).
+Since \(w\le y^{1/5}\), the elementary inequality
+\(\log y\le(10/3)y^{3/10}\) gives \(R\le5C_1\sqrt y\).
+Finally, partial summation of the Chebyshev bound gives
+\(\sum_{n\le N}c(n)\le y\sum_{n\le N}\Lambda(n)/n\le C_4 y\log Z\)
+in the range at issue. For fixed \(K\) and all sufficiently large
+\(Y\), \((\log Z)^2=(400K\log Y)^2\le Y\).
+Then \(\eta y^2(\log Z)^2\le y\), since \(y\le Y^K\).
+All five expressions in braces in \eqref{eq:window-pair-split}
+are \(O(y\log y)\). More precisely with \(B\le C_2\log y\),
+the source takes
+\[
+ C=C_3+25C_1^2+4C_2^2+20C_1C_2+C_4^2.
+\]
+This proves \eqref{eq:window-progress-variance}, including its
+uniformity for arbitrary complex multipliers.
+
+At the first selection take \(m_0=8,\ a_0=3,\ V=e^w\).
+At the second take \(m_0=16q\prod_{2<p\le w}p\), the reduced
+class of Section~\ref{sec:rh-common-windows}, and
+\(V=e^{w(\log Y)^2}\). In this second stage \(q>\sqrt{e^w}>Z\)
+for large \(Y\), so adjoining \(q\) to \(m_0\) preserves the
+condition on prime divisors. The modulus bound follows from
+\(\log q\le w\) and \(\sum_{p\le w}\log p\le w\log4\),
+which give \(\log m_0\le4w\) for large \(Y\).
+Thus the same \(K\) and lower endpoint \(Y\) apply in both stages.
+The moving-point estimate and finite union over characters in
+Section~\ref{sec:rh-common-windows} then give the required
+exceptional fraction with \(\tau=\epsilon/2\) on all of
+\([Y,Y^K]\).
+
+\paragraph{Source correspondence.}
+The density proof is
+\texttt{CountZAll.zero\_density\_box}, with the exact detector in
+\texttt{CountZDetect}, the coefficient square estimate in
+\texttt{CountZMoll}, the interval character sums in
+\texttt{CountZPair} and \texttt{CountZTwist}, the Gram bound in
+\texttt{CountZBlock} and \texttt{CountZDual}, and the parameter
+choice in \texttt{CountZNum} and \texttt{CountZFinal}. These are
+the modules under
+\srcid{Formalism.GL3MeanSquares.GenusMeanAsymptotics.JacobiCharacterSums}.
+For the second estimate \srcid{QH.meanSqK} uses
+\texttt{twistK}, \texttt{MeanSqAbs}, \texttt{SumMinLeDiv},
+\texttt{SPsqLe}, \texttt{RRLe} and \texttt{SumCNLe} under
+\srcid{Development.AutomorphicArithmetic.MeanSquareBounds}.
+The relative prime number theorem is invoked as
+\texttt{pnt\_progressions\_relative\_weak\_holds}, the zero-free
+region as \texttt{zFRDirichlet}, the exceptional-zero estimate as
+\texttt{excBound}, and the rational-prime count as
+\texttt{count\_a}. The explicit formula that converts these
+finite prime sums to centered sums of the twists is a separate
+input in \texttt{BoxOfS}.

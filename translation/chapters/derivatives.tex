@@ -1,0 +1,328 @@
+\section{Cyclotomic derivatives at the initial and auxiliary primes}
+\label{sec:minus-derivatives}
+
+We establish the two local relations for \(\nu_L\) used in
+Section~\ref{sec:minus-characterwise}. Fix \(M=\ell^m\), \(m\ge1\),
+\(\ell\) odd, \(P=N_0M\) with \(\ell\nmid N_0\), and a prime
+\(r\equiv1\bmod P\). Put \(K_n=\mathbb Q(\mu_{Pn})\) and
+\(H=G_{K_1}\). Each index \(n\) is the product of a list \(L\) of
+distinct admissible primes, in the sense of the preceding section.
+Let \(\alpha\) be the character there and \(\beta=\kappa\alpha^{-1}\).
+On \(H\), \(\alpha\equiv1\bmod M\). Choose
+\(\delta\) with \(\alpha(\delta)-\kappa(\delta)\) a unit, and an
+integer \(a\) giving the action of \(\delta\) on \(\mu_M\).
+Thus \(\alpha(\delta)-a\) is a unit. Write \(T(v)=\delta(v)/v^a\).
+The map \(T\) is multiplicative and kills \(\mu_M\).
+
+\subsection{The input cyclotomic elements and the derivatives}
+
+The cyclotomic input supplies \(X_n\in K_n^\times\), units away
+from \(r\), and integers \(s(n,q)\ge1\) prime to
+\(\ell\) for each admissible extension \(n\mapsto qn\).
+For \(\tau_q\) acting as a generator on \(\mu_q\) and fixing the
+prime-to-\(q\) cyclotomic factors, and \(\phi\) acting on \(K_n\)
+by the exponent \(q\), the input says
+\[
+  \operatorname N_q X_{qn}
+    =\eta\,(X_n/\phi^{-1}X_n)^{s(n,q)},\qquad
+  X_{qn}\equiv\eta'\,(\phi^{-1}X_n)^{s(n,q)}\quad\bmod\mathfrak q
+\]
+at all places \(\mathfrak q\mid q\). Here \(\operatorname N_q\)
+denotes the norm \(K_{qn}/K_n\). Both error factors are roots
+of unity of order dividing \(2Pqn\), and the same \(\eta'\) works
+for all these places. At a fixed place \(A_0\mid r\), normalized by
+\(v_{A_0}(r)=1\), the prescribed initial divisor is
+\(v_{A_0}(\sigma_t X_1)=h_b(t)\) for every lift \(\sigma_t\) of
+\(t\in(\mathbb Z/P\mathbb Z)^\times\), with \(h_b\) as in the
+preceding section. This is the input called \texttt{laxEx}. Its
+construction uses cyclotomic ideal factorizations, relative norms
+and congruences of chosen generators.
+
+Put \(x_n=T(X_n)^{2N_0n}\) and \(c(n,q)=q\,s(n,q)\).
+If \(\eta^{2Pqn}=1\), then \(\eta^{2N_0qn}\in\mu_M\), so
+\(T(\eta)^{2N_0qn}=1\). Norm and the automorphism \(\delta\) commute
+on these abelian cyclotomic fields. Conjugating a place above \(q\)
+gives another place above \(q\), so \(T\) preserves the congruences
+with the indicated transformed error. Applying \(T\) and raising
+to \(2N_0qn\) gives
+\begin{equation}
+ \operatorname N_q x_{qn}=(x_n/\phi^{-1}x_n)^{c(n,q)},\qquad
+ x_{qn}\equiv(\phi^{-1}x_n)^{c(n,q)}\pmod{\mathfrak q}.
+ \label{eq:deriv-norm}
+\end{equation}
+The exponents here explain the factor \(q\) in the final transition
+unit. Since \(q\equiv1\bmod P\), it is prime to \(\ell\).
+
+For \(v\in K_{qn}^\times\) set
+\(D_q(v)=\prod_{i=0}^{q-2}(\tau_q^iv)^i\). Let \(D_L\) be the
+composition over \(L\) and set \(y_L=D_L(x_n)\). All these
+operators commute with automorphisms on the cyclotomic field
+and with each other. Telescoping the consecutive powers and using
+\(\tau_q^{q-1}=1\) there gives
+\begin{equation}
+ \frac{\tau_q(D_q v)}{D_q v}
+       =\frac{v^{q-1}}{\operatorname N_q v}.
+ \label{eq:deriv-telescoping}
+\end{equation}
+For every \(g\in H\), \(g(y_L)/y_L\) is an \(M\)-th power in
+\(K_n^\times\). To verify this, use induction on \(|L|\).
+The empty-list element belongs to \(K_1\). For \(q\in L\) write
+\(n=qn'\) and \(L'=L\setminus\{q\}\). Equations \eqref{eq:deriv-norm} and \eqref{eq:deriv-telescoping} give
+\[
+ \frac{\tau_q(y_L)}{y_L}
+  =D_{L'}(x_n)^{q-1}
+       \left(\frac{\phi^{-1}y_{L'}}{y_{L'}}\right)^{c(n',q)} .
+\]
+The first factor is an \(M\)-th power because \(M\mid q-1\).
+For the second use the induction hypothesis since \(\phi^{-1}\)
+fixes \(K_1\). The restrictions of all these \(\tau_q\) generate
+\(\operatorname{Gal}(K_n/K_1)\) by the Chinese remainder theorem.
+The elements \(g\) satisfying the assertion form a subgroup, since
+\(K_n\) is Galois and the \(M\)-th powers are preserved by every
+automorphism. This proves the assertion.
+
+\subsection{The Kummer classes and their projection}
+
+Choose a primitive \(M\)-th root \(\zeta\), and \(Y\) with \(Y^M=y_L\).
+For \(g\in H\) take \(v_g\in K_n\) with \(v_g^M=g(y_L)/y_L\).
+Define \(\kappa_L(g)\in\mathbb Z/M\) by
+\begin{equation}
+ \zeta^{\kappa_L(g)}
+       =\frac{g(TY)}{TY\,T(v_g)} .
+ \label{eq:deriv-kummer}
+\end{equation}
+The right side has \(M\)-th power one since \(g\) and \(\delta\)
+commute on \(K_n\). Changing either root changes it by an element of
+\(\mu_M\), which \(T\) kills. Taking
+\(v_{gh}=g(v_h)v_g\) proves additivity, since \(T(gv_h)=g(Tv_h)\)
+and \(g\) fixes \(\mu_M\). Local constancy follows by restricting to
+a finite extension containing \(Y,\delta Y\) and the finitely many
+roots \(v_g\) required for the finite possible actions on \(K_n\).
+At a prime \(p\nmid Prn\), inertia fixes \(K_n\). The element \(y_L\)
+is a \(p\)-adic unit and \(p\nmid M\), so it has an \(M\)-th root
+in the local unramified extension, by reduction and Hensel's lemma.
+The same holds for \(\delta y_L\) at this place. Thus the chosen
+roots are unramified there, and \eqref{eq:deriv-kummer} gives zero on inertia.
+
+Let \(w\) be a generator of the cyclic module \(W[M]\). Using the
+lifts fixed in the preceding chapter, set
+\begin{equation}
+    \nu_L(h)=\sum_t \kappa_L(\sigma_t^{-1}h\sigma_t)
+                                 \,\beta(\sigma_t)w,\qquad h\in H .
+ \label{eq:deriv-projection}
+\end{equation}
+This is independent of representatives for the residues of
+\(\kappa_L\), since \(Mw=0\). It is locally constant, additive on
+\(H\), killed by \(M\), and has the inertia vanishing just established.
+Conjugation by \(g\in G_{\mathbb Q}\) multiplies \eqref{eq:deriv-projection} by \(\beta(g)\):
+reindex the sum through the action of \(g\) modulo \(H\).
+Conjugation by elements of \(H\) preserves the additive homomorphism
+\(\kappa_L|_H\), and \(\beta|_H\equiv1\bmod M\).
+
+\subsection{The initial value at \(r\)}
+
+Take \(\rho^M=r\) and choose \(t_0\in I_{A_0}\) with
+\(t_0(\rho)=\zeta\rho\). Such an element exists since \(r\nmid M\)
+and the \(M\)-th root of the uniformizer generates a totally tamely
+ramified extension over the unramified field containing \(\mu_M\).
+In the empty-list case \(y=x_1\) belongs to \(K_1\). Write
+\(K(t)=v_{A_0}(\sigma_t T(y))\); these are integers. Let \(Y^M=y\)
+and \(W_t=\sigma_t T(Y)\). Then \(v_{A_0}(W_t)=K(t)/M\), so
+\(W_t/\rho^{K(t)}\) is a unit. The \(M\)-th power of this unit is
+fixed by \(t_0\), since \(T(y)\) and its conjugates belong to the
+unramified cyclotomic field at \(r\). Its quotient under \(t_0\) is
+therefore an \(M\)-th root of unity reducing to one. It equals one,
+as \(r\nmid M\). Thus \(t_0(W_t)/W_t=\zeta^{K(t)}\). In \eqref{eq:deriv-kummer} the
+element \(v_g\) for \(g=\sigma_t^{-1}t_0\sigma_t\) has \(M\)-th
+power one. Applying \(\sigma_t\) to \eqref{eq:deriv-kummer} gives
+\[
+       [t]\kappa_{\varnothing}(\sigma_t^{-1}t_0\sigma_t)
+                         =K(t)\pmod M .
+\]
+
+Define \(\mathcal Z(k)=\sum_t k(t)\alpha(\sigma_t)^{-1}\).
+Because \(\kappa(\sigma_t)\equiv[t]\bmod M\) for the cyclotomic
+character \(\kappa\), equation \eqref{eq:deriv-projection} gives
+\(\nu_{\varnothing}(t_0)=\mathcal Z(K)w\).
+If \(\delta\) corresponds to \(d\in(\mathbb Z/P\mathbb Z)^\times\),
+the operator \(T\) transforms the divisor vector \(k(t)\) into
+\(k(td)-a k(t)\). Permuting \(t\mapsto td\) shows that \(\mathcal Z\)
+of this new vector equals
+\((\alpha(\delta)-a)\mathcal Z(k)\) modulo \(M\), since
+\(\alpha|_H\equiv1\bmod M\). Now \(T(y)=T(T(X_1)^{2N_0})\).
+Apply this transformation twice and the multiplicity \(2N_0\) once,
+starting from \(h_b(t)\). As \(z=\mathcal Z(h_b)\),
+\begin{equation}
+      \nu_{\varnothing}(t_0)
+             =2N_0(\alpha(\delta)-a)^2 zw .
+ \label{eq:deriv-initial}
+\end{equation}
+The multiplier is a unit because \(\ell\nmid2N_0\) and
+\(\alpha(\delta)-a\) is a unit. This proves the initial relation with
+its actual coefficient.
+
+\subsection{The transition from Frobenius to inertia}
+
+Let \(q\notin L\) be admissible, \(n=\prod_{p\in L}p\),
+\(c=c(n,q)\) and \(k=(q-1)/M\). At a fixed place over \(q\) take
+an arithmetic Frobenius \(\phi\) and \(t_q\) in inertia whose action
+on \(\mu_q\) agrees with \(\tau_q\). Cyclotomic total ramification
+at \(q\) supplies \(t_q\). The actions of \(t_q\) and \(\tau_q\)
+agree on \(K_{qn}\) since both fix \(K_n\). Put
+\[
+       y=D_L(x_n),\qquad u=D_L(x_{qn}),\qquad y'=D_q u .
+\]
+At \(q\) all these are units. Applying \(D_L\) to \eqref{eq:deriv-norm} gives
+\(\operatorname N_q u=(y/\phi^{-1}y)^c\) and
+\(u\equiv(\phi^{-1}y)^c\) at every place over \(q\).
+Take \(Y^M=y'\), \(V^M=y\), and
+\(b_0\in K_n\) with \(b_0^M=(\phi^{-1}y)/y\), using the
+\(M\)-th power assertion above and \(\phi\in H\).
+By \eqref{eq:deriv-telescoping},
+\[
+       (u^k b_0^c)^M=t_q(y')/y'.
+\]
+Thus \eqref{eq:deriv-kummer} computes \(\kappa_{qL}(t_q)\) with \(u^k b_0^c\) as its
+adjusting root. At \(\phi^{-1}\), the corresponding root for
+\(\kappa_L\) is \(b_0\). Dividing the two formulas gives the identity
+\begin{equation}
+ \frac{\zeta^{\kappa_{qL}(t_q)}}{(\zeta^{\kappa_L(\phi^{-1})})^c}
+  =\frac{t_q(TY)}{TY}
+     \left(\frac{TV}{(\phi^{-1}TV)^q}\right)^c
+      \bigg/ T\!\left(\frac{u}{(\phi^{-1}y)^c}\right)^k .
+ \label{eq:deriv-transition-id}
+\end{equation}
+For the algebra here, \((\phi^{-1}TV)^M=T(\phi^{-1}y)\) since
+\(\delta\) and \(\phi\) commute on \(K_n\), and \(q=1+kM\).
+The factors \(T(b_0)^c\) in the two expressions cancel.
+
+Every factor on the right of \eqref{eq:deriv-transition-id} reduces to one. For the first use
+inertia on the unit \(TY\). For the second use that Frobenius acts
+as the \(q\)-power on reductions, applied to the unit
+\(\phi^{-1}TV\). For the denominator use the congruence for \(u\)
+at every place over \(q\), which also applies at the place conjugate
+by \(\delta\). The left side is an \(M\)-th root of unity and \(q\nmid
+M\), so injectivity of reduction on \(\mu_M\) makes it one.
+Additivity on \(H\) gives
+\[
+            \kappa_{qL}(t_q)=-c\,\kappa_L(\phi)\pmod M .
+\]
+This computation applies to
+\((\sigma_t^{-1}t_q\sigma_t,\sigma_t^{-1}\phi\sigma_t)\) at the
+conjugate place: the new inertia element still agrees with
+\(\tau_q\) on \(\mu_q\), because the cyclotomic Galois group is
+abelian. Sum the congruences with the weights in \eqref{eq:deriv-projection}. The result is
+\begin{equation}
+                 \nu_{qL}(t_q)=-q\,s(n,q)\,\nu_L(\phi).
+ \label{eq:deriv-transition}
+\end{equation}
+The factor is a unit because \(\ell\nmid q s(n,q)\). This proves
+the transition used in the length induction.
+
+Section~\ref{sec:minus-cyclotomic-elements} constructs the input
+\(X_n\), with the prescribed divisor and the same root of unity in
+the congruence at every prime above \(q\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PlaceEmb.lean}{Cyclotomic elements and divisor data},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/SysOfLax.lean}{removal of root-of-unity factors},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/DerInv.lean}{invariance modulo powers},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/KolHom.lean}{Kummer classes},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/KolInit.lean}{initial local computation},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/KolStep.lean}{transition local computation},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NuSysEx.lean}{projection to the dual character and the two units}.}
+
+\subsection{One prime for the two Frobenius conditions}
+\label{sec:minus-frobenius}
+
+Write \(U=G_{\mathbb Q(\mu_P)}\), \(W=\operatorname{Frac}(\mathcal O)/\mathcal O\),
+and let \(\varpi\) be a uniformizer of \(\mathcal O\).
+Let \(c,\nu:U\to W[M]\) be continuous additive homomorphisms such
+that \(c(gug^{-1})=\alpha(g)c(u)\) and
+\(\nu(gug^{-1})=\beta(g)\nu(u)\) for \(u\in U\) and
+\(g\in G_{\mathbb Q}\). Assume \(c\) is nonzero on \(U\).
+Given any finite set of excluded primes, we shall select an
+admissible \(q\) outside the set and a Frobenius \(\phi\in U\) at
+a place above \(q\) for which
+\[
+    c(\phi)\ne0,\qquad \mathcal O\,\nu(\phi)=
+          \mathcal O\,\nu(U).
+\]
+Here \(\mathcal O\,\nu(U)\) means the submodule generated by all
+the values. In the application \(c\) is a nonzero normalized strict
+cocycle restricted to \(U\). Indeed, if the restriction were zero,
+the cocycle, with \(\alpha|_U=1\) on \(W[M]\), would descend to
+the abelian cyclotomic quotient. Commuting \(g\) with the
+chosen lift of inversion \(j\) there gives
+\((1-\alpha(j))c(g)=(1-\alpha(g))c(j)=0\). As
+\(\alpha(j)\equiv-1\bmod M\) and \(\ell\) is odd, this would
+force \(c=0\).
+
+Choose \(\rho^M=r\) and let \(V=\{u\in U:u\rho=\rho\}\).
+The homomorphism \(u\mapsto u\rho/\rho\) embeds
+\(U/V\) in \(\mu_M\). For \(g\in G_{\mathbb Q}\) and \(u\in U\),
+the ratio \(g^{-1}\rho/\rho\) lies in \(\mu_M\) and is fixed by
+\(u\). Therefore
+\[
+       (gug^{-1})\rho/\rho=g(u\rho/\rho).
+\]
+Consequently any \(\gamma\)-equivariant additive map
+\(f:U\to W'\) into an \(M\)-torsion \(\mathcal O\)-module that
+vanishes on \(V\) satisfies
+\((\gamma(g)-\kappa(g))f(u)=0\) for every \(g,u\). This follows
+by computing \(f(gug^{-1})\) on \(U/V\), where conjugation acts
+by the exponent \(\kappa(g)\bmod M\).
+
+Put \(B=\ker c\). The unit \(\alpha(\delta)-\kappa(\delta)\) and
+\(c|_U\ne0\) show that \(V\) is not contained in \(B\).
+For \(C=\mathcal O\,\nu(U)\ne0\), put
+\(A=\{u\in U:\nu(u)\in\varpi C\}\). The values generate a finite
+cyclic module: \(W[M]\) is a quotient of the discrete valuation
+ring \(\mathcal O\) by a nonzero principal ideal, and all its
+submodules are cyclic. The image modulo \(\varpi C\) is nonzero.
+At a lift \(j\) of inversion we have
+\(\beta(j)-\kappa(j)=\beta(j)(1-\alpha(j))\), a unit. Applying
+the preceding calculation to \(f=\nu\bmod\varpi C\) proves that
+\(V\) is not contained in \(A\). Each \(\phi\in U\setminus A\)
+generates \(C\) under evaluation by \(\nu\). For \(C=0\) take
+\(A=B\); the generator condition then holds automatically.
+
+For the third subgroup put \(S=G_{\mathbb Q(\mu_{P\ell})}\).
+Choose \(u\) acting on \(\mu_{P\ell}\) by \(1+P\), a unit
+modulo \(P\ell\), and \(g\) acting by inversion. Then \(u\in U\),
+and \(v=gug^{-1}u\) lies in \(V\) by the displayed radical formula.
+Its exponent on \(\mu_{P\ell}\) is \((1+P)^2\); this differs
+from \(1\bmod P\ell\) since \(\ell\nmid 2+P\).
+Thus \(V\) is not contained in \(S\).
+
+Here is the elementary simultaneous-avoidance argument.
+A group cannot be covered by two proper subgroups: if neither
+contains the other, the product of an element exclusive to each lies
+in neither. If \(V\) were covered by \(A,B,S\), choose
+\(x\in V\setminus(B\cup S)\) and \(y\in V\setminus(A\cup S)\).
+Then \(x\in A,\ y\in B,\ xy\in S\). The element \(x^2y\) cannot
+lie in \(A\), since \(y\notin A\), or in \(S\), since \(xy\in S\)
+and \(x\notin S\). If \(x^2y\in B\), then \(x^2\in B\).
+Also \(x^M\in B\) since \(M c(x)=0\). As \(M\) is odd, these
+two powers imply \(x\in B\), a contradiction. Hence
+\(V\setminus(A\cup B\cup S)\) is nonempty. This set is open:
+the stabilizers are open and the kernels defining \(A,B\) are
+open and closed by continuity to finite discrete groups.
+
+Choose any coset of an open normal subgroup of \(G_{\mathbb Q}\)
+contained in this set. Chebotarev's theorem in the corresponding
+finite Galois extension gives an unramified \(q\) outside the
+excluded set and the divisors of \(P\ell r\) with the conjugacy
+class of that coset as Frobenius. A choice of place above \(q\)
+realizes the prescribed representative, and an arithmetic Frobenius
+lift \(\phi\) then belongs to our open set. The cyclotomic action
+gives \(q\equiv1\bmod P\) and \(q\not\equiv1\bmod P\ell\).
+The element \(\rho\) is a unit at this place since \(q\ne r\);
+as \(\phi\rho=\rho\), its reduction is fixed by \(q\)-power
+Frobenius and hence lies in \(\mathbb F_q^\times\). It follows
+that \(r^{(q-1)/M}\equiv1\bmod q\). Because
+\(v_\ell(q-1)=m\), the order of \(r\bmod q\) is prime to
+\(\ell\). These are precisely the admissibility conditions used
+in the derivative relations. The exclusions from \(A\) and \(B\)
+give the two simultaneous evaluations.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AddPowNsmul.lean}{Selection of the auxiliary prime and simultaneous avoidance},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/RadEqv.lean}{action on the radical quotient},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ChebQ.lean}{Chebotarev with a finite set of exclusions}.}

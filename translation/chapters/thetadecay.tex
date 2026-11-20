@@ -1,0 +1,450 @@
+\section{Full-rank theta decay and the indefinite theta integral}
+\label{sec:theta-decay-proof}
+
+Keep the arithmetic base \(B\), its CM extension \(E/F\) and involution
+\(\sigma\), its additive character \(\psi\), the embeddings
+\(\tau_w:E\to\mathbb C\) above the infinite places \(w\) of \(F\), and
+its distinguished split finite place \(v_1\) with a chosen embedding
+\(\tau_1:E\to F_{v_1}\). Put \(D=[E:\mathbb Q]\).
+Let \(X,W\) be the nondegenerate Hermitian and skew-Hermitian spaces
+of dimensions \(n,d\) and signatures \((r,s),(r',s')\) in the pair
+of Section~\ref{sec:theta-match}. Write \(U_X,U_W\) for their adelic
+unitary groups, \(M\) for the specified Schr\"odinger model,
+\(\omega\) for its Weil action, \(\Theta_\Phi(g,h)\) for its theta
+sum, and \(\mathcal F_X\) for its rational fundamental domain with
+the model's Haar measure \(\mu_X\). The pair hypothesis includes the
+good base and model, the Hecke characters and their required restrictions,
+and the Weil action on this model.
+
+Let \(\mathcal S_\infty\) denote the Schwartz space on the infinite
+part of \(\mathbb A_F^{nd}\), and \(\mathcal S_f\) the compactly
+supported, locally constant functions on the finite part. In the
+chosen split chart, \(M.\mathrm{SoLoc}\) consists of local
+Schwartz--Bruhat functions whose image vanishes on matrices of row
+rank less than \(n\). The image is taken under a choice of admissible local
+intertwiner in the definition of the chart. In the global space
+\(M.\mathrm{So}\) take the span of pure tensors with this condition at
+\(v_1\), arbitrary Schwartz factors elsewhere and the specified
+vacuum at almost every finite place. Set
+\[
+ \mathcal S_f^\circ=
+ \{\,\phi\in\mathcal S_f:
+          f\otimes\phi\in M.\mathrm{So}\quad
+               \text{for every } f\in\mathcal S_\infty\,\}.
+\]
+Each member of \(M.\mathrm{So}\) is a finite sum of such tensors.
+Let \(H\) be the matrix height of the model and
+\(H_Q(g)=\inf_{\gamma\in U_X(F)}H(\gamma g)\).
+
+For each \(N_0\in\mathbb N\) there is \(k\in\mathbb N\) such that
+for each \(\phi\in\mathcal S_f^\circ\) there is a continuous seminorm
+\(p_\phi\) on \(\mathcal S_\infty\) satisfying
+\begin{equation}
+ |\Theta_{f\otimes\phi}(g,h)|H_Q(g)^{N_0}
+       \le p_\phi(f) H(h)^k
+ \qquad(f\in\mathcal S_\infty,\ g\in U_X,\ h\in U_W).
+ \label{eq:theta-full-decay}
+\end{equation}
+The exponent \(k\) is uniform in \(\phi\). For unrestricted finite
+Schwartz data, the hypothesis
+\begin{equation}
+ d+2\min(r,s)<2n\quad\text{or}\quad\min(r,s)=0
+ \label{eq:theta-weil-range}
+\end{equation}
+gives a possibly different uniform \(k\) and, for each \(\phi\),
+a continuous seminorm \(p_\phi\) and a nonnegative measurable
+\(G_\phi\in L^1(\mathcal F_X,\mu_X)\) such that
+\[
+ |\Theta_{f\otimes\phi}(g,h)|
+       \le p_\phi(f)H(h)^kG_\phi(g).
+\]
+We derive these statements with the same local data and measure.
+
+\subsection{The square of the kernel}
+
+For \(z\in\operatorname{Mat}_{n,d}(\mathbb A_F\otimes_F E)\)
+write \(|z|_\infty=\sum_{w,i,j}|\pi_{\tau_w}(z_{ij})|\). Denote its
+finite projection by \(z_f\). For compact \(C\) in this matrix space put
+\[
+ b_{C,N}(z)=\mathbf 1_{\{z_f\in C_f\}}\,(1+|z|_\infty)^{-N},
+ \qquad
+ L_{C,N,Y}(g,h)=\sum_{x\in Y} b_{C,N}(g^{-1}x(h^{-1})^t).
+\]
+Here \(C_f\) is the projection of \(C\), rational matrices are
+embedded diagonally, and \(Y\) is either all rational matrices or
+\(Y_n=\{x:\operatorname{rank}_E x=n\}\).
+For each \(N\) and \(\phi\in\mathcal S_f\), the coefficient estimate produces
+a compact \(C\) and a continuous seminorm \(p\) with
+\begin{equation}
+ |\Theta_{f\otimes\phi}(g,h)|^2\le p(f)^2 L_{C,N,Y}(g,h)
+ \label{eq:theta-lattice-majorant}
+\end{equation}
+for \(Y\) all matrices. For \(\phi\in\mathcal S_f^\circ\) it produces
+the same conclusion with \(Y=Y_n\).
+
+Here are the local cancellation and the role of the square in the
+second assertion. Write \(P\Phi(x)=\Phi(-x)\), and let
+\[
+ c_\Phi(w)=\int(\operatorname{Schr}_\psi(w)\Phi)(u)
+                    \overline{\Phi(-u)}\,du .
+\]
+If \(\operatorname{Schr}_\psi(v)\Phi=\psi(a)\Phi\), translation
+invariance of additive Haar measure gives
+\[
+ c_\Phi(w)=\psi(v_1\cdot w_2-w_1\cdot v_2+2a)c_\Phi(w).
+\]
+The subscripts on \(v,w\) in this identity denote their two
+polarization coordinates. Indeed translation of the integration
+variable by \(v_1\) contributes the commutator of the two Schr\"odinger
+operators, and reflection followed by conjugation contributes the
+second copy of \(a\). The parity operator on the theta sum gives
+\(\Theta_{P\Phi}(g,h)=\Theta_\Phi(g,h)\), by covariance and the
+bijection \(x\mapsto-x\) on the rational summation set. The product
+bound for this pair is thus a bound for an absolute square.
+
+In the split chart take a finite subdivision of the support of each
+local full-rank factor into compact open pieces. The source's local
+separation lemma chooses the pieces so that for every rank-deficient
+matrix in the complementary split coordinate there is a Schr\"odinger
+operator acting on the piece by a scalar for which the displayed
+multiplier differs from \(1\). The complementary coordinate is
+multiplied on the left and right by the invertible matrices of the
+two forms and by a sign. Its rank is preserved. The coefficient
+therefore vanishes there. For a rational matrix of rank less than
+\(n\), extending scalars to this component and multiplying by
+\(g^{-1},(h^{-1})^t\) still gives rank less than \(n\).
+After this cancellation, the rational coefficient-sum formula,
+Weil covariance and the Schwartz coefficient bound give
+\eqref{eq:theta-lattice-majorant} on each piece. If \(p_0\) is
+the seminorm for the two coefficients, use
+\(p_0(f)+p_0(Pf)\) to bound their geometric mean. Formula
+\eqref{eq:theta-lattice-majorant} is stable under finite sums. Take square roots, replace the finitely many compact sets by their
+union, then add the seminorms with the absolute values of the scalar
+coefficients. This explains the use of the full-rank locus after
+taking the square. The remaining analytic inputs at this point are the coefficient-sum
+formula, covariance and the Fourier seminorm estimate.
+
+For completeness the separating subgroup has an explicit construction.
+In \(k=F_{v_1}\), with valuation ring \(\mathcal O\), choose \(b\)
+with \(\psi_{v_1}(b)\ne1\). Write
+\(\langle Y,U\rangle=\operatorname{tr}(YU^t)\).
+Let \(T\) be the compact nonzero set of the local factor in the split
+chart. Compactness here follows from local constancy and compact
+support. The full-rank locus is open, since its complement is the
+common zero locus of all \(n\)-row minors. Since \(2\) is nonzero
+in \(k\), \(2T\) is contained in the full-rank locus. Compactness
+gives a neighborhood \(V_0\) of zero such that \(2T+V_0\) remains
+in that locus. Take \(a\ne0\) with
+\(a\operatorname{Mat}_{n,d}(\mathcal O)\subset V_0\) and put
+\[
+ K=(b/a)\operatorname{Mat}_{n,d}(\mathcal O),\qquad
+ \Lambda=\{Y:\psi_{v_1}(\langle Y,U\rangle)=1\ (U\in K)\}.
+\]
+This subgroup is open by local constancy of the character, continuity
+of the pairing and compactness of \(K\). It lies in
+\(a\operatorname{Mat}_{n,d}(\mathcal O)\). Indeed if some
+\(Y_{ij}/a\notin\mathcal O\), its inverse belongs to \(\mathcal O\);
+taking \(U\in K\) with the single entry
+\((b/a)(Y_{ij}/a)^{-1}\) gives \(\langle Y,U\rangle=b\).
+
+The image of \(T\) in the discrete quotient by \(\Lambda\) is
+finite. Restrict the function to each coset meeting \(T\), choose
+\(Y_0\) in its intersection with \(T\), and let \(Z\) be rank deficient.
+Since \(2Y_0+\Lambda\) is full rank, \(Z-2Y_0\notin\Lambda\).
+Some \(U\in K\) thus has
+\(\psi_{v_1}(\langle Z-2Y_0,U\rangle)\ne1\). On this whole
+piece \(\psi_{v_1}(\langle Y,U\rangle)
+=\psi_{v_1}(\langle Y_0,U\rangle)\).
+The split polarization realizes this multiplication operator as the
+Schr\"odinger action of the local vector with split coordinates
+\((-U,0)\). Its eigenvalue is the common value just computed, and
+the symplectic pairing with the complementary coordinate \(Z\)
+gives \(\langle Z,U\rangle\) in the sign convention of the model.
+The coefficient identity gives multiplier
+\(\psi_{v_1}(\langle 2Y_0-Z,U\rangle)\ne1\), proving the vanishing.
+This also covers residue characteristic two, since the argument uses
+\(2\ne0\) in the characteristic-zero field and never divides by
+\(2\) in the residue field.
+
+
+\subsection{The two logarithmic chambers}
+
+Reduction theory for unitary groups supplies rational Witt frames
+of lengths \(q\le\min(r,s)\) and \(y\le\min(r',s')\), tori
+\(a_X,a_W\), and compact sets \(\Omega_X,\Omega_W\). There are
+rational \(\gamma,\delta\) such that
+\(\gamma g=a_X(u)\kappa\), \(\delta h=a_W(v)\kappa'\) with
+\(\kappa,\kappa'\) in these compact sets and
+\[
+ u_1\ge\cdots\ge u_q\ge0,\qquad v_1\ge\cdots\ge v_y\ge0.
+\]
+Here \(u,v\) henceforth denote real tuples. Put \(U=\sum u_i\),
+\(V=\sum v_j\), and
+\[
+ B(u,v)=\max_{0\le i\le q}
+   \left(\sum_{a=1}^i u_a-\sum_{b=1}^{\min(i,y)}v_b\right).
+\]
+The choices \(i=0,q\) give \(B\ge0\) and \(U\le V+B\). The frame
+weights \(\lambda_i\) are the \(+u_i,-u_i\) and \(n-2q\) zeros.
+The weights \(\lambda'_j\) are the \(+v_j,-v_j\) and \(d-2y\) zeros.
+The positive weight sum is
+\begin{align*}
+ P(u,v)&=\sum_{i,j}\max(0,\lambda_i+\lambda'_j)\\
+ &=2\sum_{i=1}^{q}\sum_{j=1}^{y}\max(u_i,v_j)
+                  +(d-2y)U+(n-2q)V\\
+ &\le dU+nV .
+\end{align*}
+Indeed each block of four signed pair sums contributes
+\(u_i+v_j+|u_i-v_j|\). The frame height bounds and boundedness on
+compact sets give constants \(A,A',k_0,k_1\) independent of \(g,h\) with
+\[
+ H_Q(g)\le A'e^{k_0U},\qquad e^V\le A H(h)^{k_1}.
+\]
+For the second inequality apply the inverse torus height bound
+to the rational translate \(\delta^{-1}a_W(v)=h(\kappa')^{-1}\)
+and use submultiplicativity and compactness. For the first use the
+rational representative \(\gamma g\). The lattice sums are invariant
+under rational left translation in either group. Right translation
+over the two compact sets can multiply a bound by a constant and
+enlarge \(C\). These constants are independent of \(u,v,f\).
+
+\subsection{Counting the rational matrices}
+
+Take rational Witt bases \(b,b'\), write \(\xi=b^{-1}x(b'^{-1})^t\),
+and put \(z=a_X(u)^{-1}x(a_W(v)^{-1})^t\).
+There is an integer \(m\ge1\) and a constant \(C_0\ge1\) such that
+\[
+ z_f\in C_f\ \Longrightarrow\ m\xi_{ij}\in\mathcal O_E,\qquad
+ \sum_{i,j,w} e^{-\lambda_i-\lambda'_j}|\tau_w(\xi_{ij})|
+                    \le C_0|z|_\infty .
+\]
+The finite tori have identity finite components, so the finite
+coordinates of \(\xi\) lie in the image of a fixed compact set
+under a fixed change of basis. A compact finite adelic set has a
+common denominator, by a finite subcover of the sets of bounded
+denominators. At infinity the two fixed basis changes have bounded
+operator norms and the tori act diagonally, giving the second bound.
+
+If \(\Lambda\) is a discrete subgroup of a real normed vector
+space of dimension \(D\), then for \(L>D\) an integer,
+\begin{equation}
+ \sum_{\ell\in\Lambda}(1+e^{-a}\|\ell\|)^{-L}
+       \le K_\Lambda e^{D\max(0,a)} .
+ \label{eq:theta-onevar}
+\end{equation}
+Choose \(\epsilon>0\) such that the open balls of radius \(\epsilon\)
+about the lattice points are disjoint. Put \(c=e^{-\max(0,a)}\).
+For \(y\) in the ball about \(\ell\),
+\(1+c\|y\|\le(1+\epsilon)(1+c\|\ell\|)\).
+The summand in \eqref{eq:theta-onevar} is bounded by
+\((1+c\|\ell\|)^{-L}\). Integrate the latter bound on each ball,
+sum and divide by the volume of a ball. The result is at most
+\[
+ \frac{(1+\epsilon)^L}{\operatorname{vol}(B_\epsilon)}
+ c^{-D}\int (1+\|y\|)^{-L}\,dy .
+\]
+The integral converges since the volumes of shells of radii \(2^j\)
+are \(O(2^{jD})\). This proves \eqref{eq:theta-onevar}.
+
+Choose \(N_b=(D+1)nd\). Set
+\(A_{ij}=e^{-\lambda_i-\lambda'_j}\sum_w|\tau_w(\xi_{ij})|\).
+The coordinate estimate gives \(1+A_{ij}\le C_0(1+|z|_\infty)\).
+Multiplying these inequalities and inverting gives
+\[
+ (1+|z|_\infty)^{-N_b}\le
+       C_0^{N_b}\prod_{i,j}(1+A_{ij})^{-(D+1)} .
+\]
+The rational change of basis is injective. Enlarge the summation
+to all matrices with independent entries in \(m^{-1}\mathcal O_E\)
+and use Tonelli's theorem to factor the nonnegative sum. In the
+Minkowski embedding the norm of an element is at most
+\(\sum_w|\tau_w(\xi_{ij})|\) for the supremum norm on the archimedean
+coordinates, since the two embeddings over any real place have the same
+absolute value. Apply \eqref{eq:theta-onevar} in each coordinate,
+with \(a=\lambda_i+\lambda'_j\). The result is
+\begin{equation}
+ L_{C,N_b,\mathrm{all}}(a_X(u),a_W(v))\le K_C e^{DP(u,v)}.
+ \label{eq:theta-all-torus}
+\end{equation}
+
+Here is the gain from full row rank. For \(x\in Y_n\) with
+\(z_f\in C_f\), choose \(i\) attaining the maximum \(B(u,v)\).
+The \(i\) rows of \(\xi\) with weights \(-u_1,\ldots,-u_i\)
+are linearly independent, so some \(i\) distinct columns
+\(c_1,\ldots,c_i\) give a square minor \(T_0\) with nonzero
+determinant. The determinant \(m^i\det T_0\) is a nonzero algebraic
+integer. Its absolute field norm is an integer at least \(1\),
+so at an embedding \(\tau_w\) we have
+\(m^i|\tau_w(\det T_0)|\ge1\). Use that embedding in the matrix
+\[
+ T_{ab}=e^{u_a-\lambda'_{c_b}}\,\tau_w((T_0)_{ab}).
+\]
+The sum of the chosen \(i\) distinct column weights is at most
+\(\sum_{b\le\min(i,y)}v_b\), since the only positive weights
+available are \(v_1,\ldots,v_y\) in decreasing order. Consequently
+\[
+ e^{B(u,v)}
+ \le m^i|\det T|
+ \le i!\big[m C_0(1+|z|_\infty)\big]^i
+ \le \big[n!m C_0(1+|z|_\infty)\big]^{n+1}.
+\]
+The middle inequality follows by bounding the \(i!\) terms of the
+determinant individually using the coordinate estimate above.
+The empty minor at \(i=0\) has determinant \(1\). With
+\(c=(n!m C_0)^{-1}\), we have proved
+\(c\,e^{B/(n+1)}\le1+|z|_\infty\).
+For any \(M_1\in\mathbb N\), raise the last inequality to
+\(M_1(n+1)\), invert it, and use \eqref{eq:theta-all-torus} on
+the remaining lattice sum. Since all summands are nonnegative, its
+restriction to \(Y_n\) can only decrease it. Thus
+\begin{equation}
+ L_{C,N_b+M_1(n+1),Y_n}(a_X(u),a_W(v))
+       \le K_{C,M_1}\exp\{DP(u,v)-M_1 B(u,v)\}.
+ \label{eq:theta-full-torus}
+\end{equation}
+The exponent needed on the left is chosen before the compact set
+\(C\), as required when applying the Schwartz estimate.
+
+\subsection{From the chamber to an integrable majorant}
+
+Take \(M_1=Dd+2k_0N_0\). Applying
+\eqref{eq:theta-lattice-majorant} and \eqref{eq:theta-full-torus}
+and taking square roots, the exponent after multiplication by
+\(H_Q(g)^{N_0}\) is at most
+\begin{align*}
+ \tfrac12(DP-M_1B)+k_0N_0U
+ &\le \tfrac12\{M_1(U-B)+DnV\}\\
+ &\le \tfrac12(M_1+Dn)V
+ \le (M_1+Dn)V .
+\end{align*}
+The height bound on \(e^V\) proves \eqref{eq:theta-full-decay}
+with \(k=k_1(M_1+Dn)\). Absorb all fixed compact-set and height
+constants into the continuous seminorm. In particular \(N_0=0\)
+permits \(G_\phi=1\). The rational quotient of this unitary group
+has finite Haar volume. For fixed \(h\) this proves absolute
+integrability and gives the bound
+\[
+ \int_{\mathcal F_X}|\Theta_{f\otimes\phi}(g,h)|\,d\mu_X(g)
+       \le\mu_X(\mathcal F_X)p_\phi(f)H(h)^k .
+\]
+
+For unrestricted finite data use
+\(G_\phi(g)=L_{C',N_b,\mathrm{all}}(g,1)^{1/2}\).
+To see why this function suffices, reduce the second group into
+\(a_W(v)\Omega_W\). Each diagonal archimedean stretch in
+\(a_W(v)\), or its inverse, has operator norm at most \(e^V\)
+in Witt coordinates. It is the identity at the finite places.
+The fixed changes of basis therefore give
+\[
+ L_{C,N_b,\mathrm{all}}(g,h)\le K e^{N_bV}
+                L_{C',N_b,\mathrm{all}}(g,1).
+\]
+Use \(e^V\le A H(h)^{k_1}\) and take a square root in
+\eqref{eq:theta-lattice-majorant}. This gives the asserted majorant
+with \(k=k_1N_b\), as in the source, since \(H(h)\ge1\).
+The indicator of the finite projection of a compact set is Borel,
+and the summands are measurable; \(G_\phi\) is measurable.
+
+It remains to integrate over the first group. For a nonnegative
+measurable rationally left-invariant function majorized on
+\(a_X(u)\Omega_X\) by \(b(u)\), the Siegel integration inequality gives
+\[
+ \int_{\mathcal F_X}G(g)\,d\mu_X(g)
+ \le K\int_{u_1\ge\cdots\ge u_q\ge0} b(u)e^{-D\rho_n(u)}\,du,
+ \qquad
+ \rho_n(u)=\sum_{i=1}^q(n-2i+1)u_i .
+\]
+The compact set and constant here may depend on \(\mu_X,\mathcal F_X\).
+Equation \eqref{eq:theta-all-torus} at \(v=0\) gives
+\(b(u)=K'\exp(DdU/2)\) for \(G_\phi\). Use the differences
+\(z_j=u_j-u_{j+1}\) with \(u_{q+1}=0\). This takes the chamber to
+the positive orthant and has Jacobian \(1\). The cumulative coefficient
+of \(z_j\) in \(D(dU/2-\rho_n(u))\) is
+\[
+ D\sum_{i=1}^j(d/2-n+2i-1)=Dj(d/2-n+j).
+\]
+Equation \eqref{eq:theta-weil-range} implies \(q=0\) or
+\(d+2q<2n\), because \(q\le\min(r,s)\). Thus every coefficient
+for \(j\ge1\) is strictly negative, and with product Lebesgue measure
+the chamber integral, omitting its fixed prefactor, equals
+\begin{equation}
+ \prod_{j=1}^q \frac{1}{Dj(n-d/2-j)}.
+ \label{eq:theta-integral-product}
+\end{equation}
+In rank zero the empty product is \(1\). This completes the
+integrability calculation for unrestricted finite data. Decomposing a
+global Schwartz function into finitely many pure tensors proves the
+same convergence for it.
+
+In the triple of dimensions \(a,a',a+a'\), the large first space
+has signature \((a-p,p)\), the smaller one has \((q',a'-q')\),
+and their common second space has signature
+\((a+a'-(p+q'),p+q')\). The triple hypotheses give
+\(a+a'+2\min(a-p,p)<2a\). Apply the unrestricted bound to the
+large first space and the full-rank bound to the small first space
+with its prescribed split test data. The pointwise constants depend
+on the arithmetic model, on the chosen compact sets and on the
+Schwartz data. The estimates above supply the convergence wherever
+the family supplies these hypotheses; they give no uniform bound
+on those constants as the arithmetic model varies.
+
+\subsection{Decay in the variable left after integration}
+
+For the later cuspidal member of the theta span, decay is also
+needed in the remaining variable \(h\in U_W\). The source applies
+the cuspidal part of unitary reduction theory under the following
+hypotheses on a function \(A\) on \(U_W\). The function is left
+invariant under rational points and right invariant under an open
+finite level. It is archimedean smooth and lies in a family closed
+under differentiation along real one-parameter subgroups. All
+members of this family have polynomial growth with a common
+exponent, with individual constants allowed. For each nonzero
+rational totally isotropic subspace the constant term over the
+associated unipotent radical vanishes. In coordinates, one can
+test these subspaces on matrices \(C\) of full column rank with
+\(C^*JC=0\), where \(J\) is the Hermitian matrix representing the
+group. The column span and its orthogonal complement specify the
+unipotent radical. For the skew-Hermitian group the source first
+identifies it with a Hermitian unitary group by scaling the
+conjugate matrix of its form by a nonzero scalar of the appropriate
+sign under \(\sigma\).
+
+Under these hypotheses the cuspidal estimate in the imported
+reduction theorem gives a constant \(C_N\) on a Siegel set for each
+\(N\). For an arbitrary \(h\), choose a rational translate
+\(\delta h\) in that set. Left invariance and the definition of the
+quotient height give
+\[
+ |A(h)|H_Q(h)^N\le |A(\delta h)|H(\delta h)^N\le C_N .
+\]
+In \texttt{SigRapid.sigRapid\_of}, invariance, smoothness and
+uniform moderate growth are supplied by \texttt{sig\_nice} for
+members of the specified theta span. Vanishing of the constant
+terms is a separate hypothesis of this implication.
+\texttt{CuspRapidOf.rapidG} and \texttt{CuspRapidOf.cuspRapid\_of}
+make the passage from the Siegel set to the rational quotient.
+This use of the cuspidal reduction theorem and the explicit
+full-rank estimate \eqref{eq:theta-full-decay} concern different
+variables in the iterated integrals.
+
+\paragraph{Source and inputs.}
+In the pinned source tree, under
+\srcid{Development/WeilBound/ThetaLifts/FrameEstimates},
+\srcid{SquareIntegrableWeilRange} defines the lattices and chambers.
+The local separation and the square estimate are
+\texttt{HermitianFormDetNeZero.soCut\_of},
+\texttt{ThetaSumNeg.qb\_piece} and \texttt{ThetaSumNeg.sqSo\_of'}.
+The one-coordinate packing, unrestricted sum, minor and full-rank
+sum are \texttt{OneVar.oneVar\_of}, \texttt{LatTor.latTor\_of},
+\texttt{ExistsColsDetNeZero.minor\_of} and
+\texttt{LatFull.latFull\_of}. The two global estimates are
+\texttt{SoSemi.soSemiU\_of} and \texttt{DomWeil.domWeilU\_of},
+assembled in \srcid{WeilConv}. These names combine the identifying
+file with the declaration. The imported reduction theorem
+\srcid{GlobalTheory.Published.SiegelSetUnitary} supplies the cover,
+height comparisons and integration inequality.
+\srcid{FundamentalDomainFiniteVolume} supplies finiteness of the
+model's quotient measure. The local coset argument appears in \texttt{RankIffRight.exists\_cut}.
+The Heisenberg product formula and its Schwartz coefficient estimate, and the construction
+of each arithmetic pair with these hypotheses, remain upstream
+inputs to this chapter.
