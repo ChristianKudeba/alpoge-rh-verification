@@ -3,7 +3,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'translation/**'
+      - 'translation/manuscript.tex'
+      - 'translation/chapters/**'
       - '.github/workflows/rh-manuscript.yml'
   workflow_dispatch:
 

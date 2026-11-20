@@ -1,0 +1,85 @@
+name: Publish literal kernel edition
+on:
+  push:
+    branches: [main]
+    paths:
+      - translation/kernel/request
+      - .github/workflows/literal-kernel-edition.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: literal-kernel-v1
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    outputs:
+      matrix: ${{ steps.prepare.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: translation/kernel
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.15"
+      - name: Validate tools and translation scripts
+        run: |
+          command -v gh
+          command -v zstd
+          python -c "from compression import zstd; import tarfile"
+          python -c 'from pathlib import Path; [compile(p.read_text(),str(p),"exec") for p in Path("translation/kernel").glob("*.py")]'
+      - name: Stream, index and verify the MIT export
+        id: prepare
+        run: python translation/kernel/prepare.py
+
+  translate:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 220
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: translation/kernel
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.15"
+      - name: Translate and verify one shard
+        env:
+          SHARD_ID: ${{ matrix.shard }}
+        run: python translation/kernel/publish.py render "$SHARD_ID"
+
+  finalize:
+    needs: translate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 160
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: translation/kernel
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.15"
+      - name: Verify global coverage, theorem bodies and release assets
+        run: python translation/kernel/publish.py finalize
