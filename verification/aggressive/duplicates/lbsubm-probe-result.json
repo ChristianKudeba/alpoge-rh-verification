@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"verified\": \"on Principia\",\n  \"check_id\": \"ff9df94351a5e869a1de20b0eae6905e\",\n  \"mode\": \"scratch\",\n  \"result\": \"closed\",\n  \"checked_by\": \"server\",\n  \"sorries\": 0,\n  \"axioms\": [],\n  \"messages\": [\n    {\n      \"severity\": \"info\",\n      \"line\": 171,\n      \"column\": 0,\n      \"text\": \"'AlpogeLBSubmProbe.VolStabS.submLB_holds' depends on axioms: [propext, Classical.choice, Quot.sound]\"\n    },\n    {\n      \"severity\": \"info\",\n      \"line\": 172,\n      \"column\": 0,\n      \"text\": \"'AlpogeLBSubmProbe.VolStabW.submLB_holds' depends on axioms: [propext, Classical.choice, Quot.sound]\"\n    }\n  ],\n  \"note\": \"scratch checks never close a step\"\n}\n\n[status] Route A: 4/5 closing steps closed, open: strip. Route B: 5/6 closing steps closed, open: bound. Focused: bound (bd5646d9, closing step), 0 attempts. Next: attack bound (bd5646d9) on route B, which is focused — harness_compose_check with a proof. Make that call now; do not end your turn."
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

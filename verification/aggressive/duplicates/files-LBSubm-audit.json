@@ -1,0 +1,73 @@
+{
+  "head_at_edit": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "authorized_scope": "Only StabilizerVolume/LBSubm.lean and WeilStabilizerVolume/LBSubm.lean replaced with approved prepared files; canonical StabilizerOrbitVolume/LBSubm.lean unchanged.",
+  "canonical_path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerOrbitVolume/LBSubm.lean",
+  "canonical_sha256_unchanged": "f30c71959ce64bf7d5c00eaa42642b7a043a7358dbd5e0b420a0bcc0ec4a91f5",
+  "canonical_imports": [
+    "Mathlib"
+  ],
+  "predicate_definition_sha256": "7c24bbf5315e994303108aa9f54fbedf087aafcfb33fc7a78a7d3cd7852d8761",
+  "all_three_predicate_definition_rhs_byte_identical": true,
+  "private_helper_reference_evidence_before_edit": {
+    "exists_clm_rightInverse_of_surjective": [
+      "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/LBSubm.lean:17:private theorem exists_clm_rightInverse_of_surjective {n m : \u2115}",
+      "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/LBSubm.lean:97:  obtain \u27e8R, hAR\u27e9 := exists_clm_rightInverse_of_surjective A hsurj"
+    ],
+    "isAddHaarMeasure_map_restrict_slab": [
+      "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/LBSubm.lean:26:private theorem isAddHaarMeasure_map_restrict_slab {n m : \u2115} (\u03bc : Measure (Fin n \u2192 \u211d))",
+      "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/LBSubm.lean:147:    rw [h\u03c1def]; exact isAddHaarMeasure_map_restrict_slab \u03bc A R hAR x0 hr"
+    ]
+  },
+  "removed_private_helpers_have_no_external_name_occurrences": true,
+  "import_cycle_check": {
+    "cycles_introduced": false,
+    "argument": "Each changed module now imports only the unchanged canonical SW.LBSubm module; that module imports only external Mathlib and no project module, so neither new edge can return to its origin.",
+    "scope": "These two changes only; aggregate concurrent edits are checked by root."
+  },
+  "hosted_check": {
+    "id": "ff9df94351a5e869a1de20b0eae6905e",
+    "status": "passed",
+    "sorries": 0,
+    "scope": "Root reported: original SW proof copied into a fresh namespace, plus exact S/W SubmLB definitions forwarding to that proof; both theorem axioms printed.",
+    "reported_axioms_for_each_forwarded_theorem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "evidence_source": "Root result relayed by parent in explicit approval message; no additional harness call made by this agent.",
+    "limit": "This is a hosted proof/definition compatibility check, not an end-to-end build of all project consumers."
+  },
+  "git_diff_check_exit_code": 0,
+  "original_lines": 371,
+  "new_lines": 38,
+  "net_lines_removed": 333,
+  "patch": "/workspace/principia-harness/a0564e7e/aggressive/duplicates/files-LBSubm.patch",
+  "mutations": [
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/LBSubm.lean",
+      "old_sha256": "d3e0a9a0727ccf4065f4a5cb2a6ac28ec1920bc79511842275a7f52ecfce413a",
+      "new_sha256": "634683952b811f4ad8246da085c14870037be45792c1e47070b42db18e51fba1",
+      "old_lines": 241,
+      "new_lines": 19,
+      "net_lines_removed": 222,
+      "predicate_definition_preserved_byte_for_byte": true,
+      "public_theorem_header_preserved_byte_for_byte": true,
+      "public_theorem_header": "theorem submLB_holds : SubmLB :=",
+      "namespace_preserved": "PI.VolStabS",
+      "prepared_contents": "/workspace/principia-harness/a0564e7e/aggressive/duplicates/files-LBSubm-VolStabS.lean"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/WeilStabilizerVolume/LBSubm.lean",
+      "old_sha256": "e9f8c46559730e7d6812e348e075212946d0c35fc3e908b97c08d5c31f75db08",
+      "new_sha256": "daf91205996b92ed28f0983a31a348b4d3e9d30a7041d74a102203802c279876",
+      "old_lines": 130,
+      "new_lines": 19,
+      "net_lines_removed": 111,
+      "predicate_definition_preserved_byte_for_byte": true,
+      "public_theorem_header_preserved_byte_for_byte": true,
+      "public_theorem_header": "theorem submLB_holds : SubmLB :=",
+      "namespace_preserved": "PI.VolStabW",
+      "prepared_contents": "/workspace/principia-harness/a0564e7e/aggressive/duplicates/files-LBSubm-VolStabW.lean"
+    }
+  ]
+}

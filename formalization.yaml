@@ -2,12 +2,13 @@
 version: "v0.4"
 
 project:
-  name: "Alpöge RH/Dirichlet-GRH: complete-source Comparator verification"
+  name: "Alpöge RH/Dirichlet-GRH: source compaction and Comparator verification"
   description: >-
-    Verification entrypoints for all five public conclusions of the complete
-    Alpöge Lean development. The challenge uses only independent Mathlib
-    statements; the solution imports Main from the substantive source tree.
-    Full build and Comparator verification are pending.
+    Verification entrypoints for all five public conclusions of the Alpöge
+    Lean development. The current candidate removes 10,070 unused modules and
+    748,827 source lines relative to integration commit a6f8e4806. The challenge
+    uses independent Mathlib statements; the solution imports Main from the
+    remaining 165,120-module source tree. Full Comparator verification is pending.
   authors:
     - "Levent Alpöge (substantive source, as credited by its mirror)"
     - "Claude (substantive source collaboration, as credited by its mirror)"
@@ -28,8 +29,10 @@ sources:
     note: >-
       Original toolchain is leanprover/lean4:v4.33.1 and Mathlib is pinned to
       0df444a360eaa60ab8c11dca51a86af692955474. No upstream license is stated;
-      this metadata does not grant or infer one. The compacted source candidate
-      is commit fb97c4c5a1624d02c8ddfa0d403a29becff79c9e. Its selected source
+      this metadata does not grant or infer one. The first compaction is commit
+      fb97c4c5a1624d02c8ddfa0d403a29becff79c9e; this revision adds the audited
+      dependency-pruning and inferred-argument pass in verification/aggressive.
+      The unchanged original is preserved at tag alpoge-source-7cbf7a0c. Its source
       destination is https://github.com/ChristianKudeba/alpoge-rh-verification.
       Baseline and candidate must be checked independently to distinguish
       original failures from edit failures.
@@ -38,8 +41,8 @@ status:
   scope: >-
     Complete Mathlib RiemannHypothesis plus the four explicit zeta/Dirichlet
     conclusions listed below. These are verification targets, not verified
-    results. The canonical files alone do not contain the 175k-module source
-    development, and do not establish a full-build or Comparator pass.
+    results. The canonical files alone do not contain the required 165,120-module
+    source development, and do not establish a full-build or Comparator pass.
   main_results:
     - declaration: "PrincipiaFullVerification.riemannHypothesis"
       file: "Solution.lean"
@@ -72,7 +75,11 @@ review:
   status: "verification_pending"
   reviewers: []
   notes: >-
-    Only selected compacted helper proofs have passed hosted scratch checks.
+    Four complete compacted Mathlib-only modules, the RH wrapper with its exact
+    helpers, and selected shared arguments have passed hosted scratch checks.
+    Comparisons cover 53 edited declarations in the four Mathlib-only modules.
+    The combined retained import graph is acyclic and has no missing internal
+    imports, but archive-dependent edits still require full compilation.
     Those checks do not verify the original RH proof, this complete source
     tree, or these five unconditional targets. The allowed axioms in
     comparator.json are a policy, not an observed full-proof axiom inventory.

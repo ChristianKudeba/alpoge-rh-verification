@@ -1,0 +1,72 @@
+{
+  "baseline_commit": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "scope": {
+    "lean_files": 175190,
+    "source_bytes": 1030515108,
+    "declarations_detected": 1042418,
+    "substantial_declarations": 363569
+  },
+  "aggregate_candidates": {
+    "same statement and body, declaration name replaced": {
+      "clusters": 5509,
+      "estimated_removable_body_lines": 76777,
+      "raw_duplicate_body_lines": 132982
+    },
+    "same body, potentially different statement/context": {
+      "clusters": 7448,
+      "estimated_removable_body_lines": 113842,
+      "raw_duplicate_body_lines": 189853
+    }
+  },
+  "caveat": "Candidate savings are not verified, overlap across group kinds, and depend on namespace/implicit-variable/import context. They must not be added together or reported as completed savings.",
+  "implemented": {
+    "proof_sharing_files": 6,
+    "proof_sharing_saved_lines": 321,
+    "whole_file_forwarding_saved_lines": 345,
+    "LBSubm_sharing_saved_lines": 333,
+    "total_saved_lines": 999,
+    "total_changed_files": 15
+  },
+  "hosted_checks": [
+    {
+      "id": "d950bc22caf46c0a4049394d04f85e97",
+      "scope": "Mathlib-only charpoly helper original proof plus two forwarding layers",
+      "result": "closed",
+      "sorries": 0,
+      "printed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "ff9df94351a5e869a1de20b0eae6905e",
+      "scope": "Original SW SubmLB proof plus S/W exact predicate definitions and forwarding",
+      "result": "closed",
+      "sorries": 0,
+      "printed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "full_archive_lean_compilation": "Not performed by this agent; full Comparator remains required.",
+  "artifacts": [
+    "approved-sharing-audit.json",
+    "approved-sharing.patch",
+    "files-wrapper-audit.json",
+    "files-wrapper.patch",
+    "shared-charpoly-probe.lean",
+    "shared-charpoly-probe-result.json",
+    "lbsubm-probe.lean",
+    "lbsubm-probe-result.json",
+    "files-LBSubm-audit.json",
+    "files-LBSubm.patch"
+  ],
+  "large_indexes": [
+    "declarations-candidates.jsonl (244MiB)",
+    "declarations-clusters.jsonl (24MiB)",
+    "files-index.jsonl (61MiB)"
+  ]
+}

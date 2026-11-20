@@ -1,0 +1,56 @@
+{
+  "baseline_commit": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/MulMemIntA.lean",
+  "before": {
+    "physical_lines": 4969,
+    "nonblank_lines": 4960,
+    "bytes": 405284,
+    "sha256": "08957944f1f0c971a5bf43aedc4fa7f9879825f9768a6db981e4f0841d25671d"
+  },
+  "after": {
+    "physical_lines": 78,
+    "nonblank_lines": 66,
+    "bytes": 4012,
+    "sha256": "4e07fbe39999fa2c5ee85f7e42f499e42d568299e191cb0f518e731212e51640"
+  },
+  "method": "Replace fully expanded typeclass arguments by idiomatic inferred arguments. Exact old/new declaration equality checked with rfl; private helper and final proof retained. No encoding, source generator or proof axiom added.",
+  "validation": [
+    {
+      "check_id": "5deb4fdac1e5ed2b9270c9fe27401c29",
+      "declarations": [
+        "Af",
+        "Fv",
+        "aux3",
+        "aux4"
+      ],
+      "result": "closed",
+      "sorries": 0,
+      "source": "first-equality.lean"
+    },
+    {
+      "check_id": "a43cc0566bb109ec53b21c85369f92b8",
+      "declarations": [
+        "evalV",
+        "intAf",
+        "intA",
+        "mul_mem_intA"
+      ],
+      "result": "closed",
+      "sorries": 0,
+      "source": "rest-equality.lean",
+      "note": "Exact original remaining declarations use previously rfl-validated compact predecessors. Whole compact module compiles under original namespace and build options in this check. Each of eight printed public axiom inventories contains only propext, Classical.choice, Quot.sound."
+    }
+  ],
+  "scope": "Checks validate this Mathlib-only module, not full RH or downstream archive consumers.",
+  "whole_module_check": {
+    "check_id": "20648531a74c0465714b5db97c94f732",
+    "result": "closed",
+    "sorries": 0,
+    "original_namespace_and_build_options": true,
+    "all_eight_printed_axiom_inventories": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

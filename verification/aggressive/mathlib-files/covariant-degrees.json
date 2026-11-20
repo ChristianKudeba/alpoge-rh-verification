@@ -1,0 +1,91 @@
+{
+  "source": "/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CovariantDegrees.lean",
+  "original": {
+    "lines": 6170,
+    "bytes": 504790,
+    "sha256": "a146021fbd4ff16721f129b01d37da386b5eef06ef8ae0bea8b008629acf26b9"
+  },
+  "replacement": {
+    "lines": 211,
+    "bytes": 10758,
+    "sha256": "f618d9207b52c8ddb3f7d4e1e795ebeaaf169d8cc1fc66ecd03fdda33ed0fd24"
+  },
+  "rfl_checks": [
+    {
+      "check_id": "fe2b9629170d990d4f7198dec77eb3dd",
+      "declarations": [
+        "jE",
+        "aux2",
+        "KwF",
+        "G",
+        "Dec",
+        "aux6",
+        "aux7",
+        "Om",
+        "GQ"
+      ]
+    },
+    {
+      "check_id": "021eba9a3f53232c5f91d42cbaee65ee",
+      "declarations": [
+        "laurent_T_neg_one_mul_T_one",
+        "aux11",
+        "aux12",
+        "resQ",
+        "j_resQ",
+        "jE_mem",
+        "zero_contDiffOn_supported",
+        "resE",
+        "j_resE",
+        "resE_mem"
+      ]
+    },
+    {
+      "check_id": "c86178e3826f3bb55b28b1f3ce1d1efd",
+      "declarations": [
+        "column_matrix_mul_inverse",
+        "complex_normed_instance_compat",
+        "padic_embedding_algebra_compat",
+        "blockM_one_partner_eq_one"
+      ]
+    },
+    {
+      "check_id": "7df5f53a69ac3c7cd4478163656913e9",
+      "declarations": [
+        "blockM_mul_alt",
+        "conj_invariant_character_mem",
+        "rootGL_mem_unitary",
+        "conj_invariant_character_transport"
+      ]
+    },
+    {
+      "check_id": "a976fe464fa99a9ac67f290cebcdf56a",
+      "declarations": [
+        "rHom",
+        "continuous_rHom"
+      ]
+    }
+  ],
+  "module_check": "cb70ec0b43dca0abfb174a8c3eaf47b1",
+  "axioms_audited": [
+    "jE",
+    "KwF",
+    "resQ",
+    "resE",
+    "blockM_mul_alt",
+    "conj_invariant_character_transport",
+    "rHom",
+    "continuous_rHom"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all_checks": "closed, zero sorries",
+  "notes": [
+    "Every original declaration has an rfl equality with its compact replacement under separate namespaces. Theorem proof irrelevance preserves statement types; definitions are definitionally equal.",
+    "All public names, four private helpers, reducibility attributes and universe parameters preserved.",
+    "Complete replacement checks on hosted Mathlib with autoImplicit and relaxedAutoImplicit disabled. Four pre-existing-style letI/haveI linter warnings are non-errors."
+  ]
+}

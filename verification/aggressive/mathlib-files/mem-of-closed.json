@@ -1,0 +1,142 @@
+{
+  "source_commit": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/MemOfClosed.lean",
+  "candidate": "MemOfClosed.lean",
+  "before": {
+    "physical_lines": 5746,
+    "nonblank_lines": 5734,
+    "utf8_bytes": 478050,
+    "sha256": "644439f6a09726d3d3c4952b0add3c5d18ee8bb6d40e920bbe89b5685a8b6acf"
+  },
+  "after": {
+    "physical_lines": 140,
+    "nonblank_lines": 124,
+    "utf8_bytes": 7081,
+    "sha256": "ea3ff4e14889903b2cfb45f43ec6187d8b3211f41f6e4067baaade385533907f"
+  },
+  "delta": {
+    "physical_lines": -5606,
+    "nonblank_lines": -5610,
+    "utf8_bytes": -470969
+  },
+  "method": "Restore idiomatic implicit typeclass arguments. Each public declaration is checked definitionally equal with rfl to exact expanded original. Verified compact predecessors are substituted incrementally in later comparison chunks to stay below hosted 200,000-character limit.",
+  "equality_checks": [
+    {
+      "check_id": "1c7892efd32988e84a204a80c939b604",
+      "declarations": [
+        "aux1",
+        "algRes",
+        "fdim"
+      ],
+      "snippet": "qi13-check-first3.lean",
+      "snippet_sha256": "37235e7027987fe63c5811645726baeec6f5fb56598a40cf7ee5718171757a1d",
+      "result": "closed",
+      "sorries": 0
+    },
+    {
+      "check_id": "41567069cb374af7fe56badb61d7c626",
+      "declarations": [
+        "aux4",
+        "aux5",
+        "aux6"
+      ],
+      "snippet": "qi13-check-second3.lean",
+      "snippet_sha256": "a93bf9de36ee74bf646521324dfd1770194fa2479a43b1ba2347b9094797a1a9",
+      "result": "closed",
+      "sorries": 0
+    },
+    {
+      "check_id": "62989fdd3896b6bb53eab5c12384ad46",
+      "declarations": [
+        "bb",
+        "aux8"
+      ],
+      "snippet": "qi13-check-bb.lean",
+      "snippet_sha256": "8b541f8824164c4aae5afd30a32f8615892ff9cabbce8787b379449aa459aa68",
+      "result": "closed",
+      "sorries": 0
+    },
+    {
+      "check_id": "1c367c6764ece7148944b0a2bd3300cd",
+      "declarations": [
+        "blift"
+      ],
+      "snippet": "qi13-check-blift.lean",
+      "snippet_sha256": "f10457a8cbabccd6ab9eab7c5ddcc10ab42dd7ba7ef2806e558874c9bab54b5e",
+      "result": "closed",
+      "sorries": 0
+    },
+    {
+      "check_id": "b12f3237bc578c183e6d66d3baf5871b",
+      "declarations": [
+        "linIndep"
+      ],
+      "snippet": "qi13-check-final.lean",
+      "snippet_sha256": "ccf132b6679367a74e8b38d83ee651fde1bbc6905e5e999ec534a459cb99a3dc",
+      "result": "closed",
+      "sorries": 0
+    }
+  ],
+  "whole_module_check": {
+    "check_id": "89ddbc6e87f439eb3d9dc05ed7e1b874",
+    "snippet": "qi13-check-axioms.lean",
+    "result": "closed",
+    "sorries": 0,
+    "axiom_inventory": {
+      "aux1": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "algRes": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "fdim": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "aux4": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "aux5": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "aux6": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "bb": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "aux8": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "blift": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "linIndep": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "private_helpers": "key and mem_of_closed retained with original statements and proofs; public linIndep proof body retained.",
+  "scope": "Hosted checks verify this Mathlib-only module and equivalence of all ten public declarations. They are not a full repository build or RH Comparator pass.",
+  "applied_to_source": true,
+  "applied_sha256": "ea3ff4e14889903b2cfb45f43ec6187d8b3211f41f6e4067baaade385533907f"
+}

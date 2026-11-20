@@ -1,0 +1,306 @@
+{
+  "baseline_head": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "head_at_edit": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "authorized_scope": "Only seven byte-identical duplicate paths replaced by imports of unchanged canonical counterparts; no other source changes by this script.",
+  "changed_files": 7,
+  "original_lines": 352,
+  "new_lines": 7,
+  "net_lines_removed": 345,
+  "graph_validation": {
+    "baseline_graph_sha256_matched_all_175190_source_files": true,
+    "baseline_plus_seven_wrapper_nodes": 175190,
+    "topologically_processed_nodes": 175190,
+    "cycles": false,
+    "scope_note": "Baseline a6f8e4806 graph plus these seven changes; concurrent edits by other agents require their aggregate graph check."
+  },
+  "verification_limit": "Static byte identity, reference searches and import graph only. No Lean build or exported-environment comparison has been performed here.",
+  "patch": "/workspace/principia-harness/a0564e7e/aggressive/duplicates/files-wrapper.patch",
+  "mutations": [
+    {
+      "canonical": "src/CompanionTheory/HarishChandraModules/KFiniteAnalyticVectors/AnalyticIntertwiners/GelfandCentralHolds.lean",
+      "path": "src/Development/WeilBound/HeckeVectors/SmoothVectors/SobolevApproximation/GelfandCentralHolds.lean",
+      "canonical_module": "CompanionTheory.HarishChandraModules.KFiniteAnalyticVectors.AnalyticIntertwiners.GelfandCentralHolds",
+      "baseline_sha256": "1b74e8c234664fc239c5857a123a876c2efba62949f1fbf2428c6abd9b9501d3",
+      "baseline_git_blob": "dc3ed2ac75a43c7acd134aa2a55b7d1de62c72eb",
+      "old_lines": 90,
+      "new_lines": 1,
+      "new_sha256": "48282dba700d76238f687a8644676d6f8931acf2bc64d4363d4cebe3d6c6a374",
+      "contents": "import CompanionTheory.HarishChandraModules.KFiniteAnalyticVectors.AnalyticIntertwiners.GelfandCentralHolds\n",
+      "declarations": [
+        {
+          "name": "smoothVec_of_smD_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 21
+        },
+        {
+          "name": "isGRep_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 38
+        },
+        {
+          "name": "cartan_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 42
+        },
+        {
+          "name": "kfin_of_kfinG_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 51
+        },
+        {
+          "name": "exists_kfin_near_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 56
+        },
+        {
+          "name": "eq_zero_of_perp_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 62
+        },
+        {
+          "name": "casimir_symm_A",
+          "kind": "theorem",
+          "private": false,
+          "line": 77
+        }
+      ],
+      "namespaces": [
+        "CompanionTheory.D.gk.HC"
+      ],
+      "private_helper_name_occurrences_before_edit": {},
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/Development/AutomorphicSpectrum/Proofs/GlobalProofs/InfinitesimalEquivalenceUnitaryGroupPQ.lean:10:import Development.WeilBound.HeckeVectors.SmoothVectors.SobolevApproximation.GelfandCentralHolds"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    },
+    {
+      "canonical": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsEquivariantProjOfLeSumIrreducible.lean",
+      "path": "src/PositivityTheory/AutomorphicForms/PublishedInputs/BorelInjectivity/EquivariantProjections/ExistsEquivariantProjOfLeSumIrreducible.lean",
+      "canonical_module": "Development.AbelianVarietyTheory.Proofs.GlobalInterpolation.ExistsEquivariantProjOfLeSumIrreducible",
+      "baseline_sha256": "7dad2adb9a0da0a431acde2043e27c55dcbde48d5e04fe7d2087014ee92af959",
+      "baseline_git_blob": "c2e2baf07e7ba2fed5bbb8e54d6e45b3b5f8e4ac",
+      "old_lines": 77,
+      "new_lines": 1,
+      "new_sha256": "200d2ebe869ca852167053cae6ec0042b141891eeebcd01b3b7e97e1db9ea809",
+      "contents": "import Development.AbelianVarietyTheory.Proofs.GlobalInterpolation.ExistsEquivariantProjOfLeSumIrreducible\n",
+      "declarations": [
+        {
+          "name": "exists_equivariant_proj_of_le_sum_irreducible",
+          "kind": "theorem",
+          "private": false,
+          "line": 7
+        },
+        {
+          "name": "exists_equivariant_proj_of_irreducible_family",
+          "kind": "theorem",
+          "private": false,
+          "line": 68
+        }
+      ],
+      "namespaces": [
+        "GlobalTheory.BorelCoh"
+      ],
+      "private_helper_name_occurrences_before_edit": {},
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/Development/WeilBound/RepresentationTheoryGL/ArchimedeanBaseChange/ArchimedeanBaseChangeProof/SatakeExponents/FiniteDiscreteFamilies/LocalCompatibilityGL/FinIso.lean:4:import PositivityTheory.AutomorphicForms.PublishedInputs.BorelInjectivity.EquivariantProjections.ExistsEquivariantProjOfLeSumIrreducible"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    },
+    {
+      "canonical": "src/Lemmata/ProductIdentities/ProdInvZpowMulOfProdZpowEqOne.lean",
+      "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/ProductIdentities.lean",
+      "canonical_module": "Lemmata.ProductIdentities.ProdInvZpowMulOfProdZpowEqOne",
+      "baseline_sha256": "b531b3c93e3371ad80d278c045aa33726024773bb51bbb1f8009606b49cb3d5b",
+      "baseline_git_blob": "9dc6a794fc584aec75b2a1d19bb064add984149c",
+      "old_lines": 51,
+      "new_lines": 1,
+      "new_sha256": "8ba7cac4a757efb08365cd63d2a6ff4e67e435fa175a603158ad154674b10eb0",
+      "contents": "import Lemmata.ProductIdentities.ProdInvZpowMulOfProdZpowEqOne\n",
+      "declarations": [
+        {
+          "name": "prod_erase_one_perm_apply_eq_zero",
+          "kind": "lemma",
+          "private": true,
+          "line": 5
+        },
+        {
+          "name": "goal1",
+          "kind": "theorem",
+          "private": false,
+          "line": 22
+        }
+      ],
+      "namespaces": [
+        "Bl.ProductIdentities"
+      ],
+      "private_helper_name_occurrences_before_edit": {
+        "prod_erase_one_perm_apply_eq_zero": [
+          "src/Lemmata/ProductIdentities/ProdInvZpowMulOfProdZpowEqOne.lean:5:private lemma prod_erase_one_perm_apply_eq_zero {n : Type} [Fintype n] [DecidableEq n] (\u03c3 : Equiv.Perm n) (h\u03c3 : \u03c3 \u2260 1)",
+          "src/Lemmata/ProductIdentities/ProdInvZpowMulOfProdZpowEqOne.lean:47:    rw [h0, Finset.sum_eq_zero (fun k _ => by rw [prod_erase_one_perm_apply_eq_zero \u03c3 h\u03c3 k, zero_smul]), mul_zero]",
+          "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsSplitExtDatumOfSplitTorusExtension.lean:337:theorem prod_erase_one_perm_apply_eq_zero {A K : Type} [CommGroup A] [Fintype K] (c a : K \u2192 A) (\u03b5 : K \u2192 \u2124)",
+          "src/Development/AbelianVarietyTheory/Proofs/AbelianSchemeLawProofs/ExistsSplitExtDatumOfSplitTorusExtension.lean:468:    exact prod_erase_one_perm_apply_eq_zero _ _ _ h1",
+          "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/ProductIdentities.lean:5:private lemma prod_erase_one_perm_apply_eq_zero {n : Type} [Fintype n] [DecidableEq n] (\u03c3 : Equiv.Perm n) (h\u03c3 : \u03c3 \u2260 1)",
+          "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/ProductIdentities.lean:47:    rw [h0, Finset.sum_eq_zero (fun k _ => by rw [prod_erase_one_perm_apply_eq_zero \u03c3 h\u03c3 k, zero_smul]), mul_zero]"
+        ]
+      },
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/Development/WeilBound/RepresentationTheoryGL/CasimirAlgebra/KugaCoordinates/DeterminantDerivative/BigRep.lean:2:import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.CapelliComplements.ProductIdentities"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    },
+    {
+      "canonical": "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjPolynomialDefiniteUnitaryRational.lean",
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClozelCohomology/ContinuousEntryPairings/ExistsConjPolynomialDefiniteUnitaryRational.lean",
+      "canonical_module": "Development.AbelianVarietyTheory.Proofs.GlobalInterpolation.ExistsConjPolynomialDefiniteUnitaryRational",
+      "baseline_sha256": "5cbca58ccb9e63bf5b8b0b6f37fce8d562326d4f729c3372aa8409ec11a3eb9b",
+      "baseline_git_blob": "ce733a69df10e44aa53bc6c413ab5d741fbc5b01",
+      "old_lines": 50,
+      "new_lines": 1,
+      "new_sha256": "5655c8c40a8a3c11b616a89344a68e89e9f6c433c3c6b401325a18192d9a1360",
+      "contents": "import Development.AbelianVarietyTheory.Proofs.GlobalInterpolation.ExistsConjPolynomialDefiniteUnitaryRational\n",
+      "declarations": [
+        {
+          "name": "polyConj_coord_pInf",
+          "kind": "theorem",
+          "private": true,
+          "line": 8
+        },
+        {
+          "name": "exists_cEmb_entry_eq",
+          "kind": "theorem",
+          "private": false,
+          "line": 19
+        },
+        {
+          "name": "exists_conj_polyFun",
+          "kind": "theorem",
+          "private": false,
+          "line": 29
+        }
+      ],
+      "namespaces": [
+        "GlobalTheory.UnitaryBC"
+      ],
+      "private_helper_name_occurrences_before_edit": {
+        "polyConj_coord_pInf": [
+          "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjPolynomialDefiniteUnitaryRational.lean:8:private theorem polyConj_coord_pInf {E : Type} [Field E] [NumberField E] [IsTotallyComplex E] (\u03c4 : E \u2192+* \u2102) (x : E) :",
+          "src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsConjPolynomialDefiniteUnitaryRational.lean:27:  exact polyConj_coord_pInf \u03c4 _",
+          "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClozelCohomology/ContinuousEntryPairings/ExistsConjPolynomialDefiniteUnitaryRational.lean:8:private theorem polyConj_coord_pInf {E : Type} [Field E] [NumberField E] [IsTotallyComplex E] (\u03c4 : E \u2192+* \u2102) (x : E) :",
+          "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClozelCohomology/ContinuousEntryPairings/ExistsConjPolynomialDefiniteUnitaryRational.lean:27:  exact polyConj_coord_pInf \u03c4 _"
+        ]
+      },
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/IntegralDeterminants/OpBound.lean:14:import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClozelCohomology.ContinuousEntryPairings.ExistsConjPolynomialDefiniteUnitaryRational"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    },
+    {
+      "canonical": "src/Lemmata/GeneralBFactThirdAlt/Imports.lean",
+      "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/GeneralBFactThird.lean",
+      "canonical_module": "Lemmata.GeneralBFactThirdAlt.Imports",
+      "baseline_sha256": "0215fecba1b9151cff43c86f2eb69352281e447a9766256dcd2e0b24802e72be",
+      "baseline_git_blob": "eb425aff2ffc8af512181b1fc4d34d75ac3b95f3",
+      "old_lines": 37,
+      "new_lines": 1,
+      "new_sha256": "c591337359f93a7f7d68988518ad9c799710735d8d60a80b6aa1b563ab5a30fd",
+      "contents": "import Lemmata.GeneralBFactThirdAlt.Imports\n",
+      "declarations": [
+        {
+          "name": "goal1",
+          "kind": "theorem",
+          "private": false,
+          "line": 5
+        }
+      ],
+      "namespaces": [
+        "Bl.general_b_fact_third_alt"
+      ],
+      "private_helper_name_occurrences_before_edit": {},
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/Development/AutomorphicSpectrum/Proofs/MetricProofs/EigenLatticesDifferentStatementHolds.lean:5:import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.CapelliComplements.GeneralBFactThird"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    },
+    {
+      "canonical": "src/Lemmata/GeneralBFact/Imports.lean",
+      "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/GeneralBFact.lean",
+      "canonical_module": "Lemmata.GeneralBFact.Imports",
+      "baseline_sha256": "3297e7909638532d27974ec99e783474fbcfcefd7c4b60da5a48c33b52f6b56f",
+      "baseline_git_blob": "2596aeb4690d9460f761ce00cdf393859dfc9ec6",
+      "old_lines": 25,
+      "new_lines": 1,
+      "new_sha256": "1d3475d6c690d977176d820289b1fbc4c8ba92831ff3ddd6346e3b5aa3cebfd2",
+      "contents": "import Lemmata.GeneralBFact.Imports\n",
+      "declarations": [
+        {
+          "name": "goal1",
+          "kind": "theorem",
+          "private": false,
+          "line": 8
+        }
+      ],
+      "namespaces": [
+        "Bl.general_b_fact"
+      ],
+      "private_helper_name_occurrences_before_edit": {},
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/GroundTheory/LocalFields/LowerIndexQuotient.lean:5:import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.CapelliComplements.GeneralBFactAlt",
+        "src/Development/AutomorphicSpectrum/Proofs/MetricProofs/EigenLatticesDifferentStatementHolds.lean:5:import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.CapelliComplements.GeneralBFactThird",
+        "src/Development/AutomorphicSpectrum/Proofs/MetricProofs/MinorRatioRegularOfInverse.lean:2:import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.CapelliComplements.GeneralBFact"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    },
+    {
+      "canonical": "src/Lemmata/GeneralBFactLast/Imports.lean",
+      "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/GeneralBFactAlt.lean",
+      "canonical_module": "Lemmata.GeneralBFactLast.Imports",
+      "baseline_sha256": "d8ac92834b7b6fd155aa1f149ac39203d660f8831c1fa9ce4970ccf35f258bf2",
+      "baseline_git_blob": "462bcd8bc83c5bf2e1bb6c65ee504a5ac7196f6c",
+      "old_lines": 22,
+      "new_lines": 1,
+      "new_sha256": "496ce15659c6b6a98e8d520abcf2085543c9cbeaea2c4f597f7e90cffca7adba",
+      "contents": "import Lemmata.GeneralBFactLast.Imports\n",
+      "declarations": [
+        {
+          "name": "goal1",
+          "kind": "theorem",
+          "private": false,
+          "line": 7
+        }
+      ],
+      "namespaces": [
+        "Bl.general_b_fact'''''''"
+      ],
+      "private_helper_name_occurrences_before_edit": {},
+      "duplicate_module_reference_occurrences_before_edit": [
+        "src/GroundTheory/LocalFields/LowerIndexQuotient.lean:5:import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.CapelliComplements.GeneralBFactAlt"
+      ],
+      "private_note": "No explicit consumer of the removed module-private helper was found. ProductIdentities name scan includes an unrelated public theorem in AbelianSchemeLawProofs; those references do not name this module.",
+      "both_members_in_retained_Main_closure": true,
+      "would_introduce_import_cycle_in_baseline_graph": false
+    }
+  ],
+  "post_edit_validation": {
+    "all_seven_wrapper_sha256_match": true,
+    "all_seven_canonical_sha256_unchanged": true,
+    "git_diff_check_exit_code": 0
+  }
+}

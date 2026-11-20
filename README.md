@@ -1,8 +1,8 @@
 # Alpöge RH proof: full-source verification and compaction
 
-This repository contains the complete Lean source mirrored from the
-Alpöge/Claude claimed proof of RH and Dirichlet GRH, followed by a small,
-versioned compaction proposal. **The full proof has not been independently
+This repository preserves the complete mirrored Lean source of the
+Alpöge/Claude claimed proof of RH and Dirichlet GRH in Git history and develops
+a compact candidate in `src/`. **The full proof has not been independently
 verified by this work.**
 
 Principia project: [Unpacking the proof of RH](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1).
@@ -51,6 +51,20 @@ The compact analytic bundle passed Principia's hosted Lean checks. Six deeper
 theta/Galois files have structural checks only and still require the full build.
 Those partial checks do not verify RH. Evidence is in
 [verification/compaction/COMPACTION.txt](verification/compaction/COMPACTION.txt).
+
+The next pass removes **748,827 more source lines and 10,070 modules**:
+
+| Substantive Lean source | Before this pass | After |
+| --- | ---: | ---: |
+| Modules | 175,190 | 165,120 |
+| Lines | 17,373,950 | 16,625,123 |
+
+A checked RH wrapper eliminates unnecessary imports, allowing unused modules to
+be removed. Four expanded Mathlib-only files shrink from 20,554 to 1,551 lines;
+all 53 changed declarations have exact comparison checks, and all four replacement
+modules passed hosted Lean. Repeated archive proofs are also shared. The combined
+candidate still needs the full Comparator. See the
+[audit and verification limits](verification/aggressive/README.md).
 
 Follow [verification/HARNESS.md](verification/HARNESS.md) for every new pass:
 change actual source files, preserve theorem statements, commit the edits, sync

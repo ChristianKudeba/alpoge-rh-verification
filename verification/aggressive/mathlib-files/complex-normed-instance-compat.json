@@ -1,0 +1,101 @@
+{
+  "source_commit": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/ComplexNormedInstanceCompat.lean",
+  "candidate": "ComplexNormedInstanceCompat.lean",
+  "before": {
+    "physical_lines": 3669,
+    "nonblank_lines": 3642,
+    "utf8_bytes": 283079,
+    "sha256": "d396fc699915df148a7cd7fca76723f7574ddeeecb658973ed72803f09112a52"
+  },
+  "after": {
+    "physical_lines": 1122,
+    "nonblank_lines": 1090,
+    "utf8_bytes": 75074,
+    "sha256": "00df53577e3871aa29027e87bdd2c80320929437a893917c35b70860ffe4c349"
+  },
+  "delta": {
+    "physical_lines": -2547,
+    "nonblank_lines": -2552,
+    "utf8_bytes": -208005
+  },
+  "method": "Restore implicit typeclass arguments in six expanded declarations. Exact rfl comparisons prove unchanged definition values/theorem types. For three polymorphic predicates equality is checked at explicit arbitrary universe u_re3audit.",
+  "exported_declaration_count": 27,
+  "equality_checks": [
+    {
+      "check_id": "348f1924b80da67a31ff6a067c96fb85",
+      "declarations": [
+        "rregG",
+        "rreg"
+      ],
+      "snippet": "check-rreg.lean",
+      "snippet_sha256": "97ba9940d8c865211fcd89ad358dff4c659710ff66084d504f5f127c4df15d89",
+      "result": "closed",
+      "sorries": 0
+    },
+    {
+      "check_id": "bebd8bd384d2cf080362a3efea8ddaeb",
+      "declarations": [
+        "IsKStableOn",
+        "IsWtOn",
+        "IsKTypeOf"
+      ],
+      "snippet": "check-predicates.lean",
+      "snippet_sha256": "da5c7a253160b70c72c4886588543465faac2ff7a0b88d14f6178799e1e0324f",
+      "result": "closed",
+      "sorries": 0
+    },
+    {
+      "check_id": "a48fe6489fa3f26c5d950f21e1957be0",
+      "declarations": [
+        "hloweq_transfer"
+      ],
+      "snippet": "check-transfer.lean",
+      "snippet_sha256": "4e2416a7628d5fdb449d9ad13d82fac5f514f17bb824b2adcda61838977d0f72",
+      "result": "closed",
+      "sorries": 0
+    }
+  ],
+  "whole_module_check": {
+    "check_id": "28da547c061a457c9645ee4a47817ccc",
+    "snippet": "check-final.lean",
+    "result": "closed",
+    "sorries": 0,
+    "axiom_inventory": {
+      "rregG": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "rreg": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "IsKStableOn": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "IsWtOn": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "IsKTypeOf": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hloweq_transfer": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "transient_service_failures": "Two server UNIQUE(run_id,seq) errors and one MCP connection failure were retried; all final checks completed.",
+  "scope": "These hosted checks validate the complete Mathlib-only replacement module and exact equivalence for its six edited declarations. They are not a full repository build or RH Comparator pass.",
+  "applied_to_source": true,
+  "applied_sha256": "00df53577e3871aa29027e87bdd2c80320929437a893917c35b70860ffe4c349"
+}

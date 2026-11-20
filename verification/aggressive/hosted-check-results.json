@@ -1,0 +1,1099 @@
+{
+  "05287b1590d2dcf57c9cddf6ff8454ed": {
+    "verified": "on Principia",
+    "check_id": "05287b1590d2dcf57c9cddf6ff8454ed",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 536,
+        "column": 20,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 2281,
+        "column": 0,
+        "text": "def UpperTheory.Reformulated.B.Uc13.evalV : (F : Type) \u2192\n  [inst : Field F] \u2192\n    [inst_1 : NumberField F] \u2192\n      (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) \u2192\n        UpperTheory.Reformulated.B.Uc13.Af F \u2192\u2090[F] UpperTheory.Reformulated.B.Uc13.Fv F v :=\nfun F [Field F] [NumberField F] v =>\n  let __src := RestrictedProduct.evalRingHom (fun w => IsDedekindDomain.HeightOneSpectrum.adicCompletion F w) v;\n  { toRingHom := __src, commutes' := \u22ef }"
+      },
+      {
+        "severity": "info",
+        "line": 2282,
+        "column": 0,
+        "text": "def UpperTheory.Reformulated.B.Uc13.intAf : (F : Type) \u2192\n  [inst : Field F] \u2192 [inst_1 : NumberField F] \u2192 Set (UpperTheory.Reformulated.B.Uc13.Af F) :=\nfun F [Field F] [NumberField F] =>\n  {a |\n    \u2200 (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)),\n      (UpperTheory.Reformulated.B.Uc13.evalV F v) a \u2208 IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers F v}"
+      },
+      {
+        "severity": "info",
+        "line": 2283,
+        "column": 0,
+        "text": "def UpperTheory.Reformulated.B.Uc13.intA : (F E : Type) \u2192\n  [inst : Field F] \u2192\n    [inst_1 : NumberField F] \u2192\n      [inst_2 : Field E] \u2192\n        [inst_3 : Algebra F E] \u2192 AddSubgroup (TensorProduct F (UpperTheory.Reformulated.B.Uc13.Af F) E) :=\nfun F E [Field F] [NumberField F] [Field E] [Algebra F E] =>\n  AddSubgroup.closure {y | \u2203 a \u2208 UpperTheory.Reformulated.B.Uc13.intAf F, \u2203 x, y = a \u2297\u209c[F] \u2191x}"
+      },
+      {
+        "severity": "info",
+        "line": 2284,
+        "column": 0,
+        "text": "theorem UpperTheory.Reformulated.B.Uc13.mul_mem_intA : \u2200 (F E : Type) [inst : Field F] [inst_1 : NumberField F]\n  [inst_2 : Field E] [NumberField E] [inst_4 : Algebra F E]\n  {x y : TensorProduct F (UpperTheory.Reformulated.B.Uc13.Af F) E},\n  x \u2208 UpperTheory.Reformulated.B.Uc13.intA F E \u2192\n    y \u2208 UpperTheory.Reformulated.B.Uc13.intA F E \u2192 x * y \u2208 UpperTheory.Reformulated.B.Uc13.intA F E :=\nfun F E [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] {x y} hx hy =>\n  id\n    (AddSubgroup.closure_induction\u2082\n      (fun x y hx hy =>\n        Exists.casesOn hx fun a h =>\n          And.casesOn h fun ha right =>\n            Exists.casesOn right fun s h =>\n              Eq.symm h \u25b8\n                Exists.casesOn hy fun b h =>\n                  And.casesOn h fun hb right =>\n                    Exists.casesOn right fun t h =>\n                      Eq.symm h \u25b8\n                        AddSubgroup.subset_closure\n                          (Exists.intro (a * b)\n                            \u27e8UpperTheory.Reformulated.B.Uc13.intAf_mul F ha hb,\n                              Exists.intro (s * t)\n                                (Eq.mpr\n                                  (id\n                     \u2026"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "7568b4403c6c01f1abb130b4243a4235": {
+    "verified": "on Principia",
+    "check_id": "7568b4403c6c01f1abb130b4243a4235",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 1405,
+        "column": 12,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 2725,
+        "column": 12,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 2754,
+        "column": 0,
+        "text": "@[reducible] def UpperTheory.Reformulated.B.Uc13.Af : (F : Type) \u2192 [inst : Field F] \u2192 [NumberField F] \u2192 Type :=\nfun F [Field F] [NumberField F] => IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F"
+      },
+      {
+        "severity": "info",
+        "line": 2755,
+        "column": 0,
+        "text": "@[reducible] def UpperTheory.Reformulated.B.Uc13.Fv : (F : Type) \u2192\n  [inst : Field F] \u2192 [NumberField F] \u2192 IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F) \u2192 Type :=\nfun F [Field F] [NumberField F] v => IsDedekindDomain.HeightOneSpectrum.adicCompletion F v"
+      },
+      {
+        "severity": "info",
+        "line": 2756,
+        "column": 0,
+        "text": "theorem UpperTheory.Reformulated.B.Uc13.aux3 : \u2200 (F : Type) [inst : Field F] [inst_1 : NumberField F]\n  (i : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)),\n  SubringClass (ValuationSubring (IsDedekindDomain.HeightOneSpectrum.adicCompletion F i))\n    (IsDedekindDomain.HeightOneSpectrum.adicCompletion F i) :=\nfun F [Field F] [NumberField F] i => inferInstance"
+      },
+      {
+        "severity": "info",
+        "line": 2757,
+        "column": 0,
+        "text": "theorem UpperTheory.Reformulated.B.Uc13.aux4 : \u2200 (F : Type) [inst : Field F] [inst_1 : NumberField F]\n  (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) (x : F),\n  (\u2191\u2191(RestrictedProduct.evalRingHom (fun w => IsDedekindDomain.HeightOneSpectrum.adicCompletion F w) v)).toFun\n      ((algebraMap F (UpperTheory.Reformulated.B.Uc13.Af F)) x) =\n    (\u2191\u2191(RestrictedProduct.evalRingHom (fun w => IsDedekindDomain.HeightOneSpectrum.adicCompletion F w) v)).toFun\n      ((algebraMap F (UpperTheory.Reformulated.B.Uc13.Af F)) x) :=\nfun F [Field F] [NumberField F] v x =>\n  Eq.refl\n    ((\u2191\u2191(RestrictedProduct.evalRingHom (fun w => IsDedekindDomain.HeightOneSpectrum.adicCompletion F w) v)).toFun\n      ((algebraMap F (UpperTheory.Reformulated.B.Uc13.Af F)) x))"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "a43cc0566bb109ec53b21c85369f92b8": {
+    "verified": "on Principia",
+    "check_id": "a43cc0566bb109ec53b21c85369f92b8",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 536,
+        "column": 20,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 2364,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.Af' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2365,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.Fv' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2366,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.aux3' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2367,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.aux4' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2368,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.evalV' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2369,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.intAf' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2370,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.intA' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 2371,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.mul_mem_intA' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "5deb4fdac1e5ed2b9270c9fe27401c29": {
+    "verified": "on Principia",
+    "check_id": "5deb4fdac1e5ed2b9270c9fe27401c29",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 1405,
+        "column": 12,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 2725,
+        "column": 12,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "20648531a74c0465714b5db97c94f732": {
+    "verified": "on Principia",
+    "check_id": "20648531a74c0465714b5db97c94f732",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 101,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.Af' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 102,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.Fv' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 103,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.aux3' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 104,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.aux4' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 105,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.evalV' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 106,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.intAf' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 107,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.intA' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 108,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Uc13.mul_mem_intA' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "7985d9647daa153451a9dc95e81f1d48": {
+    "verified": "on Principia",
+    "check_id": "7985d9647daa153451a9dc95e81f1d48",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 1012,
+        "column": 0,
+        "text": "@CovariantOriginal.jE_mem : \u2200 {l : \u2115} [inst : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst_1 : Field E]\n  [inst_2 : NumberField E] [inst_3 : Field \u03a9] [inst_4 : Algebra E \u03a9] (j : \u03a9 \u2192+* PadicAlgCl l) (x : E),\n  (CovariantOriginal.jE j) x \u2208 CovariantOriginal.KwF j"
+      },
+      {
+        "severity": "info",
+        "line": 1013,
+        "column": 0,
+        "text": "@CovariantOriginal.zero_contDiffOn_supported : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [inst_4 : CharZero \u03a9] [inst_5 : IsAlgClosure \u211a \u03a9]\n  (j : \u03a9 \u2192+* PadicAlgCl l),\n  \u2200 \u03c3 \u2208 (CovariantOriginal.KwF j).fixingSubgroup,\n    \u2200 (x : E), (CovariantOriginal.resQ j \u03c3).toRingEquiv ((algebraMap E \u03a9) x) = (algebraMap E \u03a9) x"
+      },
+      {
+        "severity": "info",
+        "line": 1014,
+        "column": 0,
+        "text": "def CovariantOriginal.resE : {l : \u2115} \u2192\n  [hl : Fact (Nat.Prime l)] \u2192\n    {E \u03a9 : Type} \u2192\n      [inst : Field E] \u2192\n        [inst_1 : NumberField E] \u2192\n          [inst_2 : Field \u03a9] \u2192\n            [inst_3 : Algebra E \u03a9] \u2192\n              [inst_4 : CharZero \u03a9] \u2192\n                [IsAlgClosure \u211a \u03a9] \u2192\n                  (j : \u03a9 \u2192+* PadicAlgCl l) \u2192\n                    (\u03c3 : CovariantOriginal.GQ l) \u2192\n                      \u03c3 \u2208 (CovariantOriginal.KwF j).fixingSubgroup \u2192 CovariantOriginal.G E \u03a9 :=\nfun {l} [Fact (Nat.Prime l)] {E \u03a9} [Field E] [NumberField E] [Field \u03a9] [Algebra E \u03a9] [CharZero \u03a9] [IsAlgClosure \u211a \u03a9] j \u03c3\n    h\u03c3 =>\n  AlgEquiv.ofRingEquiv \u22ef"
+      },
+      {
+        "severity": "info",
+        "line": 1015,
+        "column": 0,
+        "text": "@CovariantOriginal.j_resE : \u2200 {l : \u2115} [inst : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst_1 : Field E]\n  [inst_2 : NumberField E] [inst_3 : Field \u03a9] [inst_4 : Algebra E \u03a9] [inst_5 : CharZero \u03a9] [inst_6 : IsAlgClosure \u211a \u03a9]\n  (j : \u03a9 \u2192+* PadicAlgCl l) (\u03c3 : CovariantOriginal.GQ l) (h\u03c3 : \u03c3 \u2208 (CovariantOriginal.KwF j).fixingSubgroup) (x : \u03a9),\n  j ((CovariantOriginal.resE j \u03c3 h\u03c3) x) = \u03c3 (j x)"
+      },
+      {
+        "severity": "info",
+        "line": 1016,
+        "column": 0,
+        "text": "@CovariantOriginal.resE_mem : \u2200 {l : \u2115} [inst : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst_1 : Field E]\n  [inst_2 : NumberField E] [inst_3 : Field \u03a9] [inst_4 : Algebra E \u03a9] [inst_5 : CharZero \u03a9] [inst_6 : IsAlgClosure \u211a \u03a9]\n  {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9},\n  (\u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1) \u2192\n    \u2200 (\u03c3 : CovariantOriginal.GQ l) (h\u03c3 : \u03c3 \u2208 (CovariantOriginal.KwF j).fixingSubgroup),\n      CovariantOriginal.resE j \u03c3 h\u03c3 \u2208 CovariantOriginal.Dec A"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "c86178e3826f3bb55b28b1f3ce1d1efd": {
+    "verified": "on Principia",
+    "check_id": "c86178e3826f3bb55b28b1f3ce1d1efd",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "scratch checks never close a step"
+  },
+  "2ff9c512ce2f5e9af37d40abcb3b7ddd": {
+    "verified": "on Principia",
+    "check_id": "2ff9c512ce2f5e9af37d40abcb3b7ddd",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 1540,
+        "column": 0,
+        "text": "@CovariantOriginal.column_matrix_mul_inverse : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l}\n  (\u03c3 : \u21a5(CovariantOriginal.KwF j).fixingSubgroup), \u2191\u03c3 \u2208 (CovariantOriginal.KwF j).fixingSubgroup"
+      },
+      {
+        "severity": "info",
+        "line": 1541,
+        "column": 0,
+        "text": "@CovariantOriginal.complex_normed_instance_compat : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [IsAlgClosure E \u03a9] [inst_5 : CharZero \u03a9]\n  [inst_6 : IsAlgClosure \u211a \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9},\n  (\u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1) \u2192\n    \u2200 (\u03c3 : \u21a5(CovariantOriginal.KwF j).fixingSubgroup), CovariantOriginal.resE j \u2191\u03c3 \u22ef \u2208 CovariantOriginal.Dec A"
+      },
+      {
+        "severity": "info",
+        "line": 1542,
+        "column": 0,
+        "text": "@CovariantOriginal.padic_embedding_algebra_compat : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l},\n  \u21911 \u2208 (CovariantOriginal.KwF j).fixingSubgroup"
+      },
+      {
+        "severity": "info",
+        "line": 1543,
+        "column": 0,
+        "text": "@CovariantOriginal.blockM_one_partner_eq_one : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [IsAlgClosure E \u03a9] [inst_5 : CharZero \u03a9]\n  [inst_6 : IsAlgClosure \u211a \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9},\n  (\u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1) \u2192 CovariantOriginal.resE j \u21911 \u22ef \u2208 CovariantOriginal.Dec A"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "6744eb582c456ee5cdf6ecd24c93386d": {
+    "check_id": "6744eb582c456ee5cdf6ecd24c93386d",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 1558,
+        "column": 0,
+        "text": "def CovariantOriginal.rHom : {l : \u2115} \u2192\n  [hl : Fact (Nat.Prime l)] \u2192\n    {E \u03a9 : Type} \u2192\n      [inst : Field E] \u2192\n        [inst_1 : NumberField E] \u2192\n          [inst_2 : Field \u03a9] \u2192\n            [inst_3 : Algebra E \u03a9] \u2192\n              [IsAlgClosure E \u03a9] \u2192\n                [inst_5 : CharZero \u03a9] \u2192\n                  [IsAlgClosure \u211a \u03a9] \u2192\n                    {j : \u03a9 \u2192+* PadicAlgCl l} \u2192\n                      {A : ValuationSubring \u03a9} \u2192\n                        (\u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1) \u2192\n                          \u21a5(CovariantOriginal.KwF j).fixingSubgroup \u2192* \u21a5(CovariantOriginal.Dec A) :=\nfun {l} [Fact (Nat.Prime l)] {E \u03a9} [Field E] [NumberField E] [Field \u03a9] [Algebra E \u03a9] [IsAlgClosure E \u03a9] [CharZero \u03a9]\n    [IsAlgClosure \u211a \u03a9] {j} {A} hj =>\n  { toFun := fun \u03c3 => \u27e8CovariantOriginal.resE j \u2191\u03c3 \u22ef, \u22ef\u27e9, map_one' := \u22ef, map_mul' := \u22ef }"
+      },
+      {
+        "severity": "info",
+        "line": 1559,
+        "column": 0,
+        "text": "@CovariantOriginal.continuous_rHom : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [inst_4 : IsAlgClosure E \u03a9] [inst_5 : CharZero \u03a9]\n  [inst_6 : IsAlgClosure \u211a \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9} (hj : \u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1),\n  Continuous \u21d1(CovariantOriginal.rHom hj)"
+      }
+    ],
+    "note": "already decided"
+  },
+  "fe2b9629170d990d4f7198dec77eb3dd": {
+    "verified": "on Principia",
+    "check_id": "fe2b9629170d990d4f7198dec77eb3dd",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 150,
+        "column": 20,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 185,
+        "column": 19,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "cb70ec0b43dca0abfb174a8c3eaf47b1": {
+    "verified": "on Principia",
+    "check_id": "cb70ec0b43dca0abfb174a8c3eaf47b1",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 56,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 73,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 74,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 75,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "info",
+        "line": 231,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.jE' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 232,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.KwF' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 233,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.resQ' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 234,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.resE' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 235,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.blockM_mul_alt' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 236,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.conj_invariant_character_transport' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 237,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.rHom' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 238,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.CovariantDegrees.continuous_rHom' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "20f6fb5a7a30fabeda0f2117ffd0813a": {
+    "verified": "on Principia",
+    "check_id": "20f6fb5a7a30fabeda0f2117ffd0813a",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 2294,
+        "column": 0,
+        "text": "@CovariantOriginal.blockM_mul_alt : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [inst_4 : IsAlgClosure E \u03a9] [inst_5 : CharZero \u03a9]\n  [inst_6 : IsAlgClosure \u211a \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9} (hj : \u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1),\n  \u27e8CovariantOriginal.resE j \u21911 \u22ef, \u22ef\u27e9 = 1"
+      },
+      {
+        "severity": "info",
+        "line": 2295,
+        "column": 0,
+        "text": "@CovariantOriginal.conj_invariant_character_mem : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l}\n  (\u03c3 \u03c4 : \u21a5(CovariantOriginal.KwF j).fixingSubgroup), \u2191(\u03c3 * \u03c4) \u2208 (CovariantOriginal.KwF j).fixingSubgroup"
+      },
+      {
+        "severity": "info",
+        "line": 2296,
+        "column": 0,
+        "text": "@CovariantOriginal.rootGL_mem_unitary : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type} [inst : Field E]\n  [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [IsAlgClosure E \u03a9] [inst_5 : CharZero \u03a9]\n  [inst_6 : IsAlgClosure \u211a \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9},\n  (\u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1) \u2192\n    \u2200 (\u03c3 \u03c4 : \u21a5(CovariantOriginal.KwF j).fixingSubgroup), CovariantOriginal.resE j \u2191(\u03c3 * \u03c4) \u22ef \u2208 CovariantOriginal.Dec A"
+      },
+      {
+        "severity": "info",
+        "line": 2297,
+        "column": 0,
+        "text": "@CovariantOriginal.conj_invariant_character_transport : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {E \u03a9 : Type}\n  [inst : Field E] [inst_1 : NumberField E] [inst_2 : Field \u03a9] [inst_3 : Algebra E \u03a9] [inst_4 : IsAlgClosure E \u03a9]\n  [inst_5 : CharZero \u03a9] [inst_6 : IsAlgClosure \u211a \u03a9] {j : \u03a9 \u2192+* PadicAlgCl l} {A : ValuationSubring \u03a9}\n  (hj : \u2200 (x : \u03a9), x \u2208 A \u2194 \u2016j x\u2016 \u2264 1) (\u03c3 \u03c4 : \u21a5(CovariantOriginal.KwF j).fixingSubgroup),\n  \u27e8CovariantOriginal.resE j \u2191(\u03c3 * \u03c4) \u22ef, \u22ef\u27e9 = \u27e8CovariantOriginal.resE j \u2191\u03c3 \u22ef, \u22ef\u27e9 * \u27e8CovariantOriginal.resE j \u2191\u03c4 \u22ef, \u22ef\u27e9"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "de5e5b79bdd8974c7b265bfa7cd2db76": {
+    "verified": "on Principia",
+    "check_id": "de5e5b79bdd8974c7b265bfa7cd2db76",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 202,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 379,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 380,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 381,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 545,
+        "column": 22,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 586,
+        "column": 24,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 601,
+        "column": 22,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 1011,
+        "column": 0,
+        "text": "@CovariantOriginal.laurent_T_neg_one_mul_T_one : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)],\n  IsScalarTower \u211a \u211a_[l] (CovariantOriginal.Om l)"
+      },
+      {
+        "severity": "info",
+        "line": 1012,
+        "column": 0,
+        "text": "@CovariantOriginal.aux11 : \u2200 {l : \u2115} [hl : Fact (Nat.Prime l)] {\u03a9 : Type} [inst : Field \u03a9] [inst_1 : CharZero \u03a9]\n  (j : \u03a9 \u2192+* PadicAlgCl l), IsScalarTower \u211a \u03a9 (PadicAlgCl l)"
+      },
+      {
+        "severity": "info",
+        "line": 1013,
+        "column": 0,
+        "text": "@CovariantOriginal.aux12 : \u2200 {\u03a9 : Type} [inst : Field \u03a9] [inst_1 : CharZero \u03a9] [IsAlgClosure \u211a \u03a9], Normal \u211a \u03a9"
+      },
+      {
+        "severity": "info",
+        "line": 1014,
+        "column": 0,
+        "text": "def CovariantOriginal.resQ : {l : \u2115} \u2192\n  [hl : Fact (Nat.Prime l)] \u2192\n    {\u03a9 : Type} \u2192\n      [inst : Field \u03a9] \u2192\n        [inst_1 : CharZero \u03a9] \u2192 [IsAlgClosure \u211a \u03a9] \u2192 (\u03a9 \u2192+* PadicAlgCl l) \u2192 CovariantOriginal.GQ l \u2192 Gal(\u03a9/\u211a) :=\nfun {l} [Fact (Nat.Prime l)] {\u03a9} [Field \u03a9] [CharZero \u03a9] [IsAlgClosure \u211a \u03a9] j \u03c3 =>\n  (\u2191(AlgEquiv.restrictScalars \u211a \u03c3)).restrictNormal' \u03a9"
+      },
+      {
+        "severity": "info",
+        "line": 1015,
+        "column": 0,
+        "text": "@CovariantOriginal.j_resQ : \u2200 {l : \u2115} [inst : Fact (Nat.Prime l)] {\u03a9 : Type} [inst_1 : Field \u03a9] [inst_2 : CharZero \u03a9]\n  [inst_3 : IsAlgClosure \u211a \u03a9] (j : \u03a9 \u2192+* PadicAlgCl l) (\u03c3 : CovariantOriginal.GQ l) (x : \u03a9),\n  j ((CovariantOriginal.resQ j \u03c3) x) = \u03c3 (j x)"
+      }
+    ],
+    "more_messages": 5,
+    "note": "scratch checks never close a step"
+  },
+  "021eba9a3f53232c5f91d42cbaee65ee": {
+    "verified": "on Principia",
+    "check_id": "021eba9a3f53232c5f91d42cbaee65ee",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "scratch checks never close a step"
+  },
+  "7df5f53a69ac3c7cd4478163656913e9": {
+    "check_id": "7df5f53a69ac3c7cd4478163656913e9",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "already decided"
+  },
+  "a976fe464fa99a9ac67f290cebcdf56a": {
+    "verified": "on Principia",
+    "check_id": "a976fe464fa99a9ac67f290cebcdf56a",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "scratch checks never close a step"
+  },
+  "62989fdd3896b6bb53eab5c12384ad46": {
+    "verified": "on Principia",
+    "check_id": "62989fdd3896b6bb53eab5c12384ad46",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 1503,
+        "column": 17,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1894,
+        "column": 18,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "41567069cb374af7fe56badb61d7c626": {
+    "verified": "on Principia",
+    "check_id": "41567069cb374af7fe56badb61d7c626",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 353,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 679,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 680,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "54b74c96e087cd2295b56ae816e7b1a7": {
+    "verified": "on Principia",
+    "check_id": "54b74c96e087cd2295b56ae816e7b1a7",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 1503,
+        "column": 17,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1894,
+        "column": 18,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 2117,
+        "column": 0,
+        "text": "def OriginalQi13.bb : (K : Type) \u2192\n  [inst : Field K] \u2192\n    [inst_1 : ValuativeRel K] \u2192\n      [inst_2 : TopologicalSpace K] \u2192\n        [inst_3 : IsNonarchimedeanLocalField K] \u2192\n          (l : \u2115) \u2192\n            [inst_4 : Fact (Nat.Prime l)] \u2192\n              [inst_5 : CharP (IsLocalRing.ResidueField \u21a5(ValuativeRel.valuation K).integer) l] \u2192\n                Module.Basis (Fin (OriginalQi13.fdim K l)) (ZMod l)\n                  (IsLocalRing.ResidueField \u21a5(ValuativeRel.valuation K).integer) :=\nfun K [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] l [Fact (Nat.Prime l)]\n    [CharP (IsLocalRing.ResidueField \u21a5(ValuativeRel.valuation K).integer) l] =>\n  Module.finBasis (ZMod l) (IsLocalRing.ResidueField \u21a5(ValuativeRel.valuation K).integer)"
+      },
+      {
+        "severity": "info",
+        "line": 2118,
+        "column": 0,
+        "text": "OriginalQi13.aux8 : \u2200 (K : Type) [inst : Field K] [inst_1 : ValuativeRel K] [inst_2 : TopologicalSpace K]\n  [inst_3 : IsNonarchimedeanLocalField K] (l : \u2115) [inst_4 : Fact (Nat.Prime l)]\n  [inst_5 : CharP (IsLocalRing.ResidueField \u21a5(ValuativeRel.valuation K).integer) l] (i : Fin (OriginalQi13.fdim K l)),\n  \u2203 a, (IsLocalRing.residue \u21a5(ValuativeRel.valuation K).integer) a = (OriginalQi13.bb K l) i"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "1c7892efd32988e84a204a80c939b604": {
+    "verified": "on Principia",
+    "check_id": "1c7892efd32988e84a204a80c939b604",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "scratch checks never close a step"
+  },
+  "89ddbc6e87f439eb3d9dc05ed7e1b874": {
+    "verified": "on Principia",
+    "check_id": "89ddbc6e87f439eb3d9dc05ed7e1b874",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 166,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.aux1' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 167,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.algRes' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 168,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.fdim' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 169,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.aux4' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 170,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.aux5' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 171,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.aux6' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 172,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.bb' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 173,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.aux8' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 174,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.blift' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 175,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Qi13.linIndep' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "1c367c6764ece7148944b0a2bd3300cd": {
+    "verified": "on Principia",
+    "check_id": "1c367c6764ece7148944b0a2bd3300cd",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 696,
+        "column": 19,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1087,
+        "column": 20,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1344,
+        "column": 8,
+        "text": "`AddSubmonoidClass.coe_finset_sum` has been deprecated: Use `AddSubmonoidClass.coe_finsetSum` instead"
+      },
+      {
+        "severity": "warning",
+        "line": 1701,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1661,
+        "column": 36,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 1770,
+        "column": 0,
+        "text": "OriginalQi13.linIndep : \u2200 (K : Type) [inst : Field K] [inst_1 : ValuativeRel K] [inst_2 : TopologicalSpace K]\n  [inst_3 : IsNonarchimedeanLocalField K] (l : \u2115) [inst_4 : Fact (Nat.Prime l)] [inst_5 : Algebra \u211a_[l] K]\n  [inst_6 : CharP (IsLocalRing.ResidueField \u21a5(ValuativeRel.valuation K).integer) l],\n  Continuous \u21d1(algebraMap \u211a_[l] K) \u2192 LinearIndependent \u211a_[l] fun i => \u2191(OriginalQi13.blift K l i)"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "b12f3237bc578c183e6d66d3baf5871b": {
+    "verified": "on Principia",
+    "check_id": "b12f3237bc578c183e6d66d3baf5871b",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 118,
+        "column": 8,
+        "text": "`AddSubmonoidClass.coe_finset_sum` has been deprecated: Use `AddSubmonoidClass.coe_finsetSum` instead"
+      },
+      {
+        "severity": "warning",
+        "line": 475,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 435,
+        "column": 36,
+        "text": "Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 580,
+        "column": 8,
+        "text": "`AddSubmonoidClass.coe_finset_sum` has been deprecated: Use `AddSubmonoidClass.coe_finsetSum` instead"
+      },
+      {
+        "severity": "warning",
+        "line": 614,
+        "column": 2,
+        "text": "Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 607,
+        "column": 18,
+        "text": "Variable name `inst` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 607,
+        "column": 35,
+        "text": "Variable name `inst_1` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst_1\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 607,
+        "column": 61,
+        "text": "Variable name `inst_2` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst_2\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 608,
+        "column": 7,
+        "text": "Variable name `inst_3` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst_3\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 608,
+        "column": 55,
+        "text": "Variable name `inst_4` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst_4\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 609,
+        "column": 7,
+        "text": "Variable name `inst_5` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst_5\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 610,
+        "column": 7,
+        "text": "Variable name `inst_6` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _inst_6\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      }
+    ],
+    "more_messages": 10,
+    "note": "scratch checks never close a step"
+  },
+  "a596aaaa1356b2d1e6f158f2b3ecb474": {
+    "verified": "on Principia",
+    "check_id": "a596aaaa1356b2d1e6f158f2b3ecb474",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 2780,
+        "column": 0,
+        "text": "def OriginalRe3.IsKStableOn.{u_1} : {n : \u2115} \u2192\n  {H : Type u_1} \u2192\n    [inst : NormedAddCommGroup H] \u2192\n      [inst_1 : InnerProductSpace \u2102 H] \u2192\n        (Fin n \u2192 Bool) \u2192 (Matrix (Fin n) (Fin n) \u2102 \u2192 H \u2192L[\u2102] H) \u2192 Submodule \u2102 H \u2192 Prop :=\nfun {n} {H} [NormedAddCommGroup H] [InnerProductSpace \u2102 H] \u03b5 \u03c3 S => \u2200 g \u2208 OriginalRe3.d21 \u03b5, \u2200 v \u2208 S, (\u03c3 g) v \u2208 S"
+      },
+      {
+        "severity": "info",
+        "line": 2781,
+        "column": 0,
+        "text": "def OriginalRe3.IsWtOn.{u_1} : {n : \u2115} \u2192\n  {H : Type u_1} \u2192\n    [inst : NormedAddCommGroup H] \u2192\n      [inst_1 : InnerProductSpace \u2102 H] \u2192\n        Set (Matrix (Fin n) (Fin n) \u2102) \u2192 (Matrix (Fin n) (Fin n) \u2102 \u2192 H \u2192L[\u2102] H) \u2192 (Fin n \u2192 \u211d) \u2192 H \u2192 Prop :=\nfun {n} {H} [NormedAddCommGroup H] [InnerProductSpace \u2102 H] G \u03c3 \u03bc v =>\n  \u2200 (\u03b8 : Fin n \u2192 \u211d),\n    (Matrix.diagonal fun a => Complex.exp (\u2191(\u03b8 a) * Complex.I)) \u2208 G \u2192\n      (\u03c3 (Matrix.diagonal fun a => Complex.exp (\u2191(\u03b8 a) * Complex.I))) v =\n        Complex.exp (\u2191(\u2211 a, \u03bc a * \u03b8 a) * Complex.I) \u2022 v"
+      },
+      {
+        "severity": "info",
+        "line": 2782,
+        "column": 0,
+        "text": "def OriginalRe3.IsKTypeOf.{u_1} : {n : \u2115} \u2192\n  {H : Type u_1} \u2192\n    [inst : NormedAddCommGroup H] \u2192\n      [inst_1 : InnerProductSpace \u2102 H] \u2192\n        (Fin n \u2192 Bool) \u2192 (Matrix (Fin n) (Fin n) \u2102 \u2192 H \u2192L[\u2102] H) \u2192 (Fin n \u2192 \u211d) \u2192 Submodule \u2102 H \u2192 Prop :=\nfun {n} {H} [NormedAddCommGroup H] [InnerProductSpace \u2102 H] \u03b5 \u03c3 \u039b S =>\n  FiniteDimensional \u2102 \u21a5S \u2227\n    OriginalRe3.IsKStableOn \u03b5 \u03c3 S \u2227\n      (\u2200 S' \u2264 S, OriginalRe3.IsKStableOn \u03b5 \u03c3 S' \u2192 S' = \u22a5 \u2228 S' = S) \u2227\n        (\u2203 v \u2208 S, v \u2260 0 \u2227 OriginalRe3.IsWtOn (OriginalRe3.d21 \u03b5) \u03c3 \u039b v) \u2227\n          \u2200 (\u03bc : Fin n \u2192 \u211d), \u2200 v \u2208 S, v \u2260 0 \u2192 OriginalRe3.IsWtOn (OriginalRe3.d21 \u03b5) \u03c3 \u03bc v \u2192 OriginalRe3.CDom \u03b5 \u03bc \u039b"
+      },
+      {
+        "severity": "info",
+        "line": 2783,
+        "column": 0,
+        "text": "@OriginalRe3.hloweq_transfer : \u2200 {n : \u2115} {\u03b5 : Fin n \u2192 Bool} {\u039b : Fin n \u2192 \u211d}\n  (A : OriginalRe3.L2 \u03b5 \u2192\u2097[\u2102] OriginalRe3.L2 \u03b5),\n  (\u2200 k \u2208 OriginalRe3.Kset \u03b5, \u2200 (x : OriginalRe3.L2 \u03b5), A ((OriginalRe3.rreg \u03b5 k) x) = (OriginalRe3.rreg \u03b5 k) (A x)) \u2192\n    \u2200 {S : Submodule \u2102 (OriginalRe3.L2 \u03b5)},\n      (\u2200 w \u2208 S, A w = 0 \u2192 w = 0) \u2192\n        OriginalRe3.IsKTypeOf \u03b5 (OriginalRe3.rreg \u03b5) \u039b S \u2192\n          OriginalRe3.IsKTypeOf \u03b5 (OriginalRe3.rreg \u03b5) \u039b (Submodule.map A S)"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "348f1924b80da67a31ff6a067c96fb85": {
+    "verified": "on Principia",
+    "check_id": "348f1924b80da67a31ff6a067c96fb85",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 701,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1319,
+        "column": 11,
+        "text": "Variable name `hm` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hm\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1709,
+        "column": 11,
+        "text": "Variable name `h` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "a48fe6489fa3f26c5d950f21e1957be0": {
+    "verified": "on Principia",
+    "check_id": "a48fe6489fa3f26c5d950f21e1957be0",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "scratch checks never close a step"
+  },
+  "bebd8bd384d2cf080362a3efea8ddaeb": {
+    "verified": "on Principia",
+    "check_id": "bebd8bd384d2cf080362a3efea8ddaeb",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [],
+    "note": "scratch checks never close a step"
+  },
+  "9d3f836ea22be6e622614577b51ce7bb": {
+    "verified": "on Principia",
+    "check_id": "9d3f836ea22be6e622614577b51ce7bb",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "warning",
+        "line": 701,
+        "column": 2,
+        "text": "Try this: \n  haveI\u0335\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1319,
+        "column": 11,
+        "text": "Variable name `hm` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hm\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "warning",
+        "line": 1709,
+        "column": 11,
+        "text": "Variable name `h` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`"
+      },
+      {
+        "severity": "info",
+        "line": 1904,
+        "column": 0,
+        "text": "def OriginalRe3.rregG : {n : \u2115} \u2192 (\u03b5 : Fin n \u2192 Bool) \u2192 \u21a5(OriginalRe3.UJ \u03b5) \u2192 OriginalRe3.L2 \u03b5 \u2192L[\u2102] OriginalRe3.L2 \u03b5 :=\nfun {n} \u03b5 y =>\n  if hm : MeasureTheory.MeasurePreserving (fun x => x * y) (OriginalRe3.muG \u03b5) (OriginalRe3.muG \u03b5) then\n    (MeasureTheory.Lp.compMeasurePreserving\u2097\u1d62 \u2102 (fun x => x * y) hm).toContinuousLinearMap\n  else 1"
+      },
+      {
+        "severity": "info",
+        "line": 1905,
+        "column": 0,
+        "text": "def OriginalRe3.rreg : {n : \u2115} \u2192\n  (\u03b5 : Fin n \u2192 Bool) \u2192 Matrix (Fin n) (Fin n) \u2102 \u2192 OriginalRe3.L2 \u03b5 \u2192L[\u2102] OriginalRe3.L2 \u03b5 :=\nfun {n} \u03b5 g => if h : \u2203 y, OriginalRe3.umat y = g then OriginalRe3.rregG \u03b5 h.choose else 1"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  },
+  "28da547c061a457c9645ee4a47817ccc": {
+    "verified": "on Principia",
+    "check_id": "28da547c061a457c9645ee4a47817ccc",
+    "mode": "scratch",
+    "result": "closed",
+    "checked_by": "server",
+    "sorries": 0,
+    "axioms": [],
+    "messages": [
+      {
+        "severity": "info",
+        "line": 1149,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Re3.rregG' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 1150,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Re3.rreg' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 1151,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Re3.IsKStableOn' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 1152,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Re3.IsWtOn' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 1153,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Re3.IsKTypeOf' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      },
+      {
+        "severity": "info",
+        "line": 1154,
+        "column": 0,
+        "text": "'UpperTheory.Reformulated.B.Re3.hloweq_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      }
+    ],
+    "note": "scratch checks never close a step"
+  }
+}

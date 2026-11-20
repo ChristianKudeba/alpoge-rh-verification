@@ -1,0 +1,58 @@
+{
+  "baseline": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "scope": "Only the RH wrapper import cut; per-consumer reachability, explicit source providers, and relevant lost registration effects. No source edits.",
+  "index_explicit_declarations": 1057609,
+  "consumers": {
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ThresholdArguments.DenseThresholdCases.TemperedProductOfSquareIntegrable": {
+      "baseline_modules": 146669,
+      "retained_modules_after_cut": 131881,
+      "lost_modules": 14788,
+      "qualified_tokens_with_retained_providers": 190,
+      "missing_explicit_provider_matches": 0,
+      "other_tokens": [
+        "synthInstance.maxHeartbeats"
+      ],
+      "other_tokens_assessment": "Core And.left, locally declared OpenLiteratureStatements projections O.*, or synthInstance.maxHeartbeats option; no missing project declaration."
+    },
+    "Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion": {
+      "baseline_modules": 175180,
+      "retained_modules_after_cut": 165116,
+      "lost_modules": 10064,
+      "qualified_tokens_with_retained_providers": 11,
+      "missing_explicit_provider_matches": 0,
+      "other_tokens": [],
+      "other_tokens_assessment": "Core And.left, locally declared OpenLiteratureStatements projections O.*, or synthInstance.maxHeartbeats option; no missing project declaration."
+    },
+    "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.EveryCharacterOfLiteratureOfVWin": {
+      "baseline_modules": 151292,
+      "retained_modules_after_cut": 136662,
+      "lost_modules": 14630,
+      "qualified_tokens_with_retained_providers": 589,
+      "missing_explicit_provider_matches": 0,
+      "other_tokens": [
+        "And.left",
+        "O.caraianiLocalGlobalDual",
+        "O.galoisRepOfPolarizedPairLit",
+        "O.localLanglandsExists",
+        "synthInstance.maxHeartbeats"
+      ],
+      "other_tokens_assessment": "Core And.left, locally declared OpenLiteratureStatements projections O.*, or synthInstance.maxHeartbeats option; no missing project declaration."
+    }
+  },
+  "effect_review": [
+    "TemperedProductOfSquareIntegrable and EveryCharacterOfLiteratureOfVWin consist of closed theorem applications and structure-field assembly; no by/simp/rw/inferInstance tactic sites. MainConclusion is three explicit theorem applications.",
+    "Lost files contain global instance/attribute declarations. No concrete required inference/simplification site was found in these bodies.",
+    "DoubleCosetMeasures.instMeasGL deregistration still occurs in 44 retained providers for each large consumer and119forMainConclusion.",
+    "Some IsCD and GradeZeroInterpolatingElement deregistrations disappear in the two large consumers; no matching DVR/local-ring inference site is present in their closed proposition bundles.",
+    "Generic lost high-priority torsion-free instances forward Mathlib DivisionSemiring.to_moduleIsTorsionFree; no dependent consumer site identified."
+  ],
+  "conclusion": "No concrete missing explicit symbol or likely instance/simp blocker identified. This is a textual provider and source-effect audit, not successful Lean elaboration.",
+  "artifacts": [
+    "provider-review.json",
+    "closure-summary.json",
+    "negative-instance-effect-overlap.json",
+    "explicit-declaration-providers.jsonl.gz",
+    "lost-effects.json",
+    "method.json"
+  ]
+}

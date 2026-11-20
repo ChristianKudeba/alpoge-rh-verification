@@ -1,0 +1,174 @@
+{
+  "baseline": "a6f8e4806fc188e1b5053df51f440df74d6fd2cb",
+  "files": [
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PsiEntriesCentreEigenfunctionsDiscreteSeries.lean",
+      "before_lines": 728,
+      "after_lines": 678,
+      "saved_lines": 50,
+      "before_sha256": "8c9fba5fae42ae5cf50f862ece79170b458240880734840d182c07b453682528",
+      "after_sha256": "da9757bca6c3a634dbaf610524760048a19d8a67270130271b2c9a977a09d772"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters/IsSubquotientOfHasSupport.lean",
+      "before_lines": 202,
+      "after_lines": 211,
+      "saved_lines": -9,
+      "before_sha256": "c47243e8a2d318290223948fb2b23fdcec823c47d3c7e5565aa763ad8f5e198d",
+      "after_sha256": "f8aa3a627ca6fe70019c38a11c83e899f2788c9840796492b881dbe441257ab3"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/AutomorphyLifting/SubquotientSupport/IsSubquotientOfHasSupport.lean",
+      "before_lines": 212,
+      "after_lines": 142,
+      "saved_lines": 70,
+      "before_sha256": "b1467ca31c63973f8aae028922d526c7fcc4e7aa69af01d1177e8072de0af9cc",
+      "after_sha256": "a9e21e2084daa55a3927315a79b8b64055b433faec8828d934d4c5b413e77eba"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/LinkedUnramifiedChains/TeichmullerParts/SubalgebraIntegrality/TypeVLoc.lean",
+      "before_lines": 290,
+      "after_lines": 220,
+      "saved_lines": 70,
+      "before_sha256": "eba537a32500abd9f55d933bb96d9380878f28124befa754a948bb0cf6142762",
+      "after_sha256": "fcb157c119e2240cbc693b1212021895a22209af4e6fc73976176bb3e9c87c99"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/IsSubquotientOfHasSupport.lean",
+      "before_lines": 202,
+      "after_lines": 132,
+      "saved_lines": 70,
+      "before_sha256": "b88babd3d8f148eeb839535f0b414678eda97a937a7d9d899f2fcb9b0ab7d304",
+      "after_sha256": "a721e32059b953b62bb84978f7728a96e11eb5e7d7aef3e643bebb1f0ce6b77b"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TTypeVLoc.lean",
+      "before_lines": 268,
+      "after_lines": 198,
+      "saved_lines": 70,
+      "before_sha256": "2fe9611510a98c41ff0b5c150027d70753cd0b224fdc81412bdf3dc26371ff57",
+      "after_sha256": "859171383c03f4df083c677e659560d43d5196e3adaba2eb8c156b217bd29e5d"
+    }
+  ],
+  "saved_lines": 321,
+  "structural_checks": [
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters/IsSubquotientOfHasSupport.lean",
+      "theorem": "eq_one_of_charpoly_dvd",
+      "statement_hash": "d5f4ff1bbb5c5cde3209e22a44e0aa5188b22c406d62c7b646face22eadd6df8",
+      "original_body_sha256": "3dbaf74adb65dee62fde5a3b1960117599287bda68f56ecbb76ad622ab411578",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/AutomorphyLifting/SubquotientSupport/IsSubquotientOfHasSupport.lean",
+      "theorem": "eq_one_of_charpoly_dvd",
+      "statement_hash": "d5f4ff1bbb5c5cde3209e22a44e0aa5188b22c406d62c7b646face22eadd6df8",
+      "original_body_sha256": "3dbaf74adb65dee62fde5a3b1960117599287bda68f56ecbb76ad622ab411578",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/LinkedUnramifiedChains/TeichmullerParts/SubalgebraIntegrality/TypeVLoc.lean",
+      "theorem": "eq_one_of_charpoly_dvd",
+      "statement_hash": "d5f4ff1bbb5c5cde3209e22a44e0aa5188b22c406d62c7b646face22eadd6df8",
+      "original_body_sha256": "3dbaf74adb65dee62fde5a3b1960117599287bda68f56ecbb76ad622ab411578",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/IsSubquotientOfHasSupport.lean",
+      "theorem": "eq_one_of_charpoly_dvd",
+      "statement_hash": "d5f4ff1bbb5c5cde3209e22a44e0aa5188b22c406d62c7b646face22eadd6df8",
+      "original_body_sha256": "3dbaf74adb65dee62fde5a3b1960117599287bda68f56ecbb76ad622ab411578",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TTypeVLoc.lean",
+      "theorem": "eq_one_of_charpoly_dvd",
+      "statement_hash": "d5f4ff1bbb5c5cde3209e22a44e0aa5188b22c406d62c7b646face22eadd6df8",
+      "original_body_sha256": "3dbaf74adb65dee62fde5a3b1960117599287bda68f56ecbb76ad622ab411578",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters/IsSubquotientOfHasSupport.lean",
+      "theorem": "exists_char",
+      "statement_hash": "a57662a351d78ecdd78b7413f47dd25dc31b8c185e6d4aa15390fbfb325566f3",
+      "original_body_sha256": "722e6967e25da4860e6cfd00e895417aedbeeebf67cef8e7fa50155cb88f3458",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/AutomorphyLifting/SubquotientSupport/IsSubquotientOfHasSupport.lean",
+      "theorem": "exists_char",
+      "statement_hash": "a57662a351d78ecdd78b7413f47dd25dc31b8c185e6d4aa15390fbfb325566f3",
+      "original_body_sha256": "722e6967e25da4860e6cfd00e895417aedbeeebf67cef8e7fa50155cb88f3458",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/LinkedUnramifiedChains/TeichmullerParts/SubalgebraIntegrality/TypeVLoc.lean",
+      "theorem": "exists_char",
+      "statement_hash": "a57662a351d78ecdd78b7413f47dd25dc31b8c185e6d4aa15390fbfb325566f3",
+      "original_body_sha256": "722e6967e25da4860e6cfd00e895417aedbeeebf67cef8e7fa50155cb88f3458",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/IsSubquotientOfHasSupport.lean",
+      "theorem": "exists_char",
+      "statement_hash": "a57662a351d78ecdd78b7413f47dd25dc31b8c185e6d4aa15390fbfb325566f3",
+      "original_body_sha256": "722e6967e25da4860e6cfd00e895417aedbeeebf67cef8e7fa50155cb88f3458",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TTypeVLoc.lean",
+      "theorem": "exists_char",
+      "statement_hash": "a57662a351d78ecdd78b7413f47dd25dc31b8c185e6d4aa15390fbfb325566f3",
+      "original_body_sha256": "722e6967e25da4860e6cfd00e895417aedbeeebf67cef8e7fa50155cb88f3458",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PsiEntriesCentreEigenfunctionsDiscreteSeries.lean",
+      "theorem": "compactSpace_KG''",
+      "canonical_theorem": "compactSpace_KG'",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true,
+      "same_namespace_and_section_variables": true
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PsiEntriesCentreEigenfunctionsDiscreteSeries.lean",
+      "theorem": "compactSpace_KG'''",
+      "canonical_theorem": "compactSpace_KG'",
+      "canonical_body_byte_equal": true,
+      "existing_header_preserved": true,
+      "same_namespace_and_section_variables": true
+    }
+  ],
+  "public_helpers_added": [
+    "GlobalTheory.WeilDeligne.SharedCharacterSupport.eq_one_of_charpoly_dvd",
+    "GlobalTheory.WeilDeligne.SharedCharacterSupport.exists_char"
+  ],
+  "existing_declaration_headers_and_attributes": "Preserved byte-for-byte; only proof bodies changed. Canonical private proof bodies remain untouched.",
+  "imports": "Unchanged. Each consumer already transitively imports the canonical source module.",
+  "capture_context": "All five character-support copies have identical E/Omega/A/w/h section binders and the same two local LocalData instances. Two consumers are in UpperTheory.V.Z.J.D.TypeVAux, handled by fully qualified helper calls. All three CompactSpace proofs share GlobalTheory.Dec.PsiEig with the same n variable and matrix instances.",
+  "validation": "Structural comparison only at generation. Full archive Lean compilation not performed; any independent hosted scratch checks will be reported separately.",
+  "hosted_helper_check": {
+    "check_id": "d950bc22caf46c0a4049394d04f85e97",
+    "result": "closed",
+    "sorries": 0,
+    "printed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "scope": "Original Mathlib-only eq_one_of_charpoly_dvd proof and two layers of theorem forwarding. Does not compile archive modules, exists_char, or compactSpace_KG.",
+    "source": "shared-charpoly-probe.lean",
+    "result_file": "shared-charpoly-probe-result.json"
+  },
+  "diff_check": "passed"
+}

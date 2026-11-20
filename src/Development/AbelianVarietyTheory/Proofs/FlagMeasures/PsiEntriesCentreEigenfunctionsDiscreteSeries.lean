@@ -443,33 +443,8 @@ theorem integrable_slice {ε : Fin n → Bool} {c : KG ε → ℂ} (hc : Continu
   obtain ⟨C, hC⟩ := isCompact_univ.exists_bound_of_continuousOn (continuous_slice hc hG hz).continuousOn
   exact Integrable.of_bound (continuous_slice hc hG hz).aestronglyMeasurable C (ae_of_all _ fun k => hC k trivial)
 
-private theorem compactSpace_KG'' (ε : Fin n → Bool) : CompactSpace (KG ε) := by
-  have hKc : IsCompact (Kset ε) := (Formalism.REAL.maximal_compact_facts n ε).2.1
-  have hrange : Set.range (fun k : KG ε => toMK k) = Kset ε := by
-    ext M
-    constructor
-    · rintro ⟨k, rfl⟩
-      exact (Formalism.REAL.mem_KG ε _).1 k.2
-    · intro hM
-      exact ⟨⟨⟨⟨M, star M, Matrix.mem_unitaryGroup_iff.1 hM.1, Matrix.mem_unitaryGroup_iff'.1 hM.1⟩,
-        (Formalism.REAL.maximal_compact_facts n ε).1 M hM⟩, (Formalism.REAL.mem_KG ε _).2 hM⟩, rfl⟩
-  have h1 : Topology.IsInducing (fun k : KG ε => Units.embedProduct Mt ((k : UJ ε) : Mtˣ)) :=
-    Units.isEmbedding_embedProduct.isInducing.comp
-      (Topology.IsInducing.subtypeVal.comp Topology.IsInducing.subtypeVal)
-  have hg : Continuous (fun M : Mt => (M, MulOpposite.op Mᴴ)) :=
-    continuous_id.prodMk (MulOpposite.continuous_op.comp continuous_id.matrix_conjTranspose)
-  have hind : Topology.IsInducing (fun k : KG ε => toMK k) := by
-    refine Topology.IsInducing.of_comp (continuous_toMK ε) hg ?_
-    convert h1 using 1
-    funext k
-    have hu : toMK k ∈ Matrix.unitaryGroup (Fin n) ℂ := ((Formalism.REAL.mem_KG ε _).1 k.2).1
-    have hs : toMK k * (toMK k)ᴴ = 1 := by
-      rw [← Matrix.star_eq_conjTranspose]; exact Matrix.mem_unitaryGroup_iff.1 hu
-    simp only [Function.comp_apply, Units.embedProduct_apply]
-    exact Prod.ext rfl (congrArg MulOpposite.op (Units.eq_inv_of_mul_eq_one_left hs))
-  have hc : IsCompact (Set.univ : Set (KG ε)) := by
-    rw [hind.isCompact_iff, Set.image_univ, hrange]; exact hKc
-  exact isCompact_univ_iff.1 hc
+private theorem compactSpace_KG'' (ε : Fin n → Bool) : CompactSpace (KG ε) :=
+  compactSpace_KG' ε
 
 private theorem inUJ_mul_flag_measures {ε : Fin n → Bool} {a b : Mt} (ha : inUJ ε a) (hb : inUJ ε b) :
     inUJ ε (a * b) := by
@@ -577,33 +552,8 @@ theorem continuous_tau {ε : Fin n → Bool} {abelian₂ : Fin n → ℝ} {W : T
   rw [e]
   exact continuous_finsetSum _ fun i _ => (hc i).smul continuous_const
 
-private theorem compactSpace_KG''' (ε : Fin n → Bool) : CompactSpace (KG ε) := by
-  have hKc : IsCompact (Kset ε) := (Formalism.REAL.maximal_compact_facts n ε).2.1
-  have hrange : Set.range (fun k : KG ε => toMK k) = Kset ε := by
-    ext M
-    constructor
-    · rintro ⟨k, rfl⟩
-      exact (Formalism.REAL.mem_KG ε _).1 k.2
-    · intro hM
-      exact ⟨⟨⟨⟨M, star M, Matrix.mem_unitaryGroup_iff.1 hM.1, Matrix.mem_unitaryGroup_iff'.1 hM.1⟩,
-        (Formalism.REAL.maximal_compact_facts n ε).1 M hM⟩, (Formalism.REAL.mem_KG ε _).2 hM⟩, rfl⟩
-  have h1 : Topology.IsInducing (fun k : KG ε => Units.embedProduct Mt ((k : UJ ε) : Mtˣ)) :=
-    Units.isEmbedding_embedProduct.isInducing.comp
-      (Topology.IsInducing.subtypeVal.comp Topology.IsInducing.subtypeVal)
-  have hg : Continuous (fun M : Mt => (M, MulOpposite.op Mᴴ)) :=
-    continuous_id.prodMk (MulOpposite.continuous_op.comp continuous_id.matrix_conjTranspose)
-  have hind : Topology.IsInducing (fun k : KG ε => toMK k) := by
-    refine Topology.IsInducing.of_comp (continuous_toMK ε) hg ?_
-    convert h1 using 1
-    funext k
-    have hu : toMK k ∈ Matrix.unitaryGroup (Fin n) ℂ := ((Formalism.REAL.mem_KG ε _).1 k.2).1
-    have hs : toMK k * (toMK k)ᴴ = 1 := by
-      rw [← Matrix.star_eq_conjTranspose]; exact Matrix.mem_unitaryGroup_iff.1 hu
-    simp only [Function.comp_apply, Units.embedProduct_apply]
-    exact Prod.ext rfl (congrArg MulOpposite.op (Units.eq_inv_of_mul_eq_one_left hs))
-  have hc : IsCompact (Set.univ : Set (KG ε)) := by
-    rw [hind.isCompact_iff, Set.image_univ, hrange]; exact hKc
-  exact isCompact_univ_iff.1 hc
+private theorem compactSpace_KG''' (ε : Fin n → Bool) : CompactSpace (KG ε) :=
+  compactSpace_KG' ε
 
 theorem inner_ps {ε : Fin n → Bool} (lam : Fin n → ℝ) {abelian₂ : Fin n → ℝ} {W : Type} [NormedAddCommGroup W]
     [InnerProductSpace ℂ W] {τ : Mt → (W →L[ℂ] W)} {w : W} (h : IsTau ε abelian₂ τ w) (u v : W) {z : Mt}

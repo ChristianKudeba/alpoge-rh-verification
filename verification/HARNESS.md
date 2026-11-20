@@ -32,6 +32,11 @@ small metadata push. After each completed source pass, run:
 gh workflow run alpoge-comparator.yml --repo ChristianKudeba/alpoge-rh-verification --ref main
 ```
 
+Candidate concurrency is keyed by ref and commit, so a newly committed pass can
+be checked while an earlier commit's run continues. Never transfer a verdict
+between these commits. The dependency-pruning pass and focused Lean checks are
+documented in [aggressive/README.md](aggressive/README.md).
+
 The separate `alpoge-baseline-diagnostic.yml` checks the preserved original
 source. Select only `.github/workflows/alpoge-comparator.yml` in Principia's
 Machine Verification configuration; a baseline result cannot attest a candidate.

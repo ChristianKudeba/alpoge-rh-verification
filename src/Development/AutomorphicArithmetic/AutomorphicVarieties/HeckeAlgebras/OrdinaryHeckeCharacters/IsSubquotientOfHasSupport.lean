@@ -19,6 +19,10 @@ private theorem eq_one_of_charpoly_dvd {V : Type} [AddCommGroup V] [Module ℂ V
   have := sub_eq_zero.1 (Module.End.eq_zero_of_isNilpotent_isSemisimple ⟨_, h0⟩ hs)
   rwa [map_one] at this
 
+theorem GlobalTheory.WeilDeligne.SharedCharacterSupport.eq_one_of_charpoly_dvd {V : Type} [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
+    (f : Module.End ℂ V) (hf : f.IsSemisimple) {n : ℕ} (hd : f.charpoly ∣ (X - C 1) ^ n) : f = 1 :=
+  eq_one_of_charpoly_dvd f hf hd
+
 private theorem multiset_eq_of_sum {Γ : Type} [Monoid Γ] (s t : Multiset (Γ →* ℂ))
     (h : ∀ g, (s.map fun f => f g).sum = (t.map fun f => f g).sum) : s = t :=
   _root_.UpperTheory.Reformulated.B.Qf50.multiset_eq_of_sum s t h
@@ -95,6 +99,11 @@ private theorem exists_char {z : WD h} (hz : IsIrrWD z) {n : ℕ} (η : Fin n �
     rw [WDRep.ofChars_ρ, diagEnd_apply, LinearEquiv.refl_apply, LinearEquiv.refl_apply, hsc (b.ρ σ) v]
     rfl
   · simp [hN]
+
+theorem GlobalTheory.WeilDeligne.SharedCharacterSupport.exists_char {z : WD h} (hz : IsIrrWD z) {n : ℕ} (η : Fin n → Weil h →* ℂˣ)
+    (hd : ∀ g, z.charPol g ∣ ∏ j, (X - C (η j g : ℂ))) :
+    ∃ (ξ : Weil h →* ℂˣ) (hξ : GlobalTheory.WeilDeligne.IsSmooth ξ), z = WD.lpOfChar h ξ hξ :=
+  exists_char hz η hd
 
 variable {a : Weil h →* (w.adicCompletion E)ˣ} {ha : IsLocalArtin h a} {ε : EpsFamily A}
   {rc : IrrGL (w.adicCompletion E) → WD h}
