@@ -43,10 +43,17 @@ later estimates is explicit.
 \input{chapters/entry}
 \input{chapters/arithmetic}
 \input{chapters/galois}
+\input{chapters/generators}
+\input{chapters/annihilator}
+\input{chapters/characterwise}
 \input{chapters/selmer}
 \input{chapters/plus}
+\input{chapters/trace-integer}
 \input{chapters/theta}
+\input{chapters/siegelweil}
 \input{chapters/jets}
+\input{chapters/rankshare}
+\input{chapters/component}
 \input{chapters/covolume}
 \input{chapters/descent}
 \input{chapters/heightgap}
@@ -62,20 +69,22 @@ the passage from an admissible family of intervals to zero-freeness
 are given above. The following inputs carry substantive arithmetic or
 geometric content which the reader still needs for an independent proof.
 \begin{itemize}
-\item The minus-Selmer argument uses its global annihilator and the
-valuation estimate for its generators. The rank-three argument uses
-the existence of a single integer controlling an orbit of traces,
-and the single-character theorem leading to the product inequality.
-The elementary valuation calculation gives their consequence.
-\item The matching argument uses the boundary Eisenstein and Siegel--Weil
-statements, including their analytic continuation and residue
-normalizations, and the estimates used to obtain rapid decrease.
-Convergence in the full-rank subspace and the regularization of more
-general inputs have different hypotheses.
-\item The component degree and norm bounds depend on the Hodge-section
-order bound, compactification proportionality, and the uniform
-sup-norm and discriminant estimates. A lower or upper slope bound
-proved for one comparison does not by itself supply those inputs.
+\item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-characterwise}
+give the generator count, the signed Stickelberger annihilator, and the
+characterwise bound from its derivative system. The initial and transition
+relations for the derivative classes and simultaneous Frobenius detection
+still enter the characterwise argument. Section~\ref{sec:common-trace-integer} constructs the common trace integer
+from two global spectrum counts. Its single-character deformation estimate
+and the input counts still enter the rank-three argument.
+\item Section~\ref{sec:sw-boundary} gives the two-cell argument,
+Fourier normalization and induction for the definite theta value. The
+local Whittaker identities, singular terms, Fock-space generation and
+the estimates used for rapid decrease still require upstream results.
+\item Sections~\ref{sec:rank-share} and~\ref{sec:hs-component} give the
+component rank comparison and its explicit contribution to the height
+budget. The inputs still include compactification proportionality,
+the nef and growth estimates for weight bundles, the underlying
+arithmetic Hilbert--Samuel bound, and uniform estimates on the model.
 \item The common-window construction uses both zero-density and
 mean-square estimates for the exceptional prime sets, the automorphic
 representation and host constructions, and the geometric divisibility

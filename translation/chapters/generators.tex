@@ -1,0 +1,170 @@
+\section{The generator bound at an odd prime}
+\label{sec:selmer-generators}
+
+Let \(E\) be a number field of degree \(D\) admitting an embedding in
+\(\mathbb Q(\mu_F)\), where \(F\ge1\). Fix a prime \(\ell\) and let
+\(S_E\) be the finite places of \(E\) above \(\ell\). Write
+\(G_{E,S_E}\) for the Galois group unramified at all finite places
+outside \(S_E\). Take the discrete module
+\(A=(\mathbb Q_\ell/\mathbb Z_\ell)(-k)\) for an integer \(k\).
+We prove that the subgroup
+\[
+        V=H^1(G_{E,S_E},A)[\ell]
+\]
+is finite of \(\mathbb Z_\ell\)-length \(g\), with
+\[
+              g\le 8\ell D\log(\ell F).
+\]
+This is the ambient cohomology group in
+\eqref{eq:galois-annihilator-length}. In particular the estimate
+allows ramification at places above \(\ell\) and imposes no strict
+local condition at those places. The same calculation works at
+\(\ell=2\) for this generator bound.
+
+\subsection{Restriction to the first cyclotomic layer}
+
+Put \(K=E(\mu_\ell)\), \(n=[K:\mathbb Q]\), and
+\(S=\{\mathfrak p\mid\ell\text{ in }K\}\). The action on the
+\(\ell\)-th roots embeds \(\operatorname{Gal}(K/E)\) in
+\(\mathbb F_\ell^\times\), so \([K:E]\mid\ell-1\) and
+\(n\le\ell D\). Both \(E\) and the required roots embed compatibly
+in \(\mathbb Q(\mu_{\ell F})\), by extending the given embedding of
+\(E\) to an algebraic closure and taking the compositum there.
+
+For each \(v\in V\), choose a continuous representative \(z\).
+The equation \(\ell v=0\) gives \(\ell z=db\), with coboundary
+\(db(\sigma)=\sigma b-b\). Multiplication by \(\ell\) on \(A\)
+is onto. Choosing \(b'\) with \(\ell b'=b\), we may replace \(z\)
+by \(z-db'\), so its values belong to \(A[\ell]\).
+Fix an additive identification of this group with \(\mathbb F_\ell\).
+On \(G_K=\operatorname{Gal}(\overline E/K)\) the residual
+cyclotomic character is trivial. The restriction of the inflated
+cocycle is therefore an additive continuous homomorphism \(t_v\).
+It vanishes on inertia outside \(S\), since such inertia maps into inertia
+at a place outside \(S_E\), which the original quotient kills.
+
+The choices of representatives give an injection of sets from \(V\)
+to these homomorphisms. Indeed, if the restrictions for two classes
+agree, their difference \(f\) vanishes on \(G_K\) and has values in
+\(A[\ell]\). Its cocycle law makes it constant on right cosets of
+\(G_K\), and the action on its values factors through
+\(\Delta=\operatorname{Gal}(K/E)\). Write \(d=|\Delta|\) and
+\(b=-d^{-1}\sum_{\tau\in\Delta} f(\tau)\) in \(A[\ell]\), where
+\(d\) is prime to \(\ell\). Summing
+\(f(\sigma\tau)=f(\sigma)+\sigma f(\tau)\) over \(\tau\) gives
+\(f(\sigma)=\sigma b-b\). The two original classes coincide.
+This proof uses the homomorphisms only as an upper bound on the
+number of classes and is independent of the choices made for
+representatives.
+
+\subsection{Counting the permitted Kummer classes}
+
+Choose a primitive root \(\zeta_\ell\in K\). For each homomorphism
+\(t:G_K\to\mathbb F_\ell\) just described, Hilbert's theorem 90
+on its finite cyclic quotient gives \(\beta\ne0\) in the field
+fixed by \(\ker t\) such that
+\(\sigma\beta/\beta=\zeta_\ell^{t(\sigma)}\).
+Indeed these roots form a multiplicative cocycle since
+\(G_K\) fixes \(\zeta_\ell\). Then \(a=\beta^\ell\in K^\times\).
+Changing \(\beta\) by a scalar in \(K^\times\) changes \(a\) by
+an \(\ell\)-th power. Conversely, if \(a'/a=c^\ell\) with
+\(c\in K^\times\), then \(\beta'/(\beta c)\in\mu_\ell\subset K\),
+and the two homomorphisms coincide. For \(\mathfrak p\notin S\)
+the field fixed by \(\ker t\) is unramified at \(\mathfrak p\).
+At any place above it the normalized integer valuation therefore
+restricts to \(v_{\mathfrak p}\). It follows that
+\(v_{\mathfrak p}(a)=\ell v(\beta)\) is divisible by \(\ell\).
+Thus we have injected the homomorphisms into the finite group
+\[
+ \mathcal K_S=\{a\in K^\times:
+          \ell\mid v_{\mathfrak p}(a)\text{ for }\mathfrak p\notin S\}
+                      /K^{\times\ell}.
+\]
+
+Let \(U_S\) be the \(S\)-unit group and \(\mathrm{Cl}_S\) the
+ideal class group of the ring of \(S\)-integers. Factoring
+\((a)=\mathfrak a^\ell\) in that ring gives an exact sequence
+\[
+ 1\longrightarrow U_S/U_S^\ell\longrightarrow \mathcal K_S
+       \longrightarrow\mathrm{Cl}_S[\ell]\longrightarrow 1 .
+\]
+Indeed unique ideal factorization determines \(\mathfrak a\).
+Multiplication of \(a\) by \(c^\ell\) changes \(\mathfrak a\) by
+\((c)\). A class mapping to the identity can thus be represented by
+an \(S\)-unit. An \(\ell\)-th root in \(K^\times\) of an \(S\)-unit
+is itself an \(S\)-unit by its valuations. Finally any ideal class
+of order dividing \(\ell\) has a representative whose \(\ell\)-th
+power is principal, proving surjectivity.
+
+If \(K\) has signature \((r_1,r_2)\), Dirichlet's \(S\)-unit theorem
+gives free rank \(r_1+r_2-1+|S|\). The torsion is cyclic and contributes
+at most \(\ell\) modulo \(\ell\)-th powers. We have \(r_1+r_2\le n\)
+and \(|S|\le n\), the latter by the prime decomposition of \(\ell\).
+Also \(\mathrm{Cl}_S\) is a quotient of the ordinary ideal class
+group, of order \(h_K\). Hence
+\[
+      |V|\le|\mathcal K_S|\le\ell^{2n} h_K .
+\]
+
+\subsection{The class number and the uniform constant}
+
+We give the estimate on \(h_K\) used here. For any degree-\(n\)
+number field of discriminant of absolute value \(\Delta_K\), every
+ideal class has an integral representative of norm
+\(\le X=\sqrt{\Delta_K}\). Indeed Minkowski's bound supplies the
+factor \((4/\pi)^{r_2}n!/n^n\le1\). To verify the last inequality,
+\(r_2\le n-1\), and \(2^{n-1}n!\le n^n\) by induction from \(n=1\),
+using \((1+1/n)^n\ge2\).
+
+For each rational prime \(p\), fix an ordering of the primes above
+it with residue degrees \(f_{p,i}\), and pad the list to length \(n\)
+with empty positions. Encode an integral ideal with exponents
+\(a_{p,i}\) as an ordered \(n\)-tuple of positive integers. Its
+\(i\)-th entry has \(p\)-adic valuation \(f_{p,i}a_{p,i}\) in an
+occupied position and zero in an empty one. Prime factorization
+recovers the ideal, and the tuple product equals its norm. The number
+of tuples with product at most \(X\) is bounded by
+\[
+ X\left(\sum_{1\le j\le X}\frac1j\right)^{n-1}
+       \le X(1+\log X)^{n-1}.
+\]
+For the first inequality, fix the first \(n-1\) entries and bound
+the last by \(X\) divided by their product. For the second, compare
+the harmonic sum after its first term with an integral.
+Since \(X\ge1\), taking logarithms and increasing \(n-1\) to \(n\)
+gives
+\[
+  \log h_K\le \tfrac12\log\Delta_K+
+                       n\log(1+\tfrac12\log\Delta_K).
+\]
+
+Now \(K\subseteq\mathbb Q(\mu_M)\) for \(M=\ell F\ge2\).
+The conductor--discriminant formula expresses \(\Delta_K\) as the
+product of the conductors of the \(n\) characters of
+\(\operatorname{Gal}(K/\mathbb Q)\). Each divides \(M\), so
+\(\Delta_K\le M^n\). Also \(n\le\varphi(M)\le M\). Since
+\(\log M\le M-1\),
+\[
+   1+\tfrac12\log\Delta_K\le 1+\tfrac12 M(M-1)\le M^2.
+\]
+The preceding class-number inequality yields
+\(\log h_K\le(5/2)n\log M\le3n\log M\).
+In particular the bound is uniform in the subfield and the local data.
+
+The group \(V\) is a finite vector space over \(\mathbb F_\ell\).
+Its dimension is its \(\mathbb Z_\ell\)-length \(g\), so
+\[
+ g\log\ell=\log|V|\le2n\log\ell+\log h_K
+          \le 5n\log(\ell F).
+\]
+Convexity of \(u\mapsto1/u\) on \([1,2]\) and its tangent at \(3/2\)
+give \(\log2\ge2/3>5/8\). Division by \(\log\ell\ge\log2\) and
+\(n\le\ell D\) prove the stated estimate. Its proof applies before
+restricting to the eigenspace or imposing the decomposition-group
+conditions defining the strict subgroup.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/Imports.lean}{Assembly of the generator estimate},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/UnrInj.lean}{restriction to the cyclotomic layer},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/UnrSel.lean}{Kummer injection},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/SelCard.lean}{the local conditions and the unit bound},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/CyclotomicBounds/ClassNumberBounds/IdealCounting/ClassC.lean}{Minkowski and ideal counting},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/LogH.lean}{the cyclotomic class-number estimate}.}

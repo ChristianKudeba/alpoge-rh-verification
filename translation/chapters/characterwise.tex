@@ -1,0 +1,350 @@
+\section{The characterwise estimate on the minus side}
+\label{sec:minus-characterwise}
+
+Let \(E\subseteq\mathbb Q(\mu_N)\) be a CM field. Put
+\(D=[E:\mathbb Q]\), \(G=\operatorname{Gal}(E/\mathbb Q)\), and
+let \(\ell\nmid 2D\) be prime. Let \(\mathcal O\) be the ring of
+integers of a finite extension of \(\mathbb Q_\ell\) in the chosen
+algebraic closure, with uniformizer \(\varpi\), valuation
+\(v(\varpi)=1\), and \(r_{\mathcal O}=v(\ell)\).
+Write \(W=\operatorname{Frac}(\mathcal O)/\mathcal O\). A character
+\(\psi:G\to\mathcal O^\times\) pulls back to a character \(\chi\) of
+level \(N\). Its order divides \(D\) and is prime to \(\ell\).
+Fix \(e\ge1\), put \(j=e+1\), and assume \(\chi(-1)=(-1)^j\).
+Write \(\kappa\) for the \(\ell\)-adic cyclotomic character and put
+\(\alpha=(\chi\kappa^e)^{-1}\), using the Galois character attached
+to \(\chi\). Let \(V(\alpha)\) be the \(\mathcal O\)-length of the
+strict subgroup of \(H^1(\mathbb Q,W(\alpha))\), with zero restriction
+to all inertia groups and to the decomposition groups at \(\ell\).
+The source proves
+\begin{equation}
+    V(\alpha)\le v\bigl(\alpha_N(j,\chi)\bigr).
+    \label{eq:characterwise-bern}
+\end{equation}
+On the right, \(\alpha_N\) is the integral generalized Bernoulli
+number defined in Section~\ref{sec:odd-prime-minus}. We give the
+conductor and local conditions, the finite descent, its exceptional
+case, and the passage to a bound on the \(E\)-group. We specify below
+the cyclotomic derivative-system construction used by the descent.
+
+\subsection{Conductor and local conditions}
+
+Write \(f=\operatorname{cond}\chi\) and \(\xi=\chi^*\). Raising the
+level from \(f\) to \(N\) preserves the Galois character, its order
+and its parity. By the primitive-value convention,
+\[
+  \alpha_N(j,\chi)=(N/f)\alpha_f(j,\xi).
+\]
+The factor \(N/f\) is integral, so it suffices to prove
+\eqref{eq:characterwise-bern} at level \(f\).
+
+If \(p\mid f\), \(p\ne\ell\), inertia at \(p\) contains an element
+on which \(\xi\) is nontrivial. Indeed the inertia image in the units
+modulo \(f\) contains the full \(p\)-component, and triviality on
+this component would lower the conductor. A nontrivial root of unity
+of order prime to \(\ell\) differs from \(1\) by a unit in
+\(\mathcal O\), since reduction is injective on these roots. The
+cyclotomic character is unramified away from \(\ell\). Thus at \(p\)
+some \(\tau\in I_p\) has \(\alpha(\tau)-1\) a unit. An
+inertia coboundary is then a decomposition-group coboundary.
+Indeed subtract a local coboundary so the cocycle \(c\) vanishes on
+inertia. For \(g\) in the decomposition group, compare \(c(\tau g)\)
+with \(c(g(g^{-1}\tau g))\). This gives
+\((\alpha(\tau)-1)c(g)=0\), hence \(c(g)=0\).
+
+Choose a lift \(\delta\) of complex conjugation. The parity gives
+\(\alpha(\delta)=-1\), so \(\alpha(\delta)-1\) is a unit. Each
+class has a unique representative \(c\) satisfying \(c(\delta)=0\):
+subtract the coboundary of
+\((\alpha(\delta)-1)^{-1}c(\delta)\).
+For \(a_0\ne0\), denote by \(S(a_0)\) the module of these normalized
+continuous cocycles killed pointwise by \(a_0\), vanishing on inertia
+outside \(f\ell\), and coboundaries at the places dividing \(f\ell\)
+with local primitives killed by \(a_0\). Every strict class belongs
+to the image of one of these modules. The finite image of \(c\) and
+one chosen local primitive above \(\ell\) have a common annihilator.
+At conjugate places above \(\ell\) the new primitive has the form
+\(\alpha(g)m-c(g)\) and is killed by the same annihilator. At a
+ramified prime \(p\ne\ell\) the equation
+\((\alpha(\tau)-1)m=c(\tau)\) gives the same property by the unit
+just found. Outside \(f\ell\), inertia acts trivially, so a local
+coboundary is zero. The modules with \(a_0=\varpi^h\) increase with
+\(h\). A uniform finite upper bound for their lengths bounds the union:
+a longer finite strict chain in the union would have a finite set of
+witnesses already contained in one term.
+
+\subsection{The residual cyclotomic exception}
+
+Let \(\overline{\alpha}\) be reduction modulo \(\varpi\). If
+\(\overline\alpha=\overline\kappa\), the preceding inertia observation
+forces \(\alpha\) to be unramified outside \(\ell\): away from \(\ell\)
+its inertia values have order prime to \(\ell\) and reduce to one.
+Take \(t\) in inertia at a place over \(\ell\) which acts by inversion
+on \(\mu_\ell\). Such \(t\) exists by total ramification of the local
+cyclotomic extension. Normalize at \(t\) in this case.
+Since \(\alpha(t)-1\) is a unit, vanishing of the cocycle at \(t\)
+makes its local primitive at the chosen place zero.
+
+Suppose a normalized cocycle is killed by \(\varpi\). Every
+\(\mathbb F_\ell\)-linear coordinate on \(W[\varpi]\) takes it to a
+cocycle with values in \(\mathbb F_\ell(1)\): the residual action is
+multiplication by \(\overline\kappa\), which lies in the prime field.
+Identify this target with \(\mu_\ell\). Kummer theory writes the
+coordinate cocycle as \(\sigma\mapsto\sigma\beta/\beta\) with
+\(a=\beta^\ell\in\mathbb Q^\times\). Its vanishing on inertia at
+a place above each rational prime shows \(\ell\mid v_p(a)\):
+\(\beta\) is in the local unramified extension there, whose value
+group is \(\mathbb Z\). The sign of \(a\) is an \(\ell\)-th power
+as \(\ell\) is odd. Rational prime factorization gives
+\(a=b^\ell\) for \(b\in\mathbb Q^\times\).
+Now \(\beta/b\in\mu_\ell\). Normalization at \(t\), which acts by
+inversion, forces \(\beta/b=1\). Every coordinate of the cocycle
+therefore vanishes. They separate points, so the cocycle vanishes.
+Applying this argument to successive powers of \(\varpi\) proves
+\(S(a_0)=0\) for all \(a_0\). This proves
+\eqref{eq:characterwise-bern} in the exceptional branch.
+
+\subsection{The normalized finite Stickelberger value}
+
+Assume \(\overline\alpha\ne\overline\kappa\). For a fixed \(a_0\ne0\)
+take \(m\ge\max(1,v_\ell(f))\), and set
+\(P=f\ell^{m-v_\ell(f)}\). The sets of primes dividing \(P\) and
+\(f\ell\) agree. Choose a lift \(\sigma_t\) of each
+\(t\in(\mathbb Z/P\mathbb Z)^\times\). Write \([t]\) for the least
+nonnegative representative and choose \(b\) a unit representative
+modulo \(P\) coming from a \(g\) with
+\(\overline\alpha(g)\ne\overline\kappa(g)\). Then
+\(\xi(b)b^{e+1}-1\) is a unit, since multiplication of
+\(\alpha(g)-\kappa(g)\) by \(-\alpha(g)^{-1}\) gives the same
+quantity modulo \(\varpi\). Define
+\[
+ h_b(t)=\left\lfloor\frac{b[t]}P\right\rfloor-
+        \left\lfloor\frac{b[-t]}P\right\rfloor,\qquad
+ z=\sum_t h_b(t)\alpha(\sigma_t)^{-1}.
+\]
+The level-\(P\) values of \(\alpha(\sigma_t)^{-1}\) are congruent
+modulo \(\ell^m\) to \([t]^e\xi([t])\). Write \(S\) for the sum
+obtained by this replacement. Then \(|z-S|_\ell\le|\ell^m|_\ell\).
+
+Here is the source's normalization of the other congruence. Put
+\(d_j=2j\prod_{p\le j+1}p\) over primes and
+\(B=B_{j,\xi_P}\), the generalized Bernoulli number of the
+level-\(P\) character induced by \(\xi\). Then
+\[
+ \left|d_j\left(b^e\xi(b)S
+        -2\{\xi(b)b^j-1\}\frac{B}{j}\right)\right|_\ell
+        \le|\ell^m|_\ell .
+\]
+For completeness take \(u=[t]\), \(h=\lfloor bu/P\rfloor\),
+\(y=bu-hP\). Both \(u,y\) are units modulo \(P\) and
+\(h_b(t)=2h+1-b\). The polynomial
+\(C(x)=P^{j-1}B_j(x/P)/j\) satisfies
+\[
+       C(x)=\frac{x^j}{jP}-\frac{x^{j-1}}2+
+                        \frac{2P}{d_j}Z_x,\qquad Z_x\in\mathbb Z.
+\]
+This follows by the denominator calculation of
+Section~\ref{sec:odd-prime-minus} applied to the terms of Bernoulli
+index at least two. Expand \(y^j=(bu-hP)^j\) through its linear
+term in \(P\), and \(y^{j-1}\) through its constant term.
+The leading terms then cancel in
+\[
+ d_j\{b^e h_b(t)u^e+2(C(y)-b^j C(u))\}\in P\mathbb Z.
+\]
+Indeed their coefficient of \(b^e u^e\) is
+\(h_b(t)-2h-1+b=0\), and \(j\mid d_j\) clears the remaining
+binomial denominators. Multiply this relation by \(\xi_P(bt)\),
+sum over units, and permute them by \(t\mapsto bt\). This gives
+the asserted congruence.
+
+Raising the level from \(f\) to \(P\) adds at most the Euler factor
+\(1-\xi(\ell)\ell^e\), of \(\ell\)-adic norm one because \(e\ge1\).
+Factors at the primes already dividing \(f\) are one. Consequently
+\(|B/j|_\ell=|B_{j,\xi}/j|_\ell>0\). Choose \(m\) large enough that
+\[
+ |\ell^m|_\ell
+     < |a_0|_\ell\,|d_j|_\ell\,|B_{j,\xi}/j|_\ell .
+\]
+This is possible before choosing \(b\) since the right side is fixed.
+The elements \(b^e\xi(b)\), \(2\), and \(\xi(b)b^j-1\) are units.
+The strong triangle inequality in the two congruences gives
+\(|z|_\ell=|B_{j,\xi}/j|_\ell\). It follows that \(z\ne0\),
+\(a_0z\mid\ell^m\), and \(z\mid\alpha_f(j,\xi)\) in \(\mathcal O\):
+the last ratio has norm at most one because
+\(\alpha_f(j,\xi)=f(\prod_{p\le j+1}p)B_{j,\xi}\).
+
+\subsection{Local reciprocity and the finite descent}
+
+The reciprocity used in the source is a consequence of the
+finite-module Poitou--Tate sequence and the unramified-subgroup
+theorem in local Tate duality. In the conventions of Milne's
+\emph{Arithmetic Duality Theorems}, second edition, these are
+I.4.10 and I.2.6 respectively. The local assertion applies at an
+auxiliary prime \(q\ne\ell\) to unramified finite coefficients of
+\(\ell\)-power order. The global assertion uses the sum of the
+local invariant maps on \(H^2(\mu_{\ell^h})\). The archimedean
+contribution vanishes for odd \(\ell\).\footnote{\href{https://www.jmilne.org/math/Books/ADTnot.pdf}{Milne, second edition, Chapter I, Theorems 2.6 and 4.10}.}
+
+More explicitly, take a finite coefficient quotient \(R=\mathcal
+O/(a)\), killed by \(\ell^h\), and cocycles \(c,n\) with characters
+\(\alpha,\kappa\alpha^{-1}\) modulo \(a\). Assume their inertia
+restrictions vanish outside \(N'q\), where \(\ell\mid N'\), the
+first cocycle is a coboundary at the places dividing \(N'\) away
+from \(q\), both characters are trivial modulo \(a\) at \(q\), and
+\(c\) vanishes on \(I_q\). For each \(\mathbb Z/\ell^h\)-linear
+functional \(\lambda:R\to\mathbb Z/\ell^h\), the cyclotomic
+two-cocycle
+\[
+        (g,h')\longmapsto\lambda(n(g)\alpha(g)c(h'))
+\]
+has zero local class away from \(q\). At the primes outside the
+ramification set it is an unramified cup product. At the primes
+in \(N'\) away from \(q\) one factor is a coboundary. The global
+invariant sum and injectivity of the local invariant map therefore
+give zero local class at \(q\). Let \(\phi\) be a Frobenius at \(q\).
+For an unramified \(\mathbb Z/\ell^h\)-valued homomorphism \(x\),
+one has \(x(h')c(\phi)=x(\phi)c(h')\) on the decomposition group:
+both sides are additive, coincide at \(\phi\), and vanish on
+inertia. Consequently the cup product of
+\(\lambda(n(\cdot)c(\phi))\) with \(x\) is the preceding zero local
+class multiplied by \(x(\phi)\). Unramified orthogonality puts
+\(\lambda(n(\cdot)c(\phi))\) in the unramified subgroup. Varying
+\(\lambda\) now gives \(n(\tau)c(\phi)=0\) for all \(\tau\in I_q\).
+These functionals separate points by decomposing the finite
+\(\ell\)-group into cyclic summands. This is the local
+annihilation relation used in the descent.
+
+Choose an auxiliary prime \(r\equiv1\bmod P\), and let \(L\) range
+over lists of distinct primes \(q\ne r\) with \(q\equiv1\bmod P\)
+and \(\ell\nmid\operatorname{ord}_{q}(r)\).
+Write \(H=G_{\mathbb Q(\mu_P)}\). The source constructs
+\(\nu_L|_H:H\to W[\ell^m]\), continuous additive and equivariant
+under conjugation by the dual character \(\kappa\alpha^{-1}\).
+Its inertia vanishes away from \(Pr\prod_{q\in L}q\).
+For a fixed generator \(w\) of \(W[\ell^m]\), the initial value on a
+suitable inertia element at \(r\) is \(zw\) times a unit. At each
+admissible new prime \(q\), a suitable inertia value of \(\nu_{qL}\)
+is the Frobenius value of \(\nu_L\) times a unit. Here \(qL\) means
+the list with \(q\) added. The construction starts with cyclotomic
+elements with prescribed Stickelberger ideal factorizations, applies
+the multiplicative derivatives
+\(\prod_{i=0}^{q-2}(\tau_q^i x)^i\) for generators \(\tau_q\) of the
+new cyclotomic factors, and takes Kummer classes. The relations on
+these derivatives give the stated initial and transition values.
+
+Write \((A_L)=\operatorname{Ann}_{\mathcal O}(\nu_L(H))\) and
+\(J=v(\ell^m)\). The coefficient ideal contains \(\ell^m\), so
+\(j_L=v(A_L)\le J\). For \(a_0\mid A_L\) let \(S_L\subset S(a_0)\)
+consist of normalized cocycles vanishing on the decomposition groups
+at the primes dividing \(r\prod_{q\in L}q\). For \(S_L\ne0\),
+choose \(c\ne0\) in it. The source's Chebotarev selection supplies
+an admissible \(q\) outside this finite list and a Frobenius
+\(\phi\in H\) such that \(c(\phi)\ne0\) and \(\nu_L(\phi)\)
+generates the \(\mathcal O\)-span of \(\nu_L(H)\). Thus
+the new inertia value has annihilator \((A_L)\).
+Since inertia at \(q\) lies in \(H\), we have
+\(A_{qL}=A_L t\) for some nonzero \(t\in\mathcal O\), up to a unit.
+
+The equivariant derivative has a global extension with controlled
+image. Write \(\beta=\kappa\alpha^{-1}\). The assumption
+\(\overline\alpha\ne\overline\kappa\) supplies \(d\in G_{\mathbb Q}\)
+with \(\beta(d)-1\) a unit. Given any of the equivariant derivative
+homomorphisms \(\nu\) on \(H\), define
+\[
+ n(g)=-(\beta(d)-1)^{-1}\nu([g,d]),\qquad
+ [g,d]=gdg^{-1}d^{-1}.
+\]
+Every such commutator belongs to \(H\), since \(G_{\mathbb Q}/H\)
+is abelian. This function is locally constant by continuity of the
+commutator and local constancy of \(\nu\) on \(H\). The identity
+\([gh,d]=g[h,d]g^{-1}[g,d]\) and equivariance give
+\(n(gh)=n(g)+\beta(g)n(h)\). For \(u\in H\),
+\(\nu([u,d])=(1-\beta(d))\nu(u)\), whence \(n(u)=\nu(u)\).
+All values of \(n\) are multiples of values in \(\nu(H)\).
+In particular the annihilator of \(\nu(H)\) kills the whole cocycle.
+Away from \(P\), inertia lies in \(H\), so extension preserves the
+required inertia conditions. The same observation identifies the
+inertia values in the local comparison at the selected \(q\). This
+proves the extension used with the duality relation above.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ImportsAlt.lean}{The commutator formula and its restriction and image properties}.}
+
+To see the resulting cost, choose a generator of \(W[A_{qL}]\)
+and write the new inertia value as \(y\) times this generator. If
+the value is nonzero, \(v(y)=v(t)\) by its annihilator; if it is zero,
+then \(A_L\) is a unit, and \(a_0\mid A_L\) forces \(S_L=0\).
+Using the extension of the equivariant derivative to a dual cocycle
+in the source's reciprocity step gives \(y\,c'(\phi)=0\) for every
+\(c'\in S_L\). Thus \(t\) kills the image of evaluation on \(S_L\)
+at \(\phi\), which has length at most \(v(t)\) in \(W\). Its kernel
+is contained in \(S_{qL}\): the cocycles vanish on inertia at \(q\)
+and the unramified quotient is topologically generated by Frobenius.
+Conjugacy propagates the vanishing to the other places above \(q\);
+the coefficient character acts trivially modulo \(a_0\) throughout
+these decomposition groups. We obtain
+\[
+   \operatorname{length}S_L+j_L
+       \le \operatorname{length}S_{qL}+j_{qL}.
+\]
+Since some \(c(\phi)\ne0\), \(t\) is a nonunit and \(j_{qL}>j_L\).
+Since \(j_L\le J\), iteration ends with a zero submodule. Hence
+\(\operatorname{length}S_L+j_L\le J\) on every such list.
+
+The first step at \(r\) begins with the whole \(S(a_0)\).
+Put \(k_0=\ell^m/z\). The initial inertia value \(zw\) has
+annihilator \((k_0)\), and \(a_0\mid k_0\). The same evaluation gives
+\(A_{\varnothing}=k_0t_0\) up to a unit and
+\(\operatorname{length}S(a_0)\le
+  \operatorname{length}S_{\varnothing}+v(t_0)\).
+Combining this with the bound for the empty list gives
+\[
+  \operatorname{length}S(a_0)
+        \le J-v(k_0)=v(z)\le v(\alpha_f(j,\xi)).
+\]
+This bound is independent of \(a_0\). Taking the increasing union
+described above gives \eqref{eq:characterwise-bern}.
+
+\subsection{Return to the minus eigenspace}
+
+Take \(\mathcal O\) large enough to contain all character values
+of \(G\). Since \(\ell\nmid D\), restriction to \(G_E\) identifies
+the twisted strict group over \(\mathbb Q\) with the
+\(\psi\)-eigenspace over \(E\). Indeed positive cohomology of \(G\)
+on the \(\ell\)-primary invariants vanishes by averaging over \(G\);
+the same restriction and averaging applies to the local subgroups,
+whose indices divide \(D\). Untwisting by \(\psi\) produces the
+indicated eigenspace. In the sign of complex conjugation under
+consideration, the characters are those with
+\(\psi(c)=(-1)^{e+1}\). Base change multiplies a finite
+\(\mathbb Z_\ell\)-length by \(r_{\mathcal O}\), as is seen on the
+simple factors. Equivalently the signed length comparison is
+\[
+ r_{\mathcal O}m_{\ell,e}
+       \le\sum_{\psi(c)=(-1)^{e+1}} V((\psi\kappa^e)^{-1})
+\]
+in extended lengths; the character bound makes the right side finite.
+For any nonzero \(a\in\mathcal O\), the normalized absolute value
+satisfies \(v(a)\log\ell=-r_{\mathcal O}\log|a|_\ell\).
+Multiplying the displayed inequality by \(\log\ell\), applying
+\eqref{eq:characterwise-bern}, and cancelling \(r_{\mathcal O}>0\)
+give the inequality used before
+\eqref{eq:galois-good-prime-sum}. Distinct characters of \(G\) pull
+back to distinct Dirichlet characters because the cyclotomic action
+map onto \(G\) is surjective.
+
+The unexpanded arithmetic in this deduction is the construction of
+the derivative system with the required local values and the
+simultaneous Chebotarev selection. The two duality theorems
+justify the displayed local annihilation relation. To obtain
+\eqref{eq:characterwise-bern} from standard results one must also
+supply those cyclotomic constructions. Their detailed proofs occur
+at the source loci below.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/Iv.lean}{Precise input to the characterwise theorem},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/OverIff.lean}{global and local reciprocity},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ZeNorm.lean}{finite Bernoulli value and Euler factor},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/RatPlace.lean}{the exceptional case},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/NuSysEx.lean}{cyclotomic derivatives},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/AddPowNsmul.lean}{Frobenius selection},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/ChiDvd.lean}{extension to the dual cocycle},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/FrobFix.lean}{length induction},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PrimitiveFrobeniusFixed/PrimCase.lean}{primitive conductor comparisons},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/AtPrime.lean}{the signed character sum}.}

@@ -1,0 +1,463 @@
+\section{The doubled Eisenstein series and its definite theta value}
+\label{sec:sw-boundary}
+
+Use the base \(B\), the CM extension \(E/F\), its involution \(\sigma\),
+and its standard additive character \(\psi\) from
+Section~\ref{sec:theta-match}. Fix \(m,n\geq1\), spaces \(A,Y\)
+of dimensions \(m,n\), and their signature data \((r,s),(r',s')\).
+The hypotheses allow either hermitian \(A\) and skew-hermitian \(Y\),
+or skew-hermitian \(A\) and hermitian \(Y\). In both cases
+\(\min(r,s)=0\). Write \(H=U(A)\), \(G=U(Y\oplus(-Y))\).
+Its Siegel parabolic \(P\) fixes the diagonal maximal isotropic
+subspace. Fix the prescribed unitary Hecke character \(\chi\) with
+restriction \(\eta_{E/F}^{\,m}\) on the base ideles, a doubled
+Darboux model with actions \(\omega\) of \(G(\mathbb A_F)\) and
+\(S\) of \(H(\mathbb A_F)\), and the model's distinguished linear
+functional \(\ell\). Choose a standard rational doubled frame \(b\).
+In it the Gram matrix is
+\(\left(\begin{smallmatrix}0&I\\ \epsilon I&0\end{smallmatrix}\right)\)
+with \(\epsilon=\pm1\), and its first columns span the diagonal.
+The associated subgroup \(K\) is unitary for the positive standard
+inner products at infinity, with both the matrix and its inverse
+integral in the finite frame. Choose the Iwasawa height \(a\) with
+\(a(pk)=|\det t|_{\mathbb A_E}\) for the Levi action \(t\) of \(p\)
+on the diagonal.
+
+Write \(D\) for a fundamental domain of \(H(F)\) in
+\(H(\mathbb A_F)\) with respect to any Haar measure \(\mu\).
+Let \(\Phi\) be adelic Schwartz in the model such that
+\(\operatorname{span}_{\mathbb C}\{\omega(k)\Phi:k\in K\}\)
+is finite-dimensional. Put
+\begin{align*}
+ s_0&=(m-n)/2,\qquad f_0(g)=\ell(\omega(g)\Phi),\\
+ f_z(g)&=a(g)^{z-s_0}f_0(g),\\
+ I_\Phi(x)&=\mu(D)^{-1}\int_D
+     \Theta_F\bigl(\omega(x)S(h)\Phi\bigr)\,d\mu(h).
+\end{align*}
+Here \(\Theta_F\) sums a test function over rational points in its
+Darboux coordinates. For every such choice and every \(x\),
+the Eisenstein series
+\[
+ E_\Phi(z,x)=\sum_{\gamma\in P(F)\backslash G(F)} f_z(\gamma x)
+\]
+has a meromorphic extension holomorphic at \(s_0\), with value
+\begin{equation}
+ E_\Phi(s_0,x)=
+ \begin{cases} I_\Phi(x),& n<m,\\ 2I_\Phi(x),&m\leq n.\end{cases}
+ \label{eq:sw-def-value}
+\end{equation}
+The measure in this identity is an average. Scaling \(\mu\) by a
+positive constant cancels between its integral and its denominator.
+The arguments below describe the continuation, an adelic Fourier
+normalization, and the two terms in the boundary calculation leading
+to the change in rank.
+
+\subsection{Removing the global multiplier locally}
+
+For any section \(f\) at parameter \(s_1\), write
+\(f_z(g)=a(g)^{z-s_1}f(g)\). The assertion here allows any
+nonnegative integer \(c\) with the prescribed restriction
+\(\chi|_{\mathbb A_F^\times}=\eta_{E/F}^{\,c}\). Let \(\mathcal M\)
+be the complex span of continuous functions of growth bounded by a
+power of the matrix height \(h_2\) of \(G\). A linear functional
+\(L\) on \(\mathcal M\) satisfies the growth condition if for every
+\(N\geq0\) there is \(C_N\) bounding \(|L(v)|\) whenever
+\(|v(g)|\leq h_2(g)^N\) for every \(g\).
+
+Two analytic inputs enter the proof of the continuation.
+First, in a right half-plane \(\Re z>t_0\), the coset series has
+sum \(v(z)(x)\), with \(v(z)\in\mathcal M\) and \(L(v(z))\)
+holomorphic for every such \(L\). Second, there are an entire
+function \(A_0\) nonzero at some point, a function \(J(z)\) in
+\(\mathcal M\) with \(L(J(z))\) entire, and \(t_1\in\mathbb R\)
+such that on \(\Re z>t_1\) the series obtained by multiplying
+each coset summand by \(A_0(z)\) sums to \(J(z)(x)\). These are
+the half-plane and multiplier theorems in the source. Its
+multiplier construction uses the rank-one case and induction on
+the cardinality of the indexing set of a general linear block.
+
+Let \(t=\max(t_0,t_1)\). Uniqueness of the sum on \(\Re z>t\)
+gives \(J(z)(x)=A_0(z)v(z)(x)\) for all \(x\), including zeros
+of \(A_0\). Use \(v(z)\) there and \(J(z)/A_0(z)\) elsewhere
+away from the zeros. Values at remaining isolated zeros can be
+assigned arbitrarily in taking a meromorphic representative.
+Point evaluation at \(x\) satisfies the growth condition with
+\(C_N=h_2(x)^N\), proving pointwise holomorphy in the right
+half-plane. Now fix any \(z_*\). Since \(A_0\) is a nonzero
+entire function, its power series at \(z_*\) has a first
+nonzero coefficient. Factoring out the corresponding power gives
+\(A_0(z)=(z-z_*)^k u(z)\) on an open neighbourhood \(U\) on
+which \(u\) is holomorphic and nonvanishing. Set
+\(J_*(z)=u(z)^{-1}J(z)\) there. For every \(x\) and every
+\(z\in U\setminus\{z_*\}\),
+\[
+                  J_*(z)(x)=(z-z_*)^k E(z,x).
+\]
+For each allowed \(L\), the equality
+\(L(J_*(z))=u(z)^{-1}L(J(z))\) proves holomorphy on \(U\).
+The order \(k\) and the neighbourhood work simultaneously for
+all \(x\) and all the functionals. This proves the weak
+continuation claimed in \texttt{EisBL} from the two analytic
+inputs.
+
+\subsection{The rational Fourier pairing and its normalization}
+
+Let \(V=\operatorname{Mat}_{m,n}(E)\) and choose the two elements
+\(e_1,e_2\) of the \(F\)-basis of \(E\) in the datum. Use
+\(Q=\{1,\ldots,m\}\times\{1,\ldots,n\}\times\{1,2\}\).
+Write \(D_q\) for the elementary matrix with entry \(e_k\) in
+position \((i,j)\), where \(q=(i,j,k)\). The coordinate isomorphism
+\(C\colon V\to F^Q\) expands a matrix in the \(D_q\). For the
+Gram matrix \(J_A\) define an \(F\)-bilinear pairing
+\[
+ B_A(Y,Z)=\operatorname{Tr}_{E/F}
+              \operatorname{tr}(Y^t J_A\,\sigma Z).
+\]
+For any \(\varepsilon=\pm1\) the rational linear map
+\(L_\varepsilon\colon F^Q\to F^Q\) given by
+\((L_\varepsilon C Y)_q=\varepsilon B_A(Y,D_q)\) is bijective.
+Indeed, vanishing of all its coordinates says
+\[
+ \operatorname{Tr}_{E/F}\bigl((Y^tJ_A)_{ji}\sigma(e_k)\bigr)=0
+                         \qquad(i,j,k).
+\]
+The two \(\sigma(e_k)\) also span \(E\) over \(F\).
+Nondegeneracy of the trace pairing for the separable extension
+therefore gives \((Y^tJ_A)_{ji}=0\) for every \(j,i\).
+Invertibility of \(J_A\) gives \(Y=0\). The source and target are
+the same finite-dimensional vector space, proving bijectivity.
+
+Extend \(C\) adelically. Its inverse sends \(c\) to
+\(\sum_q c_q D_q\), so it identifies the diagonal rational
+lattice \(F^Q\) with \(V\). Normalize additive Haar measure
+\(\nu\) on \(V(\mathbb A_F)\) by rational covolume one.
+The pullback of the product adelic measure on \(\mathbb A_F^Q\)
+also has covolume one. Indeed, the inverse image under \(C\) of
+a fundamental domain is a fundamental domain by the rational
+lattice bijection, and its measure for the pullback is one.
+Uniqueness of Haar measure up to scalar now identifies the two
+measures. For adelic \(Z\) and rational \(Y\), the scalar
+\(\varepsilon B_A(Y,Z)\) is \(\sum_q (CZ)_q(L_\varepsilon C Y)_q\)
+under the diagonal embedding of the rational factors.
+
+Consequently, for every adelic Schwartz function \(h\) in this
+coordinate model,
+\begin{equation}
+ \sum_{Y\in V}\int_{V(\mathbb A_F)}
+        \psi(\varepsilon B_A(Y,Z))h(Z)\,d\nu(Z)
+       =\sum_{Y\in V}h(Y).
+ \label{eq:sw-poisson}
+\end{equation}
+Make the change of variable \(c=CZ\) in each integral. With the
+indicated sign convention the result is the adelic Fourier
+transform of \(h\circ C^{-1}\) at \(L_\varepsilon C Y\).
+The frequencies run over \(F^Q\) exactly once, by the preceding
+bijection. Apply adelic Poisson summation on \(\mathbb A_F^Q\)
+with standard character and rational covolume one, then reindex the
+result by \(C^{-1}\). This proves \eqref{eq:sw-poisson} and explains
+why this use of a Weyl element introduces no scalar of local origin.
+The general coordinate Poisson formula is an input here.
+
+\subsection{Splitting a boundary coefficient}
+
+Take a lower-rank datum that omits index \(i_0\) in the \(n\)-dimensional
+frame, with embedding \(j\colon G'\to G\) of the doubled group of
+rank \(n-1\). Write \(N,N'\) for the additive Siegel unipotent
+coordinates and \(n(\beta),n'(\beta')\) for their embeddings as
+upper block unipotents. Let \(\pi\beta\) be the submatrix left
+after removing the \(i_0\) row and column. Let \(T\in N(F)\) have
+zero row and column \(i_0\), and set \(T'=\pi T\). For a function
+\(B_0\) and a rational frequency \(T\) write
+\[
+ \mathcal F_T B_0(x)
+ =\int_{N(F)\backslash N(\mathbb A_F)}
+      B_0(n(\beta)x)\,
+      \psi\bigl(-\operatorname{Tr}_{E/F}\operatorname{tr}(T\beta)\bigr)
+      \,d\beta ,
+\]
+with normalized additive Haar measure. Here \(\operatorname{Tr}_{E/F}\)
+also denotes the trace after adelic base change. In the equations
+below the source defines this integral on a chosen fundamental
+domain; its invariance under changes of domain follows from
+rational periodicity. Let \(u_M(u)\) have upper Levi block
+\(I+\sum_{j\ne i_0}u_j E_{i_0 j}\); the variable \(u\) runs
+over an additive fundamental domain for \(E^{n-1}\) in
+\(\mathbb A_E^{n-1}\), again of volume one.
+
+For \(f_z=a^{z-s_1}f\) as above let \(E_n(z,x)\) be its coset
+sum and, at the fixed \(x\), put
+\[
+ E'_{x}(z,g')=\sum_{q'\in P'(F)\backslash G'(F)}
+                            f_z(j(q'g')x).
+\]
+The boundary identity in the release holds, for all \(x\), in a
+common right half-plane depending on the model and section:
+\begin{align}
+ \int \mathcal F_T E_n(z,u_M(u)x)\,du
+    &=\mathcal F_{T'} E'_{x}(z,1)+C_2(z,x),\label{eq:sw-cells}\\
+ C_2(z,d_w(\tau)x)&=\exp\!\bigl(\tau(n-2z)\bigr)C_2(z,x).
+ \label{eq:sw-dil}
+\end{align}
+The second equation holds for every real place \(w\), real
+\(\tau\), and any model dilation there along the omitted
+coordinate with that parameter.
+
+To justify interchanging the coset sum with both integrals, take
+fundamental domains with compact closures in the two additive
+quotients. Such domains exist by cocompactness of the rational
+lattices. The product \(C\) of the closures has compact image
+under \((u,\beta)\mapsto n(\beta)u_M(u)x\). The right-half-plane
+majorant for the section on that compact image supplies a summable
+family \(b_q\) bounding the absolute value of its \(q\)-th summand,
+uniformly there. The character factor is continuous on the compact
+closure, with some bound \(M\). For the summand \(k_q\), including
+its character, the product probability measure gives
+\[
+   \sum_q\iint |k_q(u,\beta)|\,d\beta\,du
+                  \leq M\sum_q |b_q|<\infty .
+\]
+Continuity of each summand supplies measurability. Fubini and absolute
+summability permit taking both integrals term by term. Rational
+invariance of the Eisenstein series, the trace relation for \(T,T'\)
+and rational invariance of the character imply independence of
+the fundamental domains. Equivalently, these are integrals of
+periodic functions for invariant measures on the additive quotients.
+
+In the doubled frame partition the cosets by asking whether the
+\(i_0\)-th column of the lower-left block of a representative
+vanishes. For the vanishing class, the source's rational parabolic
+orbit bijection gives a representative \(p_0j(\gamma')\) for each
+lower-rank coset \(\gamma'\), with \(p_0\in P(F)\). The block
+factorization used here asserts
+\[
+ j(h)n(\beta)u_M(u)x
+  =p_1j(hn'(\pi\beta))x,\qquad
+             \det(\operatorname{Levi}(p_1))=1 .
+\]
+The rational factor \(p_0\) and determinant-one parabolic \(p_1\)
+leave \(f_z\) unchanged under left multiplication, by its
+induction law. Expanding the trace as a double sum, every term
+involving \(i_0\) vanishes, hence
+\(\operatorname{tr}(T\beta)=\operatorname{tr}(T'\pi\beta)\).
+Thus the corresponding summand is independent of \(u\) and
+depends on \(\beta\) only through \(\pi\beta\). The \(u\)-integral
+contributes one. Summing the lower-rank summands gives a continuous
+rational-periodic function on \(N'(\mathbb A_F)\). Integration after
+projection gives its normalized integral on the smaller quotient
+(the fiber integration lemma in the source). This proves that the
+first class gives precisely \(\mathcal F_{T'}E'_x(z,1)\).
+The absolutely convergent sum over the complementary class defines
+\(C_2(z,x)\), proving \eqref{eq:sw-cells}.
+
+Here is the computation of the second class under dilation. Its
+unfolding supplies a Weyl representative \(w_1\), coordinates
+\(c\in\mathbb A_E^{n-1}\times\mathbb A_F\) with measure \(\kappa\),
+and integrals of the form
+\[
+ \int f_z\bigl(w_1 c_M(c)j(h)x\bigr)\,d\kappa(c).
+\]
+The entire expression is a fixed scalar times a sum over lower
+cosets of Fourier integrals of these inner integrals. The
+coordinate identities used by the unfolding have three parts.
+Writing \(d_\tau=d_w(\tau)\), the image \(j(h)\) commutes with
+\(d_\tau\). There is \(p\in P(\mathbb A_F)\) such that
+\(w_1d_\tau=pw_1\), with Levi determinant \(\Delta\) satisfying
+\(|\Delta|_{\mathbb A_E}=e^{-2\tau}\) and \(\chi(\Delta)=1\).
+Finally there is a measurable equivalence \(c\mapsto s_\tau(c)\)
+with
+\[
+ c_M(c)d_\tau=d_\tau c_M(s_\tau(c)),\qquad
+               (s_\tau)_*\kappa=e^{2n\tau}\kappa .
+\]
+These are the specific imported coordinate and Jacobian formulas
+in the unfolded cell. The transformation law of a section at \(s_1\)
+is \(f(pg)=\chi(\Delta)|\Delta|_{\mathbb A_E}^{s_1+n/2}f(g)\).
+It follows, with positive real bases for all complex powers, that
+\[
+ f_z(pg)=
+ e^{-2\tau(z-s_1)} e^{-2\tau(s_1+n/2)} f_z(g)
+          =e^{-\tau(2z+n)}f_z(g).
+\]
+Insert \(d_\tau x\) in the inner integral. Move \(d_\tau\) to the
+left past \(j(h)\) and \(c_M(c)\), apply the parabolic law to
+\(w_1d_\tau=pw_1\), then push \(\kappa\) forward by \(s_\tau\).
+The scalar is \(e^{-\tau(2z+n)}e^{2n\tau}=e^{\tau(n-2z)}\).
+It is independent of the lower coset and its Fourier variable and
+so passes unchanged through the remaining integral and sum. This
+proves \eqref{eq:sw-dil}. The bounds, first orbit identification
+and second orbit unfolding may have three different convergence
+thresholds. Taking their maximum yields the single half-plane in
+\eqref{eq:sw-cells}--\eqref{eq:sw-dil}.
+
+\subsection{Recovering the value across the rank ranges}
+
+We record how \eqref{eq:sw-cells} enters the induction. For
+\(m=n\) the source proves a nondegenerate Whittaker integral
+identity with scalar \(2\). For \(m>n\) the corresponding scalar
+is \(1\). At a nondegenerate frequency the Eisenstein coefficient
+unfolds to the integral over the full Siegel unipotent of the
+section on the big Weyl cell against its Fourier character.
+The theta coefficient is the orbital functional on the same
+frequency. Their comparison in the source combines the finite
+local integrals, unramified integrals, real-place Whittaker
+integrals, global factorization and a representation-density
+formula. The comparison fixes the scalar at nondegenerate
+frequencies. To lift the equality to \emph{all} coefficients the
+source separately uses the bounds for coefficient functionals,
+a vanishing result for singular tests and the Fock-space
+representation argument. These results are inputs to this chapter.
+
+For clarity, consider passage from a single polynomial Fock lift
+to a general \(K\)-finite datum. Fix a real place and write the
+transformed \(\Phi\) as a finite sum of polynomial Gaussian factors
+there times away-place factors. Lift the \(i\)-th summand to
+\(\Phi_i\) in the original model. Injectivity of the model
+transform on Schwartz functions gives
+\(\Phi=\sum_{i=1}^k\Phi_i\), since the difference has transform
+zero. Section formation and the theta integral are linear on
+these finite sums. Suppose each \(E_{\Phi_i}\) has holomorphic
+value \(cI_{\Phi_i}\) at \(s_0\), as supplied by the
+polynomial-lift result. Choose a convergence threshold \(t_i\)
+for the coset sum at the chosen \(x\). On
+\(\Re z>\sum_i|t_i|\) every term converges absolutely, hence
+\(E_\Phi=\sum_i E_{\Phi_i}\) there. The finite sum of the
+continuations is holomorphic at \(s_0\) and gives
+\(c\sum_i I_{\Phi_i}=cI_\Phi\). This is also valid for the empty
+sum. Meromorphic uniqueness identifies this germ with the
+continuation constructed above.
+
+For \(m<n\) every Gram matrix represented by \(m\) rows has rank
+at most \(m\). Full-rank theta coefficients therefore vanish.
+The source's lower-rank step uses the boundary decomposition
+\eqref{eq:sw-cells}, the covariance \eqref{eq:sw-dil}, the
+restriction of the vacuum to the zero \(i_0\)-th column, and
+the corresponding identity for singular orbital integrals.
+The step also uses holomorphicity of the leading coefficient in
+the real-group variable and the singular-test vanishing theorem.
+Its conclusion transfers the value with scalar \(2\) from all
+lower-rank vacuum vectors to all vacuum vectors of the given rank.
+In the model a vacuum here is a finite sum of products of
+archimedean Gaussians with finite Schwartz--Bruhat factors.
+The induction is on \(k=n-m\). At \(k=0\) the equal-rank value
+already proved applies to the vacua, which belong to the polynomial
+Fock space and are \(K\)-finite. If \(k>0\), then \(n\geq2\); the
+lower-rank existence theorem supplies the datum omitting \(i_0\).
+Its \(m\), first space, base, character, Haar measure and
+fundamental domain are unchanged. Its \(n'\) equals \(n-1\)
+because its frame indices inject onto exactly the complement of
+\(i_0\). Thus \(n'-m=k-1\). Apply induction to that datum and the
+stated lower-rank step to the original datum. The vacuum generation
+and differentiation theorem then gives the identity for all
+\(K\)-finite vectors. This proves the scalar and rank bookkeeping
+in \eqref{eq:sw-def-value}, conditional in this presentation on
+the local integrals, singular-coefficient theorem and generation
+results just specified.
+
+The classical comparison is Shunsuke Yamana, \emph{The Siegel--Weil
+formula for unitary groups}, Pacific Journal of Mathematics
+\textbf{264} (2013), Theorem~2, p.~237,
+\url{https://doi.org/10.2140/pjm.2013.264.235}.
+Specialize his central division algebra to \(E\), so its degree is
+one. His character on base ideles is the \(m\)-th power of the
+quadratic character, the group on the doubled side is split in
+the sense of admitting a complete polarization, and \(s_0=(m-n)/2\).
+If \(r_0\) is the rational Witt index of the first space, his
+convergence criterion includes \(r_0=0\), and his value theorem
+treats \(m\leq n\) and \(m-r_0>n\). Definiteness at an
+archimedean place forces \(r_0=0\), so these ranges cover the two
+cases here. The source additionally transports between its Darboux
+functional and the standard Schr\"odinger model and uses its own
+normalized Haar average.
+
+\subsection{Transport to the stabilizer used in the theta identity}
+
+The rank identity above was stated for the standard compact subgroup
+of a rational doubled frame. The theta integrals of
+Section~\ref{sec:theta-match} are allowed an adapted stabilizer
+\(K_1\). The frame-conjugacy lemma provides a parabolic element
+\(p\) with Levi action \(t_p\), and standard subgroup
+\(K_0=p^{-1}K_1p\). Suppose \(a_1\) is the height for \(K_1\).
+Put \(d=|\det t_p|_{\mathbb A_E}>0\) and
+\[
+                 a_0(g)=d\,a_1(gp^{-1}).
+\]
+This is the height for \(K_0\). Indeed, if \(k\in K_0\), then
+\(pkp^{-1}\in K_1\). For \(q\in P(\mathbb A_F)\) with Levi
+action \(t_q\), write \(qkp^{-1}=(qp^{-1})(pkp^{-1})\).
+The defining rule for \(a_1\) gives
+\(a_1(qkp^{-1})=|\det(t_qt_p^{-1})|_{\mathbb A_E}\).
+Multiplying by \(d\) gives \(|\det t_q|_{\mathbb A_E}\).
+Every element admits the required decomposition by transporting
+the Iwasawa decomposition for \(K_1\).
+
+Take \(\Phi_0=\omega(p^{-1})\Phi\). If \(N\) is a
+finite-dimensional \(K_1\)-invariant span containing \(\Phi\),
+then \(\omega(p^{-1})N\) contains the \(K_0\)-span of
+\(\Phi_0\), since for \(k\in K_0\),
+\(\omega(k)\Phi_0=\omega(p^{-1})\omega(pkp^{-1})\Phi\).
+Apply \eqref{eq:sw-def-value} for the standard data at \(xp\).
+For every rational coset representative \(\gamma\) the section
+there satisfies
+\[
+ a_0(\gamma xp)^{z-s_0}
+  \ell\bigl(\omega(\gamma xp)\Phi_0\bigr)
+ =d^{z-s_0}a_1(\gamma x)^{z-s_0}
+                   \ell\bigl(\omega(\gamma x)\Phi\bigr).
+\]
+The factor \(d^{s_0-z}=\exp((s_0-z)\log d)\) is entire and
+equals one at \(s_0\). Multiplying the continued standard
+Eisenstein series by this factor thus gives the continued
+adapted series with the same special value.
+On the theta side the parabolic commutation lemma gives
+\(\omega(p^{-1})S(h)\Phi=S(h)\omega(p^{-1})\Phi\) on Schwartz
+functions. Hence
+\(\omega(xp)S(h)\Phi_0=\omega(x)S(h)\Phi\), also giving exactly
+the adapted theta average.
+
+The input to that commutation lemma is injectivity of all the
+translated theta functionals. It has a direct Fourier proof.
+In Schr\"odinger coordinates, suppose
+\(\Theta_F(\rho(x,y)\phi)=0\) for all \(x,y\in\mathbb A_F^\kappa\),
+where \(\kappa\) is the finite coordinate set. For fixed \(x\)
+divide out the nonzero scalar \(\psi(\langle x,y\rangle/2)\)
+in the Schr\"odinger action. Then
+\[
+    \sum_{\xi\in F^\kappa}\phi(\xi+x)
+                    \psi(\langle\xi,y\rangle)=0
+                \qquad(y\in\mathbb A_F^\kappa).
+\]
+The coefficients are absolutely summable by the rational lattice
+bound for the Schwartz translate. Every nonzero \(\xi\) gives a
+nontrivial character on the additive quotient. Indeed choose
+\(j\) with \(\xi_j\ne0\) and put in coordinate \(j\) an adele
+\(a/\xi_j\) with \(\psi(a)\ne1\), using zero in the other
+coordinates. Averaging over the quotient annihilates every such
+character by translation invariance. Termwise averaging is
+permitted by absolute summability. The zero coefficient is
+\(\phi(x)\), so \(\phi=0\). In the doubled model the theta
+expansion and the Heisenberg composition law transfer this
+injectivity to translates of \(\ell\). The covariance of the two
+actions then gives equal values of all these functionals on
+\(\omega(p)S(h)\Phi\) and \(S(h)\omega(p)\Phi\), hence equality
+of the vectors. This is the argument of \texttt{theta\_inj},
+\texttt{dbl\_inj}, \texttt{dbl\_comm} and \texttt{sw\_transl}.
+
+\paragraph{Source correspondence.}
+The two top declarations are
+\srcid{RgEis.Hd.eisBL} and
+\srcid{SiegelWeilFormula.Fin.siegelWeilStd}. The local removal
+of the multiplier is \texttt{BRoad.eisBL\_of}. The rational
+pairing and Haar arguments are \texttt{rp\_nondeg},
+\texttt{integral\_cov\_gen}, \texttt{int\_eq\_four} and
+\texttt{TW.Twp.poisson}. The boundary calculation uses
+\texttt{Act.absConv}, \texttt{C4.firstEq\_of},
+\texttt{Act.secLaw\_of}, \texttt{Act.lhs\_eq\_tsum} and
+\texttt{Act.ctSplit\_of\_parts}. The first-cell block
+factorization, normalized projection of Haar measure, second-cell
+parametrization and its Jacobian occur upstream in the proofs of
+\texttt{key\_id}, \texttt{fiber}, \texttt{secUnf\_of} and
+\texttt{cLawEx}. The rank assembly is
+\texttt{Atop.mainC\_of}, \texttt{rank\_difference\_induction}
+and \texttt{Atop.fieldOf}. The analytic and arithmetic inputs
+identified above remain imported at this stage of the prose
+translation.

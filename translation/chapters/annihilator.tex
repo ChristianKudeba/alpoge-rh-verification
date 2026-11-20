@@ -1,0 +1,342 @@
+\section{A cyclotomic annihilator for the signed Selmer group}
+\label{sec:selmer-annihilator}
+
+Let \(N\ge1\), let \(E\subset\mathbb Q(\mu_N)\) be a CM field, and put
+\(d=[E:\mathbb Q]\), \(\Gamma=\operatorname{Gal}(E/\mathbb Q)\).
+Write \(c\) for complex conjugation in \(\Gamma\). Fix a prime
+\(\ell\) and an integer \(e\ge1\). We assume either
+\(\ell\ne2\), or \(\ell=2\) and \(\mu_4\subset E\).
+Put \(k=e+1\), \(\epsilon=(-1)^k\), and
+\(A=(\mathbb Q_\ell/\mathbb Z_\ell)(-e)\). The action on \(A\)
+is multiplication by \(\chi_\ell^{-e}\), where \(\chi_\ell\) is
+the cyclotomic character. Let \(S\) be the set of places of \(E\)
+over \(\ell\). With \(G_{E,S}\) the quotient of the absolute
+Galois group unramified outside \(S\) at finite places, set
+\[
+ H=H^1_{\rm cts}(G_{E,S},A),\qquad
+ P=\ker\!\left(H\longrightarrow\prod_{v\in S}H^1(E_v,A)\right),
+ \qquad P_\epsilon=\{x\in P:cx=\epsilon x\}.
+\]
+The action of \(\Gamma\) on \(H\) uses both conjugation on the
+Galois group and the given cyclotomic action on the coefficients.
+These groups are the \(H^1\), \(\mathrm{Sha}\) and
+\(\mathrm{ShaMinus}\) of the source for these data.
+
+\paragraph{Annihilator and length bounds.}
+There is an integer \(r\ge0\), independent of \(x\in P_\epsilon\),
+such that
+\begin{equation}
+ \ell^r P_\epsilon=0,\qquad
+ r\log\ell\le 30d(e+1)\log(e\ell N).
+ \label{eq:cyclotomic-kill}
+\end{equation}
+Consequently \(P_\epsilon\) has finite \(\mathbb Z_\ell\)-length and
+\begin{equation}
+ \operatorname{length}_{\mathbb Z_\ell}(P_\epsilon)\log\ell
+ \le 240\ell d^2(e+1)\log^2(e\ell N).
+ \label{eq:cyclotomic-length}
+\end{equation}
+In particular these inequalities apply at odd primes dividing \(d\).
+The separate characterwise estimate in the prime-to-\(d\) case is a
+stronger assertion.
+
+\subsection{The weight-one class-group relation}
+
+For \(L>2\) put \(K_L=\mathbb Q(\mu_L)\),
+\(G_L=(\mathbb Z/L\mathbb Z)^\times\), and let \(\sigma_b\) send
+\(\zeta_L\) to \(\zeta_L^b\). In formulas at level \(L\), the
+symbol \([b]_L\) denotes the representative in \([0,L-1]\).
+Fix an odd positive integer \(a\) prime to \(L\), and write
+\[
+ j_L(b)=\frac{a[a^{-1}b]_L-[b]_L}{L},\qquad
+ h_L(b)=\frac{a-1}{2}-j_L(b).
+\]
+Both numbers are integers. For the usual Stickelberger element
+\(\vartheta_L=L^{-1}\sum_{b\in G_L}[b]_L\sigma_b^{-1}\), coefficient
+comparison gives the identity in \(\mathbb Q[G_L]\)
+\[
+ \sum_{b\in G_L}j_L(b)\sigma_b^{-1}
+   =(a\sigma_a^{-1}-1)\vartheta_L.
+\]
+The right side belongs to \(\mathbb Z[G_L]\vartheta_L\cap
+\mathbb Z[G_L]\). Stickelberger's theorem says that this ideal
+annihilates the ideal class group of \(K_L\), for every cyclotomic
+modulus \(L\). Also, \(\sum_b\sigma_b^{-1}\) annihilates that class
+group, because the product of the conjugates of a fractional ideal
+is the extension of its norm to \(\mathbb Q\), a principal ideal.
+Subtracting the two relations gives
+\begin{equation}
+ \sum_{b\in G_L}h_L(b)\sigma_b^{-1}C=0
+ \quad\text{for every } C\in\operatorname{Cl}(K_L)
+ \label{eq:cyclotomic-class}
+\end{equation}
+in additive notation. The precise classical input, with these group
+ring conventions, is R.~Sharifi, \emph{Iwasawa Theory}, Definition
+4.5.1 and Theorem~4.5.6. The same theorem is proved in
+L.~Washington, \emph{Introduction to Cyclotomic Fields}, second
+edition, Theorem~6.10.
+
+Suppose \(\eta:G_{K_L}\to A\) is a continuous homomorphism with
+finite image, written with trivial coefficient action, unramified
+at every finite place. The field \(K_L\) is totally imaginary.
+The Hilbert class field theorem therefore identifies the finite
+unramified abelian quotient through which \(\eta\) factors with a
+quotient of \(\operatorname{Cl}(K_L)\). Artin reciprocity is equivariant
+for the action of \(G_L\). For \(u\in G_{K_L}\) and any absolute
+lifts \(\widetilde\sigma_b\) of \(\sigma_b\), applying \(\eta\) to
+the Artin image of \eqref{eq:cyclotomic-class} gives
+\begin{equation}
+ \sum_b h_L(b)\eta(\widetilde\sigma_b^{-1}u\widetilde\sigma_b)=0.
+ \label{eq:cyclotomic-hom}
+\end{equation}
+Conjugation with the inverse lift on the left gives the inverse
+automorphism on the ideal class, as required by \eqref{eq:cyclotomic-class}.
+
+\subsection{Lifting the weight and passing to a fixed group ring}
+
+Set \(M=\ell N\), \(a=2M+1\), and let \(L=M\ell^m\) with \(m\ge0\).
+Write \(\pi_L:G_L\to\Gamma\) for restriction. The ordinary Bernoulli
+polynomials have \(B_1(X)=X-\tfrac12\). Define
+\begin{align*}
+ E_k(L,x)&=\frac{L^{k-1}}{k} B_k(x/L),\\
+ \Theta(L)&=-\sum_{b\in G_L} E_k(L,[b]_L)\pi_L(b),\\
+ Y(L)&=(1-a^k\pi_L(a))\Theta(L),\\
+ W(L)&=-\sum_{b\in G_L}[b]_L^{\,e}h_L(b)\pi_L(b).
+\end{align*}
+Here \(\Theta(L),Y(L)\in\mathbb Q[\Gamma]\) and
+\(W(L)\in\mathbb Z[\Gamma]\).
+The source evaluates its inverse-indexed group-ring sum on the
+inverse of the restriction map. This accounts for \(\pi_L(b)\)
+as written in these three expressions.
+
+The two needed identities are
+\[
+ Y(L)=Y(M),\qquad
+ Y(M)-W(L)\in\ell^t\mathbb Z_\ell[\Gamma]
+ \quad\bigl(m\ge t+v_\ell(D_k)+1,\ t\ge0\bigr),
+ \qquad
+ D_k=2k\prod_{p\le k+1}p ,
+\]
+where the product is over primes. For the equality, every lift of
+a unit modulo \(M\) to a residue modulo \(M\ell^m\) is a unit,
+since \(\ell\mid M\). Summing \(E_k(L,x)\) over its \(\ell^m\)
+representatives gives \(E_k(M,[x]_M)\) by
+\[
+ \sum_{i=0}^{q-1}B_k\!\left(\frac{u+i}{q}\right)
+    =q^{1-k}B_k(u),\qquad q=\ell^m .
+\]
+This distribution identity follows by summing the generating series
+\(te^{ut}/(e^t-1)\). Restriction to \(\Gamma\) is constant on each
+fiber, proving the assertion for \(\Theta\) and hence for \(Y\).
+
+For the congruence, put \(P_k=\prod_{p\le k+1}p\).
+The binomial expansion of \(B_k(X)\) and the von Staudt--Clausen
+theorem imply
+\[
+ E_k(L,x)=\frac{x^k}{kL}-\frac{x^{k-1}}2+
+               \frac{L}{kP_k}z_x,\qquad z_x\in\mathbb Z .
+\]
+Indeed, the term indexed by \(i\ge2\) in the Bernoulli expansion has
+a factor \(L^{i-1}\), and \(P_k B_i\) is integral for \(2\le i\le k\).
+Set \(x=[b]_L\), \(y=[a^{-1}b]_L\), \(j=j_L(b)\), so that
+\(ay=x+Lj\). For some integers \(u,v\),
+\[
+ (ay)^k=x^k+kx^{k-1}Lj+L^2u,\qquad
+ (ay)^{k-1}=x^{k-1}+Lv.
+\]
+Substitution yields
+\[
+ E_k(L,x)-a^kE_k(L,y)-x^{k-1}h_L(b)
+ =\frac{L}{D_k}
+    \bigl(2z_x-2a^k z_y-2P_k u+akP_k v\bigr).
+\]
+Multiplying by \(-\pi_L(b)\), summing and using \(e=k-1\) proves
+the congruence. Taking \(t=0\) also gives \(Y:=Y(M)\in
+\mathbb Z_\ell[\Gamma]\). Thus a single rational group-ring element
+is integral at \(\ell\) and is approximated by the explicit \(W(L)\)
+to every required precision.
+
+\subsection{The Selmer restriction and cancellation of the twist}
+
+Let \(U=G_{E(\mu_{\ell^\infty})}\). If \(x\in P\), choose a
+continuous cocycle \(f:G_E\to A\) inflated from \(G_{E,S}\)
+representing \(x\). It has finite image by compactness of \(G_E\)
+and discreteness of \(A\). For each \(v\mid\ell\), choose a
+decomposition group \(D_v\) in \(G_E\). Local triviality provides
+\(t_v\in A\) such that
+\(f(g)=(\chi_\ell(g)^{-e}-1)t_v\) on \(D_v\). Choose \(s\ge1\)
+so that \(\ell^s\) kills the image of \(f\) and all the finitely
+many \(t_v\). On \(U\), \(f\) is a homomorphism \(\kappa\);
+coboundaries vanish there. In particular \(\kappa\) depends only
+on \(x\).
+
+For every \(m\ge s\), \(K_L=\mathbb Q(\mu_{M\ell^m})\) contains
+\(E\) and \(\mu_{\ell^s}\). Put \(V_L=G_{K_L}\).
+The restriction \(\eta=f|_{V_L}\) is a homomorphism, since \(V_L\)
+acts trivially on the image of \(f\). We show it is unramified.
+Away from \(\ell\), the relevant inertia is contained in inertia of
+\(E\) killed by \(G_E\to G_{E,S}\), so \(f=0\) there. At \(v\mid\ell\)
+the character of \(V_L\cap D_v\) acts trivially on \(t_v\), giving
+\(f|_{V_L\cap D_v}=0\). For any \(h\in G_E\) and \(w\in V_L\), the
+cocycle rule gives
+\[
+ f(hwh^{-1})=\chi_\ell(h)^{-e} f(w)
+                    +(1-\chi_\ell(w)^{-e})f(h).
+\]
+The last term vanishes since \(\ell^s f(h)=0\). Conjugating the
+chosen decomposition groups therefore covers every place above
+\(\ell\) in \(K_L\). This proves the claimed ramification property
+of \(\eta\) on the entire finite layer.
+
+If \(u\in U\cap G_{K_M}\), it fixes all \(M\ell^m\)-th roots of
+unity. Indeed \(u\) fixes \(\mu_M\) and every \(\ell\)-power root
+of unity, and these roots generate \(\mu_{M\ell^m}\).
+For \(b\in G_L\) put \(w_b=\widetilde\sigma_b^{-1}u\widetilde\sigma_b\).
+Both \(V_L\) and \(U\) are normal under these lifts, so \(w_b\) lies
+in their intersection. Thus \(\kappa(w_b)=\eta(w_b)\).
+The action on cohomology, evaluated on \(u\), is
+\[
+ (\pi_L(b)x)|_U(u)=
+             \chi_\ell(\widetilde\sigma_b)^{-e}\,\kappa(w_b).
+\]
+Changing the lift changes the representing cocycle by a coboundary,
+which vanishes on \(U\). Also,
+\(\chi_\ell(\widetilde\sigma_b)\equiv[b]_L\bmod\ell^s\). Hence
+\([b]_L^e\chi_\ell(\widetilde\sigma_b)^{-e}\) acts as the identity on
+\(\kappa(w_b)\). Equation~\eqref{eq:cyclotomic-hom} now gives
+\[
+ (W(L)x)|_U(u)=-\sum_b h_L(b)\eta(w_b)=0 .
+\]
+Taking \(m\ge s+v_\ell(D_k)+1\) gives \(W(L)x=Yx\), since
+\(\ell^s x=0\). We have proved that the homomorphism \((Yx)|_U\)
+vanishes on \(U\cap G_{K_M}\). For every \(u\in U\), the power
+\(u^{\varphi(M)}\) fixes \(\mu_M\). Thus
+\((\varphi(M)Yx)|_U=0\).
+
+We justify the final passage back to global cohomology. Inflation
+from \(G_{E,S}\) to \(G_E\) is injective on \(H^1\) because the
+coefficient action factors through \(G_{E,S}\). A cocycle on \(G_E\)
+whose restriction vanishes on \(U\) descends to
+\(J=G_E/U=\chi_\ell(G_E)\) by the cocycle rule. This is an open
+subgroup of \(\mathbb Z_\ell^\times\). Indeed its index equals
+\([E\cap\mathbb Q(\mu_{\ell^\infty}):\mathbb Q]\), which is finite.
+For odd \(\ell\), the group of units is the product of a finite
+cyclic group of order prime to \(\ell\) and \(1+\ell\mathbb Z_\ell
+\simeq\mathbb Z_\ell\), hence is procyclic. Its closed subgroups
+are procyclic. For \(\ell=2\) our hypothesis puts \(J\) in
+\(1+4\mathbb Z_2\simeq\mathbb Z_2\). In both cases an element
+\(\gamma\) topologically generating \(J\) has infinite order.
+The nonzero scalar \(\gamma^{-e}-1\) acts surjectively on the
+divisible group \(A\). Given a continuous cocycle \(z\) on \(J\),
+choose \(t\) with \(z(\gamma)=(\gamma^{-e}-1)t\). Subtract this
+coboundary. The resulting cocycle vanishes on all integral powers
+of \(\gamma\), and then on \(J\) by continuity. This proves
+\[
+             \varphi(M)Y P=0 .
+\]
+
+\subsection{The determinant on the signed quotient}
+
+Let \(R=\mathbb Z_\ell[\Gamma]/(c-\epsilon)\). This is a free
+\(\mathbb Z_\ell\)-module of rank \(d/2\). In fact \(c\) has order
+two since \(E\) is CM and each pair \(g,cg\) contributes the
+single basis element represented by \(g\), with \(cg=\epsilon g\).
+The same integral basis works over \(\mathbb Z,\mathbb Q,\mathbb C\).
+Write \(\Delta\) for the determinant of multiplication by \(Y\) in
+this basis. For \(x\in P_\epsilon\), the map \(R\to H\) sending
+\(b\mapsto b\varphi(M)x\) is well-defined. The image of \(YR\)
+under this map vanishes. By the adjugate identity,
+\(\Delta\cdot1\) belongs to \(YR\), whence
+\begin{equation}
+                  \Delta\varphi(M)x=0 .
+ \label{eq:cyclotomic-detkill}
+\end{equation}
+This argument works integrally at primes dividing \(d\).
+
+Define the integers
+\[
+ D=Mk(k+1)!,\qquad S_0=2a^kM^k k!,\qquad B=D S_0,\qquad q=d/2 .
+\]
+The denominators of all \(B_i\) for \(0\le i\le k\) divide
+\((k+1)!\) by von Staudt--Clausen, including \(B_1=-1/2\).
+Expanding \(E_k\) thus shows \(D E_k(M,x)\in\mathbb Z\) for each
+integer \(x\), since the smallest power of \(M\) in the expansion
+is \(M^{-1}\). It follows that \(DY\in\mathbb Z[\Gamma]\), and
+\(X=D^q\Delta\) is an integer.
+
+We prove \(0<|X|\le B^q\).
+Over \(\mathbb C\), the eigenvalues of multiplication by \(Y\) on
+the quotient are its evaluations at the characters \(\lambda\) of
+\(\Gamma\) with \(\lambda(c)=\epsilon\). This follows by the
+finite Fourier transform on the abelian group \(\Gamma\).
+Set \(\xi(b)=\lambda(\pi_M(b))\), extended by zero on nonunits.
+Then
+\[
+ \lambda(Y)=(1-a^k\xi(a))\,L(1-k,\xi).
+\]
+For completeness, the identity for the second factor follows from
+\(L(s,\xi)=M^{-s}\sum_{b\in G_M}\xi(b)\zeta(s,[b]_M/M)\) and
+\(\zeta(1-k,x)=-B_k(x)/k\). Here \(\zeta(s,x)\) is the Hurwitz
+zeta function. If \(\xi^*\) induces \(\xi\) and has conductor \(f\),
+then
+\[
+ L(1-k,\xi)=L(1-k,\xi^*)
+   \prod_{\substack{p\mid M\\p\nmid f}}(1-\xi^*(p)p^{k-1}).
+\]
+Each omitted Euler factor is nonzero as \(k\ge2\). The gamma factor
+of the primitive completed \(L\)-function is finite and nonzero at
+\(1-k\). Indeed, writing \(\xi^*(-1)=(-1)^\delta\), its argument is
+\((1-k+\delta)/2\), an integer plus one half, since
+\(\delta\equiv k\bmod 2\). The primitive functional equation
+relates the completed value there to its value for
+\(\overline{\xi^*}\) at \(k>1\). The latter is finite and nonzero
+by the absolutely convergent Euler product. This includes the
+primitive trivial character and the zeta functional equation.
+Finally \(|a^k\xi(a)|=a^k>1\). Every eigenvalue is therefore nonzero.
+
+The Fourier series of \(B_k\) gives, for \(0\le u\le1\) and \(k\ge2\),
+\[
+ |B_k(u)|\le \frac{2k!}{(2\pi)^k}\sum_{n\ge1}n^{-k}\le k!.
+\]
+The sum for \(\Theta(M)\) has at most \(M\) terms, while
+\(|1-a^k\xi(a)|\le2a^k\). Hence \(|\lambda(Y)|\le S_0\).
+The product of these \(q\) eigenvalues gives
+\(0<|X|=D^q|\Delta|\le B^q\).
+
+Now set \(r=v_\ell(|X|)+v_\ell(\varphi(M))\).
+Since \(\Delta\in\mathbb Z_\ell\) and \(X=D^q\Delta\),
+\(v_\ell(\Delta)\le v_\ell(|X|)\). By
+\eqref{eq:cyclotomic-detkill}, \(\ell^r x=0\) for all
+\(x\in P_\epsilon\). Furthermore,
+\[
+ r\log\ell \le q\log B+\log M
+                  \le d\log(BM).
+\]
+For \(T=3e\ell N\), we have \(M,k,2\le T\), \(a\le T^3\), and
+\(k+1\le T^2\). Bounding \(k!\) by \(T^k\) and \((k+1)!\) by
+\(T^{2(k+1)}\) gives \(BM\le T^{7k+6}\le T^{10k}\) because
+\(k\ge2\). Since \(e\ell N\ge2\), \(T\le(e\ell N)^3\).
+This proves \eqref{eq:cyclotomic-kill}.
+
+For the length assertion, multiplication by \(\ell^j\) embeds
+\(H[\ell^{j+1}]/H[\ell^j]\) into \(H[\ell]\) for every \(j\ge0\).
+Section~\ref{sec:selmer-generators} proves
+\(\operatorname{length}_{\mathbb Z_\ell}H[\ell]\le
+8\ell d\log(\ell N)\). Filtering \(P_\epsilon\subset H[\ell^r]\)
+by the successive kernels and applying \eqref{eq:cyclotomic-kill}
+gives \eqref{eq:cyclotomic-length}.
+
+\paragraph{Correspondence with the release.}
+In the \texttt{OddResidueBounds} development, the class relation is
+\texttt{clKill} and its reciprocity consequence is \texttt{homKill}.
+The Bernoulli approximation is \texttt{congr} in \texttt{NearLevel}.
+The restriction, power and integral annihilators are
+\texttt{resKill}, \texttt{totKill} and \texttt{zKill}.
+The finite-layer argument above uses the original Selmer cocycle
+and its finitely many local trivializations to construct the
+unramified character directly. The release obtains the same character
+on a sufficiently deep layer by descent of its restriction.
+The determinant, logarithmic estimate, exponent and filtration
+correspond to \texttt{detVal}, \texttt{bdxLog}, \texttt{killPow}
+and \texttt{lenPow}, respectively. The conclusion is the source's
+\texttt{StickBound} with \(C=240\).

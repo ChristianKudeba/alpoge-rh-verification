@@ -1,0 +1,312 @@
+\section{The integer controlling the Frobenius trace differences}
+\label{sec:common-trace-integer}
+
+Fix an imaginary quadratic field \(K\), a positive integer \(N\),
+a twist \(e\ge1\) and a prime \(p\ge7\) prime to
+\(N\operatorname{disc}(K)\). Let \(w\mid p\), let
+\(h=[\mathcal O_K/w:\mathbb F_p]\in\{1,2\}\), and set
+\(q=p^h\) and \(Q=q^e\). Let \(O\) be a finite index set with
+roots of unity \(z_o\in\mathbb C\) such that every field automorphism
+of \(\mathbb C\) permutes the indexed values. Repetitions are
+allowed and their multiplicities matter. Write
+\[
+                T_o=Q^{-1}z_o+1+Qz_o^{-1}.
+\]
+For the orbit in Section~\ref{sec:rh-plus-nonzero}, \(O\) consists
+of the characters \(\xi\) with the prescribed kernel and
+\(z_\xi=\xi(q)^{-1}\).
+
+\subsection{The product and its size}
+
+A finite family of trace values consists of a finite set \(S\)
+and numbers \(t_s\in\mathbb C\) such that every automorphism of
+\(\mathbb C\) permutes the indexed values and
+\[
+           |t_s|\le\sqrt q+2,\qquad
+           Qt_s\ \text{is an algebraic integer}.
+\]
+At a coefficient prime \(\ell\nmid q\) and for a field
+isomorphism \(\iota:\overline{\mathbb Q}_\ell\to\mathbb C\), a
+family of admissible representations is \emph{classified} by \(S\)
+at \(g\) if each \(\rho\) has a label \(s(\rho)\in S\) with
+\[
+ \iota\bigl(\operatorname{tr}\rho(g)\bigr)=t_{s(\rho)},\qquad
+ s(\rho)=s(\rho')\ \Longrightarrow\ \rho\simeq\rho'.
+\]
+Several labels can have equal numeric traces. The implication
+about labels preserves the multiplicity of their contributions.
+
+Define the product before choosing any coefficient prime,
+representations or isomorphism by
+\begin{equation}
+   n_p=\prod_{o\in O}\prod_{s\in S} F_{o,s},
+   \qquad
+   F_{o,s}=Q(t_s-T_o)=Qt_s-z_o-Q-Q^2z_o^{-1}.
+   \label{eq:common-trace-product}
+\end{equation}
+We claim that \(n_p\in\mathbb Z\setminus\{0\}\), that
+\begin{equation}
+  \log|n_p|\le |O|\,|S|\,(2e\log q+1),
+  \label{eq:common-trace-log}
+\end{equation}
+and that for every classified family and every finite selection
+\(X_o\) of pairwise nonisomorphic members for each \(o\),
+\begin{equation}
+ |n_p|_\ell\le
+ \prod_{o\in O}\prod_{\rho\in X_o}
+ \left|\operatorname{tr}\rho(g)-\iota^{-1}(T_o)\right|_\ell .
+ \label{eq:common-trace-subproduct}
+\end{equation}
+
+To separate \(t_s\) and \(T_o\), note that \(Q\ge q\ge7\) and
+\(\sqrt q\le(q+9)/6\) by \((\sqrt q-3)^2\ge0\).
+It follows that \(Q-\sqrt q-3\ge4/3>Q^{-1}\). By the reverse
+triangle inequality,
+\[
+              |T_o|\ge Q-1-Q^{-1}>\sqrt q+2 .
+\]
+Every factor of \eqref{eq:common-trace-product} is therefore
+nonzero. Each factor is integral because \(Qt_s\), \(z_o\),
+\(z_o^{-1}\) and \(Q\) are algebraic integers. In addition,
+\[
+ |F_{o,s}|\le Q^2+Q(\sqrt q+3)+1\le2Q^2 .
+\]
+The last inequality follows from \(Q(Q-\sqrt q-3)>1\).
+
+All factors belong to a finite normal extension of \(\mathbb Q\)
+in \(\mathbb C\). Each automorphism of this extension extends to an
+automorphism of \(\mathbb C\) by extending first to an algebraic
+closure and then using a transcendence basis. The resulting
+permutations of \(O\) and \(S\) jointly permute \(O\times S\).
+Their product \(n_p\) is consequently rational. A rational algebraic
+integer is an integer. The empty product is \(1\). Taking logarithms
+and using \(\log2\le1\) proves \eqref{eq:common-trace-log}.
+
+Finally transport all the factors by \(\iota^{-1}\).
+Every resulting algebraic integer has absolute value at most one
+in \(\overline{\mathbb Q}_\ell\). For each \(o\), the map
+\(\rho\mapsto s(\rho)\) is injective on \(X_o\). Discarding the
+factors whose labels are outside its image can only increase
+the \(\ell\)-adic absolute value of the product. Since
+\(|Q|_\ell=1\), the remaining factors give
+\eqref{eq:common-trace-subproduct}. In particular every trace
+difference in its right side is nonzero. This proves all three
+assertions for arbitrary trace data with the stated hypotheses.
+
+\subsection{Trace data from the two kinds of eigensystems}
+
+We describe exactly which local estimates give these hypotheses.
+The rank-three CM eigensystems for the inverse cyclotomic twist
+have three parameters \(b_i\) with the convention that the
+eigenvalues of the twisted representation at \(\sigma^{-1}\) are
+the \(b_i^{-1}\), where \(\sigma\) is arithmetic Frobenius at \(w\).
+The weight is \(-2\) and the integral weight vector is
+\((e-1,-1,-e-1)\). The local estimates on the parameters are
+\[
+     q^{-1}q^{-1/2}< |b_i| < q^{-1}q^{1/2},\qquad
+     \prod_{i=1}^3 |b_i|=q^{-3},\qquad
+     q^{e-1}b_i^{-1}\ \text{is integral}.
+\]
+Here integrality means algebraic integrality over \(\mathbb Z\).
+Undoing the twist divides each eigenvalue by \(q\), since
+\(\chi_\ell(\sigma)=q\). The trace label for the original
+three-dimensional representation is
+\[
+                         t_s=\sum_{i=1}^3(qb_i)^{-1}.
+\]
+Thus \(Qt_s\) is integral. Put \(a=\sqrt q\) and
+\(x_i=|(qb_i)^{-1}|\). We have \(1/a\le x_i\le a\) and
+\(\prod_i x_i=1\). Reorder them so that \(x_1\ge x_2\ge x_3\).
+If \(x_2\le1\), their sum is at most \(a+2\).
+If \(x_2\ge1\), then \(x_1+x_2\le x_1x_2+1\) and
+\(x_1x_2=x_3^{-1}\le a\), while \(x_3\le1\).
+The same bound holds in both cases, so \(|t_s|\le\sqrt q+2\).
+
+For the rank-two systems over \(\mathbb Q\), the prime has residue
+size \(p\), the weight is zero and the integral weight vector is
+\((e,-e)\). Their two parameters satisfy
+\[
+   p^{-1/2}<|b_i|<p^{1/2},\qquad |b_1b_2|=1,\qquad
+             p^e b_i^{-1}\ \text{is integral}.
+\]
+The representation over \(K\) is isomorphic to
+\(\mathbf1\oplus W|_{G_K}\). On the unramified quotient at the
+chosen place, arithmetic Frobenius over \(K\) restricts to the
+\(h\)-th power of arithmetic Frobenius over \(\mathbb Q\).
+Consequently its inverse gives
+\[
+                   t_s=1+b_1^{-h}+b_2^{-h}.
+\]
+The identity \(Qb_i^{-h}=(p^eb_i^{-1})^h\) gives the claimed
+integrality. Of the two numbers \(|b_1|^{-h}, |b_2|^{-h}\) with
+product one, the larger is at most \(\sqrt q\) and the smaller
+at most one. This again gives \(|t_s|\le\sqrt q+2\).
+In both ranks the operations used to make \(t_s\) commute with
+field automorphisms. A permutation of the parameter multisets
+therefore permutes the trace labels.
+
+The absolute value bounds here are precisely the Satake bounds
+used in the released argument. For a unitary cuspidal
+representation of \(\mathrm{GL}_n\) at a spherical place of residue
+size \(u\), the Jacquet--Shalika estimate puts the absolute values
+of its normalized Satake parameters strictly between \(u^{-1/2}\)
+and \(u^{1/2}\). Their product has absolute value one by unitarity
+of the central character. Twisting to weight zero gives the
+displayed inequalities after reinstating the normalizing powers of
+\(q\) or \(p\). See H.~Jacquet and J.~Shalika, \emph{On Euler
+products and the classification of automorphic representations I},
+Amer.~J.~Math.~103 (1981), 499--558. Integrality of the scaled
+inverse parameters is the separate integral Satake estimate in the
+source.
+
+\subsection{Global labels and the quadratic restriction argument}
+
+A label for an automorphic representation over a CM field is its
+full system of normalized unramified Hecke multisets away from
+the prescribed level. The test place \(w\) is only one entry.
+Suppose the relevant cuspidal representations at weight vector
+\(m\) and level \(M\) have at most \(C(M(H+1))^A\) pairwise
+nonisomorphic members, where \(H\ge\max_i|m_i|\). Suppose also
+that the system depends only on the isomorphism class, its Galois
+conjugates occur in the same collection, and the attached
+semisimple Galois representations agree with it at places
+away from \(M\ell\). The set of distinct global systems then has
+the same upper bound. Indeed any finite subset of the image lifts
+to pairwise nonisomorphic preimages by choosing one form for each
+system. Thus it is a finite set of labels independent of \(\ell\).
+Conjugation permutes these labels. Equality of labels gives equality
+of the characteristic polynomials of the attached representations
+at all but finitely many Frobenius classes. By Chebotarev these
+classes are dense up to conjugacy. Continuity gives equality of
+traces everywhere, and the characteristic-zero Brauer--Nesbitt
+theorem gives isomorphism for semisimple representations.
+These statements construct exactly the classification used above
+when the indicated automorphic estimates and compatibility hold.
+
+For the rational rank-two systems the source first constructs
+finite collections over auxiliary imaginary quadratic fields. Here
+is the finite counting argument allowing those collections to
+classify the rational systems. Choose six imaginary quadratic
+fields \(K_i\) of pairwise coprime discriminants. For example
+one may take \(K_i=\mathbb Q(\sqrt{-d_i})\) with
+\(d_i=3,7,11,19,23,31\). At most one of these discriminants is
+divisible by the test prime \(p\), leaving five choices. Write
+\(\delta_i\) for the distinct quadratic characters of
+\(G_{\mathbb Q}\) with kernels \(G_{K_i}\).
+
+For an irreducible two-dimensional representation \(W\) over
+\(\overline{\mathbb Q}_\ell\), at most four distinct characters
+\(\delta\) satisfy \(W\simeq W\otimes\delta\). Each such
+intertwiner is a nonzero vector in the four-dimensional
+\(\operatorname{End}(W)\) on which conjugation acts by
+\(\delta\) (or by its inverse, equal to it here). Nonzero
+eigenvectors belonging to distinct characters of a group are
+linearly independent. Indeed a minimal relation with at least
+two terms yields a shorter nonempty relation by subtracting a
+scalar multiple of its translate by an element distinguishing
+two of the characters. Consequently one of the five remaining
+\(i\) satisfies \(W\not\simeq W\otimes\delta_i\).
+
+For \(H_i=G_{K_i}\), restriction to \(H_i\) is semisimple on
+this irreducible \(W\). In fact choose a simple \(H_i\)-submodule
+and sum its two conjugates under coset representatives. The span
+is nonzero and \(G_{\mathbb Q}\)-stable, hence all of \(W\), and
+a sum of simple submodules is semisimple. Frobenius reciprocity
+and \(\operatorname{Ind}_{H_i}^{G_{\mathbb Q}}\mathbf1
+\simeq\mathbf1\oplus\delta_i\) give
+\[
+ \operatorname{End}_{H_i}(W)
+    \simeq\operatorname{End}_{G_{\mathbb Q}}(W)
+       \oplus\operatorname{Hom}_{G_{\mathbb Q}}
+                             (W,W\otimes\delta_i)
+\]
+as vector spaces. Its dimension is one for our chosen \(i\), so
+\(W|_{H_i}\) is irreducible. The same adjunction for two irreducible
+representations \(W,W'\) shows that isomorphic restrictions force
+\(W'\simeq W\) or \(W'\simeq W\otimes\delta_i\). Hence at most two
+isomorphism classes of rational representations occur over a fixed
+restricted class. The arithmetic hypothesis presently needed is
+that an admissible rational system with irreducible restriction to
+\(H_i\) belongs there to the indicated class of polarized CM systems.
+
+Choose a place above \(p\) in each of these five fields and let its
+residue degree be \(f_i\), equal to one or two. From a restricted
+label \(s\in S_i\) and its parameter multiset \(B_i(s)\), form all
+two-element multisets \(B\) such that
+\(\{b^{f_i}:b\in B\}=B_i(s)\), with multiplicity. For each \(s\)
+there are at most \(f_i^2\le4\) possibilities. Enumerate the two
+target entries, choose one of their \(f_i\)-th roots at each
+position, and forget the order. Append two copies of each label
+\((i,s,B)\). The number of labels is at most
+\[
+                       8\sum_i |S_i|.
+\]
+Galois conjugation permutes these labels, acting on \(s\) and \(B\)
+and leaving the copy index fixed. The bounds on the absolute values
+and their product pass to \(f_i\)-th roots. The needed integrality
+passes as well, since \((p^e b^{-1})^{f_i}\) integral implies
+\(p^eb^{-1}\) integral by transitivity of integrality.
+
+To classify a rational representation, choose one of its irreducible
+restrictions as above, take the corresponding restricted label, and
+choose the actual parameter multiset at \(p\). The power relation at
+Frobenius ensures that it is among the listed lifts. At each fixed
+triple \((i,s,B)\) assign distinct copy indices to its at most two
+underlying rational isomorphism classes. This gives classification
+for each \(\ell\) and \(\iota\). The two-copy label set used by all
+\(\ell\) and \(\iota\) was fixed before making these assignments.
+The automorphic restriction assertion, the estimates for the
+polarized CM class, and the level and newform criteria which supply
+the requisite rank-two representation are inputs to this reduction.
+
+\subsection{The polynomial bound uniform in the prime of coefficients}
+
+Write \(D_K=|\operatorname{disc}K|\) and \(Y=N(e+1)\).
+Suppose the two global classifications above yield label sets
+\(S_1,S_2\), with
+\[
+             |S_1|\le c_1Y^{A_1},\qquad
+             |S_2|\le c_2(D_KY)^{A_2}.
+\]
+For \(S_1\) one uses level \(N\). The weight bound \(H=e+1\)
+would give \(N(e+2)\), and \(e+2\le2(e+1)\) allows the extra
+factor \(2^{A_1}\) to be absorbed into \(c_1\).
+For \(S_2\) the rational level is \(ND_K\) and \(H=e\).
+The sets fit together by disjoint union \(S=S_1\sqcup S_2\).
+If a representation satisfies both descriptions, give it its
+first label. Equality of disjoint-union labels then still implies
+isomorphism. We obtain
+\[
+ |S|\le(c_1+c_2D_K^{A_2})Y^{A_1+A_2},\quad
+ 2e\log q+1\le 5Y\log p ,
+\]
+using \(q=p^h,\ h\le2,\ e+1\le Y\) and \(1<\log p\).
+Equations~\eqref{eq:common-trace-log} and
+\eqref{eq:common-trace-subproduct}, with \(g=\sigma^{-1}\),
+give the required common integer with
+\[
+ \log|n_p|\le 5(c_1+c_2D_K^{A_2})\,
+                 |O|\,Y^{A_1+A_2+1}\log p .
+\]
+Both the size bound and the simultaneous subproduct inequality
+apply on the same \(e,N,p,w,O\). Only the subcollections of
+representations vary with the coefficient prime.
+
+\paragraph{Dependencies of the assertion for the actual families.}
+The release's \texttt{number\allowbreak{}U3\allowbreak{}U\_\allowbreak{}of\_\allowbreak{}prints} uses the CM
+and rational counting arguments in the dense-threshold file
+\texttt{Frobenius\allowbreak{}Trace\allowbreak{}Count\allowbreak{}Bound\allowbreak{}Of\allowbreak{}Cm\allowbreak{}Eigensystem\allowbreak{}Count}.
+Its inputs include the polynomial count of regular algebraic
+cuspidal systems of the given level and weights, stability under
+field automorphisms, the integral Satake bounds, and compatibility
+of the admitted Galois representations with the global Hecke
+systems. On the rational side it also uses the polarized CM
+class counts, passage to irreducible quadratic restrictions, and
+the newform-admissibility comparison. The local parameter estimates
+for these two families and the common-product theorem occur in
+\texttt{Admissible\allowbreak{}Residues.\allowbreak{}Frobenius\allowbreak{}Trace\allowbreak{}Count\allowbreak{}Bound\allowbreak{}Of\allowbreak{}Rat\allowbreak{}Eigensystem\allowbreak{}Count}.
+The archimedean bound in the associated trace data is
+\(\sqrt q+2\). The preceding construction proves the common integer
+from the stated automorphic inputs. The separate deformation
+inequality for one Selmer character, denoted by
+\texttt{One\allowbreak{}Char\allowbreak{}U\_\allowbreak{}s}, is used in Section~\ref{sec:rh-plus-nonzero}.

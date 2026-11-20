@@ -1,0 +1,153 @@
+\section{Counting the sections carried by a component}
+\label{sec:rank-share}
+Let \(Z\) be a component at the chosen deep level, \(D\) the dimension of
+its flag variety, and \(T\) the integer in the weight construction. Let
+\(\delta>0\) be the degree of the image of the cusp linear system of
+weight \(u\) on \(Z\). The source uses the birationality of this system.
+The cusp dimension at weight \(\lambda\) is \(d_\lambda\). We prove
+the estimate used in the height calculation:
+\begin{equation}\label{eq:rank-share-count}
+ \left(1-7(D^2/T+D\rho)\right)d_\lambda
+ \ \le\ \binom{T-1}{D}\delta .
+\end{equation}
+For the terminal weight \(\lambda_T\) there is also
+\(\binom{T-1}{D}\delta\le d_{\lambda_T}\).
+The upper inequality applies to all the weights satisfying the dominance
+conditions below. The lower one uses sections of a particular adjoint bundle.
+
+\paragraph{Geometric data.}
+Assume \(p,q\ge1\) and \([E:\mathbb Q]/2>2\), as in the selection of the
+component. Here \(D\ge2\), \(T\ge D+1\), and \(0\le\rho\le1/2\).
+Write \(v\) for the top-degree cusp growth of \(u\). The proportionality
+and valuation-multiplicity comparison gives
+\begin{equation}\label{eq:rankshare-vol}
+ (1-\rho)v\le\delta .
+\end{equation}
+This comparison uses the strictly decreasing weights \(u,u'\) and the
+equality of component volumes at deep level. Put \(n=T+D+3\). At each
+embedding assume that both \(\lambda\) and \(nu-\lambda\) are weakly
+decreasing, and that all consecutive gaps of \(u\) are at least
+\[
+ (D+3)\left(\binom{D+1}{2}+4(p+q)+D+3\right).
+\]
+The geometric inputs in the source give the following model.
+On a projective modification \(X\) of the compactified flag component the
+linear system of \(u\) has generated moving bundle \(H\) and effective
+fixed divisor \(\Delta\). Write \(U=H+\Delta\) and \(B=L_\lambda\)
+in additive line-bundle notation, using pullbacks on \(X\). Both
+\(U,B\) and also \(nU-B\) are nef. The morphism of \(H\) is birational
+onto the component image, so the projection formula gives \(H^D=\delta\).
+The comparison between cusp growth and nef intersection gives \(U^D\le v\).
+Cusp forms extend across the compactification and inject into \(H^0(X,B)\).
+These assertions about compactification, growth and nefness are the
+geometric hypotheses of the following calculation.
+
+\paragraph{Upper bound by hyperplane sections.}
+For \(a\ge0\), an integral projective \(D\)-fold, a generated \(H\) of
+top intersection \(\delta>0\), and a line bundle \(B\), we claim
+\[
+ B H^{D-1} < (a+1)\delta
+ \quad\Longrightarrow\quad h^0(B)\le\binom{a+D}{D}\delta .
+\]
+Take a generic member \(X_1\) of the linear system after extending scalars
+to the rational function field of its coefficients. Cohomology dimensions
+are preserved by this field extension. The generic divisor is integral
+over that field when nonempty: on each open where one generating section
+is a unit, the universal linear equation eliminates its coefficient.
+The incidence scheme is locally an affine bundle over the integral base,
+and its generic fiber is a localization. A nonempty section drops the
+dimension by one. Restriction to it preserves \(\delta\) as
+\((H|_{X_1})^{D-1}\). For dimension one the restriction has length
+\(\delta\) over the coefficient field. The exact sequence for the section
+bounds \(h^0(B)\) by the sum of \(h^0(B-H)\) and
+\(h^0(X_1,B|_{X_1})\).
+
+For clarity, in dimension \(r>0\) use the parameter \(b=a+1\). If
+\(BH^{r-1}<0\), a nonzero section would have an effective zero divisor
+whose intersection with \(r-1\) nef classes is nonnegative. Thus the
+bound for \(b=0\) is zero. Passing to \(B-H\) subtracts \(\delta\)
+from the mixed intersection and replaces \(b\) by \(b-1\). Restriction
+to \(X_1\) leaves \(b\) fixed and replaces \(r\) by \(r-1\), since
+\((B|_{X_1})(H|_{X_1})^{r-2}=BH^{r-1}\) for \(r\ge2\).
+In dimension zero the section dimension of an invertible sheaf equals
+the length, giving \(\delta\). For \(b\ge1\), induction in \(r,b\)
+therefore gives
+\[
+ \left(\binom{b+r-2}{r}+\binom{b+r-2}{r-1}\right)\delta
+   =\binom{b+r-1}{r}\delta
+\]
+whenever \(b+r\ge2\), using the zero initial value for \(b=0\).
+This proves the claim.
+
+On the modification, replacing \(H\) by \(U\) one factor at a time
+in a product with other nef factors can only increase the intersection,
+because \(U-H=\Delta\) is effective. Nefness of \(nU-B\) gives
+\[
+ BH^{D-1}\le nUH^{D-1}\le nU^D\le nv .
+\]
+Take \(a=\lfloor n/(1-\rho)\rfloor\). Inequality
+\eqref{eq:rankshare-vol} and \(\delta>0\) imply
+\(nv<(a+1)\delta\), including when \(n/(1-\rho)\) is an integer.
+Thus \(d_\lambda\le\binom{a+D}{D}\delta\).
+
+\paragraph{The loss in replacing \(a+D\) by \(T-1\).}
+Write \(N=a+D\), \(M=T-1\), and \(x=4D/T+\rho\).
+We have \(D\le M\le N\), \(a\ge n\), and
+\(a(1-\rho)\le T+D+3\). Consequently
+\[
+ N-M\le \rho a+2D+4\le x(a+1)=x(N-D+1).
+\]
+Indeed \(2D+4\le4D\) and \(4D(a+1)/T\ge4D\).
+If \(x\le1\), then for \(0\le j<D\)
+\((M-j)/(N-j)\ge1-x\); multiplying gives
+\(\binom{M}{D}\ge(1-Dx)\binom{N}{D}\) by Bernoulli's inequality.
+The last inequality also holds when \(x>1\), since its right side is
+nonpositive. Finally \(Dx=4D^2/T+D\rho\le7(D^2/T+D\rho)\).
+If the coefficient on the left of \eqref{eq:rank-share-count} is
+nonpositive the result is immediate. Otherwise multiply the upper bound
+for \(d_\lambda\) by that coefficient and apply the binomial estimate.
+
+\paragraph{Lower bound at the terminal weight.}
+In the component data, the generated moving line bundle \(H\) has
+\(H^D=\delta\). The adjoint sections of
+\(K_X+A+TH\) inject into the terminal cusp space under the chosen frame.
+The auxiliary divisor \(A\) is nef and big. We use the source's
+Kawamata--Viehweg vanishing for
+\(K_X+A+jH\), \(j\ge1\), in positive cohomological degrees on the
+smooth projective model in characteristic zero. All identifications of
+these ordinary sections with subspaces of cusp forms are made before
+counting them.
+
+Here is the counting lemma. Let a coherent sheaf \(F\) have support
+dimension at most \(r\), and suppose that every positive cohomology group
+of \(F(jH)\) vanishes for \(j\ge j_0\). For \(m\ge0\),
+\[
+ h^0(F((j_0+m)H))\ge \binom{m}{r}(H^r\cdot F).
+\]
+In dimension zero the dimension of sections equals the length over the
+ground field and twisting preserves it. For \(r>0\), choose a section of
+\(H\) outside the finitely many associated primes of \(F\). This is
+possible over the infinite coefficient field because \(H\) is generated.
+Multiplication by it is injective. The quotient \(F_1\) after restriction
+has support dimension at most \(r-1\), with
+\(H^{r-1}\cdot F_1=H^r\cdot F\).
+The long exact cohomology sequence gives the same vanishing for \(F_1\)
+starting at \(j_0+1\), and gives
+\[
+ h^0(F((j+1)H))-h^0(F(jH))=h^0(F_1((j+1)H)),\quad j\ge j_0 .
+\]
+Summing the dimension-\((r-1)\) bound for \(m\) successive differences,
+and using \(\sum_{i=0}^{m-1}\binom{i}{r-1}=\binom{m}{r}\), proves
+the claim. Apply it to \(F=K_X+A,\ j_0=1,\ m=T-1,\ r=D\). Twisting
+the structure sheaf by an invertible sheaf preserves the top intersection.
+The section injection therefore gives \(d_{\lambda_T}\ge
+\binom{T-1}{D}\delta\), as required.
+
+\paragraph{Source correspondences.}
+In the original \srcid{DivisorProofs} directory the geometric reductions are
+\srcid{RankComponentWeightInvariance} and
+\srcid{ShareStatementOfKnownTheorems}. The binomial comparison is
+\srcid{ChooseMulOneSubLeChoose}. For the lower bound see
+\srcid{GlobalSectionRankLowerBoundOfHilbertSamuel},
+\srcid{ChooseMulIntersectionNumberLeSectionDim}, and
+\srcid{ChooseMulComponentDegreeLeDimension}.

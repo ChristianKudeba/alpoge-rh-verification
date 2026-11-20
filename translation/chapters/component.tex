@@ -1,0 +1,112 @@
+\section{An effective Hilbert--Samuel estimate on one component}
+\label{sec:hs-component}
+We derive the coefficient of \(\log(2+|h|)\) and the uniform additive
+loss in \eqref{eq:cov-hs}. Fix a component of geometric degree
+\(\delta\ge1\), height \(h\), and positive rank \(d\). Let its
+unshifted and shifted arithmetic degrees be \(a_0,a_-\).
+Write \(D\ge1\) for the flag dimension, \(T\ge3D+5\) for the length,
+\(P\ge1\) for the size parameter and \(b\ge1\) for the error scale.
+The hypotheses used below are
+\begin{align*}
+ &\log b\le P,\quad TP\le\sqrt b,\quad \rho,\kappa\ge0,\quad
+ z=7(D^2/T+D\rho)\le\tfrac12,\quad zP\kappa\le b,\\
+ &Q=\binom{T-1}{D}\delta,\qquad (1-z)d\le Q,\qquad
+ a_-\ge a_0-dc,\quad c\ge0 .
+\end{align*}
+On this component the geometric comparison gives numbers
+\(n,\Lambda,\beta,\Lambda_D,\Lambda_T\ge1\) and \(J\) such that
+\begin{align*}
+ &\log n,\log\beta,\log\delta\le P,\qquad
+ \log\Lambda\le P(1+\kappa/T),\\
+ &\log\Lambda_D,\log\Lambda_T\le P\kappa,\qquad
+ J\le 4(DP(1+\kappa/T)+TP)+2DP\kappa/T .
+\end{align*}
+We spell out the geometric Hilbert--Samuel inequality used as input.
+Set
+\begin{align*}
+ r&=\log\Lambda+26\log\big(nD\delta(2+|h|+\log\Lambda)\big),\\
+ G&=(D+1)(\log n+1)/2+1,\\
+ U&=Th-3(D+1)|h|-J-26D^2(r+\log T)
+              -(T+D+1)\log\beta-(T+D^2)(G+2),\\
+ V&=T(\log2+r+\tfrac12\log\beta)+\log\Lambda_D+\log\Lambda_T .
+\end{align*}
+The component assertion with constant \(26\) and initial multiplicity
+one says \(0\le1-Q/d\le1\) and
+\[
+             a_0\ge Q U-(d-Q)V .
+\]
+It comes from an estimate for sections on the geometric component.
+The following argument turns it into a degree bound with just one
+height-dependent error and a constant independent of the component.
+
+Put \(q=\kappa/T\) and \(l_0=27P(q+1)+65P\). Since \(T\le\sqrt b\)
+we have \(\log D\le\log T\le P/2\). Also
+\(\log(1+\log\Lambda)\le\log\Lambda\); hence
+\[
+ \log\Lambda+26\log\big(nD\delta(1+\log\Lambda)\big)\le l_0 .
+\]
+Indeed the three size logs contribute at most
+\(26(P+P/2+P)=65P\), and the remaining terms at most
+\(27\log\Lambda\). The inequality
+\(2+|h|+\log\Lambda\le(2+|h|)(1+\log\Lambda)\) now yields
+\(0\le r\le l_0+26\log(2+|h|)\).
+From the rank share we have \(d\le2Q\) and \(d-Q\le zd\le2zQ\).
+Since \(V\ge0\) the geometric comparison bounds \(a_0\) below by
+\(Q(U-2zV)\). Substitution of the upper bound for \(r\) in its
+negative terms gives
+\begin{equation}
+ a_-\ge Q\{Th-3(D+1)|h|-A\log(2+|h|)-H-2c\},\quad
+       A=26(26D^2+2zT),                         \label{eq:hs-stage}
+\end{equation}
+where the complete constant \(H\) is
+\begin{align*}
+ H={}&J+26D^2(l_0+\log T)+(T+D+1)\log\beta\\
+     &+(T+D^2)(G+2)
+       +2z\{T(\log2+l_0+\tfrac12\log\beta)+\log\Lambda_D+\log\Lambda_T\}.
+\end{align*}
+In particular the rank defect multiplies the norm cost \(V\). Ignoring
+it would lose the \(2zT\) term in \(A\).
+
+Here are estimates for all five summands. The relations defining \(z\)
+imply \(D^2\le zT/7\le T/14\), and therefore
+\[
+ D^2Pq\le b/7,\qquad D^2P\le b/14,\qquad
+ DPq\le b/7,\qquad TP\le b,\qquad (TP)^2\le b .
+\]
+The first inequality follows by multiplying \(D^2\le zT/7\) by \(Pq\).
+\begin{enumerate}
+\item Expanding the bound for \(J\) gives \(6DPq+4DP+4TP\le9b\).
+\item Since \(l_0+\log T\le27Pq+(185/2)P\), its contribution times
+\(26D^2\) is at most \(26(27/7+185/28)b<300b\).
+\item The logarithm of \(\beta\) contributes at most \(2TP\le2b\).
+\item We have \(G+2\le5DP\) because \(P,D\ge1\) and \(\log n\le P\).
+Also \(TD P\le (TP)^2\le b\) and \(D^2\le T\).
+This gives at most \(10b\).
+\item In the final term \(zTPq=zP\kappa\le b\). Both \(z\log\Lambda_D\)
+and \(z\log\Lambda_T\) are bounded by \(b\). Moreover
+\(zT\log2\le b/2\), \(zTP\le b/2\), and \(zT\log\beta/2\le b/4\).
+Inserting \(l_0=27Pq+92P\) bounds the expression, including its
+outer factor \(2\), by \(2(1/2+27+46+1/4+2)b<200b\).
+\end{enumerate}
+The five upper bounds give \(H\le4000b\).
+Thus \eqref{eq:hs-stage} proves \eqref{eq:cov-hs}
+with \(R=4000b+2c\).
+
+There is also a cost for \(A\) in the subsequent component sum.
+We have \(1\le A\le702T^2\), since \(D\le T\), \(2z\le1\) and \(T\ge1\).
+Consequently \(\log A\le\log702+2\log T\le 8P\). Hence
+\[
+ A\log(\max(1,A))\le5616T^2P\le6000b .
+\]
+In the actual family the twist comparison supplies \(c=C_p Z_0^2\)
+with \(C_p\ge0\) uniform and \(Z_0\) the base size. Its size conditions
+give \(1\le Z_0,\ Z_0^{12}\le P,\ TP\le\sqrt b\), so \(Z_0^2\le b\).
+As \(b\le E\), this proves
+\(A\log(\max(1,A))+R\le(10000+2C_p)E\) with the same constant on the
+common windows. The geometric component assertion and the twist
+comparison, whose statements enter explicitly above, are the inputs
+to this calculation.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/LocalToGlobal/IndefiniteForms/IndefiniteTree/RealCubicMeans/LogMeanShares/LogMeanStatements/HSClaim.lean}{Component inequality};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/DegBoundOfClaimNumbers.lean}{five errors and the twist};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HilbertSamuelALogALe.lean}{the logarithmic cost};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HilbertSamuelLowerBoundOfComponents.lean}{specialization at the common threshold}.}
