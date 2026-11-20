@@ -1,0 +1,317 @@
+\section{From a one-sided prime-sum bound to zero-freeness}
+\label{sec:window-analysis}
+
+Let \(F=(\chi_i,a_i)_{i\in I}\) be a finite family of Dirichlet
+characters, possibly of different positive moduli. Each weight \(a_i\)
+is strictly positive. Each principal character in the family must have
+modulus one. Write \(\Lambda(n)\) for the von Mangoldt function and
+\(\gamma\) for Euler's constant. For \(y\geq1\) put
+\[
+ B_\chi(y)=\sum_{1\leq n\leq y}\Lambda(n)\chi(n)(y/n-1).
+\]
+Define
+\[
+ G_\chi(y)=
+ \begin{cases}
+ B_\chi(y)-y\log y+(1+\gamma)y,&\chi\text{ principal},\\
+ B_\chi(y)+yL'(1,\chi)/L(1,\chi),&\chi\text{ nonprincipal}.
+ \end{cases}
+ \qquad G_F(y)=\sum_{i\in I}a_i\Re G_{\chi_i}(y).
+\]
+The second expression uses classical nonvanishing of \(L(1,\chi)\).
+For definiteness, a zero of a meromorphic function is a point where its
+order is positive. Consequently the pole of \(\zeta\) at one is excluded.
+The formal library assigns a nonzero value to its total function at that
+point, which gives the same assertion about zeros.
+
+\paragraph{Window criterion.}
+Fix \(0<\theta<1\), \(\delta>0\), and \(C\in\mathbb R\). Suppose that
+for every \(Y_0\) there is \(Y\geq\max(Y_0,1)\) such that
+\begin{equation}
+ G_F(y)\leq C y^\theta\qquad(Y\leq y\leq Y^{1+\delta}).
+ \label{eq:an-window}
+\end{equation}
+Then none of the \(L(s,\chi_i)\) has a zero with \(\Re s>\theta\).
+The family, weights, exponent and constant are fixed across these
+windows. Only their initial points need go to infinity.
+
+\subsection{The transform and the sign of its residues}
+
+Write \(g(u)=G_F(e^u)\) for \(u\geq0\). This is measurable. The individual
+ramps are continuous across an integer because the new summand vanishes
+there. Also \(|g(u)|\leq C_0e^{2u}\) for a constant depending on \(F\).
+Indeed \(|\chi(n)|\leq1\) and \(\Lambda(n)\leq\log n\leq n\), so each
+summand in \(B_\chi(y)\) has modulus at most \(y\), and there are at most
+\(y\) summands. The centering terms have the same bound up to a fixed
+constant. For \(\Re s>2\) consider the absolutely convergent transform
+\[
+ \Phi(s)=\int_0^\infty g(u)e^{-su}\,du .
+\]
+Changing variables to \(y=e^u\) gives the Mellin transform with measure
+\(y^{-s-1}\,dy\). For \(n\geq1\),
+\[
+ \int_n^\infty (y/n-1)y^{-s-1}\,dy
+       =\frac{n^{-s}}{s(s-1)} .
+\]
+The corresponding sum of absolute integrals converges because
+\(\sum_{n\geq1}\Lambda(n)n^{-\Re s}\) converges for \(\Re s>1\).
+Termwise integration followed by logarithmic differentiation of the
+Euler product gives the following transforms \(\Phi_\chi\) of
+\(G_\chi(e^u)\):
+\begin{align*}
+ \Phi_\chi(s)
+ &=-\frac{L'(s,\chi)/L(s,\chi)}{s(s-1)}
+          +\frac{L'(1,\chi)/L(1,\chi)}{s-1}
+             &&(\chi\text{ nonprincipal}),\\
+ \Phi_1(s)
+ &=-\frac{\zeta'(s)/\zeta(s)}{s(s-1)}
+          -\frac{1}{(s-1)^2}+\frac{1+\gamma}{s-1}.
+\end{align*}
+Here the transforms of \(y\) and \(y\log y\) are respectively
+\((s-1)^{-1}\) and \((s-1)^{-2}\). The pole at one cancels in each
+formula. For a nonprincipal character this follows by substitution
+in the numerator after putting the terms over a common denominator.
+For the principal character use
+\(\zeta'(s)/\zeta(s)=-1/(s-1)+\gamma+O(s-1)\), which follows from the
+Laurent expansion of \(\zeta\) at one. This is the divided-difference
+removal of the singularity in the source.
+
+On real \(u\) we have
+\(\overline{G_\chi(e^u)}=G_{\chi^{-1}}(e^u)\). Indeed the Euler
+coefficients are conjugate, and \(L(s,\chi^{-1})=
+\overline{L(\overline{s},\chi)}\), first by the Dirichlet series and
+then by continuation. Hence the meromorphic continuation of the transform is
+\[
+ \Phi(s)=\frac12\sum_i a_i\bigl(\Phi_{\chi_i}(s)
+                                   +\Phi_{\chi_i^{-1}}(s)\bigr).
+\]
+Let \(Z\) be the set of zeros in \(\Re s>0\) of all the functions
+\(L(s,\chi_i), L(s,\chi_i^{-1})\). Classical nonvanishing on
+\(\Re s\geq1\) implies \(Z\subset\{0<\Re s<1\}\). A compact subset
+of \(\Re s>0\) meets \(Z\) in finitely many points by isolatedness of
+zeros and finiteness of the family. Away from \(Z\), the continuation is
+holomorphic in that half-plane. For \(\rho\in Z\), write \(m_\chi(\rho)\)
+for the zero multiplicity, taking it to be zero when the value is nonzero.
+Locally \(L(s,\chi)=(s-\rho)^{m_\chi(\rho)}b(s)\) with \(b\)
+holomorphic and \(b(\rho)\ne0\). Its logarithmic derivative is
+\(m_\chi(\rho)/(s-\rho)+b'(s)/b(s)\). We therefore obtain
+\begin{equation}
+ \Phi(s)=\frac{c_\rho}{s-\rho}+\text{a holomorphic function},\qquad
+ c_\rho=\frac{\sum_i a_i
+             (m_{\chi_i}(\rho)+m_{\chi_i^{-1}}(\rho))}
+                    {2\rho(1-\rho)} .
+ \label{eq:an-res}
+\end{equation}
+The numerator is positive since at least one multiplicity is positive.
+Thus \(c_\rho\ne0\). If \(\rho\) is real then \(0<\rho<1\), and
+\(c_\rho\) is positive real. This last sign handles possible real zeros
+in the same argument as the nonreal ones.
+
+\subsection{What an upper bound on one window gives}
+
+Take \(Y\) in \eqref{eq:an-window}, put \(U=\log Y\), and fix
+\(\eta>0\). On \([U,(1+\delta)U]\) the function \(g\) has the nonnegative
+majorant \(R(u)=|C|e^{\theta u}\). Its weighted integral is
+\begin{equation}
+ \int_U^{(1+\delta)U}R(u)e^{-\theta u}\,du
+         =|C|\delta U\leq e^{\eta U}
+ \label{eq:an-majorant}
+\end{equation}
+for all sufficiently large \(U\). We can take such \(U\) arbitrarily
+large. The argument uses only \(g\leq R\), \(R\geq0\) and
+\eqref{eq:an-majorant} on these intervals.
+
+Put
+\[
+ A_k(z)=\frac{(-1)^k}{k!}\Phi^{(k)}(z)
+       =\int_0^\infty g(u)\frac{u^k}{k!}e^{-zu}\,du
+       \qquad(\Re z>2).
+\]
+For each fixed \(k\) and each closed neighborhood with
+\(\Re z\geq2+b>2\), \(C_0u^ke^{-bu}\) is an integrable majorant;
+the derivative formula follows by differentiation under the integral.
+Since \(g\) is real, \(A_k(\sigma)\) is real for real \(\sigma>2\).
+Taking absolute values on the vertical translate and adding the
+untranslated integral yields, for every real \(t\),
+\[
+ |A_k(\sigma+it)|+A_k(\sigma)
+  \leq 2\int_0^\infty \max(g(u),0)\frac{u^k}{k!}e^{-\sigma u}\,du .
+\]
+This follows pointwise from \(|g|+g=2\max(g,0)\). For \(u\geq0\),
+the \(k\)-th term of the exponential series gives
+\(u^ke^{-(\sigma-\theta)u}/k!\leq(\sigma-\theta)^{-k}\).
+The contribution from the chosen interval is at most
+\(2e^{\eta U}(\sigma-\theta)^{-k}\). Outside it we have the bound
+\(2C_0u^ke^{-(\sigma-2)u}/k!\).
+
+\paragraph{Concentration with the constants of the formal proof.}
+For each \(\delta>0\) set
+\[
+ l=2+6/\delta,\quad M=l(1+\delta),\quad \sigma=M(2+l),\quad
+ k=\left\lceil (1+\delta/2)\sigma U\right\rceil .
+\]
+Then \(\sigma>2\), and \(k\geq U\) when \(U\geq1\). Write
+\(V=(1+\delta)U,\ a=\sigma-2-l,\ b=\sigma-2+l\); both \(a,b\) are positive.
+The exact tail estimate used in the proof is
+\begin{equation}
+ \int_{(0,\infty)\setminus[U,V]}
+ \frac{u^k}{k!}e^{-(\sigma-2)u}\,du
+ \leq\left(\frac{e}{a}+\frac1b\right)\sigma^{-k}.
+ \label{eq:an-tail}
+\end{equation}
+For \(u>V\) multiply the integrand by \(e^{l(u-V)}\geq1\), and for
+\(u<U\) multiply it by \(e^{l(U-u)}\geq1\). Extending each resulting
+nonnegative integral to \((0,\infty)\) gives
+\(e^{-lV}a^{-k-1}+e^{lU}b^{-k-1}\), since repeated integration by parts
+gives \(\int_0^\infty u^ke^{-zu}\,du=k!z^{-k-1}\) for \(z>0\).
+For any \(z>0\), the inequality \(\log(\sigma/z)\leq(\sigma-z)/z\) yields
+\[
+ e^x z^{-k-1}\leq \frac{\sigma^{-k}}{z}
+   \exp\!\left(x+k\frac{\sigma-z}{z}\right).
+\]
+For \(z=a\) the last ratio is \(1/(M-1)\). The identities
+\((1+\delta/2)\sigma=M(M-1)\) and \(lV=MU\) show that
+\(-lV+k/(M-1)\leq1\). For \(z=b\), the ratio is
+\(-(l-2)/b\). Here \((1+\delta/2)(l-2)=l+1\) and \(lb\leq(l+1)\sigma\),
+the latter following from \(l(l-2)\leq\sigma\). Thus \(k(l-2)/b\geq lU\),
+so the second exponential is at most one. These two estimates prove
+\eqref{eq:an-tail}.
+
+Put \(E=\sigma-\theta\) and \(C_*=2+2C_0(e/a+1/b)\). We have proved
+that for every \(\eta>0\) and every \(U_0\), some \(U\geq U_0\) and
+integer \(k\geq U\) satisfy \emph{simultaneously for all} real \(t\)
+\begin{equation}
+ |A_k(\sigma+it)|+A_k(\sigma)\leq C_*e^{\eta U}E^{-k}.
+ \label{eq:an-window-coeff}
+\end{equation}
+Indeed \(\sigma^{-k}\leq E^{-k}\) and we may choose \(U\geq1\).
+The constants \(\sigma,C_*\) are independent of \(\eta,U_0,U,k,t\).
+
+\subsection{Detecting a zero with high derivatives}
+
+Suppose some \(\rho_0\in Z\) has \(\Re\rho_0>\theta\). The disk
+\(\overline B(\sigma,E)\) is contained in the right half-plane since
+\(\sigma-E=\theta>0\). If this disk contains a pole, let \(D\) be the
+distance to the closest one; otherwise put \(D=E\). The open disk
+\(B(\sigma,D)\) is pole-free.
+
+First suppose some \(\rho_1\in Z\) satisfies \(\sigma-\Re\rho_1<D\).
+At \(z_0=\sigma+i\Im\rho_1\) its distance is already \(<D\). Perturb
+the imaginary part slightly, keeping this strict inequality, to obtain
+\(z=\sigma+it\) with a unique nearest pole \(\rho\) and
+\(d=|z-\rho|<D\). Here are the details. Choose \(\epsilon>0\) smaller
+than both \(D-|z_0-\rho_1|\) and \(\sigma-D\). Only finitely many
+poles lie in \(\overline B(z_0,D+\epsilon)\). For each pair from this
+finite set with different imaginary parts, equality of squared distances
+to \(\sigma+it\) is a linear equation in \(t\) with a nonzero coefficient.
+For a pair of distinct poles with the same imaginary part, equality
+would force equal real parts since both are to the left of \(\sigma\).
+Choose \(t\) within \(\epsilon\) of \(\Im\rho_1\) outside the finite
+exceptional set. All poles outside that disk have distance \(>D\)
+from the chosen center. This proves the assertion.
+
+Choose \(h\) strictly between \(d\) and the minimum of \(D\) and the
+distance from \(z\) to any competing pole, using only poles in the
+above compact disk. By \eqref{eq:an-res}, removing \(c_\rho/(s-\rho)\)
+leaves a holomorphic function on a neighborhood of \(\overline B(z,h)\).
+At the real center \(\sigma\), \(\Phi\) is holomorphic on a neighborhood
+of the closed disk of radius \(h\), since \(h<D\). Cauchy's estimate on
+these two circles gives \(M_1,M_2\), independent of \(k\), with
+\[
+ \left|A_k(z)-\frac{c_\rho}{(z-\rho)^{k+1}}\right|\leq M_1 h^{-k},
+ \qquad |A_k(\sigma)|\leq M_2h^{-k}.
+\]
+Consequently the left side of \eqref{eq:an-window-coeff} is at
+least \((|c_\rho|/d)d^{-k}-(M_1+M_2)h^{-k}\).
+
+In the remaining case \(\sigma-\Re w\geq D\) for every pole \(w\).
+The existence of \(\rho_0\) gives \(D<E\), so the defining disk
+contains a closest pole. A pole at distance \(D\) has
+\(D^2=(\sigma-\Re w)^2+(\Im w)^2\), forcing
+\(w=\beta=\sigma-D\). Thus the closest pole is real and unique.
+Take \(d=D\) and \(d<h<E\) small enough to exclude every other pole
+from \(\overline B(\sigma,h)\). The same Cauchy estimate gives
+\[
+ A_k(\sigma)\geq(c_\beta/d)d^{-k}-M_1h^{-k}
+\]
+because \(c_\beta>0\) by \eqref{eq:an-res}. At \(t=0\) this also
+bounds the left side of \eqref{eq:an-window-coeff} from below.
+
+In either case there are \(c>0,\ 0<d<h\leq E\) and \(M'\geq0\)
+such that \(c d^{-k}\leq M'h^{-k}+C_* e^{\eta U}E^{-k}\) on the
+selected orders. Fix \(0<\eta<\log(h/d)\). Multiplication by \(d^k\)
+and \(U\leq k\) bound the right side by
+\(M'(d/h)^k+C_*(e^\eta d/h)^k\), which tends to zero as \(U_0\)
+increases. This contradicts \(c>0\). All poles therefore satisfy
+\(\Re\rho\leq\theta\). By construction each zero of a member of the
+family with \(0<\Re s<1\) is one of these poles. The classical
+nonvanishing theorem covers \(\Re s\geq1\), completing the window
+criterion.
+
+\subsection{The finite family attached to a primitive character}
+
+Fix a primitive \(\psi\) of positive modulus \(N\). Let \(\Xi\) be the
+finite cyclic group generated by \(\psi\) in the group of characters
+modulo \(N\), and write \(o=|\Xi|\). Let \(S\) be the set of primitive
+characters that induce the members of \(\Xi\), counted once.
+It contains the modulus-one character, and it contains \(\psi\) because
+\(\psi\) is already primitive. It is closed under inversion: induction
+to a higher modulus commutes with inversion, and the conductors of
+\(\chi\) and \(\chi^{-1}\) divide each other. Every principal member
+of \(S\) therefore has modulus one, as also follows from the definition
+of its conductor. Take the family indexed by \(S\), with weight \(1\)
+on the principal character and \(1/(3o+1)\) on each other character.
+For the cyclic level \(\mathcal L\) the formal construction chooses
+no exceptional distinguished character. Its statistic is exactly
+\[
+ G_{\mathcal L}(y)=G_1(y)+\frac{1}{3o+1}
+                  \sum_{\chi\in S\setminus\{1\}}\Re G_\chi(y)
+                 =G_F(y).
+\]
+In this display \(G_1\) is real. Thus the preceding criterion applies
+to every retained character with the arithmetic window held fixed.
+
+Here is the precise arithmetic premise consumed by the analytic argument.
+For this \(\mathcal L\) there exist \(e_D,e_L\in\mathbb R\) and
+\(\varepsilon_1>0\) such that for every \(0<\varepsilon<\varepsilon_1\)
+there are intervals \([Y,Y^{3/2}]\) with arbitrarily large \(Y\) on
+which, simultaneously for all \(y\) in the interval,
+\begin{equation}
+ G_{\mathcal L}(y)\leq y^{1/2+(e_D+e_L+7)\varepsilon}.
+ \label{eq:an-arith-input}
+\end{equation}
+In applying the formal comparison one first discards intervals lying
+below the comparison threshold of the chosen family. The threshold
+can depend on \(\varepsilon\), which is fixed before choosing \(Y\).
+
+Take \(s\) with \(\Re s>1/2\), and put
+\[
+ t=\tfrac12\min(\Re s-1/2,1/2),\qquad
+ \theta=1/2+t,\qquad
+ \varepsilon=\min\!\left(\varepsilon_1/2,\,
+                     \frac{t}{|e_D+e_L+7|+1}\right).
+\]
+Then \(1/2<\theta<1,\ \theta<\Re s\) and
+\((e_D+e_L+7)\varepsilon\leq t\). On each of the selected windows
+above one, \eqref{eq:an-arith-input} implies \eqref{eq:an-window} with
+\(C=1,\delta=1/2\). The window criterion gives \(L(s,\psi)\ne0\),
+subject to the pole convention already specified. This holds for
+every primitive character because the construction can start with
+any \(\psi\). The estimate \eqref{eq:an-arith-input} is the imported
+arithmetic premise of this chapter; the analytic deduction does not
+prove the arithmetic estimate.
+
+\paragraph{Correspondence with the source.}
+The ramp, positivity and admissibility conditions are the definitions
+in \texttt{Deduction.\allowbreak{}Char\allowbreak{}Family}. The transform and residue calculation
+translate \texttt{Deduction.\allowbreak{}pole\allowbreak{}Data}. The moment estimate and geometry
+of the nearest pole translate \texttt{landau\_\allowbreak{}tails},
+\texttt{landau\_\allowbreak{}window\_\allowbreak{}key}, \texttt{landau\_\allowbreak{}dichotomy},
+\texttt{landau\_\allowbreak{}nearest} and \texttt{landau\_\allowbreak{}window}. The transition
+between window hypotheses and zero-freeness is \texttt{lemma\allowbreak{}L} and
+\texttt{zero\allowbreak{}Free\_\allowbreak{}of\_\allowbreak{}rpow\_\allowbreak{}window}. The cyclic family and the choice of
+the exponent translate \texttt{Upper\allowbreak{}Theory.\allowbreak{}Comparison\ensuremath{{}_2}.\allowbreak{}level\_\allowbreak{}family},
+\texttt{form\allowbreak{}B}, \texttt{Formalism.\allowbreak{}HC.\allowbreak{}level\_\allowbreak{}of\_\allowbreak{}tied\allowbreak{}Win} and
+\texttt{zero\allowbreak{}Free\allowbreak{}On\_\allowbreak{}of\_\allowbreak{}tied\allowbreak{}Win\_\allowbreak{}cyc}. Arithmetic supplies the paired
+inputs to the last theorem through \texttt{level\_\allowbreak{}gm\_\allowbreak{}le\_\allowbreak{}on\_\allowbreak{}family\_\allowbreak{}scales}
+and \texttt{Upper\allowbreak{}Theory.\allowbreak{}Top.\allowbreak{}zero\allowbreak{}Free\allowbreak{}All\_\allowbreak{}of\_\allowbreak{}top\allowbreak{}G}.

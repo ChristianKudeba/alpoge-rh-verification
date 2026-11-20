@@ -1,0 +1,103 @@
+\section{Descent through a family of integral maps}
+\label{sec:map-descent}
+
+Here is the descent inequality used in the comparison of \(L_-\)
+with \(L_d\). Write \(F\) for a totally complex number field and
+\(v\) for one archimedean place from each conjugate pair. Let \(m\)
+be the number of such places. Give the finite-dimensional \(F\)-spaces
+\(V,W\) positive definite hermitian norms at each place. We use
+the degree \(\widehat d\) in the squared-norm normalization of the
+preceding section. In particular the degree of a free line generated
+by \(x\) is \(-m^{-1}\sum_v\log\|x\|_v^2\). For an integral lattice
+\(C\) in its \(F\)-span put
+\(\mu(C)=\widehat d(C)/\operatorname{rk}_F(C)\) when its rank is positive.
+
+Let \(A\subset V,\ B\subset W\) be finitely generated
+\(\mathcal O_F\)-submodules, \(A\ne0\). Suppose \(n\) linear maps
+\(\phi_j:V\to W\) send \(A\) into \(B\), have zero common kernel and
+obey, for all \(v\) and \(x\in V\),
+\begin{equation}
+ \sum_{j=1}^n\|\phi_jx\|_v^2\ \le\ e^{2P}\|x\|_v^2 .
+ \label{eq:descent-map-bound}
+\end{equation}
+Suppose \(B\) is spanned over \(F\) by elements of \(B\) of norm at
+most \(e^\Lambda\) at every place. Put \(a=\operatorname{rk}_F A\),
+\(N=n\operatorname{rk}_F B\). If \(\Lambda,\epsilon\ge0\),
+\(N\le(1+\epsilon)a\) and \(t\le\mu(A)-2P\), then
+\begin{equation}
+                  \mu(B)\ \ge\ t-\epsilon(|t|+2\Lambda).
+ \label{eq:descent-result}
+\end{equation}
+Neither a positive \(t\) nor a free lattice \(A\) is required.
+
+\paragraph{The lower bound on quotient slopes.}
+We give the determinant argument underlying the estimate for the
+minimal slope. Let \(C\) be spanned over \(F\) by integral vectors of
+norm at most \(e^\Lambda\) at all places. For a saturated sublattice
+\(D\subset C\), put \(Q=C/D\) with its quotient norms. The images of
+these vectors span \(Q\) over \(F\), and the quotient norms do not
+increase. If \(r=\operatorname{rk}_F Q>0\), select \(r\) images
+\(q_1,\ldots,q_r\) forming an \(F\)-basis. Their integral span
+\(Q_0\) is free and of finite index in \(Q\). At every \(v\) Hadamard's
+inequality gives
+\[
+  \det(\langle q_i,q_j\rangle_v)_{i,j}
+        \ \le\ \prod_i\|q_i\|_v^2 \ \le\ e^{2r\Lambda}.
+\]
+The determinant formula for the degree gives
+\(\widehat d(Q_0)\ge-2r\Lambda\). Enlarging a full-rank lattice
+by finite index increases its degree. Indeed in a common real
+realization the volume of the smaller lattice is the index times
+the volume of the larger one, and degree uses the negative logarithm
+of volume with positive normalization. Therefore
+\(\widehat d(Q)\ge-2r\Lambda\). This also holds at rank zero, with
+degree zero. Equivalently all nonzero quotient slopes are at least
+\(-2\Lambda\). In the formal development the same conclusion is
+obtained by putting the short lines into a saturated step of the
+Harder--Narasimhan filtration. The full-span property gives full rank
+of that step. A saturated sublattice of full rank equals the ambient
+lattice.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/MeanHeightDescent/AverageDegreeBounds/SpanMuMin.lean}{Short generators, line heights and the saturated filtration step}.}
+
+\paragraph{The image lattice.}
+Give \(B^n\) the orthogonal-sum metric and put
+\(\Phi x=(\phi_1x,\ldots,\phi_nx)\).
+The common-kernel hypothesis gives injectivity. Choosing a nonzero
+element of \(A\) shows that \(n>0\) and \(B\ne0\). Write \(I=\Phi A\),
+and \(D=B^n\cap (F I)\) for its saturation in \(B^n\).
+Then \(a=\operatorname{rk}_F I=\operatorname{rk}_F D\le N\), and
+\(\widehat d(D)\ge\widehat d(I)\). By
+\eqref{eq:descent-map-bound} the operator norm of \(\Phi\) at each
+place is at most \(e^P\). The bound extends to the completion at that
+place by density of \(F\) and continuity of the linear map.
+On the top exterior power of \(F A\) the norm multiplier is at most
+\(e^{aP}\), since each singular value on this subspace is at most
+\(e^P\). The induced map on the determinant modules of \(A\) and
+\(I\) is an integral isomorphism, so no index arises there. The
+change of squared determinant norms contributes at most \(2aP\)
+on averaging their logarithms. Hence
+\[
+             \widehat d(D)\ge\widehat d(I)
+             \ge\widehat d(A)-2aP \ge at .
+\]
+The short generators of \(B\), placed one at a time in each coordinate,
+give integral short generators of \(B^n\) over \(F\). The preceding
+quotient bound yields \(\widehat d(B^n/D)\ge-2(N-a)\Lambda\).
+In a saturated exact sequence, determinant degrees add when the
+quotient has its quotient norm. This follows by wedging a basis of
+the subspace with orthogonal lifts of a basis of the quotient at each
+place and using the integral determinant isomorphism. In particular
+it applies even when \(D\) is only projective over \(\mathcal O_F\).
+Since the degree of \(B^n\) is \(n\widehat d(B)\), we obtain
+\[
+                 N\mu(B)\ \ge\ at-2(N-a)\Lambda .
+\]
+Subtract the right side from \(Nt\). The difference is at most
+\((N-a)(|t|+2\Lambda)\). The rank hypothesis gives
+\(N-a\le\epsilon a\le\epsilon N\), and \(N>0\).
+Division by \(N\) proves \eqref{eq:descent-result}.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/MeanHeightDescent/AverageDegreeBounds/DescentSlope.lean}{Slope inequality for an injective map};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HtMapLeOfPoints.lean}{direct-sum norm, comparison of ranks and final inequality}.}
+In the preceding section the source takes \(A=L_-\), \(B=L_d\),
+\(P=b,\ \Lambda=K,\ \epsilon=b/K\). Thus the inequality holds for
+the actual ranks of the lattices on each window once the listed maps,
+short generators and rank estimates have been supplied there.

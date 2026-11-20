@@ -1,0 +1,21 @@
+{
+  "status": "prefix",
+  "source": "work\\rh-translation\\input\\export-prefix.zst",
+  "records": 105,
+  "volumes_opened": 1,
+  "records_per_volume": 150,
+  "record_kinds": {
+    "meta": 1,
+    "str": 23,
+    "param": 3,
+    "sort": 4,
+    "num": 1,
+    "bvar": 5,
+    "forallE": 29,
+    "const": 4,
+    "app": 27,
+    "lam": 4,
+    "inductive": 1,
+    "quot": 3
+  }
+}

@@ -1,0 +1,492 @@
+\section{The arithmetic window and the polynomial bound at level two}
+\label{sec:arithmetic-translation}
+
+Two statements involving arithmetic lengths occur close to the conclusion in
+the source. The proof of nonvanishing for all characters uses the window
+assertion denoted by \(\mathrm{VWin}\). A separate theorem in the module
+\texttt{Small\allowbreak{}Class\allowbreak{}Numbers.\allowbreak{}Cor\allowbreak{}GKOf} applies a general estimate to the trivial
+character modulo two. We give the closing deductions of both statements and
+specify the results imported at each deduction. Merely importing a module does
+not make every theorem in that module a premise of the theorem being proved.
+
+\subsection{The four counts in the window argument}
+
+Here is the window with its quantifiers, from \texttt{Exists\allowbreak{}Page\allowbreak{}N}. For a
+number field \(E\), a prime \(\ell\), and a positive twist \(k\), let
+\(s_{\ell,E}(k)\) be the \(\mathbb Z_\ell\)-length of the kernel of the
+localization map in degree one for
+\((\mathbb Q_\ell/\mathbb Z_\ell)(-k)\). The global group allows
+ramification at the primes above \(\ell\); local restriction is taken at
+each of those primes. Formally the length is defined for a choice of
+algebraic closure of \(E\) and local data \(D_\ell\) at each prime.
+The assertion \(\mathrm{VVle}(E,t,B)\) quantifies over every such closure
+and every family \(D_\ell\). It requires finiteness for every prime and
+every \(1\le k<t\), and, for every finite set \(S\) of primes, the inequality
+\[
+  \sum_{\ell\in S}\log\ell\sum_{1\le k<t}s_{\ell,E}(k)\ \le B.
+\]
+Shrinking \(t\) and increasing \(B\) preserves the assertion: the
+weights and omitted lengths are nonnegative, and finiteness is inherited.
+
+Fix a primitive character \(\chi\) of level \(m\), a real number
+\(0<\varepsilon<1/52\), and any function \(a:\mathbb R\to\mathbb N\)
+such that
+\[
+   x^{2+8\varepsilon}\le 2^{a(x)}\le 2x^{2+8\varepsilon}
+       \qquad(x\ge 1).
+\]
+There are \(J\ge1\) and \(X_0\) such that the following statement holds
+for every \(X\ge X_0\). Write \(U=X^{1/J}\) and take any primes
+\(q\equiv3\bmod 8,\ d\equiv7\bmod16\), with \(q\mid d+1\), such that
+\[
+ \begin{split}
+  \tfrac12U^{\varepsilon/5}&<\log q\le U^{\varepsilon/5},\\
+  \tfrac12U^{\varepsilon/5}(\log U)^2&<\log d
+         \le U^{\varepsilon/5}(\log U)^2,
+ \end{split}
+\]
+and such that \(p\mid d+1\) for every odd prime \(p\le U^{\varepsilon/5}\).
+There exists \(Y\ge U\) with \(Y^2\le X\) such that, for every
+\(Y\le x\le Y^2\) and every realization of the following field \(E\),
+\[
+   \mathrm{VVle}\!\left(E,\lfloor x^{401}\rfloor,\,
+                      \sqrt{\exp(x^\varepsilon)}\right).
+\]
+The field condition means that \(E\) embeds in a cyclotomic field at a
+level divisible by \(2^{a(x)+2},m,q,d\), and, for a fixed primitive
+root at that level, the automorphism given by exponent \(b\) fixes
+the image of \(E\) pointwise precisely when
+\[
+ b\equiv\pm1\bmod 2^{a(x)+2},\qquad
+ \chi(b)=1,\qquad
+ \left(\frac bq\right)=\left(\frac bd\right)=1.
+\]
+In particular \(q,d\) are fixed throughout the interval for \(x\), while
+the two-power exponent \(a(x)\) can vary there.
+
+Let \(H_N\) denote the collection of local representation-theoretic,
+automorphic, Galois-cohomological and complex-multiplication results called
+\texttt{Literature\allowbreak{}Rank\allowbreak{}NHypothesis}. In the proof of
+\texttt{vwin\_\allowbreak{}of\_\allowbreak{}row}, the input \(h\) is the Galois compatibility assertion
+for the specified local parameter relation. The open-image record is formed
+from \(h\). The local inputs are obtained from this record, the automorphic
+inputs from this record together with base change and \(h\), and the Galois
+cohomology and complex-multiplication inputs from the same record. These four
+constructions give \(H_N\). No auxiliary field has yet been specialized to
+discriminant \(-3\).
+
+Apply \texttt{published\_\allowbreak{}hypotheses\_\allowbreak{}from\_\allowbreak{}patching\_\allowbreak{}alt} to \(H_N\) and the
+weak descent theorem \texttt{desc\allowbreak{}Weak}, and call the resulting data \(H'\).
+The size lemma called \(K\) supplies a real constant \(C_K\) from the
+rank-\(N\) part of \(H'\). The endpoint theorem
+\texttt{ends0\_\allowbreak{}alt} supplies two assertions. The first, together with
+the rank-\(N\) inputs, produces unramified-coefficient automorphy. With
+the two-dimensional Kato input, \(H'\), and the size lemma \(K\), this
+produces the count in case I. The two counts in cases II and III are
+obtained together by applying
+\texttt{count\allowbreak{}II\_\allowbreak{}and\_\allowbreak{}count\allowbreak{}III\_\allowbreak{}of\_\allowbreak{}prints\allowbreak{}H\_\allowbreak{}of\_\allowbreak{}sp4\allowbreak{}In}
+to \(H'\), \(K\), and its four-dimensional symplectic input. The second
+endpoint, with \(H'\) and \(K\), gives the count in case V through the
+reduced unitary lift. These are four distinct imported count theorems.
+
+The last step uses \texttt{of\_\allowbreak{}four\_\allowbreak{}alt}. Its hypotheses consist of
+\(H_N\), the existence of \(C_K\), and counts I, II, III, V. Apply
+\texttt{thm\allowbreak{}Bab\_\allowbreak{}of\_\allowbreak{}lemma\allowbreak{}K} to the global duality input, the two local
+cohomology inputs, the Ferrero--Washington input, and the size lemma.
+Specialize the resulting auxiliary estimate to \(401\). The minus-eigenspace bound is supplied by \texttt{thm\allowbreak{}Bc\allowbreak{}Free\_\allowbreak{}of} applied to \texttt{ML.\allowbreak{}iv}. On the positive side the exceptional-prime sum uses \texttt{count\allowbreak{}IV} and \texttt{count\allowbreak{}Vs} alongside II and V. Case Z is supplied by \texttt{count\allowbreak{}Z} applied to \texttt{prop\allowbreak{}Z}. The theorem \texttt{vwin\_\allowbreak{}of\_\allowbreak{}counts} now applies to these
+inputs and the four counts, yielding \(\mathrm{VWin}\). This describes the
+use of the four estimates; their arithmetic proofs are dependencies of this
+deduction. The source loci are \texttt{Vwin\allowbreak{}Of\allowbreak{}Row},
+\texttt{Top\allowbreak{}Main\allowbreak{}Zj}, \texttt{Window\allowbreak{}Bound\allowbreak{}Of\allowbreak{}Literature\allowbreak{}Level}, and
+\texttt{HVCore}, all in the \texttt{Dense\allowbreak{}Threshold\allowbreak{}Cases} directory.
+
+\subsection{Character sums in the four counts}
+
+The sets of characters and the range of summation are part of the
+estimates. Fix the target \(\chi\). A host \(h\) determines its character
+modulus \(N\), the two primes \(q_1,d\), and the subgroup \(H_h\) of
+\((\mathbb Z/N\mathbb Z)^\times\) fixing its abelian field.
+For coefficient ring \(\mathcal O_\ell\) and twist \(k\), let
+\(\mathcal X_{\ell,k}\) be the characters modulo \(N\), valued in
+\(\mathcal O_\ell\), trivial on \(H_h\), and with
+\(\psi(-1)=(-1)^k\). Let \(b_{\ell,k}(\psi)\) be the strict length for
+the character \(\psi^{-1}\chi_\ell^{-k}\), with strict local conditions
+at the primes dividing \(\ell N\); put
+\(v_{\ell,k}(\psi)=b_{\ell,k}(\psi)/r_\ell\) when the length is finite.
+Write \(B_\chi\) for the exceptional primes of the target. Define
+\(\psi^{(0)}_\ell\) by removing the \(\ell\)-power-order part of the
+character and then removing its component at the prime \(\ell\) in
+the level. The cases which occur in the count statements are
+\[
+\begin{array}{cl}
+\mathrm I&
+ \ell\notin B_\chi,\quad \ell-1\nmid 2k;\\
+\mathrm Z&
+ \ell\notin B_\chi,\quad\ell-1\mid 2k,\quad\psi=1;\\
+\mathrm {II}&
+ k\ge2,\quad 2\mid\operatorname{ord}(\psi_\ell^{(0)}),\quad
+    (\ell\in B_\chi\ \text{or}\ \ell-1\mid 2k);\\
+\mathrm {III}&
+ \ell\notin B_\chi,\quad\ell-1\mid 2k,\quad
+   \operatorname{ord}(\psi)\ \text{odd},\quad\psi\ne1;\\
+\mathrm {IV}&
+ \ell\in B_\chi,\quad k\ge2,\quad
+   \operatorname{ord}(\psi_\ell^{(0)})\ \text{odd};\\
+\mathrm {V}&\ell\in B_\chi,\quad k=1.
+\end{array}
+\]
+The host-size condition at cutoff \(t\) requires that both \(q_1,d\)
+exceed \(2t+1\) and all five host parameters \(q,o,p_K,h_*,p_1\)
+in \texttt{Host.\allowbreak{}Big}. In case I there exist an integer \(C\) and test
+primes \(r_1,r_2\), depending on the target, such that whenever the
+host meets this condition and both auxiliary primes exceed both test
+primes, for each \(1\le k<t\), every choice of coefficient rings,
+and every finite set \(S\) of odd coefficient primes in case I,
+all the relevant lengths are finite and
+\[
+     \sum_{\ell\in S}\log\ell
+             \sum_{\psi\in\mathcal X_{\ell,k}}v_{\ell,k}(\psi)
+            \le (Nt)^C .
+\]
+In II and III the assertion is pointwise. For each target there is an
+integer \(C\) such that at all these hosts, all \(1\le k<t\),
+all odd primes, all coefficient choices and all
+\(\psi\in\mathcal X_{\ell,k}\) in the specified case,
+\[
+      b_{\ell,k}(\psi)<\infty,\qquad
+      (\log\ell)\,v_{\ell,k}(\psi)\le(\ell Nk)^C .
+\]
+No additional condition involving \(r_1,r_2\) occurs in the pointwise
+statement. Case V has this shape on the branch
+\(R_1(\ell,\psi)\le 2^{c_2(\psi)}\) of the host cutoff; the source
+assigns the other branch a separate name \texttt{Count\allowbreak{}Vs}. Case Z
+uses the vanishing for the trivial character. Case IV uses a
+cyclotomic-layer estimate summed over twists. In particular the
+pointwise estimate does not authorize summing an infinite set of primes.
+The finite-prime-set quantifier in \(\mathrm{VVle}\) is supplied after
+the separate estimates have been assembled.
+
+\subsection{The exceptional primes and the sum over the other primes}
+
+The exceptional primes can be computed before any window is chosen.
+Write \(o=\operatorname{ord}(\chi)\). Let \(p_K\) be the least prime
+\(p\ge7\) congruent to \(3\bmod4\) and prime to \(m\), let
+\(h_*\) be the class number of \(\mathbb Q(\sqrt{-p_K})\), and
+let \(p_1\) be the least prime coprime to \(2mp_K\) and congruent
+to one modulo the odd part of \(o\). The definition in \texttt{Stmt\allowbreak{}Fields}
+is
+\[
+ B_\chi=\{3\}\ \cup\
+ \{p:\ p\text{ an odd prime},\ p\mid o\,m\,p_K\,h_*\,p_1\}.
+\]
+For the primitive trivial target, \(o=m=1\), \(p_K=7\) and \(p_1=3\).
+The field \(\mathbb Q(\sqrt{-7})\) has discriminant \(-7\).
+Every ideal class has an integral representative of norm at most
+\(2\sqrt7/\pi<2\) by the imaginary quadratic Minkowski bound.
+Its norm is one. Thus \(h_*=1\) and \(B_{\mathbf1}=\{3,7\}\).
+For a general target the product in the display can have additional
+odd prime factors.
+
+For a CM realization \(E\) of the host and local data for its
+algebraic closure, write \(\lambda^+_{\ell,e}\) for the
+\(\mathbb Z_\ell\)-length of the submodule of strict classes
+where complex conjugation acts by \((-1)^e\), called
+\texttt{plus\allowbreak{}Len}. We derive the assertion
+\texttt{Sum\allowbreak{}Out} of \texttt{Height\allowbreak{}And\allowbreak{}Vanishing.\allowbreak{}Sum\allowbreak{}Out}. Take the
+constants \(C_1,C_Z,C_2,C_3\) supplied by the four indicated
+counts for \(\chi\), and take the two test primes supplied by count I.
+For every host satisfying the size and test-prime conditions above,
+every integer \(t\ge2\), and every finite set \(S\) of odd primes
+disjoint from \(B_\chi\), put
+\[
+        M=Nt,\qquad K=\max\{C_Z,C_2,C_3\}.
+\]
+Here \(M\ge2\). All \(\lambda^+_{\ell,e}\) for \(\ell\in S\) and
+\(1\le e<t\) are finite, and
+\begin{equation}
+ \sum_{\ell\in S}\log\ell\sum_{1\le e<t}\lambda^+_{\ell,e}
+       \le M^{C_1+3K+4}.
+ \label{eq:rh-arith-sumout}
+\end{equation}
+The level and \(t\) vary while the exponent and test primes remain fixed.
+
+To prove this assertion, choose at each \(\ell\) an admissible coefficient
+ring with the roots of unity required by the character comparison.
+Fix \(e\) in the indicated range. The contribution from all \(\ell\in S\)
+in case I to the weighted character sum is at most \(M^{C_1}\).
+For the other primes, \(\ell-1\mid2e\), hence
+\(\ell\le 2e+1\le2t\). There are at most \(2t\) such primes, by
+injecting them into the integers from \(1\) to \(2t\). The case
+decomposition in \texttt{Height\allowbreak{}And\allowbreak{}Vanishing.\allowbreak{}Cases} places each of their
+characters in Z, II, or III. Since \(\ell N e\le2Mt\le M^3\), the
+pointwise estimate gives
+\[
+    (\log\ell)v_{\ell,e}(\psi)\le M^{3K}.
+\]
+There are at most \(N\) characters at a given prime, by
+\texttt{Card\allowbreak{}Le\allowbreak{}Level.\allowbreak{}x\allowbreak{}Card}. Consequently the entire weighted character
+sum at this \(e\) is at most \(M^{C_1}+2M^{3K+1}\).
+Its individual lengths are finite in Z, II and III by the pointwise
+assertions, and in I by applying that count to a singleton prime.
+
+The imported field-to-character comparison \texttt{red\allowbreak{}Prime} applies at
+each prime of \(S\). Here the prime is prime to the index of the
+subgroup defining the host field, by \texttt{bchi\allowbreak{}Facts}, and
+\texttt{host\allowbreak{}Level} identifies the field at modulus \(N\).
+With zero error term the summation lemma \texttt{Chr.\allowbreak{}sum\allowbreak{}Back} gives
+finiteness on the field side and
+\[
+     \sum_{1\le e<t}\lambda^+_{\ell,e}
+        \le \sum_{1\le e<t}\sum_{\psi\in\mathcal X_{\ell,e}}
+                                      v_{\ell,e}(\psi).
+\]
+Multiply by the nonnegative \(\log\ell\), sum over \(S\), interchange
+the finite sums, and apply the preceding estimate for each \(e\).
+There are at most \(t\) twists. Since \(t\le M\), the total is at most
+\[
+   t(M^{C_1}+2M^{3K+1})
+   \le M^{C_1+1}+2M^{3K+2}
+   \le M^{C_1+3K+4}.
+\]
+For the last inequality, each term without its numerical coefficient
+is at most \(M^{C_1+3K+2}\) and \(3\le M^2\).
+This proves \eqref{eq:rh-arith-sumout}.
+
+\subsection{Restoring the exceptional primes}
+
+Fix a function \(j:\mathbb N\to\mathbb N\). For each
+\(\ell\in B_\chi\) the source uses \texttt{Layer\allowbreak{}Le} at \(j(\ell)\):
+for every number field \(L_0\) realizing the abelian-field datum
+\(L_\chi(\ell)\) of the full cyclotomic field of level \(\ell m\),
+and every cyclotomic layer \(L_1/L_0\) obtained by
+adjoining \(\ell\)-power roots of unity and having degree
+\(\ell^{j(\ell)}\), the single-prime strict-length bound
+\(\mathrm{VVat}(\ell,L_1,t,B)\) holds. Explicitly, for every
+algebraic closure of \(L_1\) and each choice of local data, each
+\(s_{\ell,L_1}(e)\) for \(1\le e<t\) is finite and
+\(\sum_{1\le e<t}s_{\ell,L_1}(e)\le B\). Assume a common \(B\ge0\)
+for all the specified layers. The input \texttt{Sum\allowbreak{}In} then gives,
+for each exceptional prime, a natural number
+\(C_\ell=C_\ell(\chi,\ell,j(\ell))\) and
+\[
+       \log\ell\sum_{1\le e<t}\lambda^+_{\ell,e}
+                   \le M^{C_\ell}+C_\ell B,
+\]
+with each length finite. The same host-size condition is used above and
+below. For primes outside \(B_\chi\), write \(C_0\) for the exponent
+in \eqref{eq:rh-arith-sumout}. Put
+\[
+       b=|B_\chi|,\quad D=\sum_{\ell\in B_\chi}C_\ell,\quad
+       C=C_0+D+b+bD .
+\]
+We claim that for every finite set \(S\) of odd primes the left side
+of \eqref{eq:rh-arith-sumout} is at most \(M^C+CB\).
+Indeed, \(C_\ell\le D\). Summing the exceptional estimates and then
+applying \eqref{eq:rh-arith-sumout} to \(S\setminus B_\chi\) gives
+\[
+     |S\cap B_\chi|(M^D+DB)+M^{C_0}.
+\]
+The terms independent of \(B\) total at most
+\((b+1)M^{D+C_0}\), since \(M\ge2\). Now \(b+1\le2^b\le M^b\)
+and \(D+C_0+b\le C\). The coefficient of \(B\) is at most \(bD\le C\).
+This proves the claim. Finiteness for any given odd prime follows
+by its singleton estimate on the corresponding side of the partition.
+This is the proof of \texttt{Height\allowbreak{}And\allowbreak{}Vanishing.\allowbreak{}Point\allowbreak{}Arith.\allowbreak{}point}.
+It makes explicit the dependence on the target and its layer indices,
+and the fact that the positive-length estimate still has a layer
+hypothesis at every exceptional prime.
+
+\subsection{Recombining the two eigenspaces and the prime two}
+
+Let \(c\) denote the action of complex conjugation on the twisted
+cohomology over \(E\). Functoriality of the Galois action gives
+\(c^2=1\) and its compatibility with localization preserves the strict
+submodule. Write \(\lambda^-_{\ell,e}\) for the length in the
+\((-1)^{e+1}\)-eigenspace. For an odd \(\ell\), the element \(2\)
+is invertible in \(\mathbb Z_\ell\), because its reduction modulo
+\(\ell\) is nonzero. Put \(s=(-1)^e\). The strict class \(x\) has the
+decomposition
+\[
+        x=\frac{x+scx}{2}+\frac{x-scx}{2}.
+\]
+The two summands lie in the strict submodule. Applying \(c\) multiplies
+the first by \(s\) and the second by \(-s\). Their eigenspaces intersect
+trivially, since a member of the intersection is killed by \(2s\), a
+unit. Thus addition is an isomorphism from their direct sum to the
+strict submodule. Additivity of module length proves
+\[
+       s_{\ell,E}(e)=\lambda^+_{\ell,e}+\lambda^-_{\ell,e}.
+\]
+This equality also holds for extended lengths. If each signed length
+is finite, their sum is finite.
+
+Suppose that the positive and negative estimates over every finite set
+of odd primes are \(B_+\) and \(B_-\), respectively, with the displayed
+twist range, and that the full lengths at two are finite with
+\(\sum_{1\le e<t}s_{2,E}(e)\le B_2\). For any finite set of primes
+\(S\), split off \(S\cap\{2\}\). Its weighted contribution is at most
+\((\log 2)B_2\), because all lengths are nonnegative. Apply the
+eigenspace equality at every prime in \(S\setminus\{2\}\) and sum the
+two estimates there. We obtain
+\[
+       \mathrm{VVle}(E,t,\,(\log 2)B_2+B_-+B_+).
+\]
+These are the proofs of \texttt{sha\allowbreak{}Len\_\allowbreak{}eq\_\allowbreak{}add} and
+\texttt{vvle\_\allowbreak{}of\_\allowbreak{}parts} in \texttt{Length\allowbreak{}Eq\allowbreak{}Add\allowbreak{}Eigen}.
+
+\subsection{From two congruence integers to an orbit sum}
+
+This is the implication from \(\mathrm{PropGK}\) to \(\mathrm{CorGK}\)
+proved in \texttt{Unitary\allowbreak{}Three\allowbreak{}Groups.\allowbreak{}Cor\allowbreak{}GSum\allowbreak{}Log}. Fix a number field
+\(K\). The antecedent gives integers \(c_5,A\ge0\) depending on
+\(K\). Given \(k\ge1,\ N\ge1\), a subgroup
+\(H\le(\mathbb Z/N\mathbb Z)^\times\) of index \(u\), and a prime
+\(p\nmid 30N|D_K|\), there is a nonzero integer \(n_p\) with
+\[
+   \log|n_p|\le c_5\varphi(u)\{N(k+1)\}^A\log p.
+\]
+For an algebraic closure \(\Omega\) of \(\mathbb Q\) equipped with an
+embedding of \(K\), and an admissible ring \(\mathcal O_\ell\), write
+\(\mathcal X_\ell(H)\) for the finite set of characters valued in this
+ring whose kernel on the units modulo \(N\) is exactly \(H\).
+For \(\ell\ne p\), provided at least one character in
+\(\mathcal X_\ell(H)\) satisfies the good-data predicate, the
+antecedent gives finiteness of all lengths in that orbit and
+\[
+       \sum_{\psi\in\mathcal X_\ell(H)}v_{\ell,k}(\psi)
+               \le 2\operatorname{ord}_\ell(n_p).
+\]
+The integer \(n_p\) has already been chosen before \(\Omega,\ell\)
+and its coefficient ring.
+
+Choose distinct allowable primes \(p,p'\), a finite set \(S\) of
+coefficient primes and, for each \(\ell\in S\), a witness for the
+good-data predicate in its orbit. When \(S\) is empty the required sum
+is zero. Otherwise such a witness gives \(k\ge1\), so we have both
+\(n_p\) and \(n_{p'}\). For each \(\ell\in S\), at least one is
+applicable, even when \(p\) or \(p'\) belongs to \(S\). The valuation
+of the other nonzero integer is nonnegative. Thus the lengths are
+finite and their sum at \(\ell\) is at most
+\(2\operatorname{ord}_\ell(n_p)+2\operatorname{ord}_\ell(n_{p'})\).
+For every nonzero integer \(n\), the distinct prime powers
+\(\ell^{\operatorname{ord}_\ell(n)}\), \(\ell\in S\), are pairwise
+coprime and each divides \(n\); their product divides \(|n|\).
+Taking the logarithm gives
+\(\sum_{\ell\in S}\log\ell\,\operatorname{ord}_\ell(n)\le\log|n|\).
+Apply this inequality twice to obtain exactly
+\[
+   \sum_{\ell\in S}\log\ell
+         \sum_{\psi\in\mathcal X_\ell(H)}v_{\ell,k}(\psi)
+     \le 2c_5\varphi(u)\{N(k+1)\}^A(\log p+\log p').
+\]
+This also explains why assigning a distinct auxiliary prime to every
+coefficient prime would change the content of the estimate.
+
+\subsection{A consequence for the trivial character at level two}
+
+Fix an algebraic closure \(\Omega\) of \(\mathbb Q\). For a rational prime
+\(\ell\), let \(\mathcal O_\ell\) be a permitted coefficient ring, write
+\(\chi_\ell\) for its cyclotomic character, and write
+\(r_\ell\) for the ramification index of the coefficient ring.
+In the notation of \texttt{Small\allowbreak{}Class\allowbreak{}Numbers.\allowbreak{}Class\allowbreak{}Number\allowbreak{}Three}, put
+\[
+  b_\ell(e)=
+  \operatorname{length}_{\mathcal O_\ell}
+  \operatorname{ShaU}\!\left(
+    \operatorname{twist}_2(\ell,\chi_\ell^{-e}),\,2\ell,\,\top
+  \right).
+\]
+The underlying discrete coefficient module is
+\(\mathcal O_\ell\otimes_{\mathbb Z_\ell}(\mathbb Q_\ell/\mathbb Z_\ell)\),
+acted on by the indicated character; \(\mathcal O_\ell\) is a DVR
+subalgebra of \(\overline{\mathbb Q}_\ell\), finite over
+\(\mathbb Z_\ell\). Here \(r_\ell=\operatorname{length}_{\mathcal O_\ell}
+(\mathcal O_\ell/\ell\mathcal O_\ell)\).
+The symbol \(\top\) denotes the full Galois group, and the subgroup
+\(\operatorname{ShaU}\) consists of degree-one classes restricting
+trivially to all inertia groups and to the decomposition groups at
+places above \(2\ell\). The length is initially in
+\(\mathbb N\cup\{\infty\}\). The
+polynomial estimate asserts that there exist natural numbers \(C,A\),
+independent of all the following choices, such that for every
+\(\Omega\), every positive even integer \(e\), every choice of coefficient
+rings for all primes, and every finite set \(S\) of primes satisfying
+\[
+   \ell\geq 5,\qquad \ell-1\nmid 2e
+       \qquad(\ell\in S),
+\]
+each \(b_\ell(e)\) for \(\ell\in S\) is finite and
+\[
+     \sum_{\ell\in S}(\log\ell)\,\frac{b_\ell(e)}{r_\ell}
+       \ \leq\ C(e+1)^A .
+\]
+The division by \(r_\ell\) occurs separately in each summand.
+
+We give the specialization proof. Every Dirichlet character modulo two
+is trivial because \((\mathbb Z/2\mathbb Z)^\times\) has one element.
+The Galois character attached to this trivial character is also trivial.
+Consequently the character that defines the general length
+\(V_{\ell,e}(1)\) is \(1^{-1}\chi_\ell^{-e}=\chi_\ell^{-e}\), and
+\(V_{\ell,e}(1)=b_\ell(e)\), including the possibility of infinite
+length. This is the equality \texttt{vlen\_\allowbreak{}one}.
+
+Take \(K=K_*(3)\), the imaginary quadratic field of discriminant
+\(-3\). Its complex-place count is one and its degree is two. The
+Minkowski bound for an integral representative in each ideal class is
+\[
+   \frac{4}{\pi}\frac{2!}{2^2}\sqrt{3}
+   =\frac{2\sqrt{3}}{\pi}<2 .
+\]
+The representative has positive integral norm and therefore norm one.
+It is the unit ideal. This proves \(h(K)=1\).
+
+We verify the local input to the general estimate. Let a valuation on
+\(\Omega\) lie over \(3\). Every integer has valuation of absolute value
+at most one. If \(\ell\ne3\) and both \(3\) and \(\ell\) had absolute
+value less than one, write \(1=3a+\ell b\) by B\'ezout's identity.
+The ultrametric inequality would make \(1\) have absolute value less
+than one. Hence \(\ell\) is a unit at this valuation. The
+\(\ell\)-adic cyclotomic character is trivial on inertia there, as is
+the character modulo two. But \(K\) is ramified at \(3\). Thus inertia
+at this place cannot act trivially on \(K\) while the whole joint
+kernel of the two preceding characters fixes \(K\). This proves the
+required noncontainment. The remaining hypotheses of the good-data
+predicate follow from \(h(K)=1\), \(\lvert D_K\rvert=3\),
+\(\ell\geq5\), \(\ell-1\nmid2e\), and the evenness of \(e\), which gives
+\(1=(-1)^e\). The proof uses ramification at \(3\) to test \(K\); \(3\)
+is outside the summation range of this polynomial estimate.
+
+Apply the general orbit estimate \(\mathrm{CorGK}\) at this \(K\). Write
+\(c_5,a\) for its natural-number constants. Embed \(K\) in \(\Omega\),
+take level \(2\), the full subgroup of \((\mathbb Z/2\mathbb Z)^\times\),
+and the distinct test primes \(7,11\). Neither divides
+\(30\cdot2\lvert D_K\rvert=180\). At each \(\ell\in S\) supply the trivial
+character and the good data just verified. Each orbit in the estimate
+is the singleton consisting of that character. Its contribution thus
+has no orbit multiplicity; the index of the full subgroup is one and
+\(\varphi(1)=1\). The finiteness clause of \(\mathrm{CorGK}\) becomes
+the claimed finiteness. In its real inequality the sum over characters
+is the single term \(b_\ell(e)/r_\ell\). Using
+\(\log 7\leq 7\), \(\log 11\leq11\) and expanding the \(a\)-th power of
+\(2(e+1)\) gives the claimed bound with
+\[
+     A=a,\qquad C=2c_5\,2^a(7+11)=36\,c_5\,2^a .
+\]
+In particular this use of \(7\) is as a test prime, and the assertion
+places no requirement that \(7\) belong to \(S\).
+
+The proof of the imported \(\mathrm{CorGK}\) is assembled in
+\texttt{Small\allowbreak{}Class\allowbreak{}Numbers.\allowbreak{}Cor\allowbreak{}GKOf}. Starting from \(H'\), the
+construction first obtains \(K\)'s size lemma, unramified-coefficient
+automorphy from the first endpoint, and cohomological input from the
+rank-\(N\) data and the size lemma. It derives a further endpoint from
+\texttt{linked\allowbreak{}Unl\allowbreak{}E\_\allowbreak{}alt}. The two algebraic bounds, the auxiliary
+algebraic lemma, the Kato input, the two rigidity arguments, the
+even-level admissibility result and unramified-coefficient automorphy
+give the single-character bound. Combine it with the count of
+rank-three unitary representations to obtain \(\mathrm{PropGK}\);
+the general theorem \texttt{U3.\allowbreak{}cor\allowbreak{}GK} then yields \(\mathrm{CorGK}\).
+Instantiating \(H'\) with the rank-\(N\) patching-and-descent data gives
+the unconditional input used in the specialization. This last
+paragraph identifies imported results; it does not supply their
+individual proofs.

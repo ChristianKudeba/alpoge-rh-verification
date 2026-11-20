@@ -1,0 +1,95 @@
+\subsection{Absorbing the height errors on the prescribed windows}
+\label{sec:absorb-height}
+We now estimate the right side of \eqref{eq:unit-gap}. Write
+\[
+ y=x^\varepsilon,\quad y_D=x^{e_{\rm div}\varepsilon},\quad
+ y_L=x^{e_{\rm loss}\varepsilon},\quad
+ h_1=1+c_{HH},\quad g_1=1+e_k ,
+\]
+where the three exponents \(e_{\rm div},e_{\rm loss},e_k\) and \(c_{HH}\)
+are nonnegative. Assume the seven coefficients
+\(c_{\rm count},c_{\rm div},c_E,c_H,c_{\rm slope},c_1,c_{\rm loss}\)
+lie in \([0,K]\). The window hypotheses on the sizes are
+\begin{align*}
+ &x,b,n_T,k\ge1,\quad 0<\varepsilon\le1,\quad xb\le a,\qquad
+ m\le x^{1/2+\varepsilon/2},\quad xm\le k\le \min(a,x^{e_k}),\\
+ &0\le L,L_a\le2y,\quad 0\le kb'\le a,\quad 0\le X''\le a,\quad
+ 0\le a_t\le2a,\quad B_0,N_c\ge0,\\
+ &\log|W|\le(k-3)\log2,\quad\bar\delta\le\tfrac12,\quad
+ (\bar\eta+4\sqrt{\bar e})x^{c_{HH}}b\le Ky\,n_Ta .
+\end{align*}
+The last inequality is a joint bound on the height and the exceptional
+mass. The pointwise argument uses their product. Increase the threshold
+on \(x\) until
+\[
+      \log x\le y,\qquad 200(1+K)^2 h_1g_1\le y .
+\]
+For fixed positive \(\varepsilon\) and fixed other constants, such a
+threshold exists by \(\log x=o(x^\varepsilon)\).
+We claim that
+\begin{equation}
+  \mathrm{ASK}-\mathrm{Main}
+  \le x^{(e_{\rm div}+e_{\rm loss}+3)\varepsilon}
+      \big\{n_Ta(1+m^2/k)+m(B_0+N_c)\big\}.
+ \label{eq:height-power}
+\end{equation}
+
+Set \(E=n_Ta(1+m^2/k)+m(B_0+N_c)\), \(Y=y_Dy_Ly\),
+\(R=YE\). Each of \(1,\ a,\ n_Ta,\ n_Ta m^2/k,\ mB_0,\ mN_c\)
+is bounded by \(E\); the stronger bound \(m(B_0+N_c)\le E\)
+also holds. Since \(m\le x\), \(mb\le a\), and \(m/k\le1\).
+The bound on each \(a_t\) gives \(A\le2n_Ta\). Positivity of the
+word count and \(k\ge1\) give
+\(\log|W|\le (k-3)\log2\le k\le a\). Also
+\[
+ \log k\le g_1 y,\qquad
+ \log(1+x^{c_{HH}})\le \log 2+c_{HH}\log x\le h_1 y .
+\]
+In the first inequality one can use \(e_k y\) in place of \(g_1 y\).
+All of \(1,y,y_D,y_L\) are bounded by \(Y\).
+
+The contributions to \(K_0\) in \eqref{eq:height-gap-lower}, in units of
+\(R\), have the following bounds.
+\[
+ \begin{array}{c|ccccc}
+ \text{term}&AC_T& c_{\rm div}n_Ta L_a&
+ c_{\rm div}m(B_0+N_c)y_D&mc_EB_0&S_-\\ \hline
+ \text{bound divided by }R&4K&2K&K&K&4K .
+ \end{array}
+\]
+For the first entry use
+\(A(1+m^2/k)\le2E\) and \(L_a\le2Y\).
+The last uses \(1+m/k\le2\). Thus \(K_0\le12KR\).
+Similarly \(P\le KR\) because \(n_Tmb\le n_Ta\).
+For the middle term in \(M_L\), note that
+\[
+ n_Tm^2(a/k+b')\le 2n_Tam^2/k\le2E.
+\]
+Multiplying by \(c_1 c_{\rm count}L\le2K^2Y\) bounds this term
+by \(4K^2R\). The other terms in \(M_L\) have bounds \(K^2R,KR,R\);
+hence \(M_L\le(5K^2+K+1)R\).
+
+In \(K_3\) the two source-slope errors together contribute at most
+\(6KR\). The exponent variation contributes \(2KR\), the height
+variation \(3KR\), and the term \(Ac_{\rm count}\log k\) contributes
+\(2K g_1R\). The remaining \(c_1mB_0\) is at most \(KR\). Thus
+\[
+ K_3+M_L+b\le (5K^2+13K+2K g_1+2)R .
+\]
+The exceptional-mass term is at most \(KR\), and
+\((1-\bar\delta)^{-1}\le2\). Insert all these bounds in
+\eqref{eq:unit-gap}. After division by \(R>0\) the upper bound becomes
+\[
+  5K^2+16K+2+8h_1y(5K^2+13K+2K g_1+2).
+\]
+The first polynomial is at most \(10(1+K)^2\). The one in parentheses
+is at most \(8g_1(1+K)^2\), since \(g_1\ge1\). Consequently the last
+display is at most \(200(1+K)^2h_1g_1y\le y^2\).
+Multiplying back by \(R=y_Dy_LyE\) proves \eqref{eq:height-power}.
+In the Fourier comparison \(B_0\) and \(N_c\) have additional explicit
+upper bounds. They may now be substituted on the right of
+\eqref{eq:height-power} since their common coefficient is nonnegative.
+All inequalities were evaluated at the same scale and family member.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/SizeWindowBrackets/ErrorFormsWeakWindowsFalse.lean}{Hypotheses on the sizes and the joint exceptional-mass bound};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/SubThreeMulLogTwoLe.lean}{termwise absorption};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean}{substitution at the arithmetic member}.}

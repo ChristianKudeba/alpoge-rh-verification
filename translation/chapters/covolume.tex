@@ -1,0 +1,226 @@
+\section{A lower bound for the slope across the components}
+\label{sec:cov-heights}
+
+The geometric argument compares heights of individual components with the
+arithmetic slope of the space of sections on their union. Both the error in
+their relative degrees and the error in their ranks enter this comparison.
+We give the finite-sum argument used in the source, including the constant
+with which it enters the covolume estimate.
+
+Fix a nonempty finite set \(I\) of components. Write \(h_c\) for a component
+height, \(s_c\) for its comparison slope, \(\delta_c\) for its geometric
+degree, \(d_c\) for its rank and \(a_c\) for its arithmetic degree. Let
+\(D\ge0,\ T\ge3D+5,\ A>0,\ B>0,\ \delta_*>0,\ E\ge1\). The
+parameters \(u,v,X,R\) are nonnegative, and \(0\le z,\rho<1\).
+Assume at every \(c\in I\) that
+\begin{align}
+ \delta_*\le\delta_c\le\delta_* /(1-\rho),\qquad
+ B\delta_c\le d_c,\qquad (1-z)d_c\le B\delta_c, \label{eq:cov-shares}\\
+ h_c+u\ge0,\qquad
+ (1-\rho)\max(0,s_c+u)\le h_c+u+v, \label{eq:cov-shift}\\
+ a_c\ge B\delta_c
+ \bigl(Th_c-3(D+1)|h_c|-A\log(2+|h_c|)-R\bigr).\label{eq:cov-hs}
+\end{align}
+Assume also \(|I|^{-1}\sum s_c\ge-X\). If
+\begin{align}
+ TX\le C_1 E,\qquad Tv\le C_1 E,\qquad
+ u\bigl(6D+10+T(z+2\rho)\bigr)\le C_1E, \nonumber\\
+ A\log(\max(A,1))+R\le C_2 E,\qquad
+ 2\frac{\sum a_c}{\sum d_c}\le\mu,\label{eq:cov-budgets}
+\end{align}
+then
+\begin{equation}
+                  \mu\ge-2(3C_1+C_2+4)E. \label{eq:cov-u}
+\end{equation}
+
+\paragraph{Proof.}
+Set \(m=\max(0,(1-\rho)u-X-v)\) and \(n=|I|\). Averaging
+\eqref{eq:cov-shift} gives
+\[
+ \frac1n\sum(h_c+u)\ge (1-\rho)(u-X)-v
+ \ge (1-\rho)u-X-v.
+\]
+The left side is also nonnegative, so it is at least \(m\).
+For \(t\ge0\) one has
+\[
+ A\log(2+t)\le t+A\log(\max(A,1))+2 .
+\]
+If \(A\ge1\), apply \(\log y\le y-1\) to \(y=(2+t)/A\). If
+\(0<A<1\), use \(\log(2+t)\le1+t\) and \(A(1+t)\le1+t\).
+Put \(P=T-3D-4\), \(K=A\log(\max(A,1))+2\), and
+\[
+ N=Pu+2u(3D+4)+K+R,\qquad W=\sum B\delta_c,\qquad S=\sum d_c.
+\]
+Since \(h_c\ge-u\), one has \(|h_c|\le h_c+2u\). Substituting both
+inequalities in \eqref{eq:cov-hs} gives
+\[
+ a_c\ge B\delta_c\bigl(P(h_c+u)-N\bigr).
+\]
+Here \(P\ge0\). In the nonnegative term replace \(\delta_c\) by
+\(\delta_*\) and sum. The upper bound on \(\delta_c\) in
+\eqref{eq:cov-shares} gives \(nB\delta_*\ge(1-\rho)W\). Hence
+\[
+ \sum a_c\ \ge\ B\delta_* Pnm-NW
+       \ \ge\ W\bigl(P(1-\rho)m-N\bigr),\qquad 0<W\le S .
+\]
+As \(m\ge(1-\rho)u-X-v\),
+\((1-\rho)m\ge(1-2\rho)u-X-v\). Subtract \(N\) and use
+\(0\le P\le T\) on the terms with a minus sign. The result is
+\[
+ P(1-\rho)m-N\ \ge\ -T(X+v)-u(6D+10+T(z+2\rho))
+              -A\log(\max(A,1))-4-R=:J .
+\]
+In fact the estimate before this last enlargement has \(6D+8\) in
+place of \(6D+10\), no \(Tz\), and \(2\) in place of \(4\).
+By construction \(J\le0\). If \(P(1-\rho)m-N\ge0\) then
+\(\sum a_c/S\ge0\). Otherwise multiplication by \(W/S\le1\)
+increases this negative quantity, so \(\sum a_c/S\ge J\) also in
+that case. Substituting \eqref{eq:cov-budgets} and using \(4\le4E\)
+proves \eqref{eq:cov-u}.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/MeanHeightDescent/AverageDegreeBounds/SumComponents.lean}{Component sum};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/UniformLowerBoundOfSums.lean}{specialization and common threshold}.}
+
+At a given arithmetic point and a nonterminal lift index \(i\), the cover
+supplies the finite set \(I\). For a quotient weight \(u_1\) the source
+takes \(h_c\) and \(\delta_c\) at \(u_1\), and \(a_c,d_c\) at the
+lower weight \(u_-\). In its notation, with \(P_0\) the size parameter,
+\[
+ T=\left\lceil P_0^2D^2 k/m_0\right\rceil,\qquad
+ B=\binom{T-1}{D},\qquad z=7(D^2/T+D\rho),
+\]
+where \(D\) is the flag dimension, \(k\) is the weight parameter,
+and \(m_0\) is the number of lifts. Here \(D,T\) are integers and
+\(T\ge3D+5\) gives \(B>0\). One first chooses \(u_1\) among the
+quotient weights guaranteed by the size condition. The degree and
+rank-share estimates give \eqref{eq:cov-shares} for this same weight.
+The component height estimate gives \eqref{eq:cov-shift} and the first
+three budgets; the arithmetic Hilbert--Samuel estimate gives
+\eqref{eq:cov-hs} and the fourth. The comparison for the sum of the
+component degrees gives the last inequality of \eqref{eq:cov-budgets},
+with \(\mu\) the cover slope at the weight indexed by \((u_-,0)\).
+The seven uniform inputs each hold beyond a threshold. Their maximum
+is a common threshold. Thus the constant \(C_U=2(3C_1+C_2+4)\)
+works for every such cover on the same family.
+
+\section{From the cover to the covolume of the theta lattice}
+\label{sec:cov-lattice}
+
+Fix a point, a lift index \(i\), and a cover at the required depth.
+Write \(M\) for its main term, \(E\) for its error unit and \(b\) for
+the scale in the norm bounds. Put \(K=P_0\kappa_i\), where \(\kappa_i\)
+is the weight size. The size bounds include \(1\le b\le E,\ b\le K\)
+and \(|M|\le K\). Write \(L_-\) for the cover lattice at the negative
+shift and \(L_d\) for the integral lattice at the target weight
+intersected with the prescribed type. Denote their squared-metric
+slopes by \(\mu_-\) and \(\mu_d\); this normalization gives degree
+equal to rank times slope, using squared norms at complex places.
+Let \(\mu_0\) be the core slope at the original point.
+
+The comparison for the flat line together with \eqref{eq:cov-u}
+gives \(\mu_-\ge-M-(C_F+C_U)E\), with \(C_F\) the constant in the
+flat-line comparison. The maps from \(L_-\) to \(L_d\) are integral,
+have zero common kernel, and satisfy a sum-of-squares norm bound
+with multiplier \(e^{2b}\). If there are \(j\) maps, the positive
+shift bounds \(j\,\mathrm{rk}(L_d)\) above, and its rank is at most
+\((1+b/K)\mathrm{rk}(L_-)\). The negative shift has positive rank.
+The target is spanned over the field by integral sections of norm
+at most \(e^K\) at each embedding. These are the hypotheses of the
+integral lattice descent estimate in the source. With \(C=C_F+C_U\)
+and \(t=-M-CE-2b\), that estimate gives
+\[
+                   \mu_d\ge t-(b/K)(|t|+2K).
+\]
+The comparison at the target ring gives \(\mu_0\ge\mu_d-2b\).
+To see the exact loss, set \(\xi=b/K\). Then
+\(\xi\le1,\ \xi K=b\), and
+\[
+ \xi |t|\le \xi|M|+\xi(CE+2b)\le b+CE+2b .
+\]
+Consequently \(\mu_0\ge-M-2CE-9b\ge-M-(2C+9)E\).
+At the terminal lift there is a separate defect bound with constant
+\(C_D\). Taking \(C_W=\max(C_D,2(C_F+C_U)+9)\) yields at every index
+\begin{equation}                 \mu_0\ge-M-C_WE .\label{eq:cov-low}\end{equation}
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LowerBoundOfAllEstimates.lean}{Cover lattices and the numerical loss};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LowOfCoverHypotheses.lean}{last-index alternative}.}
+
+\subsection{Removing the discarded subspace}
+Let \(F\) be totally complex, and let \(L\) be a nonzero finitely
+generated lattice in a hermitian \(F\)-space. Suppose \(e^2=e\), and at
+each complex embedding squared norms add for \(ex\) and \((1-e)y\).
+In the Gram realization write the inner product as conjugate-linear in
+its first entry. The norm identity first gives
+\(\Re\langle ex,(1-e)y\rangle=0\). At the chosen embedding pick
+\(a\in F\) with nonreal image, which exists because the place is complex.
+Applying the same identity with \(ax\) in place of \(x\) gives
+\(\Re(\overline{a}\langle ex,(1-e)y\rangle)=0\). These two equations
+force the inner product to vanish. Thus the image and kernel are
+orthogonal and \(e\) is self-adjoint.
+
+Let \(L_g=L\cap\mathrm{im}(e)\) and \(L_b=L\cap\ker(e)\), of ranks
+\(d_g,d_b\). Suppose \(g\ge1\) is an integer such that \(geL\subset L\).
+The map \(g(1-e)\) carries \(L\) into \(L_b\), its image \(J\)
+contains \(gL_b\), and its kernel on \(L\) is \(L_g\). Hence
+\(\operatorname{rk}L=d_g+d_b\) and \(J\) has rank \(d_b\).
+The hermitian quotient by the saturated kernel identifies isometrically
+at each embedding with the orthogonal projection onto \(\ker e\),
+before multiplication by \(g\). Equivalently the operator from the
+quotient to the image has norm at most \(g\). Taking determinants and
+using \(J\subset L_b\) of full rank gives the cut inequality
+\begin{equation}
+ (d_g+d_b)\,\mu(L)\le d_g\,\mu(L_g)+d_b\{\mu(L_b)+2\log g\}.
+ \label{eq:cov-cut}
+\end{equation}
+Indeed the squared archimedean determinant incurs at most \(g^{2d_b}\)
+per place; finite index in \(L_b\) can only decrease the degree of
+the image. Additivity of determinant degree in the saturated sequence
+for \(L_g\subset L\) gives \eqref{eq:cov-cut}. Products of rank and
+slope here mean degree, also on a rank-zero summand.
+
+Fix \(0\le\delta\le1/12\) and suppose \(d_b\le3\delta(d_g+d_b)\).
+Let \(Q\) bound the maximal slope of an ambient lattice containing \(L\),
+as well as \(2\log g\) and \(-\mu(L)\). Then \(Q\ge0\),
+\(d_g>0\), and \(d_b\le4\delta d_g\) since \(1-3\delta\ge3/4\).
+In \eqref{eq:cov-cut} the bad degree is at most \(d_bQ\) by the
+definition of maximal slope. Moving its terms to the left gives
+\[
+ d_g(\mu(L)-\mu(L_g))\le d_b(Q+2\log g-\mu(L))
+                 \le 3d_b Q\le12\delta d_gQ .
+\]
+This proves \(\mu(L_g)\ge\mu(L)-12\delta Q\), including the case \(d_b=0\).
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/MeanHeightDescent/AverageDegreeBounds/GoodBadCut.lean}{Integral cut and height of the image};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MajAtAddRight.lean}{orthogonality and the factor twelve}.}
+
+\subsection{The uniform conclusion}
+In the application \(L\) is the lattice of the prescribed type and
+\(L_g\) its retained part. Put \(\delta=\exp(-x^{\varepsilon_0/7})\),
+where \(\varepsilon_0>0\) is fixed on the family. The truncation
+provides the idempotent above, \(g\) the order of its finite group,
+and \(2\log g\le b\). The discarded rank is at most \(3\delta\,\mathrm{rk}L\).
+Suppose the maximal slope is bounded by \(x^A b\), \(|M|\le x^B b\),
+and \(\mu(L)\ge\mu_0-C_KE\) for \(C_K\ge0\). By \eqref{eq:cov-low},
+\(-\mu(L)\le M+(C_K+C_W)E\). Then
+\[
+ Q=(x^A+x^B+C_K+C_W+1)E
+\]
+dominates each of the three bounds required above. The condition
+\(12\delta(x^A+x^B+C_K+C_W+1)\le1\) also ensures \(\delta\le1/12\).
+It holds eventually because \(x^j\exp(-x^{\varepsilon_0/7})\to0\)
+for each real \(j\). Therefore \(\mu(L_g)\ge\mu(L)-E\).
+The preceding recursion gives the normalized log covolume at \(i\)
+at most \(-\mu(L_g)\). Combining the three inequalities yields
+\[
+  \frac{\log\operatorname{covol}_i}{D_{\rm norm}}
+      \le M+(C_K+C_W+1)E .
+\]
+Here the left side denotes precisely the lattice log covolume and
+normalization in the recursion at that index. All inequalities hold
+simultaneously above the maximum of the loss threshold and the
+thresholds in the eight uniform inputs. For each larger constant the
+conclusion persists because \(E\ge1\).
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CovolumeFromGramAndBounds.lean}{The pointwise bound};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/CovolXOfSteps.lean}{the uniform covolume conclusion}.}
+
+The cover degree, its rank share, its component height and
+Hilbert--Samuel bounds, and the recursive covolume comparison were
+inputs in this derivation. Their formal constructions enter through
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolG.lean}{the geometric assembly theorem}.

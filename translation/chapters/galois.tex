@@ -1,0 +1,296 @@
+% Requires amsmath, amssymb, hyperref.
+\section{The odd-prime estimate for the minus part}
+\label{sec:odd-prime-minus}
+
+The arithmetic window of \eqref{eq:entry-strict-length} bounds the full
+strict cohomology group. One of the estimates contributing to that
+bound is an inequality for its minus part at all odd primes. Two
+different calculations enter the inequality. Character valuations
+control the primes away from the degree of the auxiliary field. An
+annihilator controls the primes dividing the degree. The sums below
+retain their factors of \(\log\ell\) throughout.
+
+\subsection{Statement for a fixed field and range of twists}
+
+Write \(E\) for the auxiliary CM field, \(D=[E:\mathbb Q]\), and
+\(F\) for its conductor, the least positive integer such that \(E\)
+embeds in \(\mathbb Q(\zeta_F)\). For an odd prime \(\ell\) and
+\(k\ge1\), let \(m_{\ell,k}\) be the \(\mathbb Z_\ell\)-length of the
+minus part of the strict group for the twist \(-k\). More precisely,
+if \(c\) acts on the twisted cohomology by complex conjugation, the
+minus part is \(T_{\ell,k}(E)\cap\ker(c-(-1)^{k+1})\). The plus part
+has eigenvalue \((-1)^k\). Conjugation preserves the strict kernel and
+squares to the identity. Since \(2\) is a unit in \(\mathbb Z_\ell\),
+the two operators \((1+(-1)^kc)/2\) and \((1-(-1)^kc)/2\) restrict to
+complementary idempotents of the strict kernel. They give a direct sum
+of these subgroups and hence additivity of the two lengths, even
+before finiteness has been established.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LengthEqAddEigen.lean\#L68-L103}{Parity and length additivity for odd primes}.}
+
+Fix a positive integer \(m\), a subgroup
+\(H\subseteq(\mathbb Z/m\mathbb Z)^\times\), and put
+\(d_0=[(\mathbb Z/m\mathbb Z)^\times:H]\). Choose \(e\ge2\) and
+primes \(q\equiv3\bmod8\), \(d\equiv7\bmod16\) with
+\(\gcd(qd,m)=1\). In the field construction of
+Section~\ref{sec:entry-assembly}, replace the test \(\psi(u)=1\)
+by \(u\bmod m\in H\). Then
+\[
+       \ell\mid D,\quad \ell\ne2\quad\Longrightarrow\quad
+       \ell\mid d_0
+       \qquad(\ell\text{ prime}).
+\]
+To prove this divisibility, choose the cyclotomic field in the
+definition of \(E\), and let \(M\) be the order of its chosen
+primitive root. Each automorphism raises the root to a power \(u\)
+prime to \(M\). Let \(h=2^{e+1}d_0\). Since
+\(\varphi(2^{e+2})=2^{e+1}\), we have \(u^h\equiv1\bmod 2^{e+2}\).
+The class of \(u\) modulo \(H\) has order dividing \(d_0\), so
+\(u^h\bmod m\in H\). The exponent \(h\) is even and hence both
+quadratic symbols of \(u^h\) are \(1\). It follows from the
+fixed-field definition that the \(h\)-th power of every cyclotomic
+automorphism fixes \(E\). Its fixing subgroup is normal since the
+cyclotomic Galois group is abelian, and the quotient has order
+\([E:\mathbb Q]=D\). For any prime \(\ell\mid D\), Cauchy's theorem
+now gives a quotient element of order \(\ell\). Its \(h\)-th power is
+the identity, so \(\ell\mid h\). When \(\ell\) is odd this implies
+\(\ell\mid d_0\), as asserted.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/StmtFields.lean\#L11-L45}{The cyclotomic field and subgroup data},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/DegExistsLift.lean\#L33-L99}{Powering in the cyclotomic quotient and the degree divisibility}.}
+
+There is an absolute \(C\ge0\) from the annihilator estimate
+such that, for every integer \(t\ge2\), every finite set \(S\) of
+odd primes, and every allowed choice of local data, the lengths
+\(m_{\ell,k}\) with \(1\le k<t\) are finite and
+\begin{align}
+ \sum_{\ell\in S}(\log\ell)\sum_{k=1}^{t-1}m_{\ell,k}
+ &\le 3Dt^2\log(tF) \notag\\
+ &\quad{}+
+ C\sum_{\substack{\ell\mid d_0\\\ell\ {\rm odd\ prime}}}
+       \ell D^2t^2\bigl(\log(t\ell F)\bigr)^2 .
+ \label{eq:galois-odd-minus-bound}
+\end{align}
+The same \(C\) works for all the fields and all the finite sets of primes.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ThmBcOfPsiBound.lean\#L147-L177}{The field conductor and the split according to its degree},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ThmBcOfPsiBound.lean\#L266-L295}{the uniform odd-prime conclusion and its inputs}.}
+
+\subsection{Primes dividing the degree}
+
+For an odd \(\ell\) the annihilator input gives a nonnegative integer
+\(r\) killing the minus subgroup by multiplication by \(\ell^r\), with
+\[
+       r\log\ell\le C_0D(k+1)\log(k\ell F)
+\]
+for one absolute \(C_0\ge0\). A second input gives an integer \(g\)
+bounding the length of the subgroup killed by \(\ell\) in the
+ambient global \(H^1\), with \(g\le 8\ell D\log(\ell F)\).
+
+To see exactly how these estimates combine, let \(P\) be the minus
+subgroup and \(P_i=P[\ell^i]\). Its filtration starts with \(P_0=0\)
+and ends with \(P_r=P\). Multiplication by \(\ell^{i-1}\) embeds
+\(P_i/P_{i-1}\) into the \(\ell\)-torsion of the ambient global group.
+Indeed its image is killed by \(\ell\), and the kernel on \(P_i\) is
+exactly \(P_{i-1}\). Thus \(\operatorname{length}P\le rg\), including
+the case \(r=0\). This proves finiteness. Since all factors are
+nonnegative and \(\log(\ell F)\le\log(k\ell F)\), it also gives
+\begin{align}
+ m_{\ell,k}\log\ell
+ &\le (r\log\ell)g \notag\\
+ &\le 8C_0\ell D^2(k+1)\bigl(\log(k\ell F)\bigr)^2 .
+ \label{eq:galois-annihilator-length}
+\end{align}
+Set \(C=8C_0\). This estimate actually applies at every odd \(\ell\).
+Using it only for \(\ell\mid D\) keeps its factor of \(\ell\) out
+of the unbounded prime sum.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ThmBcOfPsiBound.lean\#L15-L39}{The annihilator, generator estimate and resulting finite length with constant \(8C_0\)}.}
+
+\subsection{The character sum away from the degree}
+
+Let \(\rho:(\mathbb Z/F\mathbb Z)^\times\to
+\operatorname{Gal}(E/\mathbb Q)\) be the cyclotomic action. It is
+surjective, and \([\left(\mathbb Z/F\mathbb Z\right)^\times:\ker\rho]=D\).
+For a fixed \(k\), let \(\mathcal C\) be the set of complex characters
+trivial on \(\ker\rho\) such that \(\chi(-1)=(-1)^{k+1}\).
+Passing to the quotient embeds
+\(\mathcal C\) in the character group of
+\((\mathbb Z/F\mathbb Z)^\times/\ker\rho\). The complex character
+group of a finite abelian group has its order, so
+\(\lvert\mathcal C\rvert\le D\).
+
+Here are the valuation estimates used for this step. For
+\(\ell\nmid 2D\) the characterwise input gives finiteness of
+\(m_{\ell,k}\) and a finite set \(T_\ell\) of allowed \(\ell\)-adic
+characters with
+\[
+     m_{\ell,k}\log\ell
+       \le\sum_{\chi\in T_\ell}-\log
+              \lvert\alpha_F(k+1,\chi)\rvert_\ell.
+\]
+To specify the normalization, write \(f\) for the conductor of \(\chi\)
+and \(\chi^*\) for the primitive character inducing it. With \(B_j(X)\)
+the \(j\)-th Bernoulli polynomial, the scalar is
+\[
+    \alpha_F(j,\chi)=F\!\!\prod_{\substack{p\ {\rm prime}\\p\le j+1}}\!p
+          \,\cdot f^{j-1}\sum_{a=1}^f\chi^*(a)\,B_j(a/f).
+\]
+The product-valuation estimate gives nonnegative integers \(w_\ell\),
+the same ones for
+all these choices, such that
+\begin{align*}
+  \sum_{\chi\in T_\ell}-\log
+              \lvert\alpha_F(k+1,\chi)\rvert_\ell
+       &\le w_\ell\log\ell,\\
+  \sum_{\ell\in S'}w_\ell\log\ell
+       &\le\lvert\mathcal C\rvert\log B(F,k+1),&
+ B(F,j)&=16F^{j+1}j!
+\end{align*}
+for each finite prime set \(S'\). Applying the first inequality to
+each member of an arbitrary \(S'\) disjoint from the divisors of
+\(2D\), and then using the second, yields
+\begin{equation}\label{eq:galois-good-prime-sum}
+      \sum_{\ell\in S'}m_{\ell,k}\log\ell
+          \le D\log B(F,k+1).
+\end{equation}
+The last inequality uses \(B(F,k+1)\ge1\). The characterwise input and
+the product-valuation estimate are the two arithmetic premises of
+this deduction.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ThmBcOfPsiBound.lean\#L41-L108}{The quotient-character injection, valuation estimates and sum over primes},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ZeroMemUnrHom.lean\#L79-L110}{the characterwise arithmetic estimates},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/BernoulliNumbers/MapGenBChar.lean\#L9-L31}{Bernoulli and denominator conventions}.}
+
+\subsection{Summing over the twists}
+
+If \(1\le k<t\), then \(tF\ge2\) and \(k+1\le t\). Consequently
+\[
+  16\le(tF)^4,\qquad F^{k+2}\le(tF)^{t+1},\qquad
+  (k+1)!\le(k+1)^{k+1}\le(tF)^t.
+\]
+Multiplying and taking logarithms gives
+\(\log B(F,k+1)\le(2t+5)\log(tF)\). For the primes in \(S\) away
+from \(D\), interchange the two finite sums in
+\eqref{eq:galois-odd-minus-bound} and apply
+\eqref{eq:galois-good-prime-sum} at each \(k\). The result is at most
+\[
+     D(t-1)(2t+5)\log(tF)\le 3Dt^2\log(tF),
+\]
+since \(3t^2-(t-1)(2t+5)=t^2-3t+5>0\).
+
+For a remaining prime use \(k+1\le t\) and
+\(0\le\log(k\ell F)\le\log(t\ell F)\) in
+\eqref{eq:galois-annihilator-length}. Its contribution for all twists is
+at most \(C\ell D^2(t-1)t(\log(t\ell F))^2\), hence at most
+\(C\ell D^2t^2(\log(t\ell F))^2\). Every such \(\ell\) is an odd
+prime divisor of \(d_0\). Enlarging the sum to all these divisors
+only adds nonnegative terms. Adding the two bounds proves
+\eqref{eq:galois-odd-minus-bound}. The proof applies at each fixed
+field and range of twists, so it can be applied at \(e(x),q,d\) and
+\(t=\lfloor x^{401}\rfloor\) as soon as those data meet the field
+construction's hypotheses.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ThmBcOfPsiBound.lean\#L110-L145}{The factorial and conductor estimate},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/OddResidueBounds/ThmBcOfPsiBound.lean\#L178-L289}{summing the two ranges}.}
+
+In the passage to \eqref{eq:entry-strict-length} this odd-prime
+estimate is combined with the dyadic and fixed-prime estimates, the
+other cohomological counts and the global window construction. The
+source applies the odd-prime theorem to its characterwise comparison
+obtained from Poitou--Tate duality and the supplied odd-prime
+input.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean\#L18-L22}{Application inside the proof of the full window},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean\#L25-L34}{the automorphic hypotheses furnishing the other counts}.}
+
+\section{The conjugate weights of the global Galois representation}
+\label{sec:galois-parallel-weight}
+
+Let \(E/E^+\) be a CM field with maximal totally real subfield \(E^+\)
+and complex conjugation \(c\). Fix \(a\ge1\) and let \(\pi\) be regular
+algebraic and cuspidal on \(\mathrm{GL}_a\) over \(E\), polarized by a
+Hecke character \(\chi\) of \(E^+\). For a complex embedding \(\sigma\)
+let \(I_\sigma\) be the multiset of infinitesimal-character parameters
+of \(\pi\). We derive the integer \(b\) and the multisets \(H_\tau\)
+required by Section~\ref{sec:entry-assembly}. The relation with the
+actual jumps of the Galois representation uses the local de Rham
+comparison at the end of the argument.
+
+\subsection{The exponent at infinity of the polarizing character}
+
+Let \(\psi=\chi\circ\operatorname{N}_{E/E^+}\), and write \(s_\sigma\)
+for the exponent of its archimedean character at \(\sigma\). The
+infinitesimal-character rules for twisting and contragredients, applied
+to the invariant pairing expressing the polarization, give
+\begin{equation}\label{eq:galois-inf-char}
+    I_{\sigma c}=\{-(z-s_\sigma):z\in I_\sigma\}.
+\end{equation}
+Here twisting by \(\psi^{-1}\) adds \(-s_\sigma\), and passage across
+the pairing negates the resulting parameter. The multiset \(I_\sigma\)
+has cardinality \(a\ge1\). Take one member \(z\). Regular algebraicity
+gives \(z=(a-1)/2+n\), and likewise
+\(s_\sigma-z=(a-1)/2+n'\), for integers \(n,n'\). Adding shows
+\[
+                  s_\sigma=a-1+n+n'\in\mathbb Z.
+\]
+The pullback by the norm gives \(s_{\sigma c}=s_\sigma\). Hence these
+integers give a well-defined \(s_\phi\) indexed by the real embeddings
+\(\phi:E^+\to\mathbb R\).
+
+For \(x\in(E^+)^\times\) totally positive, put
+\(u_\phi=\exp(\tfrac12\log\phi(x))\) and regard \(u\) as a positive
+idele at the complex places of \(E\), equal to \(1\) at finite places.
+Its norm to \(E^+\) has archimedean components \(\phi(x)\). Evaluating
+the archimedean character of \(\psi\) at \(u\) multiplies the two
+equal contributions above each real embedding. It follows that the
+archimedean component of \(\chi\) satisfies
+\begin{equation}\label{eq:galois-inf-weight}
+              \chi_\infty(x)=\prod_\phi\phi(x)^{s_\phi}.
+\end{equation}
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIsWeight.lean\#L25-L67}{The invariant pairing, integrality and conjugation of the exponents},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIsWeight.lean\#L67-L138}{the norm at the archimedean places}.}
+
+In fact \(s_\phi\) is independent of \(\phi\). To see this in the form
+used in the construction, take a unit \(v\) of \(E^+\). The finite
+idele of \(v\), raised to the powers \(j!\), converges to \(1\).
+Indeed the image of \(v\) in the unit group of every finite quotient
+by a nonzero ideal has finite order, which divides \(j!\) eventually.
+These congruences prove convergence in the product of the local unit
+groups. Continuity of \(\chi\) shows that the modulus of its value
+on this finite idele is \(1\), since a positive real \(r\) with
+\(r^{j!}\to1\) must be \(1\). The value on the full principal idele
+is \(1\), so \(\lvert\chi_\infty(v)\rvert=1\). Apply
+\eqref{eq:galois-inf-weight} to the totally positive element \(v^2\)
+and take logarithms to obtain
+\[
+               \sum_\phi s_\phi\log|\phi(v)|=0.
+\]
+By the product formula also \(\sum_\phi\log|\phi(v)|=0\). Choose
+\(\phi_0\) minimizing \(s_\phi\). In degree one the exponents are
+already constant. In higher degree, Dirichlet's unit theorem gives a
+unit \(v\) with \(\log|\phi(v)|<0\) for all \(\phi\ne\phi_0\), since
+the full log-unit lattice in the sum-zero hyperplane meets the open
+cone given by those strict inequalities. Subtracting \(s_{\phi_0}\) times the
+product formula from the preceding equality for this \(v\) gives
+\[
+         \sum_\phi (s_\phi-s_{\phi_0})\log|\phi(v)|=0 .
+\]
+Every summand is nonpositive, and a strict increase in any of the
+integers \(s_\phi\) would make its summand negative. Thus there is
+one integer \(s_0\) common to all the embeddings.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/BuildingsResidueChars/HeckeCharParallelWeight.lean\#L39-L87}{Convergence of factorial powers of the finite unit idele},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/BuildingsResidueChars/HeckeCharParallelWeight.lean\#L178-L287}{the minimum exponent and the choice of unit}.}
+
+\subsection{Computing the jumps at conjugate embeddings}
+
+Set \(b=a-1-s_0\). Equation~\eqref{eq:galois-inf-char} gives
+\(I_{\sigma c}=\{a-1-b-z:z\in I_\sigma\}\). If
+\(\iota:\overline{\mathbb Q}_\ell\to\mathbb C\) is the fixed
+coefficient field isomorphism, define
+\[
+       H_\tau=\{(a-1)/2-z:z\in I_{\iota\tau}\}
+\]
+for each \(\tau:E\hookrightarrow\overline{\mathbb Q}_\ell\).
+Each member is an integer by regular algebraicity. In the multiset
+for \(\tau c\), the term belonging to \(a-1-b-z\) equals
+\[
+       (a-1)/2-(a-1-b-z)=b-\bigl((a-1)/2-z\bigr).
+\]
+This proves \(H_{\tau c}=\{b-h:h\in H_\tau\}\) with multiplicity.
+For each local embedding in the scope of the de Rham comparison,
+its jumps clause identifies \(H_\tau\) with the jumps at \(\tau\),
+using exactly the displayed infinitesimal-character formula as its
+hypothesis. Thus the same choice of \(b\) and \(H_\tau\) works at
+each such place of the global representation.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsIsWeight.lean\#L138-L150}{The formula for the global weight},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/InertCharpoly/GaloisLocalGlobalOfLocalGlobalCompatibility.lean\#L127-L171}{integral weights, conjugate weights and their occurrence in the local comparison}.}

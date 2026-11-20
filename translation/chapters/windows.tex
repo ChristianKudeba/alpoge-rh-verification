@@ -1,0 +1,170 @@
+\section{Common windows for the prime pairs and the Selmer estimate}
+\label{sec:rh-common-windows}
+
+Fix a primitive character $\psi$ of conductor $m$, $0<\epsilon<1/52$,
+and a scale factor $c\ge1$. Put $z=U^{\epsilon/5}$,
+$z'=z(\log U)^2$, $P=\exp z$, and $D=\exp z'$. For every fixed $A\ge1$
+all sufficiently large $U$ admit primes $q,d$ with $P^{1/2}<q\le P$,
+$D^{1/2}<d\le D$, and $(m,qd)=1$. They satisfy $q\equiv3\bmod 8$,
+$d\equiv7\bmod16$, $q\mid d+1$, and $p\mid d+1$ for every odd prime
+$p\le z$. For every character $\xi$ modulo $m$, every nonzero
+$(i,j)\in\{0,1\}^2$, and every primitive character $\chi$ inducing
+$\xi(\frac{\cdot}{q})^i(\frac{\cdot}{d})^j$ on units prime to $2mqd$,
+this same choice gives
+\[
+ |G_\chi(y)|\le y^{1/2+\epsilon/2},\qquad
+ |L'(1,\chi)/L(1,\chi)|\le4\log y\qquad (U\le y\le U^A).
+\]
+Here $G_\chi$ is the complex centered prime sum. For any primitive real
+$\rho$ with conductor dividing $8m$ in place of $\xi$, the corresponding
+inducing character has no zero for $\Re s>1-1/400$ and
+$|\Im s|\le8mPD^j$. These are the conclusions of \texttt{PairGood}.
+
+\subsection{Simultaneous choice of the primes}
+
+The first candidates are the primes in $(\sqrt P,P]$ congruent to
+$3\bmod8$. For each candidate $q$, the second candidates are the primes
+in $(\sqrt D,D]$ congruent to $7\bmod16$ and to $-1$ modulo $q$ and
+all odd primes at most $z$. These congruences form a single reduced
+residue class modulo $16q\prod_{2<p\le z}p$ for all sufficiently
+large $U$, with the product taken over primes. For every fixed
+$\eta>0$ the estimates \texttt{stage1} and \texttt{stage2} exclude
+at most an $\eta$ fraction in each selection. The second estimate is
+uniform in the first candidate. Both candidate sets are nonempty.
+Taking $\eta=1/2$ leaves a $q$ meeting every first-stage requirement,
+then a $d$ meeting every requirement for that $q$. In the first stage
+the family comprises the primitive representatives of all characters
+modulo $8m$. In the second these characters are multiplied by
+$(\frac{\cdot}{q})^i$, $i=0,1$, before taking primitive representatives;
+the number of characters to test is at most twice the number modulo
+$8m$. For large $U$, $d>q>8m$.
+
+Here are the exceptional-set bounds in \texttt{StagePow}. Write $V$
+for the upper endpoint of the candidate progression, $\mathcal P$ for
+the candidate set, and $F$ for the maximum allowed base conductor.
+Then $1\le F\le\sqrt V$, each candidate exceeds $F$, and the
+prime-progression lower bound in the admissible ranges gives
+$|\mathcal P|\ge V^{9/10}$. For $Q\ge3$ the zero-density input
+\texttt{CountZAll.zero\_density\_box} bounds the number of primitive
+characters of conductor at most $Q$ with a zero in
+$\Re s>1-1/400,\ |\Im s|\le Q$ by $C Q^{1/4}$.
+For a failing prime $p$, choose one bad primitive twist. Its conductor
+equals $fp$ with $1\le f\le F$. Distinct primes yield distinct
+characters: equality gives $fp=f'p'$, hence $p\mid f'p'$ and
+$p=p'$ since $0<f'<p$. Taking $Q=FV$ bounds the number discarded by
+$CV^{3/8}$, at most $(\eta/2)|\mathcal P|$ once $V$ is large.
+The zero-density theorem imports mollifier zero detection, a block
+large-sieve estimate and a coefficient-square bound.
+
+The second exceptional set concerns a bad value at some real point,
+which can depend on the prime. With a fixed truncation $T$ put
+\[
+  S_p(y)=\sum_{n\le T}\Lambda(n)\min(1,y/n)\kappa(n)
+                             (\tfrac np),\qquad |\kappa(n)|\le1 .
+\]
+The mean-square input \texttt{meanSqK} gives
+$\sum_{p\in\mathcal P}|S_p(y)|^2\le C y\log y\,|\mathcal P|$
+uniformly in the permitted $y$ and in $\kappa$. Let $D_p(y)$ denote
+the piecewise derivative in $y$. Then $yD_p(y)$ equals $S_p(y)$ with
+$\kappa(n)$ replaced by $\kappa(n)\mathbf 1_{n>y}$ away from its
+finitely many corners. Thus $\sum_p|D_p(y)|^2\le C(\log y)|\mathcal
+P|/y$. For $L\le W\le2L$, integration and Cauchy--Schwarz give
+\[
+  \sup_{L\le y\le W}|S_p(y)|^2
+      \le 2|S_p(L)|^2+2L\int_L^W|D_p(v)|^2\,dv.
+\]
+Sum over $p$ and apply the two mean-square bounds. The result is
+$O(CL\log(2L)|\mathcal P|)$. Markov's inequality bounds the fraction
+with $|S_p(y)|>y^{1/2+\tau}/2$ at some point in the block by
+$O(C\log(2L)L^{-2\tau})$. For any fixed $\tau>0$ the explicit
+relaxation used in \texttt{BadShare} at large $L$ is
+$(32C/\tau)L^{-\tau}$. Summing over blocks starting at $2^hU$ bounds
+the total fraction by $(32C/\tau)U^{-\tau}/(1-2^{-\tau})$, uniformly
+in the upper endpoint. For at most $R$ multipliers, take the last
+fraction at most $\eta/(2(R+1))$ and use the union bound. Including
+the zero-density exceptions gives at most $\eta|\mathcal P|$ in total.
+\texttt{BoxOfS} supplies the explicit-formula comparison to the twists.
+Take $\tau=\epsilon/2$. The constant four for the logarithmic derivative
+comes from \texttt{kappa4} at heights $H=8mPD^j$ satisfying
+$U^{\epsilon/6}\le\log H\le3U^{\epsilon/5}(\log U)^2$.
+The prime-progression, mean-square, zero-density and explicit-formula
+inputs cited here have separate proofs in the source.
+
+\subsection{Transferring both estimates to one interval}
+
+Take $a(u)$ with $u^{2+8\epsilon}\le2^{a(u)}\le2u^{2+8\epsilon}$ for
+$u\ge1$. Apply the strict window theorem to obtain $J\ge1,X_0$, and
+the good-pair theorem with $A=J$ to obtain $U_0$. Set
+$k=c^{1/(2+8\epsilon)}$. Given $y_0$, choose
+$M\ge\max(1,y_0,U_0,k^3,k^{400})$ and $X\ge\max(X_0,M^J)$.
+Set $U=X^{1/J}$. Choose one good pair at $U$ through $U^J=X$.
+Apply the strict window theorem to this $X,q,d$. It supplies $W\ge U$
+with $W^2\le X$ and the strict estimates throughout $[W,W^2]$.
+
+Put $Z=kW$. Since $k^3\le W$, we have $Z^{3/2}\le W^2$. For every
+$x\in[Z,Z^{3/2}]$ the point $u=x/k$ satisfies $W\le u\le x\le W^2$.
+Set $e=a(u)$. Then $x^{1/J}\le U\le x$ and the same $q,d$ work for
+every argument from $U$ to $x$. Furthermore
+\[
+ x^{2+8\epsilon}\le c2^e\le2x^{2+8\epsilon},
+ \qquad x^{400}=k^{400}u^{400}\le u^{401}.
+\]
+For every field $E$ realizing the specified fixing subgroup for
+$(\psi,e,q,d)$, apply the strict estimate at $u$, shorten the range
+of twists, and increase the right side using $u^\epsilon\le x^\epsilon$.
+This gives $\mathrm{VVle}(E,\lfloor x^{400}\rfloor,
+\sqrt{\exp(x^\epsilon)})$ as in \texttt{WinPairs.winPairs}.
+Here $Z\ge y_0$ and $q,d$ stay fixed on the whole indicated interval.
+
+\subsection{The family used in the analytic ending}
+
+The level $\Lambda$ consists of the primitive representatives of the
+powers of $\psi$, including $\psi$ and the primitive trivial character.
+The weight is one for the trivial member and the distinguished member
+if present, and $1/(3\Lambda.o+1)$ for every other member. Thus the
+weighted centered sum $G_\Lambda$ is fixed once $\psi$ is fixed. The
+host requirement $G_\psi$ asks for the character comparisons
+$\mathrm{EAtH}(\Lambda,H,T,x,\epsilon,4)$ together with the strict
+bound $\mathrm{VVle}(E,t,\sqrt b)$ on that same host. In
+\texttt{supplyOfAdmOf} the admissible-rank construction yields the
+host. The prime rows and twist estimates give the first conjunct.
+The fixing subgroup identifies its field with the field of the strict
+estimate, and $t\le x^{400}$ gives the second conjunct. The resulting
+host supply \texttt{supplyChi} has window exponent $\lambda=3/2$.
+
+In \texttt{topDesWin} the closed estimates for the level, divisibility,
+auxiliary character, irreducibility, small-level rank, selected rank,
+and the three comparisons $G,S,\mathrm{GLOBAL}$ are conjoined. Their
+conjunction gives a positive $\epsilon_1$ and, for each sufficiently
+small fixed $\epsilon$, one lower-bound tuple $K$ for all nine.
+Design existence gives a positive $\epsilon_3$ and quantifies over
+every such $K$. Take $\epsilon<\min(\epsilon_1,\epsilon_3)$ and
+select $K$ before selecting the design family. On the resulting
+family its two size bounds, level and character comparisons and
+strict Selmer estimate imply the divisibility relation. Its rank
+conclusions then give the required multiplicity relation and the
+global comparison supplies the chain. In \texttt{shapeWin} the
+specific exponents passed into this argument are $e_D=2,e_L=0$.
+The nine comparison inputs are imported here.
+
+Consequently for some $\epsilon_0>0$ and every $0<\epsilon<\epsilon_0$
+there is a family with a scale set $S$ containing arbitrarily late
+intervals $[Z,Z^{3/2}]$. Beyond its threshold every host index
+satisfies the same character comparison with constant four. On its
+sufficiently large scales in $S$ the compatible chain gives, by
+\texttt{tiedCore\_of\_chainTied}, a host index witnessing the core
+numerical comparison. The character comparison applies to that index
+because it applies to all indices. Beyond the maximum of the three
+thresholds for the chain, the character comparison and
+\texttt{core\_gm}, the latter estimate yields
+\[
+        G_\Lambda(x)\le x^{1/2+(e_D+e_L+7)\epsilon}\qquad(x\in S).
+\]
+For $\Re s>1/2$, put $b=\tfrac12\min(\Re s-1/2,1/2)$ and
+$C=e_D+e_L+7$. With $\epsilon=\min(\epsilon_0/2,b/(|C|+1))$ one
+gets $C\epsilon\le b$ and $1/2<\theta=1/2+b<\min(1,\Re s)$.
+Given any lower endpoint, choose an entire interval above it, above
+one, and beyond all three thresholds. Throughout it $G_\Lambda(x)
+\le x^\theta$. The analytic window criterion now gives
+$L(s,\psi)\ne0$. This is the deduction in
+\texttt{zeroFreeAll\_of\_topG} from \texttt{level\_of\_tiedWin}.

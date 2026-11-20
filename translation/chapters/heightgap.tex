@@ -1,0 +1,152 @@
+\section{A bound for the height error at each member of a window}
+\label{sec:height-gap}
+
+The finite Fourier calculation uses an upper bound for a difference
+\(\mathrm{ASK}-\mathrm{Main}\). It is important that this bound holds at
+each member of a finite family. An upper bound on its mean over the
+family would leave individual prime sums uncontrolled. We translate
+the pointwise slope calculation which produces the error before its
+terms are estimated by powers of the scale.
+
+Fix a member of the family and write \(W\ne\varnothing\) for its
+finite set of words and \(d_u>0\) for the weight of \(u\in W\).
+Write \(\langle f\rangle=\sum d_u f_u/\sum d_u\). For each word let
+\(\nu_u,\nu_u^+,\mu_u,\mu_u^+\) denote respectively the slope and
+maximal slope of its target and source lattices. Write \(h_u\) for its
+height, \(T_u>0\) for its count, and \(E_u\) for its exponent sum.
+Let \(G,F,\mu_C,\mu_C^{\min}\) be the quantities denoted
+\(\mathrm{Ga},\mathrm{Fo},\mu_{\mathrm{CC}},\mu_{\min,\mathrm{CC}}\)
+at this member. Set
+\[
+ s=\langle\nu_u-h_u\rangle,\qquad
+ z=\max_{u\in W}(\nu_u^+-h_u)-s .
+\]
+Since \(\nu_u\le\nu_u^+\), we have \(z\ge0\).
+
+Let there be \(n_T\) top indices \(t\) with weights \(a_t\ge0\).
+Put \(A=\sum_t a_t\). Write \(m\) for the chain length, \(f>0\) for
+the number of geometric components, \(v>0\) for the volume parameter,
+\(w_{j\rho}>0\) for the local weights, and \(g\) for the exponent
+parameter \(\mathrm{lg}\). The notation \(L_a,L,a,b,b',k\) and
+\(B_0,N_c,X''\) is local to this section, with \(k,b>0\). The
+constants denoted by \(c\) with subscripts below are those of the
+window in the source. We keep separate the upper error in the count,
+the cost of division, and the loss in passing to the quotient. Put
+\begin{align*}
+ C_T&=c_{\rm count}(L_a+m^2L_a/k),\\
+ \lambda&=\sum_{j=1}^m f^{-1}\sum_{\rho=1}^f
+            \log(w_{j\rho}v/\pi)+mg-C_T,\\
+ E_D&=c_{\rm div}n_TaL_a+
+          c_{\rm div}m(B_0+N_c)x^{e_{\rm div}\varepsilon},\\
+ S_-&=c_{\rm slope}n_TaL_a(1+m/k),\qquad
+ S_+=c_{\rm slope}n_TaL_a,\\
+ P&=c_{\rm loss}n_Tmbx^{e_{\rm loss}\varepsilon},\\
+ L_u&=c_1\mathrm{IO}+c_1 n_Tm(a/k+b')\log T_u+c_1 X''+1 .
+\end{align*}
+Here \(\mathrm{IO}\) is the local loss and \(c_1,n_T,m,a,b'\ge0\).
+The two quotient-slope comparisons read
+\begin{align*}
+ \nu^+_u&\le\mu_u^++G+F-E_u+c_1mB_0,\\
+ \nu_u&\ge\mu_u+G+F-E_u-L_u .
+\end{align*}
+The slope bounds give \(-S_-\le\mu_u\) and \(\mu^+_u\le S_+\).
+The exponent, height and count comparisons used here give
+\begin{align*}
+ |E_u-mAg|&\le c_E m B_0,\\
+ |(h_u+A\log T_u)-(h_{u'}+A\log T_{u'})|
+       &\le c_H(n_T a L_a+mB_0),\\
+ \lambda\le\log T_u&\le c_{\rm count}mL,\qquad
+ |\log T_u-\log T_{u'}|\le c_{\rm count}\log k.
+\end{align*}
+Assume also \(\mathrm{ASK}-G\le P,\ \mathrm{IO}\le P\). These
+pointwise hypotheses are quantitative inputs from earlier parts of
+the construction.
+
+\paragraph{Cancellation of the common exponent.}
+Put \(\omega=\gamma+\log(\pi/v)-\mathcal L\), where
+\(\mathcal L\) denotes the source's logarithmic-derivative parameter.
+Let
+\[
+ D_0=m\sum_t(a_t\log a_t-a_t-a_t\omega).
+\]
+Terms with \(a_t=0\) are interpreted by continuity. The division
+inequality is \(\mu_C+h_u-F\le D_0-A\log T_u+E_D\).
+Insert it in the lower quotient comparison. For every \(u\) this
+gives
+\[
+ \nu_u-h_u\ge G+\mu_C
+          -S_- -m(Ag+c_EB_0)-D_0+A\lambda-E_D-L_u .
+\]
+Expanding \(\lambda\) and \(\omega\) yields the identity
+\begin{align*}
+ D_0-A\lambda+mAg
+  &=\mathrm{Main}+AC_T,\\
+ \mathrm{Main}
+  &=\sum_{j=1}^m\sum_t a_t\!
+  \left(\log a_t-1-\gamma+\mathcal L
+               - f^{-1}\sum_\rho\log w_{j\rho}\right).
+\end{align*}
+Indeed the \(mg\) terms cancel first, and
+\(\log(\pi/v)+\log(w_{j\rho}v/\pi)=\log w_{j\rho}\).
+Taking the weighted mean proves
+\begin{equation}
+  G+\mu_C-\mathrm{Main}-K_0-\langle L\rangle \le s,\qquad
+  K_0=AC_T+E_D+mc_EB_0+S_- .
+  \label{eq:height-gap-lower}
+\end{equation}
+
+\paragraph{Variation from word to word.}
+For two words \(u,u'\), subtracting the two exponent bounds and the
+height comparisons gives
+\[
+  (-E_u-h_u)-(-E_{u'}-h_{u'})\le V,\quad
+  V=2mc_EB_0+c_H(n_TaL_a+mB_0)+Ac_{\rm count}\log k.
+\]
+Subtract the lower quotient comparison at \(u'\) from the upper
+one at \(u\). The terms \(G,F\) cancel. After subtracting the heights
+the result is at most \(K_3+L_{u'}\), with
+\(K_3=S_-+S_++V+c_1mB_0\). Taking the mean over \(u'\) and the
+maximum over \(u\) yields \(z\le K_3+\langle L\rangle\). By the
+upper bound on \(\log T_u\) and the bound on \(\mathrm{IO}\),
+\[
+ \langle L\rangle\le M_L
+    :=c_1P+c_1 n_Tm(a/k+b')c_{\rm count}mL+c_1X''+1 .
+\]
+
+\paragraph{The logarithmic term.}
+The slope inequality on the common lattice gives
+\[
+ s-\mu_C\le\log |W|+
+ \frac{4z\log(1+H/z)+(\eta+4\sqrt e)H}{1-\delta}
+\]
+when \(s-\mu_C^{\min}\le H,\ H>0,\ 0\le\delta<1,\ 0\le e\le1/4\)
+and \(\eta\ge0\). At \(z=0\) use the continuous value zero for the
+product. Suppose \(H\le Xb\), \(X=x^{c_{HH}}>0\).
+For \(z>0\), the tangent-line inequality for the logarithm gives
+\[
+ z\log(1+H/z)
+ \le z\log(1+X)+\frac{H-Xz}{1+X}
+ \le (z+b)\log(1+X).
+\]
+The last inequality uses \(X/(1+X)\le\log(1+X)\), by integrating
+\((1+t)^{-1}\) from \(0\) to \(X\). This holds at \(z=0\) as well.
+If the window gives uniform bounds
+\(\delta\le\bar\delta<1,\ \eta\le\bar\eta,\ e\le\bar e\le1/4\),
+the nonnegativity of all numerator terms gives
+\begin{align}
+ \mathrm{ASK}-\mathrm{Main}
+  &\le K_0+\log|W|+P+M_L \notag\\
+  &\quad+
+    \frac{4\log(1+X)(K_3+M_L+b)
+                     +(\bar\eta+4\sqrt{\bar e})Xb}{1-\bar\delta}.
+    \label{eq:unit-gap}
+\end{align}
+This follows by adding \eqref{eq:height-gap-lower},
+the bound for \(s-\mu_C\), and \(\mathrm{ASK}-G\le P\) with the
+indicated signs. The right-hand side is the error denoted
+\(\mathrm{ErrX5at}\) for this member. In particular \(\log|W|=0\)
+is permitted. No averaging over different windows, scales or
+members occurs in this derivation.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/RankGapBounds/MeanBoundSecondForm.lean}{Slope, division and height hypotheses};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean}{count and quotient inequalities and the error formula};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean}{the pointwise deduction}.}

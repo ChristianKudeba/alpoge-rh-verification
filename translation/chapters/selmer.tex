@@ -1,0 +1,196 @@
+\section{An individual Selmer estimate: the vanishing in case Z}
+\label{sec:case-z}
+
+Case Z enters \texttt{vwin\_\allowbreak{}of\_\allowbreak{}counts} through \texttt{count\allowbreak{}Z} and
+\texttt{prop\allowbreak{}Z}. Here the source proves an exact zero. We derive the
+estimate for both residue classes of the twist and then pass to the
+character and level used in the window.
+
+\subsection{The strict group and its torsion}
+
+Fix an algebraic closure \(\Omega\) of \(\mathbb Q\), let
+\(G=\operatorname{Gal}(\Omega/\mathbb Q)\), and write
+\(\kappa:G\to\mathbb Z_\ell^\times\) for the cyclotomic character.
+Let \(\mathcal O\) be a discrete valuation ring and a finite domain
+over \(\mathbb Z_\ell\) as in \texttt{Coef}. Put
+\[
+  W=\mathcal O\otimes_{\mathbb Z_\ell}(\mathbb Q_\ell/\mathbb Z_\ell),
+     \qquad \alpha=\kappa^{-e}.
+\]
+The action on \(W\) is scalar multiplication by \(\alpha(g)\).
+All cohomology uses continuous cocycles and the discrete topology on
+\(W\). Denote by \(T_{\ell,e}\) the submodule of \(H^1(G,W)\)
+whose classes restrict to zero on every inertia group and on every
+decomposition group above \(\ell\). We prove
+\begin{equation}
+ \ell\ge5,\quad e\ge2,\quad 2\mid e,\quad \ell-1\mid 2e
+           \quad\Longrightarrow\quad T_{\ell,e}=0 .
+ \label{eq:rh-z-vanish}
+\end{equation}
+In the source, \(\operatorname{length}_{\mathcal O}T_{\ell,e}\) is
+\(\mathrm{Chr.V}(\ell,e,1)\).
+
+Every element of \(W\) is killed by some power of \(\ell\).
+Multiplication by a nonzero element of \(\mathcal O\) on \(W\) is
+surjective: \(\mathcal O\) is finite and torsion-free over
+\(\mathbb Z_\ell\), so \(W\) identifies with
+\(\operatorname{Frac}(\mathcal O)/\mathcal O\).
+A continuous cocycle on the compact group \(G\) has finite image in
+\(W\). A common power of \(\ell\) therefore kills all its values.
+Every cohomology class is consequently killed by some power of \(\ell\).
+It suffices to show \(T_{\ell,e}[\ell]=0\), since a nonzero element
+of order \(\ell^n\) gives one of order \(\ell\) after multiplication by
+\(\ell^{n-1}\). We use the coboundary convention
+\(d m(g)=(\alpha(g)-1)m\).
+
+\subsection{The trivial residual character}
+
+Suppose first that \(\ell-1\mid e\). For any
+\(u\in\mathbb Z_\ell^\times\), reduction modulo \(\ell\) gives
+\(u^{-e}\equiv1\bmod\ell\), because
+\(\mathbb F_\ell^\times\) has order \(\ell-1\). Thus the action on
+\(W[\ell]\) is trivial. For \(x\in T_{\ell,e}[\ell]\), choose a
+representative \(z\). Write \(\ell z=dm\) and take \(m'\in W\)
+with \(\ell m'=m\). The representative \(f=z-dm'\) satisfies
+\(\ell f=0\) pointwise. Its cocycle identity is now the homomorphism
+identity \(f(gh)=f(g)+f(h)\). At a prime other than \(\ell\),
+the cyclotomic character is unramified. The restriction of \(f\)
+to inertia is a coboundary there, hence is zero.
+
+We need the following form of the rational cyclotomic calculation
+\texttt{Kwl\allowbreak{}Onto.\allowbreak{}kwl}. If \(b:G\to\mathbb F_\ell\) is a continuous
+additive homomorphism unramified away from an odd prime \(\ell\), then
+\(b\) vanishes on the subgroup fixing \(\mu_{\ell^2}\).
+Indeed, the Kronecker--Weber theorem with its ramification condition
+places the field fixed by \(\ker b\) in \(\mathbb Q(\mu_{\ell^a})\)
+for some \(a\ge2\). The unit group modulo \(\ell^a\) is cyclic of
+order \(\ell^{a-1}(\ell-1)\). The kernel of reduction modulo
+\(\ell^2\) has order \(\ell^{a-2}\). In the cyclic group it consists
+of powers of a generator whose exponent is divisible by
+\(\ell(\ell-1)\), so each is an \(\ell\)-th power. Every additive
+map into \(\mathbb F_\ell\) kills these powers. This proves the claim,
+including \(a=2\).
+
+Apply the claim to each composite of \(f\) with a linear functional
+\(W[\ell]\to\mathbb F_\ell\). Such functionals separate points, so
+\(f\) vanishes on the subgroup fixing \(\mu_{\ell^2}\), hence on
+\(\ker\kappa\). The restriction-to-the-cyclotomic-kernel step of
+\texttt{Tors\allowbreak{}Class.\allowbreak{}z\allowbreak{}One} now gives \(x=0\). For clarity its injectivity
+in this specialization has the following direct verification. Both the
+action and the cocycle factor through \(\Gamma=\mathbb Z_\ell^\times\).
+For odd \(\ell\), this group has a topological generator \(\gamma\):
+its finite factor has order \(\ell-1\), coprime to the orders of all
+finite quotients of its procyclic factor \(1+\ell\mathbb Z_\ell\).
+Since \(e>0\), the scalar \(\gamma^{-e}-1\) is nonzero.
+Choose \(v\in W\) with \((\gamma^{-e}-1)v=f(\gamma)\).
+The continuous cocycle \(f-dv\) vanishes on \(\gamma\), hence on all
+its integer powers by the cocycle identity, and then everywhere by
+density. This proves the vanishing in the first case.
+
+\subsection{The quadratic residual character}
+
+Suppose now that \(\ell-1\mid 2e\) and \(\ell-1\nmid e\).
+Write \(n=(\ell-1)/2\). Then \(e=nk\) for an odd integer \(k\).
+Since \(e\) is even, \(n\) is even and \(\ell\equiv1\bmod4\).
+The residual character \(\overline\kappa^{-e}\) is the quadratic
+character of \(\mathbb F_\ell^\times\).
+
+Choose a primitive \(\ell\)-th root \(\zeta\) in \(\Omega\) and let
+\(\eta\) be the Legendre symbol, extended by \(\eta(0)=0\).
+Set \(s=\sum_{a\bmod\ell}\eta(a)\zeta^a\). Acting on \(\zeta\) by
+the exponent \(u\) multiplies \(s\) by \(\eta(u)\), by the change of
+variable \(a\mapsto ua\). Replacing \(\zeta\) by \(\zeta^{-1}\)
+fixes \(s\) since \(\eta(-1)=1\). Multiplying these two sums and
+writing \(a=tb\) in the terms with \(b\ne0\) gives
+\[
+ s^2
+   =\sum_{t\bmod\ell}\eta(t)\sum_{b\ne0}\zeta^{b(t-1)}
+   =(\ell-1)-\sum_{t\ne1}\eta(t)=\ell .
+\]
+Here the sum of the nontrivial character over all residues is zero.
+Thus \(K=\mathbb Q(s)=\mathbb Q(\sqrt\ell)\) is quadratic with
+discriminant \(\ell\), and its absolute Galois group \(G_K\) is the
+kernel of the residual quadratic character. For \(g\in G_K\),
+\(\alpha(g)-1\in\ell\mathcal O\). In particular \(G_K\) acts
+trivially on \(W[\ell]\).
+
+Choose \(u\in\mathbb Z_\ell^\times\) reducing to a generator of
+\(\mathbb F_\ell^\times\). Then \(\overline u^e\ne1\).
+At every place \(A\) above \(\ell\) the cyclotomic character maps
+inertia onto \(\mathbb Z_\ell^\times\). Indeed the local cyclotomic
+extensions of level \(\ell^a\) are totally ramified with full unit
+Galois group, as follows by shifting the cyclotomic polynomial by
+one to obtain an Eisenstein polynomial. Compactness passes surjectivity
+to the inverse limit. Choose \(\delta\) at one such place with
+\(\kappa(\delta)=u\). Then \(\alpha(\delta)-1\) is a unit and
+\(\delta s=-s\).
+
+Given \(x\in T_{\ell,e}[\ell]\), normalize a representative \(c\)
+to have \(c(\delta)=0\), by subtracting
+\(d((\alpha(\delta)-1)^{-1}c(\delta))\). Since \(\ell x=0\),
+we have \(\ell c=dw\). Evaluation at \(\delta\) gives
+\((\alpha(\delta)-1)w=0\), hence \(w=0\). Thus \(c(g)\in W[\ell]\)
+for every \(g\). The restriction \(c|_{G_K}\) is an additive
+homomorphism. Away from \(\ell\) it vanishes on inertia, since the
+character is unramified there and the strict class is locally zero.
+
+At a place \(A\mid\ell\) the strict condition gives \(m_A\in W\)
+such that \(c(g)=(\alpha(g)-1)m_A\) for all \(g\) in its
+decomposition group. Take \(\tau\) in inertia at this same place
+with \(\kappa(\tau)=u\). Then
+\((\alpha(\tau)-1)\ell m_A=\ell c(\tau)=0\). The factor is a unit,
+so \(m_A\in W[\ell]\). Therefore \(c(g)=0\) for every
+\(g\) in the decomposition group that also belongs to \(G_K\).
+The restriction to \(G_K\) is unramified at all finite places.
+Its target has odd exponent, so it also vanishes on all real inertia.
+By the unramified class-field correspondence it factors through the
+ideal class group of \(K\).
+
+We give the class-number inequality used here in \texttt{HQuad}.
+Put \(X=\sqrt{\ell}\). The quadratic Minkowski bound supplies every
+class with an integral ideal of positive norm at most \(X\).
+For each integer \(a\ge1\), the number of ideals of norm \(a\) is
+at most the number \(d(a)\) of ordered factorizations \(a=ij\).
+On a prime power \(p^v\) the split case admits \(v+1\) possible
+pairs of exponents above \(p\), and the inert and ramified cases
+each admit at most one possibility. Unique factorization of ideals
+multiplies these bounds over rational primes. Thus
+\[
+    h(K)\le\sum_{a\le X}d(a)
+      =\sum_{i\le X}\lfloor X/i\rfloor
+      \le X(1+\log X)<X^2=\ell .
+\]
+The harmonic-sum bound follows by integration of \(1/t\), and the
+strict inequality from \(\log X<X-1\) for \(X>1\).
+Hence \(h(K)\) is coprime to \(\ell\). Every value of \(c|_{G_K}\)
+is annihilated both by \(h(K)\) and by \(\ell\), so this restriction
+is zero. For \(g\notin G_K\), write \(g=\delta h\), \(h\in G_K\).
+Then \(c(g)=c(\delta)+\alpha(\delta)c(h)=0\).
+This proves the second case of \eqref{eq:rh-z-vanish}.
+
+The normalization and local restriction just used are the zero-length
+specialization of \texttt{Primitive\allowbreak{}Frobenius\allowbreak{}Fixed.\allowbreak{}Sha\allowbreak{}To\allowbreak{}Sh\allowbreak{}T} and
+\texttt{Level\allowbreak{}Cohomology.\allowbreak{}Zq\allowbreak{}Field.\allowbreak{}z\allowbreak{}Quad}. In the general-length
+formulation the source takes the union over annihilators \(a\ne0\) of
+normalized cocycles. Every such annihilator divides a power of \(\ell\)
+in this discrete valuation ring. The preceding torsion argument gives
+the same conclusion at length zero. The class-field inputs in the
+two cases are respectively ramified Kronecker--Weber over \(\mathbb Q\)
+and the unramified reciprocity map over the real quadratic field.
+
+\subsection{The estimate at the host level}
+
+In case Z the coefficient prime is odd and outside \(B_\chi\).
+Since \(3\in B_\chi\), we have \(\ell\ge5\). The character at level
+\(N\) is trivial, and the host also requires
+\(\psi(-1)=(-1)^e\). In the characteristic-zero coefficient ring this
+forces \(e\) even. The window has \(0<e<t\), so \(e\ge2\).
+The last case-Z condition is \(\ell-1\mid2e\); all hypotheses of
+\eqref{eq:rh-z-vanish} hold. Passing from the strict condition at
+\(\ell\) to the one at \(\ell N\) adds decomposition-group conditions.
+It takes a submodule of the group just shown to vanish. The arithmetic
+length \(b_{\ell,e}(1)\) of Section~\ref{sec:arithmetic-translation}
+is consequently zero at every such host. Its normalized logarithmically
+weighted length is zero as well. This proves \texttt{Count\allowbreak{}Z} with the
+single exponent \(C_Z=0\), uniformly in all the windows and choices of
+coefficients.

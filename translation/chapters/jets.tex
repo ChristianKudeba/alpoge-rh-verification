@@ -1,0 +1,195 @@
+\section{Cusp jets on the covers used in the degree estimate}
+\label{sec:cusp-jets}
+
+The geometric estimate takes place on a fixed good cover in a family.
+Fix a sufficiently small positive \(\epsilon\), take a family meeting
+the largeness conditions for this \(\epsilon\), and let \(x_1\) be its
+lower endpoint. There exists \(x_0\) such that the following statements
+hold for every \(x>x_1\) with \(x\ge x_0\), every index \(\iota\)
+above \(x\), every point satisfying the prescribed point and
+reciprocity conditions, and every stage \(i\) with \(i+1<m\).
+For each such stage they hold for every good cover \(Y\).
+The bounds for \(x_0\) can depend on the family. In the conjunction
+of two estimates the upper bound on \(\epsilon\) is the minimum of
+their admissible upper bounds, the largeness bounds are their
+componentwise maxima, and the eventual threshold is the maximum of
+the two \(x_0\)'s. Thus one can apply all the estimates below at the
+same \(x,\iota,i,Y\). In a later restriction to an arithmetic
+window, the restriction must lie above this eventual threshold.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LiftLambdaBound.lean\#L17-L32}{Quantifiers of the geometric cover condition},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsCuspWithThetaJetValueLe.lean\#L24-L43}{simultaneous admissible range and eventual threshold}.}
+
+\subsection{A theta rule of bounded valuation}
+
+Let \(E\) be the CM host field of degree \(d=[E:\mathbb Q]\).
+For a dominant array \(a\) of theta exponents on the datum, write
+\(\delta=D_F(a)\) for its nonnegative degree as used in the jet
+estimate. Let \(n\ge1\) be the number of theta columns, at least
+the sum of twice the ranks of the indicated lattice summands. Put
+\[
+            R=\frac{|\operatorname{disc}E|^{2/d}}{2d}.
+\]
+On the characteristic-zero-residue integral chart of the proof,
+let \(T\) be the complete discrete valuation ring, \(v_T\) its
+integer-valued order with \(v_T(0)=+\infty\), and \(\phi_T\ge0\) its
+given slope parameter. The chart has a truncated frame and a PEL
+uniformization with the specified torsion isomorphism. The auxiliary
+element \(\alpha\in\mathcal O_E\) satisfies
+\(\alpha\overline\alpha=q\), with \(q\) dividing the level and the
+level ideal contained in \((\overline\alpha)\).
+
+Let \(N\) bound \(d\) times the negative signature rank of the
+datum. Suppose the numerical data satisfy
+\begin{equation}\label{eq:jets-chart-num}
+    4\delta+4\le q,\qquad 2\delta\sqrt N<q,\qquad
+    \frac{\delta^2 R N^3}{q}\le c .
+\end{equation}
+Then some theta rule \(f\) of type \((a,n)\) has nonzero evaluation
+on this frame, with
+\begin{equation}\label{eq:jets-value}
+                   v_T(f)\le c\,\phi_T .
+\end{equation}
+
+The inputs to this inference are the characteristic-zero harmonic
+polynomial with local invariant at most zero, the existence of the
+power data and short basis on the chart, and the local comparison of
+the infimum of the normalized theta valuations with the local
+invariant. Fix a uniformizer and such a polynomial. The short
+basis has parameter \(0\le\rho\le N\), so that
+\(2\delta\sqrt{\rho}<q\). Apply the local comparison with valuation
+normalization \(1\) and with these choices. The local invariant term
+is nonpositive, leaving
+\[
+    \inf_f v_T(f)\le B,\qquad
+    B=\frac{\delta^2 R\rho^3\phi_T}{q}
+       \le \frac{\delta^2 RN^3}{q}\phi_T\le c\phi_T .
+\]
+The infimum runs over the rules obtained from this polynomial.
+If every one of them had zero evaluation or order strictly larger
+than \(c\phi_T\), each extended order would be at least
+\(\lfloor B\rfloor+1\). The same would hold for the infimum,
+contradicting \(\lfloor B\rfloor+1>B\). Thus a member with nonzero
+evaluation satisfies \eqref{eq:jets-value}. The discreteness at this
+step avoids any loss in passing from an infimum to a section.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ReflectionSumJetNumber.lean\#L52-L98}{The short-basis, harmonic-polynomial and infimum inputs, followed by the argument with the integral valuation}.}
+
+In the family application \(q=g_0g_1\), the product of the two host
+primes, and \(N=2fm\) in the rank notation of the family. The
+numerical jet condition at \(g_0\) supplies the first two inequalities
+of \eqref{eq:jets-chart-num} with denominator bound \(g_0\), together
+with
+\[
+       \frac{RN^3}{g_0}\left(\frac{rN}{4}+2\delta^2\right)\le c.
+\]
+Here \(r\ge0\) is the rank parameter in that condition. As
+\(q\ge g_0>0\) and \(RN^3\ge0\),
+\[
+       \frac{\delta^2RN^3}{q}
+       \le\frac{\delta^2 RN^3}{g_0}
+       \le\frac{RN^3}{g_0}\left(\frac{rN}{4}+2\delta^2\right).
+\]
+The first two inequalities remain valid on replacing \(g_0\) by
+\(q\). This proves the three bounds required on the chart.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ReflectionSumJetNumber.lean\#L42-L50}{The degree comparison},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsThetaRuleValueLeCoverCharZero.lean\#L47-L72}{specialization to the two host primes and the field degree}.}
+
+\subsection{Descent to the cusp and the factor \(1/2500\)}
+
+Take a component \(Z\), a toroidal flag chart, a boundary point
+\(y\) outside its distinguished open locus, and a local map of the
+stalk at \(y\) to a complete discrete valuation ring, compatible
+with the given generic frame. The local map on this chart implies
+that the residue field has characteristic zero. The chart-extension
+theorem provides a valuation ring \(T'\), an extended frame admitting
+the truncated uniformizing chart, and a positive integer \(e_T\).
+The slope of the extended frame is \(e_T\phi_T\), and its extended
+order on evaluations of a theta rule is \(e_T\) times the order on
+the original frame. Use the canonical connection in this comparison.
+
+On the extended frame choose \(f\) by \eqref{eq:jets-value}.
+Its value there is nonzero and its order is at most
+\(c e_T\phi_T\). If its value on the original frame were zero, the
+comparison of extended orders would identify a finite number with
+\(+\infty\). Thus its order there is finite as well. Divide the
+order comparison by \(e_T>0\) to get the original bound \(c\phi_T\).
+By dominance and positivity of the transformed theta weight, the
+theta cuspidality theorem makes this a cusp form. Restriction to
+the component gives a cusp form with the same evaluation because
+the chosen point factors through \(Z\).
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsCuspWithThetaJetValueLe.lean\#L44-L65}{Descent of nonvanishing and the valuation bound},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ThetaValueOnCuspNeighbourhood.lean\#L29-L57}{cuspidality and the equality after restriction to the component}.}
+
+For the two weights in use, denote the weight of the quotient by
+\(u_1\) and its companion upper weight by \(u_b\). The theta
+construction first shifts each weight by its half-column weight.
+There are \(n\) columns with \(8\mid n\), so \(4\mid n/2\).
+The four-divisibility boundary comparison removes this shift and
+preserves the nonzero value's order. The numerical estimate for
+\(u_1\) follows from the family size inequalities. The upper-weight
+degree comparison gives a theta degree for \(u_b\) no larger than
+the one for \(u_1\), so the same numerical jet bound works for both.
+Its coefficient is \(c=1/2500\). Extending the cusp form to the
+compactified flag space under the extension isomorphism preserves its
+evaluation. Thus for each of these two weights there is a section
+\(w\) in the specified cusp subspace with
+\[
+            w(y')\ne0,\qquad v_T(w(y'))\le\phi_T/2500.
+\]
+Only the section is chosen after the component, boundary point and
+valuative frame.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/JetsOfConstantSection.lean\#L26-L49}{The shift by the half-column weight and the boundary comparison},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/JetNumUb.lean\#L23-L34}{comparison of the two degrees},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsCuspValueLePhiOfHilbertSamuel.lean\#L24-L50}{the two weights, simultaneous threshold and final valuation}.}
+
+\subsection{From boundary orders to the degree comparison}
+Let \(\nu\) be a discrete valuation centered at a boundary point. Its
+potential \(\phi\) is represented by a valuative frame and a real \(h>0\)
+for which \(\phi=h\phi_T\). The additive order of a germ of nonzero
+value is \(h\) times the order of its pullback to the valuation ring.
+Choose the cusp section constructed above. A change of local
+trivialization multiplies its representative by a unit, so
+\[
+  \operatorname{ord}_{\nu}(w)=h v_T(w(y'))\le h\phi_T/2500=\phi/2500 .
+\]
+An independent Hodge-section theorem gives a nonzero section \(\theta\)
+of weight \(8(p+q)\) times the Hodge weight whose order is at least
+\(8\phi/625\) wherever its germ has finite order. Here \(p,q\) are the
+two signature ranks. Since \(\phi\ge0\), we obtain
+\(3\operatorname{ord}_\nu(\theta)\ge8\operatorname{ord}_\nu(w)\).
+In the multiplicative convention this gives
+\(\nu(\theta)^3\le\nu(w)^8\). If \(\nu(\theta)=0\), the same inequality
+is immediate. Combining this with base-point freeness on the open
+locus and extension of cusp forms supplies the valuation-multiplicity
+premise in the component-image degree comparison. That comparison
+also uses compactification proportionality, the top Chern number
+formula and birationality at the prescribed weight gaps.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsSectionOrderBoundHilbertSamuel.lean\#L22-L46}{Passing to germs};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsNonzeroSectionWeightBound.lean\#L79-L82}{the Hodge section};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ValuationMultiplicityOfConsecutiveRun.lean\#L48-L97}{the powers three and eight};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/CoveringDegreeMultiplicative.lean\#L25-L56}{application to the cover degree}.}
+
+\subsection{The metric loss in the lift bound}
+Write \(X,b\) for the size parameters with \(b=\exp L\). The Gram
+condition identifies the squared norm on the integral cusp lattice with
+the norm of the chosen frame. The Tamagawa measure comparison bounds
+the maximal slope by
+\[
+ 2\lambda_{\rm sup}+2\log C_{\rm sup}+
+ [F:\mathbb Q]^{-1}\log|\operatorname{disc}F|,
+\]
+where \(F\) is the coefficient field. The three inputs are the mean
+logarithmic sup-norm estimate, the logarithm of the supremum constant,
+and the root-discriminant estimate. Let \(A\) be the size exponent.
+The weight parameters obey \(0\le s\le8frb\) and \(0\le t\le b\).
+Since \(fr,b\ge1\), this gives \(s+t+1\le10frb\). The logarithmic
+estimates on these parameters and \(frL\le X^A\le b\) enter the
+quantitative comparison for the three terms above, which bounds their
+sum by \(X^4(X^A)^2b=X^{2A+4}b\). Thus the cusp-slope exponent is
+\(A_1=2A+4\). The all-places measure comparison of constant \(C_m\)
+and the host estimate of exponent \(A_h\) give the lift bound with
+exponent \(A_1+(A_h+1)+\lceil2C_m\rceil\). Taking the maximum of
+the cusp, measure, host, Gram and weight thresholds makes all five
+inputs applicable at the same point.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/FockModels/TamagawaPeterssonLambdaSqNonneg.lean\#L596-L669}{Metric comparison};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/CoveringLambdaInvariantBound.lean\#L21-L37}{all-places exponent};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolG.lean\#L50-L58}{degree and metric bounds used in the covolume argument}.}

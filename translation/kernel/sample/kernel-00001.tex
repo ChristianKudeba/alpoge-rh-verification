@@ -1,0 +1,171 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0pt}\setlength{\parskip}{2pt}
+\setlength{\emergencystretch}{4em}
+\newcommand{\record}[1]{\par\hangindent=4.4em\hangafter=1%
+\makebox[4.1em][r]{\scriptsize #1}\hspace{.3em}}
+\newcommand{\subrow}{\par\noindent\hspace*{4.4em}}
+\begin{document}
+\section*{Selected prefix in dependent type theory}
+Volume 1, beginning at record 1.
+
+The row numbers are lines of the export. \(N_i\), \(U_i\) and \(E_i\)
+denote names, universe levels and expressions. Their indices are global across
+the volumes. \(N_0\) is the anonymous root and \(U_0=0\).
+An expression is a shared syntactic object and is interpreted in the binder
+context of its use. The index \(b_0\) denotes the innermost variable.
+In a dependent product \(\prod\), lambda \(\lambda\), or let, the body is
+interpreted one binder deeper. Binder brackets denote explicit \((\,)\),
+implicit \(\{\,\}\), strict implicit \(\{\!\{\,\}\!\}\), or instance
+\([\,]\). Bracketed references in a universe instantiation are ordered.
+Literal text uses JSON string escapes, including UTF-16 escape pairs.
+A name extension by a string differs from an extension by a natural number.
+The exact indexed forms are primary. Short expansions below declarations
+use fresh variable names and can refer back to indexed subexpressions.
+\par\medskip
+\record{1}Export metadata \texttt{\{"exporter":\{"\allowbreak{}name":"lean4ex\allowbreak{}port","version\allowbreak{}":"3.1.0"\},"fo\allowbreak{}rmat":\{"versio\allowbreak{}n":"3.1.0"\},"l\allowbreak{}ean":\{"githash\allowbreak{}":"819816b2e0a\allowbreak{}3bf405af45ae5c\allowbreak{}7af2491d8f5bee\allowbreak{}6","version":"\allowbreak{}4.33.1"\}\}}
+\record{2}\(N_{1}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"Eq"}
+\record{3}\(N_{2}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"u\_1"}
+\record{4}\(U_{1}=\operatorname{param}(N_{2})\)
+\record{5}\(N_{3}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"\textbackslash{}u03b1"}
+\record{6}\(E_{0}=\operatorname{Sort}(U_{1})\)
+\record{7}\(N_{4}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"a"}
+\record{8}\(N_{5}=N_{4}\mathbin{\cdot_{\rm str}}\) \texttt{"\_@"}
+\record{9}\(N_{6}=N_{5}\mathbin{\cdot_{\rm str}}\) \texttt{"\_internal"}
+\record{10}\(N_{7}=N_{6}\mathbin{\cdot_{\rm str}}\) \texttt{"\_hyg"}
+\record{11}\(N_{8}=N_{7}\mathbin{\cdot_{\rm num}}0\)
+\record{12}\(E_{1}=b_{0}\)
+\record{13}\(E_{2}=b_{1}\)
+\record{14}\(E_{3}=\operatorname{Sort}(U_{0})\)
+\record{15}\(E_{4}=\prod_{(N_{8}:E_{2})}\,E_{3}\)
+\record{16}\(E_{5}=\prod_{(N_{8}:E_{1})}\,E_{4}\)
+\record{17}\(E_{6}=\prod_{\{N_{3}:E_{0}\}}\,E_{5}\)
+\record{18}\(N_{9}=N_{1}\mathbin{\cdot_{\rm str}}\) \texttt{"refl"}
+\record{19}\(E_{7}=\operatorname{const}(N_{1},[U_{1}])\)
+\record{20}\(E_{8}=E_{7}\,(E_{2})\)
+\record{21}\(E_{9}=E_{8}\,(E_{1})\)
+\record{22}\(E_{10}=E_{9}\,(E_{1})\)
+\record{23}\(E_{11}=\prod_{(N_{4}:E_{1})}\,E_{10}\)
+\record{24}\(E_{12}=\prod_{\{N_{3}:E_{0}\}}\,E_{11}\)
+\record{25}\(N_{10}=N_{1}\mathbin{\cdot_{\rm str}}\) \texttt{"rec"}
+\record{26}\(N_{11}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"u"}
+\record{27}\(U_{2}=\operatorname{param}(N_{11})\)
+\record{28}\(N_{12}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"motive"}
+\record{29}\(N_{13}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"t"}
+\record{30}\(E_{13}=b_{2}\)
+\record{31}\(E_{14}=E_{7}\,(E_{13})\)
+\record{32}\(E_{15}=E_{14}\,(E_{2})\)
+\record{33}\(E_{16}=E_{15}\,(E_{1})\)
+\record{34}\(E_{17}=\operatorname{Sort}(U_{2})\)
+\record{35}\(E_{18}=\prod_{(N_{13}:E_{16})}\,E_{17}\)
+\record{36}\(E_{19}=\prod_{(N_{8}:E_{2})}\,E_{18}\)
+\record{37}\(N_{14}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"refl"}
+\record{38}\(E_{20}=E_{1}\,(E_{2})\)
+\record{39}\(E_{21}=\operatorname{const}(N_{9},[U_{1}])\)
+\record{40}\(E_{22}=E_{21}\,(E_{13})\)
+\record{41}\(E_{23}=E_{22}\,(E_{2})\)
+\record{42}\(E_{24}=E_{20}\,(E_{23})\)
+\record{43}\(E_{25}=b_{3}\)
+\record{44}\(E_{26}=b_{4}\)
+\record{45}\(E_{27}=E_{7}\,(E_{26})\)
+\record{46}\(E_{28}=E_{27}\,(E_{25})\)
+\record{47}\(E_{29}=E_{28}\,(E_{1})\)
+\record{48}\(E_{30}=E_{25}\,(E_{2})\)
+\record{49}\(E_{31}=E_{30}\,(E_{1})\)
+\record{50}\(E_{32}=\prod_{(N_{13}:E_{29})}\,E_{31}\)
+\record{51}\(E_{33}=\prod_{\{N_{8}:E_{25}\}}\,E_{32}\)
+\record{52}\(E_{34}=\prod_{(N_{14}:E_{24})}\,E_{33}\)
+\record{53}\(E_{35}=\prod_{\{N_{12}:E_{19}\}}\,E_{34}\)
+\record{54}\(E_{36}=\prod_{\{N_{8}:E_{1}\}}\,E_{35}\)
+\record{55}\(E_{37}=\prod_{\{N_{3}:E_{0}\}}\,E_{36}\)
+\record{56}\(E_{38}=\lambda_{(N_{14}:E_{24})}\,E_{1}\)
+\record{57}\(E_{39}=\lambda_{(N_{12}:E_{19})}\,E_{38}\)
+\record{58}\(E_{40}=\lambda_{(N_{8}:E_{1})}\,E_{39}\)
+\record{59}\(E_{41}=\lambda_{\{N_{3}:E_{0}\}}\,E_{40}\)
+\record{60}\textbf{Inductive group}
+\subrow \textbf{Inductive type} \(N_{1}\) \texttt{"Eq"} \(\colon E_{6}\)
+\subrow Universe parameters \([N_{2}]\).
+\subrow Type expansion \(\prod_{\{x_{0}:\mathrm{Sort}(U_{1})\}}\,\prod_{(x_{1}:x_{0})}\,\prod_{(x_{2}:x_{0})}\,\mathrm{Prop}\).
+\subrow \texttt{numParams} 2.
+\subrow \texttt{numIndices} 1.
+\subrow \texttt{all} \([N_{1}]\).
+\subrow \texttt{ctors} \([N_{9}]\).
+\subrow \texttt{numNested} 0.
+\subrow \texttt{isRec} false.
+\subrow \texttt{isUnsafe} false.
+\subrow \texttt{isReflexive} false.
+\subrow \textbf{Constructor} \(N_{9}\) \texttt{"Eq.refl"} \(\colon E_{12}\)
+\subrow Universe parameters \([N_{2}]\).
+\subrow Type expansion \(\prod_{\{x_{0}:\mathrm{Sort}(U_{1})\}}\,\prod_{(x_{1}:x_{0})}\,\bigl(\bigl(\bigl(\mathrm{Eq}^{[U_{1}]}\,x_{0}\bigr)\,x_{1}\bigr)\,x_{1}\bigr)\).
+\subrow \texttt{induct} \(N_{1}\).
+\subrow \texttt{cidx} 0.
+\subrow \texttt{numParams} 2.
+\subrow \texttt{numFields} 0.
+\subrow \texttt{isUnsafe} false.
+\subrow \textbf{Recursor} \(N_{10}\) \texttt{"Eq.rec"} \(\colon E_{37}\)
+\subrow Universe parameters \([N_{11},\allowbreak{} N_{2}]\).
+\subrow Type expansion \(\prod_{\{x_{0}:\mathrm{Sort}(U_{1})\}}\,\prod_{\{x_{1}:x_{0}\}}\,\prod_{\{x_{2}:\prod_{(x_{2}:x_{0})}\,\prod_{(x_{3}:\bigl(\bigl(\bigl(\mathrm{Eq}^{[U_{1}]}\,x_{0}\bigr)\,E_{2}\bigr)\,E_{1}\bigr))}\,E_{17}\}}\,E_{34}\).
+\subrow \texttt{all} \([N_{1}]\).
+\subrow \texttt{numParams} 2.
+\subrow \texttt{numIndices} 1.
+\subrow \texttt{numMotives} 1.
+\subrow \texttt{numMinors} 1.
+\subrow \texttt{k} true.
+\subrow \texttt{isUnsafe} false.
+\subrow Reduction at constructor \(N_{9}\) with 0 fields has right-hand side \(E_{41}\).
+\record{61}\(N_{15}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"Quot"}
+\record{62}\(N_{16}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"r"}
+\record{63}\(E_{42}=\prod_{(N_{16}:E_{5})}\,E_{17}\)
+\record{64}\(E_{43}=\prod_{\{N_{3}:E_{17}\}}\,E_{42}\)
+\record{65}\textbf{Quotient primitive} \(N_{15}\) \texttt{"Quot"} \(\colon E_{43}\)
+\subrow Universe parameters \([N_{11}]\).
+\subrow Type expansion \(\prod_{\{x_{0}:\mathrm{Sort}(U_{2})\}}\,\prod_{(x_{1}:\prod_{(x_{1}:x_{0})}\,\prod_{(x_{2}:x_{0})}\,\mathrm{Prop})}\,\mathrm{Sort}(U_{2})\).
+\subrow \texttt{kind} \texttt{type}.
+\record{66}\(N_{17}=N_{15}\mathbin{\cdot_{\rm str}}\) \texttt{"mk"}
+\record{67}\(E_{44}=\operatorname{const}(N_{15},[U_{2}])\)
+\record{68}\(E_{45}=E_{44}\,(E_{13})\)
+\record{69}\(E_{46}=E_{45}\,(E_{2})\)
+\record{70}\(E_{47}=\prod_{(N_{4}:E_{2})}\,E_{46}\)
+\record{71}\(E_{48}=\prod_{(N_{16}:E_{5})}\,E_{47}\)
+\record{72}\(E_{49}=\prod_{\{N_{3}:E_{17}\}}\,E_{48}\)
+\record{73}\textbf{Quotient primitive} \(N_{17}\) \texttt{"Quot.mk"} \(\colon E_{49}\)
+\subrow Universe parameters \([N_{11}]\).
+\subrow Type expansion \(\prod_{\{x_{0}:\mathrm{Sort}(U_{2})\}}\,\prod_{(x_{1}:\prod_{(x_{1}:x_{0})}\,\prod_{(x_{2}:x_{0})}\,\mathrm{Prop})}\,\prod_{(x_{2}:x_{0})}\,\bigl(\bigl(\mathrm{Quot}^{[U_{2}]}\,E_{13}\bigr)\,E_{2}\bigr)\).
+\subrow \texttt{kind} \texttt{ctor}.
+\record{74}\(N_{18}=N_{15}\mathbin{\cdot_{\rm str}}\) \texttt{"lift"}
+\record{75}\(N_{19}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"v"}
+\record{76}\(U_{3}=\operatorname{param}(N_{19})\)
+\record{77}\(N_{20}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"\textbackslash{}u03b2"}
+\record{78}\(E_{50}=\operatorname{Sort}(U_{3})\)
+\record{79}\(N_{21}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"f"}
+\record{80}\(E_{51}=\prod_{(N_{4}:E_{13})}\,E_{2}\)
+\record{81}\(N_{22}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"b"}
+\record{82}\(E_{52}=E_{26}\,(E_{2})\)
+\record{83}\(E_{53}=E_{52}\,(E_{1})\)
+\record{84}\(E_{54}=\operatorname{const}(N_{1},[U_{3}])\)
+\record{85}\(E_{55}=E_{54}\,(E_{26})\)
+\record{86}\(E_{56}=E_{25}\,(E_{13})\)
+\record{87}\(E_{57}=E_{55}\,(E_{56})\)
+\record{88}\(E_{58}=E_{57}\,(E_{30})\)
+\record{89}\(E_{59}=\prod_{(N_{4}:E_{53})}\,E_{58}\)
+\record{90}\(E_{60}=\prod_{(N_{22}:E_{26})}\,E_{59}\)
+\record{91}\(E_{61}=\prod_{(N_{4}:E_{25})}\,E_{60}\)
+\record{92}\(E_{62}=E_{44}\,(E_{26})\)
+\record{93}\(E_{63}=E_{62}\,(E_{25})\)
+\record{94}\(E_{64}=\prod_{(N_{4}:E_{63})}\,E_{25}\)
+\record{95}\(E_{65}=\prod_{(N_{4}:E_{61})}\,E_{64}\)
+\record{96}\(E_{66}=\prod_{(N_{21}:E_{51})}\,E_{65}\)
+\record{97}\(E_{67}=\prod_{\{N_{20}:E_{50}\}}\,E_{66}\)
+\record{98}\(E_{68}=\prod_{\{N_{16}:E_{5}\}}\,E_{67}\)
+\record{99}\(E_{69}=\prod_{\{N_{3}:E_{17}\}}\,E_{68}\)
+\record{100}\textbf{Quotient primitive} \(N_{18}\) \texttt{"Quot.lift"} \(\colon E_{69}\)
+\subrow Universe parameters \([N_{11},\allowbreak{} N_{19}]\).
+\subrow Type expansion \(\prod_{\{x_{0}:\mathrm{Sort}(U_{2})\}}\,\prod_{\{x_{1}:\prod_{(x_{1}:x_{0})}\,\prod_{(x_{2}:x_{0})}\,\mathrm{Prop}\}}\,\prod_{\{x_{2}:\mathrm{Sort}(U_{3})\}}\,\prod_{(x_{3}:\prod_{(x_{3}:x_{0})}\,E_{2})}\,E_{65}\).
+\subrow \texttt{kind} \texttt{lift}.
+\record{101}\(N_{23}=N_{15}\mathbin{\cdot_{\rm str}}\) \texttt{"ind"}
+\record{102}\(E_{70}=E_{44}\,(E_{2})\)
+\record{103}\(E_{71}=E_{70}\,(E_{1})\)
+\record{104}\(E_{72}=\prod_{(N_{4}:E_{71})}\,E_{3}\)
+\record{105}\(N_{24}=N_{0}\mathbin{\cdot_{\rm str}}\) \texttt{"mk"}
+\end{document}

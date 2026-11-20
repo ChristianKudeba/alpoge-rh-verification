@@ -1,0 +1,394 @@
+% A manuscript fragment. Requires amsmath, amssymb and hyperref.
+\section{From primitive characters to the Riemann hypothesis}
+\label{sec:character-to-rh}
+
+Let \(N\) be a positive integer. A complex Dirichlet character of level
+\(N\) is a character of \((\mathbb Z/N\mathbb Z)^\times\), extended by
+zero to residue classes that are not units. For \(\Re s>1\) write
+\[
+       L(s,\chi)=\sum_{n=1}^{\infty}\frac{\chi(n)}{n^s}.
+\]
+Elsewhere \(L(s,\chi)\) denotes its analytic continuation at the points
+where that continuation is regular. Write \(\mathbf 1_N\) for the
+principal character of level \(N\). The all-character assertion used
+in the last step of the proof is
+\begin{equation}
+\label{eq:all-character-nv}
+   \Re s>\tfrac12,\qquad
+   (\chi\ne\mathbf 1_N\ \text{or}\ s\ne 1)
+       \quad\Longrightarrow\quad L(s,\chi)\ne0
+\end{equation}
+for every positive \(N\) and every character \(\chi\) of level \(N\).
+The exception in the principal case removes the pole. Keeping this
+disjunction also permits evaluation of a nonprincipal character at
+\(s=1\). The primitive nonvanishing assertion in the source is phrased
+using a total complex-valued function, including at exceptional points.
+Its restriction to the regular points above suffices for the
+classical argument.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean\#L13-L18}{Definition of the all-character assertion and its deduction from the primitive assertion},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/ExplicitFormulaErrorOfHostConditions.lean\#L11-L18}{the primitive assertion}.}
+
+\subsection{Restoring the Euler factors at the level}
+\label{sec:restore-euler}
+
+Assume the right-half-plane nonvanishing produced by the primitive-character
+argument, and fix \(N,\chi,s\) satisfying the hypotheses in
+\eqref{eq:all-character-nv}. Put \(f=\operatorname{cond}(\chi)\).
+Then \(f\) divides \(N\), and there is a primitive character \(\chi^*\)
+of level \(f\) inducing \(\chi\). If \(s=1\) we have
+\(\chi\ne\mathbf 1_N\), hence \(\chi^*\ne\mathbf 1_f\), since raising
+the level of a principal character yields the principal character.
+Thus the primitive character is evaluated at a regular point in all
+cases under consideration. The primitive nonvanishing statement gives
+\(L(s,\chi^*)\ne0\).
+
+The change-of-level identity in the normalization used here is
+\begin{equation}
+\label{eq:dirichlet-change-level}
+     L(s,\chi)=L(s,\chi^*)\prod_{p\mid N}
+                     \bigl(1-\chi^*(p)\,p^{-s}\bigr),
+\end{equation}
+where \(p\) ranges over distinct rational primes. For \(p\mid f\) the
+factor is \(1\), since \(\chi^*(p)=0\). For \(\Re s>1\) the identity
+follows by deleting the Euler factors at primes dividing \(N\) from
+the series for \(\chi^*\). Holomorphy gives the identity on
+\(\mathbb C\setminus\{1\}\) by analytic continuation. If \(s=1\) is
+allowed, both characters are nonprincipal and continuity gives the same
+identity there.\footnote{\href{https://github.com/leanprover-community/mathlib4/blob/v4.33.1/Mathlib/NumberTheory/LSeries/DirichletContinuation.lean\#L109-L146}{Change of level and extension to \(s=1\).}}
+
+For every \(p\mid N\), the value of \(\chi^*(p)\) is zero or a root of
+unity, so \(\lvert\chi^*(p)\rvert\le1\). Also
+\[
+       \lvert\chi^*(p)\,p^{-s}\rvert
+       \le p^{-\Re s}<1.
+\]
+The strict inequality follows from \(p>1\) and \(\Re s>\tfrac12\).
+Consequently no factor in \eqref{eq:dirichlet-change-level} vanishes.
+Multiplication by the nonzero value \(L(s,\chi^*)\) proves
+\eqref{eq:all-character-nv}.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean\#L5-L35}{Reduction from arbitrary characters to primitive characters.}}
+
+\subsection{The character of level one}
+\label{sec:level-one-specialization}
+
+The group \((\mathbb Z/\mathbb Z)^\times\) is trivial. Its unique
+character takes the value \(1\) on every positive integer. Its
+\(L\)-function therefore agrees with \(\zeta(s)\) for \(\Re s>1\),
+and their continuations agree away from the pole. Specializing
+\eqref{eq:all-character-nv} to \(N=1\) and \(\chi=\mathbf 1_1\)
+gives
+\begin{equation}
+\label{eq:zeta-right-half}
+             \zeta(s)\ne0
+             \qquad(\Re s>\tfrac12,\ s\ne1).
+\end{equation}
+Both restrictions in \eqref{eq:zeta-right-half} are exactly those used in
+the reflection argument.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/GammaFactorNonvanishing/CritLine.lean\#L29-L32}{Specialization to the character modulo one.}}
+
+\subsection{Reflection, including the possible zeros of the cosine}
+\label{sec:zeta-reflection}
+
+\noindent\textbf{Proposition.}
+Suppose \eqref{eq:zeta-right-half} holds. For every \(s\in\mathbb C\),
+if \(\zeta(s)=0\), \(s\ne1\), and \(s\ne-2(n+1)\) for each
+\(n\in\mathbb Z_{\ge0}\), then \(\Re s=\tfrac12\).
+
+\medskip
+\noindent\textit{Proof.}
+Fix such a zero \(s\). The possibility \(\Re s>\tfrac12\) is excluded
+by \eqref{eq:zeta-right-half}. Suppose then that \(\Re s<\tfrac12\),
+and set \(w=1-s\). Since \(\zeta(0)=-\tfrac12\), we have \(s\ne0\),
+and hence \(w\ne1\). We also have \(\Re w>\tfrac12\), which puts
+\(w\) outside \(\{0,-1,-2,\dots\}\). These statements justify using
+the zeta functional equation at \(w\), which gives
+\begin{equation}
+\label{eq:zeta-cos-reflection}
+    \zeta(1-w)=2(2\pi)^{-w}\Gamma(w)
+                       \cos\!\left(\frac{\pi w}{2}\right)\zeta(w).
+\end{equation}
+The complex power \((2\pi)^{-w}\) is nonzero because \(2\pi>0\).
+The gamma factor is nonzero because \(\Re w>0\). Equation
+\eqref{eq:zeta-right-half} at \(w\) gives \(\zeta(w)\ne0\).
+
+It remains to test the cosine. If it vanished, the complex zeros of
+cosine would give \(w=2k+1\) for some \(k\in\mathbb Z\), and
+therefore \(s=-2k\). If \(k<0\), then \(s\ge2\), contradicting
+\(\Re s<\tfrac12\). If \(k=0\), then \(s=0\), already excluded.
+If \(k>0\), take \(n=k-1\) to contradict \(s\ne-2(n+1)\).
+Thus every factor on the right of \eqref{eq:zeta-cos-reflection} is
+nonzero, whereas the left side is \(\zeta(s)=0\). This excludes
+\(\Re s<\tfrac12\) and proves the proposition.
+\hfill\(\square\)
+
+This proposition has precisely the quantifiers used for the classical
+Riemann hypothesis in the released theorem. Its nonvanishing premise
+follows from the all-character result through
+\eqref{eq:zeta-right-half}.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/GammaFactorNonvanishing/RhOfRight.lean\#L5-L62}{The reflection argument},
+\href{https://github.com/leanprover-community/mathlib4/blob/v4.33.1/Mathlib/NumberTheory/LSeries/RiemannZeta.lean\#L152-L164}{the zeta functional equation and the formal statement of RH},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Supplements/Kernels/MainTheorems.lean\#L7-L9}{application of the all-character result},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Main.lean\#L4-L6}{the two classical RH declarations}.}
+
+\section{How the arithmetic input supplies the character theorem}
+\label{sec:entry-assembly}
+
+The all-character assertion \eqref{eq:all-character-nv} is obtained by
+applying a theorem with two inputs. One input includes the existence of
+local Langlands parameters in the normalization described below, together
+with two uses of a local--global compatibility statement. The other
+input supplies arithmetic windows for the auxiliary fields. The two
+uses of local--global compatibility are instantiated by exactly the same
+theorem. Although its first input lists three components, the proof
+has to establish two different kinds of assertion to fill them.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean\#L210-L218}{The three components of the input},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean\#L6-L12}{their instantiation in the final argument}.}
+
+\subsection{The local parameter used in the comparison}
+
+Fix a number field \(E\), an algebraic closure \(\Omega\), a finite
+place \(w\) of \(E\), and a place of \(\Omega\) above \(w\). Put
+\(K=E_w\). For each \(n\ge1\), consider irreducible smooth complex
+representations of \(\mathrm{GL}_n(K)\) up to isomorphism. The local
+construction supplies a parameter \(r(\pi)\) of Weil--Deligne type,
+together with a local Artin map \(a\) from the Weil group to \(K^\times\).
+On characters it gives \(r(\chi)=\chi\circ a\) with zero monodromy. It
+sends cuspidal representations to irreducible parameters and sends a
+Langlands quotient for a multisegment to the direct sum of the parameters
+of its segments. It preserves dimension and intertwines real powers of
+the norm. For every \(\pi\) with central character \(\omega_\pi\), it
+also satisfies
+\[
+   |\det r(\pi)(\sigma)|=|\omega_\pi(a(\sigma))|
+\]
+on the Weil group, with \(\det\) taken on the Weil action. Several
+stronger assertions in this construction have a restriction on the
+cuspidal support. An allowed cuspidal constituent has rank one, or is a
+smooth-character twist of a representation with first principal
+congruence invariants over a field topologically isomorphic to
+\(\mathbb Q_p\). If \(\pi\) has a cuspidal support all of whose members
+are allowed, \(r\) respects smooth character twists, the central
+character equality holds without absolute values, and duals correspond.
+For such a \(\pi\), equality \(r(\pi')=r(\pi)\) implies \(\pi'=\pi\).
+If in addition \(\pi\) has first principal congruence invariants, its
+parameter is tame.
+
+More explicitly, suppose \(K\simeq\mathbb Q_g\) and choose an
+extension place \(w'\) unramified over \(g\) with residue field
+\(\mathbb F_{g^n}\). Suppose the restriction of the local representation
+to the integral subgroup contains the inflation of a cuspidal type
+of \(\mathrm{GL}_n(\mathbb F_g)\) with regular parameter
+\(\theta:\mathbb F_{g^n}^{\times}\to\mathbb C^\times\).
+The character of this type at a matrix with irreducible characteristic
+polynomial and an eigenvalue \(z\in\mathbb F_{g^n}^{\times}\) is
+\((-1)^{n-1}\sum_{j=0}^{n-1}\theta(z^{g^j})\). The monodromy of
+\(r(\pi)\) is zero. If \(t\) belongs to inertia at \(w'\) and
+\(z\) is the residue of its local Artin image there, regard \(t\)
+as an element of the inertia group over \(E\). Its characteristic
+polynomial under \(r(\pi)\) is
+\[
+       \prod_{j=0}^{n-1}\bigl(X-\theta(z^{g^j})\bigr).
+\]
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/LocalLanglands/IsRecTOfIsRec.lean\#L14-L80}{The restrictions on cuspidal support, the inertia polynomial and the defining properties of the parameter.}}
+
+Here is the extension step used in constructing \(r\).
+Choose the Artin map, and first construct parameters \(r_{\rm c}\)
+on cuspidal representations. Multisegment exhaustion and the extension
+lemma give a map \(r\) on all irreducible representations agreeing with
+\(r_{\rm c}\) on cuspidal ones. Suppose \(\pi\) is represented by a
+multisegment and let \(S\) be the multiset of its cuspidal terms,
+including their norm twists. For \(\sigma\) in the Weil group let
+\(P_{D,\sigma}(X)\) denote the characteristic polynomial of the Weil
+action on \(D\). The segment calculation gives
+\begin{equation}
+\label{eq:entry-segment-polynomial}
+      P_{r(\pi),\sigma}(X)
+      =\prod_{\tau\in S}P_{r_{\rm c}(\tau),\sigma}(X).
+\end{equation}
+Indeed for a segment of length \(d\) with first term \(\rho\), the Weil
+eigenvalues of the segment parameter collect the eigenvalues of the
+successive norm twists of \(r_{\rm c}(\rho)\) at exponents
+\(0,1,\ldots,d-1\). Norm-twist compatibility on cuspidals identifies
+these with the parameters of the terms of the segment. Direct summation
+multiplies characteristic polynomials, giving
+\eqref{eq:entry-segment-polynomial} for the union of the segments.
+At \(\sigma=1\), comparison of degrees in this identity gives
+\(\dim r(\pi)=\sum_{\tau\in S}\dim r_{\rm c}(\tau)=n\). For general
+\(\sigma\), comparison of products of eigenvalues gives
+\(\det r(\pi)(\sigma)=\prod_{\tau\in S}\det r_{\rm c}(\tau)(\sigma)\).
+The central character of \(\pi\) is the product of the central
+characters of its cuspidal support. Taking absolute values therefore
+gives the stated central character identity for every \(\pi\). If
+all its constituents are allowed, use the exact central character
+identity on each factor to obtain the exact identity for \(\pi\).
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/ExtDim.lean\#L19-L78}{The segment identity, its degree and the two determinant conclusions.}}
+
+For a one-dimensional representation, the cuspidal construction gives
+the asserted formula from reciprocity directly. Each segment starts at
+a cuspidal representation, so the multisegment extension rule with
+\(r_{\rm c}\) also gives the required rule with \(r\) in its place.
+The extension lemmas for twists, duals, injectivity and depth give
+the corresponding properties above. For the inertia assertion the
+representation containing the inflated finite cuspidal type is itself
+cuspidal. Hence \(r\) agrees with \(r_{\rm c}\) on that representation,
+and the inertia calculation for \(r_{\rm c}\) applies. This supplies
+the local existence assertion at the chosen place, and the choices of
+\(E,\Omega,w\) and a place over \(w\) were arbitrary.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean\#L20-L66}{Construction of the local parameter and verification of its required laws.}}
+
+\subsection{The global compatibility statement}
+
+Let \(E\) be a CM field with complex conjugation \(c\), and let \(\ell\)
+be a rational prime. Fix an algebraic closure \(\Omega\) of \(E\) and
+a field isomorphism \(\iota:\overline{\mathbb Q}_{\ell}\to\mathbb C\).
+For \(a\ge1\), take a regular algebraic cuspidal representation \(\pi\)
+of \(\mathrm{GL}_a\) over \(E\), together with a Hecke character of
+its maximal totally real subfield polarizing \(\pi\). The global
+statement provides a continuous semisimple representation
+\[
+  R:\operatorname{Gal}(\Omega/E)\longrightarrow
+       \mathrm{GL}_a(\overline{\mathbb Q}_\ell),
+\]
+an integer \(b\), and a multiset \(H_\tau\) of integers for every
+embedding \(\tau:E\to\overline{\mathbb Q}_{\ell}\). If \(I_{\iota\tau}\)
+denotes the multiset of infinitesimal-character parameters for \(\pi\)
+at \(\iota\tau\), the equalities of multisets are
+\[
+  H_\tau=\{(a-1)/2-z:z\in I_{\iota\tau}\},
+  \qquad H_{\tau c}=\{b-h:h\in H_\tau\}.
+\]
+The first equality uses the natural inclusion \(\mathbb Z\subset\mathbb C\).
+
+At a finite place \(w\nmid\ell\), let \(x\) be the Weil--Deligne
+parameter of \(R\) and \(y\) the local parameter of the algebraically
+normalized component of \(\pi\), using the chosen \(\iota\) to compare
+coefficients. Their dimensions agree. If all Weil commutators act
+trivially in \(y\) and its monodromy \(N_y\) vanishes, then \(x=y\).
+There is a second comparison when \(E_w\simeq\mathbb Q_g\) for a
+prime \(g\) and either \(a=1\) or \(16a^2<g\). Suppose \(y\) is tame,
+\(N_y=0\), and for each inertia element generating tame inertia
+topologically modulo wild inertia every repeated eigenvalue \(z\) of
+that element in \(y\) satisfies \(z^{\operatorname{N}w-1}=1\). Then
+\(N_x=0\) and the characteristic polynomials of \(x\) and \(y\)
+agree on every Weil element of degree zero.
+
+At \(w\mid\ell\), with the compatible local period data of the
+comparison theorem, a spherical local component gives a crystalline,
+de Rham representation with jumps \(H_\tau\) at the embeddings it
+induces. If \(N_y=0\) and either the commutator condition or the tame,
+repeated-eigenvalue and prime-size conditions above hold, the representation
+is de Rham and potentially semistable, with the same prescribed jumps.
+Its potentially semistable Weil--Deligne parameter then satisfies the
+two comparisons just stated for \(x\) and \(y\). These clauses specify
+the local conclusions used in both occurrences of the global input.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean\#L15-L86}{The global comparison, local hypotheses and weights},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjAlt.lean\#L22-L33}{the commutator and inertia conditions}.}
+
+\subsection{The arithmetic window and its quantifiers}
+
+For a primitive Dirichlet character \(\psi\), \(0<\epsilon<1/52\) and
+\(U>1\), the pair of auxiliary primes \(q,d\) satisfies
+\begin{align*}
+ q&\equiv3\pmod8,& \tfrac12 U^{\epsilon/5}
+                   &<\log q\le U^{\epsilon/5},\\
+ d&\equiv7\pmod{16},&
+ \tfrac12 U^{\epsilon/5}(\log U)^2
+                   &<\log d\le U^{\epsilon/5}(\log U)^2 .
+\end{align*}
+In addition \(q\mid d+1\) and every odd prime \(p\le U^{\epsilon/5}\)
+divides \(d+1\). Choose any function \(e:\mathbb R\to\mathbb Z_{\ge0}\)
+such that for all \(x\ge1\),
+\[
+       x^{2+8\epsilon}\le 2^{e(x)}\le 2x^{2+8\epsilon}.
+\]
+Such a function exists. For \(x\ge1\), take \(n\ge0\) with
+\(2^n\le x^{2+8\epsilon}<2^{n+1}\), and put \(e(x)=n+1\).
+For \(x<1\) put \(e(x)=0\).
+
+For fixed \(e,q,d\), the number fields \(E\) in the assertion can be
+described by a subgroup of a cyclotomic Galois group. There must be
+a positive integer \(M\) divisible by \(2^{e+2}\), the conductor of
+\(\psi\), \(q\), and \(d\), and a \(\mathbb Q\)-embedding
+\(E\hookrightarrow\mathbb Q(\zeta_M)\). Its image is the fixed field
+of the automorphisms \(\zeta_M\mapsto\zeta_M^u\) satisfying
+\[
+  u\equiv\pm1\bmod 2^{e+2},\qquad \psi(u)=1,\qquad
+  \Bigl(\frac uq\Bigr)=\Bigl(\frac ud\Bigr)=1.
+\]
+
+Let \(S_\ell\) consist of all places of \(E\) dividing \(\ell\),
+with a choice of a place of an algebraic closure above each one.
+Use the Galois group \(G_{E,S_\ell}\) unramified outside \(S_\ell\)
+at finite places, and the discrete module
+\(A_{\ell,k}=(\mathbb Q_\ell/\mathbb Z_\ell)(-k)\), on which Galois
+acts by the inverse \(k\)-th power of the cyclotomic character.
+Let \(D_v\) be the decomposition group at the chosen place over \(v\).
+Put
+\[
+   T_{\ell,k}(E)=\ker\!\left[
+      H^1(G_{E,S_\ell},A_{\ell,k})\longrightarrow
+           \prod_{v\in S_\ell}H^1(D_v,A_{\ell,k})\right],
+   \qquad b_{\ell,k}=\operatorname{length}_{\mathbb Z_\ell} T_{\ell,k}(E).
+\]
+All cohomology here uses continuous cochains.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Formalism/GaloisCohomology/Statement.lean\#L48-L78}{The places, cyclotomic character, sign of the twist and strict cohomology lengths}.}
+
+For this \(\psi,\epsilon,e(\cdot)\), the window assertion supplies
+\(J\ge1\) and \(X_0\) such that for every \(X\ge X_0\) and every
+pair \(q,d\) satisfying the conditions above at \(U=X^{1/J}\),
+one can choose \(Y\ge X^{1/J}\) with \(Y^2\le X\). For \emph{every}
+\(Y\le x\le Y^2\), take \(t=\lfloor x^{401}\rfloor\). For every field
+\(E\) defined above at \(e=e(x)\), and every choice of algebraic closure
+and local data, all \(b_{\ell,k}\) with \(1\le k<t\) are finite.
+Simultaneously for every finite set \(P\) of rational primes,
+\begin{equation}\label{eq:entry-strict-length}
+      \sum_{\ell\in P}(\log\ell)\sum_{k=1}^{t-1}b_{\ell,k}
+                 \ \le\ \sqrt{\exp(x^\epsilon)} .
+\end{equation}
+In particular \(Y\) is chosen before \(x,E,P\). The scale for
+choosing the auxiliary primes is \(X^{1/J}\), which may be smaller
+than \(Y\). The source formulates the bound over all finite \(P\),
+so its use never requires a prior finiteness assertion about the set
+of contributing primes.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean\#L12-L49}{Definitions of the field, the prime pair and the window inequality},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean\#L67-L77}{existence of the scale function}.}
+
+\subsection{Where the two inputs are used}
+
+On the global side, the geometric realization and the theta-lift
+theorem first give the local--global comparison for this normalization
+of the parameters. More precisely the geometric input supplies the
+initial representations at the odd levels in the construction, while
+weight existence supplies the congruences. The passage to the limit,
+descent, and the comparison of traces give the simultaneous core
+statement. From it one obtains spherical compatibility on the unlinked
+support and the Iwahori-fixed comparison. Applying these to the local
+and global parameters produces the form of the comparison required
+above.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean\#L18-L31}{Local--global comparison from geometric and theta-lift inputs},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean\#L4-L8}{the resulting Galois theorem}.}
+
+Use this compatibility in the first and third components of the first
+input. Between them use the local parameter constructed above. To
+obtain the window input, combine the same compatibility with isobaric
+base change. The four sets of data used in the window theorem are local
+representation theory, automorphic results with base change and Galois
+compatibility, Galois cohomology, and the CM and abelian-variety
+results. The local data include multisegment classification and the
+finite-field cuspidal characters. The CM data include deformation,
+comparison of periods, good reduction, the elliptic CM theorem and the
+Hecke--Tate functional equation. With the four sets supplied the
+window theorem applies. Both inputs to the character theorem have now
+been specified on the same Galois comparison.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean\#L18-L74}{Local, automorphic, cohomological and CM inputs to the window},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean\#L4-L5}{application to the specified compatibility theorem}.}
+
+The final arithmetic implication uses the theta integral equality and
+local matching as two separate inputs. It also uses the covolume
+estimate for the Hodge bundles, local Langlands existence and the
+arithmetic windows just constructed. In the passage from the theta
+inputs to the family of comparisons, the proof obtains two lower
+thresholds \(C_0\) and \(C_1\). The first ensures the existence of
+the required row functionals and the second ensures the evaluation
+property on the grid of parameters. Choosing \(C=\max(C_0,C_1)\)
+permits using both conclusions for one grid. The linked-bundle
+covolume estimate applies with this same \(C\), as does the bound
+for the contributions at two and three on the chosen family. These
+give the required family of hypotheses. The primitive-character
+argument and the Euler-factor calculation in
+Section~\ref{sec:restore-euler} now yield
+\eqref{eq:all-character-nv}.\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean\#L810-L813}{Inputs to the last arithmetic implication},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean\#L44-L73}{choice of the common threshold and application to characters}.}

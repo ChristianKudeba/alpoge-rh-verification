@@ -1,0 +1,288 @@
+\section{Polynomial estimates for the odd-prime positive eigenspace}
+\label{sec:rh-plus-nonzero}
+
+We derive the individual estimate \texttt{Height\allowbreak{}And\allowbreak{}Vanishing.\allowbreak{}Count\allowbreak{}Vs}
+on the positive-eigenspace side of the strict window. In
+\texttt{Joint\allowbreak{}Win\allowbreak{}Of\allowbreak{}Counts.\allowbreak{}point\allowbreak{}HV\_\allowbreak{}of\_\allowbreak{}counts}, this estimate is combined
+with counts II, IV and the other branch of V to give \texttt{Sum\allowbreak{}In}.
+The result concerns the twist \(e=1\), where the source gives an upper
+bound for the length. We also derive the estimate used outside the
+exceptional set for arbitrary positive twists in case I.
+
+\subsection{The conductor condition bounds the degree}
+
+Fix a primitive target \(\chi\) of conductor \(m\) and order \(o\),
+and write \(M=\max B_\chi\), which exists since \(3\in B_\chi\).
+Take any host of character modulus \(N\) satisfying the size conditions
+of Section~\ref{sec:arithmetic-translation}, an odd prime
+\(\ell\in B_\chi\), any admissible coefficient ring \(\mathcal O\), and
+\(\psi\in\mathcal X_{\ell,1}\). The cutoff is \(t>1\), so \(e=1\) is
+in the range. Write \(\psi_2\) for the \(2\)-component of \(\psi\)
+at the level and \(c=v_2(\operatorname{cond}\psi_2)\).
+The conductor of \(\psi_2\) is \(2^c\).
+
+Remove the \(\ell\)-power-order part of \(\psi\), then its component
+at two, to obtain \(\theta\); let \(a\) denote its order. Put
+\[
+  f=\operatorname{ord}_{\operatorname{lcm}(4,a)}(\ell),\qquad
+  w=v_2(\ell^f-1),\qquad R=16o(\ell m)^2\,4^w.
+\]
+The hypothesis for this branch is \(2^c<R\). The host character
+comparison \texttt{host\allowbreak{}Th1} gives \(a\mid2o\) and \(\ell\nmid a\).
+The modulus \(d=\operatorname{lcm}(4,a)\) divides \(4o\) and is
+prime to \(\ell\). Thus \(f\ge1\), \(f\mid\varphi(d)\), and
+\(\varphi(d)\mid\varphi(4o)\). The last divisibility follows directly
+on comparing the factors \(p^{v-1}(p-1)\) in Euler's product.
+It follows that \(2^w\le\ell^f-1<\ell^{\varphi(4o)}\), giving
+\[
+        R\le 16o(\ell m)^2\ell^{2\varphi(4o)}.
+\]
+The source's component calculation \texttt{host\allowbreak{}Comp} bounds the order
+of every component of \(\psi\) at an odd prime dividing \(N\) by
+divisibility into \(2o\). The order of \(\psi_2\) divides
+\(\varphi(2^c)\), since it factors through the units of its conductor,
+and \(\varphi(2^c)\mid 2^c\), including \(c=0\).
+The Chinese remainder decomposition now gives \(\psi^{2o\,2^c}=1\).
+Thus \texttt{Pow\allowbreak{}Totient\allowbreak{}Conductor.\allowbreak{}vs\allowbreak{}Ord} gives
+\[
+       \operatorname{ord}(\psi)\,\ell\le
+       D_0,\qquad
+       D_0=2o\bigl(16o(Mm)^2 M^{2\varphi(4o)}\bigr)M .
+\]
+This number depends only on the target, even when \(N\) varies.
+
+Inside \(\mathbb Q(\mu_{\ell N})\) take the fixed field \(L\) of
+the kernel of the map from the units modulo \(\ell N\) given by
+\[
+            u\longmapsto \bigl(\psi(u\bmod N),u\bmod\ell\bigr).
+\]
+Then \(\mu_\ell\subset L\), \(L/\mathbb Q\) is abelian, and \(\psi\)
+is trivial on its absolute Galois group. Its finite image in the first
+factor is cyclic of order \(\operatorname{ord}(\psi)\), since it is a
+finite subgroup of a field's multiplicative group. The second factor
+has order \(\ell-1\). Consequently \(n=[L:\mathbb Q]\le
+\operatorname{ord}(\psi)(\ell-1)\le D_0\). This is the construction in
+\texttt{Vs\allowbreak{}Field.\allowbreak{}vs\allowbreak{}Field}. Put \(x=\ell N\) and
+\(\Delta=|\operatorname{disc}L|\). The discriminant tower identity
+gives \(\Delta^{1/n}\le
+|\operatorname{disc}\mathbb Q(\mu_x)|^{1/\varphi(x)}\).
+The cyclotomic discriminant formula bounds the right side by \(x\);
+explicitly it is \(x\prod_{p\mid x}p^{-1/(p-1)}\).
+Thus \(\log\Delta\le n\log x\), as in \texttt{Win.\allowbreak{}disc}.
+
+\subsection{Descended length and the numerical comparison}
+
+The arithmetic input \texttt{Lemma\allowbreak{}K} is a size assertion for \(H^2\).
+At twist \(e\) over a totally complex field \(L\) containing the
+specified roots of unity, and for every choice of its local data,
+it gives a finite \(H^2\) for the compact integral cyclotomic twist
+\(\mathbb Z_\ell(e+1)\) in the source's Galois problem, and
+\[
+ \log\# H^2 \le
+ \exp\big((2en)^{C_K}\log(2\Delta)\big).
+\]
+In the present case \(L\) is totally complex since it contains a
+primitive odd-prime root of unity. Write \(K=\max(0,\lceil C_K\rceil)\)
+and \(A=(2D_0)^K(D_0+1)\). Replacing \(C_K\) by \(K\) increases
+the right side. At \(e=1\), write \(k\) for the \(\mathbb Z_\ell\)-length
+of this finite group, so its cardinality is \(\ell^k\). Because
+\(\log\ell\ge\log2>1/2\),
+\[
+      k\le2\exp\big((2n)^K\log(2\Delta)\big)\le2x^A.
+\]
+For the second inequality use \(x\ge2\) and \(1\le n\le D_0\) to get
+\(\log(2\Delta)\le\log x+n\log x\le(D_0+1)\log x\).
+The exponent of \(x\) is therefore independent of the host and
+coefficient choices.
+
+We record the arithmetic comparisons used to descend this estimate.
+The global-to-local inequality \texttt{Prop\allowbreak{}A.\allowbreak{}sha\allowbreak{}Le\allowbreak{}V} uses
+Poitou--Tate duality, local finiteness and local Tate duality to
+bound the strict \(\mathbb Z_\ell\)-length over \(L\) by \(k\).
+The character restriction bound \texttt{Chr.\allowbreak{}up\allowbreak{}V} allows one error
+from local degree-zero invariants for each generator of
+\(\operatorname{Gal}(L/\mathbb Q)\). Take the full group as generating
+set; it has \(n\) elements. The Galois character of \(\psi\) factors
+through the units modulo \(N\), so
+\texttt{H0\_\allowbreak{}local\_\allowbreak{}card\_\allowbreak{}bounded\_\allowbreak{}of\_\allowbreak{}cls\_\allowbreak{}ker\_\allowbreak{}le\_\allowbreak{}ker} applies.
+With \(r_\ell=\operatorname{length}_{\mathcal O}(\mathcal O/\ell)\)
+the resulting inequalities are
+\[
+    b_{\ell,1}(\psi)\ \le\ (k+n\nu)\,r_\ell,\qquad
+    \nu=
+    \begin{cases}
+       \max(v_\ell(N),1),&\ell\mid N\ \text{or}\ \ell-1\mid 1,\\
+       0,&\text{otherwise}.
+    \end{cases}
+\]
+The displayed local constant specializes the definition
+\texttt{LData\allowbreak{}Card\allowbreak{}Le\allowbreak{}Finrank.\allowbreak{}nu\allowbreak{}Bound} to odd \(\ell\) and \(e=1\).
+It is at most \(2N\), since \(v_\ell(N)\le N\) and \(N\ge2\).
+The displayed inequality also uses monotonicity when the strict
+decomposition conditions at the primes dividing \(N\) are imposed.
+All three comparisons here are separate arithmetic inputs.
+
+The ramification index \(r_\ell\) is a positive finite integer,
+so \(b_{\ell,1}(\psi)\) is finite and division gives
+\(v_{\ell,1}(\psi)\le2x^A+2D_0 N\).
+Since \(0\le\log\ell\le\ell\le x\) and \(N\ell=x\),
+\[
+\begin{aligned}
+  (\log\ell)v_{\ell,1}(\psi)
+   &\le 2x^A\ell+2D_0 x\\
+   &\le 2(D_0+1)x^{A+1}\\
+   &\le x^{A+D_0+3}.
+\end{aligned}
+\]
+Indeed \(D_0+1\le2^{D_0}\) and \(x\ge2\), so
+\(2(D_0+1)\le x^{D_0+2}\). Hence the asserted count holds with the
+single exponent \((2D_0)^K(D_0+1)+D_0+3\). The two alternatives for
+the conductor threshold are what permit the source to use this
+degree bound for every occurrence of the strict inequality \(2^c<R\).
+
+\subsection{The uniform case I estimate over a finite set of primes}
+
+We now follow \texttt{Unitary\allowbreak{}Three\allowbreak{}Groups.\allowbreak{}Count\allowbreak{}I}. In the actual
+window argument, \texttt{Linked\allowbreak{}Unl\allowbreak{}E.\allowbreak{}count\_\allowbreak{}i\_\allowbreak{}of\_\allowbreak{}printed\_\allowbreak{}bound\_\allowbreak{}k\_\allowbreak{}kato\_\allowbreak{}automorphy}
+obtains its orbit estimate by applying \texttt{U3.\allowbreak{}cor\allowbreak{}GK} to
+\texttt{prop\allowbreak{}GK\_\allowbreak{}of\_\allowbreak{}number\allowbreak{}U3\allowbreak{}U\_\allowbreak{}of\_\allowbreak{}one\allowbreak{}Char\allowbreak{}U}. Apply the orbit estimate
+of Section~\ref{sec:arithmetic-translation} with
+\(F=\mathbb Q(\sqrt{-p_K})\), and let \(c_5,A\) be its constants for
+this field. Choose primes \(r_1>30mp_K\) and \(r_2>r_1\), and choose
+\(k\ge0\) with \(2c_5(\log r_1+\log r_2)<16^k\). The source
+claims the exponent \(k+1+A\) in count I for this target.
+
+Indeed take a host for which each \(r_i\) is smaller than both
+host primes \(q_1,d\), a twist \(1\le e<t\), an arbitrary family of
+coefficient rings, and a finite set \(S\) of odd primes in case I.
+The host-level facts give \(16\mid N\) and every prime divisor of
+\(N\) equals two, divides \(m\), equals \(q_1\), or equals \(d\).
+Furthermore \(|\operatorname{disc}F|=p_K\). Thus neither \(r_i\)
+divides \(30N|\operatorname{disc}F|\). The test primes are eligible
+simultaneously for every host satisfying these inequalities.
+
+Let \(G_N=(\mathbb Z/N\mathbb Z)^\times\) and form the finite set
+\(\mathcal H\) of kernels of characters in
+\(\bigcup_{\ell\in S}\mathcal X_{\ell,e}\), taking kernels in \(G_N\).
+For \(H\in\mathcal H\), let
+\[
+  S_H=\{\ell\in S:\ \ker\psi=H
+           \text{ for some }\psi\in\mathcal X_{\ell,e}\}.
+\]
+For every \(\ell\in S_H\), the host lemma \texttt{gd\allowbreak{}Of\allowbreak{}Host} makes that
+character a witness for the good-data predicate in the orbit estimate.
+In particular every length occurring in the desired sum is finite.
+Partition the character sum at each prime by its kernel, and enlarge
+each nonempty part to the entire orbit of characters with that kernel.
+The summands are nonnegative, and \(\log\ell\) is positive, so this
+operation gives an upper bound. Applying the orbit estimate to each
+\(H\) with its own \(S_H\) now gives
+\[
+ \sum_{\ell\in S}(\log\ell)\sum_{\psi\in\mathcal X_{\ell,e}}
+       v_{\ell,e}(\psi)
+ \le
+ 2c_5(\log r_1+\log r_2)\{N(e+1)\}^A
+        \sum_{H\in\mathcal H}\varphi([G_N:H]).
+\]
+For each such \(H\), the quotient \(G_N/H\) is finite cyclic, being
+isomorphic to the image of a multiplicative character in a field.
+If its order is \(h\), the faithful complex characters on this
+quotient number \(\varphi(h)\), by sending a generator to a primitive
+\(h\)-th root of unity. Inflating them to \(G_N\) gives characters
+with kernel exactly \(H\). Distinct \(H\)'s give disjoint sets.
+The finite abelian group \(G_N\) has \(|G_N|\) complex characters:
+decompose it as a direct product of cyclic groups and count the
+choices on each factor. Therefore
+\(\sum_{H\in\mathcal H}\varphi([G_N:H])\le |G_N|=\varphi(N)\le N\).
+This proves the counting step \texttt{orb\allowbreak{}Sum} without dependence on
+the number of coefficient primes.
+
+Finally \(16\le N\), \(e+1\le t\) and \(t\ge1\).
+The right side is at most
+\[
+            16^k\,N\,\{N(e+1)\}^A\le (Nt)^{k+1+A}.
+\]
+This proves the numerical and orbit deductions in the case I estimate.
+Their arithmetic inputs are the good-data assertion for eligible
+characters and the rank-three estimate that supplies the orbit bound.
+
+\subsection{Why the sum of valuations is bounded by one integer}
+
+The step \texttt{FProp\allowbreak{}GKU.\allowbreak{}prop\allowbreak{}GK\_\allowbreak{}of\_\allowbreak{}number\allowbreak{}U3\allowbreak{}U\_\allowbreak{}of\_\allowbreak{}one\allowbreak{}Char\allowbreak{}U}
+combines two substantial inputs. The first is an integer estimate for
+an entire collection of rank-three trace comparisons, denoted by
+\texttt{Number\allowbreak{}U3\allowbreak{}U\_\allowbreak{}s}. The second, \texttt{One\allowbreak{}Char\allowbreak{}U\_\allowbreak{}s}, bounds a
+single normalized Selmer length by trace differences. Here is their
+precise use for a fixed imaginary quadratic \(F\), \(e\ge1\), \(N\ge1\),
+and subgroup \(H\le G_N\).
+
+Choose a prime \(p\nmid30N|\operatorname{disc}F|\), a prime \(w\)
+of \(F\) over \(p\), and write \(q=|\mathcal O_F/w|\). In particular
+\(p\ge7\) and \(q\) is coprime to \(N\). Take as index set all complex
+characters \(\xi\) of modulus \(N\) with kernel \(H\). For each index
+use the root of unity \(z_\xi=\xi(q)^{-1}\). Applying a field
+automorphism of \(\mathbb C\) to character values permutes this set and
+sends each \(z_\xi\) to the value indexed by the conjugate character.
+Thus the collection satisfies the Galois stability required of the
+integer estimate. The index set has at most \(\varphi([G_N:H])\)
+elements, by the faithful cyclic-character calculation above (and is
+empty if no character has kernel \(H\)).
+
+The integer estimate supplies a nonzero rational integer \(n_p\),
+chosen before the coefficient prime, with
+\[
+     \log |n_p|\le c_5\varphi([G_N:H])\{N(e+1)\}^{A}\log p .
+\]
+Fix an odd prime \(\ell\ne p\), an embedding of the coefficient ring into
+\(\overline{\mathbb Q}_\ell\), and a field isomorphism
+\(\iota:\overline{\mathbb Q}_\ell\longrightarrow\mathbb C\).
+Suppose the \(\ell\)-adic orbit with kernel \(H\) has a good-data
+witness. Composition with \(\iota\) identifies that orbit with the
+complex index set. Indeed composition preserves kernels and is injective
+on characters. Starting with the witness, any other complex character
+with the same kernel is a power of its image by an exponent coprime to
+the cyclic quotient order. The same power of the witness gives a
+preimage in the coefficient ring.
+
+Choose a Frobenius element \(\sigma\) at a place above \(w\) with
+the convention that it acts by the \(q\)-power on unramified residue
+data. Its cyclotomic images are \(q\bmod N\) and \(q\in\mathbb Z_\ell\).
+For the character \(\psi\) corresponding to \(\xi\), the
+reducible comparison trace evaluated at \(\sigma^{-1}\) is therefore
+\[
+ T_\psi=\iota^{-1}\big(q^{-e}\xi(q)^{-1}+1+q^e\xi(q)\big).
+\]
+For an eligible three-dimensional representation \(\rho\), put
+\(d_{\psi,\rho}=\operatorname{tr}(\rho(\sigma^{-1}))-T_\psi\).
+The two eligible families in the printed input are
+\(\mathrm{Adm3U}_{s}\) at level \(N\) and \(\mathrm{Adm2A}\) at
+level \(N|\operatorname{disc}F|\). The uniform integer theorem,
+applied to singleton sets of representations, gives
+\(d_{\psi,\rho}\ne0\) for every eligible \(\rho\). The good-data
+conditions transfer from the witness to each character with the same
+kernel, by \texttt{gd\allowbreak{}Facts}. The single-character input now provides
+finiteness and a finite set \(X_\psi\) of pairwise nonisomorphic
+eligible representatives, with
+\[
+       v_{\ell,e}(\psi)\le
+              2\sum_{\rho\in X_\psi}
+                 \bigl(-\log_\ell|d_{\psi,\rho}|_\ell\bigr).
+\]
+Apply the uniform integer theorem once more with this simultaneous
+choice of the \(X_\psi\) indexed by all the complex characters. It gives
+\[
+       |n_p|_\ell\le\prod_{\psi}\prod_{\rho\in X_\psi}
+                                      |d_{\psi,\rho}|_\ell .
+\]
+Every factor is nonzero. Taking negative logarithms to base \(\ell\)
+reverses the inequality, and
+\(-\log_\ell|n_p|_\ell=\operatorname{ord}_\ell(n_p)\).
+Summing the individual estimates thus gives
+\[
+              \sum_{\ker\psi=H}v_{\ell,e}(\psi)
+                         \le2\operatorname{ord}_\ell(n_p).
+\]
+The simultaneous product and its uniform integer are essential inputs
+at this point: individually bounded trace differences would not imply
+this bound for their sum. The proof of the integer theorem and that of
+the single-character theorem are upstream of the calculation just given.

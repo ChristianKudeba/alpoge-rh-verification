@@ -1,0 +1,87 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.92in,footskip=0.46in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue,bookmarksnumbered=true]{hyperref}
+\hypersetup{pdftitle={The Riemann hypothesis in Alpöge's formalization: a working translation}}
+\setcounter{tocdepth}{1}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[2]
+\newcommand{\srcid}[1]{\nolinkurl{#1}}
+\title{The Riemann hypothesis in Alpöge's formalization\\[4pt]
+\large A working translation of the argument for Dirichlet characters}
+\author{Translation of the Lean development released by Levent Alpöge}
+\date{20 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The formalization deduces the classical Riemann hypothesis from a
+zero-free half-plane for all Dirichlet characters. This manuscript translates
+the last deduction, the arithmetic window it uses, the odd-prime vanishing and size comparisons, the local and global theta
+matching statements, the boundary-order and covolume comparisons, and the passage from prime-sum estimates to zero-freeness.
+For each translated implication we state the hypotheses on which it depends.
+Several of the inputs still require proofs in this manuscript before it can
+be read as a standalone proof of the Riemann hypothesis.
+\end{abstract}
+\tableofcontents
+\clearpage
+\paragraph{The source.}
+This translation follows the Lean development released on 20 November 2026.
+The classical endpoint in \srcid{Main.lean} is the theorem
+\srcid{riemannHypothesis}, of type \srcid{RiemannHypothesis} in Mathlib.
+Alpöge's announcement describes the origin of the argument. Andrew Sutherland
+reports the verification of the released formal proof by an independent kernel.
+These results concern the formal development. The proofs printed below can be
+assessed separately by tracking the inputs used in each section.
+\footnote{\href{https://alpo.ge/remark.pdf}{Alpöge's announcement};
+\href{https://math.mit.edu/~drew/grh/}{Sutherland's verification report and
+export}; \href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Main.lean}{the final formal declarations}.}
+The arithmetic family must control characters of varying conductors. The
+modulus-one specialization occurs in the final deduction for the zeta
+function. We begin with that deduction so that the conclusion supplied by the
+later estimates is explicit.
+
+\input{chapters/entry}
+\input{chapters/arithmetic}
+\input{chapters/galois}
+\input{chapters/selmer}
+\input{chapters/plus}
+\input{chapters/theta}
+\input{chapters/jets}
+\input{chapters/covolume}
+\input{chapters/descent}
+\input{chapters/heightgap}
+\input{chapters/error}
+\input{chapters/primecomparison}
+\input{chapters/windows}
+\input{chapters/analytic}
+\section*{Proofs still to be translated}
+\addcontentsline{toc}{section}{Proofs still to be translated}
+The proof of the reflection step, the determinant descent inequality,
+the conversion of the pointwise slope error into a prime-sum bound, and
+the passage from an admissible family of intervals to zero-freeness
+are given above. The following inputs carry substantive arithmetic or
+geometric content which the reader still needs for an independent proof.
+\begin{itemize}
+\item The minus-Selmer argument uses its global annihilator and the
+valuation estimate for its generators. The rank-three argument uses
+the existence of a single integer controlling an orbit of traces,
+and the single-character theorem leading to the product inequality.
+The elementary valuation calculation gives their consequence.
+\item The matching argument uses the boundary Eisenstein and Siegel--Weil
+statements, including their analytic continuation and residue
+normalizations, and the estimates used to obtain rapid decrease.
+Convergence in the full-rank subspace and the regularization of more
+general inputs have different hypotheses.
+\item The component degree and norm bounds depend on the Hodge-section
+order bound, compactification proportionality, and the uniform
+sup-norm and discriminant estimates. A lower or upper slope bound
+proved for one comparison does not by itself supply those inputs.
+\item The common-window construction uses both zero-density and
+mean-square estimates for the exceptional prime sets, the automorphic
+representation and host constructions, and the geometric divisibility
+and rank comparisons on those hosts.
+\end{itemize}
+These are outstanding translations from the formal development.
+The independent verification of the released formal proof is recorded
+in the source note on the first page.
+\end{document}

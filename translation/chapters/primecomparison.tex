@@ -1,0 +1,324 @@
+\section{From the height error to a one-sided prime-sum estimate}
+\label{sec:primecomparison}
+
+Fix a scale \(x\geq3\) and a tolerance \(\varepsilon>0\).
+The comparison in this section takes place separately at each scale.
+The finite groups, weights, sets and auxiliary parameters may vary
+with \(x\). We display the constants that have to be fixed before the
+scale is chosen.
+
+\subsection{The finite Fourier identity, including ramified primes}
+
+Let \(H\) be a finite abelian group of order \(n\), written additively,
+and put \(E=(\mathbb Z/2)^2\times H\),
+\(\Phi=\{(0,v,h)\}\subset E\), \(f=|\Phi|=2n\).
+Elements denoted \(t\in H\) are identified with \((0,0,t)\) in \(E\).
+Let \(\kappa=(1,1,0)\), \(e=(1,0,0)\),
+\(\xi(v_1,v_2,h)=(-1)^{v_1}\), and
+\(\rho_t(g)=\kappa+g+t\). The map \(\rho_t\) carries the
+complement of \(\Phi\) bijectively onto \(\Phi\).
+
+The arithmetic input at a prime \(p\) is an inertia subgroup \(I_p\)
+of \(E\) and a Frobenius representative \(F_p\in E\). Only its
+coset modulo \(I_p\) enters the sums. For a finite order character
+\(\psi\in\widehat E\), its value at a prime power in this construction is
+\[
+ v_\psi(p^i)=\frac1{|I_p|}\sum_{h\in I_p}\psi(iF_p+h)
+ \qquad(i\geq1).
+\]
+Indeed restriction of \(\psi\) to inertia is either trivial, in
+which case the sum is \(\psi(iF_p)\), or has zero mean, in which
+case the local character contributes zero. The host construction
+identifies these values with those of its associated primitive
+Dirichlet character. Orthogonality now gives an exact formula,
+\begin{equation}
+ \frac1f\sum_{\psi\in\widehat E}\overline{\psi(g)}v_\psi(p^i)
+ =\frac{2}{|I_p|}{\bf1}_{\,g-iF_p\in I_p}.
+ \label{eq:pc-inertia}
+\end{equation}
+To see this, insert the average defining \(v_\psi\). The inner
+character sum is \(|E|=2f\) when \(iF_p+h=g\) and is zero otherwise.
+There is at most one such \(h\).
+
+Here the host provides a finite set \(S\) containing \(2,q_1\) and
+a prime \(d\notin S\). At \(p\in S\) it gives \(I_p\subset\Phi\)
+and \(F_p\in\Phi\), at \(d\) it gives \(I_d=\{0,e\}\), and at all
+other primes it gives \(I_p=0\). Let \(w_\rho>0\) for \(\rho\in\Phi\),
+\(A>0\), and \(N\geq A/w_\rho\) for every \(\rho\). Write
+\(r_{m,g}=(A/m-w_{\rho_t(g)})_+\), where \(z_+=\max(z,0)\).
+The arithmetic prime contribution for this \(A,t,w\) equals
+\begin{align*}
+ P(A,t,w)={}&\sum_{\substack{p\leq N,\ p\notin S\cup\{d\}\\ F_p\notin\Phi}}
+  2\log p\sum_{\substack{1\leq i\leq N\\iF_p\notin\Phi}}r_{p^i,iF_p}\\
+ &+\log d\sum_{1\leq i\leq N}
+       \sum_{\substack{g\notin\Phi\\g-iF_d\in I_d}}r_{d^i,g}.
+\end{align*}
+The sums indexed by \(p\) in this section range over primes. When
+\(p^i>N\) the ramp vanishes, so the second line is zero if \(d>N\).
+In view of \eqref{eq:pc-inertia}, the same real number is
+\begin{equation}
+ P(A,t,w)=\frac1f\sum_{g\notin\Phi}\sum_{\psi\in\widehat E}
+  \overline{\psi(g)}
+  \sum_{m=1}^N\Lambda(m)v_\psi(m)(A/m-w_{\rho_t(g)})_+ .
+ \label{eq:pc-prime}
+\end{equation}
+At \(p\in S\) the entire coset is in \(\Phi\). At an unramified
+prime the surviving term has coefficient two and \(g=iF_p\).
+At \(d\) the surviving coset terms have coefficient one. These are
+all the terms, since \(\Lambda(m)\) vanishes away from prime powers.
+
+Let \(G_\psi(y)\) be the ramp with coefficients \(\Lambda(m)v_\psi(m)\),
+centered by \(y\ell_\psi\) for \(\psi\ne1\), where \(\ell_\psi\)
+is the logarithmic derivative of the associated primitive \(L\)-function
+at one. For \(\psi=1\) the centering is
+\(-y\log y+(1+\gamma)y\). These formulas also define the functions
+for \(0<y<1\) by taking the ramp sum to be empty. Put
+\[
+ M(A,w)=A\left(\log A-1-\gamma+\ell_\xi
+                         -\frac1f\sum_{\rho\in\Phi}\log w_\rho\right).
+\]
+Then
+\begin{equation}
+ P(A,t,w)-M(A,w)
+   =\frac1f\sum_{g\notin\Phi}\sum_{\psi\in\widehat E}
+     \overline{\psi(g)}\,w_{\rho_t(g)}G_\psi(A/w_{\rho_t(g)}).
+ \label{eq:pc-balance}
+\end{equation}
+For \(\psi\ne1\), multiplying the centered ramp by \(w\)
+adds \(A\ell_\psi\) to the inner prime sum of \eqref{eq:pc-prime}.
+For \(\psi=1\) it adds \(-A\log A+A\log w+(1+\gamma)A\).
+The sum of \(\overline{\psi(g)}\) over \(g\notin\Phi\) is \(f\)
+at \(1\), \(-f\) at \(\xi\), and zero otherwise, by character
+orthogonality on the index-two subgroup. The bijection \(\rho_t\)
+turns the logarithmic sum into the sum over \(\Phi\) in \(M\).
+Moving the two corrections to the left gives \eqref{eq:pc-balance}.
+
+\subsection{The weights and the surviving characters}
+
+Let \(H_0\subset H\) be a subgroup, \(T\subset H\), \(T_2\subset H_0\),
+\(n_T=|T|\), \(n_2=|T_2|\) and \(\Delta=n_2/n\).
+For \(u\in H_0\), the thick positions are precisely
+\(\rho=(0,1,s+u)\), \(s\in T_2\).
+For each \(1\leq j\leq m\) take positive weights \(w_{u,j,\rho}\).
+Take \(b,b',X'>0,\ \eta,\vartheta\geq0\) such that
+\[
+ b'X'\leq xb,\qquad b\leq w_{u,j,\rho}\leq b+\eta+1
+ \ \ (\rho\text{ thick}),\qquad
+ w_{u,j,\rho}\leq2b'\ \ (\rho\text{ otherwise}).
+\]
+At \(t\in T\) put \(A=a_t\), \(y_t=a_t/b\), and require
+\(|y_t-x|\leq1\) and \(a_t/w_{u,j,\rho}\leq N\).
+The arithmetic estimates on the thin scales and the window costs are
+\begin{equation}
+ |G_\psi(y)|\leq y\vartheta\quad(y\geq X'/3),\qquad
+ 2f(x+1)\vartheta\leq x^{-1},\qquad
+ 6f(x+1)(\eta+1)\leq b/x .
+ \label{eq:pc-cost}
+\end{equation}
+
+The thick part after replacing each thick weight by \(b\) is
+\[
+ T_u(t)=\frac1f\sum_{s\in T_2}\sum_{\psi\in\widehat E}
+          \psi\bigl(-(e+s+u-t)\bigr)bG_\psi(y_t).
+\]
+Indeed \(\rho_t(g)=(0,1,s+u)\) if and only if \(g=e+s+u-t\).
+We claim
+\begin{equation}
+ \Re T_u(t)\leq P(a_t,t,w_{u,j})-\Re M(a_t,w_{u,j})+2b/x .
+ \label{eq:pc-individual}
+\end{equation}
+For the thick terms the inequality used is
+\[
+ |wG_\psi(A/w)-bG_\psi(A/b)|
+                  \leq3A\,|w-b|/\min(w,b).
+\]
+For a nontrivial \(\psi\) the two linear centering terms cancel.
+The ramps are \(1\)-Lipschitz in \(w\) and vanish for
+\(m>A/\min(w,b)\). The classical Chebyshev bound
+\(\sum_{m\leq z}\Lambda(m)\leq3z\) proves the claim.
+For the trivial \(\psi\), suppose first \(b\leq w\). The decrease
+of the uncentered ramp sum lies between \(0\) and \(3A(w-b)/b\);
+the change from the centering has the opposite sign and size
+\(A\log(w/b)\leq A(w-b)/b\). The same bound therefore holds.
+Interchanging \(w,b\) covers the other order. Thus the replacement
+cost at a thick term is at most \(3(x+1)(\eta+1)\).
+At a thin term \(w>0\), \(w\leq2b'\) and \(A\geq(x-1)b\).
+Since \(x\geq3\), these give \(A/w\geq X'/3\).
+Its absolute contribution is at most \(A\vartheta\leq(x+1)b\vartheta\).
+In \eqref{eq:pc-balance} there are \(f\) choices for \(g\), \(2f\)
+characters and the factor \(1/f\). Hence its change in absolute value
+is bounded by \(2f[3(x+1)(\eta+1)+(x+1)b\vartheta]\leq2b/x\)
+by \eqref{eq:pc-cost}. This proves \eqref{eq:pc-individual}.
+
+Let \(\mathcal A\subset\widehat E\) consist of the characters trivial
+on \(H_0\). For each \(s\in T_2\), orthogonality on \(H_0\) gives
+\[
+ \sum_{u\in H_0}\psi(-(e+s+u-t))=
+ \begin{cases}|H_0|\psi(e+t),&\psi\in\mathcal A,\\0,&\psi\notin\mathcal A.\end{cases}
+\]
+Here \(e=-e\) and \(\psi(s)=1\) in the first case. It follows that
+\[
+ \frac1{|H_0|}\sum_{u\in H_0}T_u(t)
+      =b\,\frac{\Delta}{2}\sum_{\psi\in\mathcal A}\psi(e+t)G_\psi(y_t).
+\]
+Write \(E_{\rm top}\) for a common upper bound, for every \(u\in H_0\),
+on \(\sum_{t\in T}\sum_{j=1}^m [P(a_t,t,w_{u,j})-\Re M(a_t,w_{u,j})]\).
+Average \eqref{eq:pc-individual} over \(u\) and sum over \(t,j\).
+The result is
+\begin{equation}
+ mb\frac{\Delta}{2}\sum_{t\in T}\sum_{\psi\in\mathcal A}
+       \Re[\psi(e+t)G_\psi(y_t)]
+              \leq E_{\rm top}+2n_Tmb/x .
+ \label{eq:pc-top}
+\end{equation}
+
+\subsection{Comparison with a fixed family of primitive characters}
+
+Let \(K\subset\mathcal A\) contain \(1\). Suppose that \(\psi(e)=1\)
+on \(K\). Set \(c_\psi=1\) if \(\psi\) is trivial on \(H\), and
+\(c_\psi=c\) otherwise. Fix \(|c|\leq1\) and constants \(M_0,K_0,C_0\)
+valid throughout the windows, with
+\begin{gather*}
+ |\mathcal A|\leq M_0,\qquad
+ \left|\sum_{t\in T}\psi(t)-c_\psi n_T\right|
+                  \leq M_0x^{-1+\varepsilon}n_T\quad(\psi\in K),\\
+ |\ell_\psi|\leq K_0\quad(\psi\in K,\ \psi\ne1),\qquad
+ |\ell_\psi|\leq C_0\log x\quad(\psi\in\mathcal A\setminus K).
+\end{gather*}
+For \(\psi\) trivial on \(H\) the first sum equals \(n_T\) exactly.
+Define
+\[
+ G_K=\sum_{\psi\in K}c_\psi\Re G_\psi(x),\qquad
+ \Sigma=\sum_{\psi\in\mathcal A\setminus K}|G_\psi(x)|,\qquad
+ V=G_K-\Sigma .
+\]
+For \(x\) sufficiently large depending only on the fixed constants
+and \(\varepsilon\), we have
+\begin{equation}
+ n_T(V-4x^{1/2+\varepsilon})\leq
+  \sum_{t\in T}\sum_{\psi\in\mathcal A}\Re[\psi(e+t)G_\psi(y_t)] .
+ \label{eq:pc-lower}
+\end{equation}
+
+For the proof, the ramp is locally Lipschitz. Off the integers the
+derivative of the principal centered ramp is
+\(\sum_{m\leq y}\Lambda(m)/m-\log y+\gamma\).
+The elementary Mertens estimate
+\(\sum_{m\leq y}\Lambda(m)/m=\log y+O(1)\) therefore gives an absolute
+bound \(D\) for this derivative on \(y\geq1\). Continuity at integers
+extends the Lipschitz estimate across them. For a nontrivial \(\psi\),
+the absolute derivative is at most \(\log y+D+|\ell_\psi|\) by the
+same estimate, increasing \(D\geq0\) once if necessary. Since
+\(G_\psi(1)=\ell_\psi\) for \(\psi\ne1\), we obtain
+\begin{align*}
+ |G_\psi(y_t)-G_\psi(x)|&\leq\log(x+1)+D+|\ell_\psi|,\\
+ |G_\psi(x)|&\leq x(\log x+D+|\ell_\psi|).
+\end{align*}
+For \(1\ne\psi\in K\), subtract \(n_Tc_\psi G_\psi(x)\) from its
+sum in \eqref{eq:pc-lower} before taking real parts. The difference is
+\[
+  \sum_{t\in T}\psi(t)[G_\psi(y_t)-G_\psi(x)]
+          +\left(\sum_{t\in T}\psi(t)-c_\psi n_T\right)G_\psi(x).
+\]
+In absolute value this is at most \(n_T\) times
+\(\log(x+1)+D+|K_0|+|M_0|x^\varepsilon(\log x+D+|K_0|)\).
+For \(\psi=1\) the lower error per term is at most \(D\).
+For \(\psi\in\mathcal A\setminus K\) the real part of each term is
+bounded below by \(-|G_\psi(x)|-\log(x+1)-D-|C_0|\log x\).
+Thus all three errors per term are at most \(A_1x^{1/4+\varepsilon}\), where
+\[
+ A_1=5+D+|K_0|+|M_0|(4+D+|K_0|)+4|C_0|.
+\]
+Indeed \(\log x\leq4x^{1/4}\), \(\log(x+1)\leq5x^{1/4}\) for \(x\geq3\).
+Enlarge the threshold so that \(|M_0|A_1\leq x^{1/4}\). The total
+per \(t\) is then at most \(x^{1/2+\varepsilon}\), which gives the
+stated bound with the source's constant four.
+
+\subsection{Accounting for the size error}
+
+The source supplies a geometric upper bound for \(E_{\rm top}\) at
+this same \(x\). In numerical form, with \(C\geq0\), \(a_E\geq0\), it is
+\begin{align}
+ E_{\rm top}\leq x^{C\varepsilon}\bigg[
+ n_T a_E(1+m^2/k)
+ +m\left(2nmbx^\varepsilon+
+       \frac{n_2 k b x^\varepsilon}{n(n x^{-\varepsilon})}\right)\bigg].
+ \label{eq:pc-geometry}
+\end{align}
+The size hypotheses that enter division by the main coefficient are
+\[
+ \begin{gathered}
+ 0\leq a_E\leq2xb,\quad n_T\geq nx^{-\varepsilon/8}/2,
+ \quad x^{-\varepsilon}\leq\Delta\leq1,\\
+ x^{1/2-\varepsilon}\leq m\leq x^{1/2+\varepsilon/2},\qquad
+ xm\leq k\leq n^2x^{1/2-\varepsilon},\qquad
+ 26\leq x^{3\varepsilon/8}.
+ \end{gathered}
+\]
+Let \(Q=n_Tmb>0,\ Y=x^{1/2+13\varepsilon/8},\ P_0=x^{C\varepsilon}\).
+Divide the four summands inside the bracket by \(Q\).
+The first is \(a_E/(mb)\leq2x/m\leq2x^{1/2+\varepsilon}\leq2Y\).
+The second is \(a_E m/(bk)\leq2xm/k\leq2\leq2Y\).
+The third is \(2nm x^\varepsilon/n_T
+      \leq4x^{1/2+13\varepsilon/8}=4Y\).
+The fourth is \(n_2 k x^{2\varepsilon}/(n_Tn^2)
+      \leq2x^{1/2+9\varepsilon/8}\leq2Y\).
+Hence \(E_{\rm top}\leq10P_0YQ\). Combining
+\eqref{eq:pc-lower} and \eqref{eq:pc-top}, dividing by \(Q\)
+and using \(2/x\leq1\leq P_0Y\), gives
+\[
+ \Delta(V-4x^{1/2+\varepsilon})\leq22P_0Y .
+\]
+As \(\Delta^{-1}\leq x^\varepsilon\) and \(C\geq0\), it follows that
+\begin{equation}
+ V\leq26x^{1/2+(C+21/8)\varepsilon}
+       \leq x^{1/2+(C+3)\varepsilon}.
+ \label{eq:pc-core}
+\end{equation}
+
+For the cyclic level of order \(o\) used to extract a prescribed
+primitive character, the host parameters are
+\[
+ c=(3o+1)^{-1},\qquad M_0=4o,\qquad
+ K_0=\sum_{\chi\ \mathrm{retained}} |L'(1,\chi)/L(1,\chi)|
+\]
+with the formal value for the principal component in \(K_0\) understood
+as the library's totalized logarithmic derivative. Equivalently one
+may increase any bound for the nonprincipal summands by a fixed
+nonnegative constant, since it is used only on \(\psi\ne1\).
+The character group \(\mathcal A\) is the dual of \(E/H_0\),
+so \(|\mathcal A|=4[H:H_0]=4o\).
+The arithmetic host identifies the retained characters bijectively
+with the primitive family of the level and identifies their ramps
+and weights, hence \(G_K=G_{\mathcal L}(x)\).
+The host's bounded-character estimate gives
+\(|G_\psi(x)|\leq x^{1/2+\varepsilon}\) on
+\(\mathcal A\setminus K\), whence \(\Sigma\leq4o x^{1/2+\varepsilon}\).
+The height error exponent at this scale is at most \(e_D+e_L+3\)
+with \(e_D+e_L\geq0\). Thus \eqref{eq:pc-geometry} may be used with
+\(C=e_D+e_L+3\). Adding \(\Sigma\) in \eqref{eq:pc-core} and requiring
+\(1+4o\leq x^\varepsilon\) gives
+\[
+ G_{\mathcal L}(x)\leq x^{1/2+(e_D+e_L+7)\varepsilon}.
+\]
+Every large-scale threshold here depends on the fixed level, its
+error constants and \(\varepsilon\). Consequently, if the arithmetic
+inputs hold at every point of one interval above those thresholds,
+the conclusion holds at every point of that same interval.
+
+\paragraph{Correspondence and inputs.}
+The Fourier calculation translates \texttt{ch\_\allowbreak{}balance}.
+The projection, replacement of the weights, and character comparison
+translate \texttt{Character\allowbreak{}Balance\allowbreak{}Moves.\allowbreak{}sum\_\allowbreak{}Th}, \texttt{th\_\allowbreak{}le},
+\texttt{one\_\allowbreak{}char}, \texttt{core} and \texttt{ch\_\allowbreak{}core}.
+The four-term calculation translates \texttt{proposition\_\allowbreak{}size\_\allowbreak{}bound}.
+The conversion at a fixed level translates \texttt{ch\_\allowbreak{}top},
+\texttt{gm\allowbreak{}A\_\allowbreak{}eq}, \texttt{sig\allowbreak{}A\_\allowbreak{}le} and \texttt{core\_\allowbreak{}gm}.
+The upstream inputs used here are the host with the specified
+Frobenius and inertia data, the common-window character and weight
+estimates, the inequalities on their sizes, and the geometric
+inequality \eqref{eq:pc-geometry}. In \texttt{ch\_\allowbreak{}top} this last
+inequality follows from the source's unitwise height bound
+\texttt{each\_\allowbreak{}unit\_\allowbreak{}bound\_\allowbreak{}statement} and error comparison
+\texttt{err\allowbreak{}X5at\_\allowbreak{}le} after substituting the upper bounds for its
+two coefficients \(B_0,N_c\).

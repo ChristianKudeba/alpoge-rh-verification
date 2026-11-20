@@ -1,0 +1,343 @@
+\section{Local matching and the global theta integral}
+\label{sec:theta-match}
+
+This is the theorem about two unitary Weil representations used in
+\texttt{theta\_\allowbreak{}integrals\_\allowbreak{}agree\_\allowbreak{}and\_\allowbreak{}local\_\allowbreak{}matching\_\allowbreak{}of\_\allowbreak{}literature}.
+We give its local maps, rank restrictions, integral domains and
+normalizations. The final subsection records which estimates and
+representation-theoretic results enter the deductions below.
+
+\subsection{Spaces, signatures and sections}
+
+Write \(E/F\) for the CM extension with involution \(\sigma\).
+The base of the theorem has \(E/\mathbb Q\) Galois,
+\(\mathcal O_E/\mathcal O_F\) unramified and a standard additive
+character \(\psi\). At every inert place the residue characteristic
+is odd, the residue-field size exceeds three, and \(\psi_v\) is
+unramified. The base also specifies split embeddings at a finite
+set \(P\) of places, unramified for \(\psi\), and at a distinguished
+split place \(v_1\). The two Hermitian spaces \(V,V'\) and the
+skew-Hermitian space \(W\) have dimensions \(a,a',d=a+a'\) with
+\(a'<a\) and \(d\) even. For the signature data in the source the
+pairs are \((a-p,p),(q,a'-q),(d-p-q,p+q)\), respectively. Its
+inequalities are
+\[
+ 2(p+q)+1<(a-a')/2,\qquad 2(p+q)+1<a',\qquad
+ d<m_\alpha(w)-m_\beta(w)\quad\text{at every real place }w .
+\]
+A pair of Hecke characters \(\alpha,\beta\), with the prescribed
+infinite exponents and restrictions to the base ideles, determines
+\(\nu=\alpha/\beta\). Write \(T=S_0\cup Q\subset P\), where \(S_0,Q\)
+are disjoint. The characters \(\alpha,\beta\) are unramified outside
+\(T\), and \(\nu\) is ramified at places of \(E\) over \(T\).
+The distinguished place \(v_1\) lies outside \(T\) and splits
+completely in the sense of the base. The Weil representations
+\(\omega,\omega'\) use the pairs of splitting characters
+\((\beta,\beta/\alpha)\), \((\alpha,\alpha/\beta)\), respectively.
+Fix the models, polarizations, Haar measures and rational fundamental
+domains specified with these data.
+
+For \(Y=V\) or \(V'\) of dimension \(r\), and for a Schwartz
+function \(\Phi\) in its adelic model, put
+\[
+ \Theta_Y(\Phi;g,h)=
+   \sum_{x\in F^{r\times d}}[\omega_Y(g,h)\Phi](x),\qquad
+ I_Y(\Phi)(h)=
+   \int_{U(Y)(F)\backslash U(Y)(\mathbb A_F)}
+         \Theta_Y(\Phi;g,h)\,dg .
+\]
+The second integral here uses the model's fundamental domain and measure.
+The small-side subspace \(\mathcal S^\circ\) is spanned by pure tensors
+that are vacuum vectors at almost all finite places. At \(v_1\), in
+the specified split realization, their local factor vanishes on all
+matrices of rank less than \(a'\). At infinity they have Schwartz
+factors. Denote by \(\mathcal P\) the polynomial Fock subspace
+in the corresponding archimedean model.
+
+\subsection{The common quotients at finite places}
+
+For every finite \(v\) there is a nonzero irreducible complex space
+\(\Pi_v\) with maps \(p_v,p'_v\) onto it from the respective
+Schwartz--Bruhat spaces. Both maps annihilate the linear span of
+differences under the first member of the dual pair. Equality of
+images is preserved by the action of the second member. At \(v\notin T\)
+the two vacuum vectors have equal, nonzero images. For a good split
+place \(v\notin T\) in the sense of the theorem (lying over a rational
+prime split completely in \(E\)), the kernel on either Schwartz space
+equals this span of differences. The small-side functions supported
+on the full-rank locus in split coordinates surject onto \(\Pi_v\).
+Every linear functional on the small Schwartz space arising from a
+functional on the ambient functions and annihilating the differences
+there factors through \(p'_v\) on Schwartz functions.
+
+Here is the realization of the matching condition at \(v\in T\).
+Let \(k=F_v\), choose the designated embedding \(E\longrightarrow k\),
+and write \(\varpi\) for a uniformizer, \(\mathcal O\) for the
+valuation ring, \(K_r=\operatorname{GL}_r(\mathcal O)\).
+Use Haar measures of mass one on \(K_r\).
+Use \(\alpha,\beta,\nu\) also for the local characters in these
+coordinates. Put \(X_0=[1_a\ \ 0]\) and \(Y_0=[0\ \ 1_{a'}]\).
+The argument of both transforms below is \(h\in\operatorname{GL}_d(k)\).
+With \(h^{-t}=(h^{-1})^t\), they are
+\begin{align*}
+ P_A(\phi)(h)
+   &=\beta(\det h)|\det h|^{-a/2}
+     \mathop{\sum\nolimits^{\mathrm{fin}}}_{n_1\geq\cdots\geq n_a}
+       \int_{K_a\operatorname{diag}(\varpi^{n_i})K_a}
+       \phi(gX_0h^{-t})\nu(\det g)|\det g|^{d/2}\,dg,\\
+ P_B(\phi')(h)
+   &=\alpha(\det h)|\det h|^{a'/2}
+       \int_{\operatorname{GL}_{a'}(k)}
+       \phi'(gY_0h)\nu(\det g)|\det g|^{d/2}\,dg .
+\end{align*}
+The first expression uses the source's finite-support sum of shell
+integrals indexed by decreasing integer tuples. The ramified
+calculation establishes finite support on the Schwartz functions
+to which the linearity argument is applied. The local Weil coordinate
+changes \(\iota,\iota'\) send the two vacuum functions to indicators
+of integral matrices of their respective sizes. The matching criterion is
+\[
+       p_v\Phi=p'_v\Phi'
+        \quad\Longleftrightarrow\quad
+       P_A(\iota\Phi)=P_B(\iota'\Phi')
+           \quad\text{as functions on }\operatorname{GL}_d(k).
+\]
+There is no equality of vacuum images required at \(v\in T\).
+
+To see how these transforms give the claimed quotient, use the
+local change-of-variables and shell lemmas: both transforms are
+linear on Schwartz--Bruhat functions, take values in the same
+normalized parabolically induced representation, annihilate the
+first group's differences, and intertwine the second group's action.
+Each image contains a nonzero vector. For instance take a small
+principal congruence subgroup on which \(\nu\circ\det\) is trivial.
+At \(h=1\) localize the test function around the image of the
+identity matrix under \(g\mapsto gX_0\) or \(g\mapsto gY_0\).
+These inclusions have coordinate projections for left inverses,
+so a compact open neighbourhood may be chosen with pullback
+precisely the chosen subgroup. The support is then in the unit
+shell, all factors in the integrand there are one if the
+characteristic function is used, and its positive Haar volume is
+the resulting value. This is the bump-function argument in
+\texttt{p\allowbreak{}Ram\_\allowbreak{}ne\_\allowbreak{}zero} and its small-side counterpart.
+
+The needed Bernstein irreducibility statement is the irreducibility
+of the normalized product of two determinant representations of
+\(\operatorname{GL}_a(k)\) and \(\operatorname{GL}_{a'}(k)\) for
+smooth unitary characters when the dimensions or the characters
+differ. Here \(a\ne a'\). An invariant subspace containing a
+nonzero vector in this representation is the entire representation.
+Both maps are therefore onto. Transport them through the split
+Weil coordinates. Equality in their codomain, which is a subspace
+of functions, is equivalent to pointwise equality of the transforms;
+this proves the displayed ramified matching criterion.
+In rank descent the source separately uses ramified multiplicity one:
+for a nonzero equivariant map between the successive local models,
+every other equivariant map of the same type is its scalar multiple.
+It derives both local results using the geometric-lemma filtration.
+
+For \(v\notin T\), use the split unramified maps when an embedding
+\(E\longrightarrow F_v\) exists, and the inert spherical maps
+otherwise. The inert input identifies the vacuum vectors in a common
+spherical quotient. The source obtains it from its inert vacuum
+comparison, spherical-function result and local representation
+existence. These three cases exhaust the finite places. Choose the
+pair of maps constructed at each \(v\); all the requirements on
+them above are placewise. At infinity the two polynomial modules
+surject onto a common nonzero irreducible \((\mathfrak g,K)\)-module
+\(\Pi_\infty\). The maps kill first-group Lie derivatives and identify
+first-group maximal-compact translates. They intertwine the
+second group's Lie and maximal-compact actions on matching pairs.
+The formal proof supplies this archimedean statement by its Fock model
+and local lift comparison.
+
+\subsection{The constant and the rank induction}
+
+Two finite sums of pure tensors with polynomial archimedean factors
+are polynomially matched when their images in
+\(\Pi_\infty\otimes\bigotimes_{v\in U}\Pi_v\) are equal for a
+finite set \(U\supset T\) outside which all their factors are
+vacua. General matched data are finite sums with fixed finite
+Schwartz factors whose archimedean factors are limits of sequences
+of such polynomially matched sums. The small member and every one
+of its approximants must lie in \(\mathcal S^\circ\).
+For each choice of matching maps there is a unique \(c\ne0\) for which
+\begin{equation}
+       I_V(\Phi)(h)=c I_{V'}(\Phi')(h)
+       \qquad\text{for all matched pairs and every }h.
+       \label{eq:theta-identity}
+\end{equation}
+
+Here are the two rank changes controlling this constant. They also
+specify which scalar factors may depend on local characters. Put
+\(\delta=(a-a')/2\), and let \(\mathfrak b,\mathfrak c\) be the
+fractional ideals of the two adapted planes for a step. For its
+universal signs \(e_1,e_2,s\in\{1,-1\}\), set
+\begin{align*}
+ D(z)&=\nu(\mathfrak b)^{e_1}\nu(\mathfrak c)^{e_2}
+       \prod_{v\in T}\nu_v(s)\epsilon_v(z),\\
+ \epsilon_v(z)&=q_v^{-f_vz}\nu_v(\varpi_v)^{f_v}
+      \sum_{y\in(\mathcal O_v/\varpi_v^{f_v})^\times}
+        \nu_v(\widetilde y)^{-1}\psi_v(\widetilde y/\varpi_v^{f_v}).
+\end{align*}
+Here \(f_v\) is the conductor exponent, \(q_v\) the residue cardinality
+and the sum uses lifts of the unit classes. The ideal character
+values have the source's uniformizer conventions. At a beta step,
+\(q>0\), the ranks change from \((a,a')\) to \((a,a'-2)\)
+and \(q\) drops by one. With \(c_1\) the lower-rank constant,
+\[
+        c\,L^{S_0}(\nu,\delta+1)
+          =[C D(-\delta)]^{-1}c_1 .
+\]
+At an alpha step, \(q=0,\ p>0\), the ranks change to
+\((a-2,a')\), and \(p\) drops by one. In that case
+\[
+        c=C D(1-\delta)L^{S_0}(\nu,\delta)c_1 .
+\]
+Here \(L^{S_0}\) is the partial character \(L\)-function with the
+specified \(S_0\) Euler factors omitted. Each step has its own
+universal triple of signs. Its \(C\ne0\) is chosen after the planes,
+geometry and archimedean maps, before the characters and finite
+matching data.
+
+To prove the deduction from the rank-step inputs, induct on \(p+q\).
+The \(p=q=0\) case is the anisotropic polynomial identity. If \(q>0\)
+use the beta step; if \(q=0\) and \(p>0\) use the alpha step.
+The source's existence theorem for adapted planes supplies a
+lower-rank admissible triple. Local matching supplies its models,
+and the induction hypothesis supplies \(c_1\).
+The comparisons of the constant terms for the zero orbit and
+the relevant nonzero cone give the displayed step relations and
+the polynomially matched identity for the larger pair. The
+nonvanishing factor result gives \(D(z)\ne0\) at the specified
+arguments and nonvanishing of the partial \(L\)-value.
+Hence the new scalar is nonzero.
+
+There is also a small-side test vector with nonzero integral.
+When \(q=0\) this is the anisotropic nonvanishing conclusion.
+For \(q>0\), the nonzero term in beta descent supplies a big-side
+vector with nonzero integral. Choose its polynomially matched
+small-side partner. Its integral must be nonzero by the polynomial
+identity. Evaluating at an \(h\) where this integral is nonzero
+forces any two admissible constants to be equal. To extend to
+general matched data, pass to the archimedean approximants in
+the definition above. The big-side integral is continuous on
+each fixed finite Schwartz factor by its integrable majorant;
+the small-side one is continuous along the indicated sequences
+in \(\mathcal S^\circ\). There are only finitely many fixed
+factors. Taking both limits in the polynomial identity proves
+\eqref{eq:theta-identity}.
+
+\subsection{Indefinite convergence and regularized representatives}
+
+The large-side integral converges absolutely on every adelic
+Schwartz function in the stated range. On the small side take
+\(\Phi'\in\mathcal S^\circ\). Put \(H_Q(g)=\inf_{\gamma\in U(V')(F)}
+H(\gamma g)\), where \(H\geq1\) is the matrix height of the model.
+For each integer \(N\geq0\) there are \(C,k\) such that
+\[
+ |\Theta_{V'}(\Phi';g,h)|H_Q(g)^N\leq C H(h)^k .
+\]
+Moreover \(\int|\Theta_{V'}(\Phi';g,h)|\,dg\) is finite and bounded
+by a fixed power of \(H(h)\) times a constant. Here the input from
+unitary reduction theory consists of an integrable majorant for
+each pure tensor in the full-rank subspace and a seminorm bound
+with each power \(N\). The finite-sum deduction is explicit.
+Write \(\Phi'=\sum_{i=1}^m f_i\otimes\phi_i\) in the defining span.
+For its \(i\)-th summand use the integral estimate
+\(\int|\Theta_i(g,h)|\,dg\leq C_i H(h)^{k_i}\) supplied by that
+majorant. Form the finite sum, take \(k=\max_i k_i\), and use
+\(\int|\sum_i\Theta_i|\leq\sum_i\int|\Theta_i|\).
+The zero sum is immediate. The same argument applied pointwise to
+the seminorm bounds gives the displayed rapid decrease. This also
+shows directly why the integral is a moderate function of \(h\).
+
+The subsequent twisted square comparison gives a regularized
+representative for each small-side algebraic datum \(\Phi'\).
+In its model let \(\mathcal R\) be the span of
+\(\omega'(u,1)\Psi-\Psi\), with \(u\) in the allowed finite-adelic
+subgroup and \(\Psi\) algebraic. There is \(\Phi_0\) in the same
+algebraic space with \(\Phi'-\Phi_0\in\mathcal R\) and with a
+convergent moderate theta integral. For any matched big-side
+\(\Phi\) with \(p\Phi=p'\Phi_0\), the twisted analogue of
+\eqref{eq:theta-identity} holds for \(\Phi,\Phi_0\).
+The following argument from the archive shows precisely when the
+integral of \(\Phi'\) itself can take its place.
+
+Suppose \(\Psi\in\mathcal R\) and its kernel is integrable as a
+function of \(g\) for every \(h\). Write
+\(\Psi=\sum_i b_i(\omega'(u_i,1)\Psi_i-\Psi_i)\).
+Choose a regularizer \(Z=\sum_k z_k\omega'(k,1)\), a finite sum in
+the allowed subgroup with \(\deg Z=\sum_kz_k\ne0\), for this finite
+list. The source constructs it at a completely split auxiliary place
+outside the exceptional sets for both the kernels and the finite
+translates. Its regularized vectors \(Z\Psi_i\) have convergent
+moderate integrals, and for each \(i\) there is \(u'_i\) in the
+same subgroup satisfying
+\(Z\omega'(u_i,1)\Psi_i=\omega'(u'_i,1)Z\Psi_i\).
+Right translation on the adelic quotient preserves the integral
+of each integrable kernel. Thus
+\[
+ I_{V'}(Z\Psi)=
+   \sum_i b_i\{I_{V'}(\omega'(u'_i,1)Z\Psi_i)-I_{V'}(Z\Psi_i)\}=0 .
+\]
+Since the kernel of \(\Psi\) itself is integrable, right translation
+and the finite expansion of \(Z\) also give
+\(I_{V'}(Z\Psi)=(\deg Z)I_{V'}(\Psi)\).
+Division by the nonzero degree proves \(I_{V'}(\Psi)=0\).
+If the original \(\Phi'\) has integrable kernel, apply this to
+\(\Psi=\Phi'-\Phi_0\). Since the matching maps annihilate
+\(\mathcal R\), \(p'\Phi'=p'\Phi_0\); since
+\(I_{V'}(\Phi')=I_{V'}(\Phi_0)\), the scalar identity holds with
+the ordinary integral of \(\Phi'\). For a general algebraic
+\(\Phi'\) the comparison uses the regularized representative.
+
+\paragraph{Inputs in the release.}
+At the top edge \texttt{theorem\allowbreak{}K\_\allowbreak{}head2} takes two propositions.
+\texttt{Eis\allowbreak{}BL} gives the half-plane of convergence of a doubled
+Eisenstein family and weak holomorphic continuation after a finite
+local pole-clearing factor. \texttt{Siegel\allowbreak{}Weil\allowbreak{}Std} gives, for a
+definite first member of dimension \(m\) and second member of
+dimension \(n\), the holomorphic value of the specified Eisenstein
+section at \((m-n)/2\). It is the average of the theta sum over the
+first group multiplied by \(1\) if \(n<m\) and \(2\) otherwise.
+These two propositions are supplied by \texttt{Rg\allowbreak{}Eis.\allowbreak{}Hd.\allowbreak{}eis\allowbreak{}BL}
+and \texttt{Siegel\allowbreak{}Weil\allowbreak{}Formula.\allowbreak{}Fin.\allowbreak{}siegel\allowbreak{}Weil\allowbreak{}Std}. Neither supplier
+uses the nominal literature-bundle parameter in its proof.
+
+The fourteen arguments in the source's next assembly
+\texttt{Tr.\allowbreak{}close\allowbreak{}Sph} are the finite coinvariant dictionary,
+the full-rank small-space coinvariant theorem, ramified
+multiplicity one, the ramified finite matching maps, split
+unramified finite matching maps, the spherical triple comparison,
+inert finite matching maps, the second-group real Lie derivative
+comparison, archimedean Lie equivariance, the common real quotient,
+the unitary Siegel-set theorem, the Eisenstein continuation theorem,
+the definite Siegel--Weil value, and existence of the requisite
+Weil representations. The spherical input uses
+\texttt{mod\allowbreak{}St2}; the ramified and split finite arguments use the
+geometric-lemma filtration; the real quotient uses the local lift
+and infinitesimal action. Inside \texttt{close\allowbreak{}Sph}, the
+nontrivial analytic and algebraic steps cited above include
+\texttt{pol\allowbreak{}Zero}, \texttt{non\allowbreak{}Zero\allowbreak{}An}, \texttt{end\allowbreak{}AB\_\allowbreak{}sph},
+\texttt{loc\allowbreak{}A\_\allowbreak{}of}, \texttt{loc\allowbreak{}B\_\allowbreak{}of}, the plane towers,
+\texttt{dom\allowbreak{}Weil\allowbreak{}U}, \texttt{so\allowbreak{}Semi\allowbreak{}U} and the unitary Siegel-set
+estimates. Their underlying proofs are imported in this chapter.
+The correspondence with the definitions is
+\texttt{Weil\allowbreak{}Tensor\allowbreak{}Models.\allowbreak{}Is\allowbreak{}Matched}, \texttt{Decay},
+\texttt{One\allowbreak{}Const}, \texttt{Coinv}, \texttt{Step\allowbreak{}Beta} and
+\texttt{Step\allowbreak{}Alpha}.
+
+The additional application to regularized representatives is
+\texttt{twisted\_\allowbreak{}square\_\allowbreak{}theta\_\allowbreak{}integrals\_\allowbreak{}eq}; its inputs are
+the two tensor-model theorems and
+\texttt{Global\allowbreak{}Theory.\allowbreak{}Fun\allowbreak{}Pr.\allowbreak{}Theta\allowbreak{}Local\allowbreak{}Inputs}. The removal of the
+regularizer for an already integrable kernel uses
+\texttt{twist\_\allowbreak{}regulariser\_\allowbreak{}is\allowbreak{}Good},
+\texttt{theta\allowbreak{}Integral\_\allowbreak{}eq\_\allowbreak{}zero\_\allowbreak{}of\_\allowbreak{}finite\allowbreak{}Relation} and
+\texttt{theta\allowbreak{}Integrals\_\allowbreak{}agree\_\allowbreak{}of\_\allowbreak{}integrable\_\allowbreak{}kernel}.
+The auxiliary-place construction uses placewise seesaw models,
+the full-rank regularization theorem, commutation of separated
+finite-place operators and existence of a completely split place
+outside a prescribed finite set. These are source results used by
+the argument in this subsection.
