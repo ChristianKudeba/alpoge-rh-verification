@@ -1,0 +1,315 @@
+\section{Whittaker values at exceptional finite places}
+\label{sec:ramified-whittaker}
+
+There are two local normalizations in the theta comparison. At a
+nonsingular Hermitian frequency the Whittaker coefficient measures a
+Gram fiber. In the split rank descent a one-dimensional Fourier
+transform introduces a ramified Gauss sum. We compute both
+normalizations. This distinguishes the scalar in a rank step from
+the measure used to count solutions to a Gram equation.
+
+\subsection{The weighted Gram fiber}
+
+Let \(E/F\) be the CM extension with conjugation \(\sigma\), \(v\) any
+finite place of \(F\), \(k=F_v\), and \(A=k\otimes_F E\). Use the
+involution induced by \(\sigma\) and write \(b^*={}^{t}\bar b\).
+Let \(J\) be a nonsingular Hermitian form in \(M\) variables over
+\(E\). Let \(V=(A^M)^n\), \(H=\operatorname{Herm}_n(A)\), and let
+\(Q(Y)\) be the Hermitian Gram matrix of the \(n\) vectors in \(Y\)
+with respect to \(J\). Fix \(T\in H\) with \(\det T\in A^\times\).
+This determinant condition also makes sense when \(A=k\times k\).
+Write \(\psi_v\) for the local component of the specified nontrivial
+unitary adelic additive character. On \(H\) the pairing used with
+this character is
+\[
+ [b,D]=\tfrac12\operatorname{Tr}_{A/k}\operatorname{tr}(bD).
+\]
+Take the prescribed self-dual Haar measures \(\mu\) on \(V\) and
+\(\eta\) on \(H\), with \(\eta\) self-dual for \(\psi_v([b,D])\).
+Take any compact open additive subgroups \(L_1,L_2\subset A^n\) and
+an additive Haar measure \(\lambda\) there. For \(b\in H\) set
+\[
+ h(b)=\frac{\lambda(L_1+bL_2)}{\lambda(L_1)},\qquad
+ s_0=(M-n)/2 .
+\]
+Let \(\phi\) be locally constant and compactly supported on \(V\).
+The density input is a complex-valued function \(g\), continuous on
+the open set \(H^\times\) of nonsingular forms, such that
+\[
+ \int_{Q^{-1}(C)}\phi(Y)\,d\mu(Y)=\int_Cg(D)\,d\eta(D)
+ \quad(C\subset H^\times\text{ compact}).
+\]
+The low-rank and equal-rank density theorems used by the global
+formula supply such functions. The following local argument applies
+to every \(g\) satisfying this condition.
+
+Put
+\[
+ U_T(b)=\int_V\phi(Y)\psi_v([b,Q(Y)-T])\,d\mu(Y),
+ \qquad F_z(b)=h(b)^{-(z-s_0)}U_T(b).
+\]
+There is an entire function \(W_T(z)\) equal to
+\(\int_H F_z(b)\,d\eta(b)\) on a right half-plane, and
+\begin{equation}
+                       W_T(s_0)=g(T).
+ \label{eq:exceptional-whit-density}
+\end{equation}
+We prove this also for nonstandard test functions and lattices.
+
+\paragraph{Extraction of the density.}
+Give matrices the maximum of their entry coordinate norms in a fixed
+\(k\)-basis of \(A\). Write \(B_R=\{b\in H:\|b\|\leq R\}\) and
+\(P_R=\{D\in H:\psi_v([b,D])=1\ \forall b\in B_R\}\). For \(R>0\),
+\(B_R\) is a compact open additive subgroup. Orthogonality gives
+\[
+  \int_{B_R}\psi_v([b,D])\,d\eta(b)=\eta(B_R){\bf1}_{P_R}(D).
+\]
+Indeed translation by any \(b_0\in B_R\) multiplies this integral by
+\(\psi_v([b_0,D])\). If \(D\notin P_R\), choose \(b_0\) with
+nontrivial multiplier and subtract.
+
+Here is an explicit bound on the annihilator. Choose \(y_0\in k\)
+with \(\psi_v(y_0)\ne1\). Nondegeneracy of the trace form on the
+separable algebra \(A\) gives \(c>0\) such that for each \(t\in A\)
+some \(a\) satisfies \(\|a\|\leq1\) and
+\(\lvert\operatorname{Tr}_{A/k}(at)\rvert\geq c\|t\|\).
+For example, use a fixed trace-dual basis, scaled into the unit
+ball by one scalar, and the equivalence of coordinate norms.
+Choose \(C_\sigma\) with \(\|\bar a\|\leq C_\sigma\|a\|\).
+For \(D\ne0\) choose a largest entry \(D_{ij}\) and apply the trace
+bound to get \(a\) and \(w=\operatorname{Tr}(aD_{ij})\ne0\).
+With \(X\) supported at \((j,i)\) with entry \(a\), the matrix
+\(b=(y_0/w)(X+X^*)\) is Hermitian. Trace invariance under the
+involution and cyclicity give \([b,D]=y_0\). Thus
+\[
+ D\in P_R\quad\Longrightarrow\quad
+ \|D\|\leq\frac{|y_0|\max(1,C_\sigma)}{cR}.
+\]
+The factor \(1/2\) in the pairing cancels the two traces of \(X\)
+and \(X^*\), including in residue characteristic two.
+In particular \(P_R\) is closed and bounded, hence compact.
+Fourier inversion at zero applied to \({\bf1}_{B_R}\), whose transform
+is the displayed compactly supported function, now gives
+\(\eta(B_R)\eta(P_R)=1\).
+
+Fubini applies to \(B_R\times\operatorname{supp}\phi\). It gives
+\[
+ \int_{B_R}U_T(b)\,d\eta(b)=\eta(B_R)
+                  \int_{Q^{-1}(T+P_R)}\phi(Y)\,d\mu(Y).
+\]
+For all sufficiently large \(R\), the compact set \(T+P_R\) lies in
+\(H^\times\), and the last integral equals \(\int_{T+P_R}g\,d\eta\).
+The absolute difference between the left side and \(g(T)\) is at
+most \(\sup_{D\in T+P_R}|g(D)-g(T)|\), by the volume product above.
+Continuity at \(T\) makes this tend to zero.
+
+\paragraph{Cancellation on a large shell.}
+Fix \(q_0>1\). We show that for every sufficiently large \(R\) and
+every complex \(z\),
+\[
+          \int_{R<\|b\|\leq q_0R}F_z(b)\,d\eta(b)=0 .
+\]
+For \(a=1+x\) with \(\|x\|\leq r_*\) sufficiently small, the
+transform \(b\mapsto a^*ba\) preserves each norm ball and its Haar
+measure. Indeed choose \(r_*\) so the correction
+\(x^*b+bx+x^*bx\) has norm strictly less than \(\|b\|\) for \(b\ne0\),
+and \(1+x\) has an inverse. Preservation of a compact open ball of
+positive volume fixes the Haar scaling at one. Also \(aL_2=L_2\)
+and \(a^*L_1=L_1\), since both lattices are compact open and these
+automorphisms and their inverses approach the identity. It follows
+that \(h(a^*ba)=h(b)\). The integral
+\(J_\phi(b)=\int_V\phi(Y)\psi_v([b,Q(Y)])\,d\mu(Y)\) is unchanged:
+make the corresponding change of basis on the tuple \(Y\). A single
+congruence neighborhood fixes \(\phi\) under this change. One can
+choose it by expressing \(\phi\) as a finite linear combination of
+indicators of cosets of one compact open subgroup and stabilizing
+those cosets. Shrinking \(r_*\) ensures all of these properties.
+
+The only varying factor of \(F_z\) is now the frequency character.
+Expansion gives
+\[
+ [T,a^*ba]-[T,b]
+ =\operatorname{Tr}_{A/k}\operatorname{tr}(Tbx)+[T,x^*bx].
+\]
+The two terms linear in \(x,x^*\) have the same field trace, which
+cancels the \(1/2\) in the pairing. There exists \(C_Q\geq0\) such
+that \(\lvert[T,x^*bx]\rvert\leq C_Q\|x\|^2\|b\|\), by continuity
+and finite dimensionality of multiplication, trace and involution.
+Choose \(\varepsilon>0\) with \(\psi_v\) trivial on
+\(\{|t|\leq\varepsilon\}\).
+
+The Fourier character in the linear term can be made nontrivial
+uniformly in the direction of \(b\). Choose \(C_m\geq0\) with
+\(\|AB'\|\leq C_m\|A\|\|B'\|\) for matrices and set
+\[
+ C_\nu=\frac{|y_0|(C_m\|T^{-1}\|+1)}{c}.
+\]
+For \(b\ne0\), let \(Y=Tb\), choose a largest entry \(Y_{ij}\) and
+choose \(a'\) of norm at most one with
+\(\lvert w\rvert=|\operatorname{Tr}(a'Y_{ij})|\geq c\|Y\|\).
+Take \(x_0\) supported at \((j,i)\) with entry \(-y_0a'/w\).
+Then
+\[
+ \psi_v(-\operatorname{Tr}\operatorname{tr}(Tbx_0))=\psi_v(y_0)\ne1,
+ \qquad \|x_0\|\leq C_\nu/\|b\|.
+\]
+The bound follows by writing \(b=T^{-1}Y\).
+
+Take
+\[
+ R\geq\max\{1,C_\nu/r_*, C_Q C_\nu^2 q_0/\varepsilon\},
+ \qquad r=C_\nu/R .
+\]
+On the shell and \(\|x\|\leq r\) the quadratic term lies in the
+kernel of \(\psi_v\). Consequently substitution by \(1+x\) multiplies
+the integrand at \(b\) by precisely
+\(\psi_v(-\operatorname{Tr}\operatorname{tr}(Tbx))\).
+Average the substitutions over the additive matrix ball of radius
+\(r\), with normalized Haar measure. Each substitution preserves the
+shell integral. For each \(b\) in the shell the multiplier has mean
+zero, by translation by the \(x_0\) just constructed. Fubini on the
+compact sets proves the cancellation.
+
+\paragraph{The half-plane and continuation.}
+Choose \(0<|\pi|<1\) in \(k\), put \(q_1=|\pi|^{-1}\), and let
+\(K>0\) be the Haar scaling \(\eta(B_{rq_1})=K\eta(B_r)\) of
+multiplication by \(\pi^{-1}\). There is \(R_1>0\) such that
+\[
+       \|b\|\geq R_1q_1^j\quad\Longrightarrow\quad h(b)\geq 2^j
+       \qquad(j\geq0).
+\]
+Indeed take \(\rho\geq0\) bounding the norm on \(L_1\) and take a
+small nonzero scalar \(t_0\) with \(u t_0 e_i\in L_2\) for each
+coordinate vector \(e_i\) and every \(u\in\mathcal O_k\). Put
+\(R_1=(\rho+1)/|t_0|\). Choose a column \(b e_i\) containing an
+entry of norm \(\|b\|\). For every binary word of length \(j\) take
+\(u=\sum_{\ell=0}^{j-1}d_\ell\pi^\ell\), \(d_\ell\in\{0,1\}\).
+Distinct words differ in norm by at least \(|\pi|^j\), by their
+first differing digit. The \(2^j\) points \(u t_0 b e_i\) are
+distinct modulo \(L_1\), since their differences have norm at
+least \(|\pi|^j|t_0|\|b\|\geq \rho+1\). Their \(L_1\)-cosets
+all lie in \(L_1+bL_2\), which proves the asserted lower bound.
+
+Write \(s=\Re z-s_0\) and \(V_1=\eta(B_{R_1})\).
+For \(s>\log_2(2K+2)\) we have \(K2^{-s}<1\). On the shell
+\(R_1q_1^j\leq\|b\|\leq R_1q_1^{j+1}\), the integral
+of \(|F_z|\) is at most
+\(\|\phi\|_{L^1(\mu)}K V_1(K2^{-s})^j\). The compact ball adds a
+finite contribution. This proves absolute convergence on the
+stated half-plane.
+
+Apply shell cancellation with \(q_0=2\). Fix \(R\) beyond its cutoff.
+For every \(z\) the integrals over \(B_{2^jR}\) all equal the integral
+over \(B_R\). On this compact ball \(1\leq h\leq C\), since \(L_2\)
+and the ball are compact and the Minkowski sums lie in a bounded
+set. The index \(h\) is measurable, indeed locally constant, by
+local constancy of the sets \(L_1+bL_2\) in \(b\).
+Differentiation under the compact integral is valid uniformly on
+compact \(z\)-sets, since each derivative contributes a bounded
+power of \(\log h\). The integral over \(B_R\) therefore defines
+an entire function. On the half-plane of absolute convergence the
+exhaustion gives the integral over \(H\). At \(s_0\) the weight is
+one, so the exhaustion and the density limit give
+\eqref{eq:exceptional-whit-density}. The local computation applies
+at each member of the finite exceptional set in the global
+factorization, independently of any formula for spherical vectors.
+
+\subsection{The conductor and phase in split rank descent}
+
+Now take \(v\in T=S_0\cup Q\) as in Section~\ref{sec:theta-match}.
+This is a split place with designated embedding \(E\to k\). Write
+\(\nu\) for the corresponding local component of the ratio of the
+two characters. It is unitary and ramified, and \(\psi_v\) has
+annihilator \(\mathcal O_k\) on \(\mathcal O_k\). Write \(\varpi\)
+for a uniformizer, \(q=|\mathcal O_k/\varpi|\), \(U_0=\mathcal
+O_k^\times\), and \(U_i=1+\varpi^i\mathcal O_k\) for \(i>0\).
+Let \(f\) be the least \(i\) with \(\nu(U_i)=1\). It is positive.
+Continuity gives a finite conductor: choose \(U_i\) on which all
+values lie within \(1/2\) of one. Every power of each of its
+character values then lies in the same disc. A subgroup of the
+circle contained in this disc is trivial. Minimality gives a
+\(u_0\in U_{f-1}\) with \(\nu(u_0)\ne1\), also when \(f=1\).
+
+Put \(D_f=\mathcal O_k/\varpi^f\mathcal O_k\). For \(x\in D_f\) define
+\[
+ G(x)=\sum_{y\in D_f^\times}\nu(\widetilde y)^{-1}
+                     \psi_v(\widetilde x\widetilde y/\varpi^f).
+\]
+The tilde denotes any integral lift. All lifts of a unit are units,
+and replacing one by another multiplies it by an element of \(U_f\).
+Changes of either lift change the additive argument by an integer
+of \(k\). Thus both factors are well defined. In additive Haar
+measure \(dt\) with \(\operatorname{vol}(\mathcal O_k)=1\), one has
+the exact integral
+\[
+ \int_{\mathcal O_k^\times}\nu(t)^{-1}
+                  \psi_v(\widetilde x t/\varpi^f)\,dt=q^{-f}G(x),
+\]
+since each additive coset in the support has mass \(q^{-f}\).
+
+For a unit \(a\), the substitution \(y\mapsto ay\) gives
+\(G(ax)=\nu(a)G(x)\). For a nonunit \(x\), multiplication of \(x\)
+by \(u_0\) does not change \(x\bmod\varpi^f\), so
+\(G(x)=\nu(u_0)G(x)\), hence \(G(x)=0\).
+The additive pairing on \(D_f\) is perfect by the conductor
+assumption on \(\psi_v\): if
+\(\psi_v(xd/\varpi^f)=1\) for every integral \(x\), then
+\(d/\varpi^f\in\mathcal O_k\). Translation on the finite group
+therefore gives
+\[
+ \sum_{x\in D_f}\psi_v(xd/\varpi^f)
+     =\begin{cases}q^f&d=0\text{ in }D_f,\\0&d\ne0\text{ in }D_f.
+       \end{cases}
+\]
+Multiply \(G(x)\) by \(\psi_v(-x/\varpi^f)\) and sum in \(x\).
+Only the term \(y=1\) survives, and gives \(q^f\). This proves the
+source's nonvanishing \(\operatorname{gauss}(\psi_v,\nu)=G(1)\ne0\).
+
+The same finite calculation gives the size when the characters are
+unitary. Expand \(\sum_x|G(x)|^2\) and sum in \(x\) first.
+Orthogonality leaves \(q^f|D_f^\times|\). Summing instead over
+units \(x\) and using \(G(x)=\nu(x)G(1)\) gives
+\(|D_f^\times|\,|G(1)|^2\). Thus
+\[
+ |G(1)|=q^{f/2},\qquad
+ w_v=\nu(\varpi)^f\,q^{-f/2}G(1),\qquad |w_v|=1 .
+\]
+At the integer argument \(z\) of the source's rank step, its local
+factor with the chosen sign \(e\in\{1,-1\}\) is exactly
+\begin{equation}
+ \nu(e)\epsilon_v(z)=\nu(e)\,q^{f(1/2-z)}w_v .
+ \label{eq:rankstep-local-phase}
+\end{equation}
+Indeed the definition of \(\epsilon_v(z)\) is
+\(q^{-fz}G(1)\nu(\varpi)^f\). Replacing \(\varpi\) by \(a\varpi\)
+for a unit \(a\) changes the sum by \(\nu(a)^{-f}\) and the
+uniformizer character factor by \(\nu(a)^f\). These cancel.
+Replacing \(\psi_v(t)\) by \(\psi_v(at)\) multiplies \(w_v\) by
+\(\nu(a)\). The character \(\nu(e)\) squares to one.
+The hypotheses give the phase \(w_v\) by the displayed sum. A
+numerical root of unity for this phase would require further
+specialization. Even a finite-order character on units does not
+specify the value of \(\nu(\varpi)\).
+
+For the beta and alpha steps the argument is respectively
+\(z=-\delta\) and \(z=1-\delta\), where
+\(\delta=(a-a')/2\). Each exceptional place contributes
+\eqref{eq:rankstep-local-phase}, with the sign of its rank-step
+formula. The finite character sum computes these character-dependent
+factors. The geometric factor in the rank step, the surjectivity
+of the two maps onto the split induced representation and the
+identity of local tensor models are separate inputs proved in the
+respective descent and local matching arguments.
+
+\paragraph{Correspondence with the release.}
+In \texttt{SiegelWeilFormula.LocalCharacterIntegrals} the statements
+used above are \texttt{shellP\_core}, \texttt{perp\_bound},
+\texttt{vol\_mul\_vol\_perp}, \texttt{dualP}, \texttt{convP} and
+\texttt{locFinX\_of}. The global applications are
+\texttt{whitGenLtOf} and \texttt{whitGenEqOf} and import the
+representation-density hypotheses. In \texttt{WeilTensorModels}
+the functions are \texttt{gauss}, \texttt{eps} and \texttt{stepFac}.
+\texttt{ThK.GaussNe.gauss\_ne\_zero} proves the required
+nonvanishing and \texttt{ThKG.Loc.stepFac\_eq} identifies the finite
+product. The modulus and the change-of-uniformizer computation above
+follow by the finite sums displayed here.
