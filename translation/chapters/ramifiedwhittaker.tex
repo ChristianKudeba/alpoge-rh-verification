@@ -301,13 +301,163 @@ of the two maps onto the split induced representation and the
 identity of local tensor models are separate inputs proved in the
 respective descent and local matching arguments.
 
+\subsection{A matched pair and the sign of the cone integral}
+
+We can determine the local sign in \eqref{eq:rankstep-local-phase}
+from the standard vectors used in the source. Put
+\(\ell_\nu(t)={\bf1}_{\mathcal O_k^\times}(t)\nu(t)^{-1}\), extended
+by zero at \(t=0\). If \(e\) selects \(r\) columns of an \(r\)-by-\(d\)
+matrix \(Y\) in their indicated order, set
+\[
+  S_e(Y)=\ell_\nu(\det Y_e)
+  \prod_{i,j}{\bf1}_{L_j}(Y_{ij}),\qquad
+  L_j=\begin{cases}
+       \mathcal O_k&j\in e,\\
+       \varpi^f\mathcal O_k&j\notin e .
+       \end{cases}
+\]
+Let \(e_A\) select the first \(a\) columns and \(e_B\) the last \(a'\).
+These standard vectors are compactly supported, locally constant,
+and have equal nonzero images in the two transforms \(P_A,P_B\)
+of Section~\ref{sec:theta-match}.
+
+For a matrix \(y\) of size \(a'\)-by-\(a\), write
+\(u(y)=\left(\begin{smallmatrix}1&0\\y&1\end{smallmatrix}\right)\).
+The matrices inserted in the two integrals have frames
+\([1,-{}^ty]\) and \([y,1]\). In either transform the selected
+minor is \(g\). On the support of the integrand its entries are
+integral and its determinant a unit, so \(g\in\mathrm{GL}_r(\mathcal
+O_k)\). The inverse is integral too. Thus the off-minor condition
+is equivalent to \(y\in\varpi^f M_{a',a}(\mathcal O_k)\). The
+weight \(\nu(\det g)\) cancels \(\ell_\nu(\det g)\), both absolute
+determinant factors are one and the compact group has measure one.
+Both transforms therefore give the indicator of this same set in
+\(y\), with value one at zero.
+
+To verify equality at arbitrary \(h\), write
+\(h=\left(\begin{smallmatrix}A&B\\C&D\end{smallmatrix}\right)\).
+When \(D\) is singular, its complementary minor in \(h^{-1}\)
+is singular as well, by the complementary-minor formula for an
+invertible matrix. Thus each selected determinant vanishes in the
+corresponding frame and both integrands are zero. When \(D\) is
+invertible put \(y=D^{-1}C\). Then \(h=p u(y)\) with \(p\) upper
+block triangular. In the two transforms, left multiplication by \(p\)
+has the same scalar. Indeed, writing \(A_0,D_0\) for its diagonal
+blocks, changes of the integration variables by \(A_0^{-t}\) on
+the large side and by \(D_0\) on the small side give
+\[
+ \alpha(\det A_0)\beta(\det D_0)
+            |\det A_0|^{a'/2}|\det D_0|^{-a/2}.
+\]
+Here \(\nu=\alpha/\beta\). The covariance on the large side uses
+the ramified shell transformation law of \(P_A\).
+This proves equality as functions on all of \(\mathrm{GL}_d(k)\).
+Transport the vectors to the two Weil models and write them
+\(\phi,\phi'\). The construction at the lower rank gives matched
+vectors \(\phi_1,\phi'_1\) with common nonzero image.
+
+In the beta step \(a'=b+2\), put \(r=a\) and \(j=\delta+1\).
+In the alpha step \(a=b+2\), put \(r=a'\) and \(j=\delta\). The
+zero-orbit evaluation of the standard vector is \(q^{-fr}\) times
+its lower standard vector: its \(r\) independent restricted
+coordinates range over \(\varpi^f\mathcal O_k\), and the remaining
+integrated unit balls have mass one. We compute the cone evaluation
+in the same coordinates. Number its distinguished rows and selected
+columns from \(0\) to \(b+1\), put \(l=b+1\), and let \(e\) select
+the block undergoing rank descent. In the beta chart the free
+coordinate positions \(P\) are those in row \(l\), together with
+those in column \(e(l)\) outside row \(0\). In the alpha chart
+they are those in column \(e(0)\), together with those in row \(0\)
+outside column \(e(l)\). The corner \((0,e(l))\) is fixed to the
+first split variable \(s\), and the opposite corner \((l,e(0))\)
+has an integration variable \(u\) with character \(\psi_v(-tu)\),
+where \(t\) is the second split variable.
+
+In the beta chart, expansion along row \(0\) and then the column
+\(e(0)\), and in the alpha chart expansion along column \(e(l)\)
+and then row \(l\), give the same selected determinant
+\[
+                          -su\det(Y_{\rm mid}).
+\]
+The sign is the sign of interchanging the first and last of the
+selected columns. On the integral domain of the coordinate
+indicators all factors of this product are integral, so the
+determinant is a unit exactly when they all are. Its character
+factor splits as
+\(\ell_\nu(s)\ell_\nu(-u)\ell_\nu(\det Y_{\rm mid})\).
+Change \(u\) to \(-u\) in the corner integral. The two minus signs
+cancel, giving
+\[
+       I(t)=\int_{\mathcal O_k^\times}\nu(u)^{-1}\psi_v(tu)\,du .
+\]
+There are exactly \(r\) free positions with column outside \(e\):
+the beta chart has \((l,e_A(i))\) for the \(a\) unselected columns, and the alpha chart
+has \((0,e_B(i))\) for the \(a'\) unselected columns.
+Each contributes \(q^{-f}\). All other coordinate integrals carry
+unit volume. The surviving factor at the split variables is
+therefore
+\[
+                       q^{-fr}\ell_\nu(s) I(t)
+\]
+times the lower standard vector.
+
+For completeness, \(I(t)\) is supported on
+\(\varpi^{-f}\mathcal O_k^\times\). For
+\(|t\varpi^f|<1\) use \(u_0\in U_{f-1}\) as above: substitution
+by \(u_0\) preserves \(\psi_v(tu)\) and multiplies the integral
+by a nontrivial scalar. For \(|t\varpi^f|>1\) choose
+\(h\in\varpi^f\mathcal O_k\) with \(\psi_v(th)\ne1\), using the
+annihilator of \(\mathcal O_k\). Translation by \(h\) preserves
+\(\ell_\nu\) and forces the integral to vanish. For a unit \(v'\)
+one has \(I(\varpi^{-f}v')=\nu(v')I(\varpi^{-f})\), and
+\(I(\varpi^{-f})=q^{-f}G(1)\) by the coset integral.
+
+The two components of the split idele have character
+\(\nu(s)\nu(t)^{-1}\) and norm \(|s|\,|t|\). The local integral
+uses multiplicative Haar measure giving the product of the unit
+groups mass one. Its support is a single translate of that subgroup,
+\(s\in\mathcal O_k^\times\), \(t=\varpi^{-f}v'\) with \(v'\) a
+unit. On it \(\ell_\nu(s)\nu(s)=1\), the two values of \(\nu(v')\)
+cancel and \((|s||t|)^j=q^{fj}\). The local cone operator therefore
+takes the standard vector to its lower vector times
+\[
+ q^{-fr}\, q^{-f}G(1)\nu(\varpi)^f q^{fj}
+                  =q^{-fr}\epsilon_v(1-j).
+\]
+The compact stabilizer average has mass one and fixes the vector.
+Comparison with the zero-orbit evaluation cancels exactly \(q^{-fr}\).
+Writing \(p_1,p'_1\) for the lower quotient maps, the beta formula is
+\[
+ p'_1(\mathrm{cone}_v\phi')=\epsilon_v(-\delta)\,
+                                p_1(\mathrm{ev}_v\phi).
+\]
+The alpha formula is
+\(p_1(\mathrm{cone}_v\phi)=\epsilon_v(1-\delta)\,
+p'_1(\mathrm{ev}'_v\phi')\). The respective vector on the right
+before multiplication is nonzero because the lower standard vectors
+match and the value of their common transform at the identity is one.
+
+Thus the source's witnesses for the local sign \(e\) are \(+1\) in
+both steps. To extend from these vectors to all matched fibers,
+the source uses ramified multiplicity one for the equivariant
+maps on the common quotient. In the beta case, let \(D,D'\) be
+the linear maps it obtains by descending the evaluation and the
+cone, respectively. On the common image \(\xi=p\phi=p'\phi'\)
+the computation gives \(D'\xi=\epsilon_v(-\delta)D\xi\) and
+\(D\xi\ne0\). Since \(D'=cD\) for some scalar, evaluation at
+\(\xi\) forces \(c=\epsilon_v(-\delta)\). The same reasoning
+with the roles interchanged gives \(\epsilon_v(1-\delta)\) in
+the alpha case. Existence and equivariance of the descended maps,
+the local split coordinate changes and ramified multiplicity one
+are the representation-theoretic inputs to this last argument.
+
 \paragraph{Correspondence with the release.}
 In \texttt{SiegelWeilFormula.LocalCharacterIntegrals} the statements
 used above are \texttt{shellP\_core}, \texttt{perp\_bound},
 \texttt{vol\_mul\_vol\_perp}, \texttt{dualP}, \texttt{convP} and
 \texttt{locFinX\_of}. The global applications are
 \texttt{whitGenLtOf} and \texttt{whitGenEqOf} and import the
-representation-density hypotheses. In \texttt{WeilTensorModels}
+representation-density hypotheses. The split calculation uses \texttt{std\_pair}, \texttt{int\_cone}, \texttt{idele\_int}, \texttt{eps\_eq}, \texttt{stdB}, \texttt{stdA\_gen}, \texttt{locB\_of} and \texttt{locA\_of}. In \texttt{WeilTensorModels}
 the functions are \texttt{gauss}, \texttt{eps} and \texttt{stepFac}.
 \texttt{ThK.GaussNe.gauss\_ne\_zero} proves the required
 nonvanishing and \texttt{ThKG.Loc.stepFac\_eq} identifies the finite

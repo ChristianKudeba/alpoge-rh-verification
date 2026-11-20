@@ -1,0 +1,85 @@
+name: Check the literal translation against the published proof
+on:
+  push:
+    branches: [main]
+    paths:
+      - translation/kernel/audit-request
+      - .github/workflows/rh-translation-audit.yml
+  workflow_run:
+    workflows: ["Publish literal kernel edition"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rh-term-audit-v1
+  cancel-in-progress: false
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  inventory:
+    if: github.repository == 'ChristianKudeba/alpoge-rh-verification' && (github.event_name != 'workflow_run' || (github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.conclusion == 'success'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      work: ${{ steps.plan.outputs.has_work }}
+      matrix: ${{ steps.plan.outputs.matrix }}
+      complete: ${{ steps.plan.outputs.complete }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: translation/kernel
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.15"
+      - name: Check the independent decoder on genuine and synthetic records
+        run: python -m unittest discover -s translation/kernel -p 'test_read_terms.py' -v
+      - name: Inspect the available proof volumes
+        id: plan
+        run: python translation/kernel/verify_terms.py plan
+
+  check:
+    needs: inventory
+    if: needs.inventory.outputs.work == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 170
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: ${{ fromJSON(needs.inventory.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: translation/kernel
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.15"
+      - name: Decode the LaTeX and compare every field with the verified source
+        env:
+          SHARD_ID: ${{ matrix.shard }}
+        run: python translation/kernel/verify_terms.py verify "$SHARD_ID"
+
+  publish:
+    needs: [inventory, check]
+    if: always() && needs.inventory.result == 'success' && needs.inventory.outputs.complete == 'true' && (needs.check.result == 'success' || needs.check.result == 'skipped')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 155
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout: translation/kernel
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.15"
+      - name: Verify coverage and publish the declaration index
+        run: python translation/kernel/verify_terms.py finish

@@ -1,0 +1,197 @@
+\section{The canonical theta lift and preservation of valuation}
+\label{sec:theta-lift-valuation}
+
+We keep the chart and uniformization of
+Section~\ref{sec:theta-translate-span}, and write \(F=\overline K\)
+and \(\mathcal V=\{c\in F:v(c)\ge0\}\). The two statements used in the
+integral spanning argument have different hypotheses. A point killed
+by \(\alpha\) has a lift fixing the pulled-back theta function.
+An arbitrary finite-order lift preserves every normalized coefficient
+valuation bound, even when the theta function being translated is
+unrelated to that pullback.
+
+\paragraph{The lift fixing the pullback.}
+On the generic abelian variety let \(f=[\alpha]\). The equality
+\(f[\overline\alpha]=[\overline\alpha]f=[q]\) implies that \(f\) is
+surjective and that its kernel lies in \(A[q]\). Hence \(f\) is an
+isogeny. We work over the algebraically closed field \(F\) of
+characteristic zero, so this is a separable isogeny.
+If \(\mathcal L\) is the ample theta bundle, set
+\(\mathcal M=f^*\mathcal L\), with the fixed normalized identification
+with the level-\(q\) bundle. For \(x\in\ker f\), \(fT_x=f\).
+Pullback of this equality gives
+\(T_x^*\mathcal M\simeq\mathcal M\). These identifications satisfy the
+group law by functoriality, so they split the theta group above
+\(\ker f\). Each fixes \(f^*s\) for every section \(s\), and its order
+divides \(q\). This is precisely the pullback construction in Mumford's
+level-subgroup correspondence: the isogeny, the descended ample
+line bundle, and the identification of its pullback are specified here.
+\footnote{\href{https://pazuki.perso.math.cnrs.fr/index_fichiers/Mumford66.pdf}{D.~Mumford,
+\emph{On the equations defining abelian varieties I}, \S1,
+Proposition~1, pp.~290--291}.}
+
+We describe the compatibility required to use this lift on the
+uniformized coefficients. Let \(p\) represent \(x\) in the
+uniformization at level \(q\), with lattice coordinate \(y\in X\)
+and abelian coordinate \(b\). Since \(f(x)=0\), the torsion
+isomorphism gives a period \(z\in X\) with
+\(\alpha y+qz=0\). Multiplication by \(\overline\alpha\) and
+torsion freeness of \(X\) give \(y=-\overline\alpha z\).
+On the abelian part \([\alpha]b=c(-z)\), where \(c\) is the period
+map to the abelian part. The generator identifying the CM adjoint
+with Rosati is rigidified to one at the origin. Write \(R_\chi\)
+for its value on \((c(\chi),b)\). If \(G_{\overline\alpha\chi}\)
+is the theta-torsor factor in the chosen representative, then the
+multiplication rule for addition of the compensating period \(z\)
+gives
+\[
+ G_{\overline\alpha\chi}R_\chi=\tau(-z,\chi).
+\]
+Indeed the class of \([\alpha]p\) plus the image of \(z\) is zero.
+In the addition formula the cubical factor multiplying
+\(\tau(-z,\chi)\tau(z,\chi)\) is the same one in the period
+cocycle for \((-z,z)\); cancelling it and using \(\tau(0,\chi)=1\)
+gives the displayed identity in common frames.
+
+The coefficient of \(\theta_\alpha\) outside
+\(\overline\alpha X\) vanishes. Translation by \(y\) preserves
+that subset. At an index \(\overline\alpha\chi\), its translate
+has index \(\overline\alpha(\chi-z)\). There are two ways to compare
+the corresponding lines: pull back the \((-z)\)-period functional
+equation of the original theta function, or translate its pullback
+by \(b\). At the origin choose the lift generator so that these
+comparisons agree, using the displayed identity and the specified
+rigidification of the power-\(q\) bundle. The ratio of the two
+cubical identifications at any point is a scalar: the line maps
+differ by a global unit on the proper geometrically connected
+abelian part. Its value at the origin is one, so they agree
+everywhere. This verifies
+\(\Phi_x\theta_\alpha=\theta_\alpha\) in the expansion action.
+For a representative of a \(q\)-torsion point the \(q\)-th power
+of its lift is central, hence acts by a scalar \(c\). As
+\(\theta_\alpha\) is primitive and nonzero in our use, this
+eigenvalue identity forces \(c=1\). In the version that allows the
+zero theta function, any scalar \(q\)-th root of \(c^{-1}\) rescales
+the operator to finite order and still fixes zero.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/CanonicalLiftUnpacking.lean}{Period representing the zero torsion point};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/CanonicalLiftOrigin.lean}{Rosati normalization and cancellation at the origin};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/CanonicalLiftFrobenius.lean}{comparison at each character};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/CanonLiftPf.lean}{finite-order assertion}.}
+
+\paragraph{The valuation shift for a general lift.}
+For a level-\(q\) family \(s\) and \(r\in\mathbb Q\), denote by
+\(\mathcal U_r(s)\) the following predicate. For every character
+\(\chi\), its coefficient \(s_\chi\) is a finite combination of
+base changes of integral sections at \(\chi\), with scalar
+coefficients of valuation at least \(r+Q(\chi)/q\).
+In particular the earlier \(\mathcal U\) consists of those \(s\)
+satisfying \(\mathcal U_0(s)\).
+
+Consider a lift represented by a torsion datum with lattice shift
+\(y\), abelian coordinate \(b\), line generator \(w\), and scalar
+\(\zeta\in F^\times\); write \(S\) for its operator. Properness
+of the abelian part provides an extension \(m\) of \(b\) to
+\(\mathcal V\). An integral trivialization of the line for \(w\)
+there has ratio \(c_w\in F^\times\) to \(w\), with convention
+\(w=c_w\) times the integral generator. We claim
+\begin{equation}\label{eq:theta-liftshift}
+ \mathcal U_r(s)\quad\Longleftrightarrow\quad
+ \mathcal U_{r+C}(Ss),\qquad
+       C=v(c_w)+v(\zeta)-Q(y)/q .
+\end{equation}
+
+For the index-dependent theta-torsor factor, choose an integral
+generator \(G\) of the biextension line at \((m,c(\chi))\); write
+the factor as \(t_\chi G\). We compute
+\begin{equation}\label{eq:cubical-ratio}
+                        qv(t_\chi)=B(y,\chi).
+\end{equation}
+The torsion relation is \(qm=c(y)\). The period multiplier at
+level \(q\) has order \(qQ(y)+B(y,\chi)\): its factors have
+orders \(qQ(y)\), \(Q(y+\chi)-Q(y)-Q(\chi)\), and the rigidification
+order zero. Denote the scalar of that multiplier in an integral
+frame by \(c_0\), the scalar of the \(q\)-th power of the period
+generator at \(y\) by \(c_\psi\), and the scalar of the \(q\)-th
+power of the rigidification by \(c_1\). Their valuations are
+\(qQ(y)+B(y,\chi),qQ(y),0\), respectively.
+
+To see the cancellation, trivialize all factors in a common chart.
+Write \(P,R\) for the last two powered generators, \(\tau\) for the
+period biextension factor, and \(D\) for the cubical identification
+iterated from \(m\) to \(qm\). The family multiplier is
+\(\tau P R\), and the theta-torsor chain at \(p\) gives
+\((t_\chi G)^q=\tau D\). Write \(P=c_\psi E_\psi\),
+\(R=c_1 E_1\), and \(\tau PR=c_0 E\) with the respective integral
+generators \(E_\psi,E_1,E\). It follows that
+\[
+       c_0 A=t_\chi^q c_\psi c_1,\qquad
+       A=E E_\psi^{-1} E_1^{-1} D G^{-q}.
+\]
+All the factors in \(A\) are integral generators of their lines.
+Their product is a generator of the trivial line on
+\(\operatorname{Spec}\mathcal V\): the tensor factors for \(m\)
+and \(qm\) cancel by \(qm=c(y)\) and the cubical identity.
+Therefore \(A\in\mathcal V^\times\). Taking valuations in the
+previous equality proves \eqref{eq:cubical-ratio}, including its
+sign and its factor \(q\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/ExistsValGenHasVal.lean}{Orders of the factors of the period multiplier};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/RingsOfIntegers/ValuationThetaRatioEqBilinear.lean}{cubical trivialization and scalar identity}.}
+
+A coefficient at \(\chi\) is carried to one at \(\chi+y\)
+by translation through \(m\) and multiplication by the integral
+line isomorphism just described and the scalar \(\zeta c_w t_\chi\).
+Translation through \(m\), and its inverse, preserve integral
+sections over \(\mathcal V\). They can equivalently be expressed
+as combinations of sections over \(T\). Indeed \(T\) is a discrete
+valuation ring and \(\mathcal V\subset F\) is torsion free over \(T\),
+hence flat. The abelian scheme over \(T\) is proper, thus
+quasi-compact and quasi-separated, and each coefficient sheaf is
+invertible. Flat base change for \(H^0\) identifies the section
+module after extension with the tensor product of the section
+module over \(T\) and \(\mathcal V\). This proves the instance of
+integral base change needed here, including for a nondiscrete
+\(\mathcal V\).
+\footnote{\href{https://stacks.math.columbia.edu/tag/0539}{Stacks Project,
+Lemma~15.22.10, flatness over a valuation ring};
+\href{https://stacks.math.columbia.edu/tag/02KH}{Lemma~30.5.2, flat base change for sections}.}
+
+The gain in the unnormalized lower bound of the coefficient
+is \(v(c_w)+v(\zeta)+B(y,\chi)/q\). Subtracting the new
+\(Q(\chi+y)/q\) and restoring the old \(Q(\chi)/q\) gives exactly
+\(C\). This proves the forward implication in
+\eqref{eq:theta-liftshift}; translation by \(-m\) and the inverse
+line generator gives the reverse implication. No nonzero
+coefficient or attained minimum needs to be chosen. In the usual
+analytic notation for a Raynaud extension, the underlying period
+functional equation for coefficients is
+\(a_{u+\lambda(z)}=t(z,u)c(z)T_{\Phi(z)}^*a_u\), interpreted in
+the corresponding line bundles. Foster, Rabinoff, Shokrieh and Soto
+give both this formula and the equality of its model norms over
+a complete algebraically closed nonarchimedean field. It applies
+after passing from \(F\) to its completion in the semiabelian
+case here. The coefficient-span calculation above works directly
+over \(F\) and supplies \eqref{eq:theta-liftshift} for the chosen
+normalization.
+\footnote{\href{https://arxiv.org/pdf/1705.08212}{T.~Foster,
+J.~Rabinoff, F.~Shokrieh, A.~Soto, \emph{Non-Archimedean and
+tropical theta functions}, Proposition~3.19 and Corollary~3.21};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/TWMain.lean}{the full scalar shift in the coefficient filtration}.}
+
+\paragraph{Eliminating the shift for a finite-order lift.}
+Suppose \(S^h=1\), \(h\ge1\). For fixed \(s\) the subset
+\(D_s=\{r\in\mathbb Q:\mathcal U_r(s)\}\) is downward closed,
+and \eqref{eq:theta-liftshift} gives \(D_s=D_s+hC\).
+If \(C=0\) the assertion is immediate. If \(C\ne0\), the only
+downward-closed subsets of \(\mathbb Q\) with that period are the
+empty set and all of \(\mathbb Q\): from one element \(u\),
+\(u+j|hC|\) belongs to the set for every \(j\ge0\). Thus in this
+case \(D_s+C=D_s\) also. It follows that every finite-order
+lift preserves \(\mathcal U_r\) for every \(r\), including positive
+depth and zero depth. This proof covers the zero family, whose
+valuation bounds are unbounded above.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/PeriodicValuation.lean}{Periodicity and exact finite-order invariance}.}
+
+The use of these identities assumes the polarized uniformization,
+its torsion isometry and its rigidified cubical period data. Section~\ref{sec:theta-unit-basis} proves the integral rank of the
+theta expansion module and the primitivity assertions used by
+Section~\ref{sec:theta-translate-span}.

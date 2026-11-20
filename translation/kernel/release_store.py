@@ -25,17 +25,17 @@ def paginate(route):
     return [item for page in api(route, "--paginate", "--slurp") for item in page]
 
 
-def release(create=False):
+def release(create=False, *, tag=TAG, target=None, title=None, body=None):
     route = f"repos/{REPO}/releases"
-    matches = [r for r in paginate(route + "?per_page=100") if r["tag_name"] == TAG]
+    matches = [r for r in paginate(route + "?per_page=100") if r["tag_name"] == tag]
     if len(matches) == 1:
         return matches[0]
     if matches or not create:
         raise RuntimeError("release lookup failed")
-    return api(route, "--method", "POST", "-f", f"tag_name={TAG}", "-F", "draft=true",
-               "-f", "target_commitish=" + os.environ["GITHUB_SHA"],
-               "-f", "name=Riemann hypothesis: literal mathematical term edition",
-               "-f", "body=Verified export shards, typesettable LaTeX volumes and their integrity manifest.")
+    return api(route, "--method", "POST", "-f", f"tag_name={tag}", "-F", "draft=true",
+               "-f", "target_commitish=" + (target or os.environ["GITHUB_SHA"]),
+               "-f", "name=" + (title or "Riemann hypothesis: literal mathematical term edition"),
+               "-f", "body=" + (body or "Verified export shards, typesettable LaTeX volumes and their integrity manifest."))
 
 
 def listing(release_id):
@@ -72,7 +72,7 @@ def download(asset, path):
             time.sleep(2 ** attempt)
 
 
-def put(rel, assets, path):
+def put(rel, assets, path, *, tag=TAG):
     """Only identical completed uploads are reused. Transient empty uploads can retry."""
     path = Path(path)
     sha, size = info(path)
@@ -89,7 +89,7 @@ def put(rel, assets, path):
         if size >= 2 ** 31:
             raise ValueError("individual release asset exceeds GitHub's limit")
         try:
-            gh("release", "upload", TAG, str(path), "--repo", REPO, capture_output=True)
+            gh("release", "upload", tag, str(path), "--repo", REPO, capture_output=True)
         except subprocess.CalledProcessError as exc:
             if attempt == 4:
                 raise RuntimeError(f"upload failed for {path.name}: {exc.stderr[-1000:]}") from exc

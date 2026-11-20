@@ -1,0 +1,182 @@
+\section{The unit ball of theta expansions and its primitive frame}
+\label{sec:theta-unit-basis}
+
+Keep the valued algebraic closure \(F\), its valuation ring
+\(\mathcal V\), and the PEL degeneration over the complete discrete
+valuation ring \(T\). Let \(B/T\) be the abelian part of dimension
+\(d\), with its principal theta bundle \(L\), and let \(X\) be the
+period lattice of rank \(r\). At level \(q\ge1\) the coefficient for
+\(\chi\in X\) is a section of a line bundle \(L_{q,\chi}\) on \(B\).
+In a rigidification its class is \(L^{\otimes q}\) times the
+degree-zero twist attached to \(\chi\). We compute the unit ball of
+the expansion space in the coefficient valuation of
+Section~\ref{sec:theta-lift-valuation}.
+
+\paragraph{Integral coordinates at one character.}
+The module \(V_{q,\chi}=H^0(B,L_{q,\chi})\) is finite over \(T\):
+the base is noetherian, \(B\) proper, and the line bundle coherent.
+It is torsion free, because \(B\) is flat over \(T\) and a line
+bundle is locally free. Thus \(V_{q,\chi}\) is free over \(T\).
+Flat base change identifies \(V_{q,\chi}\otimes_T F\) with the
+sections on \(B_F\). On that fiber the bundle is ample, since its
+degree-zero twist preserves numerical equivalence. Its polarization
+homomorphism is \(q\lambda_L\), of degree \(q^{2d}\) by the principal
+polarization. Riemann--Roch for abelian varieties gives
+\(\chi(L_{q,\chi})^2=q^{2d}\); ampleness gives positive Euler
+characteristic and vanishing of higher cohomology. Hence
+\(\operatorname{rank}_T V_{q,\chi}=q^d\).
+\footnote{\href{https://stacks.math.columbia.edu/tag/02O6}{Stacks Project,
+Lemma~30.19.2, proper cohomology over an affine noetherian base};
+\href{https://stacks.math.columbia.edu/tag/02KH}{Lemma~30.5.2, flat base change};
+\href{https://jmilne.org/math/CourseNotes/AV.pdf}{J.~S.~Milne,
+\emph{Abelian Varieties}, Chapter~I, Theorems~7.2 and 11.1};
+\href{https://wiki.epfl.ch/shimvar/documents/IHESlectures-Genestier-Ngo.pdf}{A.~Genestier
+and B.~C.~Ng\^o, \emph{Lectures on Shimura varieties},
+Theorems~2.2.1--2.2.2, Riemann--Roch and the index of an ample class}.}
+
+Choose a \(T\)-basis \(b_{\chi,1},\ldots,b_{\chi,q^d}\).
+Writing a coefficient as \(\sum_i c_i b_{\chi,i}\) over \(F\),
+its section valuation is at least \(h\in\mathbb Q\) if and only
+if \(v(c_i)\ge h\) for each \(i\). The reverse direction follows
+by taking this basis as the integral sections in the definition.
+For the forward direction, expand the integral sections in any
+given representation in this basis. Their coordinates lie in \(T\),
+so each resulting coefficient is a sum of terms of valuation at
+least \(h\). This interpretation gives all rational thresholds,
+including when \(F\) is nondiscretely valued.
+
+\paragraph{Coset coordinates for the whole family.}
+Choose representatives \(e_j\) for \(X/qX\), of cardinality \(q^r\).
+A theta expansion is determined by its coefficients at the \(e_j\).
+Indeed, its functional equation determines the coefficient at
+\(e_j+qz\) by translating that at \(e_j\) by \(c(z)\) on the
+abelian part and tensoring with the period multiplier. Each
+\(\chi\) has one such expression after fixing \(e_j\), because \(X\)
+has no torsion. Conversely assign an arbitrary coefficient at each
+representative and use this rule for all \(z\). Applying the rule
+twice agrees with its application to the sum of the periods by
+the period cocycle. This constructs a family and proves that
+the joint coordinate map is a linear isomorphism
+\[
+     s\longmapsto(c_{j,i}(s))_{j,i},\qquad
+     \mathcal F_q \ \simeq\
+               \bigoplus_{j=1}^{q^r} F^{q^d}.
+\]
+Here \(\mathcal F_q\) denotes the space of expansion families
+with the given cubical descent law.
+
+In \(\chi=e_j+qz\) the shift in the lower bound of the coefficient
+is \(qQ(z)+B(z,e_j)\). The identity
+\[
+ qQ(z)+B(z,e_j)
+       =\frac{Q(e_j+qz)-Q(e_j)}{q}
+\]
+shows that the normalized bound at \(e_j\) propagates to its
+whole coset. Thus the full filtration is given in these coordinates by
+\[
+ \mathcal U_h(s)\quad\Longleftrightarrow\quad
+          v(c_{j,i}(s))\ge h+Q(e_j)/q\quad\hbox{for all }j,i .
+\]
+For each \(j\), choose \(a_j\in F^\times\) with
+\(a_j^q=\pi^{Q(e_j)}\), possible as \(F\) is algebraically closed.
+Lift the coordinate vector whose only nonzero entry is \(a_j\) in
+position \((j,i)\) to its family. The resulting \(q^{r+d}\) families
+are independent over \(F\) and freely generate \(\mathcal U_0\)
+over \(\mathcal V\). Division by \(a_j\) gives the integral
+coordinates of any element of the unit ball.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/RingsOfIntegers/ExistsBasisOfEq.lean}{Valuation in integral coefficient bases};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/ExistsFamRep.lean}{extension from one coset};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/RingsOfIntegers/ExistsBasisOfCoord.lean}{scaled coordinate basis of the unit ball}.}
+
+\paragraph{The level-one frame and its pullback.}
+At \(q=1\) there is one coset with representative zero, and its
+coefficient module is free of rank one. Choose a \(T\)-generator
+\(\sigma\); its reduction is nonzero. Indeed the exact sequence
+\(
+ 0\longrightarrow L_{1,0}\xrightarrow{\pi}L_{1,0}
+ \longrightarrow L_{1,0}|_{B_{\kappa(T)}}\longrightarrow0
+\)
+identifies the kernel of reduction on sections with
+\(\pi V_{1,0}\). Extend \(\sigma\) from zero by the period
+functional equation to \(\theta\). As \(Q(0)=0\),
+\(\theta\in\mathcal U_0\) at level one, and its zero coefficient
+is the base change of a primitive integral section. Positivity of
+\(Q\) also implies that in the base-field integral expansion all
+coefficients outside zero are divisible by \(\pi\).
+
+Let \(\alpha\overline\alpha=q\). In the level-\(q\) pullback the
+coefficient at \(\overline\alpha\chi\) is the pullback of the
+\(\chi\)-coefficient by \([\alpha]\), using the normalized
+identification of its line; all other coefficients vanish.
+Here the choice of theta bundle in the PEL uniformization matters.
+Write \(L_x\) for its pullback to a point \(x\),
+\(\ell(x)=L_x\otimes L_0^{-1}\), and
+\[
+ \mathcal P(x,y)=L_{x+y}\otimes L_0\otimes L_x^{-1}\otimes L_y^{-1}.
+\]
+The supplied integral isomorphism for the distinguished element \(w_0\)
+identifies \(\ell(x)\) with \(\mathcal P(x,w_0x)\), respecting the
+rigidification at zero. This is the extra line-bundle datum behind the
+pullback formula. By the Rosati adjoint condition on the biextension,
+bilinearity, and commutation of the CM endomorphisms, there are
+rigidified isomorphisms over \(T\)
+\[
+ \ell(\alpha x)\simeq\mathcal P(\alpha x,w_0\alpha x)
+  \simeq\mathcal P(x,\overline\alpha w_0\alpha x)
+  =\mathcal P(x,qw_0x)\simeq\ell(x)^{\otimes q}.
+\]
+The coefficient line at \(x\) for \((k,\chi)\) is
+\(L_x^{\otimes k}\otimes\mathcal P(x,c(\chi))\).
+The same adjoint identity sends its biextension factor under
+\(\alpha\) to \(\mathcal P(x,\overline\alpha c(\chi))
+=\mathcal P(x,c(\overline\alpha\chi))\). Taking the preceding
+isomorphism to the \(k\)-th tensor power and inserting the
+rigidification of \(L_0^{\otimes k(q-1)}\) therefore identifies
+the pulled-back coefficient line with \(L_{kq,\overline\alpha\chi}\).
+The generic generator in the normalized pullback agrees with this
+integral identification: their quotient is a global unit on the
+proper geometrically connected abelian part over the generic field,
+hence a scalar, and their common normalization at the identity sets
+it equal to one. This proves the asserted absence of a scalar
+valuation loss. The step uses the integral \(w_0\)-isomorphism
+as well as Rosati compatibility.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/PullGenPf.lean}{Integral square identity, character twist, and comparison of normalized generators}.}
+The balanced CM action gives
+\[
+    2Q(\overline\alpha\chi)
+       =B(\overline\alpha\chi,\overline\alpha\chi)
+       =B(\chi,\alpha\overline\alpha\chi)
+       =2qQ(\chi).
+\]
+Thus the required normalized bounds agree. Pullback of integral
+sections preserves their integrality and gives
+\(\theta_\alpha\in\mathcal U_0\) at level \(q\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/ExistsThetaFrame.lean}{Primitive level-one frame};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/QuadraticAlgebraValuation.lean}{CM scaling of \(Q\)};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/PullbackValuationInvarianceOf.lean}{forward pullback on the coefficient bounds}.}
+
+To exclude positive depth, suppose \(\mathcal U_h(\theta_\alpha)\)
+holds for some \(h>0\). At the zero index, \(Q(0)=0\). Therefore
+this coefficient is an integral combination with scalars in the
+maximal ideal of \(\mathcal V\), and it vanishes upon reduction
+to the residue field of \(\mathcal V\). The normalized pullback
+identification at zero is an isomorphism of the integral lines,
+so \([\alpha]^*\overline\sigma=0\) on this abelian special fiber.
+Further pullback by \([\overline\alpha]\) gives
+\([q]^*\overline\sigma=0\). Multiplication by \(q\) on an abelian
+variety is finite faithfully flat, so pullback detects a zero
+section. But \(\overline\sigma\ne0\): the original reduction was
+nonzero and the extension of residue fields is faithfully flat.
+This contradiction proves primitivity of the pullback for the
+coefficient valuation. Together with
+Section~\ref{sec:theta-lift-valuation}, it gives primitivity of
+every normalized finite-order translate used in the span argument.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/LevelFrameOfLaws.lean}{Pullback of the zero coefficient and descent of divisibility through multiplication by \(q\)}.}
+
+This calculation assumes the PEL degeneration on the given chart,
+its rigidified integral \(w_0\) and Rosati comparisons, and the
+cocycle of its period multipliers. The scalar and rank calculations
+are valid in either residue characteristic once these data are
+given. The use of an integral eigenbasis of torsion translates in
+Section~\ref{sec:theta-translate-span} additionally requires
+\(q\) to be a unit.

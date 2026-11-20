@@ -1,0 +1,403 @@
+\section{Selmer rigidity of a modular type-II point}
+\label{sec:kato-rigidity}
+
+Let \(K/\mathbb Q\) be the imaginary quadratic field of the window,
+\(\theta\) its character, \(G=G_{\mathbb Q}\), and
+\(\epsilon=\epsilon_\ell\) the cyclotomic character.
+We prove the characteristic-zero Selmer vanishing used at a modular
+type-II point. The arithmetic inputs are the finiteness theorem of
+Kato and the adjoint vanishing theorem of Newton and Thorne. The
+identification of the point as modular is a separate hypothesis.
+
+\subsection{The local conditions and the two-dimensional summands}
+
+For a continuous representation \(V\), write \(H^1_f(F,V)\) for
+the classes of continuous cocycles whose restrictions to inertia
+are coboundaries at every finite place away from \(\ell\), and whose
+restrictions at \(v\mid\ell\) become coboundaries in
+\(V\otimes_{\mathbb Q_\ell} B_{\rm cris}\). The latter condition says
+that \(c(s)\otimes1=sx-x\) on the local absolute Galois group for
+one element \(x\) of this tensor product with diagonal action.
+Restrictions, finite direct sums and continuous equivariant linear
+maps preserve these conditions. They agree with the conditions called
+\(\mathrm{IsBK}\) and \(\mathrm{finiteCocycles}\) in the original
+release. Choosing an embedding into a local algebraic closure selects a
+decomposition group. Conjugating the embedding gives the same condition:
+transport the local witness by the conjugating element and adjust by
+the value of the cocycle on that element.
+
+Let \(e\ge1\), \(k=2e+1\), and let
+\(W:G\longrightarrow {\rm GL}_2(\overline{\mathbb Q}_\ell)\)
+be continuous. Fix
+\(\iota:\overline{\mathbb Q}_\ell\simeq\mathbb C\).
+Suppose a normalized cuspidal newform \(f\) of weight \(k\), level
+\(M_f\) and nebentypus \(\omega_f\) is attached to \(W(-e)\).
+Here attachment requires semisimplicity, and for all but finitely
+many primes \(p\), unramifiedness and the characteristic polynomial
+\[
+ X^2-a_p(f)X+\omega_f(p)p^{k-1}
+ \quad\hbox{at geometric Frobenius, after applying }\iota.
+\]
+The original newform predicate imposes the good-prime eigenrelations,
+normalization and exclusion of lower-level cusp forms with the same
+good eigenvalues. Classical newform decomposition yields a primitive
+eigenform with these good eigenvalues: decompose into old and new
+eigensystems, choose a primitive constituent, and observe that a
+constituent of smaller conductor would itself be a forbidden
+lower-level form. At its primitive conductor the newvector line has
+dimension one and the normalization fixes the scalar.
+
+\paragraph{Proposition.}
+Under these hypotheses
+\[
+ H^1_f(\mathbb Q,W)=H^1_f(\mathbb Q,W\otimes\theta)=0 .
+ \tag{K1}
+\]
+
+\paragraph{Proof.}
+Put \(E=F_\lambda\), where \(F\) is the coefficient field of \(f\)
+and \(\lambda\) is the place induced by \(\iota^{-1}\).
+Kato's representation \(V_E(f)\) has the displayed polynomial
+at the inverse of arithmetic Frobenius (Example 13.3 of his paper).
+Its semisimplicity and the Chebotarev density theorem give equality of
+the traces of \(V_E(f)\) and \(W(-e)\) on all of \(G\) after scalar
+extension. The characteristic-zero Brauer--Nesbitt theorem therefore
+gives
+\[
+ W\simeq U\otimes_E\overline{\mathbb Q}_\ell,\qquad U=V_E(f)(e).
+\]
+In particular this is the positive Tate twist of Kato's cohomological
+representation. The characteristic polynomial at geometric Frobenius
+fixes the sign.
+
+Take a \(G\)-stable \(\mathcal O_E\)-lattice \(T\) of \(U\).
+Kato, \emph{\(p\)-adic Hodge theory and values of zeta functions of
+modular forms}, Ast\'erisque 295 (2004), \S\S13.3, 14.1 and
+Theorem 14.2(1), proves that for a finite abelian extension
+\(L/\mathbb Q\) the discrete Selmer group of a stable lattice of
+\(V_E(f)(r)\) is finite whenever \(1\le r\le k-1\) and \(2r\ne k\).
+The discrete group is contained in \(H^1(L,U/T)\) and its local
+conditions are the images of \(H^1_f(L_v,U)\).
+Here \(r=e\) satisfies these inequalities and \(L=K\) is abelian.
+The theorem applies to CM newforms as well.
+
+We give the passage from discrete finiteness to vector-space
+vanishing. The reduction map sends \(H^1_f(K,U)\) into this finite
+group. Its image is divisible because its domain is an \(E\)-vector
+space, so its image is zero. Let \(c\) represent any of its classes
+and let \(\varpi\) be a uniformizer. For each \(j\ge1\), the reduction
+of \(\varpi^{-j}c\) is therefore a coboundary. Lift the element of
+\(U/T\) giving this coboundary to \(b_j\in U\). Then
+\[
+ c(s)-(s-1)\varpi^j b_j\in\varpi^jT\qquad(s\in G_K).
+\]
+The coboundaries form the image of the finite-dimensional space \(U\)
+in the normed space of continuous functions \(G_K\to U\), with the
+uniform norm from \(T\). This image is finite dimensional over the
+complete local field \(E\), hence closed. The display gives uniform
+convergence to \(c\), proving \(H^1_f(K,U)=0\).
+
+We record the scalar-extension argument because the cocycle in
+the statement takes values in an algebraic closure. Set
+\(B=\overline{\mathbb Q}_\ell\). Continuous \(E\)-linear maps
+\(\lambda:B\to E\) separate points. Indeed, on the line generated
+by \(a\ne0\) prescribe \(\lambda(a)=1\), with norm bound
+\(C=|a|^{-1}\). To extend a functional from a subspace \(D\)
+of \(B\) to \(D+Ey\), choose its value at \(y\) in the balls
+\[
+ \{b\in E: |b-\lambda(x)|\le C|y-x|\},\qquad x\in D.
+\]
+The ultrametric inequality makes these balls nested. Their
+intersection is nonempty: choose one of them, use its compactness
+in the local field \(E\), and use the finite intersection property
+for the smaller closed balls. The chosen value preserves the
+bound on \(D+Ey\). The union of a chain of extensions preserves
+the bound, so Zorn's lemma gives the required map on \(B\).
+
+Apply every such \(\lambda\) coordinatewise to a finite cocycle
+\(c:G_K\to U\otimes_E B\). This gives a continuous \(U\)-valued
+cocycle satisfying the same local conditions, since the coefficient
+map carries each local witness to a witness and extends by tensoring
+with the identity on \(B_{\rm cris}\). Thus every projected cocycle
+is a coboundary. To see that \(c\) is one, write the equations
+\((U(s)-1)x=c(s)\) in an \(E\)-basis. Their left sides are rows
+in the finite-dimensional \(E\)-dual of \(U\). Choose among all
+rows a basis for their span, of dimension \(m\). Every other row is an \(E\)-linear
+combination of the chosen ones. The same linear relation on the
+right sides holds after every \(\lambda\), since the projected
+equations have a solution. Separation of points gives each relation
+in \(B\). The independent rows define a surjection to \(B^m\), so we can solve the basis equations.
+This solution satisfies all equations. We have proved
+\(H^1_f(K,W)=0\) without a restriction on the field generated by
+the values of a cocycle.
+
+Finally \(W\) and \(W\otimes\theta\) restrict to the same
+representation on \(G_K\). Restriction preserves the local conditions.
+Inflation--restriction identifies the kernel of restriction in
+degree one with \(H^1({\rm Gal}(K/\mathbb Q),V^{G_K})\), for either
+\(V\). Averaging over this group of order two kills that cohomology
+in characteristic zero. Both restriction maps are injective,
+proving (K1). \(\square\)
+
+\subsection{The polarized tangent module}
+
+We spell out the input supplied by the type-II classification.
+Relative to the order \(0,1,2\), the matrix part of each \(r(s)\) is
+\[
+ P_s=\begin{pmatrix}a&0&b\\0&1&0\\c&0&d\end{pmatrix},\qquad
+ M_s=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in{\rm SL}_2 .
+\]
+Its component is \(\theta(s)\). At the chosen complex conjugation
+\(c_\infty\), \(P_{c_\infty}=1\) and \(\theta(c_\infty)=-1\).
+On \(G_K\) the attached two-dimensional representation is \(M_s\);
+on the other coset it is \(M_sD\), with \(D={\rm diag}(-1,1)\).
+The irreducibility supplied by the window is that of
+\(W|_{G_{K(\mu_{\ell^\infty})}}\) over \(\overline{\mathbb Q}_\ell\).
+
+The tangent module is the full space of three-by-three matrices.
+On \(G_K\) the action is ordinary conjugation by \(P_s\). The chosen
+complex conjugation acts by \(X\mapsto-J_3X^tJ_3\), where \(J_d\) is
+the antidiagonal identity matrix of size \(d\). For \(t=1,-1\) set
+\[
+ p_t(X)=\binom{X_{01}+tX_{12}}{X_{21}-tX_{10}},\qquad
+ s_t(u,v)=\begin{pmatrix}0&u&0\\-tv&0&tu\\0&v&0\end{pmatrix}.
+\]
+Let \(A(X)\) extract the outer corner on \(0,2\) and let \(i_A\)
+insert it there. Write \(i_C(X_{11})\) for the central entry alone.
+Direct substitution gives
+\[
+ X=i_A A(X)+\tfrac12s_+(p_+(X))
+                +\tfrac12 s_-(p_-(X))+i_C(X_{11}).
+ \tag{K2}
+\]
+Here \(+\) and \(-\) denote \(1\) and \(-1\). To verify the actions,
+the two columns \((X_{01},X_{21})^t\) and
+\((X_{12},-X_{10})^t\) both transform by \(M_s\) on \(G_K\).
+For the second column use
+\((X_{10},X_{12})\mapsto(X_{10},X_{12})M_s^{-1}\) and
+\(\det M_s=1\). Complex conjugation exchanges these two columns with
+the factor \(D\): the first becomes \(D\) times the second and the
+second becomes \(D\) times the first. Thus their sum realizes \(W\),
+their difference \(W\theta\). The center realizes \(\theta\).
+
+On the outer corner \(G_K\) acts by conjugation. At \(c_\infty\)
+the formula on two-by-two matrices is \(Y\mapsto-J_2Y^tJ_2\).
+This is multiplication by \(-1\) on scalars. For
+\(Y=\left(\begin{smallmatrix}u&v\\w&-u\end{smallmatrix}\right)\)
+it equals \(DYD^{-1}\). Since \(2\) is invertible, the corner
+decomposes as the trace-zero part with action \({\rm ad}^0 W\)
+and a second copy of \(\theta\). Hence
+\[
+ {\rm ad}\,r \simeq
+ {\rm ad}^0 W\ \oplus\ W\ \oplus\ (W\theta)\
+                  \oplus\ \theta\ \oplus\ \theta .
+ \tag{K3}
+\]
+
+\paragraph{Proposition.}
+A modular type-II point with the block and irreducibility properties
+above satisfies \(H^1_f(\mathbb Q,{\rm ad}\,r)=0\).
+
+\paragraph{Proof.}
+The newform \(f\) supplies a regular algebraic cuspidal
+\({\rm GL}_2/\mathbb Q\) representation since \(k\ge2\).
+In J.\ Newton and J.\ A.\ Thorne, \emph{Adjoint Selmer groups of
+automorphic Galois representations of unitary type},
+J.\ Eur.\ Math.\ Soc.\ 25 (2023), Theorem 5.4, the full adjoint
+Selmer group of this representation vanishes if the form is non-CM,
+or if its CM field is not contained in \(\mathbb Q(\mu_{\ell^\infty})\).
+In the remaining possibility, with CM field \(L\) contained in that
+cyclotomic field, the two-dimensional Galois representation is
+induced from a character of \(G_L\). It splits into two characters
+over \(G_L\) and hence is reducible on
+\(G_{K(\mu_{\ell^\infty})}\subset G_L\). Twisting by \(\epsilon^e\)
+preserves this reducibility, contrary to the specified hypothesis on
+\(W\). The theorem therefore applies in every allowed case. Scalar
+twists preserve the adjoint. The dual representation gives an
+isomorphic adjoint via transposition, so either standard normalization
+of an attached modular representation gives the same conclusion.
+The trace-zero piece is a direct summand and
+\(H^1_f(\mathbb Q,{\rm ad}^0W)=0\).
+
+For the remaining character, restriction to \(K\) again injects,
+and \(\theta|_{G_K}=1\). Over \(K\), the finite local condition
+for the trivial representation \(E\) is unramified everywhere.
+At places \(v\mid\ell\) this uses the standard local Bloch--Kato
+fundamental exact sequence: since
+\(D_{\rm dR}(E)/{\rm Fil}^0=0\), it identifies the finite local condition
+with the cokernel of \(1-\varphi\) on \(D_{\rm cris}(E)\).
+This group has dimension one over \(E\), since its kernel has
+dimension one by unramified Frobenius descent. The unramified
+line lies in it. Indeed an extension of the trivial representation
+by itself with unramified action is crystalline (equivalently use
+an unramified period solving \(\varphi^{f_v}(b)-b=1\), where
+\(f_v\) is the residue degree).
+A continuous additive character of \(G_K\) unramified at every
+finite prime factors through the finite ideal class group by global
+class field theory. Its image in \(E\) is zero. The separation
+argument above also applies to \(B\)-valued classes. Thus
+\(H^1_f(\mathbb Q,\theta)=0\). Apply (K1) and (K3). \(\square\)
+
+\subsection{The Euler-system argument in the original release}
+
+The archive reaches (K1) by constructing zeta classes. We describe
+this separate derivation and the intermediate results it uses.
+The original \(\mathrm{KatoTwoW}\) statement assumes an odd prime
+\(\ell\) with \(\ell-1\nmid 2e\) and
+\(\ell\nmid |\operatorname{disc}K|h_K\), an even
+\(N>0\) prime to \(\operatorname{disc}K\), and a finite character
+\(\psi\) factoring through \(\mathbb Q(\mu_N)\), of order prime
+to \(\ell\) and quadratic on inertia above \(\ell\).
+It imposes \(\Psi(c_\infty)=1\) for \(\Psi=\epsilon^e\psi\).
+The level is \(N|\operatorname{disc}K|\) with ordered weights
+\((e,-e)\), and the ordinary inertia polynomial after a finite
+cyclotomic extension has roots \(\epsilon^e,\epsilon^{-e}\).
+One assumes \(\det W=\theta\), inertia trace
+\(\Psi+\Psi^{-1}\), and everywhere the residual trace is
+\(\overline{\theta\Psi+\Psi^{-1}}\). At one place above \(\ell\)
+there is a decomposition-group flag with diagonal inertia characters
+\(\epsilon^e\chi,\epsilon^{-e}\chi\), with \(\chi\) factoring through
+\(\mathbb Q(\mu_\ell)\), and \(\theta\) is trivial on this inertia
+group. The irreducibility condition is the one in (K3).
+The type-II point supplies these arithmetic properties through
+the result \(\mathrm{used\_of\_alt}\). The archived version also
+takes a rational cuspidal automorphic witness and the newform
+attached to \(W(-e)\).
+
+The comparison of the Galois row with quadratic base change and
+its unramified local parameters provides a spherical compatibility
+statement for the representation and its finite cyclotomic twists.
+Comparison with an ordinary newform gives a newform \(g\) of
+weight \(2e+1\), prime-to-\(\ell\) level, and
+\(\lvert\iota^{-1}a_\ell(g)\rvert_\ell=1\). It is attached to
+\[
+ W\otimes\epsilon^{-e}(\det W)^{-1}\chi'
+\]
+for a character \(\chi'\) factoring through \(\mathbb Q(\mu_\ell)\).
+For the selected flag with lower diagonal character \(\kappa_1\)
+one has \(\kappa_1\epsilon^e(\det W)^{-1}\chi'=1\) on inertia.
+The comparison also supplies nonexceptionality: for each admissible
+decomposition-group flag, its first character differs from \(\epsilon\)
+on some element of that decomposition group. These are the
+unramified-source conditions in \(\mathrm{SrcL}\). After conjugation
+to an ordinary integral basis they feed the construction
+\(\mathrm{Final.zetaUr}\).
+
+In this basis let \(A\) be the chosen place above \(\ell\) and \(D_A\)
+its decomposition group. Write \({\rm Gr}\) for unramifiedness away
+from \(\ell\) together with the condition that the lower coordinate
+of the cocycle is a coboundary on \(D_A\). Write \({\rm Str}\) for
+the same away condition together with being a coboundary in both
+coordinates on \(D_A\). The Tate dual is
+\(W'=W\otimes\epsilon(\det W)^{-1}\), via the alternating
+form \(\omega(v,w)=v_0w_1-v_1w_0\). The zeta construction gives
+an integral cocycle \(y\) unramified away from \(\ell\) whose lower
+coordinate is not a coboundary on \(D_A\).
+
+More precisely its norm relations supply the following data. There
+is a finite exceptional set such that for \(n\ge1\), every auxiliary
+prime \(q\) outside that set with \(\ell^n\mid q-1\), and every
+surjective \(\psi_q:G\to\mathbb Z/\ell^n\) factoring through
+\(\mathbb Q(\mu_q)\), one has integral vectors \(Y(s,x)\) for
+\(x\in\mathbb Z/\ell^n\), a scalar \(P\), a unit \(\alpha\) of
+absolute value one, and an integral vector \(b\), with
+\begin{align*}
+ Y(st,x)&=Y(s,x)+W(s)Y(t,x-\psi_q(s)),\\
+ \sum_xY(s,x)&=Py(s)+(W(s)-1)b,\\
+ P&\equiv \alpha\det(W({\rm Frob}_q)-1)\pmod{\ell^n}.
+\end{align*}
+The first family is continuous. The last congruence holds for each
+admissible Frobenius lift, and the source imposes integral
+inertia-coboundary witnesses for the family at all other primes
+away from \(\ell\). Smoothed zeta classes, their integrality and
+Hodge--Tate law, a nonvanishing Hecke projection, and a local
+projection formula are the inputs to these assertions.
+
+Here is the height contradiction that uses the norm relations.
+Suppose that a strict dual cocycle \(z\) represents a nonzero class.
+After enlarging the integral coefficient ring and multiplying \(y,z\)
+by nonzero powers of \(\ell\), their values and their required local
+witnesses are integral. Put
+\[
+ H=\ker\epsilon\cap\ker\det W,\qquad B_0=\ker\epsilon\cap\ker W.
+\]
+The cyclotomic-kernel lemmas in the release assert that \(y|_{B_0}=0\)
+would give the ordinary condition on \(y\), and \(z|_{B_0}=0\)
+would make \(z\) a global coboundary. The pairing and commutator
+lemmas for the irreducible ordinary representation therefore supply
+\(g,h\in B_0\) and \(\phi\in[H,H]\) such that
+\[
+ d'=\omega(y(h),z(g))-\omega(y(g),z(h))\ne0,\qquad
+ d=\det(W(\phi)-1)\ne0.
+\]
+The elements are fixed for every precision \(n\).
+
+For each \(n\ge1\), the cup product
+\(\omega(y(s),W'(s)z(t))\) is locally a coboundary modulo
+\(\ell^n\), by strictness at \(\ell\) and the unramified local cup
+product away from \(\ell\). The global cochain gluing theorem
+supplies an integral cochain \(u\) whose coboundary is this cup
+product modulo \(\ell^n\), with the unramified-outside-\(S\)
+condition. Define
+\[
+ T(s)=\det(W(s)-1)u(s)
+  -\omega\bigl(\operatorname{adj}(W(s)-1)y(s),z(s)\bigr).
+\]
+The tame-lift theorem gives
+\(\det(W(s)-1)T(s)\equiv0\bmod\ell^n\) on \([H,H]\).
+Write \(c=[g,h]\). For clarity the commutator-height formula can
+be seen directly. On \(B_0\) both actions are trivial, so \(y,z\)
+restrict to homomorphisms and \(y(c)=z(c)=0\).
+The cochain equation becomes
+\[
+ u(st)\equiv u(s)+u(t)-\omega(y(s),z(t))\pmod{\ell^n}
+ \qquad(s,t\in B_0).
+\]
+Apply it to \(gh\) and \(hg\). Since \(gh=c\,hg\), it gives
+\(u(c)\equiv d'\). The equation on \((\phi,c)\) now gives
+\(u(\phi c)-u(\phi)\equiv d'\), because \(\epsilon(\phi)=1\).
+The matrix and both cocycles at \(\phi c\) equal their values at
+\(\phi\), hence \(T(\phi c)-T(\phi)\equiv dd'\). Both \(\phi\) and
+\(\phi c\) belong to \([H,H]\), so the tame-lift theorem and
+integrality of \(d\) give \(d^2d'\equiv0\bmod\ell^n\).
+This holds for every \(n\) and contradicts \(d^2d'\ne0\).
+Thus the strict dual group vanishes. The arithmetic input to
+this calculation consists of the kernel and pairing lemmas,
+local-to-global cochain gluing and the tame-lift height congruence.
+
+The release upgrades strict dual vanishing to ordinary dual
+vanishing by reciprocity for integral cup products and local
+duality. After subtracting a coboundary, the lower coordinate
+of an ordinary dual class is zero on \(D_A\). The local orthogonality
+alternative makes either the lower coordinate of \(y\) a coboundary
+or this adjusted dual class strict. The first option contradicts the
+zeta class, and strict dual vanishing settles the second. Global
+Selmer duality then gives ordinary vanishing for \(W\): a nonzero
+ordinary class for \(W\) would produce dual finite-level classes
+of unbounded order, and the compactness argument for these classes
+produces a nonzero ordinary dual class.
+
+Finally a finite class for \(W\) is ordinary. Its lower projection
+is crystalline. For an upper triangular inertia matrix with diagonal
+entries \(a,b\), the normal form gives \(a^m=\epsilon^{em}\)
+for some \(m>0\) and \((ab)^2=1\). Thus
+\((b\epsilon^e)^{2m}=1\) on inertia. The lower character has
+weight \(-e\) in the cyclotomic-exponent convention. The
+one-dimensional crystalline finite-class vanishing in negative weight
+gives a coboundary on \(D_A\), as required. Applying this construction
+to \(W\) and \(W\det W\) gives precisely (K1): the determinant
+is quadratic and factors through a finite cyclotomic field, so the
+spherical compatibility statement over all twists also applies to
+the latter representation.
+
+The original declarations for this route include
+\(\mathrm{katoTwoW\_of\_printsH}\), \(\mathrm{twoS}\),
+\(\mathrm{vanishOrdL\_of\_zetaUr}\), \(\mathrm{es\_vanish}\),
+and \(\mathrm{StrictKill.main}\). Its type-II tangent proof projects
+a cocycle by (K2), applies polarized-adjoint rigidity to the corner
+and the nonpositive weight result to the center, then reassembles
+the four coboundaries. The two propositions above supply a
+classical derivation of the entire vanishing from the stated point
+hypotheses. Establishing those hypotheses for all points of the
+deformation ring, including production of \(f\), belongs to the
+automorphy and classification arguments.

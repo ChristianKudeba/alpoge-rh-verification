@@ -1,0 +1,111 @@
+\section{The integral span of finite-order theta translates}
+\label{sec:theta-translate-span}
+
+We prove the spanning step in Section~\ref{sec:local-theta-jets}
+from the valuation and theta-group properties of the uniformization.
+Work over the valued algebraic closure \(F\) of the fraction field
+of the chart. Put \(\mathcal V=\{u\in F:v(u)\ge0\}\), and let
+\(\mathcal U\) be the level-\(q\) expansion module with normalized
+coefficient valuation lower bound zero. A member has positive depth
+if the same bound holds with some positive rational added at every
+coefficient. In particular a positive-valuation multiple of a
+member has positive depth. Here \(v(q)=0\).
+
+Let \(A\) denote the polarized generic abelian variety in the product
+uniformization and write \(g=\dim A\).
+The CM ideals \((\alpha)\) and \((\overline\alpha)\) are coprime
+and \(\alpha\overline\alpha=q\). Define
+\(H_1=\ker[\overline\alpha]\) and \(H_2=\ker[\alpha]\) on geometric
+points; both consist of \(q\)-torsion points. Choose
+\(u\alpha+u'\overline\alpha=1\). On \(A[q]\) the two summands
+\([u\alpha]\) and \([u'\overline\alpha]\) have image in \(H_1\)
+and \(H_2\), respectively, and their sum is the identity.
+Their kernels give \(H_1\cap H_2=0\). Hence
+\(A[q]=H_1\oplus H_2\).
+
+The Weil pairing separates the two groups. In the unimodular
+alternating lattice \(L\) supplied by the specified Tate isometry,
+represent distinct \(x,x'\in H_1\) by \(a,a'\) modulo \(qL\).
+There is \(b_0\in L\) with \(q\nmid\langle b_0,a-a'\rangle\):
+otherwise the integer-valued functional
+\(b\mapsto\langle b,a-a'\rangle/q\) would imply
+\(a-a'\in qL\) by unimodularity. The adjoint of the CM action is
+conjugation and \(\overline\alpha(a-a')\in qL\), so
+\[
+   q\mid\langle u\alpha b_0,a-a'\rangle,\qquad
+   q\nmid\langle u'\overline\alpha b_0,a-a'\rangle.
+\]
+The class \(z\) of \(u'\overline\alpha b_0\) belongs to \(H_2\);
+the two pairing values \(e_q(z,x)\) and \(e_q(z,x')\) differ.
+The same reasoning with conjugates interchanged gives separation
+in the other direction. Thus each group injects into the
+\(\mu_q\)-valued character group of the other. For a finite abelian
+group of exponent dividing \(q\) this dual has the same cardinality,
+by cyclic decomposition. Since \(\#A[q]=q^{2g}\), it follows that
+\(\#H_1=\#H_2=q^g\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/AlphaPair.lean}{Unimodular lattice pairing and separation};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/AlphaBarEnum.lean}{enumeration of the two kernels}.}
+
+Let \(\theta_\alpha\) denote the pullback of the primitive theta
+frame. The forward pullback estimate puts it in \(\mathcal U\).
+The primitive coefficient at zero and the level-frame inequality
+show that \(\theta_\alpha\) cannot have positive depth: an improved
+bound \(r>0\) would imply \(r\le v(1)-Q(0)=0\).
+For \(x\in H_1\), choose a finite-order lift to the theta group
+and let \(t_x\) be the associated translate of \(\theta_\alpha\),
+including the scalar normalizing its order. The finite-order
+valuation invariance transfers both assertions about depth to \(t_x\).
+In particular each \(t_x\ne0\). For each \(z\in H_2\), the canonical
+lift acts by a linear operator \(T_z\) fixing \(\theta_\alpha\);
+it preserves \(\mathcal U\).
+Using the commutator formula for the theta group with the polarized
+Tate isometry, we get
+\[
+                    T_z t_x=e_q(z,x)t_x .
+\]
+Section~\ref{sec:theta-lift-valuation} proves the canonical-lift and
+valuation identities in the normalized expansion.
+
+Here is the resulting integral linear algebra. If \(\xi,\xi'\) are
+distinct \(q\)-th roots of unity, \(v(\xi)=v(\xi')=0\) and
+\(v(\xi-\xi')=0\). Indeed, were the two residues equal to \(c\), then
+\(c\ne0\) and reducing
+\[
+          \sum_{i=0}^{q-1}\xi^i(\xi')^{q-1-i}=0
+\]
+would give \(qc^{q-1}=0\), contrary to \(v(q)=0\).
+Given a fixed \(x\in H_1\), for each \(y\in H_1\setminus\{x\}\)
+choose \(z_y\in H_2\) separating \(x,y\). On the span of these
+eigenvectors form the product, in any fixed order,
+\[
+   D_x=\prod_{y\ne x}
+   \frac{T_{z_y}-e_q(z_y,y)\operatorname{id}}
+        {e_q(z_y,x)-e_q(z_y,y)} .
+\]
+All denominators are units of \(\mathcal V\). Each factor preserves
+\(\mathcal U\), acts as the identity on \(t_x\), and annihilates
+\(t_y\) for its particular \(y\). Thus \(D_x t_w\) is \(t_x\)
+if \(w=x\) and zero otherwise. Applying \(D_x\) to any linear
+relation shows the \(t_w\) are independent.
+
+Section~\ref{sec:theta-unit-basis} gives \(\mathcal U\)
+as the \(\mathcal V\)-span of a linearly independent family of order
+\(q^{\operatorname{rank}X+\dim B}\), where \(X\) is the product
+period lattice and \(B\) the abelian part. The semiabelian dimension
+formula gives \(\operatorname{rank}X+\dim B=g\). Thus the \(q^g\)
+translates span the same \(F\)-space. For \(s\in\mathcal U\),
+write \(s=\sum_w d_wt_w\) there. Then \(d_xt_x=D_xs\in\mathcal U\).
+If \(v(d_x)<0\), writing \(t_x=d_x^{-1}(d_xt_x)\) would give
+positive depth for \(t_x\). Thus \(d_x\in\mathcal V\), for every \(x\).
+This proves the exact integral span required for the valuation
+selection on the original product and identifies where a prime
+dividing the level would enter the separation argument.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/IntegralRingEmbedding.lean}{Integral eigenvector elimination};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/OneCPf.lean}{pairing, primitivity, and the rank comparison};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/CmLiftConditionOfLaws.lean}{assembly of geometric hypotheses};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/ExistsTermLe.lean}{transport of the result to the product degeneration}.}
+
+The polarized torsion isometry and the integral period and pullback
+identifications connect the expansion model to the abelian variety.
+Sections~\ref{sec:theta-lift-valuation} and \ref{sec:theta-unit-basis}
+supply the required valuation and rank assertions in that model.

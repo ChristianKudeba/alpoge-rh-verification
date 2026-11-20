@@ -6,8 +6,8 @@ We first state exactly the geometric and metric data used in the
 calculation. Let \(V_j\), \(0\le j\le T\), be the graded section spaces
 with full integral lattices and Hermitian norms at infinity. Put
 \(D\ge1,\ T\ge D+1,\ d=\dim_F V_T\). Multiplication by a coordinate
-linear form increases the index \(j\) by one. The system has integral
-short bases at indices \(0,D,T\) with archimedean norm bounds
+linear form increases the index \(j\) by one. The system has
+bases over \(F\) at indices \(0,D,T\) whose vectors lie in the respective lattices and have archimedean norm bounds
 \(\Lambda_0,\Lambda_D,\Lambda_T\), all at least one. The complex
 multiplication bound for a unit coordinate vector is \(\sqrt\beta\)
 with \(\beta\ge1\).
@@ -22,15 +22,113 @@ points \(P_1,\ldots,P_\delta\) over a finite extension. Thus
 \[
  f(s,l)=c_s\prod_{\nu=1}^\delta l(P_\nu),\qquad c_s\ne0.
 \]
-The geometric filtration used below has surjective degree-zero evaluation
-on these points. In degree \(a<T-D\) its symbol has one copy of the
-residue space for each monomial in \(s_1,\ldots,s_D\) of degree \(a\).
-Multiplication on the symbol acts by the evaluations of the other
-linear forms. The deepest relevant step is spanned by the degree
-\(T-D\) monomials in the \(s_i\) times sections of \(V_D\). These
-statements require the good-section, restriction-kernel and base-change
-results of the compactification. They are the inputs to the column
-construction.
+\paragraph{The residue map and the subspace it filters.}
+Write \(Y\) for the smooth projective \(D\)-fold over the splitting
+field, \(L\) for the generated hyperplane bundle and \(A,L_2\) for
+the two auxiliary nef and big bundles. Use additive notation for
+tensor products. The data include a section
+\(\epsilon\in H^0(Y,A-L_2-DL)\) nonvanishing on the prescribed
+open \(U\). If \(Z\) is the common zero scheme of \(s_1,\ldots,s_D\),
+the good-section conditions are that \(Z\) be finite, \'etale and
+contained in \(U\). In this paragraph its \(\delta\) points are
+rational after the indicated finite extension. Define
+\[
+ G_j=\operatorname{im}\{H^0(Y,K_Y+A+jL)\to H^0(U,K_Y+A+jL)\}.
+\]
+The coefficient space satisfies \(G_j\subset V_j\) for \(j\le T\)
+and \(G_0=V_0\). The inclusion can matter for a positive \(j\).
+
+On \(Z\) the ordered sections define the nowhere-zero Jacobian
+\(J_s=ds_1\wedge\cdots\wedge ds_D\) in
+\((K_Y+DL)|_Z\). Indeed the conormal map is an isomorphism at
+each transverse point. In local frames the degree-\(j\) residue
+of \(m\in V_j\) is \(m|_Z/(\epsilon J_s)\), with values in
+\((L_2+jL)|_Z\). The choice of frames identifies its values with
+one scalar at each of the \(\delta\) points.
+
+We show that the degree-zero residue map is onto. Any prescribed
+\(v\in H^0(Z,L_2|_Z)\) gives \(J_s v\) in
+\(H^0(Z,(K_Y+L_2+DL)|_Z)\). This latter section lifts to
+\(H^0(Y,K_Y+L_2+DL)\). To see the lifting, use the Koszul
+resolution of \(\mathcal O_Z\) by the \(D\) equations, tensored by
+\(K_Y+L_2+DL\). The term of index \(i\) is the direct sum of
+\(\binom Di\) copies of \(K_Y+L_2+(D-i)L\), \(0\le i\le D\).
+Each has zero higher cohomology by Kawamata--Viehweg vanishing:
+\(L_2\) is nef and big, \(L\) is nef, and \(D-i\ge0\). The complex
+is exact off degree zero. Indeed a generator is a unit locally away
+from \(Z\), and at points of \(Z\) the equations are a regular system
+of parameters. The cohomology of its global sections therefore computes
+that of \((K_Y+L_2+DL)|_Z\). This gives the asserted lift \(b\).
+Then \(\epsilon b\) restricts to an element of \(G_0=V_0\) whose
+residue is \(v\). Equivalently one may first change the equations by
+an invertible constant matrix to a sequence regular on successive
+quotients, as in the source's restriction argument.
+
+Let \(I\) be the ideal of \(Z\). A first-order vanishing section
+\(g\in G_{l+1}\) with \(D\le l+1\) can be written
+\[
+                        g=\sum_{i=1}^D s_i g_i,\qquad g_i\in G_l .
+\]
+Its global extension restricts to zero on \(Z\), since \(Z\subset U\).
+Apply the same Koszul complex tensored by \(K_Y+A+(l+1)L\).
+Its terms have \(L\)-exponents \(l+1-i\ge0\), and the higher
+cohomology again vanishes. Exactness of global sections at its
+index-zero term identifies the restriction kernel with the image
+of the \(D\) indicated multiplications. This proves the division.
+
+We need the version for higher orders with an explicit lower bound
+on the remaining degree. For \(j\ge D\), \(a\ge0\), every
+\(g\in G_{j+a}\) vanishing to order \(a\) along \(Z\) admits
+\[
+                       g=\sum_{|\alpha|=a}s^\alpha g_\alpha,
+                       \qquad g_\alpha\in G_j .
+\]
+For \(a=0\) this is immediate. For order \(a+1\), apply the
+order-\(a\) result with coefficient degree \(j+1\).
+Locally along \(Z\) the associated graded algebra of \(I\) is the
+polynomial algebra on the conormal basis given by the \(s_i\);
+this is the regular-sequence description
+\(\operatorname{gr}_I\mathcal O_Y=\operatorname{Sym}_{\mathcal O_Z}
+(I/I^2)\). Thus the degree-\(a\) symbol of the resulting expression
+has a separate coefficient \(g_\alpha|_Z\) for each monomial,
+in local frames. Since the section vanishes to order \(a+1\),
+every such coefficient is zero. Apply the first-order division
+above to each \(g_\alpha\in G_{j+1}\). Regrouping the terms with
+the same multi-index \(\alpha+\mathbf e_i\) gives the assertion.
+
+Write \(r=T-D\) and set
+\[
+ P_s=\sum_{|\alpha|=r}s^\alpha V_D,\qquad W_s=G_T+P_s\subset V_T,
+ \qquad U_a=\{h\in W_s:h\text{ vanishes along }I^a\}.
+\]
+Here vanishing means membership in \(I^a\) in local bundle
+coordinates along \(Z\). Stability under multiplication gives the
+inclusion \(P_s\subset V_T\). Now \(P_s\subset U_r\) by construction.
+Conversely, for \(h=g+p\in U_r\) with \(g\in G_T\), \(p\in P_s\),
+the difference \(g=h-p\) vanishes to order \(r\). Higher-order
+division with \(j=D\) expresses \(g\) in \(P_s\), proving \(U_r=P_s\).
+
+For \(a<r\), the kernel of the symbol on \(U_a\) is \(U_{a+1}\)
+by the same associated graded description. Its target after choosing
+frames is \(\bigoplus_{|\alpha|=a} F'^{\,\delta}\) over the splitting
+field \(F'\). To show surjectivity, choose \(\ell\) nonvanishing at
+all the points, possible over the infinite field \(F'\).
+For each \(\alpha\) evaluate the symbol of
+\(s^\alpha\ell^{T-a}m\) with \(m\in V_0=G_0\). It vanishes in
+every other monomial coordinate, and its \(\alpha\)-coordinate is the
+residue vector of \(m\) multiplied at point \(P_\nu\) by
+\(\ell(P_\nu)^{T-a}\). These nonzero factors and surjectivity of the
+degree-zero residue prove that this block spans its entire target.
+All these test sections lie in \(G_T\subset W_s\).
+Writing \(y_s=\dim P_s\), summing graded dimensions now gives
+\[
+            \dim W_s=y_s+\delta\binom{T-1}{D},\qquad
+            \dim(V_T/W_s)=d-y_s-\delta\binom{T-1}{D}.
+\]
+This identifies the exact dimension of the subspace requiring
+additional top-basis columns in the determinant. The argument uses
+ordinary adjoint sections on the compactification only in the
+subspaces \(G_j\), and uses the actual \(V_D\) in \(P_s\).
 
 Let \(R=\binom{T-1}{D}\). For \(0\le a<T-D\) the number of
 monomials in \(D\) variables of degree \(a\) is
@@ -161,13 +259,17 @@ allow the additional subtraction \(3(D+1)|h|\) used by the component
 formula. In the second bracket replace \(c\) by \(L+\log2\).
 Both replacements weaken a lower bound since \(z,1-z\ge0\).
 With \(J=\log\Lambda_0\) these are exactly the two terms of
-\srcid{HSClaimS} at constant \(26\). The input on the geometric side
-is Bertini for the simple hyperplane sections together with the
-filtration-symbol and short-basis assertions above. Identifying the
+\srcid{HSClaimS} at constant \(26\). The inputs on the geometric side are Bertini for the simple hyperplane
+sections, adjoint vanishing on the smooth projective model and the
+short-basis assertions above. Identifying the
 birational image degree, its Chow height and the Hermitian lattice
 degree transfers the inequality to the component of the window.
 
 \paragraph{Source correspondences.}
+The restriction and filtration are
+\srcid{HilbertSamuelDegreeZeroResiduesRangeEqTop},
+\srcid{FilMonoOfKerRes}, \srcid{FilSpaceVEqSpaceP} and
+\srcid{HilbertSamuelVanishingFiltrationDeepestStepSpan}.
 The selection of columns and the specialization identity are
 \srcid{ExistsShortColumnsDetNeZeroHilbertSamuel} and
 \srcid{DetRationalSectionsEqPowProductLinearForms}. The descent is

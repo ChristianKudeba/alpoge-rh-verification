@@ -1,0 +1,175 @@
+\section{Strong irreducibility and the automorphic type-I tangent space}
+\label{sec:type-one-rigidity}
+
+Let \(K/\mathbb Q\) be the imaginary quadratic field,
+\(H=G_K\), and \(\epsilon=\epsilon_\ell\). In a normalized type-I
+point \(r\), let \(\rho:H\to {\rm GL}_3(B)\) be its matrix part,
+where \(B=\overline{\mathbb Q}_\ell\). The type-I condition is that
+\(\rho\) has no proper nonzero invariant \(B\)-subspace. Write
+\(\Psi=\epsilon^e\psi\), with \(e\ge1\), \(\psi\) of finite
+cyclotomic conductor dividing \(N\). The ordinary and residual
+conditions on the point supply an integral model with the following
+two properties:
+\begin{enumerate}
+\item On decomposition at \(\ell\) inside \(H\) there is a common
+invariant full flag; on inertia its successive eigencharacters
+are \(\Psi,1,\Psi^{-1}\), in the order fixed by the window.
+\item Reduction at the maximal ideal of the integral model satisfies
+\[
+ \overline{{\rm tr}\,\rho(s)}
+   =\overline{\Psi(s)}+1+\overline{\Psi(s)}^{-1}
+           \qquad(s\in H).
+\]
+\end{enumerate}
+The residue hypothesis \(\ell-1\nmid 2e\) is essential to the
+argument below. We first prove the open-subgroup irreducibility
+assertion used in the original release.
+
+\paragraph{Proposition.}
+For every open subgroup \(V\) of \(H\), \(\rho|_V\) is irreducible.
+
+\paragraph{Proof.}
+Take an open normal subgroup \(U\) of \(G_\mathbb Q\) contained
+in \(V\), obtained by intersecting its finitely many conjugates.
+It is enough to prove irreducibility on \(U\). Choose a place over
+\(\ell\). Its inertia subgroup lies in \(H\), since \(\ell\) does
+not divide the discriminant of \(K\). The cyclotomic character on
+this inertia subgroup surjects onto \(\mathbb Z_\ell^\times\):
+the extensions \(\mathbb Q_\ell(\mu_{\ell^j})/\mathbb Q_\ell\)
+are totally ramified with Galois groups
+\((\mathbb Z/\ell^j\mathbb Z)^\times\), and passage to the inverse
+limit gives the assertion. Choose \(\sigma\) on inertia with
+\(\epsilon(\sigma)=1+\ell\). Put
+\(m=[G_\mathbb Q:U]\cdot|(\mathbb Z/N)^\times|\). Then
+\(u=\sigma^m\) lies in \(U\), and \(\psi(u)=1\). The three
+eigenvalues of \(\rho(u)\) are distinct since
+\(\Psi(u)^2=(1+\ell)^{2em}\ne1\).
+
+Choose also \(x\) on inertia whose cyclotomic character generates
+\(\mathbb F_\ell^\times\) after reduction. The window assumes
+\(\psi^2=1\) on this inertia subgroup. Consequently
+\(\overline{\Psi(x)}^2=\overline{\epsilon(x)}^{2e}\ne1\).
+Both \(x\) and \(u\) preserve the ordinary flag. Each subspace
+in the flag is spanned by some eigenlines of the regular semisimple
+element \(\rho(u)\): its spectral projections are polynomials in
+\(\rho(u)\).
+
+Suppose \(\rho|_U\) is reducible. The restriction is semisimple:
+take a nonzero simple \(U\)-submodule and all its \(H\)-translates.
+Normality of \(U\) makes each translate simple, and their sum is
+the entire space by \(H\)-irreducibility. A sum of simple
+submodules is semisimple. The group \(H\) permutes its isotypic
+components transitively, so they have equal dimension and equal
+multiplicity of their respective simple constituents.
+As the space has dimension three, reducibility on \(U\) now gives
+two possibilities. One is three copies of one character, on which
+\(u\) would be scalar. This contradicts its distinct eigenvalues.
+The other is three pairwise distinct characters, with three lines
+permuted transitively by \(H\). These lines are the eigenlines of
+\(\rho(u)\). The permutation induced by \(x\) preserves each stage
+of the complete ordinary flag and hence fixes the three lines
+individually.
+
+The transitive permutation image of \(H\) on three letters has
+order divisible by three. Choose \(g\in H\) inducing a three-cycle.
+Then \(\rho(gx^j)\) has zero diagonal in the eigenbasis of
+\(\rho(u)\), for every \(j\ge0\). Its trace therefore vanishes.
+In the residue field put \(a=\overline{\Psi(g)}\) and
+\(b=\overline{\Psi(x)}\). The residual trace formula says
+\[
+ a b^j+1+(a b^j)^{-1}=0\qquad(j\ge0).
+\]
+Thus all the nonzero elements \(a b^j\) are roots of
+\(T^2+T+1\). In particular among \(a,ab,ab^2\) two coincide,
+forcing \(b=1\) or \(b^2=1\). This contradicts the choice of \(x\).
+Irreducibility on \(U\) and on \(V\) follows. \(\square\)
+
+\paragraph{Lemma.}
+Let \(V\) be a finite-dimensional characteristic-zero continuous
+representation of \(H\) over \(B\) which is irreducible on every
+open subgroup of \(H\). For any continuous abelian quotient
+\(H\to C\), the restriction of \(V\) to its kernel is irreducible.
+
+\paragraph{Proof.}
+Let \(M\) be the Zariski closure of the image in \({\rm GL}(V)\);
+write \(M^0\) for its identity component. The preimage of \(M^0\)
+is open in \(H\): there are finitely many components, each closed
+in the \(\ell\)-adic topology, so its complement is closed as well.
+Its image is Zariski dense in \(M^0\), since this component is also
+open in \(M\) for the Zariski topology. In particular \(M^0\)
+acts irreducibly. Its unipotent radical has a nonzero fixed vector
+by triangularization. The whole fixed space is \(M^0\)-stable by
+normality, so the unipotent radical fixes \(V\) pointwise and is
+trivial in this faithful realization. It follows that \(M^0\) is
+reductive. Its connected center acts by scalars by Schur's lemma.
+A connected reductive group is the product of its connected center
+and its derived subgroup. Hence \((M^0)^{\rm der}\) already acts
+irreducibly on \(V\).
+
+All group commutators of the preimage of \(M^0\) belong to the
+kernel of \(H\to C\). The Zariski closure of its image there
+contains the commutators of all pairs in \(M^0\), by density
+and the algebraicity of the commutator map. It therefore
+contains \((M^0)^{\rm der}\). A subspace invariant under the kernel
+is invariant under its Zariski closure, and the preceding
+irreducibility finishes the proof. \(\square\)
+
+\paragraph{The polarized adjoint.}
+In addition assume the type-I automorphy conclusion: \(\rho(-1)\)
+is attached to a regular algebraic, conjugate self-dual cuspidal
+automorphic representation \(\pi\) of \({\rm GL}_3(\mathbb A_K)\).
+This is the automorphic witness in \(\mathrm{IsAutIAlt}\), whose
+definition also carries local compatibility information. Attachment
+compares the unramified normalized Satake roots with geometric
+Frobenius; its factor for rank three is \(({\rm N}v)^{(3-1)/2}\).
+With this normalization the semisimple representation
+\(r_{\pi,\iota}\) of the automorphic Galois theorem identifies with
+\(\rho(-1)\) by Chebotarev and Brauer--Nesbitt. The preceding lemma
+for the cyclotomic quotient shows that \(\rho\), and hence its scalar
+twist, is irreducible on \(G_{K(\mu_{\ell^\infty})}\).
+
+Write \(J=J_3\) for the antidiagonal identity matrix, and choose
+the normalized complex conjugation \(c\), whose matrix part is \(1\).
+The semidirect-product law of the point gives
+\[
+ \rho(chc^{-1})=J\,{}^t\!\rho(h)^{-1}J^{-1}\qquad(h\in H).
+\]
+For \(V=\rho(-1)\), \(\epsilon(chc^{-1})=\epsilon(h)\) gives
+\[
+ V(chc^{-1})=\epsilon(h)^{-2}J\,{}^t\!V(h)^{-1}J^{-1}.
+\]
+Thus \(J\) supplies the symmetric polarization
+\(V^c\simeq V^\vee\otimes\epsilon^{1-3}\).
+Any two such polarizations on the irreducible representation
+differ by a scalar, which cancels in the adjoint. On \(H\) the
+polarized adjoint acts by conjugation by \(V(h)\), or equivalently
+by \(\rho(h)\); on \(c\) it acts on all nine matrix entries by
+\(X\mapsto-J\,{}^t\!XJ^{-1}\). These are precisely the actions
+in the tangent module of the point.
+
+In \emph{On the vanishing of adjoint Bloch--Kato Selmer groups of
+irreducible automorphic Galois representations}, Theorem 6.1,
+J.\ A.\ Thorne proves that for a CM field \(F\), a polarizable
+regular algebraic cuspidal \(\pi\) over \(F\), and
+\(r_{\pi,\iota}\) irreducible over \(F(\mu_{\ell^\infty})\), the
+Selmer group of the polarized adjoint over \(F^+\) vanishes.
+With \(F=K\) the base \(F^+\) is \(\mathbb Q\). The local
+conditions are unramified away from \(\ell\) and the crystalline
+kernel at \(\ell\), as in Section~\ref{sec:kato-rigidity}.
+We have checked the polarization and the irreducibility, so
+\[
+ H^1_f(\mathbb Q,{\rm ad}\,r)=0.
+\]
+This applies after the type-I automorphic witness has been obtained.
+
+The original route in \(\mathrm{rigIUE\_alt}\) factors the local
+point through an integral valuation ring, uses the ordinary local
+conditions, establishes the open-subgroup assertion
+\(\mathrm{matIrr\_open\_gd}\), and obtains a free-ratio condition
+from the automorphic twist. The subsequent result
+\(\mathrm{rigEnd3\_alt}\) passes to the auxiliary CM field of the
+frame, transports automorphy and irreducibility there, applies
+adjoint lifting, and descends the vanishing. The propositions above
+give the open-subgroup argument and a direct application of the
+published theorem on the original quadratic field. The existence of
+the required automorphic representation is an input to both versions.

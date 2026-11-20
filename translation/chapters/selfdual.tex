@@ -19,9 +19,18 @@ forms satisfies
 \[
  h_Y(Pv,Pw)=\frac{\kappa_X}{\kappa_Y}\,h_X(v,w).
 \]
-Thus the scalar-weighted trace pairing is carried exactly into the
-second one, the lattice becomes \(P\Lambda\), and reduction modulo
-\(M(P\Lambda)\) is transported by \(P\). In particular
+Write \(\xi_X,\xi_Y\) for the parameters in the two integral trace
+pairings. The source allows \(\kappa_X=\pm\xi_X\) and
+\(\kappa_Y=\pm\xi_Y\). Thus, for a fixed sign \(\epsilon\),
+\(\xi_Y\kappa_X/\kappa_Y=\epsilon\xi_X\) and
+\[
+ \operatorname{Tr}_{E/\mathbb Q}(-\xi_Y h_Y(Pv,Pw))
+   =\epsilon\operatorname{Tr}_{E/\mathbb Q}(-\xi_X h_X(v,w)).
+\]
+Either sign preserves the condition that a trace belongs to
+\(\mathbb Z\). Hence the trace-dual lattice is transported by
+\(P\), the lattice becomes \(P\Lambda\), and the congruence
+modulo \(M(P\Lambda)\) is transported by the same map. In particular
 \(P\Gamma P^{-1}\) is the transported group. Its flag-domain
 identification preserves the invariant volume. In what follows the
 two full lattices, say \(\Lambda,\Lambda'\), have the same \(G\),
@@ -39,8 +48,17 @@ isometries preserving \(\widehat\Lambda\) which act trivially modulo
 description identifies \(\Gamma=\iota^{-1}K\) and
 \(\Gamma'=\iota^{-1}K'\) with the two uniformizing groups. Here
 isometries are taken in the same ambient rational unitary group.
-In particular this description applies the determinant-one condition
-to the level group; \(g\) can have arbitrary norm-one determinant.
+The determinant-one assertion for a rational member \(\gamma\)
+uses \(M\ge3\). Indeed \(A=(\gamma-I)/M\) preserves the full
+\(\mathcal O_E\)-lattice. Locally at every finite prime, choose a
+basis of that lattice. The coefficients of \(\det(1+tA)\) are then
+integral at that prime, hence lie in \(\mathcal O_E\) globally.
+It follows that \(z=(\det\gamma-1)/M\in\mathcal O_E\).
+Unitarity gives \(\det\gamma\,\overline{\det\gamma}=1\). At every
+complex embedding \(\tau\) this implies
+\(|\tau z|\le2/M<1\). A nonzero algebraic integer has absolute norm
+at least one, so \(z=0\) and \(\det\gamma=1\). The finite-adelic
+element \(g\) can have arbitrary norm-one determinant.
 
 We record how intersection indices pass to the rational points.
 If \(J=K\cap K'\), reduction to cosets gives injective maps
@@ -104,7 +122,9 @@ the common-cover formula yields
 The two reductions to full-level data and a common Hermitian form are
 \srcid{ExistsFullLevelGroupDataSameCovolume} and
 \srcid{ExistsTransportSelfDualDataOneHermitianSpace}.
-The index proof is \srcid{CovolumeEqSelfDualLatticesSameHermitianSpace};
+The sign and integrality statements occur in the transport proof as
+\(\xi\)\texttt{\_mul\_ratio} and \texttt{trace\_ratio}. The congruence determinant is
+\srcid{UnitaryCongruenceDetEqOneOfThreeLe}. The index proof is \srcid{CovolumeEqSelfDualLatticesSameHermitianSpace};
 the component application is \srcid{ComplexUniformisationComponentsCovolumeEq}.
 The input theorems here are the full-level uniformization, rational
 similitude and isotropy, finite-local equivalence of the relevant

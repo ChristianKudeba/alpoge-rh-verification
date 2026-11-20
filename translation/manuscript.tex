@@ -59,6 +59,8 @@ later estimates is explicit.
 \input{chapters/deformation-chart}
 \input{chapters/deformation-support}
 \input{chapters/deformation-euler}
+\input{chapters/kato-rigidity}
+\input{chapters/type-one-rigidity}
 \input{chapters/theta}
 \input{chapters/siegelweil}
 \input{chapters/ramifiedwhittaker}
@@ -66,6 +68,9 @@ later estimates is explicit.
 \input{chapters/period-basis}
 \input{chapters/jets}
 \input{chapters/local-jets}
+\input{chapters/finite-theta-span}
+\input{chapters/theta-lift-valuation}
+\input{chapters/theta-unit-basis}
 \input{chapters/volume}
 \input{chapters/selfdual}
 \input{chapters/rankshare}
@@ -96,9 +101,11 @@ local relations of the derivative classes, and the simultaneous choice
 of auxiliary primes. On the rank-three side,
 Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
 derive the trace product and the full graded intersection inequality.
-The global spectrum counts, existence of the arithmetic deformation
-model, its tangent rigidity and the automorphy comparisons remain
-substantive inputs.
+Sections~\ref{sec:kato-rigidity} and~\ref{sec:type-one-rigidity} derive
+tangent rigidity at the identified modular points from the stated
+Galois-theoretic hypotheses. The construction of the global deformation
+model, the counts and classification of points, and their automorphy
+remain substantive inputs.
 \item Sections~\ref{sec:sw-boundary} and~\ref{sec:theta-decay-proof}
 give the two-cell argument, the normalization of the definite theta
 value, the decay estimate from a nonzero minor, and the indefinite
@@ -111,9 +118,10 @@ covolumes, the Chow-form determinant and its metric, and the uniform
 height budget. The short period basis and the characteristic-zero harmonic
 jet are derived in the preceding sections. Inputs include the toroidal
 model and proportionality theorem, local isometry, strong approximation,
-the valuative multiplier, the filtration of the section lattices, and
-integral spanning by finite-order theta translates, and compatibility
-of the canonical connection with the uniformization. The horizontal and
+and the identification of the local uniformization and its canonical
+connection with the data of the global model. Sections~\ref{sec:theta-translate-span}--\ref{sec:theta-unit-basis}
+prove the integral spanning, the valuation statement and the primitive
+frame from the specified local data. The horizontal and
 mixed-characteristic comparisons use different local ideals.
 \item Section~\ref{sec:window-exceptions} proves the character-count
 bound and derives the required mean-square estimate on the two prime
