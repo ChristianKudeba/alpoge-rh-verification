@@ -1,0 +1,232 @@
+\section{The chart Hilbert function and the length of a mixed weight space}
+\label{sec:deformation-chart}
+
+We prove three assertions used in Section~\ref{sec:single-character}, namely
+the choice of a nonzero trace representative on the chart, the
+Hilbert function of the leading chart, and the local multiplicity
+bound for the original equations. These assertions concern graded
+algebras once the deformation presentation and its tangent
+conditions have been constructed.
+
+\subsection{Chart coordinates and leading monomials}
+
+Keep the DVR \(\mathcal O\), its fraction field \(F\), and the
+augmentation \(x_A:A\to\mathcal O\). The algebra \(A\) is
+\(\mathbb Z\)-graded, finitely generated over \(A_0\) by homogeneous
+elements, and \(x_A\) is zero on every nonzero weight. The cut chart
+is an algebra homomorphism
+\[
+           \phi:A\longrightarrow F[[X_i:i\in J]]
+\]
+with \(J\) finite and weights \(w_i\in\{-2,-1,1,2\}\). Its constant
+coefficient is \(x_A\), it carries homogeneous elements to series of
+the same weight, and its linear terms separate the axes. The last
+condition means that for every \(i\) some element maps to a series
+whose coefficient of \(X_i\) is nonzero and whose other linear
+coefficients vanish. Taking its homogeneous component of weight
+\(w_i\) preserves these properties. There are \(r\ge1\) negative
+unit-weight axes and \(r'+1\ge1\) positive unit-weight axes.
+
+If \(\phi(a)=0\) for the weight-zero trace lift \(a\), it can be
+changed by a weight-zero relation. Indeed, the coefficient of a chosen
+weight-\(-1\) variable gives a linear functional on \(A_{-1}\)
+which is nonzero by axis separation. It kills
+\((\ker x_A)^{(2)}_{\rm sat}\) because products of two series with
+zero constant term have zero linear coefficients, and coefficients
+are taken in a field of fractions. The weight-\(-1\) equations
+span the saturated cotangent lattice over \(F\). Consequently
+\(\phi(F_i)\ne0\) for some \(i\). Similarly choose \(g\in A_1\)
+with nonzero linear coefficient. Then \(a'=a+gF_i\) has the same
+values as \(a\) on solutions of the equations and at the origin,
+and \(\phi(a')=\phi(g)\phi(F_i)\ne0\). If \(\phi(a)\ne0\) already,
+take \(a'=a\). This proves the assertion used in choosing
+\(\mathcal J\) in the Rees argument.
+
+For a monomial \(X^\nu\) put
+\[
+ n(\nu)=\sum_{w_i<0}|w_i|\nu_i,\qquad
+ p(\nu)=\sum_{w_i>0}w_i\nu_i .
+\]
+Its weight is \(p(\nu)-n(\nu)\). The filtration given by the
+inequality \(n(\nu)\ge k\) is multiplicative, since \(n\) is
+additive on monomials. Put \(F_*=F_{r+1}\) in Smith coordinates, and
+\[
+ L_0=A_{-2},\qquad L_1=A_2,\qquad
+ L_2=A_0F_*^2+A_{-2}^2A_2,\qquad
+ L(d)=L_0^{d_0}L_1^{d_1}L_2^{d_2}.
+\]
+The first submodule has negative filtration at least two, the second
+at least zero. Since a nonzero scalar multiple of \(F_*\) lies in
+\((\ker x_A)^2\), its image in the chart has no constant or linear
+term. A monomial of weight \(-1\) with negative weight at most one
+would be a single weight-\(-1\) variable. Thus \(\phi(F_*)\) has
+negative filtration at least two, and every element of \(L_2\)
+has filtration at least four. It follows that every
+\(h\in L(d)\) has weight \(2(d_1-d_0-d_2)\), and
+\(\phi(h)\) has \(n\ge u\), with
+\[
+                 u=2d_0+4d_2,\qquad v=2d_1+2d_2 .
+\]
+On the layer \(n=u\) the weight identity forces \(p=v\).
+
+Let \(S_d\) be the finite set of monomials with these two weights
+\((u,v)\). The coefficient map from \(L(d)\) to \(F^{S_d}\)
+records that first layer. Its image \(H_d\) is an \(\mathcal O\)-lattice
+of rank \(\#S_d\), as we now prove.
+
+First, multiplying by \(b\in A_0\) acts on this layer by \(x_A(b)\).
+Every nonconstant monomial in \(\phi(b)\) has \(n=p>0\), since
+there are no variables of weight zero. Thus \(H_d\) is finitely
+generated over \(\mathcal O\) once \(L(d)\) is finitely generated
+over \(A_0\). Every weight component is finitely generated over
+\(A_0\). To see this, use fixed homogeneous algebra generators and,
+for a fixed weight, choose the finitely many minimal exponent
+vectors of that weight in coordinatewise order. Their finiteness
+is Dickson's lemma. Every other monomial of that weight is a multiple
+of a minimal one by a weight-zero monomial. This proves the assertion
+for the components \(A_{-2},A_2\), and products and finite sums of
+finitely generated submodules are finitely generated. The claimed
+finiteness of \(H_d\) follows.
+
+Next we isolate every individual coordinate of \(F^{S_d}\). For a
+weight-\(\pm1\) variable, take the homogeneous element separating
+its linear axis. Its lowest possible pair \((n,p)\) is \((1,0)\)
+or \((0,1)\). All the monomials on that layer are linear and only
+the desired coefficient is nonzero. For a weight-\(\pm2\) variable,
+axis separation disposes of other linear terms. On its lowest
+layer the remaining monomials are products of two unit-weight
+variables of the same sign. We have already constructed elements
+whose products isolate each such quadratic monomial on this layer.
+Subtract suitable \(F\)-multiples of these products to cancel their
+coefficients. Clearing all denominators yields a homogeneous element
+of \(A_{\pm2}\) with a nonzero coefficient on the desired axis and
+no other term on the lowest layer. The argument also supplies such
+an element for each product of two same-sign unit-weight variables
+by direct multiplication. When two such isolating elements are
+multiplied, terms at a larger negative weight cannot contribute to
+the least negative layer of the product. On that layer, the product
+therefore has just the chosen product monomial with nonzero coefficient.
+
+For \(\nu\in S_d\) partition its negative variables into
+\(u/2\) groups of weight \(-2\) and its positive variables into
+\(v/2\) groups of weight \(2\). This is possible because the
+number of weight-one factors on each side is even after the
+weight-two factors are removed. The preceding construction gives
+an element isolating \(X^\nu\) in
+\[
+ A_{-2}^{\,d_0+2d_2}A_2^{\,d_1+d_2}
+    = L_0^{d_0}L_1^{d_1}(A_{-2}^2A_2)^{d_2}
+    \ \subseteq L(d).
+\]
+Hence \(F H_d=F^{S_d}\). This finite torsion-free module over a DVR
+is free, with the asserted rank.
+
+Define the homogeneous ideal \(\mathfrak q\) of the Rees algebra
+\(\mathcal R=\bigoplus_d L(d)T^d\) by requiring each coefficient in
+degree \(d\) to have zero layer at \(n=u\). The filtration bound
+and its multiplicativity show it is an ideal. At each \(d\), its
+component is exactly the kernel of the coefficient map. It follows
+that the \(d\)-component of \((\mathcal R/\mathfrak q)/\varpi\)
+is \(H_d/\varpi H_d\). Its \(A_0\)-action factors through the
+surjection \(x_A:A_0\to\mathcal O\), so its length is
+the \(\mathcal O\)-length. This equals \(\#S_d\), as asserted for
+every \(d\in\mathbb N^3\), including the boundary of the cone.
+This proves the leading-chart Hilbert function translated from
+\(\mathrm{ReesGradedPieceSurjection}\).
+
+\subsection{Removing the torus direction from a mixed point}
+
+We now prove the local-length bound used before squaring the equations.
+Let \(B=A/I_0\) where \(I_0\) is their homogeneous ideal. Reserve \(I_0\) for
+this ideal and \(\ker x_A\) for the augmentation ideal. Write \(D=B_0\).
+The two model hypotheses we use are that \(D\) is a finite
+\(\mathcal O\)-module and that at every mixed geometric point in
+characteristic zero the tangent space to the equations has dimension
+at most one. In the source the latter hypothesis states that any
+two point derivations annihilating \(I_0\) are linearly dependent.
+Since \(A\) is finitely generated over \(A_0\), \(B\) is finitely
+generated over \(D\). Let \(k\) be an algebraic closure of \(F\).
+
+Fix a mixed geometric point. There are \(f\in B_{-2}\),
+\(g\in B_2\) with \(fg\) nonzero there. For the model in this
+application the generators over degree zero have weights
+\(\pm1,\pm2,0\). If some element of negative weight has nonzero
+value then a monomial among its terms does also, and at least one
+negative-weight generator occurring in that monomial has nonzero
+value. If it has weight \(-1\) take its square. This supplies \(f\). Positive weights give \(g\) in the same way. Let \(\mathfrak p\) be the kernel
+of the geometric point restricted to \(D\). Define the graded ring
+\[
+     H=(B\otimes_{\mathcal O}F)[(fg)^{-1}] .
+\]
+Both \(f\) and \(g\) are units in \(H\) and have their original
+degrees. We claim that \(H\) is reduced.
+
+Set \(C=H/(f-1)\). It is of finite type over \(F\). At any geometric
+point \(\xi\) of this slice, \(\xi(f)=1\) and \(\xi(g)\ne0\), so
+\(\xi\) is mixed. The Euler tangent vector on the original graded
+algebra sends a homogeneous \(h\) of weight \(w\) to
+\(w\,\xi(h)\). The Leibniz rule follows by adding weights. The
+homogeneity of the equations makes it a tangent vector on \(B\).
+Its value on \(f\) is \(-2\). A tangent vector on the slice pulls
+back to a tangent vector on \(B\) vanishing on \(f\). These
+two vectors are linearly dependent by the mixed-point hypothesis.
+Evaluation on \(f\) shows the slice vector vanishes on \(B\).
+It also vanishes on every inverted element by the quotient rule,
+hence on \(C\). This holds at every geometric point of the slice.
+
+For completeness base change to \(k\). At a maximal ideal
+\(\mathfrak m\) of \(C\otimes_F k\) the residue field is \(k\) by
+the Nullstellensatz. The dual of \(\mathfrak m/\mathfrak m^2\) is
+the geometric tangent space just shown to vanish. Nakayama's lemma
+in the Noetherian local ring now gives \(\mathfrak m_{\mathfrak m}=0\).
+Each such local ring is a field. A nilpotent which survives in the
+algebra survives at some maximal ideal containing its annihilator,
+which would contradict the field property there. Thus \(C\otimes_F k\)
+and, by faithful scalar extension, \(C\) are reduced.
+
+The assertion lifts from the slice to the open graded ring without
+any descent assumption on weight spaces. Introduce an invertible
+variable \(U\) with \(U^2=f^{-1}\). There is an isomorphism
+\[
+ H[U,U^{-1}]/(U^2-f^{-1})\ \simeq\ C[V,V^{-1}]
+\]
+sending homogeneous \(h\in H_w\) to \(\bar h V^w\) and \(U\) to \(V\).
+Its inverse sends \(\bar h\) for a homogeneous representative to
+\(hU^{-w}\), and sends \(V\) to \(U\). Indeed \(fU^2=1\) makes
+the map factor through the slice, and checking on homogeneous
+elements and the invertible variable proves the two compositions
+are the identities. The left-hand ring is free of rank two over
+\(H\) by the monic equation and invertibility of its constant
+coefficient. The right-hand ring is reduced since \(C\) is reduced.
+The inclusion of \(H\) is injective, giving the claim.
+
+Now localize \(B\) at \(D\setminus\mathfrak p\), obtaining a graded
+ring \(B'\). This factors through \(H\), since all nonzero scalars
+of \(\mathcal O\) and \(fg\) lie outside \(\mathfrak p\). Thus \(B'\) is a further localization of \(H\).
+Thus \(B'\) is reduced. Its degree-zero ring \(D_{\mathfrak p}\)
+is local, reduced, and a localization of the finite-dimensional
+\(F\)-algebra \(D\otimes_{\mathcal O}F\). It is therefore a field.
+
+For an arbitrary integer \(w\), the element \(h_*=f^w\) is a
+unit of degree \(-2w\) in \(B'\). If \(B'_w\ne0\), choose
+\(0\ne y\in B'_w\). Reducedness makes \(y^2 h_*\) nonzero in
+the field \(D_{\mathfrak p}\). For each \(z\in B'_w\) the identity
+\[
+              z=\frac{zyh_*}{y^2 h_*}\,y
+\]
+then expresses \(z\) as a scalar multiple of \(y\). Hence every
+weight piece has dimension at most one over \(D_{\mathfrak p}\).
+Pullback along the surjection from the localization of \(A_0\)
+does not change its module length. This proves the generic
+local-length-one bound at every restriction of a mixed geometric
+point. It supplies the input to the squaring argument in
+\eqref{eq:single-rees}. The corresponding source proofs are
+\(\mathrm{SliceHolds}\) and
+\(\mathrm{LocLenQuotientWeightPieceLeOne}\).
+
+The arithmetic construction of the graded model, its chart and the
+mixed-point tangent bound are inputs to this section. The lower
+Euler estimate for extracting scalar factors, the support comparison
+for the large Rees pieces and the global automorphy statements in
+Section~\ref{sec:single-character} are further steps of the original
+argument.

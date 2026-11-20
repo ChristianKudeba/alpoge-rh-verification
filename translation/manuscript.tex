@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue,bookmarksnumbered=true]{hyperref}
 \hypersetup{pdftitle={The Riemann hypothesis in Alpöge's formalization: a working translation}}
+\usepackage{xurl}
 \setcounter{tocdepth}{1}
 \setlength{\emergencystretch}{2em}
 \allowdisplaybreaks[2]
@@ -29,7 +30,7 @@ This translation follows the Lean development released on 20 November 2026.
 The classical endpoint in \srcid{Main.lean} is the theorem
 \srcid{riemannHypothesis}, of type \srcid{RiemannHypothesis} in Mathlib.
 Alpöge's announcement describes the origin of the argument. Andrew Sutherland
-reports the verification of the released formal proof by an independent kernel.
+reports that the independent kernels nanoda and con-leche accepted the\nfull export. The five endpoints use propositional extensionality, classical\nchoice and quotient soundness. Section~\ref{sec:kernel-reading} spells out\nthe named endpoint and the meaning of a proof-term reference.
 These results concern the formal development. The proofs printed below can be
 assessed separately by tracking the inputs used in each section.
 \footnote{\href{https://alpo.ge/remark.pdf}{Alpöge's announcement};
@@ -52,13 +53,19 @@ later estimates is explicit.
 \input{chapters/plus}
 \input{chapters/trace-integer}
 \input{chapters/single-character}
+\input{chapters/deformation-chart}
+\input{chapters/deformation-support}
+\input{chapters/deformation-euler}
 \input{chapters/theta}
 \input{chapters/siegelweil}
 \input{chapters/thetadecay}
+\input{chapters/period-basis}
 \input{chapters/jets}
 \input{chapters/volume}
 \input{chapters/selfdual}
 \input{chapters/rankshare}
+\input{chapters/chowdet}
+\input{chapters/chow-metric}
 \input{chapters/component}
 \input{chapters/covolume}
 \input{chapters/descent}
@@ -67,7 +74,9 @@ later estimates is explicit.
 \input{chapters/primecomparison}
 \input{chapters/windows}
 \input{chapters/windowexceptions}
+\input{chapters/windowexplicit}
 \input{chapters/analytic}
+\input{chapters/kernel-reading}
 \section*{Proofs still to be translated}
 \addcontentsline{toc}{section}{Proofs still to be translated}
 The proof of the reflection step, the determinant descent inequality,
@@ -80,10 +89,11 @@ geometric content which the reader still needs for an independent proof.
 give the generator count, the signed annihilator, the construction and
 local relations of the derivative classes, and the simultaneous choice
 of auxiliary primes. On the rank-three side,
-Sections~\ref{sec:common-trace-integer} and~\ref{sec:single-character}
-derive the trace product and length inequalities. The global spectrum
-counts, the integral deformation presentation, local comparison and
-automorphy results are substantive inputs to those arguments.
+Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
+derive the trace product and the full graded intersection inequality.
+The global spectrum counts, existence of the arithmetic deformation
+model, its tangent rigidity and the automorphy comparisons remain
+substantive inputs.
 \item Sections~\ref{sec:sw-boundary} and~\ref{sec:theta-decay-proof}
 give the two-cell argument, the normalization of the definite theta
 value, the decay estimate from a nonzero minor, and the indefinite
@@ -91,16 +101,20 @@ chamber integral. The local Whittaker identities, singular terms,
 Fock-space generation, automorphic reduction and coefficient estimates
 still enter these derivations.
 \item Sections~\ref{sec:component-volume}--\ref{sec:hs-component}
-derive the component degree and rank comparisons, equality of the relevant
-covolumes, and the resulting height budget. Inputs include the toroidal
-model and proportionality theorem, local isometry and strong approximation,
-the valuative multiplier, the underlying arithmetic Hilbert--Samuel bound,
-and uniform norm estimates on the integral model.
+derive the component degree and rank comparisons, the equality of
+covolumes, the Chow-form determinant and its metric, and the uniform
+height budget. The short period basis and the characteristic-zero harmonic
+jet are derived in the preceding sections. Inputs include the toroidal
+model and proportionality theorem, local isometry, strong approximation,
+the valuative multiplier, the filtration of the section lattices, and
+comparison with local theta values.
 \item Section~\ref{sec:window-exceptions} proves the character-count
 bound and derives the required mean-square estimate on the two prime
-progressions. The relative prime number theorem, explicit formula for
-the prime sums, automorphic representations and host constructions,
-and geometric divisibility comparisons still enter the common windows.
+progressions. Section~\ref{sec:window-explicit} derives the truncated explicit
+formula and the logarithmic derivative bound \(4\log y\). The relative
+prime number theorem, automorphic representations and host constructions,
+and geometric divisibility comparisons are further inputs to the common
+windows.
 \end{itemize}
 These are outstanding translations from the formal development.
 The independent verification of the released formal proof is recorded

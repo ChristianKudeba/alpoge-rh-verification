@@ -1,0 +1,178 @@
+\section{A Chow-form determinant and the arithmetic slope}
+\label{sec:chow-determinant}
+This section gives the determinant estimate used in the component
+Hilbert--Samuel inequality. Let \(F\) be the coefficient number field.
+We first state exactly the geometric and metric data used in the
+calculation. Let \(V_j\), \(0\le j\le T\), be the graded section spaces
+with full integral lattices and Hermitian norms at infinity. Put
+\(D\ge1,\ T\ge D+1,\ d=\dim_F V_T\). Multiplication by a coordinate
+linear form increases the index \(j\) by one. The system has integral
+short bases at indices \(0,D,T\) with archimedean norm bounds
+\(\Lambda_0,\Lambda_D,\Lambda_T\), all at least one. The complex
+multiplication bound for a unit coordinate vector is \(\sqrt\beta\)
+with \(\beta\ge1\).
+
+\paragraph{Filtration at an intersection of hyperplanes.}
+The projective image admits an irreducible Chow form \(f(s,l)\),
+homogeneous of degree \(\delta\ge1\) in each of \(D+1\) hyperplane
+blocks. Here \(s=(s_1,\ldots,s_D)\) and \(l\) is the last block.
+There is a nonzero polynomial \(Q(s)\) such that at every \(F\)-point
+with \(Q(s)\ne0\) the section splits into \(\delta\) distinct reduced
+points \(P_1,\ldots,P_\delta\) over a finite extension. Thus
+\[
+ f(s,l)=c_s\prod_{\nu=1}^\delta l(P_\nu),\qquad c_s\ne0.
+\]
+The geometric filtration used below has surjective degree-zero evaluation
+on these points. In degree \(a<T-D\) its symbol has one copy of the
+residue space for each monomial in \(s_1,\ldots,s_D\) of degree \(a\).
+Multiplication on the symbol acts by the evaluations of the other
+linear forms. The deepest relevant step is spanned by the degree
+\(T-D\) monomials in the \(s_i\) times sections of \(V_D\). These
+statements require the good-section, restriction-kernel and base-change
+results of the compactification. They are the inputs to the column
+construction.
+
+Let \(R=\binom{T-1}{D}\). For \(0\le a<T-D\) the number of
+monomials in \(D\) variables of degree \(a\) is
+\(c_a=\binom{a+D-1}{D-1}\). Stars and bars and Pascal summation give
+\(\sum c_a=R\). The total exponent of the last form on one residue
+point in the determinant below is \(b=\sum_a c_a(T-a)\). Indeed
+\(a c_a=D\binom{a+D-1}{D}\), so, taking the sum with \(a<T-D\),
+\[
+ b=TR-D\binom{T-1}{D+1},\qquad
+ (D+1)b=R\bigl(T+D(D+1)\bigr).
+\]
+These are exact finite identities, including \(T=D+1\).
+
+Choose a rational good \(s_0\) for which the deepest-step dimension
+\(y\) is maximal. Such a point exists because \(F\) is infinite, \(Q\)
+is nonzero, and the possible dimensions are integers between zero and
+\(d\). After splitting the section at \(s_0\), select \(\delta\)
+vectors of the short basis of \(V_0\) with independent evaluations.
+Choose \(l\) avoiding all the points. For each of the above monomials
+\(s^\alpha\) take the \(\delta\) columns \(s^\alpha l^{T-a}m_i\),
+where \(m_i\) are the selected degree-zero sections. Their symbols are
+independent: at each monomial the invertible evaluation matrix is
+multiplied by a diagonal matrix with nonzero entries \(l(P_\nu)^{T-a}\).
+The different symbols lie in independent summands or successive
+filtration grades. Include \(y\) columns of the form \(s^\alpha m\),
+\(|\alpha|=T-D,\ m\) a short degree-\(D\) basis vector, spanning the
+deepest step. Complete with \(d-R\delta-y\) vectors from the short top
+basis. These choices can be made by selecting from fixed rational
+generating sets over the splitting field. After replacing \(s_0,l\)
+by variables, their determinant \(P(s,l)\) is therefore a nonzero
+polynomial over \(F\).
+
+\paragraph{Divisibility before taking heights.}
+At any other good \(s\), the dimension of the deepest step is at most
+\(y\). If it is smaller, the \(y\) degree-\(D\) columns are dependent
+and the determinant vanishes identically in \(l\). If the dimension
+equals \(y\), either those columns are dependent, or they give a basis
+of the deepest step. In the latter case take symbols successively
+modulo the filtration. Only the \(R\delta\) columns from \(V_0\)
+depend on the last block on the successive symbol spaces. The
+determinant of their block for monomial \(\alpha\) is a scalar
+independent of \(l\) times \(\prod_\nu l(P_\nu)^{T-a}\).
+The remaining minors are independent of \(l\). This block determinant
+identity holds for all \(l\) by polynomial identity. It includes the
+possibility of zero scalar if a specialized residue matrix or final minor
+loses rank. Consequently for every good \(s\),
+\(P(s,l)=\gamma_s f(s,l)^b\), with \(\gamma_s\) in a splitting field.
+
+To descend the divisibility, choose \(l_0\in F^N\) such that
+\(g(s)=f(s,l_0)\) is a nonzero polynomial. Evaluation at \(l_0\)
+and at \(l\) gives \(P(s,l)g(s)^b=f(s,l)^bP(s,l_0)\) on \(Q(s)\ne0\).
+Multiplying the difference by \(Q\) gives a polynomial vanishing on
+all rational tuples. The field is infinite, so the polynomial is zero;
+the polynomial ring is a domain, so \(Q\) cancels. The polynomial \(f\)
+has positive degree in \(l\) whereas \(g\) is independent of \(l\).
+Irreducibility of \(f\) therefore gives \(\gcd(f,g)=1\).
+In the polynomial unique factorization domain we obtain
+\(P=f^bG\) for a nonzero multihomogeneous \(G\).
+
+\paragraph{The lattice estimate.}
+Let \(e\) be the sum of the multidegrees of \(G\). The sums of column
+degrees on the two sides of this factorization give
+\begin{equation}\label{eq:chow-column-degrees}
+ b(D+1)\delta+e=R\delta T+y(T-D),\qquad R\delta+y\le d .
+\end{equation}
+Write \(H_f,H_G\) for the source's heights of the two forms in the
+chosen coordinate frame and \(A_T\) for the arithmetic degree of
+the Hermitian top lattice. The normalized multiform height is additive
+on products. Its lower bound is minus \(c\) times the sum of block
+degrees, with \(c=\log(n\Lambda)+(\log n+1)/2\), where \(n\ge1\)
+counts the spanning coordinates and \(\Lambda\ge1\) bounds their
+lattice data. Hence \(H_f\ge-c(D+1)\delta\), \(H_G\ge-ce\).
+At each finite place the substituted polynomial vectors have integral
+lattice coefficients. At each complex place the three types of columns
+have norm bounded respectively by
+\(\beta^{T/2}\Lambda_0,\ \beta^{(T-D)/2}\Lambda_D,\ \Lambda_T\)
+for unit input vectors. The determinant inequality for polynomial
+vectors in a Hermitian lattice gives
+\begin{align}
+ A_T\ \ge\ bH_f+H_G
+   &-R\delta\log(\beta^{T/2}\Lambda_0)
+       -y\log(\beta^{(T-D)/2}\Lambda_D) \notag\\[-2pt]
+   &-(d-R\delta-y)\log\Lambda_T .\label{eq:chow-slope-raw}
+\end{align}
+This is a statement about the degree of the actual lattice, so possible
+finite index of the columns in it is already included. The local
+determinant estimate at infinity uses the exterior-product norm
+inequality; summing the logarithms with the finite ideal contributions
+uses the product formula. The stated multiform height bounds and this
+lattice-height comparison are the metric inputs here.
+
+Put \(h_f=H_f/((D+1)\delta)\) and \(z=1-R\delta/d\).
+Equation \eqref{eq:chow-column-degrees} shows that \(d>0\),
+\(0\le z\le1\) and \(e=y(T-D)-R\delta D(D+1)\le T(d-R\delta)\).
+Furthermore
+\(bH_f=R\delta (T+D(D+1))h_f
+\ge R\delta(Th_f-D(D+1)c)\), because \(h_f\ge-c\).
+All the logarithmic losses are nonnegative. In
+\eqref{eq:chow-slope-raw} we may bound the loss on the final
+\(d-R\delta\) columns by charging each
+\(T\log\beta/2+\log\Lambda_D+\log\Lambda_T\). Division by \(d\) gives
+\begin{align*}
+ A_T/d \ \ge\
+ &(1-z)\bigl(Th_f-D(D+1)c-\log\Lambda_0-(T/2)\log\beta\bigr)\\
+ &-z\bigl(Tc+(T/2)\log\beta+\log\Lambda_D+\log\Lambda_T\bigr).
+\end{align*}
+This is the intermediate slope inequality in the source.
+
+\paragraph{Comparison with the component height.}
+The frame comparison gives \(h_f\ge h-(\log n+1)/2\), where \(h\)
+is the geometric height used in Section~\ref{sec:hs-component}. Set
+\[
+ L=\log\Lambda+26\log\!\bigl(nD\delta(2+|h|+\log\Lambda)\bigr).
+\]
+Since \(nD\delta(2+|h|+\log\Lambda)\ge2n\), we have \(c\le L\).
+In the first bracket of the slope inequality we may replace
+\(Th_f\) by \(Th-T(\log n+1)/2\).
+The three bounds
+\[
+ D(D+1)c\le26D^2(L+\log T),\qquad
+ (T/2)\log\beta\le(T+D+1)\log\beta,
+\]
+\[
+ \frac{T(\log n+1)}2
+ \le (T+D^2)\left(\frac{(D+1)(\log n+1)}2+3\right)
+\]
+allow the additional subtraction \(3(D+1)|h|\) used by the component
+formula. In the second bracket replace \(c\) by \(L+\log2\).
+Both replacements weaken a lower bound since \(z,1-z\ge0\).
+With \(J=\log\Lambda_0\) these are exactly the two terms of
+\srcid{HSClaimS} at constant \(26\). The input on the geometric side
+is Bertini for the simple hyperplane sections together with the
+filtration-symbol and short-basis assertions above. Identifying the
+birational image degree, its Chow height and the Hermitian lattice
+degree transfers the inequality to the component of the window.
+
+\paragraph{Source correspondences.}
+The selection of columns and the specialization identity are
+\srcid{ExistsShortColumnsDetNeZeroHilbertSamuel} and
+\srcid{DetRationalSectionsEqPowProductLinearForms}. The descent is
+\srcid{PowDvdOfSpecialisations}; the weighted count and its numerical
+use are \srcid{MonomialCountsDegreeAndWeightedSum} and
+\srcid{ClaimSOfNumbers}. See also \srcid{SlopeLowerBoundTopLatticeOffHypersurface},
+\srcid{ExplicitArithmeticHilbertSamuelBound}, and
+\srcid{HilbertSamuelComponentShortBasisBound}.

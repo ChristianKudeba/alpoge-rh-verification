@@ -269,8 +269,43 @@ with
  c_M(c)d_\tau=d_\tau c_M(s_\tau(c)),\qquad
                (s_\tau)_*\kappa=e^{2n\tau}\kappa .
 \]
-These are the specific imported coordinate and Jacobian formulas
-in the unfolded cell. The transformation law of a section at \(s_1\)
+These identities can be checked in the doubled frame. Write
+\(i=i_0\) and let \(e_j\) index the other \(n-1\) coordinates.
+The Weyl element is the identity on their hyperbolic planes. On the omitted plane it has matrix
+\(\left(\begin{smallmatrix}0&1\\ \varepsilon&0\end{smallmatrix}\right)\),
+where \(\varepsilon=\pm1\) is the sign of the form. The selected
+dilation has diagonal entries \(x=e^\tau,x^{-1}\) on this plane
+at \(w\), and identity at every other place. The embedded lower
+group acts as identity on this plane and has zero off-diagonal
+blocks to its complement, so it commutes with \(d_\tau\).
+The Weyl matrix interchanges the two dilations, so one may
+take \(p=d_{-\tau}\). Its Levi determinant at the selected place is
+\(e^{-\tau}\), positive real in \(E_w=\mathbb C\). This gives
+\(|\Delta|_{\mathbb A_E}=|e^{-\tau}|^2=e^{-2\tau}\)
+and \(\chi(\Delta)=1\) by the positive-real character condition.
+
+The unipotent matrix \(c_M(u,t)\), with \(u\) an \((n-1)\)-tuple
+of \(E\)-adeles and \(t\) an \(F\)-adele, has upper-left block
+\(I+\sum_j u_j E_{i,e_j}\), upper-right block
+\(\delta t E_{i,i}\), lower-left block zero and lower-right block
+\(I-\sum_j\overline{u_j}E_{e_j,i}\), where
+\(\delta\in E^\times\) satisfies
+\(\overline{\delta}=-\varepsilon\delta\).
+Multiplication on the left by \(d_\tau^{-1}\) and on the right
+by \(d_\tau\) multiplies the three displayed off-diagonal
+contributions, in order, by \(e^{-\tau},e^{-2\tau},e^{-\tau}\)
+at \(w\). At all other places these factors equal one. Hence
+\[
+ (s_\tau(u,t))_w=(e^{-\tau}u_w,e^{-2\tau}t_w).
+\]
+On the real vector space \(\mathbb C^{\,n-1}\times\mathbb R\)
+the absolute determinant is
+\(e^{-2(n-1)\tau}e^{-2\tau}=e^{-2n\tau}\).
+The pushforward of additive Haar measure is the inverse
+determinant times that measure, giving \(e^{2n\tau}\kappa\)
+with the normalization used in the unfolding.
+
+The transformation law of a section at \(s_1\)
 is \(f(pg)=\chi(\Delta)|\Delta|_{\mathbb A_E}^{s_1+n/2}f(g)\).
 It follows, with positive real bases for all complex powers, that
 \[
@@ -454,9 +489,10 @@ pairing and Haar arguments are \texttt{rp\_nondeg},
 \texttt{Act.secLaw\_of}, \texttt{Act.lhs\_eq\_tsum} and
 \texttt{Act.ctSplit\_of\_parts}. The first-cell block
 factorization, normalized projection of Haar measure, second-cell
-parametrization and its Jacobian occur upstream in the proofs of
-\texttt{key\_id}, \texttt{fiber}, \texttt{secUnf\_of} and
-\texttt{cLawEx}. The rank assembly is
+parametrization and its Jacobian are treated in
+\texttt{key\_id}, \texttt{fiber}, \texttt{secUnf\_of},
+\texttt{cLawEx}, \texttt{frame\_dil}, \texttt{par\_dil} and
+\texttt{cB\_dM}. The rank assembly is
 \texttt{Atop.mainC\_of}, \texttt{rank\_difference\_induction}
 and \texttt{Atop.fieldOf}. The analytic and arithmetic inputs
 identified above remain imported at this stage of the prose

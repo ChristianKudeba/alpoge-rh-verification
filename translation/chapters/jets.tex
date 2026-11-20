@@ -50,11 +50,11 @@ on this frame, with
                    v_T(f)\le c\,\phi_T .
 \end{equation}
 
-The inputs to this inference are the characteristic-zero harmonic
-polynomial with local invariant at most zero, the existence of the
-power data and short basis on the chart, and the local comparison of
-the infimum of the normalized theta valuations with the local
-invariant. Fix a uniformizer and such a polynomial. The short
+The next subsection constructs a characteristic-zero harmonic
+polynomial with local invariant at most zero. Section~\ref{sec:period-basis} proves the short-basis estimate
+for the chart's period pairing. The power data and the comparison
+of the infimum of normalized theta valuations with the local
+invariant are inputs here. Fix a uniformizer and such a polynomial. The short
 basis has parameter \(0\le\rho\le N\), so that
 \(2\delta\sqrt{\rho}<q\). Apply the local comparison with valuation
 normalization \(1\) and with these choices. The local invariant term
@@ -92,6 +92,105 @@ The first two inequalities remain valid on replacing \(g_0\) by
 \(q\). This proves the three bounds required on the chart.
 \footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ReflectionSumJetNumber.lean\#L42-L50}{The degree comparison},
 \href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsThetaRuleValueLeCoverCharZero.lean\#L47-L72}{specialization to the two host primes and the field degree}.}
+
+\subsection{A harmonic polynomial detected by an integral jet}
+
+We give the characteristic-zero polynomial used for
+\eqref{eq:jets-value}. For each embedding \(\tau:E\to\mathbb C\)
+let \(r_\tau\) be its row multiplicity, and use \(1\le i\le r_\tau\).
+Write \(a_{\tau,i}\) for the nonincreasing row degrees, with
+\(a_{\tau,r_\tau+1}=0\). The column bound above permits an injection
+\(b:\{(\tau,i)\}\hookrightarrow\{1,\ldots,n\}\).
+In the variables \(X_{\tau,i,c}\), set
+\[
+ P=\prod_{\tau}\prod_{j=1}^{r_\tau}
+ \det\!\big(X_{\tau,i,b(\tau,h)}\big)_{1\le i,h\le j}^{
+                        a_{\tau,j}-a_{\tau,j+1}} .
+\]
+This polynomial is integral and independent of the chart. Addition of
+a preceding row to a later row, with any scalar multiple, fixes each
+determinant: whenever the modified row occurs, the preceding row also
+occurs. Each monomial has degree \(a_{\tau,i}\) in row \(i\), since
+\(\sum_{j\ge i}(a_{\tau,j}-a_{\tau,j+1})=a_{\tau,i}\). Thus its total
+degree is \(\delta=\sum_{\tau,i}a_{\tau,i}\).
+The contraction defining harmonicity pairs a derivative in \(\tau\)
+with one in \(\overline\tau\) in the same column, because the column
+matrix is the identity. The two embeddings differ for a CM field.
+The polynomial only uses columns assigned to the embedding of each
+row, and injectivity of \(b\) makes those two sets disjoint. Each
+mixed derivative therefore vanishes. These are the row-invariance,
+degree, integrality and harmonicity conditions of the polynomial space.
+
+Upon setting all variables to zero except
+\(X_{\tau,i,b(\tau,i)}\), each determinant becomes its diagonal
+product. Thus the monomial
+\[
+    X^\gamma=\prod_{\tau,i}
+       X_{\tau,i,b(\tau,i)}^{a_{\tau,i}}
+\]
+has coefficient one. On an integral chart let
+\(u_{\tau,i}\in T^d\) be the tangent directions of the frame in its
+tangent coordinates. For each \(\tau\) these directions freely span
+the simultaneous \(\tau\)-eigenspace of the integral CM action:
+this is the integral eigenbasis condition on the frame. The span
+is saturated. Indeed the ambient tangent module is free over \(T\);
+if \(t v\), \(0\ne t\in T\), satisfies the prescribed eigenrelations,
+then \(t(A-\lambda I)v=0\) implies \((A-\lambda I)v=0\) for each
+operator and eigenvalue in the integral relations. The quotient
+by the span is a finite torsion-free module over a discrete
+valuation ring, hence free. Extend the eigenbasis to an integral
+basis and take its dual. This yields integral rows \(W_{\tau,i}\)
+with \(W_{\tau,i}\cdot u_{\tau,i'}=\delta_{i,i'}\).
+The construction is separate for each embedding.
+
+Use variables \(Z_c=(Z_{c,1},\ldots,Z_{c,d})\) for the \(n\) copies
+of the chart. For the differential letter \(l=(\tau,i,c)\) put
+\(L_l=W_{\tau,i}\cdot Z_c\) if \(c\) belongs to the set of columns
+assigned to \(\tau\), and put \(L_l=0\) otherwise.
+Write \(\partial_l=u_{\tau,i}\cdot\partial_{Z_c}\).
+For every letter \(l\) occurring in \(P\),
+\(\partial_l L_{l'}=\delta_{l,l'}\): different columns have
+independent variables, and an assigned column determines its
+embedding. The power series
+\[
+           F=\prod_l L_l^{\gamma_l}
+\]
+is integral with vanishing order at least \(\delta\).
+Apply the chart's order-\(\delta\) covariant differential
+associated to \(P\) to \(F\), and take the constant term.
+This equals the constant term for the ordinary differential
+\(P(\partial)\). To verify the equality, consider the filtration of
+formal power series by order of vanishing. Each formal-group
+invariant first derivative in direction \(u_{\tau,i}\) equals
+\(\partial_l\) plus derivatives whose coefficients are in the
+augmentation ideal, because the tangent map of the formal group law
+at the identity is the identity. The operators lower order by at most
+one, and their difference preserves order. Replacing successive
+factors in a word of length \(\delta\) therefore creates an error of
+order at least one on \(F\). The canonical gauge multiplies \(F\) by
+a power series with constant coefficient one: the exponent is a
+constant multiple of a sum of translates of the normalized gauge
+series evaluated at the chart origin, where each has constant
+coefficient zero. The change in \(F\) has order at least
+\(\delta+1\) and also gives zero constant term after the derivatives.
+
+A word with multiplicities \(\eta\) of total degree \(\delta\) now
+has constant term zero on \(F\) unless \(\eta=\gamma\), by the
+duality of the \(L_l\) and the \(\partial_l\). At that multi-index
+its constant term is \(\prod_l\gamma_l!\). Since the coefficient
+of \(X^\gamma\) is one, the covariant evaluation has value
+\(\prod_{\tau,i}a_{\tau,i}!\), with the empty product equal to one.
+The residue field of \(T\) has characteristic zero, so this positive
+integer is a unit of \(T\). The local invariant used above is the
+infimum of the normalized orders of all such evaluations on
+integral power series. This particular \(F\) has order zero
+after evaluation, proving that invariant is at most zero for
+every allowed positive normalization and every gauge level.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/LocalToGlobal/ProjectiveLattices/CrudeMin.lean}{Flag minors, harmonicity and the diagonal monomial},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/LocalToGlobal/ProjectiveLattices/SatLeaves.lean}{saturation of the integral chart directions},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/LocalToGlobal/ProjectiveLattices/CrudeOrd.lean}{comparison of covariant and ordinary derivatives in the order filtration},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/LocalToGlobal/ProjectiveLattices/ConjNeSelfOfCM.lean}{the integral test series and its factorial value},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsHarmonicPolyLocalInvariantNonposChar0.lean}{characteristic-zero valuation of the test result}.}
 
 \subsection{Descent to the cusp and the factor \(1/2500\)}
 

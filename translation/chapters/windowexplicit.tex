@@ -1,0 +1,297 @@
+\section{The truncated twist and the logarithmic derivative at one}
+\label{sec:window-explicit}
+
+Let \(\chi\) be a nonprincipal Dirichlet character of modulus \(m\ge1\).
+Write \(\ell_\chi(s)=-L'(s,\chi)/L(s,\chi)\) wherever defined,
+and \(a_n=\Lambda(n)\chi(n)\). Write \(Q\ge2\) for the height
+and conductor cutoff. The box hypothesis is
+\[
+ m\le Q,\qquad L(s,\chi)\ne0
+ \quad\bigl(\Re s>399/400,\ |\Im s|\le Q\bigr).
+\]
+For \(v>0\) define
+\[
+ A_\chi(v)=\sum_{n\le v}a_n(v/n-1),\qquad
+ G_\chi(v)=A_\chi(v)-v\ell_\chi(1),\qquad
+ R_\chi(z)=\ell_\chi(1)-\sum_{n\le z}a_n/n .
+\]
+Positive-integer summation includes the floor of each real cutoff.
+For \(v\le z\), direct separation at \(n=v\) gives the exact identity
+\begin{equation}
+ G_\chi(v)=-\sum_{n\le z}a_n\min(1,v/n)-vR_\chi(z).
+ \label{eq:box-finite-split}
+\end{equation}
+The choice of sign records that the source centers by adding
+\(vL'(1,\chi)/L(1,\chi)\).
+
+\subsection{An explicit contour estimate}
+
+For \(0<\delta\le1/800\), \(z\ge1\), \(0<\eta\le1\), and
+\(h=z\eta\), we claim
+\begin{equation}
+ |A_\chi(z+h)-A_\chi(z)-h\ell_\chi(1)|
+ \le C_\delta\log Q
+   \left\{(\log Q)\eta z^{399/400+\delta}+z^2/Q\right\}.
+ \label{eq:box-contour}
+\end{equation}
+Put \(\sigma=399/400+\delta\), \(T=Q/2\) and \(L_Q=\log Q\).
+First fix the bound
+\[
+ |\ell_\chi(w)|\le B_\delta L_Q\quad
+          (\Re w\ge \sigma,\ |\Im w|\le Q-1).
+\]
+In the range \(\Re w<11/10\), the source's local logarithmic
+derivative lemma for \(L\) at \(w\) expands \(L'/L\) as a sum of
+terms \(m_\rho/(w-\rho)\) for zeros in the closed disk centered at
+\(21/20+i\Im w\) of radius \(11/60\), plus an error.
+If \(C\) is the absolute polynomial-growth constant in
+\(|L(s,\chi)|\le C m(1+|s|)\) on \(\Re s\ge1/2\), let
+\(A=\log(42(|C|+1))/\log2+1\).
+The local lemma bounds the error by
+\((1440/11)A\log(m(|\Im w|+2))\), and the sum of the
+multiplicities by \(A\log(m(|\Im w|+2))/\log2\).
+All these zeros have imaginary part at most \(Q\) in absolute
+value, so the box forces \(\Re\rho\le399/400\). Therefore
+\(|w-\rho|\ge\delta\), and \(m(|\Im w|+2)\le Q^3\).
+In the range \(\Re w\ge11/10\), the Euler-product derivative
+bound \(|\ell_\chi(w)|\le 1/(\Re w-1)+C_R\) suffices. One may take
+\[
+ B_\delta=3A\left(\frac{1440}{11}
+               +\frac{1}{\delta\log2}\right)
+                  +\frac{10+C_R}{\log2}.
+\]
+
+
+Here is the disk argument underlying those two estimates. Suppose
+\(f\) is holomorphic in the disk of radius \(r\) about \(z_0\),
+continuous on its closure, \(f(z_0)\ne0\), and
+\(|f|\le M|f(z_0)|\) there, \(M\ge1\).
+Take every zero in the closed concentric disk of radius \(r/3\),
+with its multiplicity, and let \(P\) be the product of the
+corresponding monic linear factors. The set is finite by isolated
+zeros and compactness. Write \(k=\deg P\) and \(g=f/P\), extending
+across the zeros by their local power series. On the outer circle,
+\(|P|\ge(2r/3)^k\), whereas \(|P(z_0)|\le(r/3)^k\). The maximum
+modulus principle gives
+\[
+             2^k |g(z)|\le M |g(z_0)|\qquad (|z-z_0|\le r).
+\]
+At \(z_0\) this implies \(k\le\log M/\log2\). The quotient \(g\)
+has no zeros in the disk of radius \(R=r/3\). Take its normalized
+holomorphic logarithm \(u=\log(g/g(z_0))\) there. Then \(u(z_0)=0\)
+and \(\Re u\le\log M\). For \(a>\log M\), the function
+\(u/(2a-u)\) has modulus at most one and vanishes at \(z_0\).
+Schwarz's lemma and the triangle inequality give
+\[
+ |u(z)|\le\frac{2a|z-z_0|}{R-|z-z_0|}\le6a
+       \qquad (|z-z_0|\le3R/4).
+\]
+At any point within \(R/2\) of the center use the Cauchy estimate
+on the circle of radius \(R/4\) about that point. Letting
+\(a\) decrease to \(\log M\) gives \(|u'|\le24\log M/R\).
+Logarithmic differentiation of \(f=Pg\) therefore gives
+\[
+ \left|\frac{f'(z)}{f(z)}
+           -\sum_{|\rho-z_0|\le r/3}\frac{m_\rho}{z-\rho}\right|
+     \le72\,\log M/r \qquad(|z-z_0|\le r/6,\ f(z)\ne0).
+\]
+For \(f=L(\cdot,\chi)\), use \(z_0=21/20+i\Im w\),
+\(r=11/20\). The disk lies in \(\Re s\ge1/2\). On its closure
+\(1+|s|\le2(|\Im w|+2)\); at the center the Euler-product inverse
+bound gives \(1/|L(z_0,\chi)|\le21\). Thus one may use
+\(M=42(|C|+1)m(|\Im w|+2)\).
+Because \(m(|\Im w|+2)\ge2\), its logarithm satisfies
+\(\log M\le A\log(m(|\Im w|+2))\).
+The points in the range
+\(\sigma\le\Re w<11/10\) satisfy \(|w-z_0|\le r/6\).
+For completeness, on \(\Re s>0\) partial summation writes
+\(L(s,\chi)=s\int_1^\infty P_\chi(t)t^{-s-1}\,dt\) with
+\(P_\chi(t)=\sum_{n\le t}\chi(n)\). Full periods have zero sum,
+so \(|P_\chi(t)|\le m\) and \(|L(s,\chi)|\le m|s|/\Re s\).
+This supplies the asserted growth on the whole disk. For
+\(\Re s>1\), the absolute Möbius series of the inverse Euler
+product is bounded by \(\zeta(\Re s)\le1+1/(\Re s-1)\);
+at \(z_0\) this is \(21\). Finally the only right-half-plane
+bounds used above are on \(\Re s\ge11/10\) and \(\Re s=2\).
+Both follow directly by majorizing the logarithmic-derivative
+series by the convergent constant
+\(\sum_{n\ge2}(\log n)n^{-11/10}\), increasing \(C_R\) if needed.
+These computations justify the specializations of the local
+expansion, including \(72/r=1440/11\).
+
+For \(y\ge1\) the integrated Perron formula on the line \(2+it\)
+gives \(A_\chi(y)\) as the integral of
+\[
+      F_y(w)=\ell_\chi(w)\frac{y^w}{w(w-1)}
+\]
+with measure \(dw/(2\pi i)\) upwards. The formula follows by the
+absolutely convergent Dirichlet series for \(\ell_\chi\) on this
+line and the elementary Mellin inversion of \((u-1)_+\), whose
+transform is \(1/[w(w-1)]\). At \(u=1\) the summand is zero from
+either side. Shift the finite part of the line between heights
+\(-T,T\) to \(\Re w=\sigma\). The box excludes zeros on and
+inside the rectangle. The pole of the kernel at \(w=1\)
+contributes \(y\ell_\chi(1)\). The other pole, \(w=0\), lies outside the contour.
+For the remaining error the two tails on the right are accompanied
+by the horizontal segments at \(\pm T\) and the left vertical
+segment. Apply this identity at \(y=z+h\) and \(y=z\), and
+subtract before estimating the left segments.
+
+On the right \(|\ell_\chi(2+it)|\le1+C_R\) and the integrand
+is at most \((1+C_R)y^2/t^2\) for nonzero \(t\).
+Since \(y\le2z\), each pair of omitted tails after division
+by \(2\pi\) is bounded by \(8(1+C_R)z^2/Q\). On each horizontal
+segment the denominator has modulus at least \(T^2\), the length
+is at most \(2\), and the logarithmic derivative is bounded by
+\(B_\delta L_Q\), since \(T\le Q-1\). Its unnormalized integral
+is bounded by \(8B_\delta L_Q z^2/T^2\le16B_\delta L_Q z^2/Q\).
+
+For \(w=\sigma+iu\), integrate the derivative of
+\(\exp(tw\log(1+\eta))\), \(0\le t\le1\), to see that
+\[
+ |(z+h)^w-z^w|\le4\eta |w|z^\sigma .
+\]
+Thus the factor \(w\) in the kernel cancels in the magnitude of the
+difference. Since \(1-\sigma\ge1/800\),
+\[
+ \int_{-T}^T\frac{du}{|\sigma-1+iu|}
+ \le\int_{-T}^T\frac{2\,du}{1/800+|u|}
+ =4\log(1+800T)\le40\log Q .
+\]
+The left difference before division by \(2\pi\) is at most
+\(160 B_\delta L_Q^2\eta z^\sigma\). There are two pairs of
+right tails and four horizontal segments. Using
+\(L_Q\ge\log2\ge1/2\) and \(2\pi\ge1\), their bounds and
+the vertical bound give \eqref{eq:box-contour} with
+\(C_\delta=160B_\delta+32(1+C_R)\).
+
+The independent error at the finite cutoff can be read directly
+from the finite sum defining \(A_\chi\):
+\[
+ A_\chi(z+h)-A_\chi(z)-h\sum_{n\le z}a_n/n
+     =\sum_{z<n\le z+h}a_n((z+h)/n-1).
+\]
+There are at most \(h+1\) summands, \(|a_n|\le\log(z+h)\),
+and the factor is between zero and \(h/z\). Subtracting the
+contour expression and dividing by \(h\) proves
+\begin{equation}
+ |R_\chi(z)|\le
+ \frac{C_\delta L_Q\{L_Q\eta z^\sigma+z^2/Q\}
+              +h(h+1)\log(z+h)/z}{h}.
+ \label{eq:box-tail}
+\end{equation}
+This estimate applies to a general nonprincipal character obeying
+the box and modulus conditions.
+
+\subsection{Uniformity across a real interval}
+
+Fix \(0<\epsilon\le1/4,\ \tau>0,\ K\ge1\) and take
+\[
+    Y^{\epsilon/6}\le \log Q\le Y^{\epsilon/4},\qquad
+    x=Y^K,\quad z=x^{400},\quad \eta=x^{-2},\quad
+    h=x^{398},\quad \delta=\epsilon/(1600K).
+\]
+In particular \(0<\delta\le1/800\).
+Multiplication of \eqref{eq:box-tail} by \(x\) gives exactly
+\[
+ x|R_\chi(z)|\le C_\delta(\log Q)^2Y^{\epsilon/4}
+   +C_\delta(\log Q)x^{403}/Q
+   +\frac{(x^{398}+1)\log(x^{400}+x^{398})}{x^{399}} .
+\]
+Indeed \(z^\sigma=x^{399}Y^{\epsilon/4}\).
+The first term is at most \(C_\delta Y^{3\epsilon/4}\), hence at
+most \(Y^\epsilon/3\) for large \(Y\). Since \(\log Q\le x\)
+and \(Q\ge\exp(Y^{\epsilon/6})\), the second is bounded by
+\(C_\delta Y^{404K}\exp(-Y^{\epsilon/6})\), which is eventually
+at most \(1/3\). For \(x\ge3\), \(x^{400}+x^{398}\le x^{401}\)
+and \(x^{398}+1\le2x^{398}\). The last term is at most
+\(802\log x/x\le802\), eventually at most \(Y^\epsilon/3\).
+Increasing the common threshold accordingly gives
+\[
+                      x|R_\chi(x^{400})|\le Y^\epsilon .
+\]
+Now let \(q\) be the prime index and suppose
+\(\chi(n)=\kappa(n)(\frac{n}{q})\) for every positive integer
+\(n\). This is the primitive twist selected at the counting stage.
+If throughout \(Y\le y\le Y^K\) the finite sum at
+\(z=(Y^K)^{400}\) has absolute value at most
+\(y^{1/2+\tau}/2\), then \eqref{eq:box-finite-split} yields
+\[
+ |G_\chi(y)|\le \tfrac12y^{1/2+\tau}+y|R_\chi(z)|
+                    \le y^{1/2+\tau}.
+\]
+The last step uses \(y\le x\), and, for \(Y\ge16\),
+\(Y^\epsilon\le Y^{1/4}\le Y^{1/2}/2\le y^{1/2+\tau}/2\).
+The single choice of truncation applies even when the largest
+finite sum is attained at a different \(y\) for each prime.
+
+\subsection{The constant four in the logarithmic derivative bound}
+
+The immediate bound in \texttt{box\_of\_S} is
+\(|L'/L(1,\chi)|\le C\log Y\). Indeed apply the preceding tail
+estimate at \(K=1\) to get \(|R_\chi(Y^{400})|\le1\), then use
+\(\sum_{n\le t}\Lambda(n)/n\le C_0\log t\) with \(t=Y^{400}\). The constant
+\(400C_0+1\) suffices for \(Y\ge3\).
+To obtain \(4\), the source uses the sharper
+\(\sum_{n\le t}\Lambda(n)/n\le\log t+2\) and changes the
+truncation. For the latter Mertens estimate take \(N=\lfloor t\rfloor\).
+The identity \(\sum_{d\mid n}\Lambda(d)=\log n\) yields
+\[
+ N\sum_{n\le N}\Lambda(n)/n
+ \le\sum_{n\le N}\Lambda(n)\lfloor N/n\rfloor+\psi(N)
+ =\log(N!)+\psi(N).
+\]
+The increasing-function integral bound gives
+\(\log(N!)\le N\log N-N+1+\log N\).
+The source's explicit elementary Chebyshev estimate
+\(\psi(N)+1+\log N\le3N\) gives the claimed result after
+division by \(N\).
+
+Write \(l=\log Q,\ s=l^{1/4},\ x=s^{10}=l^{5/2}\). Now use
+\(\delta=(2/5)/1600\) in \eqref{eq:box-tail}, with the same
+\(\eta=x^{-2}\), \(z=x^{400}\). The numerical bound becomes
+\[
+ x|R_\chi(z)|\le C_\delta l^2 s+
+                 C_\delta l x^{403}/Q+802 .
+\]
+If \(l\) is sufficiently large then \(l\ge81\), so \(x\ge3\),
+and \(l^{1006}\le e^l=Q\). The first term without its constant
+is \(s^9\le x\). The second satisfies \(lx^{403}=x l^{1006}\le xQ\).
+Thus \(|R_\chi(z)|\le 2C_\delta+802\). Since
+\(\log z=1000\log\log Q\), the Mertens estimate gives an absolute
+constant \(C'\) such that
+\[
+       |L'(1,\chi)/L(1,\chi)|\le1000\log\log Q+C'.
+\]
+For the pair windows it suffices that \(0<\epsilon<1/52\) and,
+for fixed \(A>0\),
+\(
+ Y^{\epsilon/6}\le\log Q\le A Y^{\epsilon/5}(\log Y)^2.
+\)
+The lower bound ensures the preceding threshold in \(l\) for
+large \(Y\). Writing \(L=\log Y\), the upper bound gives
+\[
+ 1000\log\log Q+C'\le200\epsilon L+2000\log L+1000\log A+C'.
+\]
+The first summand is at most \((50/13)L\), the second is at most
+\(L/13\) eventually, and the two fixed constants together are at
+most \(L/13\) eventually. Thus the expression is at most
+\(4L\le4\log y\) for every \(y\in[Y,Y^K]\). In the actual
+pair selection \(A=3\) suffices. The lower threshold depends
+on the fixed parameters only. The constant four and the
+prime-sum bound therefore hold throughout the same interval.
+
+\paragraph{Source correspondence.}
+The deductions are \texttt{BoxOfS.box\_of\_S}, \texttt{TailKExp.tailK},
+\texttt{kappaC.kappaC} and \texttt{Kappa4Loglog.kappa4}, under
+\srcid{Development.AutomorphicArithmetic.MeanSquareBounds}.
+The rectangle, pointwise logarithmic-derivative bound, finite
+difference and numerical substitutions are \texttt{TailContour},
+\texttt{TailBox}, \texttt{TailDiff}, \texttt{TailKernel} and
+\texttt{TailNum} under
+\srcid{Formalism.GL3MeanSquares.GenusMeanAsymptotics.JacobiCharacterSums}.
+The local zero expansion is proved above from its disk factorization.
+The polynomial growth and Euler-product bounds proved above correspond to \texttt{LandauLemmaLfunctionZeros},
+\texttt{LGrowth} and \texttt{LRight}. The exact elementary Mertens
+bound and its explicit Chebyshev input occur in \texttt{mertensUpper}
+under \srcid{Development.AutomorphicArithmetic.DedekindLFunctions.LandauTheorems}.

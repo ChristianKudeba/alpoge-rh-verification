@@ -1,0 +1,182 @@
+\section{A short integral basis for the period lattice}
+\label{sec:period-basis}
+
+We prove the numerical lattice estimate used in the jet comparison.
+Let \(E\) be the CM host field, \(d=[E:\mathbb Q]\),
+\(\Delta=|\operatorname{disc}E|\), and \(R=\Delta^{2/d}/(2d)\).
+Let \(Y\) be the period lattice, an \(\mathcal O_E\)-module free
+of finite rank \(\rho\) over \(\mathbb Z\). Write
+\(B:Y\times Y\to\mathbb R\) for the positive definite symmetric
+form supplied by the valuation of the period pairing. It is balanced
+in the sense that \(B(sy,z)=B(y,\bar s z)\).
+With the source's normalization \(Q(y)=B(y,y)/2\). Let
+\(\mathcal S\) be the real vector space of balanced symmetric forms.
+Let \(\phi(B)\) be the infimum of \(\lambda(B)\) over real linear
+functionals on \(\mathcal S\) integral on the integral forms and
+strictly positive on every nonzero positive semidefinite form.
+The chart identifies this infimum with \(\phi_T\).
+Such functionals exist: for an integral basis \(v_i\) of \(Y\) and
+the host element \(w_0\in\mathcal O_E\) with \(w_0+\bar w_0=1\),
+\(\lambda(C)=\sum_i C(w_0v_i,v_i)=\tfrac12\sum_i C(v_i,v_i)\)
+has both properties. If the last sum vanishes for a positive
+semidefinite \(C\), the whole basis lies in its radical.
+
+There is a \(\mathbb Z\)-basis \(b_i\) of \(Y\) satisfying
+\begin{equation}
+  Q(b_i)\le R\rho^3\phi(B),\qquad
+  |B(b_i,z)|\le 2\sqrt{\rho}\,Q(z)\quad(z\in Y).
+  \label{eq:period-short-basis}
+\end{equation}
+The rank-zero case is empty. Assume \(\rho>0\).
+
+\subsection{The dual minimum and the factor from complex multiplication}
+
+Fix an admissible \(\lambda\), a basis \(v_j\) of \(Y\), and its
+real dual coordinates \(v_j^*\). There are \(y_s,z_s\in Y\) with
+\(\lambda(C)=\sum_s C(y_s,z_s)\) for every \(C\in\mathcal S\).
+Indeed quotient \(Y\otimes_{\mathbb Z}Y\) by the common integral
+annihilator of all the forms in \(\mathcal S\). The quotient is
+torsion-free and finite free. The defining symmetry and balancing
+relations have integral coefficients, so the real dual of this quotient
+is precisely \(\mathcal S\): the common annihilator is the saturation
+of the integral span of those relations. Integral forms are precisely
+the integral dual. A functional integral on that dual is thus in the
+quotient lattice, where its representative is a finite integral sum of
+pure tensors. Absorb integral coefficients in the first factor.
+
+In \(Y_{\mathbb C}\) let \(p_\sigma\) denote the idempotent of
+\(E\otimes_{\mathbb Q}\mathbb C=\prod_\sigma\mathbb C\) corresponding
+to \(\sigma\); write \(\eta_\sigma(y)=\eta_{\mathbb C}(p_\sigma y)\)
+for a real covector \(\eta\). Define
+\[
+ C_\eta(y,z)=\sum_\sigma
+       \operatorname{Re}(\eta_\sigma(y)\overline{\eta_\sigma(z)}),
+       \qquad L[\eta]=\lambda(C_\eta).
+\]
+The form \(C_\eta\) is balanced and positive semidefinite, and
+is nonzero when \(\eta\ne0\), by \(\sum_\sigma p_\sigma=1\).
+Thus \(L\) is a positive definite quadratic form on the real dual.
+In the chosen coordinates let \(L,G\) denote the matrices of this
+quadratic form and of \(B\), respectively. Then
+\(\operatorname{tr}(LG)=\lambda(B)\). Indeed polarize the
+definition of \(C_\eta\), multiply its value on \(v_i^*,v_j^*\)
+by \(B(v_i,v_j)\), and sum over \(i,j\).
+The result at \(y,z\) before applying \(\lambda\) is
+\(\sum_\sigma \operatorname{Re} B_{\mathbb C}
+(p_\sigma y,\overline{p_\sigma z})=B(y,z)\).
+The last equality follows from balancing, which pairs only
+the \(\sigma\) and \(\bar\sigma\) components.
+
+For an integral covector \(0\ne\eta\in Y^*\), let \(t_y\in E\)
+represent the rational linear functional
+\(c\mapsto\eta(cy)\) under the trace pairing. Then
+\(t_y\in\mathfrak D_E^{-1}\) because this pairing with
+\(\mathcal O_E\) is integral. In the idempotent coordinates
+\(\eta_\sigma(y)=\sigma(t_y)\), by
+\(\eta(cy)=\sum_\sigma \sigma(c)\sigma(t_y)\).
+Some \(t_y\ne0\), and all of its embeddings are nonzero.
+Set
+\[
+ t=\sum_s(t_{y_s}\overline{t_{z_s}}+
+                     \overline{t_{y_s}}t_{z_s})
+            \in\mathfrak D_E^{-2}.
+\]
+For each \(\sigma\), \(\sigma(t)\) is twice the value of \(\lambda\)
+on \((y,z)\mapsto\operatorname{Re}
+(\eta_\sigma(y)\overline{\eta_\sigma(z)})\), which is a nonzero
+positive semidefinite balanced form. Thus every \(\sigma(t)>0\).
+As \((t)\mathfrak D_E^2\) is a nonzero integral ideal,
+\(\prod_\sigma \sigma(t)=|N_{E/\mathbb Q}t|\ge\Delta^{-2}\).
+The arithmetic--geometric mean inequality gives
+\begin{equation}
+       L[\eta]=\tfrac12\sum_\sigma\sigma(t)
+          \ge \tfrac d2\Delta^{-2/d}=:\mu^2 .
+      \label{eq:period-dual-min}
+\end{equation}
+
+Take nonzero \(\theta\in\mathcal O_E\) with \(\bar\theta=-\theta\),
+by subtracting the conjugate of a nonreal integral element.
+Its action matrix \(K\) on \(Y\) is invertible over \(\mathbb R\).
+Indeed \(Y_{\mathbb Q}\) is an \(E\)-module. Balancing gives
+\(K^tG=-GK\); the polarized expression for \(L\), with
+\(\overline{\sigma(\theta)}=-\sigma(\theta)\), gives \(KL=-LK^t\).
+Write \(L=S^2\) with \(S\) positive definite symmetric, and put
+\(D=SGS,\ J=S^{-1}KS\). Then \(J^t=-J\) and \(JD=DJ\).
+Every eigenspace of \(D\) is preserved by the invertible
+skew-symmetric \(J\); in particular its top eigenspace has even
+dimension. As \(D\) is positive definite, its largest eigenvalue
+is at most \(\tfrac12\operatorname{tr}D\).
+For each column \(x\in\mathbb R^\rho\) this gives
+\[
+       x^tGx\le\tfrac12\lambda(B)\,\|S^{-1}x\|^2 .
+\]
+
+The Euclidean successive-minima transference inequality
+\(\lambda_1(\Lambda)\lambda_\rho(\Lambda^*)\le\rho\)
+applied to the lattice \(\Lambda=S\mathbb Z^\rho\) and its
+reciprocal \(S^{-1}\mathbb Z^\rho\) now gives \(\rho\) independent
+\(c_i\in\mathbb Z^\rho\) with
+\(\|S^{-1}c_i\|\le\rho/\mu\), by \eqref{eq:period-dual-min}.
+Discrete full lattices attain their successive minima.
+In the \(B\)-norm, their associated lattice vectors therefore have
+\[
+    Q(c_i)\le \frac14\lambda(B)\,\rho^2/\mu^2
+            =R\rho^2\lambda(B).
+\]
+The least possible maximum of \(Q\) on \(\rho\) independent
+lattice vectors is attained, since every bounded \(B\)-ball in
+\(Y\) is finite. The same minimum is thus at most
+\(R\rho^2\phi(B)\) after taking the infimum over \(\lambda\).
+\footnote{\href{https://doi.org/10.1007/BF01445125}{W. Banaszczyk,
+New bounds in some transference theorems in the geometry of numbers,
+Mathematische Annalen 296 (1993), 625--635}.
+The archive gives a Gaussian Poisson proof of the transference input
+in \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/PeriodIntegrals/OrbitalBoundsConclusion/TransferenceMinima.lean}{its transference theorem}.}
+
+\subsection{Converting independent vectors into the required basis}
+
+Take successive shortest vectors \(u_i\) outside the subspaces
+\(V_{i-1}=\langle u_1,\ldots,u_{i-1}\rangle_{\mathbb R}\), and put
+\(V_i=V_{i-1}+\mathbb R u_i\). Such vectors exist by discreteness.
+The preceding independent tuple shows that each
+\(\|u_i\|_B^2/2\le R\rho^2\phi(B)\), and the norms are nondecreasing.
+The quotient \((Y\cap V_i)/(Y\cap V_{i-1})\) is free cyclic:
+its denominator is saturated, and the ranks of the numerator and
+denominator are \(i,i-1\). Choose a lift \(b_i\) of the positive
+generator with smallest norm. By induction these lifts form an
+integral basis on every step of the flag.
+
+Let \(u_j^*\) be the Gram--Schmidt vectors for the \(u_j\),
+with the same \(B\)-metric. The perpendicular component of \(b_i\)
+along \(u_i^*\) is a positive multiple at most one of \(u_i^*\),
+since the nonzero class of \(u_i\) is an integral multiple of the
+generator. Subtracting integer multiples of
+\(u_{i-1},\ldots,u_1\) successively reduces the earlier
+Gram--Schmidt coordinates in the same lift to absolute value
+at most \(1/2\). The minimum norm choice and orthogonality imply
+\[
+ \|b_i\|_B^2\le\|u_i^*\|_B^2+
+       \tfrac14\sum_{j<i}\|u_j^*\|_B^2
+       \le \rho\|u_i\|_B^2 .
+\]
+This proves the first inequality of \eqref{eq:period-short-basis}.
+For \(z\in Y\cap V_{i-1}\), the lifts \(b_i+z,b_i-z\) have
+norm at least \(\|b_i\|_B\). Expanding the two squares gives
+\(2|B(b_i,z)|\le\|z\|_B^2\). For \(z\notin V_{i-1}\), minimality
+gives \(\|u_i\|_B\le\|z\|_B\), so Cauchy--Schwarz gives
+\(|B(b_i,z)|\le\sqrt{\rho}\,\|z\|_B^2\).
+These bounds imply the second inequality in both cases.
+
+In applying \eqref{eq:period-short-basis} to
+Section~\ref{sec:cusp-jets}, the geometric inputs are the period
+pairing with diagonal \(2Q\), identification of its infimum with
+the frame slope \(\phi_T\), and the toric rank inequality
+\(\rho\le d\,q_-\), where \(q_-\) denotes the negative signature
+rank. The two numerical basis parameters are therefore exactly
+\(R\rho^3\phi_T\) and \(2\sqrt{\rho}\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/PhiCTie.lean}{Integral functionals on balanced forms},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/PhiCMinI.lean}{the codifferent lower bound},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/PhiCMinK.lean}{the trace identity, CM symmetry and transfer},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/PhiCMinima.lean}{minimization over the cone of forms},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FirstCohomology/ReducedBasis.lean}{basis reduction and the mixed estimate},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsShortPeriodLatticeBasisBalancedSlope.lean}{specialization to the period lattice of the chart}.}

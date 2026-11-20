@@ -1,0 +1,120 @@
+\section{Reading the mathematical proof terms}
+\label{sec:kernel-reading}
+The accompanying literal edition prints the complete expressions of the
+published solution export as numbered equations in dependent type theory.
+This section specifies how to read a theorem value. It also relates the
+short final line of the argument to the number-theoretic statement in the
+first section. The edition contains shared subexpressions. Expanding each
+occurrence into a separate tree would repeat the same mathematical
+derivations many times.
+
+\paragraph{Numbers, contexts and substitution.}
+\(N_i\) is a name, \(U_i\) a universe level and \(E_i\) an expression.
+These three numberings are independent of the printed record numbers.
+\(N_0\) is the anonymous root and \(U_0=0\). A name is extended by
+a string or by a natural number; these are distinct constructors.
+Universe levels can be parameters, successors, maxima, and
+\(\operatorname{imax}(u,v)\), which is \(0\) for \(v=0\) and
+\(\max(u,v)\) otherwise. These formulas hold pointwise for all
+assignments of natural numbers to the universe parameters.
+
+Write \(\Gamma\vdash t:A\) for a typing judgment in the ordered context
+\(\Gamma\). In an expression \(b_i\) is the variable \(i\) binders
+outward, counting from zero. Thus both \(b_0\) in the body of
+\(\lambda x.\,b_0\) and \(b_0\) in the body of
+\(\lambda x.\lambda y.\,b_0\) can be represented by the
+\emph{same} numbered expression. Their meanings are \(x\) and \(y\)
+respectively. When extending a context, the indices referring to its older
+variables increase by one. Substitution in a dependent body performs this
+shift as it crosses internal binders and removes the outside binder that
+has been supplied.
+
+The basic rules, with bound variables written by name for legibility, are
+\[
+ \Gamma\vdash\operatorname{Sort}(u):\operatorname{Sort}(u+1),
+ \qquad
+ \frac{\Gamma\vdash A:\operatorname{Sort}(u)
+       \quad\Gamma,x:A\vdash B:\operatorname{Sort}(v)}
+      {\Gamma\vdash\prod_{x:A}B:\operatorname{Sort}(\operatorname{imax}(u,v))}.
+\]
+In particular \(\operatorname{Sort}(0)\) is the type of propositions.
+A proposition universally quantified over a type in any universe is
+again a proposition. The function introduction and elimination rules
+read
+\[
+ \frac{\Gamma,x:A\vdash t:B}{\Gamma\vdash(\lambda x:A.\,t):\prod_{x:A}B},
+ \qquad
+ \frac{\Gamma\vdash f:\prod_{x:A}B\quad\Gamma\vdash a:A}
+      {\Gamma\vdash f\,a:B[a/x]} .
+\]
+These rules presuppose well-formed contexts and types. A constant refers
+to a declaration by \(N_i\), with the listed levels substituted in order
+for its universe parameters. A let-expression checks its value against
+the declared type and substitutes this value in the type of its body.
+The binder brackets distinguish explicit, implicit, strict implicit and
+type-class parameters. The expression contains the arguments actually
+used, including those inferred in the source.
+
+A type may be replaced by a definitionally equal one. In particular,
+application of a lambda substitutes its argument, a let substitutes
+its value, and an unfoldable definition substitutes its body at the
+indicated universe parameters. A constructor followed by its projection
+selects the indicated field. Applying an inductive recursor to a
+constructor reduces by its listed rule, with parameters, fields and
+recursive results in the indicated places. Functional extensional
+\(\eta\)-conversion here identifies \(\lambda x.\,f\,x\) with \(f\)
+when \(x\) is fresh. Proof irrelevance identifies two proofs of the
+same proposition. The reference gives the full conversion and inductive
+declaration rules; the mathematics in the proof terms uses this
+underlying type theory.
+
+\paragraph{A concrete piece of the export.}
+In the first volume, record 60 completes the declaration of equality,
+reflexivity and equality recursion. \(N_1\), \(N_9\) and \(N_{10}\)
+are their respective names. Expressions \(E_4\) through \(E_6\)
+assemble the type of equality:
+\[
+ \prod_{\{\alpha:\operatorname{Sort}(u)\}}\alpha\longrightarrow
+       \alpha\longrightarrow\operatorname{Prop}.
+\]
+In the context \(\alpha:\operatorname{Sort}(u),\,a:\alpha\), \(E_7\) through \(E_{10}\)
+assemble the expression \(a=a\).
+\(E_{11},E_{12}\) bind \(a\) and \(\alpha\), giving the signature of
+the reflexivity constructor. The equality recursor transports a proof of
+a motive at \((a,\operatorname{refl})\) to the motive at
+\((b,e)\) for \(e:a=b\). The row for its reflexivity reduction gives
+the right-hand-side expression \(E_{41}\).
+
+\paragraph{The theorem to look up.}
+The named record \srcid{riemannHypothesis} supplies both a type and a
+value. The type is the proposition that, for \(s\in\mathbb C\) with
+\(\zeta(s)=0\), \(s\ne1\), and \(s\ne-2(n+1)\) for every \(n\ge0\),
+one has \(\Re(s)=1/2\). The short value in the released source is the
+declaration \srcid{rhOfAll}. Its value applies the general reflection
+theorem \srcid{Formalism.VW.rh_of_every} to \srcid{allChi}.
+The latter has value \srcid{UpperTheory.FinalTheorems.everyCharacter}
+and quantifies over \emph{all} Dirichlet characters. This explains why
+retrieving the handful of expressions in the final theorem record
+leads back to the large arithmetic family. The source also exposes
+separate theorem records for the primitive character statement, the
+critical-strip statement for all characters, and right-half-plane
+nonvanishing. In the literal publication, \srcid{edition-index.json}
+locates the five endpoints by name and gives the type and value
+expression numbers.
+
+The external dependency audit for these endpoints reports precisely
+propositional extensionality, classical choice, and soundness of
+quotients. Propositional extensionality takes a logical equivalence of
+propositions to their equality. Choice selects an element from a proof
+that a type is nonempty. Quotient soundness takes related elements to
+equal quotient classes. A definition or theorem with a body can be
+followed to that body; a foundational axiom is read with its declared
+type. The independent kernels checked the published formal export.
+Coverage of the mathematical prose in this paper is recorded separately
+below.
+\footnote{\href{https://math.mit.edu/~drew/grh/}{Verification report
+and dependency audit};
+\href{https://lean-lang.org/doc/reference/latest/The-Type-System/}{rules
+of the underlying type theory};
+\href{https://github.com/leanprover/lean4export/blob/v4.33.0/format_ndjson.md}{format
+of the published solution export}.}
