@@ -1,0 +1,27 @@
+{
+  "positive": {
+    "exit_code": 0,
+    "required": [
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+    ]
+  },
+  "sorry": {
+    "exit_code": 1,
+    "required": [
+      "Illegal axiom detected: 'sorryAx'"
+    ]
+  },
+  "forbidden_axiom": {
+    "exit_code": 1,
+    "required": [
+      "Illegal axiom detected: 'PrincipiaComparatorControl.forbidden'"
+    ]
+  },
+  "statement_mismatch": {
+    "exit_code": 1,
+    "required": [
+      "Challenge and solution theorem statement do not match: 'PrincipiaComparatorControl.result'"
+    ]
+  }
+}

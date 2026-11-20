@@ -1,0 +1,111 @@
+name: Alpoge full Comparator
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: alpoge-candidate-comparator-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    name: Check statement against solution
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      VERIFY_SCOPE: candidate
+    steps:
+      - name: Check out the exact integration commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Record checkout identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          mkdir -p "$RUNNER_TEMP/evidence"
+          git rev-parse HEAD > "$RUNNER_TEMP/evidence/integration-commit.txt"
+      - name: Prepare pinned verifier tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout --signal=TERM --kill-after=30s 2700s \
+            bash scripts/verification/prepare-tools.sh "$RUNNER_TEMP/verification-tools" \
+            2>&1 | tee "$RUNNER_TEMP/evidence/prepare-tools.log"
+      - name: Require genuine Comparator semantic controls and isolation probes
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/verification-tools/environment.sh"
+          python3 scripts/verification/controls/run-controls.py \
+            --launcher "$GITHUB_WORKSPACE/scripts/verification/run-comparator-isolated.sh" \
+            --logs "$RUNNER_TEMP/evidence/controls" \
+            --work-root "$RUNNER_TEMP/control-work"
+      - name: Select the exact candidate checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'VERIFY_PROJECT=%s\n' "$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+          printf 'VERIFY_SCOPE=candidate\n' >> "$GITHUB_ENV"
+          printf 'VERIFY_SOURCE_COMMIT=%s\n' "$GITHUB_SHA" >> "$GITHUB_ENV"
+      - name: Fetch only pinned Mathlib dependency cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/verification-tools/environment.sh"
+          cd "$VERIFY_PROJECT"
+          sha256sum lean-toolchain lake-manifest.json lakefile.toml \
+            Challenge.lean Solution.lean comparator.json formalization.yaml \
+            > "$RUNNER_TEMP/evidence/inputs.before.sha256"
+          # This is trusted Mathlib cache preparation, not a build of Main.
+          lake exe cache get 2>&1 | tee "$RUNNER_TEMP/evidence/mathlib-cache.log"
+          sha256sum -c "$RUNNER_TEMP/evidence/inputs.before.sha256"
+      - name: Run the mandatory full Comparator inside its sandbox
+        shell: bash
+        run: |
+          set -euo pipefail
+          source "$RUNNER_TEMP/verification-tools/environment.sh"
+          set +e
+          timeout --signal=TERM --kill-after=30s 18000s \
+            "$GITHUB_WORKSPACE/scripts/verification/run-comparator-isolated.sh" \
+            "$VERIFY_PROJECT" "$VERIFY_PROJECT/comparator.json" \
+            "$RUNNER_TEMP/evidence/full-comparator.log" \
+            > "$RUNNER_TEMP/evidence/full-launcher.log" 2>&1
+          code=$?
+          set -e
+          python3 - "$code" <<'PYREPORT'
+          import json, os, pathlib
+          code = int(__import__('sys').argv[1])
+          kind = ('accepted' if code == 0 else 'timeout' if code == 124 else
+                  'terminated-or-resource-limit' if code in (137, 143) else
+                  'rejected-or-execution-failure')
+          report = {
+              'scope': os.environ['VERIFY_SCOPE'],
+              'integration_commit': os.environ['GITHUB_SHA'],
+              'source_commit': os.environ['VERIFY_SOURCE_COMMIT'],
+              'comparator_exit_code': code, 'outcome': kind,
+              'comparator_source': 'c0c5a52d2aff92b457c3e5ed4a68c1ebc5795809',
+              'exporter_source': '15f6055e299ad5b89345e533cc2192f4cc00f659',
+              'lean_toolchain': 'leanprover/lean4:v4.33.1',
+              'mathlib_revision': '0df444a360eaa60ab8c11dca51a86af692955474',
+              'note': 'Named declarations and proof closure only; inspect logs for every nonzero exit.',
+          }
+          target = pathlib.Path(os.environ['RUNNER_TEMP']) / 'evidence/full-result.json'
+          target.write_text(json.dumps(report, indent=2) + '\n')
+          PYREPORT
+          cd "$VERIFY_PROJECT"
+          sha256sum -c "$RUNNER_TEMP/evidence/inputs.before.sha256"
+          exit "$code"
+      - name: Preserve complete checker evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: alpoge-${{ env.VERIFY_SCOPE }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/evidence
+            ${{ runner.temp }}/verification-tools/tool-binaries.sha256
+            ${{ runner.temp }}/verification-tools/toolchain-manifest.json
+          if-no-files-found: error
+          retention-days: 30

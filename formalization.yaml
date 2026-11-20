@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Alpöge RH/Dirichlet-GRH: complete-source Comparator verification"
+  description: >-
+    Verification entrypoints for all five public conclusions of the complete
+    Alpöge Lean development. The challenge uses only independent Mathlib
+    statements; the solution imports Main from the substantive source tree.
+    Full build and Comparator verification are pending.
+  authors:
+    - "Levent Alpöge (substantive source, as credited by its mirror)"
+    - "Claude (substantive source collaboration, as credited by its mirror)"
+    - "Codex (verification wrappers and local compaction)"
+  license: "LicenseRef-Upstream-Unspecified"
+
+repository:
+  role: "substantive-development"
+  url: "https://github.com/ChristianKudeba/alpoge-rh-verification"
+
+sources:
+  - title: "Alpöge Lean source mirror, original pinned baseline"
+    authors: ["Levent Alpöge"]
+    id: "https://github.com/CocoSgt/riemann-hypothesis-lean/tree/7cbf7a0c32fca1badf05931879a37c3f8a2b03b4"
+    type: "source-code"
+    relationship: "adapts"
+    author_endorsement: "not-contacted"
+    note: >-
+      Original toolchain is leanprover/lean4:v4.33.1 and Mathlib is pinned to
+      0df444a360eaa60ab8c11dca51a86af692955474. No upstream license is stated;
+      this metadata does not grant or infer one. The compacted source candidate
+      is commit fb97c4c5a1624d02c8ddfa0d403a29becff79c9e. Its selected source
+      destination is https://github.com/ChristianKudeba/alpoge-rh-verification.
+      Baseline and candidate must be checked independently to distinguish
+      original failures from edit failures.
+
+status:
+  scope: >-
+    Complete Mathlib RiemannHypothesis plus the four explicit zeta/Dirichlet
+    conclusions listed below. These are verification targets, not verified
+    results. The canonical files alone do not contain the 175k-module source
+    development, and do not establish a full-build or Comparator pass.
+  main_results:
+    - declaration: "PrincipiaFullVerification.riemannHypothesis"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+    - declaration: "PrincipiaFullVerification.riemannZeta_eq_zero_re"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+    - declaration: "PrincipiaFullVerification.LFunction_ne_zero_of_half_lt_re"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+    - declaration: "PrincipiaFullVerification.LFunction_eq_zero_re"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+    - declaration: "PrincipiaFullVerification.LFunction_eq_zero_re_of_isPrimitive"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+
+automation:
+  methods:
+    - method: "agent"
+      framework: "Codex with Principia MCP"
+      tool_setup: >-
+        Full-source entrypoint preparation and local compaction. Genuine
+        leanprover/comparator c0c5a52d2aff92b457c3e5ed4a68c1ebc5795809 and
+        lean4export 15f6055e299ad5b89345e533cc2192f4cc00f659 built unchanged
+        with original Lean 4.33.1. Genuine isolated compatibility controls and
+        full Comparator execution must succeed before any verification claim.
+
+review:
+  status: "verification_pending"
+  reviewers: []
+  notes: >-
+    Only selected compacted helper proofs have passed hosted scratch checks.
+    Those checks do not verify the original RH proof, this complete source
+    tree, or these five unconditional targets. The allowed axioms in
+    comparator.json are a policy, not an observed full-proof axiom inventory.
+    The full source and build artifacts exceed the inspected hosted/import
+    profiles. The local environment does not expose the Landlock syscall, so
+    isolated Comparator execution requires a suitable external runner. The
+    GitHub source destination is ChristianKudeba/alpoge-rh-verification.
+    No proof stage should be marked complete yet.

@@ -1,0 +1,78 @@
+Alpöge Lean compaction — first source pass
+
+Source: https://github.com/CocoSgt/riemann-hypothesis-lean
+Base commit: 7cbf7a0c32fca1badf05931879a37c3f8a2b03b4
+Compacted source commit: fb97c4c5a1624d02c8ddfa0d403a29becff79c9e
+Local checkout: /workspace/alpoge-compaction
+Local branch: codex/compact-alpoge
+Principia run: a0564e7e17c42b9e277692d9d711b227
+
+RESULT
+19 files changed, including 3 new shared/statement modules.
+166 lines inserted, 431 deleted: net 265 physical lines removed.
+Net 269 nonblank lines and 16,746 UTF-8 bytes removed.
+No claim is made that every proof body in the 17.4-million-line archive has been reviewed.
+
+COMPACTIONS
+- Replaced the long Gamma/cosine zeta-reflection argument by the completed-zeta functional equation.
+- Reused that argument in Claim.zeta and reused Claim.strip for the primitive-character conclusion.
+- Shared Euler-factor nonvanishing and three Gamma/root-number lemmas.
+- Reused primitive zero reflection in two further modules.
+- Simplified Claim.prim_zero by directly cancelling its nonzero Euler product.
+- Extracted the EveryCharacter predicate from its heavy implementation module.
+- Shared 12 exactly duplicated theta-lift helper proofs, aliased an identical theta-lift predicate, and factored a repeated Galois compatibility proof.
+- Main now imports the theorem module directly; it no longer re-exports four unrelated SmallClassNumbers modules via two import-only aggregators.
+
+DEPENDENCIES
+Repository modules only; external Mathlib dependencies are not counted.
+Conditional CritLine wrapper: 14,301 modules / 2,553,287 lines -> 7 modules / 164 lines.
+Full Main closure: 175,187 modules / 17,374,215 lines -> 175,184 modules / 17,373,664 lines.
+The seven-module result is ONLY the conditional wrapper. The full RH proof still needs the large arithmetic development.
+
+VERIFICATION
+Original hosted check 3587658eb838f88a42e39226139e10ea validated the compacted lightweight source with exact support definitions, imprimitive-character proof, analytic-order transfer and zero-symmetry consumers, plus the extra reflection replacements.
+Check ee73c18256e6db73e13d24ee1200ed62 retrieved the final six axiom inventories omitted by the first result's display cap.
+Those original 15 requested inventories remain preserved in lean-verification.json and report only propext, Classical.choice and Quot.sound, with zero sorry.
+
+After the additional Claim.prim_zero compaction:
+- Full-bundle check 54d52398d343371dc5d4977480796a62 passed on Principia, zero sorry.
+- Check 81c37b66d52316218e2c8633c3697fdf explicitly printed Claim.prim_zero and downstream Claim.strip; both use only propext, Classical.choice and Quot.sound.
+The unchanged signature and exact 711-to-666-byte declaration reduction are recorded in prim-zero-compaction-audit.json.
+The regenerated source is checked-compaction.lean; the reproducible assembler is build_check_bundle.py.
+No assumption standing for a project theorem was introduced in these checks.
+
+The six deep theta/Galois files have STRUCTURAL validation, not a full Lean build:
+12 original/shared/duplicate helpers match after authorized renaming; binder scopes were inspected;
+TLift_k and TLiftK have identical predicate bodies; the Galois let expands to the original proof.
+Two public types change only the names of subtype membership proofs, whose propositions are identical; proof irrelevance supplies definitional equality.
+Evidence and scripts: structural-audit.json, audit_galois_cse.py, combine_structural_audit.py.
+These deeper module edits still need compilation in the full pinned archive.
+
+Both complete internal import graphs are acyclic; no new unresolved imports.
+Known plugWin/plugAll consumers retain their direct implementation import.
+All three patches and the pair of smaller patches apply cleanly to a temporary Git index populated from the explicit base commit. Baseline-to-source git diff --check passed.
+The full original/modified archive was NOT compiled, and RH has NOT been independently verified by this work.
+Pinned archive toolchain: Lean v4.33.1, Mathlib 0df444a360eaa60ab8c11dca51a86af692955474.
+Hosted checker validation is not represented as a build of that entire pinned archive.
+
+ARTIFACTS
+alpoge-compaction.patch — all 19 files.
+analytic-compaction.patch — 13 files, analytic refactor and import narrowing.
+theta-deduplication.patch — 6 deeper files, structural checks only.
+checked-compaction.lean — independent Mathlib-based verification bundle.
+lean-verification.json — preserved original hosted-check responses and additional validation.
+prim-zero-compaction-audit.json — exact final small refactor and its two hosted checks.
+structural-audit.json — deep deduplication comparisons.
+import-analysis/report.json and integrity-check.json — refreshed whole-source graph evidence.
+analyze_imports.py — reproducible graph analysis with an explicit original baseline default.
+refresh_package.py — reproducible patch, manifest, ZIP and temporary-index verification.
+package-verification.json — external ZIP/manifest hash verification envelope.
+
+APPLY
+In a clean checkout at the base commit:
+  git apply --check /absolute/path/alpoge-compaction.patch
+  git apply /absolute/path/alpoge-compaction.patch
+Alternatively apply the two smaller patches; do not also apply the combined patch.
+Then compile the pinned archive and inspect the main theorem's transitive axiom inventory before treating the whole proof as verified.
+
+This is a proof-preserving source-compaction proposal with the validation limits above. It introduces no new mathematical assumptions and does not establish the previously unverified analytic input.

@@ -1,0 +1,1101 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/CocoSgt/riemann-hypothesis-lean",
+  "source_commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "method": "Read every original src/*.lean member directly from git archive at the pinned commit. Blank nested /- -/ comments, -- comments, and ordinary quoted strings, then scan fixed token patterns. No checkout files modified.",
+  "scope": {
+    "lean_files": 175187,
+    "bytes": 1030531854,
+    "ordered_path_and_sha256_digest": "a8af5d09d036eba4847037323f18aac35a91a9919804acb055660653182e28e0"
+  },
+  "scanned_pattern": "\\b(?:axiom|sorry|admit|unsafe|native_decide|implemented_by|extern|sorryAx|mkSorry|mkSyntheticSorry|ofReduceBool|trustCompiler|run_tac|run_cmd|run_elab|run_meta|elab|elab_rules|macro|macro_rules|syntax|initialize|builtin_initialize|skipKernelTC|skipKernelCheck|addDecl|addAndCompile|setEnv|modifyEnv|unchecked|trustLevel|axiomDecl)\\b|\\bKernel\\.isDefEq\\b|\\bEnvironment\\.add\\b|#(?:eval|reduce|print)\\b",
+  "token_counts": {
+    "#print": 4,
+    "Kernel.isDefEq": 1,
+    "addDecl": 2,
+    "elab": 4,
+    "macro": 87,
+    "modifyEnv": 5,
+    "run_cmd": 5,
+    "run_tac": 32
+  },
+  "set_options": {
+    "Elab.async false": 1,
+    "allowUnsafeReducibility true": 37,
+    "autoImplicit false": 11203,
+    "backward.defeqAttrib.useBackward true": 33,
+    "backward.isDefEq.respectTransparency false": 1877,
+    "backward.isDefEq.respectTransparency true": 2,
+    "backward.isDefEq.respectTransparency.types false": 87,
+    "genInjectivity false": 179,
+    "genSizeOf false": 1,
+    "genSizeOfSpec false": 181,
+    "hygiene false": 31,
+    "linter.all false": 38,
+    "linter.auxLemma false": 1,
+    "linter.deprecated false": 34,
+    "linter.dupNamespace false": 46,
+    "linter.overlappingInstances false": 40,
+    "linter.style.haveILetI false": 122,
+    "linter.style.longLine false": 23,
+    "linter.unnecessarySeqFocus false": 9,
+    "linter.unnecessarySimpa false": 1,
+    "linter.unreachableTactic false": 12,
+    "linter.unusedSectionVars false": 874,
+    "linter.unusedSimpArgs false": 272,
+    "linter.unusedTactic false": 12,
+    "linter.unusedVariables false": 503,
+    "maxHeartbeats 0": 4,
+    "maxHeartbeats 100000": 1,
+    "maxHeartbeats 1000000": 50873,
+    "maxHeartbeats 10000000": 5,
+    "maxHeartbeats 1200000": 1,
+    "maxHeartbeats 12000000": 3,
+    "maxHeartbeats 1600000": 1248,
+    "maxHeartbeats 16000000": 14,
+    "maxHeartbeats 1600000open": 1,
+    "maxHeartbeats 200000": 20,
+    "maxHeartbeats 2000000": 1331,
+    "maxHeartbeats 20000000": 10,
+    "maxHeartbeats 2400000": 1,
+    "maxHeartbeats 300000": 1,
+    "maxHeartbeats 3000000": 15,
+    "maxHeartbeats 3200000": 63,
+    "maxHeartbeats 32000000": 4,
+    "maxHeartbeats 400000": 256,
+    "maxHeartbeats 4000000": 1738,
+    "maxHeartbeats 40000000": 4,
+    "maxHeartbeats 5000000": 1,
+    "maxHeartbeats 600000": 17,
+    "maxHeartbeats 6000000": 8,
+    "maxHeartbeats 60000000": 2,
+    "maxHeartbeats 6400000": 6,
+    "maxHeartbeats 64000000": 1,
+    "maxHeartbeats 800000": 1768,
+    "maxHeartbeats 8000000": 160,
+    "maxRecDepth 100000": 18,
+    "maxRecDepth 1000000": 1,
+    "maxRecDepth 20000": 14,
+    "maxRecDepth 4000": 1,
+    "maxSynthPendingDepth 1": 7477,
+    "maxSynthPendingDepth 3": 1,
+    "pp.fullNames true": 9,
+    "quotPrecheck false": 7,
+    "smartUnfolding false": 3,
+    "synthInstance.maxHeartbeats 100000": 30,
+    "synthInstance.maxHeartbeats 1000000": 12,
+    "synthInstance.maxHeartbeats 160000": 58,
+    "synthInstance.maxHeartbeats 200000": 4094,
+    "synthInstance.maxHeartbeats 40000": 1,
+    "synthInstance.maxHeartbeats 400000": 3182,
+    "synthInstance.maxHeartbeats 80000": 1,
+    "synthInstance.maxHeartbeats 800000": 3,
+    "synthInstance.maxSize 1000": 35,
+    "synthInstance.maxSize 1024": 6,
+    "synthInstance.maxSize 2000": 8,
+    "synthInstance.maxSize 4000": 2,
+    "warn.classDefReducibility false": 1
+  },
+  "findings": [
+    {
+      "path": "src/BuildAid/D1.lean",
+      "line": 4,
+      "token": "run_cmd",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"CompanionTheory\""
+    },
+    {
+      "path": "src/BuildAid/D1.lean",
+      "line": 4,
+      "token": "modifyEnv",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"CompanionTheory\""
+    },
+    {
+      "path": "src/BuildAid/D2.lean",
+      "line": 4,
+      "token": "run_cmd",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"CrystallineSemistableComparison\""
+    },
+    {
+      "path": "src/BuildAid/D2.lean",
+      "line": 4,
+      "token": "modifyEnv",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"CrystallineSemistableComparison\""
+    },
+    {
+      "path": "src/BuildAid/D3.lean",
+      "line": 4,
+      "token": "run_cmd",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"GlobalTheory\""
+    },
+    {
+      "path": "src/BuildAid/D3.lean",
+      "line": 4,
+      "token": "modifyEnv",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"GlobalTheory\""
+    },
+    {
+      "path": "src/BuildAid/D4.lean",
+      "line": 4,
+      "token": "run_cmd",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"PositivityTheory\""
+    },
+    {
+      "path": "src/BuildAid/D4.lean",
+      "line": 4,
+      "token": "modifyEnv",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"PositivityTheory\""
+    },
+    {
+      "path": "src/BuildAid/D5.lean",
+      "line": 4,
+      "token": "run_cmd",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"UpperTheory\""
+    },
+    {
+      "path": "src/BuildAid/D5.lean",
+      "line": 4,
+      "token": "modifyEnv",
+      "source_line": "run_cmd Lean.modifyEnv fun env => Lean.LibrarySuggestions.nameDenyListExt.addEntry env \"UpperTheory\""
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/GoodPartEq.lean",
+      "line": 17,
+      "token": "macro",
+      "source_line": "scoped macro \"tr_via \" P:term:max e:term:max h:term:max : tactic => `(tactic| kexactB (cast (congrArg $P $e) (kc% $h)))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/PlaceModelImp.lean",
+      "line": 27,
+      "token": "macro",
+      "source_line": "scoped macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/RealIoX.lean",
+      "line": 90,
+      "token": "macro",
+      "source_line": "scoped macro \"tr_delta\" : tactic => `(tactic|"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/RealIoX.lean",
+      "line": 99,
+      "token": "macro",
+      "source_line": "scoped macro \"tr_leaves \" a:term:max b:term:max : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/RealIoX.lean",
+      "line": 111,
+      "token": "macro",
+      "source_line": "scoped macro \"tr_clause \" a:term:max b:term:max h:term:max : tactic => `(tactic| (tr_delta; tr_leaves $a $b; kexactB $h))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Definitions/GaloisGeometry/NegOnePowBoundaryTermsCancel.lean",
+      "line": 114,
+      "token": "macro",
+      "source_line": "macro \"fin_index_simp\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ExistsBoundAbsLocalLatticeCompletionEntries.lean",
+      "line": 12,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.LocalLatticeBound.exists_bound_latLoc"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/ExistsBoundAbsLocalLatticeCompletionEntries.lean",
+      "line": 13,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.LocalLatticeBound.exists_bound_latLoc"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BoundedPowerSeriesEvaluationDivisibility.lean",
+      "line": 24,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.SummableSeriesBounds.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BoundedPowerSeriesEvaluationDivisibility.lean",
+      "line": 25,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.SummableSeriesBounds.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsDlogAddCoboundaryAbLocus.lean",
+      "line": 20,
+      "token": "macro",
+      "source_line": "local macro \"opens_le\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsJetExtensionSquareZero.lean",
+      "line": 22,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.SquareLiftLemmas.exists_hom_jet"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsJetExtensionSquareZero.lean",
+      "line": 23,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.SquareLiftLemmas.exists_hom_jet"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsMeasY.lean",
+      "line": 20,
+      "token": "macro",
+      "source_line": "scoped macro \"obt \" p:Lean.Parser.Tactic.rcasesPatMed \" := \" e:term : tactic => `(tactic| (have x := $e; obtain $p := x))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FramesTildeGammaValues.lean",
+      "line": 70,
+      "token": "run_tac",
+      "source_line": "  run_tac do"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsCechOneCoboundaryOfRefinement.lean",
+      "line": 8,
+      "token": "macro",
+      "source_line": "local macro \"opens_le\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsProperOfFiniteType.lean",
+      "line": 30,
+      "token": "macro",
+      "source_line": "macro \"lbt\" : tactic => `(tactic| (repeat (first | assumption | apply pull_isLB)))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsRootMapMinpolyIffExistsRingHomExtension.lean",
+      "line": 10,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.InjectiveAlgebraHomExistence.exists_ringHom_comp_algebraMap_eq"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsRootMapMinpolyIffExistsRingHomExtension.lean",
+      "line": 11,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.InjectiveAlgebraHomExistence.exists_ringHom_comp_algebraMap_eq"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocalizationPreservesRingPullbackSquare.lean",
+      "line": 38,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.QuotientMapComposition.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocalizationPreservesRingPullbackSquare.lean",
+      "line": 39,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.QuotientMapComposition.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocalizationPreservesRingPullbackSquare.lean",
+      "line": 61,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.QuotientMapComposition.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/LocalizationPreservesRingPullbackSquare.lean",
+      "line": 62,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.QuotientMapComposition.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MatchedDiffsInvariantSubspace.lean",
+      "line": 31,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.SpectralLemmaFirst.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MatchedDiffsInvariantSubspace.lean",
+      "line": 32,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.SpectralLemmaFirst.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/BasedFlagPairLatticeContainment.lean",
+      "line": 131,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.NatSmulMemOfSpan.exists_nat_smul_mem"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/BasedFlagPairLatticeContainment.lean",
+      "line": 132,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.NatSmulMemOfSpan.exists_nat_smul_mem"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DetMatrixSandwichLinearMap.lean",
+      "line": 14,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.DeterminantRealSandwich.det_real_family"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/DetMatrixSandwichLinearMap.lean",
+      "line": 15,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.DeterminantRealSandwich.det_real_family"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PowLePowRatio.lean",
+      "line": 153,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.InnerSumZeroSpan.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FlagMeasures/PowLePowRatio.lean",
+      "line": 154,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.InnerSumZeroSpan.main"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/ExistsFormalBiextMap.lean",
+      "line": 87,
+      "token": "macro",
+      "source_line": "local macro \"no_const\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/ExistsFormalBiextMap.lean",
+      "line": 96,
+      "token": "macro",
+      "source_line": "local macro \"push_map\" h:ident : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/GermEvGermEvThreePoints.lean",
+      "line": 87,
+      "token": "macro",
+      "source_line": "local macro \"gp\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/GermEvGermEvThreePoints.lean",
+      "line": 92,
+      "token": "macro",
+      "source_line": "local macro \"push_ev\" loc:(Lean.Parser.Tactic.location)? : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsClassSystem.lean",
+      "line": 29,
+      "token": "macro",
+      "source_line": "scoped macro \"geo_cases \" h:ident D:ident D':ident : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/IsClassSystem.lean",
+      "line": 94,
+      "token": "macro",
+      "source_line": "scoped macro \"base_cases \" r:ident B:ident B':ident : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/LiftSetupOverExtendedDataIntegralFormsEq.lean",
+      "line": 15,
+      "token": "macro",
+      "source_line": "local macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/RatCopyIff.lean",
+      "line": 16,
+      "token": "macro",
+      "source_line": "local macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/SetupRelIffSameData.lean",
+      "line": 21,
+      "token": "macro",
+      "source_line": "scoped macro \"set_cases \" h1:ident h2:ident N:ident N':ident X:ident X':ident : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/TieMove.lean",
+      "line": 15,
+      "token": "macro",
+      "source_line": "local macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/CharWSeedStd.lean",
+      "line": 16,
+      "token": "macro",
+      "source_line": "local macro \"qmove \" h:term : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/EqCjOneSmul.lean",
+      "line": 69,
+      "token": "macro",
+      "source_line": "local macro \"qmove \" h:term : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsExtTwistedPlaces.lean",
+      "line": 60,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.PrimeBelow.exists_below"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsExtTwistedPlaces.lean",
+      "line": 61,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.PrimeBelow.exists_below"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsGIs.lean",
+      "line": 81,
+      "token": "run_tac",
+      "source_line": "  run_tac do"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsNormalisedReadingTransportedNewTwist.lean",
+      "line": 13,
+      "token": "macro",
+      "source_line": "local macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsSelectedRealization.lean",
+      "line": 43,
+      "token": "macro",
+      "source_line": "local macro:max \"kq% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FormGroupsModelsActionsMeasuresBasesCharacterise.lean",
+      "line": 18,
+      "token": "macro",
+      "source_line": "local macro \"ksub \" h:ident x:ident y:term : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FormGroupsModelsActionsMeasuresBasesCharacterise.lean",
+      "line": 30,
+      "token": "macro",
+      "source_line": "local macro \"tie_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/FormGroupsModelsActionsMeasuresBasesCharacterise.lean",
+      "line": 81,
+      "token": "macro",
+      "source_line": "local macro \"pre_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/LineModelTrueOfFalse.lean",
+      "line": 9,
+      "token": "macro",
+      "source_line": "local macro \"opens_le_auto\" : tactic => `(tactic| (refine SetLike.le_def.2 fun z hz => ?_; simp only [TopologicalSpace.Opens.mem_inf] at hz ⊢; tauto))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/RealDatumPrerequisitesUpdateModels.lean",
+      "line": 18,
+      "token": "macro",
+      "source_line": "scoped macro \"obt \" p:Lean.Parser.Tactic.rcasesPatMed \" := \" e:term : tactic => `(tactic| (have x := $e; obtain $p := x))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ReferenceTupleWeilDatumVectorPolynomialMapEnlarg.lean",
+      "line": 18,
+      "token": "macro",
+      "source_line": "local macro \"ksub \" h:ident x:ident y:term : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ReferenceTupleWeilDatumVectorPolynomialMapEnlarg.lean",
+      "line": 25,
+      "token": "macro",
+      "source_line": "local macro \"pre_sub\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ReferenceTupleWeilDatumVectorPolynomialMapEnlarg.lean",
+      "line": 30,
+      "token": "macro",
+      "source_line": "local macro \"keq \" n:ident x:term:max y:term:max h:term:max : tactic => `(tactic|"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ReferenceTupleWeilDatumVectorPolynomialMapEnlarg.lean",
+      "line": 161,
+      "token": "macro",
+      "source_line": "local macro \"tie_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ReferenceTupleWeilDatumVectorPolynomialMapEnlarg.lean",
+      "line": 213,
+      "token": "macro",
+      "source_line": "local macro \"pre_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/RigidFrameSymmetricRatioSeries.lean",
+      "line": 49,
+      "token": "macro",
+      "source_line": "macro \"jet_tac\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/RingSpecNormalisedCharacterEq.lean",
+      "line": 75,
+      "token": "macro",
+      "source_line": "scoped macro \"copy_cases \" h:ident D:ident D':ident : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ThetaLiftAtReferenceTupleOverEnlargedBase.lean",
+      "line": 19,
+      "token": "macro",
+      "source_line": "local macro \"ksub \" h:ident x:ident y:term : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ThetaLiftAtReferenceTupleOverEnlargedBase.lean",
+      "line": 53,
+      "token": "macro",
+      "source_line": "local macro \"tie_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ThetaLiftAtReferenceTupleOverEnlargedBase.lean",
+      "line": 72,
+      "token": "macro",
+      "source_line": "local macro \"coef_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ThetaLiftAtReferenceTupleOverEnlargedBase.lean",
+      "line": 183,
+      "token": "macro",
+      "source_line": "local macro \"pre_cases\" : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/IntegralChartFormalBiext.lean",
+      "line": 36,
+      "token": "macro",
+      "source_line": "local macro \"no_const\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/IntegralChartFormalBiext.lean",
+      "line": 46,
+      "token": "macro",
+      "source_line": "local macro \"push_map\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/ExistsUniqueRigMulRight.lean",
+      "line": 601,
+      "token": "macro",
+      "source_line": "local macro \"grp_comb \" e:term : tactic => `(tactic| ("
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AdelicLatticeSmulMemOfAgreeAwayFromPlace.lean",
+      "line": 70,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.NatMulIsIntegralSatakeParameters.exists_nsmul_mem"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/AdelicLatticeSmulMemOfAgreeAwayFromPlace.lean",
+      "line": 71,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.NatMulIsIntegralSatakeParameters.exists_nsmul_mem"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/UnramifiedWeierstrassCurveTransformCoefficientsW.lean",
+      "line": 20,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.WittRootsOfUnity.inWf_of_mem_Kur"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/UnramifiedWeierstrassCurveTransformCoefficientsW.lean",
+      "line": 21,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.WittRootsOfUnity.inWf_of_mem_Kur"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ValuationRingModel.lean",
+      "line": 206,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.AlgClosedResidueField.isAlgClosed_residueField"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ValuationRingModel.lean",
+      "line": 207,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.AlgClosedResidueField.isAlgClosed_residueField"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RelIndexTwoBlockParahoricConjTorusDiagElement.lean",
+      "line": 22,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact @_root_.GlobalTheory.ParahoricConjugateOpen.relIndex_conj_parahoric"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/RelIndexTwoBlockParahoricConjTorusDiagElement.lean",
+      "line": 23,
+      "token": "run_tac",
+      "source_line": "  | (run_tac Lean.Elab.Tactic.liftMetaTactic (fun g => do pure [← g.revertAll])); exact _root_.GlobalTheory.ParahoricConjugateOpen.relIndex_conj_parahoric"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TransferBottom.lean",
+      "line": 24,
+      "token": "macro",
+      "source_line": "local macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TransferFlip.lean",
+      "line": 28,
+      "token": "macro",
+      "source_line": "local macro:max \"kc% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TwoLeMOf.lean",
+      "line": 72,
+      "token": "macro",
+      "source_line": "local macro:max \"kd% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TwoLeMOf.lean",
+      "line": 74,
+      "token": "macro",
+      "source_line": "local macro \"copyDec% \" d:term:max : term =>"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/TwoLeMOf.lean",
+      "line": 78,
+      "token": "macro",
+      "source_line": "local macro \"copyIsV% \" h:term:max : term =>"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/Convolution/RealGroupAnalysis/UnitaryActions/ContinuousAdelicGL2OfContinuousEntries.lean",
+      "line": 34,
+      "token": "macro",
+      "source_line": "local macro \"sl2\" : tactic => `(tactic|"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/Convolution/RealGroupAnalysis/UnitaryActions/ContinuousAdelicGL2OfContinuousEntries.lean",
+      "line": 36,
+      "token": "macro",
+      "source_line": "local macro \"gl2\" : tactic => `(tactic|"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/EtaleClopenDescent/ExistsHeckeCorrespondenceOnIntegralShimuraModel.lean",
+      "line": 103,
+      "token": "macro",
+      "source_line": "local macro \"cp \" m:term:max : term =>"
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ExistsSelectionPairLocalLanglands.lean",
+      "line": 29,
+      "token": "macro",
+      "source_line": "local macro:max \"kq% \" e:term:max : term => `((by kexactB $e))"
+    },
+    {
+      "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/Cup1CoboundaryMemBoundaries.lean",
+      "line": 96,
+      "token": "macro",
+      "source_line": "macro \"fin_order\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/DFormMem.lean",
+      "line": 85,
+      "token": "macro",
+      "source_line": "local macro \"fa\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/GradedFormCocycle.lean",
+      "line": 15,
+      "token": "macro",
+      "source_line": "local macro \"fa\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/NewformHeckeEigenvalue.lean",
+      "line": 23,
+      "token": "macro",
+      "source_line": "local macro \"gl2\" : tactic => `(tactic| (apply Units.ext; ext i j; fin_cases i <;> fin_cases j <;>"
+    },
+    {
+      "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/ShuffleCup1FormulaPositiveDegree.lean",
+      "line": 29,
+      "token": "macro",
+      "source_line": "macro \"fin_order'\" : tactic =>"
+    },
+    {
+      "path": "src/Development/AutomorphicSpectrum/Proofs/BlockDecomposition/TaylorDifferentialRepresentative.lean",
+      "line": 59,
+      "token": "macro",
+      "source_line": "local macro \"fa\" : tactic =>"
+    },
+    {
+      "path": "src/Development/EtaleCohomology/EtaleSheaves/ChasePf.lean",
+      "line": 105,
+      "token": "macro",
+      "source_line": "macro \"meq\" : tactic => `(tactic| first"
+    },
+    {
+      "path": "src/Development/EtaleCohomology/TateTwists/EtaleTensorCycleLocallyLowersTopDegreeOfRowExact.lean",
+      "line": 9,
+      "token": "macro",
+      "source_line": "local macro \"TI \" w:term:max : term => `({p : ℤ × ℤ // p.1 + p.2 = $w})"
+    },
+    {
+      "path": "src/Development/EtaleCohomology/TateTwists/EtaleTensorCycleLocallyLowersTopDegreeOfRowExact.lean",
+      "line": 11,
+      "token": "macro",
+      "source_line": "local macro \"TF \" C:term:max J:term:max U:term:max w:term:max : term =>"
+    },
+    {
+      "path": "src/Development/WeilBound/CoreStatements/HodgeTatePoints/CbBase.lean",
+      "line": 34,
+      "token": "macro",
+      "source_line": "macro \"zz\" : tactic => `(tactic| repeat' with_reducible first"
+    },
+    {
+      "path": "src/Development/WeilBound/CoreStatements/HodgeTatePoints/CbBase.lean",
+      "line": 81,
+      "token": "macro",
+      "source_line": "macro \"evs\" loc:(Lean.Parser.Tactic.location)? : tactic => `(tactic|"
+    },
+    {
+      "path": "src/Development/WeilBound/CoreStatements/HodgeTatePoints/CcBase.lean",
+      "line": 42,
+      "token": "macro",
+      "source_line": "macro \"ztac\" : tactic => `(tactic| repeat' (first"
+    },
+    {
+      "path": "src/Development/WeilBound/CoreStatements/HodgeTatePoints/CcBase.lean",
+      "line": 81,
+      "token": "macro",
+      "source_line": "macro \"evs\" \" at \" h:ident : tactic => `(tactic| simp (disch := ztac) only [FGLaw.add, ev_mul', ev_one, ev_ev, evV_cons,"
+    },
+    {
+      "path": "src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/CechPairings/FaceMapCompSuccAboveCastSucc.lean",
+      "line": 227,
+      "token": "macro",
+      "source_line": "macro \"fin_tac\" : tactic => `(tactic| (funext x; first | (apply Fin.ext; simp only [Function.comp_apply, vsA, vpA, Fin.val_succ, Fin.val_castSucc, Fin.val_zero, Fin.val_last, id]; split_ifs <;> omega) | (simp only [Function.comp_apply, vbb, vsA, Fin.val_succ, Fin.val_castSucc, Fin.val_zero, Fin.val_last]; split_ifs <;> first | rfl | (exfalso; omega))))"
+    },
+    {
+      "path": "src/Formalism/DistinguishedUnitIdeals/DistinguishedOrderProofs/RhoMapFunctorial.lean",
+      "line": 10,
+      "token": "macro",
+      "source_line": "local macro \"modx\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/EllipticTorsion/EllipticTorsionProofs/Change.lean",
+      "line": 66,
+      "token": "macro",
+      "source_line": "macro \"change_aux_intm\" : tactic => `(tactic| (repeat (first"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CoordinateCommuteRaisingConstant.lean",
+      "line": 573,
+      "token": "macro",
+      "source_line": "local macro \"mx2_dg\" : tactic => `(tactic| (simp only [pA, pbA, cA, ciA, cbA, cbiA, zA, ziA, zbA, zbiA, ggA, ggiA, nabA_eq, nabsA_eq, sc, Matrix.scalar_apply, Matrix.diagonal_mul_diagonal, Matrix.diagonal_add, Matrix.diagonal_sub, ← Matrix.diagonal_one]; congr 1; funext π))"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CornerBlockActionInvariant.lean",
+      "line": 72,
+      "token": "macro",
+      "source_line": "local macro \"blks\" : tactic => `(tactic| simp only [Ux3.block3_apply, Matrix.fromBlocks_apply₁₁, Matrix.fromBlocks_apply₁₂,"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CutCptCopy.lean",
+      "line": 78,
+      "token": "addDecl",
+      "source_line": "      addDecl (.defnDecl { d with name := n', type := subst tainted d.type, value := subst tainted d.value })"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CutCptCopy.lean",
+      "line": 82,
+      "token": "addDecl",
+      "source_line": "      addDecl (.thmDecl { t with name := n', type := subst tainted t.type, value := subst tainted t.value })"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CutCptCopy.lean",
+      "line": 87,
+      "token": "elab",
+      "source_line": "elab \"cpt_copy_thms\" : command => do"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/EmbedLoweringConstant.lean",
+      "line": 12,
+      "token": "macro",
+      "source_line": "local macro \"noncomm_match_scalars\" : tactic => `(tactic|"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/LevelNablaStarRelations.lean",
+      "line": 353,
+      "token": "macro",
+      "source_line": "local macro \"mx2_dg\" : tactic => `(tactic| (simp only [pA, pbA, cA, ciA, cbA, cbiA, zA, ziA, zbA, zbiA, ggA, ggiA, nabA_eq, nabsA_eq, sc,"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/LinearFormRadicalRankOne.lean",
+      "line": 55,
+      "token": "macro",
+      "source_line": "local macro \"blks\" : tactic => `(tactic| simp only [Ux3.block3_apply, Matrix.fromBlocks_apply₁₁, Matrix.fromBlocks_apply₁₂,"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/RadicalUnipotentFirstBasisEqOne.lean",
+      "line": 412,
+      "token": "macro",
+      "source_line": "local macro \"blks\" : tactic => `(tactic| simp only [Ux3.block3_apply, Matrix.fromBlocks_apply₁₁, Matrix.fromBlocks_apply₁₂,"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/RadicalUnipotentFirstBasisEqOne.lean",
+      "line": 526,
+      "token": "macro",
+      "source_line": "local macro \"blks\" : tactic => `(tactic| simp only [Ux3.block3_apply, Matrix.fromBlocks_apply₁₁, Matrix.fromBlocks_apply₁₂,"
+    },
+    {
+      "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/RttUpperRelationsFromDescent.lean",
+      "line": 30,
+      "token": "macro",
+      "source_line": "macro \"distrib_module\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/IndefiniteForms/IndefiniteTree/FunctionalLowerBoundOfConditionsNumeric.lean",
+      "line": 231,
+      "token": "macro",
+      "source_line": "macro \"pos_tac\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/IndefiniteForms/IndefiniteTree/FunctionalLowerBoundOfConditionsNumeric.lean",
+      "line": 234,
+      "token": "macro",
+      "source_line": "macro \"onele_tac\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/IndefiniteReal/HeckeNonvanishing/Imports.lean",
+      "line": 5,
+      "token": "elab",
+      "source_line": "elab \"kexactB \" e:term : tactic => withMainContext do"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/NumberFieldFamilies/OwnStruct.lean",
+      "line": 11,
+      "token": "Kernel.isDefEq",
+      "source_line": "  match Kernel.isDefEq (← getEnv) (← getLCtx) a b with"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/NumberFieldFamilies/OwnStruct.lean",
+      "line": 53,
+      "token": "elab",
+      "source_line": "elab \"kcopy \" t:term : tactic => withMainContext do"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/NumberFieldFamilies/OwnStruct.lean",
+      "line": 60,
+      "token": "elab",
+      "source_line": "elab \"#kcopy_probe \" t:term \" : \" ty:term : command => Command.runTermElabM fun _ => do"
+    },
+    {
+      "path": "src/Formalism/LocalToGlobal/TorsionIntegrality/TorsionTranslationPowers/NonsingularJetNorms/NonsingularNorm.lean",
+      "line": 70,
+      "token": "macro",
+      "source_line": "macro \"integ\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/DensityLemma/PFibreBoundV.lean",
+      "line": 175,
+      "token": "macro",
+      "source_line": "macro \"nbt\" : tactic => `(tactic| (simp only [unipotentBlockMatrix, Matrix.of_apply]; split_ifs <;>"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/GaussianUniqueness/MulMApply.lean",
+      "line": 12,
+      "token": "macro",
+      "source_line": "macro \"lvo\" : tactic => `(tactic| (intro a b c h1 h2; (try dsimp only at h1 h2 ⊢); omega))"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/LevelImageArithmetic/GlevImageOf.lean",
+      "line": 12,
+      "token": "macro",
+      "source_line": "local macro \"ifarith\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/LocalUnimodularLattice/Transf.lean",
+      "line": 100,
+      "token": "#print",
+      "source_line": "#print axioms transfer_holds"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/UnitaryClassMass/UnitaryClassMass.lean",
+      "line": 25,
+      "token": "#print",
+      "source_line": "#print axioms PI.UnitaryGroupMassFormula.UJClassMass.tensor_localization"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/UnitaryClassMass/UnitaryClassMass.lean",
+      "line": 26,
+      "token": "#print",
+      "source_line": "#print axioms PI.UnitaryGroupMassFormula.UJClassMass.hermitian_approximation"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/UnitaryClassMass/UnitaryClassMass.lean",
+      "line": 27,
+      "token": "#print",
+      "source_line": "#print axioms PI.UnitaryGroupMassFormula.UJClassMass.unitary_class_mass"
+    },
+    {
+      "path": "src/Formalism/SatakeDualWeyl/AdelicIwasawaHecke/FIwasawaC.lean",
+      "line": 7,
+      "token": "macro",
+      "source_line": "macro \"fIwasawa_omega\" : tactic =>"
+    },
+    {
+      "path": "src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/FBMapPf.lean",
+      "line": 153,
+      "token": "macro",
+      "source_line": "local macro \"fbm\" : tactic => `(tactic| (simp only [map_mul, map_one, FGLaw.add, map_ev', mp_cons, mp_nil, mp_pt, mp_zero,"
+    },
+    {
+      "path": "src/Formalism/SharpRestriction/Divisibility/LocalNonemptiness/SubsingletonRankIndicatorIff.lean",
+      "line": 276,
+      "token": "macro",
+      "source_line": "macro \"exists_prescribed_local_data\" : tactic => `(tactic| (intros; first | trivial | rfl | exact Subsingleton.elim _ _ | simp))"
+    },
+    {
+      "path": "src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/ExistsRosatiGen.lean",
+      "line": 34,
+      "token": "macro",
+      "source_line": "macro \"secTac\" : tactic => `(tactic| (simp [Sum.forall, Fin.forall_fin_succ, Over.w, Over.w_assoc, eSec, Matrix.cons_val_zero, Matrix.cons_val_succ]))"
+    },
+    {
+      "path": "src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/ExtensionDescent/Theta1.lean",
+      "line": 25,
+      "token": "macro",
+      "source_line": "macro \"ones\" : tactic => `(tactic| (repeat (first | erw [map_one] | erw [one_zpow] | erw [one_pow] | erw [inv_one] | erw [_root_.mul_one] | erw [_root_.one_mul])))"
+    }
+  ],
+  "main_original": "import Statements\nimport Supplements.Kernels.MainTheoremsAll\n\ntheorem riemannHypothesis : RiemannHypothesis := rhOfAll\n\ntheorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := rhOfAll\n\ntheorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := allChi\n\ntheorem LFunction_eq_zero_re : DirichletLZerosOnLine := claimAll.2.1\n\ntheorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := critAll\n",
+  "lean_toolchain_original": "leanprover/lean4:v4.33.1\n",
+  "lakefile_original": "name = \"tree\"\nsrcDir = \"src\"\ndefaultTargets = [\"BuildAid\", \"CompanionTheory\", \"Development\", \"Formalism\", \"GroundTheory\", \"GroundTheoryFields\", \"Lemmata\", \"PositivityTheory\", \"ReciprocityTheory\", \"Supplements\", \"Main\"]\nmoreLeanArgs = [\"--tstack=400000\"]\n\n[leanOptions]\nautoImplicit = false\nrelaxedAutoImplicit = false\nmaxSynthPendingDepth = 3\npp.unicode.fun = true\nmaxHeartbeats = 4000000\n\n[[require]]\nname = \"mathlib\"\ngit = \"https://github.com/leanprover-community/mathlib4\"\nrev = \"0df444a360eaa60ab8c11dca51a86af692955474\"\n\n[[lean_lib]]\nname = \"BuildAid\"\nglobs = [\"BuildAid.+\"]\n\n[[lean_lib]]\nname = \"CompanionTheory\"\nglobs = [\"CompanionTheory.+\"]\n\n[[lean_lib]]\nname = \"Development\"\nglobs = [\"Development.+\"]\n\n[[lean_lib]]\nname = \"Formalism\"\nglobs = [\"Formalism.+\"]\n\n[[lean_lib]]\nname = \"GroundTheory\"\nglobs = [\"GroundTheory.ArithmeticGeometry.+\", \"GroundTheory.AutomorphicForms.+\", \"GroundTheory.Brauer.+\", \"GroundTheory.FunctionField.+\", \"GroundTheory.HeightsAndTheta.+\", \"GroundTheory.IdeleRoots.+\", \"GroundTheory.PAdicHodge.+\", \"GroundTheory.PowerSubgroups.+\", \"GroundTheory.ProfiniteCohomology.+\", \"GroundTheory.TateCohomology.+\"]\n\n[[lean_lib]]\nname = \"GroundTheoryFields\"\nglobs = [\"GroundTheory.LocalFields.+\", \"GroundTheory.GlobalFields.+\"]\nleanOptions = {synthInstance.maxHeartbeats = 400000}\n\n[[lean_lib]]\nname = \"Lemmata\"\nglobs = [\"Lemmata.+\"]\n\n[[lean_lib]]\nname = \"PositivityTheory\"\nglobs = [\"PositivityTheory.+\"]\n\n[[lean_lib]]\nname = \"ReciprocityTheory\"\nglobs = [\"ReciprocityTheory.+\"]\n\n[[lean_lib]]\nname = \"Supplements\"\nglobs = [\"Supplements.+\"]\n\n[[lean_lib]]\nname = \"Main\"\nroots = [\"Statements\", \"Main\"]\n",
+  "limitations": [
+    "This is lexical source inspection, not elaboration, a successful Lean build, an axiom dependency audit, or independent proof verification.",
+    "Custom syntax, imported dependencies, toolchain/compiler trust, generated expressions, and parser edge cases require separate review.",
+    "Quoted strings are omitted, including interpolated strings; custom elaborator and metaprogramming tokens remain separately reported.",
+    "The scan is limited to the original repository src/*.lean files. It does not inspect the implementations of external Lean/Mathlib dependencies.",
+    "Absence of a listed token is not evidence that the formal theorem has the intended mathematical meaning."
+  ],
+  "elapsed_seconds": 59.01,
+  "zero_observed_tokens": [
+    "axiom",
+    "sorry",
+    "admit",
+    "unsafe",
+    "native_decide",
+    "implemented_by",
+    "extern",
+    "sorryAx",
+    "mkSorry",
+    "mkSyntheticSorry",
+    "ofReduceBool",
+    "trustCompiler",
+    "skipKernelTC",
+    "skipKernelCheck",
+    "axiomDecl",
+    "trustLevel",
+    "setEnv",
+    "run_elab",
+    "run_meta",
+    "initialize",
+    "builtin_initialize"
+  ],
+  "reviewed_findings": [
+    {
+      "category": "custom elaborators",
+      "paths": [
+        "src/Formalism/LocalToGlobal/IndefiniteReal/HeckeNonvanishing/Imports.lean",
+        "src/Formalism/LocalToGlobal/NumberFieldFamilies/OwnStruct.lean",
+        "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CutCptCopy.lean"
+      ],
+      "assessment": "kexactB elaborates a term and assigns it to a goal. kcopy recursively builds terms by projections/constructors and assigns them; its probe calls Kernel.isDefEq. cpt_copy_thms substitutes names in existing definition/theorem types and values, then calls addDecl for defnDecl/thmDecl. These are material metaprogramming audit points; their presence alone is not evidence of an unchecked axiom. Successful kernel checking was not established."
+    },
+    {
+      "category": "environment mutation",
+      "paths": [
+        "src/BuildAid/D1.lean",
+        "src/BuildAid/D2.lean",
+        "src/BuildAid/D3.lean",
+        "src/BuildAid/D4.lean",
+        "src/BuildAid/D5.lean"
+      ],
+      "assessment": "The five run_cmd/modifyEnv occurrences add namespace strings to Lean.LibrarySuggestions.nameDenyListExt. They do not visibly add theorem or axiom declarations."
+    },
+    {
+      "category": "tactic metaprograms",
+      "assessment": "Of 32 run_tac occurrences, 30 use liftMetaTactic/revertAll followed by exact an existing declaration. FramesTildeGammaValues.lean constructs a Subsingleton.elim proof and notes it. ExistsGIs.lean assigns the local hypothesis h to the goal. This source inspection does not establish kernel acceptance of the resulting terms."
+    },
+    {
+      "category": "syntax macros",
+      "assessment": "87 macro keyword occurrences are recorded. Inspected declarations expand quoted Lean term/tactic syntax, including wrappers around kexactB. This is a lexical inventory, not a proof that every macro is semantically faithful."
+    },
+    {
+      "category": "reducibility and elaboration options",
+      "assessment": "37 allowUnsafeReducibility true occurrences are present. Other audit-relevant options include hygiene false (31), quotPrecheck false (7), and backward.isDefEq.respectTransparency false (1877). These are not the debug.skipKernelTC option; this audit does not infer successful kernel verification from that distinction."
+    }
+  ],
+  "main_exported_theorems": [
+    {
+      "name": "riemannHypothesis",
+      "type": "RiemannHypothesis",
+      "proof": "rhOfAll"
+    },
+    {
+      "name": "riemannZeta_eq_zero_re",
+      "type": "RiemannZetaZerosOnLine",
+      "proof": "rhOfAll"
+    },
+    {
+      "name": "LFunction_ne_zero_of_half_lt_re",
+      "type": "DirichletLNonvanishingRightOfHalf",
+      "proof": "allChi"
+    },
+    {
+      "name": "LFunction_eq_zero_re",
+      "type": "DirichletLZerosOnLine",
+      "proof": "claimAll.2.1"
+    },
+    {
+      "name": "LFunction_eq_zero_re_of_isPrimitive",
+      "type": "PrimitiveDirichletLZerosOnLine",
+      "proof": "critAll"
+    }
+  ],
+  "statements_original": "import Mathlib\n\ndef RiemannZetaZerosOnLine : Prop :=\n  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2\n\ndef DirichletLNonvanishingRightOfHalf : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),\n    1 / 2 < s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0\n\ndef DirichletLZerosOnLine : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),\n    0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2\n\ndef PrimitiveDirichletLZerosOnLine : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →\n    ∀ s : ℂ, 0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2\n",
+  "main_theorems_original": "import Formalism.GammaFactorNonvanishing.CritLine\nimport Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip\nimport Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion\n\nopen Complex DirichletCharacter\n\ntheorem allChi : UpperTheory.EveryCharacter := UpperTheory.FinalTheorems.everyCharacter\n\ntheorem rhOfAll : RiemannHypothesis := Formalism.VW.rh_of_every allChi\n\ntheorem critAll (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (s : ℂ)\n    (h0 : 0 < s.re) (h1 : s.re < 1) (hz : LFunction χ s = 0) : s.re = 1 / 2 :=\n  Formalism.VW.critLine allChi N χ hχ s h0 h1 hz\n\ntheorem claimAll : Claim.HalfPlane ∧ Claim.Strip ∧ Claim.Zeta :=\n  ⟨allChi, Claim.strip allChi, Claim.zeta allChi⟩\n",
+  "provenance": {
+    "readme_excerpt": [
+      {
+        "line": 1,
+        "text": "# Riemann Hypothesis in Lean — by Levent Alpöge (with Claude)"
+      },
+      {
+        "line": 3,
+        "text": "> **The proof in this repository is the work of [Levent Alpöge](https://alpo.ge/).**"
+      },
+      {
+        "line": 4,
+        "text": "> On 2026-11-20 he announced that, working with Claude, he had found a proof of the Riemann Hypothesis that extends to the Generalized Riemann Hypothesis (for Dirichlet L-functions), and that the argument is fully formalized in Lean without assumptions."
+      },
+      {
+        "line": 5,
+        "text": "> All credit belongs to Levent Alpöge (and Claude). This repository is an unmodified mirror of the Lean code he published, put on GitHub so that people and agents can browse, clone and check it."
+      },
+      {
+        "line": 9,
+        "text": "- Announcement (4 pages): https://alpo.ge/remark.pdf"
+      },
+      {
+        "line": 10,
+        "text": "- Original download: https://alpo.ge/lean.tar.gz.part01 … https://alpo.ge/lean.tar.gz.part14"
+      },
+      {
+        "line": 11,
+        "text": "- Merged archive in this repo's [Releases](https://github.com/CocoSgt/riemann-hypothesis-lean/releases/tag/v2026-11-20)"
+      },
+      {
+        "line": 13,
+        "text": "**Status.** As of mirroring (2026-11-20), no independent build or review of this code has been published. Treat it as a claimed proof until it has been compiled and checked."
+      },
+      {
+        "line": 101,
+        "text": "The `src/` tree in this repository is byte-for-byte the content of that archive; this README, `.gitignore` and nothing else were added."
+      },
+      {
+        "line": 170,
+        "text": "## Credit and license"
+      },
+      {
+        "line": 172,
+        "text": "The mathematics and the Lean code are by **Levent Alpöge**, working with Claude. The original archive was published at https://alpo.ge/ without a stated license; this mirror adds no license of its own and claims no authorship. If the author asks for this mirror to be changed or removed, it will be."
+      }
+    ],
+    "license_named_files": [],
+    "assessment": "The README attributes the mathematics and Lean code to Levent Alpöge working with Claude. It says no independent build/review had been published as of mirroring, asserts byte-for-byte correspondence to the original archive, and states the original archive had no stated license and this mirror adds none. This audit has not independently compared the original web archive. A permissive redistribution license is not established; preserve the attribution/no-license notice and do not relicense the source as Apache/MIT without a separate grant."
+  },
+  "syntax_candidate_for_compiler_check": {
+    "path": "src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ComplexFormsBaseLevelLeSpanIntegral.lean",
+    "line": 11,
+    "source_line": "set_option maxHeartbeats 1600000open Formalism.L2.Host (embLL0)",
+    "assessment": "The exact numeral/open token adjacency was accepted by the hosted scratch check 890bbe89daf06855732d4923dfb2c327. The probe defined Foo.x, used set_option maxHeartbeats 1600000open Foo, and #check x resolved Foo.x. This is not a syntax defect. The full source file and imports were not compiled.",
+    "hosted_check_id": "890bbe89daf06855732d4923dfb2c327",
+    "hosted_check_result": "closed",
+    "hosted_check_sorries": 0,
+    "hosted_check_axioms": [],
+    "probe_file": "source-lexical-probe.lean",
+    "probe_result_file": "source-lexical-probe-result.json"
+  },
+  "conclusion": "No direct occurrence of the listed axiom/sorry/admit/unsafe/native_decide/kernel-skip tokens was found in the scanned original source after masking comments/strings. Custom metaprogramming and unsafe-reducibility options are present and documented. This does not establish a complete proof, intended semantics, absence of unlisted trust mechanisms, or an independently verified build. The five public theorem signatures and source provenance were checked textually."
+}

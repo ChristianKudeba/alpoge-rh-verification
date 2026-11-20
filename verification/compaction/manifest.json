@@ -1,0 +1,215 @@
+{
+  "base_commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "source_commit": "fb97c4c5a1624d02c8ddfa0d403a29becff79c9e",
+  "metrics": {
+    "changed_files": 19,
+    "new_modules": 3,
+    "insertions": 166,
+    "deletions": 431,
+    "physical_lines_removed_net": 265,
+    "nonblank_lines_removed_net": 269,
+    "utf8_bytes_removed_net": 16746
+  },
+  "changed_files": [
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DirichletLZeroSymmetry.lean",
+      "sha256": "11dab009a005f4ee1008466b9cd38f03a321e16cded630122c8e7905fac78f87",
+      "bytes": 4538
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+      "sha256": "eeb0b4a4ec7534ae1d2ea097aa18180e9a14d8e2f7e31045e46f6a0576c4b6dd",
+      "bytes": 3286
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/EulerFactors.lean",
+      "sha256": "f4e331bf5e0415990baa760591dacd0410c74a20325f4a44cc4b7d4807520efe",
+      "bytes": 823
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean",
+      "sha256": "2bb1c337312344853481fdb663e0f9ad1619347508bca64ee8895976617a755f",
+      "bytes": 1099
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacterStatement.lean",
+      "sha256": "df494e539864634bd8f43bb231017c8af2459974b141e59fcb80716a69673fc8",
+      "bytes": 124
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean",
+      "sha256": "4cebca1f85b46de174cfe857a74244c520801132332fa5fca55525187954ce8e",
+      "bytes": 1191
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean",
+      "sha256": "8203ac71df9ae4386334c6db70bd833d0bd09d388070277889c4fe31ab1e705b",
+      "bytes": 2885
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/LiftAut.lean",
+      "sha256": "8cad370335dc612395a9e1bc42cac88fa26039ca6dd059936ef45fe0c19ae360",
+      "bytes": 14816
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/ReadLift.lean",
+      "sha256": "6027a83a45d241820c6c24b131ef3aab4d9a8b908860838420ca181aac8f2229",
+      "bytes": 19991
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean",
+      "sha256": "065080a23ece7ee952466a4e6a5f2158db63150e5188ae9e0ae8899728d21f4f",
+      "bytes": 15872
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGLiftAut.lean",
+      "sha256": "10b27f9df0600cb3a8bff414ee1f47989becae19e85156ff40a86c9302c14f54",
+      "bytes": 13552
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGReadLift.lean",
+      "sha256": "9d276cd8362e0b30dc4d97c93d141e572ff5c5606ca4ed9560afb24519d21a77",
+      "bytes": 13619
+    },
+    {
+      "path": "src/Development/AutomorphicArithmetic/MeanSquareBounds/PsiThin.lean",
+      "sha256": "3da8a8b950a5fec63698c076397657c8a3840d43337f1f97175d98beb2efdca2",
+      "bytes": 22325
+    },
+    {
+      "path": "src/Formalism/GammaFactorNonvanishing/CritLine.lean",
+      "sha256": "d49233cbca58ff255d3cc7e66f2cdd0364c620ee10a8d45c1728084789eb6501",
+      "bytes": 651
+    },
+    {
+      "path": "src/Formalism/GammaFactorNonvanishing/GammaFactor.lean",
+      "sha256": "84728bb6aaeb255fc0efa15a6dc5c6a3e07e6decf3dda4df4c966b81f43833e5",
+      "bytes": 1204
+    },
+    {
+      "path": "src/Formalism/GammaFactorNonvanishing/RhOfRight.lean",
+      "sha256": "1fe4ab68819244d59d2dc7932904332112b13a84c3fefc347f24f8e3fd3ed5d9",
+      "bytes": 1030
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ZeroWindow/Transfer.lean",
+      "sha256": "833a7c9d65010ed2586746730349660f026a6511f1eb32d19dd194ffbef49853",
+      "bytes": 5033
+    },
+    {
+      "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/ShortIntervalPrimes.lean",
+      "sha256": "9703d69ece2dc8aa3a03ae384b6ff91d537068bcec993a182e84e35defb1e180",
+      "bytes": 23942
+    },
+    {
+      "path": "src/Main.lean",
+      "sha256": "f7daf90c24b7bf6ed08a3fd819ae5d6782f810e6a5962b5c0bfed4bba9939095",
+      "bytes": 430
+    }
+  ],
+  "artifacts": {
+    "COMPACTION.txt": {
+      "sha256": "415110714c45fefbc38b5eea634052624c7dbce2c417162b9fbc88d9c9aa0eb1",
+      "bytes": 5648
+    },
+    "alpoge-compaction.patch": {
+      "sha256": "e1ca4e5a2f986df75b34f991e942940966c577d6521bf9be996cd3486f850d5f",
+      "bytes": 74444
+    },
+    "alpoge-compaction.patch.txt": {
+      "sha256": "e1ca4e5a2f986df75b34f991e942940966c577d6521bf9be996cd3486f850d5f",
+      "bytes": 74444
+    },
+    "analytic-compaction.patch": {
+      "sha256": "d156d0574d6249fe461bc621404480e3c00cd844ca994c44b46477eb31c5812a",
+      "bytes": 28656
+    },
+    "analytic-compaction.patch.txt": {
+      "sha256": "d156d0574d6249fe461bc621404480e3c00cd844ca994c44b46477eb31c5812a",
+      "bytes": 28656
+    },
+    "analyze_imports.py": {
+      "sha256": "b356d1ff8fe34ac4cce2b062a6c9b8cb824cbc3bb655ed3d8dce4278e5124aea",
+      "bytes": 11588
+    },
+    "audit_galois_cse.py": {
+      "sha256": "1489ada7684264dd29efd50a4349b5fc361c3540d1dfd6fb223f5c4496127626",
+      "bytes": 2859
+    },
+    "build_check_bundle.py": {
+      "sha256": "d2bf0c58b6b3c65b43c0dd64090e8009d37f4294f97b39f490f6d7695eb77c4d",
+      "bytes": 4096
+    },
+    "check-bundle.json": {
+      "sha256": "ca4ef26da3c25b564098c5c83f0440ad477574b3af07e01a8b7bcb03e47913c0",
+      "bytes": 23287
+    },
+    "check_import_graph.py": {
+      "sha256": "cee5c8f7f7021ace1b908e412b45529c038c9f64324d5ccedf6723f6d13a9339",
+      "bytes": 4828
+    },
+    "checked-compaction.lean": {
+      "sha256": "a29240603c35204a48c63d6ab793d2afff6141932b7379485384fd8763b9d715",
+      "bytes": 22322
+    },
+    "combine_structural_audit.py": {
+      "sha256": "0e52bcbfea977c33c9a6456161fa61d461d98ae7ea7fad30371b5d68f8388c71",
+      "bytes": 5202
+    },
+    "galois-structural-audit.json": {
+      "sha256": "60ba88cb6d7a8ecfb067d5d9ae5bf0530cf597a41144c202eb42bf2332f31e6e",
+      "bytes": 1898
+    },
+    "gamma-dedup-audit.json": {
+      "sha256": "54c0615c23e3de9ab2c0f5c1528b2ccc598abcdafdd6814e858337aed8bfdc71",
+      "bytes": 4430
+    },
+    "import-analysis/integrity-check.json": {
+      "sha256": "425a4352847ce6fad7f3e40cc3cf2c975740ecf86996c0f466df607bfcc2aea3",
+      "bytes": 46013
+    },
+    "import-analysis/report.json": {
+      "sha256": "aef8e48667a3a4301da33bc3700cf3391b0649022f519f2b83082d2b12d59486",
+      "bytes": 263796
+    },
+    "lean-verification.json": {
+      "sha256": "14017d844186f32fa02f2defa164af17ea09d971792c025627e6b5edd379029c",
+      "bytes": 14637
+    },
+    "prim-zero-compaction-audit.json": {
+      "sha256": "b43e93c04f3c1919ae12ddc58f28d47915478656e2cb64ed8732599cda58a07b",
+      "bytes": 8667
+    },
+    "reflection-dedup-audit.json": {
+      "sha256": "c46394322d97eed46a977ff1709bb90557fdc5b33b51b4b7596ea649f06444fc",
+      "bytes": 4683
+    },
+    "refresh_package.py": {
+      "sha256": "4e54c2a0cd961c43fa2fffa1c4f35e467c17950d1c2303eb837c0d967dc1de5c",
+      "bytes": 15116
+    },
+    "structural-audit.json": {
+      "sha256": "d86f5ab637bb1bc400ec2767cb3eb13b336172ae034b569e119a315874bbc3c4",
+      "bytes": 108567
+    },
+    "theta-deduplication.patch": {
+      "sha256": "36bc6735847d41ea1726b04dcb6978785ffa15757b097e0ac427f9fefbcf5088",
+      "bytes": 45788
+    },
+    "theta-deduplication.patch.txt": {
+      "sha256": "36bc6735847d41ea1726b04dcb6978785ffa15757b097e0ac427f9fefbcf5088",
+      "bytes": 45788
+    },
+    "theta-structural-audit.json": {
+      "sha256": "5448ec50eb2174c047a6a4efa09cc9af4437cc8a95362679c3c18656d3d44089",
+      "bytes": 96703
+    }
+  },
+  "patch_application_checks": {
+    "alpoge-compaction.patch": "passed against temporary index populated from baseline",
+    "analytic-compaction.patch": "passed against temporary index populated from baseline",
+    "theta-deduplication.patch": "passed against temporary index populated from baseline",
+    "analytic plus theta patches": "passed together against baseline"
+  },
+  "validation_scope": "Full lightweight bundle checked on Principia; six deeper files have structural validation only; the whole archive was not built."
+}

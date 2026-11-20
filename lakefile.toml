@@ -59,3 +59,17 @@ globs = ["Supplements.+"]
 [[lean_lib]]
 name = "Main"
 roots = ["Statements", "Main"]
+
+# Append to the original lakefile.toml. Keep package srcDir = "src" and
+# every existing target, dependency pin and Lean option unchanged.
+# Lake computes library source roots relative to package.srcDir.
+
+[[lean_lib]]
+name = "Challenge"
+srcDir = ".."
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+srcDir = ".."
+roots = ["Solution"]

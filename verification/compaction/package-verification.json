@@ -1,0 +1,34 @@
+{
+  "base_commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "source_commit": "fb97c4c5a1624d02c8ddfa0d403a29becff79c9e",
+  "metrics": {
+    "changed_files": 19,
+    "new_modules": 3,
+    "insertions": 166,
+    "deletions": 431,
+    "physical_lines_removed_net": 265,
+    "nonblank_lines_removed_net": 269,
+    "utf8_bytes_removed_net": 16746
+  },
+  "patch_application_checks": {
+    "alpoge-compaction.patch": "passed against temporary index populated from baseline",
+    "analytic-compaction.patch": "passed against temporary index populated from baseline",
+    "theta-deduplication.patch": "passed against temporary index populated from baseline",
+    "analytic plus theta patches": "passed together against baseline"
+  },
+  "zip": {
+    "path": "alpoge-compaction.zip",
+    "sha256": "ae9459fe6f633262c5f52578d18b1bdee2084f60c42064120b5a7a6ca93a9f66",
+    "bytes": 184760,
+    "entries": 44,
+    "crc_check": "passed",
+    "embedded_manifest_matches": "passed",
+    "all_source_and_artifact_hashes": "passed"
+  },
+  "manifest": {
+    "sha256": "822a163fa8d2e2297e63b5f788912a365f669192d4b3b743cb52cd8ce4d479b9",
+    "bytes": 8519
+  },
+  "source_checkout_modified": false,
+  "axiom_inventory_records_preserved": 15
+}

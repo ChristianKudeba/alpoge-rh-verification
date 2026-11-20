@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "PrincipiaFullVerification.riemannHypothesis",
+    "PrincipiaFullVerification.riemannZeta_eq_zero_re",
+    "PrincipiaFullVerification.LFunction_ne_zero_of_half_lt_re",
+    "PrincipiaFullVerification.LFunction_eq_zero_re",
+    "PrincipiaFullVerification.LFunction_eq_zero_re_of_isPrimitive"
+  ],
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "enable_nanoda": false
+}

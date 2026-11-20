@@ -1,0 +1,1090 @@
+diff --git a/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DirichletLZeroSymmetry.lean b/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DirichletLZeroSymmetry.lean
+index 09a41bf1f327641b92d332a7c89a13a3043a4804..20be22e78427d5ec48ab23a9f92b60aa9fcee877 100644
+--- a/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DirichletLZeroSymmetry.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/DirichletLZeroSymmetry.lean
+@@ -1,4 +1,5 @@
+ import Mathlib
++import Formalism.GammaFactorNonvanishing.GammaFactor
+ import Development.AbelianVarietyTheory.Definitions.Foundations.RayPrimes
+ 
+ open Filter Topology Complex GlobalTheory.Mem.An
+@@ -9,27 +10,18 @@ section
+ variable {q : ℕ}
+ 
+ theorem zsym_gammaFactor_ne_zero (χ : DirichletCharacter ℂ q) {s : ℂ} (hs : 0 < s.re) :
+-    χ.gammaFactor s ≠ 0 := by
+-  rcases χ.even_or_odd with h | h <;> rw [h.gammaFactor_def]
+-  · exact Gammaℝ_ne_zero_of_re_pos hs
+-  · exact Gammaℝ_ne_zero_of_re_pos (by simp; linarith)
++    χ.gammaFactor s ≠ 0 :=
++  Formalism.VW.gammaFactor_ne_zero χ hs
+ 
+ theorem zsym_differentiable_gammaFactor_inv (χ : DirichletCharacter ℂ q) :
+-    Differentiable ℂ (fun s => (χ.gammaFactor s)⁻¹) := by
+-  rcases χ.even_or_odd with h | h <;> simp only [h.gammaFactor_def]
+-  · exact differentiable_Gammaℝ_inv
+-  · exact differentiable_Gammaℝ_inv.comp (differentiable_id.add_const 1)
++    Differentiable ℂ (fun s => (χ.gammaFactor s)⁻¹) :=
++  Formalism.VW.differentiable_gammaFactor_inv χ
+ 
+ variable [NeZero q]
+ 
+ theorem zsym_rootNumber_ne_zero {χ : DirichletCharacter ℂ q} (hχ : χ.IsPrimitive) :
+-    χ.rootNumber ≠ 0 := by
+-  intro h
+-  have h1 := hχ.completedLFunction_one_sub (-1)
+-  rw [h, mul_zero, zero_mul] at h1
+-  have h2 := χ.LFunction_eq_completed_div_gammaFactor (1 - -1) (Or.inl (by norm_num))
+-  rw [h1, zero_div] at h2
+-  exact χ.LFunction_ne_zero_of_one_le_re (Or.inr (by norm_num)) (by norm_num) h2
++    χ.rootNumber ≠ 0 :=
++  Formalism.VW.rootNumber_ne_zero hχ
+ 
+ noncomputable def zsymFactor (χ : DirichletCharacter ℂ q) (s : ℂ) : ℂ :=
+   (q : ℂ) ^ ((1 - s) - 1 / 2) * χ.rootNumber * (χ.gammaFactor s)⁻¹ / (χ⁻¹.gammaFactor (1 - s))⁻¹
+diff --git a/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean b/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean
+index 60b3e96d81c2cb7d821d14c978b38bd9fd0d97f8..c34cd77e4bfe3feb45ce100c682456432c0f15eb 100644
+--- a/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean
++++ b/src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean
+@@ -1,25 +1,12 @@
+ import Development.AutomorphicArithmetic.CharacterBoxes.HalfPlane
++import Development.AutomorphicArithmetic.CharacterBoxes.EulerFactors
++import Formalism.GammaFactorNonvanishing.GammaFactor
++import Formalism.GammaFactorNonvanishing.RhOfRight
+ 
+ open Complex
+ 
+ namespace Claim
+ 
+-theorem factor_ne_zero {M : ℕ} (ψ : DirichletCharacter ℂ M) {s : ℂ} (hs : 0 < s.re) (p : ℕ)
+-    (hp : p.Prime) : (1 : ℂ) - ψ p * (p : ℂ) ^ (-s) ≠ 0 := by
+-  intro h
+-  have h1 : ψ p * (p : ℂ) ^ (-s) = 1 := by linear_combination -h
+-  have hp1 : (1 : ℝ) < p := by exact_mod_cast hp.one_lt
+-  have hpow : ‖(p : ℂ) ^ (-s)‖ < 1 := by
+-    rw [Complex.norm_natCast_cpow_of_pos hp.pos, Complex.neg_re]
+-    exact Real.rpow_lt_one_of_one_lt_of_neg hp1 (by linarith)
+-  have hn : ‖ψ p * (p : ℂ) ^ (-s)‖ < 1 := by
+-    rw [norm_mul]
+-    calc ‖ψ p‖ * ‖(p : ℂ) ^ (-s)‖ ≤ 1 * ‖(p : ℂ) ^ (-s)‖ := by
+-          gcongr; exact ψ.norm_le_one _
+-      _ < 1 := by rw [one_mul]; exact hpow
+-  rw [h1, norm_one] at hn
+-  exact lt_irrefl _ hn
+-
+ theorem prim_zero {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) [NeZero χ.conductor] {s : ℂ}
+     (hs0 : 0 < s.re) (hs1 : s.re < 1) (h : DirichletCharacter.LFunction χ s = 0) :
+     DirichletCharacter.LFunction χ.primitiveCharacter s = 0 := by
+@@ -27,17 +14,13 @@ theorem prim_zero {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) [NeZero 
+   have key := DirichletCharacter.LFunction_changeLevel χ.conductor_dvd_level
+     χ.primitiveCharacter (Or.inr hs)
+   rw [χ.changeLevel_primitiveCharacter, h] at key
+-  rcases mul_eq_zero.mp key.symm with h' | h'
+-  · exact h'
+-  · obtain ⟨p, hp, hp0⟩ := Finset.prod_eq_zero_iff.mp h'
+-    exact absurd hp0 (factor_ne_zero _ hs0 p (Nat.prime_of_mem_primeFactors hp))
++  exact (mul_eq_zero.mp key.symm).resolve_right
++    (Finset.prod_ne_zero_iff.mpr fun p hp =>
++      factor_ne_zero _ hs0 p (Nat.prime_of_mem_primeFactors hp))
+ 
+ theorem gamma_ne_zero {M : ℕ} [NeZero M] (φ : DirichletCharacter ℂ M) {t : ℂ} (ht : 0 < t.re) :
+-    DirichletCharacter.gammaFactor φ t ≠ 0 := by
+-  rcases φ.even_or_odd with hφ | hφ
+-  · rw [hφ.gammaFactor_def]; exact Complex.Gammaℝ_ne_zero_of_re_pos ht
+-  · rw [hφ.gammaFactor_def]
+-    exact Complex.Gammaℝ_ne_zero_of_re_pos (by rw [Complex.add_re, Complex.one_re]; linarith)
++    DirichletCharacter.gammaFactor φ t ≠ 0 :=
++  Formalism.VW.gammaFactor_ne_zero φ ht
+ 
+ theorem prim_reflect {M : ℕ} [NeZero M] (ψ : DirichletCharacter ℂ M) (hψ : ψ.IsPrimitive) {s : ℂ}
+     (hs0 : 0 < s.re) (hs1 : s.re < 1) (h : DirichletCharacter.LFunction ψ s = 0) :
+@@ -72,32 +55,10 @@ theorem strip (h : HalfPlane) : Strip := by
+   · exact heq
+   · exact absurd hz (h N χ s hgt (Or.inr hs))
+ 
+-theorem zeta (h : HalfPlane) : Zeta := by
+-  intro s hz htriv hs1
+-  have hs0 : s ≠ 0 := fun e => by rw [e, riemannZeta_zero] at hz; norm_num at hz
+-  rcases lt_or_ge 0 s.re with hpos | hnpos
+-  · rcases lt_or_ge s.re 1 with hlt1 | hge1
+-    · have hL : DirichletCharacter.LFunction (1 : DirichletCharacter ℂ 1) s = 0 := by
+-        rw [DirichletCharacter.LFunction_modOne_eq]; exact hz
+-      exact strip h 1 1 s hpos hlt1 hL
+-    · exact absurd hz (riemannZeta_ne_zero_of_one_le_re hge1)
+-  · exfalso
+-    have hG : Gammaℝ s ≠ 0 := by
+-      intro hg
+-      obtain ⟨n, hn⟩ := Complex.Gammaℝ_eq_zero_iff.mp hg
+-      rcases n with _ | n
+-      · exact hs0 (by simpa using hn)
+-      · exact htriv ⟨n, by rw [hn]; push_cast; ring⟩
+-    have hc : completedRiemannZeta s = 0 := by
+-      rw [riemannZeta_def_of_ne_zero hs0, div_eq_zero_iff] at hz
+-      exact hz.resolve_right hG
+-    have h1s : 1 - s ≠ 0 := fun e => by
+-      have := congrArg Complex.re e
+-      rw [Complex.sub_re, Complex.one_re, Complex.zero_re] at this
+-      linarith
+-    have hz' : riemannZeta (1 - s) = 0 := by
+-      rw [riemannZeta_def_of_ne_zero h1s, completedRiemannZeta_one_sub, hc, zero_div]
+-    exact riemannZeta_ne_zero_of_one_le_re (by rw [Complex.sub_re, Complex.one_re]; linarith) hz'
++theorem zeta (h : HalfPlane) : Zeta :=
++  Formalism.VW.rh_of_right fun s hs hs1 => by
++    simpa only [DirichletCharacter.LFunction_modOne_eq] using
++      h 1 (1 : DirichletCharacter ℂ 1) s hs (Or.inr hs1)
+ 
+ theorem zeta_iff : Zeta ↔ RiemannHypothesis := Iff.rfl
+ 
+diff --git a/src/Development/AutomorphicArithmetic/CharacterBoxes/EulerFactors.lean b/src/Development/AutomorphicArithmetic/CharacterBoxes/EulerFactors.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..c34d065d87def03741a5ea639fd14ef094463dde
+--- /dev/null
++++ b/src/Development/AutomorphicArithmetic/CharacterBoxes/EulerFactors.lean
+@@ -0,0 +1,23 @@
++import Mathlib
++
++open Complex
++
++namespace Claim
++
++theorem factor_ne_zero {M : ℕ} (ψ : DirichletCharacter ℂ M) {s : ℂ} (hs : 0 < s.re) (p : ℕ)
++    (hp : p.Prime) : (1 : ℂ) - ψ p * (p : ℂ) ^ (-s) ≠ 0 := by
++  intro h
++  have h1 : ψ p * (p : ℂ) ^ (-s) = 1 := by linear_combination -h
++  have hp1 : (1 : ℝ) < p := by exact_mod_cast hp.one_lt
++  have hpow : ‖(p : ℂ) ^ (-s)‖ < 1 := by
++    rw [Complex.norm_natCast_cpow_of_pos hp.pos, Complex.neg_re]
++    exact Real.rpow_lt_one_of_one_lt_of_neg hp1 (by linarith)
++  have hn : ‖ψ p * (p : ℂ) ^ (-s)‖ < 1 := by
++    rw [norm_mul]
++    calc ‖ψ p‖ * ‖(p : ℂ) ^ (-s)‖ ≤ 1 * ‖(p : ℂ) ^ (-s)‖ := by
++          gcongr; exact ψ.norm_le_one _
++      _ < 1 := by rw [one_mul]; exact hpow
++  rw [h1, norm_one] at hn
++  exact lt_irrefl _ hn
++
++end Claim
+diff --git a/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean b/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean
+index 6ac769568b67f85f33565ba3e1eef7b91f53c55f..8f1a2b73594a0fcb42e24559560ed126dfa61c73 100644
+--- a/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean
++++ b/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean
+@@ -1,3 +1,4 @@
++import Development.AutomorphicArithmetic.CharacterBoxes.EveryCharacterStatement
+ import Development.AbelianVarietyTheory.Proofs.GlobalInterpolation.ShapeOf
+ import Development.AutomorphicArithmetic.CharacterBoxes.ShapeWin
+ import Development.AutomorphicArithmetic.CharacterBoxes.SupplyChi
+@@ -10,9 +11,6 @@ theorem UpperTheory.Top.plugWin (hG : GlobalTheory.GLq.Green) (hV : UpperTheory.
+   h.elim fun h => UpperTheory.Top.zeroFreeAll_of_topG (la := 3 / 2) (by norm_num)
+     (GlobalTheory.Fc.shape_of _ _ _ _ (UpperTheory.Top.shapeWin hG) trivial trivial h) fun ψ => UpperTheory.Top.supplyChi ψ (hV ψ)
+ 
+-def UpperTheory.EveryCharacter : Prop :=
+-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ), 1 / 2 < s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0
+-
+ theorem UpperTheory.Top.plugAll (hG : GlobalTheory.GLq.Green) (hV : UpperTheory.Top.VWin)
+     (h : Nonempty (Hyps (fun 𝒞 => Closed 𝒞 fun Fm _ => LinkN Fm) DRS)) : UpperTheory.EveryCharacter :=
+   UpperTheory.Top.imprimitive (UpperTheory.Top.plugWin hG hV h)
+diff --git a/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacterStatement.lean b/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacterStatement.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..306aefa796249bf39831311d6c941facc79abedf
+--- /dev/null
++++ b/src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacterStatement.lean
+@@ -0,0 +1,3 @@
++import Development.AutomorphicArithmetic.CharacterBoxes.HalfPlane
++
++def UpperTheory.EveryCharacter : Prop := Claim.HalfPlane
+diff --git a/src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean b/src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean
+index 97cbdce9fcc91c4f0dcc25fef62daf4c95724afa..da6ceacc9e5ca24b73dcad04601896c7eddbfef6 100644
+--- a/src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean
++++ b/src/Development/AutomorphicArithmetic/CharacterBoxes/Imprimitive.lean
+@@ -1,3 +1,4 @@
++import Development.AutomorphicArithmetic.CharacterBoxes.EulerFactors
+ import Formalism.SharpRestriction.RamificationFrobenius.TotientGaloisClasses.ExplicitFormulaErrorOfHostConditions
+ 
+ open Formalism.HC
+@@ -19,17 +20,5 @@ theorem UpperTheory.Top.imprimitive :
+   rw [χ.changeLevel_primitiveCharacter] at hrw
+   rw [hrw]
+   refine mul_ne_zero hL (Finset.prod_ne_zero_iff.mpr fun p hp => ?_)
+-  have hp' := Nat.prime_of_mem_primeFactors hp
+-  intro h0
+-  have key : χ.primitiveCharacter p * (p : ℂ) ^ (-s) = 1 := by linear_combination -h0
+-  have h1 : ‖χ.primitiveCharacter (p : ZMod χ.conductor)‖ ≤ 1 := DirichletCharacter.norm_le_one _ _
+-  have h2 : ‖(p : ℂ) ^ (-s)‖ < 1 := by
+-    rw [Complex.norm_natCast_cpow_of_pos hp'.pos, Complex.neg_re]
+-    exact Real.rpow_lt_one_of_one_lt_of_neg (by exact_mod_cast hp'.one_lt) (by linarith)
+-  have hn : ‖χ.primitiveCharacter p * (p : ℂ) ^ (-s)‖ < 1 := by
+-    rw [norm_mul]
+-    calc ‖χ.primitiveCharacter (p : ZMod χ.conductor)‖ * ‖(p : ℂ) ^ (-s)‖
+-        ≤ 1 * ‖(p : ℂ) ^ (-s)‖ := by gcongr
+-      _ < 1 := by simpa using h2
+-  rw [key, norm_one] at hn
+-  exact lt_irrefl _ hn
++  exact Claim.factor_ne_zero χ.primitiveCharacter (by linarith) p
++    (Nat.prime_of_mem_primeFactors hp)
+diff --git a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean
+index 4d4d9506494734f28fce7d39bac1a50650ecf148..e9aa000e17fa51d6c14961874ad686c7e536c22c 100644
+--- a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean
+@@ -22,7 +22,9 @@ theorem coreAll_of (seed : SeedFinOdd) (cong : CongFinOdd) (up : UpperTheory.TP.
+     (UpperTheory.Gal.Int.Core.toCoreK up UpperTheory.Gal.ClosedPhiFromClosedTrace.congPhi_holds UpperTheory.Gal.Desc.descOffT (UpperTheory.Gal.Lim.limFinOdd_of seed cong))
+ 
+ theorem rest (h : GlobalTheory.RoadU.CoreAll) : UpperTheory.GalStar.Row0 recT :=
+-  UpperTheory.Gal.Int.Row.galoisLocalGlobal_of_localGlobalCompatibility h (UpperTheory.Gal.ToralGalois.galoisCompat_unlinkedSupport_of_spherical h) (UpperTheory.Gal.ToralGalois.R2.localGlobalCompatAtIwahoriFixed_of_unlinked (UpperTheory.Gal.ToralGalois.galoisCompat_unlinkedSupport_of_spherical h))
++  let h₁ := UpperTheory.Gal.ToralGalois.galoisCompat_unlinkedSupport_of_spherical h
++  UpperTheory.Gal.Int.Row.galoisLocalGlobal_of_localGlobalCompatibility h h₁
++    (UpperTheory.Gal.ToralGalois.R2.localGlobalCompatAtIwahoriFixed_of_unlinked h₁)
+ 
+ theorem galoisLocalGlobal_of_geometry_lift (geo : UpperTheory.Gal.Int.Geo.GeoOne) (up : UpperTheory.TP.TLiftK) : UpperTheory.GalStar.Row0 recT :=
+   rest (coreAll_of (UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne geo) (UpperTheory.Gal.Int.Cong.congFinOdd_of_ex UpperTheory.Gal.Wt.wtLacEx_holds) up)
+diff --git a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/LiftAut.lean b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/LiftAut.lean
+index 67f70d55518db957dd1591145ef1bf3eb4e6157a..c953976b664011f64e124385db820e30ac711d19 100644
+--- a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/LiftAut.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/LiftAut.lean
+@@ -27,7 +27,7 @@ variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algeb
+ 
+ open PositivityTheory.ThKEnd.Grp in
+ 
+-private theorem stab_of {m : ℕ} {Y : Spc F E m} {V : Type} [AddCommGroup V] [Module ℂ V] (τ : ∀ w : InfinitePlace F, EmbOver E w)
++theorem LiftAutCommon.stab_of {m : ℕ} {Y : Spc F E m} {V : Type} [AddCommGroup V] [Module ℂ V] (τ : ∀ w : InfinitePlace F, EmbOver E w)
+     (A : UA σ Y.J →* Module.End ℂ V) (P : Submodule ℂ V)
+     (hlev : ∀ Φ ∈ P, ∀ᶠ u in 𝓝 (1 : UA σ Y.J), (∀ w, (mat u).map (piInf (τ w)) = 1) → A u Φ = Φ)
+     (hr : ∀ g ∈ UAt σ Y (evI F), ∀ Φ ∈ P, A g Φ ∈ P)
+@@ -74,10 +74,10 @@ private theorem polStab (T : Tools) (hp : IsPair B M χX χW om n 0 d 0) (x : UA
+   have e : ((x, y) : UA σ X.J × UA σ W.J) = (x, 1) * (1, y) := by simp
+   intro Φ hΦ
+   rw [e, map_mul, Module.End.mul_apply]
+-  refine stab_of B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => levelX_sch hp (hsch Φ h))
++  refine LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => levelX_sch hp (hsch Φ h))
+     (fun g hg Φ h => UpperTheory.polynomial_data_stable_infinite_place F E σ B n d X W M χX χW om hp g hg 1 (o2 W) Φ h)
+     (fun v g hg Φ h => UpperTheory.polynomial_data_stable_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v g hg 1 (o1 W) Φ h) x _ ?_
+-  exact stab_of B.emb (om.comp (MonoidHom.inr _ _)) _
++  exact LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inr _ _)) _
+     (fun Φ h => PositivityTheory.ThKEnd.Grp.level_sch PositivityTheory.ThKEst.level hp (hsch Φ h))
+     (fun g hg Φ h => UpperTheory.polynomial_data_stable_infinite_place F E σ B n d X W M χX χW om hp 1 (o2 X) g hg Φ h)
+     (fun v g hg Φ h => UpperTheory.polynomial_data_stable_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v 1 (o1 X) g hg Φ h) y _ hΦ
+@@ -91,7 +91,7 @@ private theorem lift_left (T : Tools) (hp : IsPair B M χX χW om n 0 d 0) {Φ :
+   show theta om Φ g (γ * h) * star (φ g) = theta om Φ g h * star (φ g)
+   rw [h2]
+ 
+-private theorem real_of_off {τ : ∀ w : InfinitePlace F, EmbOver E w} {g : UA σ W.J} (hg : g ∈ gOff σ W ∅) (w : InfinitePlace F) :
++theorem LiftAutCommon.real_of_off {τ : ∀ w : InfinitePlace F, EmbOver E w} {g : UA σ W.J} (hg : g ∈ gOff σ W ∅) (w : InfinitePlace F) :
+     (mat g).map (piInf (τ w)) = 1 := by
+   have h : ∀ w, (mat g).map (compInf F E w) = 1 := by
+     refine Subgroup.closure_induction (p := fun g _ => ∀ w, (mat g).map (compInf F E w) = 1) (fun x hx => hx.1) ?_ ?_ ?_ hg
+@@ -149,7 +149,7 @@ private theorem aut_lift (T : Tools) (hp : IsPair B M χX χW om n 0 d 0) {e' :
+       (e'.continuous.comp continuous_subtype_val).tendsto' _ _ (map_one e')
+     filter_upwards [c.eventually h1] with k hk
+     show GlobalTheory.UnitaryBC.RU E d k.1 f = f
+-    rw [RU_lift T hp hs hψ, hk fun w => real_of_off ((he'.fin k.1).2 k.2) w]
++    rw [RU_lift T hp hs hψ, hk fun w => LiftAutCommon.real_of_off ((he'.fin k.1).2 k.2) w]
+   · obtain ⟨V, hV, hVs, hk⟩ := UpperTheory.polynomial_data_finite_K_type _ E (cj E) B n d X W M χX χW om hp Φ hΦ
+     obtain ⟨l1, l2, -, -⟩ := UpperTheory.theta_lift_linear T _ E (cj E) B n d X W M χX χW om hp
+     let L : V →ₗ[ℂ] (GlobalTheory.UnitaryBC.UA E d → ℂ) :=
+diff --git a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/ReadLift.lean b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/ReadLift.lean
+index 9dca41a5562c0a88f11bf3ae3f3201e851f1091c..ccd3a5bca016b8d0fe15e02c51a91728331f95f7 100644
+--- a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/ReadLift.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/BlockDeterminants/ReadLift.lean
+@@ -20,21 +20,21 @@ section Gen
+ variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] {σ : E →ₐ[F] E} {n d : ℕ}
+   {X : Spc F E n} {W : Spc F E d}
+ 
+-private theorem pure_mem_pol {B : Base F E} {M : Model σ X W} {f : SInf F (Fin n × Fin d)} (hf : f ∈ M.Pol B.ψ B.emb)
++theorem ReadLiftCommon.pure_mem_pol {B : Base F E} {M : Model σ X W} {f : SInf F (Fin n × Fin d)} (hf : f ∈ M.Pol B.ψ B.emb)
+     {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) : pure f φ ∈ PolData B M :=
+   Submodule.subset_span ⟨f, hf, φ, h.1, h.2, rfl⟩
+ 
+-private theorem pure_add' {κ : Type} [Fintype κ] (f g : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
++theorem ReadLiftCommon.pure_add' {κ : Type} [Fintype κ] (f g : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
+     pure (f + g) φ = pure f φ + pure g φ := by
+   funext x
+   simp [GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.pure, add_mul]
+ 
+-private theorem pure_smul' {κ : Type} [Fintype κ] (a : ℂ) (f : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
++theorem ReadLiftCommon.pure_smul' {κ : Type} [Fintype κ] (a : ℂ) (f : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
+     pure (a • f) φ = a • pure f φ := by
+   funext x
+   simp [GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.pure, mul_assoc]
+ 
+-private theorem isFin_update {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) (v : Pl F)
++theorem ReadLiftCommon.isFin_update {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) (v : Pl F)
+     {ψ : (Fin n × Fin d → Fv F v) → ℂ} (hψ : ψ ∈ SB (Fin n × Fin d → Fv F v)) : IsFin M (Function.update φ v ψ) := by
+   refine ⟨fun u => ?_, ?_⟩
+   · by_cases hu : u = v
+@@ -47,7 +47,7 @@ private theorem isFin_update {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fi
+ 
+ end Gen
+ 
+-private theorem irr_pull {G H V : Type} [Group G] [Group H] [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ G V)
++theorem ReadLiftCommon.irr_pull {G H V : Type} [Group G] [Group H] [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ G V)
+     (q : H →* G) (hq : Function.Surjective q) (h : ρ.IsIrreducible) : Representation.IsIrreducible (ρ.comp q : Representation ℂ H V) := by
+   rw [GlobalTheory.CuspRep.isIrreducible_iff] at h ⊢
+   refine ⟨h.1, fun U hU => h.2 U fun g v hv => ?_⟩
+@@ -58,21 +58,21 @@ section CM
+ 
+ variable {E : Type} [Field E] [NumberField E] [IsCMField E]
+ 
+-private theorem isSplit_prime (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
++theorem ReadLiftCommon.isSplit_prime (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
+     (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v) : GlobalTheory.UnitaryBC.IsSplitAt (splitPrime t) :=
+   ⟨splitPrime (t.comp (cj E)), splitPrime_comp_ne hc t, by rw [splitPrime_under, splitPrime_under]⟩
+ 
+-private theorem cLoc_surj (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) :
++theorem ReadLiftCommon.cLoc_surj (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) :
+     Function.Surjective ((GlobalTheory.UnitaryBC.cLoc (n := a) w).comp (GlobalTheory.UnitaryBC.locU a w).subtype) := fun g => by
+   obtain ⟨e, he⟩ := GlobalTheory.locU_equiv_GL E a w hw
+   exact ⟨e.symm g, by rw [MonoidHom.comp_apply, Subgroup.coe_subtype, ← he, e.apply_symm_apply]⟩
+ 
+-private theorem decomp_loc (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (g : GlobalTheory.UnitaryBC.UA E a) :
++theorem ReadLiftCommon.decomp_loc (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (g : GlobalTheory.UnitaryBC.UA E a) :
+     ∃ h ∈ GlobalTheory.UnitaryBC.locU a w, ∀ h' ∈ GlobalTheory.UnitaryBC.locU a w, Commute (h⁻¹ * g) h' := by
+   obtain ⟨x, hx, y, rfl, hy⟩ := GlobalTheory.Cong.exists_locU_mul_comm a w hw g
+   exact ⟨x, hx, fun z hz => by rw [inv_mul_cancel_left]; exact hy z hz⟩
+ 
+-private theorem read_pair {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (hA : AbsIso)
++theorem ReadLiftCommon.read_pair {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (hA : AbsIso)
+     {U : Submodule ℂ (GlobalTheory.UnitaryBC.UA E n → ℂ)} {U' : Submodule ℂ (GlobalTheory.UnitaryBC.UA E d → ℂ)}
+     (hU : GlobalTheory.UnitaryBC.IsAutRepU U) (hU' : GlobalTheory.UnitaryBC.IsAutRepU U')
+     (τ : GlobalTheory.CuspRep.SmIrr (GL (Fin n) (w.adicCompletion E))) (τ' : GlobalTheory.CuspRep.SmIrr (GL (Fin d) (w.adicCompletion E)))
+@@ -89,10 +89,10 @@ private theorem read_pair {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : Glo
+   obtain ⟨hirr', f', hf0', hfU', hfe'⟩ := hτ'
+   obtain ⟨⟨m, c, x, hcU, hce, hsum⟩, -⟩ := hA (GlobalTheory.UnitaryBC.UA E n) (GlobalTheory.UnitaryBC.UA E n → ℂ) τ.V (GlobalTheory.UnitaryBC.RU E n) U
+     (GlobalTheory.UnitaryBC.locU n w) (τ.ρ.comp ((GlobalTheory.UnitaryBC.cLoc w).comp (GlobalTheory.UnitaryBC.locU n w).subtype))
+-    (decomp_loc n w hw) hU.stable hU.irred (irr_pull _ _ (cLoc_surj n w hw) hirr) f hf0 hfU hfe φ hφ
++    (ReadLiftCommon.decomp_loc n w hw) hU.stable hU.irred (ReadLiftCommon.irr_pull _ _ (ReadLiftCommon.cLoc_surj n w hw) hirr) f hf0 hfU hfe φ hφ
+   obtain ⟨p, hp0, hpe⟩ := (hA (GlobalTheory.UnitaryBC.UA E d) (GlobalTheory.UnitaryBC.UA E d → ℂ) τ'.V (GlobalTheory.UnitaryBC.RU E d) U'
+     (GlobalTheory.UnitaryBC.locU d w) (τ'.ρ.comp ((GlobalTheory.UnitaryBC.cLoc w).comp (GlobalTheory.UnitaryBC.locU d w).subtype))
+-    (decomp_loc d w hw) hU'.stable hU'.irred (irr_pull _ _ (cLoc_surj d w hw) hirr') f' hf0' hfU' hfe' (P φ) (hPU φ hφ)).2 hne
++    (ReadLiftCommon.decomp_loc d w hw) hU'.stable hU'.irred (ReadLiftCommon.irr_pull _ _ (ReadLiftCommon.cLoc_surj d w hw) hirr') f' hf0' hfU' hfe' (P φ) (hPU φ hφ)).2 hne
+   have hs : ∑ i, p (P (c i (x i))) ≠ 0 := by
+     rw [← map_sum, ← map_sum, ← hsum]
+     exact hp0
+@@ -121,17 +121,17 @@ private theorem real_part (hP : IsPair B M χX χW om n 0 d 0)
+     (hp : ∀ f, GlobalTheory.UnitaryBC.IsAutFormU f → pr f ∈ U' ∧ ∀ x, pr (GlobalTheory.UnitaryBC.RU E d x f) = GlobalTheory.UnitaryBC.RU E d x (pr f))
+     {f₀ : SInf (maximalRealSubfield E) (Fin n × Fin d)} (hf₀ : f₀ ∈ M.Pol B.ψ B.emb) {φ : GlobalTheory.UnitaryBC.UA E n → ℂ}
+     (hφ : GlobalTheory.UnitaryBC.IsAutFormU φ) {φf : ∀ v : Pl (maximalRealSubfield E), (Fin n × Fin d → Fv (maximalRealSubfield E) v) → ℂ}
+-    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
++    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
+     {w : InfinitePlace (maximalRealSubfield E)} {lam' : DomWeight d} (hT : HasType B M om e' f₀ w lam') :
+     GlobalTheory.UnitaryBC.HasWeightAt U' (B.emb w).1 lam' := by
+   obtain ⟨hirr, i, hi, ⟨x₀, hx₀⟩, hact⟩ := hT
+-  let Ψ : nablaSq ℂ d lam' → PolData B M := fun x => ⟨pure (i x) φf, pure_mem_pol (hi x) hfin⟩
++  let Ψ : nablaSq ℂ d lam' → PolData B M := fun x => ⟨pure (i x) φf, ReadLiftCommon.pure_mem_pol (hi x) hfin⟩
+   have hadd : ∀ x y, Ψ (x + y) = Ψ x + Ψ y := fun x y => Subtype.ext (by
+     change pure (i (x + y)) φf = pure (i x) φf + pure (i y) φf
+-    rw [map_add, pure_add'])
++    rw [map_add, ReadLiftCommon.pure_add'])
+   have hsm : ∀ (a : ℂ) x, Ψ (a • x) = a • Ψ x := fun a x => Subtype.ext (by
+     change pure (i (a • x)) φf = a • pure (i x) φf
+-    rw [map_smul, pure_smul'])
++    rw [map_smul, ReadLiftCommon.pure_smul'])
+   refine ⟨hirr, { toFun := fun x => pr (Θ (Ψ x) φ), map_add' := fun x y => ?_, map_smul' := fun a x => ?_ }, ?_,
+     fun x => (hp _ (hΘ _ _ hφ).2.1).1, fun k x => ?_⟩
+   · simp only [hadd, map_add, LinearMap.add_apply]
+@@ -139,7 +139,7 @@ private theorem real_part (hP : IsPair B M χX χW om n 0 d 0)
+   · intro h0
+     apply hne
+     have h1 := LinearMap.congr_fun h0 x₀
+-    have h2 : Ψ x₀ = ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ := Subtype.ext (by
++    have h2 : Ψ x₀ = ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ := Subtype.ext (by
+       change pure (i x₀) φf = pure f₀ φf
+       rw [hx₀])
+     simpa [h2] using h1
+@@ -161,13 +161,13 @@ variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ}
+   {M : Model (cj E) X W} {χX χW : Chr (maximalRealSubfield E) E} {om : Rep (cj E) X W}
+   {e : GlobalTheory.UnitaryBC.UA E n ≃ₜ* UA (cj E) X.J} {e' : GlobalTheory.UnitaryBC.UA E d ≃ₜ* UA (cj E) W.J}
+ 
+-private theorem read_point {a : ℕ} {Y : Spc (maximalRealSubfield E) E a} {ε : GlobalTheory.UnitaryBC.UA E a ≃ₜ* UA (cj E) Y.J} (hε : IsBr Y ε)
++theorem ReadLiftCommon.read_point {a : ℕ} {Y : Spc (maximalRealSubfield E) E a} {ε : GlobalTheory.UnitaryBC.UA E a ≃ₜ* UA (cj E) Y.J} (hε : IsBr Y ε)
+     (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
+     (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v) (g : GL (Fin a) (Fv (maximalRealSubfield E) v)) :
+     ∃ x : GlobalTheory.UnitaryBC.locU a (splitPrime t), ε x.1 ∈ UAt (cj E) Y (evFin (maximalRealSubfield E) v) ∧
+       g.1 = (mat (ε x.1)).map (piW t) ∧
+       GlobalTheory.UnitaryBC.cLoc (splitPrime t) x.1 = Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g := by
+-  obtain ⟨x, hx⟩ := cLoc_surj a (splitPrime t) (isSplit_prime hc t) (Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g)
++  obtain ⟨x, hx⟩ := ReadLiftCommon.cLoc_surj a (splitPrime t) (ReadLiftCommon.isSplit_prime hc t) (Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g)
+   have hx' : GlobalTheory.UnitaryBC.cLoc (splitPrime t) x.1 = Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g := hx
+   refine ⟨x, ?_, ?_, hx'⟩
+   · have h1 := (hε.loc (splitPrime t) x.1).2 x.2
+@@ -198,17 +198,17 @@ private theorem split_part (T : Tools) (hA : AbsIso) (hP : IsPair B M χX χW om
+     (hp : ∀ f, GlobalTheory.UnitaryBC.IsAutFormU f → pr f ∈ U' ∧ ∀ x, pr (GlobalTheory.UnitaryBC.RU E d x f) = GlobalTheory.UnitaryBC.RU E d x (pr f))
+     {f₀ : SInf (maximalRealSubfield E) (Fin n × Fin d)} (hf₀ : f₀ ∈ M.Pol B.ψ B.emb) {φ : GlobalTheory.UnitaryBC.UA E n → ℂ}
+     (hφ : φ ∈ U) {φf : ∀ v : Pl (maximalRealSubfield E), (Fin n × Fin d → Fv (maximalRealSubfield E) v) → ℂ}
+-    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
++    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
+     {v : Pl (maximalRealSubfield E)} (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v)
+     (τ : GlobalTheory.CuspRep.SmIrr (GL (Fin n) ((splitPrime t).adicCompletion E)))
+     (τ' : GlobalTheory.CuspRep.SmIrr (GL (Fin d) ((splitPrime t).adicCompletion E)))
+     (hτ : CompAt U (splitPrime t) τ) (hτ' : CompAt U' (splitPrime t) τ') : LocPair t χX χW τ τ' := by
+   have hc := hP.base.cm
+-  have hw := isSplit_prime hc t
+-  let Φ₀ : PolData B M := ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩
++  have hw := ReadLiftCommon.isSplit_prime hc t
++  let Φ₀ : PolData B M := ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩
+   let P : (GlobalTheory.UnitaryBC.UA E n → ℂ) →+ (GlobalTheory.UnitaryBC.UA E d → ℂ) :=
+     { toFun := fun y => pr (Θ Φ₀ y), map_zero' := by simp, map_add' := fun a b => by simp }
+-  obtain ⟨c, p, x₀, hcU, hce, hpe, hp0⟩ := read_pair (splitPrime t) hw hA hU hU' τ τ' hτ hτ' P
++  obtain ⟨c, p, x₀, hcU, hce, hpe, hp0⟩ := ReadLiftCommon.read_pair (splitPrime t) hw hA hU hU' τ τ' hτ hτ' P
+     (fun y hy => (hp _ (hΘ _ _ (hU.aut y hy)).2.1).1) hφ hne
+   obtain ⟨⟨ι, hι⟩, hSM⟩ := T.split _ E (cj E) B n d X W M χX χW om n 0 d 0 hP v t
+   have hSM := hSM ι hι
+@@ -220,9 +220,9 @@ private theorem split_part (T : Tools) (hA : AbsIso) (hP : IsPair B M χX χW om
+         obtain ⟨a, ha, hab⟩ := hbij.surjOn b.2
+         exact ⟨⟨a, ha⟩, Subtype.ext hab⟩⟩
+   have hfu : ∀ ψ : SB (Fin n × Fin d → Fv (maximalRealSubfield E) v), IsFin M (Function.update φf v ψ.1) :=
+-    fun ψ => isFin_update hfin v ψ.2
++    fun ψ => ReadLiftCommon.isFin_update hfin v ψ.2
+   let Ψ : SB (Fin n × Fin d → Fv (maximalRealSubfield E) v) → PolData B M :=
+-    fun ψ => ⟨pure f₀ (Function.update φf v ψ.1), pure_mem_pol hf₀ (hfu ψ)⟩
++    fun ψ => ⟨pure f₀ (Function.update φf v ψ.1), ReadLiftCommon.pure_mem_pol hf₀ (hfu ψ)⟩
+   have hPA := PositivityTheory.ThKF.pureAct (maximalRealSubfield E) (Fin n × Fin d) v id f₀ φf hfin.1 (std_of_fin hP hfin)
+   have hz : pure f₀ (Function.update φf v 0) = 0 :=
+     PositivityTheory.ThKG.Loc.Cone.pure_zero f₀ _ (GlobalTheory.PureFactor.update_eventually φf v 0 (std_of_fin hP hfin)) v (by simp)
+@@ -248,8 +248,8 @@ private theorem split_part (T : Tools) (hA : AbsIso) (hP : IsPair B M χX χW om
+       change pure f₀ (Function.update φf v (φf v)) = pure f₀ φf
+       rw [Function.update_eq_self])
+     simpa [A, h2, P] using h1
+-  · obtain ⟨ĝ, hg1, hg2, hg3⟩ := read_point he hc t g
+-    obtain ⟨ĥ, hh1, hh2, hh3⟩ := read_point he' hc t h
++  · obtain ⟨ĝ, hg1, hg2, hg3⟩ := ReadLiftCommon.read_point he hc t g
++    obtain ⟨ĥ, hh1, hh2, hh3⟩ := ReadLiftCommon.read_point he' hc t h
+     set ψ := ιe.symm Φ with hψ
+     have hιψ : ι ψ.1 = Φ.1 := by
+       have := congrArg Subtype.val (ιe.apply_symm_apply Φ)
+@@ -278,8 +278,8 @@ end Split2
+ theorem readLift : Tools → LiftAut → AbsIso → ReadLift := by
+   intro T hL hA E _ _ _ B n d X W M χX χW om hP hn e e' he he' U U' pr hU hU' hp f₀ hf₀ φ hφ φf hfin hne
+   obtain ⟨Θ, hΘ⟩ := hL E B n d X W M χX χW om hP hn e e' he he'
+-  have hne' : pr (Θ ⟨pure f₀ φf, pure_mem_pol hf₀ hfin⟩ φ) ≠ 0 := by
+-    rw [(hΘ ⟨_, pure_mem_pol hf₀ hfin⟩ φ (hU.aut φ hφ)).1]
++  have hne' : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0 := by
++    rw [(hΘ ⟨_, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ (hU.aut φ hφ)).1]
+     exact hne
+   exact ⟨fun w lam' hT => real_part hP Θ hΘ hp hf₀ (hU.aut φ hφ) hfin hne' hT,
+     fun v t τ τ' hτ hτ' => split_part T hA hP he he' Θ hΘ hU hU' hp hf₀ hφ hfin hne' t τ τ' hτ hτ'⟩
+diff --git a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean
+index 42831f56b9baacfaca0cde1207a1337882556e4c..4354e18d0718877684f3feae0e7926c058c18fe0 100644
+--- a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/GalTPDefs.lean
+@@ -1,5 +1,6 @@
+ import Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ThetaParseval.SchurStep
+ import Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ThetaParseval.HalfIndexLattices.SplitStab
++import Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ThetaParseval.HalfIndexLattices.TLiftK
+ import Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ThetaParseval.HalfIndexLattices.IsLatRepL
+ import Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ThetaParseval.ThetaKernels.ThkBaseStmtX
+ import Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.ThetaParseval.ThetaKernels.ThkBaseKPair
+@@ -42,18 +43,7 @@ structure Tools_k : Prop where
+ section CM
+ variable {E : Type} [Field E] [NumberField E] [IsCMField E]
+ end CM
+-def TLift_k : Prop :=
+-  ∀ (E : Type) [Field E] [NumberField E] [IsCMField E] (B : Base (maximalRealSubfield E) E), _root_.UpperTheory.TP.W.GoodK (cj E) B →
+-    ∀ (n : ℕ), 1 ≤ n → ∀ X : Spc (maximalRealSubfield E) E n, X.J = 1 → X.IsHerm (cj E) B n 0 →
+-    ∃ d₀ : ℕ, ∀ d, d₀ ≤ d → ∀ (W : Spc (maximalRealSubfield E) E d) (δ : E), W.J = δ • (1 : Matrix (Fin d) (Fin d) E) →
+-      W.IsSkew (cj E) B d 0 → ∀ (χX χW : Chr (maximalRealSubfield E) E) (mX mW : InfinitePlace (maximalRealSubfield E) → ℤ),
+-      IsHecke (maximalRealSubfield E) E χX → IsHecke (maximalRealSubfield E) E χW →
+-      ResEtaPow (Units.map (algebraMap (maximalRealSubfield E) (AF (maximalRealSubfield E))).toMonoidHom).range χX n →
+-      ResEtaPow (Units.map (algebraMap (maximalRealSubfield E) (AF (maximalRealSubfield E))).toMonoidHom).range χW d →
+-      HasExp B.emb χX mX → HasExp B.emb χW mW →
+-      ∀ (U : Submodule ℂ (GlobalTheory.UnitaryBC.UA E n → ℂ)) (lam : InfinitePlace (maximalRealSubfield E) → DomWeight n),
+-        GlobalTheory.UnitaryBC.IsAutRepU U → (∀ w, GlobalTheory.UnitaryBC.HasWeightAt U (B.emb w).1 (lam w)) →
+-        (∀ w k, (d : ℤ) + mW w ≤ 2 * (lam w).w k) → ∃ U' : Submodule ℂ (GlobalTheory.UnitaryBC.UA E d → ℂ), IsLift B χX χW mX mW lam U U'
++def TLift_k : Prop := TLiftK
+ def HgtFst_k : Prop :=
+   ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E) (B : Base F E) (n : ℕ) (X : Spc F E n), _root_.UpperTheory.TP.W.GoodK σ B → X.IsHerm σ B n 0 →
+     ∀ K a (e : UA σ X.J × UA σ X.J →* G2 σ X), IsStab2 B K → IsHgt K a → (∀ g g', IsEmb g g' (e (g, g'))) →
+diff --git a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGLiftAut.lean b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGLiftAut.lean
+index 9f27b05fd0d8ea3b392a222716a95e4568a8fa72..595ce3634f7b65255b86a6507a41718e76360eb9 100644
+--- a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGLiftAut.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGLiftAut.lean
+@@ -24,31 +24,6 @@ namespace UpperTheory.TP
+ section Gen
+ variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] {σ : E →ₐ[F] E} {n d : ℕ}
+   {X : Spc F E n} {W : Spc F E d}
+-open PositivityTheory.ThKEnd.Grp in
+-private theorem stab_of_pk {m : ℕ} {Y : Spc F E m} {V : Type} [AddCommGroup V] [Module ℂ V] (τ : ∀ w : InfinitePlace F, EmbOver E w)
+-    (A : UA σ Y.J →* Module.End ℂ V) (P : Submodule ℂ V)
+-    (hlev : ∀ Φ ∈ P, ∀ᶠ u in 𝓝 (1 : UA σ Y.J), (∀ w, (mat u).map (piInf (τ w)) = 1) → A u Φ = Φ)
+-    (hr : ∀ g ∈ UAt σ Y (evI F), ∀ Φ ∈ P, A g Φ ∈ P)
+-    (hl : ∀ v : Pl F, ∀ g ∈ UAt σ Y (evFin F v), ∀ Φ ∈ P, A g Φ ∈ P) (g : UA σ Y.J) : ∀ Φ ∈ P, A g Φ ∈ P := by
+-  intro Φ hΦ
+-  have h1 : Tendsto (fun S : Finset (Pl F) => (piece (eps S) (eps_sq S) g)⁻¹ * g) atTop (𝓝 1) := by
+-    rw [← inv_mul_cancel g]
+-    exact (tendsto_piece g).inv.mul_const g
+-  obtain ⟨S, h2⟩ := (h1.eventually (hlev Φ hΦ)).exists
+-  have h4 : ∀ w, (mat ((piece (eps S) (eps_sq S) g)⁻¹ * g)).map (piInf (τ w)) = 1 := fun w => by
+-    rw [mat_mul, Matrix.map_mul, ← piInf_piece S g, ← Matrix.map_mul, mat_inv_mul, Matrix.map_one _ (map_zero _) (map_one _)]
+-  obtain ⟨l, l1, l2⟩ := piece_prod g S
+-  have e : g = piece (eps ∅) (eps_sq ∅) g * l.prod * ((piece (eps S) (eps_sq S) g)⁻¹ * g) := by
+-    rw [← l2, mul_inv_cancel_left]
+-  rw [e, map_mul, map_mul, Module.End.mul_apply, Module.End.mul_apply, h2 h4]
+-  refine hr _ (piece_inf g) _ ?_
+-  clear e h2 h4 l2
+-  induction l with
+-  | nil => simpa using hΦ
+-  | cons x l ih =>
+-    obtain ⟨v, hv⟩ := l1 x List.mem_cons_self
+-    rw [List.prod_cons, map_mul, Module.End.mul_apply]
+-    exact hl v x hv _ (ih fun h hh => l1 h (List.mem_cons_of_mem _ hh))
+ variable {B : Base F E} {M : Model σ X W} {χX χW : Chr F E} {om : Rep σ X W}
+ theorem levelX_sch_k {r s r' s' : ℕ} (hp : _root_.GlobalTheory.ThK.IsPair_k B M χX χW om r s r' s') {Φ : Fn F n d} (hΦ : Φ ∈ schA F (Fin n × Fin d)) :
+     ∀ᶠ u in 𝓝 (1 : UA σ X.J), (∀ w, (mat u).map (piInf (B.emb w)) = 1) → om (u, 1) Φ = Φ := by
+@@ -69,10 +44,10 @@ theorem polStab_k (T : _root_.UpperTheory.TP.Tools_k) (hp : _root_.GlobalTheory.
+   have e : ((x, y) : UA σ X.J × UA σ W.J) = (x, 1) * (1, y) := by simp
+   intro Φ hΦ
+   rw [e, map_mul, Module.End.mul_apply]
+-  refine stab_of_pk B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => _root_.UpperTheory.TP.levelX_sch_k hp (hsch Φ h))
++  refine LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inl _ _)) _ (fun Φ h => _root_.UpperTheory.TP.levelX_sch_k hp (hsch Φ h))
+     (fun g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_archimedean F E σ B n d X W M χX χW om hp g hg 1 (o2 W) Φ h)
+     (fun v g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v g hg 1 (o1 W) Φ h) x _ ?_
+-  exact stab_of_pk B.emb (om.comp (MonoidHom.inr _ _)) _
++  exact LiftAutCommon.stab_of B.emb (om.comp (MonoidHom.inr _ _)) _
+     (fun Φ h => _root_.PositivityTheory.ThKEnd.Grp.level_sch_k _root_.PositivityTheory.ThKEst.level_k hp (hsch Φ h))
+     (fun g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_archimedean F E σ B n d X W M χX χW om hp 1 (o2 X) g hg Φ h)
+     (fun v g hg Φ h => _root_.UpperTheory.weilRep_mem_polynomialFock_of_finite_place T F E σ B n d X W M χX χW om _ _ _ _ hp v 1 (o1 X) g hg Φ h) y _ hΦ
+@@ -84,20 +59,6 @@ theorem lift_left_k (T : _root_.UpperTheory.TP.Tools_k) (hp : _root_.GlobalTheor
+   rw [one_mul] at h2
+   show theta om Φ g (γ * h) * star (φ g) = theta om Φ g h * star (φ g)
+   rw [h2]
+-private theorem real_of_off_pk {τ : ∀ w : InfinitePlace F, EmbOver E w} {g : UA σ W.J} (hg : g ∈ gOff σ W ∅) (w : InfinitePlace F) :
+-    (mat g).map (piInf (τ w)) = 1 := by
+-  have h : ∀ w, (mat g).map (compInf F E w) = 1 := by
+-    refine Subgroup.closure_induction (p := fun g _ => ∀ w, (mat g).map (compInf F E w) = 1) (fun x hx => hx.1) ?_ ?_ ?_ hg
+-    · intro w; exact Matrix.map_one _ (map_zero _) (map_one _)
+-    · intro x y _ _ hx hy w
+-      rw [show mat (x * y) = mat x * mat y from rfl, Matrix.map_mul, hx, hy, one_mul]
+-    · intro x _ hx w
+-      have e : mat x⁻¹ * mat x = 1 := PositivityTheory.ThKEnd.Grp.mat_inv_mul x
+-      have := congrArg (fun A => A.map (compInf F E w)) e
+-      simp only [Matrix.map_mul, hx w, mul_one, Matrix.map_one _ (map_zero _) (map_one _)] at this
+-      exact this
+-  have e : (mat g).map (piInf (τ w)) = ((mat g).map (compInf F E w)).map (infEmb (τ w)) := by ext i j; rfl
+-  rw [e, h, Matrix.map_one _ (map_zero _) (map_one _)]
+ end Gen
+ section CM
+ variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ} {X : Spc (maximalRealSubfield E) E n}
+@@ -137,7 +98,7 @@ theorem aut_lift_k (T : _root_.UpperTheory.TP.Tools_k) (hp : _root_.GlobalTheory
+       (e'.continuous.comp continuous_subtype_val).tendsto' _ _ (map_one e')
+     filter_upwards [c.eventually h1] with k hk
+     show GlobalTheory.UnitaryBC.RU E d k.1 f = f
+-    rw [_root_.UpperTheory.TP.RU_lift_k T hp hs hψ, hk fun w => real_of_off_pk ((he'.fin k.1).2 k.2) w]
++    rw [_root_.UpperTheory.TP.RU_lift_k T hp hs hψ, hk fun w => LiftAutCommon.real_of_off ((he'.fin k.1).2 k.2) w]
+   · obtain ⟨V, hV, hVs, hk⟩ := _root_.UpperTheory.exists_finiteDimensional_weil_archimedean_orbit _ E (cj E) B n d X W M χX χW om hp Φ hΦ
+     obtain ⟨l1, l2, -, -⟩ := _root_.UpperTheory.thetaLift_linear_in_schwartz T _ E (cj E) B n d X W M χX χW om hp
+     let L : V →ₗ[ℂ] (GlobalTheory.UnitaryBC.UA E d → ℂ) :=
+diff --git a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGReadLift.lean b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGReadLift.lean
+index 2a9786b248fa8803457aa2c58630a7c59ee431ea..bd4031c24f3aec575c1bf2e7c0d19e2adbcb2f26 100644
+--- a/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGReadLift.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGReadLift.lean
+@@ -17,73 +17,9 @@ open scoped Classical
+ section Gen
+ variable {F E : Type} [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] {σ : E →ₐ[F] E} {n d : ℕ}
+   {X : Spc F E n} {W : Spc F E d}
+-private theorem pure_mem_pol_pk {B : Base F E} {M : Model σ X W} {f : SInf F (Fin n × Fin d)} (hf : f ∈ M.Pol B.ψ B.emb)
+-    {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) : pure f φ ∈ PolData B M :=
+-  Submodule.subset_span ⟨f, hf, φ, h.1, h.2, rfl⟩
+-private theorem pure_add'_pk {κ : Type} [Fintype κ] (f g : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
+-    pure (f + g) φ = pure f φ + pure g φ := by
+-  funext x
+-  simp [GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.pure, add_mul]
+-private theorem pure_smul'_pk {κ : Type} [Fintype κ] (a : ℂ) (f : SInf F κ) (φ : ∀ v : Pl F, (κ → Fv F v) → ℂ) :
+-    pure (a • f) φ = a • pure f φ := by
+-  funext x
+-  simp [GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.pure, mul_assoc]
+-private theorem isFin_update_pk {M : Model σ X W} {φ : ∀ v : Pl F, (Fin n × Fin d → Fv F v) → ℂ} (h : IsFin M φ) (v : Pl F)
+-    {ψ : (Fin n × Fin d → Fv F v) → ℂ} (hψ : ψ ∈ SB (Fin n × Fin d → Fv F v)) : IsFin M (Function.update φ v ψ) := by
+-  refine ⟨fun u => ?_, ?_⟩
+-  · by_cases hu : u = v
+-    · subst hu
+-      simpa using hψ
+-    · simpa [Function.update_of_ne hu] using h.1 u
+-  · filter_upwards [h.2, Filter.eventually_cofinite_ne v] with u hu hne
+-    rw [Function.update_of_ne hne]
+-    exact hu
+ end Gen
+-private theorem irr_pull_pk {G H V : Type} [Group G] [Group H] [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ G V)
+-    (q : H →* G) (hq : Function.Surjective q) (h : ρ.IsIrreducible) : Representation.IsIrreducible (ρ.comp q : Representation ℂ H V) := by
+-  rw [GlobalTheory.CuspRep.isIrreducible_iff] at h ⊢
+-  refine ⟨h.1, fun U hU => h.2 U fun g v hv => ?_⟩
+-  obtain ⟨x, rfl⟩ := hq g
+-  exact hU x v hv
+ section CM
+ variable {E : Type} [Field E] [NumberField E] [IsCMField E]
+-private theorem isSplit_prime_pk (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
+-    (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v) : GlobalTheory.UnitaryBC.IsSplitAt (splitPrime t) :=
+-  ⟨splitPrime (t.comp (cj E)), splitPrime_comp_ne hc t, by rw [splitPrime_under, splitPrime_under]⟩
+-private theorem cLoc_surj_pk (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) :
+-    Function.Surjective ((GlobalTheory.UnitaryBC.cLoc (n := a) w).comp (GlobalTheory.UnitaryBC.locU a w).subtype) := fun g => by
+-  obtain ⟨e, he⟩ := GlobalTheory.locU_equiv_GL E a w hw
+-  exact ⟨e.symm g, by rw [MonoidHom.comp_apply, Subgroup.coe_subtype, ← he, e.apply_symm_apply]⟩
+-private theorem decomp_loc_pk (a : ℕ) (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (g : GlobalTheory.UnitaryBC.UA E a) :
+-    ∃ h ∈ GlobalTheory.UnitaryBC.locU a w, ∀ h' ∈ GlobalTheory.UnitaryBC.locU a w, Commute (h⁻¹ * g) h' := by
+-  obtain ⟨x, hx, y, rfl, hy⟩ := GlobalTheory.Cong.exists_locU_mul_comm a w hw g
+-  exact ⟨x, hx, fun z hz => by rw [inv_mul_cancel_left]; exact hy z hz⟩
+-private theorem read_pair_pk {n d : ℕ} (w : HeightOneSpectrum (𝓞 E)) (hw : GlobalTheory.UnitaryBC.IsSplitAt w) (hA : AbsIso)
+-    {U : Submodule ℂ (GlobalTheory.UnitaryBC.UA E n → ℂ)} {U' : Submodule ℂ (GlobalTheory.UnitaryBC.UA E d → ℂ)}
+-    (hU : GlobalTheory.UnitaryBC.IsAutRepU U) (hU' : GlobalTheory.UnitaryBC.IsAutRepU U')
+-    (τ : GlobalTheory.CuspRep.SmIrr (GL (Fin n) (w.adicCompletion E))) (τ' : GlobalTheory.CuspRep.SmIrr (GL (Fin d) (w.adicCompletion E)))
+-    (hτ : CompAt U w τ) (hτ' : CompAt U' w τ')
+-    (P : (GlobalTheory.UnitaryBC.UA E n → ℂ) →+ (GlobalTheory.UnitaryBC.UA E d → ℂ)) (hPU : ∀ φ ∈ U, P φ ∈ U')
+-    {φ : GlobalTheory.UnitaryBC.UA E n → ℂ} (hφ : φ ∈ U) (hne : P φ ≠ 0) :
+-    ∃ (c : τ.V →ₗ[ℂ] (GlobalTheory.UnitaryBC.UA E n → ℂ)) (p : (GlobalTheory.UnitaryBC.UA E d → ℂ) →ₗ[ℂ] τ'.V) (x : τ.V),
+-      (∀ y, c y ∈ U) ∧
+-      (∀ (h : GlobalTheory.UnitaryBC.locU n w) y, c (τ.ρ (GlobalTheory.UnitaryBC.cLoc w h.1) y) = GlobalTheory.UnitaryBC.RU E n h.1 (c y)) ∧
+-      (∀ (h : GlobalTheory.UnitaryBC.locU d w), ∀ y ∈ U',
+-        p (GlobalTheory.UnitaryBC.RU E d h.1 y) = τ'.ρ (GlobalTheory.UnitaryBC.cLoc w h.1) (p y)) ∧
+-      p (P (c x)) ≠ 0 := by
+-  obtain ⟨hirr, f, hf0, hfU, hfe⟩ := hτ
+-  obtain ⟨hirr', f', hf0', hfU', hfe'⟩ := hτ'
+-  obtain ⟨⟨m, c, x, hcU, hce, hsum⟩, -⟩ := hA (GlobalTheory.UnitaryBC.UA E n) (GlobalTheory.UnitaryBC.UA E n → ℂ) τ.V (GlobalTheory.UnitaryBC.RU E n) U
+-    (GlobalTheory.UnitaryBC.locU n w) (τ.ρ.comp ((GlobalTheory.UnitaryBC.cLoc w).comp (GlobalTheory.UnitaryBC.locU n w).subtype))
+-    (decomp_loc_pk n w hw) hU.stable hU.irred (irr_pull_pk _ _ (cLoc_surj_pk n w hw) hirr) f hf0 hfU hfe φ hφ
+-  obtain ⟨p, hp0, hpe⟩ := (hA (GlobalTheory.UnitaryBC.UA E d) (GlobalTheory.UnitaryBC.UA E d → ℂ) τ'.V (GlobalTheory.UnitaryBC.RU E d) U'
+-    (GlobalTheory.UnitaryBC.locU d w) (τ'.ρ.comp ((GlobalTheory.UnitaryBC.cLoc w).comp (GlobalTheory.UnitaryBC.locU d w).subtype))
+-    (decomp_loc_pk d w hw) hU'.stable hU'.irred (irr_pull_pk _ _ (cLoc_surj_pk d w hw) hirr') f' hf0' hfU' hfe' (P φ) (hPU φ hφ)).2 hne
+-  have hs : ∑ i, p (P (c i (x i))) ≠ 0 := by
+-    rw [← map_sum, ← map_sum, ← hsum]
+-    exact hp0
+-  obtain ⟨i, -, hi⟩ := Finset.exists_ne_zero_of_sum_ne_zero hs
+-  exact ⟨c i, p, x i, hcU i, fun h y => hce i h y, fun h y hy => hpe h y hy, hi⟩
+ end CM
+ section Main
+ variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ}
+@@ -102,17 +38,17 @@ theorem real_part_k (hP : _root_.GlobalTheory.ThK.IsPair_k B M χX χW om n 0 d
+     (hp : ∀ f, GlobalTheory.UnitaryBC.IsAutFormU f → pr f ∈ U' ∧ ∀ x, pr (GlobalTheory.UnitaryBC.RU E d x f) = GlobalTheory.UnitaryBC.RU E d x (pr f))
+     {f₀ : SInf (maximalRealSubfield E) (Fin n × Fin d)} (hf₀ : f₀ ∈ M.Pol B.ψ B.emb) {φ : GlobalTheory.UnitaryBC.UA E n → ℂ}
+     (hφ : GlobalTheory.UnitaryBC.IsAutFormU φ) {φf : ∀ v : Pl (maximalRealSubfield E), (Fin n × Fin d → Fv (maximalRealSubfield E) v) → ℂ}
+-    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, pure_mem_pol_pk hf₀ hfin⟩ φ) ≠ 0)
++    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
+     {w : InfinitePlace (maximalRealSubfield E)} {lam' : DomWeight d} (hT : HasType B M om e' f₀ w lam') :
+     GlobalTheory.UnitaryBC.HasWeightAt U' (B.emb w).1 lam' := by
+   obtain ⟨hirr, i, hi, ⟨x₀, hx₀⟩, hact⟩ := hT
+-  let Ψ : nablaSq ℂ d lam' → PolData B M := fun x => ⟨pure (i x) φf, pure_mem_pol_pk (hi x) hfin⟩
++  let Ψ : nablaSq ℂ d lam' → PolData B M := fun x => ⟨pure (i x) φf, ReadLiftCommon.pure_mem_pol (hi x) hfin⟩
+   have hadd : ∀ x y, Ψ (x + y) = Ψ x + Ψ y := fun x y => Subtype.ext (by
+     change pure (i (x + y)) φf = pure (i x) φf + pure (i y) φf
+-    rw [map_add, pure_add'_pk])
++    rw [map_add, ReadLiftCommon.pure_add'])
+   have hsm : ∀ (a : ℂ) x, Ψ (a • x) = a • Ψ x := fun a x => Subtype.ext (by
+     change pure (i (a • x)) φf = a • pure (i x) φf
+-    rw [map_smul, pure_smul'_pk])
++    rw [map_smul, ReadLiftCommon.pure_smul'])
+   refine ⟨hirr, { toFun := fun x => pr (Θ (Ψ x) φ), map_add' := fun x y => ?_, map_smul' := fun a x => ?_ }, ?_,
+     fun x => (hp _ (hΘ _ _ hφ).2.1).1, fun k x => ?_⟩
+   · simp only [hadd, map_add, LinearMap.add_apply]
+@@ -120,7 +56,7 @@ theorem real_part_k (hP : _root_.GlobalTheory.ThK.IsPair_k B M χX χW om n 0 d
+   · intro h0
+     apply hne
+     have h1 := LinearMap.congr_fun h0 x₀
+-    have h2 : Ψ x₀ = ⟨pure f₀ φf, pure_mem_pol_pk hf₀ hfin⟩ := Subtype.ext (by
++    have h2 : Ψ x₀ = ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ := Subtype.ext (by
+       change pure (i x₀) φf = pure f₀ φf
+       rw [hx₀])
+     simpa [h2] using h1
+@@ -138,22 +74,6 @@ variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ}
+   {B : Base (maximalRealSubfield E) E} {X : Spc (maximalRealSubfield E) E n} {W : Spc (maximalRealSubfield E) E d}
+   {M : Model (cj E) X W} {χX χW : Chr (maximalRealSubfield E) E} {om : Rep (cj E) X W}
+   {e : GlobalTheory.UnitaryBC.UA E n ≃ₜ* UA (cj E) X.J} {e' : GlobalTheory.UnitaryBC.UA E d ≃ₜ* UA (cj E) W.J}
+-private theorem read_point_pk {a : ℕ} {Y : Spc (maximalRealSubfield E) E a} {ε : GlobalTheory.UnitaryBC.UA E a ≃ₜ* UA (cj E) Y.J} (hε : IsBr Y ε)
+-    (hc : IsCMExt (maximalRealSubfield E) E (cj E)) {v : Pl (maximalRealSubfield E)}
+-    (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v) (g : GL (Fin a) (Fv (maximalRealSubfield E) v)) :
+-    ∃ x : GlobalTheory.UnitaryBC.locU a (splitPrime t), ε x.1 ∈ UAt (cj E) Y (evFin (maximalRealSubfield E) v) ∧
+-      g.1 = (mat (ε x.1)).map (piW t) ∧
+-      GlobalTheory.UnitaryBC.cLoc (splitPrime t) x.1 = Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g := by
+-  obtain ⟨x, hx⟩ := cLoc_surj_pk a (splitPrime t) (isSplit_prime_pk hc t) (Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g)
+-  have hx' : GlobalTheory.UnitaryBC.cLoc (splitPrime t) x.1 = Matrix.GeneralLinearGroup.map (complMap (splitPrime_under t)) g := hx
+-  refine ⟨x, ?_, ?_, hx'⟩
+-  · have h1 := (hε.loc (splitPrime t) x.1).2 x.2
+-    rw [splitPrime_under] at h1
+-    exact GlobalTheory.ThK.Dbl.Inert.mem_locGrp h1
+-  · have h1 := hε.spl v t x.1
+-    rw [hx'] at h1
+-    have hinj : Function.Injective (complMap (splitPrime_under t)) := (complMap (splitPrime_under t)).injective
+-    exact Matrix.map_injective hinj h1.symm
+ end Split
+ section Split2
+ variable {E : Type} [Field E] [NumberField E] [IsCMField E] {n d : ℕ}
+@@ -171,17 +91,17 @@ theorem split_part_k (T : _root_.UpperTheory.TP.Tools_k) (hA : AbsIso) (hP : _ro
+     (hp : ∀ f, GlobalTheory.UnitaryBC.IsAutFormU f → pr f ∈ U' ∧ ∀ x, pr (GlobalTheory.UnitaryBC.RU E d x f) = GlobalTheory.UnitaryBC.RU E d x (pr f))
+     {f₀ : SInf (maximalRealSubfield E) (Fin n × Fin d)} (hf₀ : f₀ ∈ M.Pol B.ψ B.emb) {φ : GlobalTheory.UnitaryBC.UA E n → ℂ}
+     (hφ : φ ∈ U) {φf : ∀ v : Pl (maximalRealSubfield E), (Fin n × Fin d → Fv (maximalRealSubfield E) v) → ℂ}
+-    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, pure_mem_pol_pk hf₀ hfin⟩ φ) ≠ 0)
++    (hfin : IsFin M φf) (hne : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0)
+     {v : Pl (maximalRealSubfield E)} (t : E →ₐ[maximalRealSubfield E] Fv (maximalRealSubfield E) v)
+     (τ : GlobalTheory.CuspRep.SmIrr (GL (Fin n) ((splitPrime t).adicCompletion E)))
+     (τ' : GlobalTheory.CuspRep.SmIrr (GL (Fin d) ((splitPrime t).adicCompletion E)))
+     (hτ : CompAt U (splitPrime t) τ) (hτ' : CompAt U' (splitPrime t) τ') : LocPair t χX χW τ τ' := by
+   have hc := hP.base.cm
+-  have hw := isSplit_prime_pk hc t
+-  let Φ₀ : PolData B M := ⟨pure f₀ φf, pure_mem_pol_pk hf₀ hfin⟩
++  have hw := ReadLiftCommon.isSplit_prime hc t
++  let Φ₀ : PolData B M := ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩
+   let P : (GlobalTheory.UnitaryBC.UA E n → ℂ) →+ (GlobalTheory.UnitaryBC.UA E d → ℂ) :=
+     { toFun := fun y => pr (Θ Φ₀ y), map_zero' := by simp, map_add' := fun a b => by simp }
+-  obtain ⟨c, p, x₀, hcU, hce, hpe, hp0⟩ := read_pair_pk (splitPrime t) hw hA hU hU' τ τ' hτ hτ' P
++  obtain ⟨c, p, x₀, hcU, hce, hpe, hp0⟩ := ReadLiftCommon.read_pair (splitPrime t) hw hA hU hU' τ τ' hτ hτ' P
+     (fun y hy => (hp _ (hΘ _ _ (hU.aut y hy)).2.1).1) hφ hne
+   obtain ⟨⟨ι, hι⟩, hSM⟩ := T.split _ E (cj E) B n d X W M χX χW om n 0 d 0 hP v t
+   have hSM := hSM ι hι
+@@ -193,9 +113,9 @@ theorem split_part_k (T : _root_.UpperTheory.TP.Tools_k) (hA : AbsIso) (hP : _ro
+         obtain ⟨a, ha, hab⟩ := hbij.surjOn b.2
+         exact ⟨⟨a, ha⟩, Subtype.ext hab⟩⟩
+   have hfu : ∀ ψ : SB (Fin n × Fin d → Fv (maximalRealSubfield E) v), IsFin M (Function.update φf v ψ.1) :=
+-    fun ψ => isFin_update_pk hfin v ψ.2
++    fun ψ => ReadLiftCommon.isFin_update hfin v ψ.2
+   let Ψ : SB (Fin n × Fin d → Fv (maximalRealSubfield E) v) → PolData B M :=
+-    fun ψ => ⟨pure f₀ (Function.update φf v ψ.1), pure_mem_pol_pk hf₀ (hfu ψ)⟩
++    fun ψ => ⟨pure f₀ (Function.update φf v ψ.1), ReadLiftCommon.pure_mem_pol hf₀ (hfu ψ)⟩
+   have hPA := PositivityTheory.ThKF.pureAct (maximalRealSubfield E) (Fin n × Fin d) v id f₀ φf hfin.1 (_root_.UpperTheory.TP.std_of_fin_k hP hfin)
+   have hz : pure f₀ (Function.update φf v 0) = 0 :=
+     PositivityTheory.ThKG.Loc.Cone.pure_zero f₀ _ (GlobalTheory.PureFactor.update_eventually φf v 0 (_root_.UpperTheory.TP.std_of_fin_k hP hfin)) v (by simp)
+@@ -221,8 +141,8 @@ theorem split_part_k (T : _root_.UpperTheory.TP.Tools_k) (hA : AbsIso) (hP : _ro
+       change pure f₀ (Function.update φf v (φf v)) = pure f₀ φf
+       rw [Function.update_eq_self])
+     simpa [A, h2, P] using h1
+-  · obtain ⟨ĝ, hg1, hg2, hg3⟩ := read_point_pk he hc t g
+-    obtain ⟨ĥ, hh1, hh2, hh3⟩ := read_point_pk he' hc t h
++  · obtain ⟨ĝ, hg1, hg2, hg3⟩ := ReadLiftCommon.read_point he hc t g
++    obtain ⟨ĥ, hh1, hh2, hh3⟩ := ReadLiftCommon.read_point he' hc t h
+     set ψ := ιe.symm Φ with hψ
+     have hιψ : ι ψ.1 = Φ.1 := by
+       have := congrArg Subtype.val (ιe.apply_symm_apply Φ)
+@@ -249,8 +169,8 @@ end Split2
+ theorem readLift_k : _root_.UpperTheory.TP.Tools_k → _root_.UpperTheory.TP.LiftAut_k → AbsIso → _root_.UpperTheory.TP.ReadLift_k := by
+   intro T hL hA E _ _ _ B n d X W M χX χW om hP hn e e' he he' U U' pr hU hU' hp f₀ hf₀ φ hφ φf hfin hne
+   obtain ⟨Θ, hΘ⟩ := hL E B n d X W M χX χW om hP hn e e' he he'
+-  have hne' : pr (Θ ⟨pure f₀ φf, pure_mem_pol_pk hf₀ hfin⟩ φ) ≠ 0 := by
+-    rw [(hΘ ⟨_, pure_mem_pol_pk hf₀ hfin⟩ φ (hU.aut φ hφ)).1]
++  have hne' : pr (Θ ⟨pure f₀ φf, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ) ≠ 0 := by
++    rw [(hΘ ⟨_, ReadLiftCommon.pure_mem_pol hf₀ hfin⟩ φ (hU.aut φ hφ)).1]
+     exact hne
+   exact ⟨fun w lam' hT => _root_.UpperTheory.TP.real_part_k hP Θ hΘ hp hf₀ (hU.aut φ hφ) hfin hne' hT,
+     fun v t τ τ' hτ hτ' => _root_.UpperTheory.TP.split_part_k T hA hP he he' Θ hΘ hU hU' hp hf₀ hφ hfin hne' t τ τ' hτ hτ'⟩
+diff --git a/src/Development/AutomorphicArithmetic/MeanSquareBounds/PsiThin.lean b/src/Development/AutomorphicArithmetic/MeanSquareBounds/PsiThin.lean
+index 9e669a084dd244d41a04f1b9f46ad13cd0b3426c..d5584bf1746661de44b5e14637d4ccc883a433a1 100644
+--- a/src/Development/AutomorphicArithmetic/MeanSquareBounds/PsiThin.lean
++++ b/src/Development/AutomorphicArithmetic/MeanSquareBounds/PsiThin.lean
+@@ -1,4 +1,5 @@
+ import Development.AutomorphicArithmetic.MeanSquareBounds.PrimeSetTwoBounds
++import Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip
+ import Formalism.PeriodIntegrals.ExplicitFormulaCounts.ExplicitFormula
+ import Formalism.LandauZeroFreeBounds.NoZeroComplex
+ 
+@@ -6,46 +7,10 @@ open Finset Formalism.HermitianLattices.ZeroFreeRegionGL2 Formalism.HermitianLat
+ 
+ namespace QH
+ 
+-private theorem pt_factorsThrough_inv {N : ℕ} {χ : DirichletCharacter ℂ N} {d : ℕ}
+-    (h : χ.FactorsThrough d) : χ⁻¹.FactorsThrough d := by
+-  obtain ⟨hd, χ0, rfl⟩ := h
+-  exact ⟨hd, χ0⁻¹, (map_inv (DirichletCharacter.changeLevel hd) χ0).symm⟩
+-
+-private theorem pt_isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (h : χ.IsPrimitive) :
+-    χ⁻¹.IsPrimitive := by
+-  have hs : DirichletCharacter.conductorSet χ⁻¹ = DirichletCharacter.conductorSet χ := by
+-    ext d
+-    constructor
+-    · intro hd
+-      have := pt_factorsThrough_inv (χ := χ⁻¹) hd
+-      rwa [inv_inv] at this
+-    · intro hd
+-      exact pt_factorsThrough_inv hd
+-  unfold DirichletCharacter.IsPrimitive DirichletCharacter.conductor at *
+-  rw [hs]; exact h
+-
+ private theorem pt_zero_symm {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) {ρ : ℂ}
+     (h0 : 0 < ρ.re) (h1 : ρ.re < 1) (hz : DirichletCharacter.LFunction χ ρ = 0) :
+-    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 := by
+-  have hρ0 : ρ ≠ 0 := by rintro rfl; simp at h0
+-  have hρ1 : (1 - ρ) ≠ 0 := by
+-    intro h
+-    have : (1 - ρ).re = 0 := by rw [h]; simp
+-    simp at this
+-    linarith
+-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor χ ρ (Or.inl hρ0)] at hz
+-  have hg : DirichletCharacter.gammaFactor χ ρ ≠ 0 := by
+-    unfold DirichletCharacter.gammaFactor
+-    split_ifs
+-    · exact Complex.Gammaℝ_ne_zero_of_re_pos h0
+-    · exact Complex.Gammaℝ_ne_zero_of_re_pos (by simp; linarith)
+-  have hc : DirichletCharacter.completedLFunction χ ρ = 0 := by
+-    rcases div_eq_zero_iff.mp hz with h | h
+-    · exact h
+-    · exact absurd h hg
+-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor χ⁻¹ (1 - ρ) (Or.inl hρ1),
+-    (pt_isPrimitive_inv hχ).completedLFunction_one_sub ρ, inv_inv, hc]
+-  simp
++    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 :=
++  Claim.prim_reflect χ hχ h0 h1 hz
+ 
+ private theorem pt_rpow_le {u v r k : ℝ} (hu0 : 0 < u) (hv : v = Real.log u) (hv0 : 0 ≤ v) (hr : r ≤ 1 - k) :
+     u ^ r ≤ u * Real.exp (-k * v) := by
+diff --git a/src/Formalism/GammaFactorNonvanishing/CritLine.lean b/src/Formalism/GammaFactorNonvanishing/CritLine.lean
+index 95fa4da5c50119db164aa93944d106f22fdb576d..efa99dd563b2ce3f8d3e884e6ad8002a56577538 100644
+--- a/src/Formalism/GammaFactorNonvanishing/CritLine.lean
++++ b/src/Formalism/GammaFactorNonvanishing/CritLine.lean
+@@ -1,32 +1,13 @@
+-import Development.AutomorphicArithmetic.CharacterBoxes.EveryCharacter
++import Development.AutomorphicArithmetic.CharacterBoxes.EveryCharacterStatement
++import Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip
++import Formalism.GammaFactorNonvanishing.GammaFactor
+ import Formalism.GammaFactorNonvanishing.RhOfRight
+ 
+ open Complex DirichletCharacter
+ 
+-theorem Formalism.VW.gammaFactor_ne_zero {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
+-  rcases χ.even_or_odd with h | h
+-  · rw [h.gammaFactor_def]; exact Gammaℝ_ne_zero_of_re_pos hs
+-  · rw [h.gammaFactor_def]; exact Gammaℝ_ne_zero_of_re_pos (by rw [add_re, one_re]; linarith)
+-
+ theorem Formalism.VW.critLine (h : UpperTheory.EveryCharacter) (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (s : ℂ)
+-    (h0 : 0 < s.re) (h1 : s.re < 1) (hz : LFunction χ s = 0) : s.re = 1 / 2 := by
+-  have hs0 : s ≠ 0 := fun e => by simp [e] at h0
+-  have hs1 : s ≠ 1 := fun e => by simp [e] at h1
+-  by_contra hne
+-  rcases lt_or_gt_of_ne hne with hlt | hgt
+-  · have hinv : χ⁻¹.IsPrimitive := by
+-      rw [isPrimitive_def, conductor_inv]; exact hχ
+-    have hc : completedLFunction χ s = 0 := by
+-      rw [LFunction_eq_completed_div_gammaFactor χ s (Or.inl hs0)] at hz
+-      exact (div_eq_zero_iff.1 hz).resolve_right (Formalism.VW.gammaFactor_ne_zero χ h0)
+-    have hfe := hinv.completedLFunction_one_sub s
+-    rw [inv_inv, hc, mul_zero] at hfe
+-    have h2 : (1 - s) ≠ 0 := sub_ne_zero.2 hs1.symm
+-    refine h N χ⁻¹ (1 - s) (by rw [sub_re, one_re]; linarith) (Or.inr fun e => hs0 (by linear_combination -e)) ?_
+-    rw [LFunction_eq_completed_div_gammaFactor χ⁻¹ (1 - s) (Or.inl h2), hfe, zero_div]
+-  · exact h N χ s hgt (Or.inr hs1) hz
++    (h0 : 0 < s.re) (h1 : s.re < 1) (hz : LFunction χ s = 0) : s.re = 1 / 2 :=
++  Claim.strip h N χ s h0 h1 hz
+ 
+ theorem Formalism.VW.rh_of_every (h : UpperTheory.EveryCharacter) : RiemannHypothesis :=
+-  Formalism.VW.rh_of_right fun s hs hs1 => by
+-    have := h 1 (1 : DirichletCharacter ℂ 1) s hs (Or.inr hs1)
+-    rwa [LFunction_modOne_eq] at this
++  Claim.zeta h
+diff --git a/src/Formalism/GammaFactorNonvanishing/GammaFactor.lean b/src/Formalism/GammaFactorNonvanishing/GammaFactor.lean
+new file mode 100644
+index 0000000000000000000000000000000000000000..46ceac59a3ae33b05a8ee264e93cbe639ced8912
+--- /dev/null
++++ b/src/Formalism/GammaFactorNonvanishing/GammaFactor.lean
+@@ -0,0 +1,23 @@
++import Mathlib
++
++open Complex DirichletCharacter
++
++theorem Formalism.VW.gammaFactor_ne_zero {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
++  rcases χ.even_or_odd with h | h
++  · rw [h.gammaFactor_def]; exact Gammaℝ_ne_zero_of_re_pos hs
++  · rw [h.gammaFactor_def]; exact Gammaℝ_ne_zero_of_re_pos (by rw [add_re, one_re]; linarith)
++
++theorem Formalism.VW.differentiable_gammaFactor_inv {N : ℕ} (χ : DirichletCharacter ℂ N) :
++    Differentiable ℂ (fun s => (DirichletCharacter.gammaFactor χ s)⁻¹) := by
++  rcases χ.even_or_odd with h | h <;> simp only [h.gammaFactor_def]
++  · exact Complex.differentiable_Gammaℝ_inv
++  · exact Complex.differentiable_Gammaℝ_inv.comp (differentiable_id.add_const 1)
++
++theorem Formalism.VW.rootNumber_ne_zero {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N}
++    (hχ : χ.IsPrimitive) : χ.rootNumber ≠ 0 := by
++  intro h
++  have h1 := hχ.completedLFunction_one_sub (-1)
++  rw [h, mul_zero, zero_mul] at h1
++  have h2 := χ.LFunction_eq_completed_div_gammaFactor (1 - -1) (Or.inl (by norm_num))
++  rw [h1, zero_div] at h2
++  exact χ.LFunction_ne_zero_of_one_le_re (Or.inr (by norm_num)) (by norm_num) h2
+diff --git a/src/Formalism/GammaFactorNonvanishing/RhOfRight.lean b/src/Formalism/GammaFactorNonvanishing/RhOfRight.lean
+index 3604637147a33e72248faddd775ea750e7846ead..4fddc87225167fb5df029b8d8ac17467bc6fa679 100644
+--- a/src/Formalism/GammaFactorNonvanishing/RhOfRight.lean
++++ b/src/Formalism/GammaFactorNonvanishing/RhOfRight.lean
+@@ -3,60 +3,25 @@ import Mathlib
+ open Complex
+ 
+ theorem Formalism.VW.rh_of_right (hz : ∀ s : ℂ, 1 / 2 < s.re → s ≠ 1 → riemannZeta s ≠ 0) : RiemannHypothesis := by
+-  unfold RiemannHypothesis
+   intro s hs htriv hs1
+   rcases lt_trichotomy s.re (1 / 2) with hlt | heq | hgt
+-  · exfalso
+-    have hpi : (Real.pi : ℂ) ≠ 0 := by exact_mod_cast Real.pi_ne_zero
+-    have hs0 : s ≠ 0 := by
++  · have hs0 : s ≠ 0 := by
+       rintro rfl
+-      rw [riemannZeta_zero] at hs
+-      norm_num at hs
+-    have ht : 1 / 2 < (1 - s).re := by
+-      rw [Complex.sub_re, Complex.one_re]
++      norm_num [riemannZeta_zero] at hs
++    have hG : Gammaℝ s ≠ 0 := by
++      intro hg
++      obtain ⟨n, hn⟩ := Gammaℝ_eq_zero_iff.mp hg
++      cases n with
++      | zero => exact hs0 (by simpa using hn)
++      | succ n => exact htriv ⟨n, by rw [hn]; push_cast; ring⟩
++    rw [riemannZeta_def_of_ne_zero hs0, div_eq_zero_iff] at hs
++    have hc := hs.resolve_right hG
++    have ht : 1 - s ≠ 1 := fun e => hs0 (by linear_combination -e)
++    have hright : 1 / 2 < (1 - s).re := by
++      rw [sub_re, one_re]
+       linarith
+-    have h1 : (1 - s) ≠ 1 := by
+-      intro h
+-      apply hs0
+-      linear_combination -h
+-    have hnat : ∀ n : ℕ, (1 - s) ≠ -(n : ℂ) := by
+-      intro n h
+-      have hr := congrArg Complex.re h
+-      rw [Complex.sub_re, Complex.one_re, Complex.neg_re, Complex.natCast_re] at hr
+-      have : (0 : ℝ) ≤ n := n.cast_nonneg
+-      linarith
+-    have key := riemannZeta_one_sub hnat h1
+-    rw [sub_sub_cancel, hs] at key
+-    have hz' := hz (1 - s) ht h1
+-    have h2pi : (2 : ℂ) * (2 * (Real.pi : ℂ)) ^ (-(1 - s)) ≠ 0 :=
+-      mul_ne_zero two_ne_zero (Complex.cpow_ne_zero_iff.2 (Or.inl (mul_ne_zero two_ne_zero hpi)))
+-    have hG : Complex.Gamma (1 - s) ≠ 0 := Complex.Gamma_ne_zero_of_re_pos (by linarith)
+-    have hcos : Complex.cos ((Real.pi : ℂ) * (1 - s) / 2) ≠ 0 := by
+-      rw [Ne, Complex.cos_eq_zero_iff]
+-      rintro ⟨k, hk⟩
+-      have h3 : ((1 - s) - (2 * (k : ℂ) + 1)) * (Real.pi : ℂ) = 0 := by
+-        linear_combination 2 * hk
+-      rcases mul_eq_zero.1 h3 with h | h
+-      · have hsk : s = -2 * (k : ℂ) := by linear_combination -h
+-        have hre : s.re = -2 * (k : ℝ) := by
+-          rw [hsk, Complex.mul_re]
+-          simp
+-        rcases lt_trichotomy k 0 with hk0 | hk0 | hk0
+-        · have : (k : ℝ) ≤ -1 := by exact_mod_cast (show k ≤ -1 by omega)
+-          linarith
+-        · apply hs0
+-          rw [hsk, hk0]
+-          simp
+-        · apply htriv
+-          refine ⟨(k - 1).toNat, ?_⟩
+-          have hnk : ((k - 1).toNat : ℤ) = k - 1 := Int.toNat_of_nonneg (by omega)
+-          have h' : (((k - 1).toNat : ℕ) : ℂ) = (k : ℂ) - 1 := by
+-            have := congrArg (fun m : ℤ => (m : ℂ)) hnk
+-            push_cast at this
+-            exact this
+-          rw [hsk, h']
+-          ring
+-      · exact hpi h
+-    exact (mul_ne_zero (mul_ne_zero (mul_ne_zero h2pi hG) hcos) hz') key.symm
++    apply False.elim (hz (1 - s) hright ht ?_)
++    rw [riemannZeta_def_of_ne_zero (sub_ne_zero.mpr hs1.symm),
++      completedRiemannZeta_one_sub, hc, zero_div]
+   · exact heq
+-  · exact absurd hs (hz s hgt hs1)
++  · exact False.elim (hz s hgt hs1 hs)
+diff --git a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ZeroWindow/Transfer.lean b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ZeroWindow/Transfer.lean
+index af9d9bcff5c0da373654071970dceb1233ef7f11..83d9c4cdcb23d90bd3f5e5348414e2f034dbda16 100644
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ZeroWindow/Transfer.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ZeroWindow/Transfer.lean
+@@ -1,4 +1,5 @@
+ import Mathlib
++import Formalism.GammaFactorNonvanishing.GammaFactor
+ import Formalism.PeriodIntegrals.UnitaryGroupMassFormula.ZeroWindow.RightHalfWith
+ 
+ noncomputable section
+@@ -10,20 +11,12 @@ namespace PI.ZW
+ open DirichletCharacter
+ 
+ lemma differentiable_gammaFactor_inv {N : ℕ} (χ : DirichletCharacter ℂ N) :
+-    Differentiable ℂ (fun s => (gammaFactor χ s)⁻¹) := by
+-  by_cases h : χ.Even
+-  · simp only [DirichletCharacter.gammaFactor, h, if_true]
+-    exact Complex.differentiable_Gammaℝ_inv
+-  · simp only [DirichletCharacter.gammaFactor, h, if_false]
+-    exact Complex.differentiable_Gammaℝ_inv.comp (differentiable_id.add_const 1)
++    Differentiable ℂ (fun s => (gammaFactor χ s)⁻¹) :=
++  Formalism.VW.differentiable_gammaFactor_inv χ
+ 
+ lemma gammaFactor_ne_zero_of_re_pos {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ}
+-    (hs : 0 < s.re) : gammaFactor χ s ≠ 0 := by
+-  by_cases h : χ.Even
+-  · simp only [DirichletCharacter.gammaFactor, h, if_true]
+-    exact Complex.Gammaℝ_ne_zero_of_re_pos hs
+-  · simp only [DirichletCharacter.gammaFactor, h, if_false]
+-    exact Complex.Gammaℝ_ne_zero_of_re_pos (by simp; linarith)
++    (hs : 0 < s.re) : gammaFactor χ s ≠ 0 :=
++  Formalism.VW.gammaFactor_ne_zero χ hs
+ 
+ lemma isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) :
+     χ⁻¹.IsPrimitive := by
+@@ -31,16 +24,8 @@ lemma isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrim
+   exact (DirichletCharacter.isPrimitive_def χ).mp hχ
+ 
+ lemma rootNumber_ne_zero {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) :
+-    rootNumber χ ≠ 0 := by
+-  intro h
+-  have h2 := hχ.completedLFunction_one_sub (-1)
+-  rw [h] at h2
+-  simp only [mul_zero, zero_mul] at h2
+-  norm_num at h2
+-  have hne := DirichletCharacter.LFunction_ne_zero_of_one_le_re χ (Or.inr (by norm_num : (2 : ℂ) ≠ 1))
+-    (by norm_num : (1 : ℝ) ≤ (2 : ℂ).re)
+-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor χ 2 (Or.inl two_ne_zero), h2, zero_div] at hne
+-  exact hne rfl
++    rootNumber χ ≠ 0 :=
++  Formalism.VW.rootNumber_ne_zero hχ
+ 
+ lemma isOpen_strip : IsOpen {s : ℂ | 0 < s.re ∧ s.re < 1} := by
+   exact (isOpen_lt continuous_const Complex.continuous_re).inter (isOpen_lt Complex.continuous_re continuous_const)
+diff --git a/src/Formalism/SharpRestriction/GlobalSchurBounds/ShortIntervalPrimes.lean b/src/Formalism/SharpRestriction/GlobalSchurBounds/ShortIntervalPrimes.lean
+index 01dff97ffd304e45c6c89f629c8849a04e53041e..d4f74f68e98ff283cc475578ce60127d577479a4 100644
+--- a/src/Formalism/SharpRestriction/GlobalSchurBounds/ShortIntervalPrimes.lean
++++ b/src/Formalism/SharpRestriction/GlobalSchurBounds/ShortIntervalPrimes.lean
+@@ -1,4 +1,5 @@
+ import Mathlib
++import Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip
+ import Formalism.LocalRingCardinality.DataParams₂
+ import Formalism.SharpRestriction.ParConsts
+ import Formalism.SharpRestriction.GlobalSchurBounds.GeneralLinearActions.FiltrationCocycleLiftCriterion
+@@ -167,37 +168,13 @@ theorem factorsThrough_inv {N : ℕ} {χ : DirichletCharacter ℂ N} {d : ℕ}
+ 
+ theorem isPrimitive_inv {N : ℕ} {χ : DirichletCharacter ℂ N} (h : χ.IsPrimitive) :
+     χ⁻¹.IsPrimitive := by
+-  unfold DirichletCharacter.IsPrimitive DirichletCharacter.conductor at *
+-  have hs : χ⁻¹.conductorSet = χ.conductorSet := by
+-    ext d
+-    rw [DirichletCharacter.mem_conductorSet_iff, DirichletCharacter.mem_conductorSet_iff]
+-    exact ⟨fun h' => by simpa using factorsThrough_inv h', factorsThrough_inv⟩
+-  rw [hs]
++  rw [DirichletCharacter.isPrimitive_def, DirichletCharacter.conductor_inv]
+   exact h
+ 
+ theorem zero_symm {N : ℕ} [NeZero N] {χ : DirichletCharacter ℂ N} (hχ : χ.IsPrimitive) {ρ : ℂ}
+     (h0 : 0 < ρ.re) (h1 : ρ.re < 1) (hz : DirichletCharacter.LFunction χ ρ = 0) :
+-    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 := by
+-  have hprim := isPrimitive_inv hχ
+-  have hρ0 : ρ ≠ 0 := fun h => by
+-    rw [h] at h0
+-    simp at h0
+-  have h1ρ : (1 - ρ) ≠ 0 := fun h => by
+-    have e := congrArg Complex.re h
+-    rw [Complex.sub_re, Complex.one_re, Complex.zero_re] at e
+-    linarith
+-  have hg : DirichletCharacter.gammaFactor χ ρ ≠ 0 := by
+-    unfold DirichletCharacter.gammaFactor
+-    split_ifs
+-    · exact Complex.Gammaℝ_ne_zero_of_re_pos h0
+-    · exact Complex.Gammaℝ_ne_zero_of_re_pos (by rw [Complex.add_re, Complex.one_re]; linarith)
+-  have hc : DirichletCharacter.completedLFunction χ ρ = 0 := by
+-    have e := DirichletCharacter.LFunction_eq_completed_div_gammaFactor (χ := χ) ρ (Or.inl hρ0)
+-    rw [hz, eq_comm, div_eq_zero_iff] at e
+-    exact e.resolve_right hg
+-  rw [DirichletCharacter.LFunction_eq_completed_div_gammaFactor (χ := χ⁻¹) (1 - ρ) (Or.inl h1ρ),
+-    hprim.completedLFunction_one_sub ρ, inv_inv, hc]
+-  simp
++    DirichletCharacter.LFunction χ⁻¹ (1 - ρ) = 0 :=
++  Claim.prim_reflect χ hχ h0 h1 hz
+ 
+ def Conclusion1 (_D : D7) (C : ℝ) : Prop :=
+   ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
+diff --git a/src/Main.lean b/src/Main.lean
+index dbd5db70bc11b35f18fa5751216ab335321e7bfc..9037948e51139b69597efae477e20150395ffbc7 100644
+--- a/src/Main.lean
++++ b/src/Main.lean
+@@ -1,5 +1,5 @@
+ import Statements
+-import Supplements.Kernels.MainTheoremsAll
++import Supplements.Kernels.MainTheorems
+ 
+ theorem riemannHypothesis : RiemannHypothesis := rhOfAll
+ 

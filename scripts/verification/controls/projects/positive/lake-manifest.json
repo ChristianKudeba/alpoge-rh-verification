@@ -1,0 +1,8 @@
+{
+  "version": "1.2.0",
+  "packagesDir": ".lake/packages",
+  "packages": [],
+  "name": "comparator_semantic_control",
+  "lakeDir": ".lake",
+  "fixedToolchain": false
+}
