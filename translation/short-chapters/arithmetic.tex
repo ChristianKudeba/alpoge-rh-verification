@@ -986,11 +986,45 @@ Equation \eqref{eq:sr-integerbudget} supplies a common integer \(M\)
 with \(\log M\leq\exp(x^\epsilon/2)\), if the stipulated finiteness
 and the three length estimates have been proved.
 
+\subsection{The weaker cubic-logarithmic envelope also suffices}
+\label{sec:sr-logcube}
+A subsequent version of Anton's combined file replaces the polynomial
+plus-height assumption by
+\begin{equation}\label{eq:sr-logcube-height}
+ \sum_{\substack{\ell\in S\\\ell\ {\rm odd}}}\log\ell
+           \sum_{a=1}^{t-1}s^+_{\ell,E}(a)
+       \leq \exp\bigl(A(1+\log(Nt))^3\bigr),
+\end{equation}
+with one uniform \(A\geq0\), the same finiteness assertion and the same
+host quantifiers.
+This weaker estimate is also sufficient for the numerical absorption.
+Indeed, if \(u=Nt\geq1\) and \(\log u\leq2x^{\epsilon/4}\), then for
+\(x\geq1\),
+\[
+ A(1+\log u)^3\leq27A x^{3\epsilon/4}
+                         \leq x^{4\epsilon/5}
+\]
+as soon as \(x^{\epsilon/20}\geq27A\).
+Thus the right side of \eqref{eq:sr-logcube-height} is at most the
+same \(\exp(x^{4\epsilon/5})\) envelope used for the dyadic term.
+Its ratio to \(\exp(x^\epsilon/2)\) tends to zero.
+The proof of \eqref{eq:sr-budgetsum} therefore goes through with
+this plus bound as well.
+For \(u\geq1,C\geq0\),
+\[
+ u^C=\exp(C\log u)\leq\exp(C(1+\log u)^3),
+\]
+since \(v\leq(1+v)^3\) for \(v=\log u\geq0\).
+So the polynomial hypothesis implies this cubic-logarithmic one.
+Neither hypothesis is proved by these elementary growth comparisons.
+
 \paragraph{What is still required here.}
 The class-number and strict descent arguments above prove the auxiliary
 regularity and zero bottom-layer inputs.
-They do not prove the uniform plus estimate \((Nt)^C\) furnished by
-the archive's pointwise height theorem.
+They do not prove the uniform plus estimate \((Nt)^C\), or the weaker
+cubic-logarithmic bound \eqref{eq:sr-logcube-height}.
+Section~\ref{sec:sr-two-counts} reduces the polynomial estimate to two
+precise rational-character estimates and proves their assembly.
 The odd minus estimate \eqref{eq:sr-PB} now follows from the complete
 internal descent and integer-product assembly above.
 The unramified dyadic module has at most 24 generators by

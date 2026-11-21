@@ -1,0 +1,272 @@
+\section{The latest reduction of the plus height to two character estimates}
+\label{sec:sr-two-counts}
+Anton's subsequent
+\href{https://github.com/antoshashakov/riemann-hypothesis/blob/76ffabc62ab67b126afc128013ab6efa6f7d2a7c/verification/TwoCharacterCounts.lean}{\srcid{TwoCharacterCounts}}
+reduces the polynomial plus-height input to two rational-character
+bounds. We give the precise estimates and their assembly here.
+Neither estimate is asserted unconditionally in this section.
+We first supply the trivial-character vanishing needed in that assembly.
+
+\subsection{Two vanishing arguments over \(\mathbb Q\)}
+\begin{srproposition}\label{prop:sr-rational-regular}
+For \(\ell=3,7\) and every \(a\geq1\),
+\(T_{\ell,a}(\mathbb Q)=0\).
+\end{srproposition}
+\begin{proof}
+Restriction takes this strict group into
+\(T_{\ell,a}(\mathbb Q(\zeta_\ell))\), which is zero by
+Proposition~\ref{prop:sr-regularsha}.
+The extension has degree \(\ell-1\), a unit in \(\mathbb Z_\ell\).
+Restriction is injective: restriction followed by corestriction is
+multiplication by \(\ell-1\), or equivalently the finite-quotient
+cohomology kernel vanishes by averaging over that quotient.
+The same argument applies to the local restriction conditions.
+Thus the original group is zero.
+\end{proof}
+
+\begin{srproposition}[The resonant trivial character]\label{prop:sr-rational-resonant}
+For every odd prime \(\ell\) and every positive \(a\) with
+\(\ell-1\mid2a\), one has \(T_{\ell,a}(\mathbb Q)=0\).
+\end{srproposition}
+\begin{proof}
+Let \(\omega:\operatorname{Gal}(\mathbb Q(\mu_{\ell^\infty})/\mathbb Q)
+\to\mu_{\ell-1}\subset\mathbb Z_\ell^\times\) be the finite
+Teichmuller part of the cyclotomic character.
+The condition implies that \(\omega^a\) has order at most two.
+Its fixed field \(K\) in \(\mathbb Q(\zeta_\ell)\) is either
+\(\mathbb Q\) or the unique quadratic subfield.
+In the quadratic case its discriminant is
+\((-1)^{(\ell-1)/2}\ell\).
+Indeed the Gauss-sum calculation in Section~\ref{sec:sr-dyadic-dual}
+works for every odd prime: it gives
+\(\tau_\ell^2=(-1)^{(\ell-1)/2}\ell\), and this squarefree radicand
+is \(1\bmod4\).
+The integral quadratic basis \(1,(1+\sqrt D)/2\) has discriminant
+\(D\); the trace and norm integrality conditions give the usual
+full ring of integers for squarefree \(D\equiv1\bmod4\).
+
+In both cases \(\ell\nmid h_K\). For the quadratic case we include
+an elementary bound. Minkowski gives an integral ideal in each class
+of norm at most \(B\leq\sqrt\ell\).
+There are at most \(d(n)\) ideals of norm \(n\): at a split rational
+prime the count is the exponent plus one, and the inert and ramified
+counts are smaller. Here \(d(n)\) is the divisor function.
+For \(B\geq1\),
+\[
+ h_K\leq\sum_{n\leq B}d(n)
+ =\sum_{u\leq B}\lfloor B/u\rfloor
+ \leq B(1+\log B)
+ \leq\sqrt\ell(1+\log\sqrt\ell)<\ell .
+\]
+The last inequality is \(\log z<z-1\) for \(z>1\).
+For \(K=\mathbb Q\) the class number is one.
+
+Let \(K_\infty\) be the subfield of
+\(\mathbb Q(\mu_{\ell^\infty})\) fixed by
+\(\ker(\omega^a)\) in its finite factor \(\mu_{\ell-1}\).
+Then \(K_\infty/K\) is a \(\mathbb Z_\ell\)-extension, and
+\(\chi_{\rm cyc}^{-a}\) is trivial on \(G_{K_\infty}\).
+There is a unique prime above \(\ell\) in \(K\), totally ramified
+through this tower, and no other finite prime ramifies.
+The one-ramified-prime class-number lemma also applies to these
+cyclic degree-\(\ell\) steps if \(K\) is real.
+For odd \(\ell\) no real place can complexify in such a Galois
+extension. In its proof the unit representation is then
+\(\mathbb Q[G]^{r_1(K)+r_2(K)}-\mathbb Q\);
+the same Herbrand quotient \(1/\ell\) and ideal calculation apply.
+Thus \(\ell\) is prime to every finite-layer class number.
+
+The strict descent of Proposition~\ref{prop:sr-regularsha} now applies
+to this tower, as can also be seen directly.
+A strict cocycle has finite image. In a sufficiently high layer the
+coefficient action fixes that image and the chosen local primitive
+at the unique prime above \(\ell\).
+Its restriction is a homomorphism, zero at that decomposition group
+and unramified everywhere else.
+Artin reciprocity and the prime-to-\(\ell\) class number kill it.
+The cocycle therefore descends to
+\(\operatorname{Gal}(K_\infty/K)\simeq\mathbb Z_\ell\).
+The generator acts on \(\mathbb Q_\ell/\mathbb Z_\ell\) by a scalar
+different from one, and multiplication by the difference is
+surjective. Subtracting a coboundary kills its value at that
+generator, hence kills the cocycle by continuity.
+We obtain \(T_{\ell,a}(K)=0\).
+Finally \([K:\mathbb Q]\leq2\) is prime to \(\ell\), so the
+restriction argument of Proposition~\ref{prop:sr-rational-regular}
+gives the result over \(\mathbb Q\).
+\end{proof}
+
+\subsection{The rational groups and their normalizations}
+For an odd prime \(\ell\), choose a finite splitting extension of
+\(\mathbb Q_\ell\), with ring \(\mathcal O\), fraction field \(Q\),
+and \(r_{\mathcal O}=v_{\mathcal O}(\ell)>0\).
+For a Dirichlet character \(\psi\) of level \(N\), let
+\(\mathcal V'_{\ell,N,a}(\psi)\) be the subgroup of
+\[
+ H^1(\mathbb Q,(Q/\mathcal O)(\psi^{-1}\chi_{\rm cyc}^{-a}))
+\]
+whose restrictions to all finite inertia groups and to the full
+local groups at primes dividing \(\ell N\) are zero.
+These are restrictions of cohomology classes, not assertions that
+every representative cocycle is pointwise zero.
+Put
+\[
+ v_{\ell,a}(\psi)=
+ \frac{\operatorname{length}_{\mathcal O}
+              \mathcal V'_{\ell,N,a}(\psi)}{r_{\mathcal O}}
+                  \quad\hbox{in }[0,\infty].
+\]
+This is the normalized length called \srcid{Vn} when its finiteness
+has been proved; \srcid{VLe} includes that finiteness as well as
+the weighted inequality. An infinite length is never set to zero.
+
+For a principal host let \(H\subseteq(\mathbb Z/N)^\times\)
+be its fixing subgroup, and let
+\[
+ \mathcal X_a=\{\psi:\psi|_H=1,\ \psi(-1)=(-1)^a\}.
+\]
+All these characters have \(2\)-power order and
+\(|\mathcal X_a|\leq[E:\mathbb Q]\leq N\).
+The plus parity here is different from the minus parity in
+Proposition~\ref{prop:sr-PB}.
+
+The restriction and averaging proof in that proposition, applied
+to the other parity, gives
+\begin{equation}\label{eq:sr-plus-character}
+ s^+_{\ell,E}(a)\leq
+             \sum_{\psi\in\mathcal X_a}v_{\ell,a}(\psi).
+\end{equation}
+There is no index loss: every odd \(\ell\) is prime to
+\([E:\mathbb Q]\).
+We check the extra local conditions used in \(\mathcal V'\).
+At \(p\ne\ell\), if \(\psi\) is ramified, a nontrivial inertia
+value differs from one by an \(\mathcal O\)-unit, because its
+order is prime to \(\ell\).
+The argument in Section~\ref{sec:minus-characterwise} turns an
+inertia coboundary into a full local coboundary.
+If \(\psi\) is unramified, an unramified local cocycle factors
+through the procyclic unramified quotient.
+Its Frobenius scalar is \(\psi(\operatorname{Frob}_p)^{-1}p^{-a}\ne1\):
+a positive rational power \(p^a>1\) cannot be a root of unity.
+Subtract a coboundary using surjectivity of this nonzero scalar
+minus one on \(Q/\mathcal O\). The cocycle is then zero at
+Frobenius, hence zero by continuity.
+Thus every relevant unramified class is already locally zero
+at these additional primes. This proves that imposing the
+\(N\)-prime conditions introduces no missing local term in
+\eqref{eq:sr-plus-character}.
+
+For \(\psi=1\), the rational vanishing propositions imply
+\[
+ v_{\ell,a}(1)=0\quad
+ \hbox{if }\ell\in\{3,7\}\ \hbox{or }\ell-1\mid2a .
+\]
+The statements remain true over \(\mathcal O\), since its scalar
+extension is finite free over \(\mathbb Z_\ell\), and continuous
+cohomology and the local kernels commute with finite direct sums.
+Adding the further local conditions only takes a subgroup.
+
+\subsection{The two remaining estimates}
+Write \(M=Nt\), with \(t\geq2\).
+All the following quantifiers concern the same sufficiently large
+principal hosts as \eqref{eq:sr-principal-height}.
+The fixed thresholds and the exponents precede the host and \(t\).
+The splitting coefficient ring may vary with \(\ell\).
+
+\begin{srdefinition}\label{def:sr-character-inputs}
+The generic estimate asks for one natural exponent \(A\) such that,
+for each \(1\leq a<t\) and every finite prime set \(S\) with
+\(\ell\notin\{2,3,7\}\) and \(\ell-1\nmid2a\),
+\begin{equation}\label{eq:sr-generic-count}
+ \sum_{\ell\in S}(\log\ell)
+       \sum_{\psi\in\mathcal X_a}v_{\ell,a}(\psi)\leq M^A .
+\end{equation}
+The nontrivial estimate asks for one natural exponent \(B\) such that
+\begin{equation}\label{eq:sr-nontrivial-count}
+ (\log\ell)v_{\ell,a}(\psi)\leq(\ell N a)^B
+\end{equation}
+whenever \(\psi\in\mathcal X_a,\ \psi\ne1,\ \ell\) is odd, and
+\[
+ \ell\in\{3,7\}\quad\hbox{or}\quad
+                       (a\geq2\ \hbox{and }\ell-1\mid2a).
+\]
+Finiteness is included in both estimates.
+\end{srdefinition}
+The first is a simultaneous sum over arbitrarily large finite
+prime sets, rather than a pointwise bound which could not be
+summed over all primes. These two estimates are still assumptions
+of the next proposition.
+
+\begin{srproposition}\label{prop:sr-two-counts}
+Definition~\ref{def:sr-character-inputs} implies the polynomial
+plus-height bound \eqref{eq:sr-principal-height}.
+One may use the uniform exponent \(A+3B+5\).
+At the exceptional pair \(3,7\) alone, exponent \(2B+2\) suffices.
+\end{srproposition}
+\begin{proof}
+All sums below may first be taken over an arbitrary fixed finite
+prime set. The inputs and the vanishing results make each rational
+length finite; \eqref{eq:sr-plus-character} then proves finiteness
+of each plus length.
+
+For \(\ell\notin\{2,3,7\}\) and a fixed \(a\), the generic primes
+contribute at most \(M^A\).
+Every other prime satisfies \(\ell-1\mid2a\), so
+\(\ell\leq2a+1\leq2t\), and necessarily \(a\geq2\).
+There are at most \(2t\) such primes.
+The trivial character contributes zero.
+For every other character,
+\[
+ \ell N a\leq2Nt^2=2Mt\leq M^3,
+\]
+since \(t\leq M\) and \(M\geq2\).
+Its weighted contribution is therefore at most \(M^{3B}\).
+There are at most \(N\) characters.
+Summing the fixed-\(a\) estimate over \(a<t\), and using \(tN=M\),
+bounds the entire outside contribution by
+\[
+ t(M^A+2tN M^{3B})
+ \leq M^{A+1}+2M^{3B+2}
+ \leq3M^{A+3B+2}\leq M^{A+3B+4}.
+\]
+All exponents are nonnegative; the last inequality uses \(M^2\geq4\).
+
+At \(\ell=3,7\), the trivial character again contributes zero for
+every positive \(a\).
+Here \(M\geq7\) for the principal hosts, so
+\(\ell N a\leq M^2\).
+Each remaining weighted contribution is at most \(M^{2B}\).
+The two primes, at most \(N\) characters and fewer than \(t\)
+twists give at most
+\[
+          2tN M^{2B}=2M^{2B+1}\leq M^{2B+2}.
+\]
+Add the inside and outside estimates.
+Since \(A+3B+4\geq2B+2\) and \(M\geq2\), their sum is at most
+\(M^{A+3B+5}\).
+Equation~\eqref{eq:sr-plus-character} proves the asserted plus bound.
+The constants are independent of the chosen finite prime set,
+host, splitting rings and twist range, as required.
+\end{proof}
+
+In the source's notation the exceptional set at conductor one is
+\(B_\chi(1)=\{3,7\}\).
+Its quadratic auxiliary field is \(\mathbb Q(\sqrt{-7})\), whose
+Minkowski bound \((2/\pi)\sqrt7<2\) gives class number one.
+The first eligible quadratic auxiliary prime is seven and the
+other auxiliary prime is three; the base character has order one.
+The odd prime factors in the defining exceptional set therefore
+reduce to those of \(7\cdot3\), together with three itself.
+An odd-order nontrivial host character cannot occur, because its
+order divides a power of two.
+This is the elementary content of the exceptional-set and
+Case III simplifications in the contributors' files.
+The proof above avoids retaining the case labels: the generic,
+resonant and exceptional conditions are stated directly.
+
+The arithmetic content not supplied here is
+\eqref{eq:sr-generic-count} and~\eqref{eq:sr-nontrivial-count}.
+Their source proofs involve the global counting and geometric
+comparisons in Part II. The vanishing and the assembly above
+are not substitutes for those two estimates.
+

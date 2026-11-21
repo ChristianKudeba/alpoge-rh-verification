@@ -41,10 +41,10 @@ inputs among these five files. The bytes of every listed PDF were hashed for thi
 In particular the Masullo version has not silently been replaced by
 a revision resolving the identified issues.
 
-\subsection{Anton's new conductor-one reduction}
-The main new source is in the collaborative editor:
+\subsection{Anton's conductor-one reductions}
+The first new specialization examined here was in the collaborative editor:
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=b64c07f1e23480429eacd6b354f04f26}{\srcid{ConductorOneRHCombined.lean}}.
-Its current body is 552 lines, with SHA-256
+The earlier 552-line snapshot has SHA-256
 \[
  \begin{gathered}
  \texttt{e2bab4de455929689f2977514ae8a84b8}\\
@@ -52,7 +52,8 @@ Its current body is 552 lines, with SHA-256
  \end{gathered}
 \]
 The two displayed strings concatenate to one 64-digit hash.
-The author reports a successful Lean 4.33.1 compilation in 664 seconds.
+For that snapshot, the author reports a successful Lean 4.33.1
+compilation in 664 seconds.
 The present consolidation independently checked the source bytes and
 read the theorem signatures; it did not independently repeat that
 compilation. The reported 33 direct imports reach 3,857 project
@@ -105,7 +106,7 @@ existence assertion used by the fully printed comparison in Part I.
 The two interfaces should not be identified without constructing the
 map between their witnesses.
 
-The 552-line file proves the following assembly within the imported
+The 552-line snapshot proves the following assembly within the imported
 development. Its degree-one specialization removes the exceptional
 odd-prime term. The minus estimate, the supplied dyadic estimate and
 \eqref{eq:sr-principal-height} give the full strict-length budget.
@@ -118,7 +119,7 @@ Dirichlet \(L\) is \(\zeta\), so reflection gives ordinary RH.
 The degree-one cancellation and the final identification of \(L\)
 remove bookkeeping required for nontrivial characters.
 
-The latest source uses
+Both combined revisions use
 \[
  J_{\mathrm{archive}}=2^{26}(2C_KC_t/\epsilon)^{24}.
 \]
@@ -127,6 +128,38 @@ The direct interval proof in \eqref{eq:sr-J} gives
 stated exceptional-set hypotheses.
 These are different interval estimates. The sharper numerical
 calculation does not itself establish those hypotheses.
+
+\paragraph{Subsequent additions.}
+The
+\href{https://github.com/antoshashakov/riemann-hypothesis/blob/d85b449fa08d46836c934a7809fe3c9cae2e4a6a/verification/LogCubeRH.lean}{630-line cubic-logarithmic revision}
+has the same direct import list and adds a weaker height option:
+\eqref{eq:sr-logcube-height}.
+Its pinned GitHub bytes match the updated Principia editor body,
+with SHA-256
+\[
+ \begin{gathered}
+ \texttt{d183191cac31584b7fa051847a87fbce3}\\
+ \texttt{dac7ec4a44a9f5701fe4ad2f9904321}.
+ \end{gathered}
+\]
+The author's report states that Lean checked both RH endpoints and
+ten axiom reports. We checked the source bytes and its implications,
+without repeating that Lean build.
+Section~\ref{sec:sr-logcube} proves the new numerical absorption.
+
+The further
+\href{https://github.com/antoshashakov/riemann-hypothesis/blob/442bb98b2aa223ac4f28ec86e754e1a54b3ae081/verification/PrincipalHeightCounts.lean}{principal height counts},
+\href{https://github.com/antoshashakov/riemann-hypothesis/blob/b8afa4ee2aca3cb3478b1f706cac6b03b258b9fe/verification/RegularCharacterHeight.lean}{regular-character vanishing}
+and
+\href{https://github.com/antoshashakov/riemann-hypothesis/blob/76ffabc62ab67b126afc128013ab6efa6f7d2a7c/verification/TwoCharacterCounts.lean}{two-character reduction}
+have 342, 282 and 356 lines respectively.
+Their uniform generic sum and nontrivial pointwise estimate remain
+explicit inputs.
+Section~\ref{sec:sr-two-counts} writes these inputs in mathematical
+notation, proves the needed trivial-character vanishing and derives
+the height bound from them with all prime weights retained.
+This removes a separate CM-host assumption at 3 and 7.
+It does not remove the need to prove the two rational estimates.
 
 \subsection{What imported results still need an internal proof}
 The short file supplies the high-twist theorem by assembling the
@@ -152,9 +185,10 @@ of those data as inputs.
 
 The community's generated
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=fd6fc09854184b61bca8dd800a4859b5}{\srcid{rh-unpacked.tex}}
-snapshot reports 1,067 translated modules and 1,001 reviewed modules
+earlier snapshot reports 1,067 translated modules and 1,001 reviewed modules
 out of 175,187. We inspected relevant geometric and cohomological
-entries in that snapshot.
+entries in that snapshot. Subsequent project notes at 3:00 AM report
+1,112 translated modules and 1,042 reviewed modules.
 For example
 \srcid{CuspidalModerateGrowthRapidDecay} separates the height used in
 derivative growth from the quotient height used in its conclusion.
@@ -177,14 +211,19 @@ The dyadic class-number base, the uniform 24-generator bound of
 Proposition~\ref{prop:sr-dyadic-generators}, the elementary field degree,
 the finite interval selection and numerical absorption are also proved here.
 The analytic endpoint and signed finite comparison have complete
-printed proofs.
+printed proofs. The new rational vanishing arguments and the assembly
+from the two character estimates are printed in
+Section~\ref{sec:sr-two-counts}.
 
 To obtain an unconditional standalone proof by this route, the
 following work remains.
 \begin{enumerate}
 \item Prove the uniform plus estimate
-\eqref{eq:sr-principal-height}, with one exponent before all hosts and
-twist ranges. The height/deformation and automorphic counting
+\eqref{eq:sr-principal-height}, or the weaker bound
+\eqref{eq:sr-logcube-height}, with one constant before all hosts and
+twist ranges. The two estimates in
+Definition~\ref{def:sr-character-inputs} suffice for the polynomial
+version, by Proposition~\ref{prop:sr-two-counts}. The height/deformation and automorphic counting
 comparisons in Part II must be supplied with the construction and
 compatibility inputs they currently assume.
 \item Bound uniformly the dyadic cokernels identified in

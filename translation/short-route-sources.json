@@ -7,7 +7,7 @@
   "independently_rechecked_prose": false,
   "remaining": [
     "Uniform signed-data supply on arbitrarily late fourth-power windows",
-    "Uniform odd plus bound from PointHV/Height",
+    "Uniform plus bound (polynomial via the two stated character estimates, or the weaker cubic-logarithmic envelope)",
     "Uniform dyadic cokernel order bounds and quantitative high-twist size estimates",
     "Fixed exceptional-set construction with the needed uniformity",
     "Relevant global theta, ramified matching, cusp/metric and integral-model constructions"
@@ -198,34 +198,33 @@
     "Full finite-twist cokernel identification by continuous cocycles, and restriction to the canonical CM field with kernel length at most one; uniform cokernel orders not bounded",
     "Centered prime-distribution identity with all half-line boundary terms",
     "Global zeta zero growth bound and uniqueness of a vertical discrete spectral distribution",
-    "Counterexample to arbitrary Mellin-transform O(log T) unit-box zero counts and the decreasing-kernel projection check"
+    "Counterexample to arbitrary Mellin-transform O(log T) unit-box zero counts and the decreasing-kernel projection check",
+    "Rational trivial-character vanishing at 3 and 7 for every positive twist and at every resonant prime ell-1 dividing 2a; elementary quadratic class-number and cyclotomic descent proofs",
+    "Full plus-height assembly from two stated rational-character estimates with exponent A+3B+5, and exceptional-pair exponent 2B+2; both input estimates remain unproved here",
+    "Absorption of the weaker cubic-logarithmic height envelope in the same windows"
   ],
   "latest_combined_source": {
-    "path": "ConductorOneRHCombined.lean",
-    "id": "b64c07f1e23480429eacd6b354f04f26",
-    "updated_at": 1795245641028,
-    "updated_by": {
-      "username": "anton",
-      "avatar": "026e75c286c8e5c5659147c48b91aee0",
-      "name": "anton"
-    },
-    "utf8_bytes": 29309,
-    "logical_lines": 552,
-    "sha256": "e2bab4de455929689f2977514ae8a84b8004fbbbb19619cf7b6866d77c93d33e",
+    "path": "verification/LogCubeRH.lean",
+    "repository": "antoshashakov/riemann-hypothesis",
+    "ref": "d85b449fa08d46836c934a7809fe3c9cae2e4a6a",
+    "editor_file_id": "b64c07f1e23480429eacd6b354f04f26",
+    "editor_updated_at": 1795246993436,
+    "logical_lines": 630,
+    "utf8_bytes": 33486,
+    "sha256": "d183191cac31584b7fa051847a87fbce3dac7ec4a44a9f5701fe4ad2f9904321",
+    "editor_and_pinned_github_bytes_match": true,
     "direct_imports": 33,
-    "reported_transitive_project_imports": 3857,
     "compiler_report": {
-      "source": "author report in Principia research notes",
+      "source": "author report in Principia notes",
       "lean": "4.33.1",
-      "seconds": 664,
-      "independently_repeated_in_this_revision": false
+      "reported_axiom_reports": 10,
+      "independently_repeated": false
     },
     "explicit_premises": [
       "Weber odd class numbers",
-      "uniform principal plus-height bound",
+      "uniform plus height, optionally exp(C(1+log(Nt))^3)",
       "principal host-window to connected-family construction"
-    ],
-    "weber_proved_in_manuscript": true
+    ]
   },
   "papers_review": [
     {
@@ -321,5 +320,93 @@
       ],
       "scope": "finite-twist transport is proved by cocycles in this edition; the quantitative A-bound remains open in prose"
     }
-  ]
+  ],
+  "combined_source_snapshots": [
+    {
+      "path": "ConductorOneRHCombined.lean",
+      "id": "b64c07f1e23480429eacd6b354f04f26",
+      "updated_at": 1795245641028,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      },
+      "utf8_bytes": 29309,
+      "logical_lines": 552,
+      "sha256": "e2bab4de455929689f2977514ae8a84b8004fbbbb19619cf7b6866d77c93d33e",
+      "direct_imports": 33,
+      "reported_transitive_project_imports": 3857,
+      "compiler_report": {
+        "source": "author report in Principia research notes",
+        "lean": "4.33.1",
+        "seconds": 664,
+        "independently_repeated_in_this_revision": false
+      },
+      "explicit_premises": [
+        "Weber odd class numbers",
+        "uniform principal plus-height bound",
+        "principal host-window to connected-family construction"
+      ],
+      "weber_proved_in_manuscript": true
+    },
+    {
+      "path": "verification/LogCubeRH.lean",
+      "repository": "antoshashakov/riemann-hypothesis",
+      "ref": "d85b449fa08d46836c934a7809fe3c9cae2e4a6a",
+      "editor_file_id": "b64c07f1e23480429eacd6b354f04f26",
+      "editor_updated_at": 1795246993436,
+      "logical_lines": 630,
+      "utf8_bytes": 33486,
+      "sha256": "d183191cac31584b7fa051847a87fbce3dac7ec4a44a9f5701fe4ad2f9904321",
+      "editor_and_pinned_github_bytes_match": true,
+      "direct_imports": 33,
+      "compiler_report": {
+        "source": "author report in Principia notes",
+        "lean": "4.33.1",
+        "reported_axiom_reports": 10,
+        "independently_repeated": false
+      },
+      "explicit_premises": [
+        "Weber odd class numbers",
+        "uniform plus height, optionally exp(C(1+log(Nt))^3)",
+        "principal host-window to connected-family construction"
+      ]
+    }
+  ],
+  "new_character_reductions": [
+    {
+      "repository": "antoshashakov/riemann-hypothesis",
+      "path": "verification/PrincipalHeightCounts.lean",
+      "ref": "442bb98b2aa223ac4f28ec86e754e1a54b3ae081",
+      "lines": 342,
+      "bytes": 18481,
+      "sha256": "a3e22e684b33c373a1046b02231c1ed4f7341b2c65a7062a9aea0ee8646ce84c",
+      "compiler_report": "author reports successful Lean checks; not independently repeated here"
+    },
+    {
+      "repository": "antoshashakov/riemann-hypothesis",
+      "path": "verification/RegularCharacterHeight.lean",
+      "ref": "b8afa4ee2aca3cb3478b1f706cac6b03b258b9fe",
+      "lines": 282,
+      "bytes": 15816,
+      "sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96",
+      "compiler_report": "author reports successful Lean checks; not independently repeated here"
+    },
+    {
+      "repository": "antoshashakov/riemann-hypothesis",
+      "path": "verification/TwoCharacterCounts.lean",
+      "ref": "76ffabc62ab67b126afc128013ab6efa6f7d2a7c",
+      "lines": 356,
+      "bytes": 16601,
+      "sha256": "be6ccce3ae6696230518adc7bc509542c6eb5c47c644c35996234854f067de2a",
+      "compiler_report": "author reports successful Lean checks; not independently repeated here"
+    }
+  ],
+  "latest_notes": {
+    "updated_at": 1795248439145,
+    "reported_at": "2026-11-21 03:00 America/Toronto",
+    "translated": 1112,
+    "reviewed": 1042,
+    "total": 175187
+  }
 }
