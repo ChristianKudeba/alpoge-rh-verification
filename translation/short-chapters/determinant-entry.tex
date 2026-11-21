@@ -1,0 +1,355 @@
+\section{The determinant-to-entry map and the finite exceptional corner}
+\label{sec:det-entry-finite-corner}
+
+We now identify the determinant ring and the entry
+space used in the two propagation runs.
+This also constructs the finite weight-space ideal
+covering every paired exceptional component.
+All rings and representations in this section are
+the actual objects constructed in
+Sections~\ref{sec:entry-space-flat} and
+\ref{sec:entry-nice-sharp}.
+
+\subsection{Traces generate the weight-zero coefficient algebra}
+Let \(S_n=(B_n,A_n,\rho_n,\psi_n)\), \(n=2,3\).
+Suppose a complete local coefficient algebra \(C\)
+maps to the ambient diagonal deformation ring,
+and its image contains every
+\(\operatorname{tr}\rho_n(g)\) and every
+\(\psi_{vi}(s)\).
+We claim that its image contains \(B_n\).
+
+The image is a complete local quotient of \(C\)
+with the same residue field.
+It is closed in the ambient ring.
+Indeed, at each fixed precision the induced and
+intrinsic maximal-ideal topologies are cofinal
+on a finite entry lattice, as in (LS3);
+a compatible approximation therefore has a limit
+in the image, and separatedness identifies its
+image with the given limit.
+
+Write
+\[
+ X=\rho_n(g_0)-\rho_n(g_0^*)
+                  =\zeta\operatorname{diag}(w_i).
+\]
+Here \(\zeta\) is a unit with a prescribed
+nonzero residue, and
+\[
+                  \operatorname{tr}(X^2)=2\zeta^2.            \tag{DC1}
+\]
+The trace of every product of group matrices
+belongs to the coefficient image.
+Thus \(\zeta^2\) belongs to it.
+Hensel lifting \(Z^2-\zeta^2\), using the
+specified residue of \(\zeta\) and the unit
+\(2\zeta\), shows that \(\zeta\) itself belongs
+to the image.
+Consequently the coordinate projectors belong
+to the coefficient span of group matrices:
+\[
+ E_+=\tfrac12(W^2+W),\quad
+ E_-=\tfrac12(W^2-W),\quad
+ E_0=1-W^2,\qquad W=\zeta^{-1}X,                              \tag{DC2}
+\]
+where \(E_0\) is omitted in rank two.
+The span is a subalgebra.
+It follows that
+\[
+ \rho(g_1)_{i_1i_2}\cdots
+ \rho(g_r)_{i_ri_1}
+   =\operatorname{tr}
+       (E_{i_1}\rho(g_1)E_{i_2}\rho(g_2)
+                    \cdots E_{i_r}\rho(g_r))                 \tag{DC3}
+\]
+belongs to the same coefficient image.
+
+For completeness this captures every
+weight-zero monomial, including ones whose
+indices initially do not form a cycle.
+In rank two the only nonzero entry weights
+are \(2,-2\).
+In rank three they are \(1,2,-1,-2\);
+polarization identifies the two weight-one
+entry spans, and also the two weight-minus-one
+entry spans.
+Every primitive multiset of these nonzero
+weights with sum zero is one of
+\[
+                 (1,-1),\quad(2,-2),\quad
+                        (2,-1,-1),\quad(-2,1,1).
+\]
+After the indicated reflection of an adjacent
+entry, each is a closed index cycle.
+Equation (DC3) applies.
+Remove such a primitive submultiset and
+induct; diagonal factors already belong to
+the image by (DC2).
+Finally take the defining adic closure of
+the weight-zero algebra.
+This proves the claim, including at \(\ell=3\):
+only \(2\) and \(\zeta\) were inverted.
+
+Let \(\mathcal B_n\) be the actual universal
+ordinary determinant ring for the corresponding
+scalar-twisted arithmetic packet.
+The entry representation, composed with the
+surjection of arithmetic groups and twisted
+by the fixed scalar \(\kappa\), gives its
+continuous determinant and local characters.
+It satisfies its residual, polarization, and
+ordered-product relations.
+At an inertia generator killed in the
+arithmetic quotient, a prime-to-\(\ell\)
+power is one and its reduction is one.
+The geometric sum in
+\[
+                  M^m-1=(M-1)(1+M+\cdots+M^{m-1})
+\]
+is invertible, since its reduction is
+\(mI\); hence \(M=1\).
+Thus these are the exact unramified
+relations as well.
+
+Universality gives a map
+\[
+                       \Phi_n:\mathcal B_n\longrightarrow B_n.
+                                                               \tag{DC4}
+\]
+The image contains the entry traces:
+the arithmetic group map is surjective,
+and the scalar \(\kappa(g)\) is a unit
+of \(\mathcal O\).
+It contains the local characters by the
+surjectivity of the local group maps.
+The preceding claim makes (DC4) surjective.
+This proves the source's \srcid{PhiEx},
+including the asserted target ring.
+
+\subsection{The actual rank-two corner on the exceptional quotient}
+Write \(\mathfrak e\subset A_3\) for the
+odd-entry ideal, and put
+\[
+ C=B_3/(\mathfrak e\cap B_3),\qquad
+                 Q=A_3/\mathfrak e .
+\]
+If \(\mathfrak e=A_3\), take \(I_3=B_3\)
+below; there are no exceptional primes.
+Otherwise \(C\hookrightarrow Q\), and
+\(C\) is complete local Noetherian.
+The universal representation over \(Q\) has
+block form
+\[
+ \rho(g)=
+ \begin{pmatrix}
+ a(g)&0&b(g)\\
+ 0&\chi(g)&0\\
+ c(g)&0&d(g)
+ \end{pmatrix},\qquad
+       \sigma(g)=\begin{pmatrix}a(g)&b(g)\\c(g)&d(g)\end{pmatrix}.
+                                                               \tag{DC5}
+\]
+The outer block is a representation.
+Its pairing is the rank-two reversal pairing,
+and its marked normalization is unchanged.
+Its local characters are
+\(\psi_{v0},\psi_{v2}\).
+
+We check its shorter ordinary identity rather
+than canceling a matrix factor without cause.
+At each \(v\) choose the frame's element \(u_v\)
+with \(\Psi(u_v)^2\ne1\).
+The three quantities
+\[
+ \chi(u_v)-\psi_{v0}(u_v),\quad
+ \chi(u_v)-\psi_{v2}(u_v),\quad
+                   \det(\sigma(u_v)-\psi_{v1}(u_v)I_2)
+\]
+are units.
+Their residues are respectively
+\(1-\Psi(u_v)\), \(1-\Psi(u_v)^{-1}\),
+and
+\((\Psi(u_v)-1)(\Psi(u_v)^{-1}-1)\).
+The corner product \(b(u_v)c(u_v)\) has
+weight zero and lies in the maximal ideal
+of \(C\), so it does not alter the last
+residue.
+
+For \(P=\sigma(x)-\psi_{v0}(x)I_2\),
+\(M=\sigma(u_v)-\psi_{v1}(u_v)I_2\),
+and \(R_y=\sigma(y)-\psi_{v2}(y)I_2\),
+the rank-three identity gives \(PMR_y=0\)
+for every \(y\).
+Since \(\psi_{v2}\) is a character,
+\[
+ PM\sigma(y)=\psi_{v2}(y)PM,\qquad
+ PM^2=(\psi_{v2}(u_v)-\psi_{v1}(u_v))PM.
+\]
+The two-by-two Cayley--Hamilton identity gives
+\[
+ (\det M)P=
+  \bigl(\operatorname{tr}M
+        -\psi_{v2}(u_v)+\psi_{v1}(u_v)\bigr)PM.
+\]
+Multiply by \(R_y\) and use the unit
+\(\det M\): \(PR_y=0\).
+Similarly the middle entry of the original
+product at \((u_v,g,u_v)\) gives
+\(\chi(\operatorname{loc}_v g)=\psi_{v1}(g)\).
+Thus (DC5) is the actual normalized
+ordinary rank-two corner.
+
+The entry spans of \(\sigma\) are finite
+\(C\)-modules, their adic continuity descends
+from the rank-three spans, and every balanced
+off-diagonal monomial belongs to
+\(\mathfrak m_C\).
+The vertex construction (LS3) applies with
+coefficient ring \(C\), target \(Q\), and these
+finite spans: the graded Laurent subalgebra
+is Noetherian of finite type over \(C\), its
+vertex completion has diagonal residue, and
+evaluation at its Laurent variable \(1\)
+recovers the target matrices.
+Its degree-zero image lies in the closed
+copy of \(C\).
+We therefore obtain actual maps
+\[
+           \xi:A_2\longrightarrow Q,\qquad
+             \beta:B_2\longrightarrow C,\qquad
+      \xi|_{B_2}=\iota\beta,                                 \tag{DC6}
+\]
+with the outer entries and characters of
+(DC5).
+
+\subsection{Construction of the finite exceptional ideal}
+Let \(I_2\subset B_2\) be the supported ideal
+after the rank-two propagation run.
+The conclusions already proved for that run
+are
+\[
+ \mathfrak m_{B_2}\subset
+               \sqrt{I_2+\mathfrak l_2},
+ \quad
+ I_2\subset P_2\cap B_2
+           \ \text{at every rank-two Type-I prime }P_2.       \tag{DC7}
+\]
+Here \(\mathfrak l_n\) is the source weight
+augmentation: it contains
+\(\mathfrak m_{\mathcal O}\) and
+\(\psi_{vi}(g)-1\) for
+\(g\in I_v,\ \Psi(\operatorname{loc}_v g)=1\).
+Define, with \(p:B_3\twoheadrightarrow C\),
+\[
+                         I_3=p^{-1}(\beta(I_2)C).             \tag{DC8}
+\]
+This is a specified ideal in the same
+rank-three coefficient ring.
+
+At a Type-E prime \(P_3\subset A_3\), the
+outer block stays off both triangular
+directions, since its two corner entries
+are the only possible off-diagonal entries
+left in (DC5).
+Thus \(\xi^{-1}(P_3/\mathfrak e)\) is
+rank-two Type I.
+Equation (DC7), followed through (DC6),
+gives
+\[
+                           I_3\subset P_3\cap B_3.            \tag{DC9}
+\]
+
+We prove its finiteness over the weight
+augmentation.
+Let \(P\subset B_3\) be any prime containing
+\(I_3+\mathfrak l_3\).
+It contains \(\ker p\), and (DC6) pulls
+\(\mathfrak l_3\) back to
+\(\mathfrak l_2\).
+The prime of \(B_2\) so obtained contains
+\(I_2+\mathfrak l_2\); hence (DC7) makes
+every element of \(B_2\), modulo this
+prime, a coefficient-field constant.
+
+Modulo \(P\), the middle function \(\chi\)
+is a character, is \(1\) residually, and
+satisfies \(\chi(g^*)=\chi(g)\).
+Its inertia restrictions on
+\(I_v\cap\ker\Psi\) are one by the weight
+augmentation and the equality
+\(\chi|_{G_v}=\psi_{v1}\).
+Finite prime-to-\(\ell\) inertia quotients
+contribute nothing to a principal-unit
+character in characteristic \(\ell\).
+The arithmetic abelian control proved
+with the frame therefore gives a fixed
+nonzero exponent \(h\) with
+\(\chi(g)^h=1\) for all \(g\).
+This is exactly its finite class-group
+exponent, and is independent of \(g\).
+
+A principal unit in a characteristic-\(\ell\)
+local domain has no nontrivial finite
+order: write \(h=\ell^a m\) with
+\(\ell\nmid m\); the \(\ell^a\)-power
+reduces to \(x^m=1\), and
+\(1+x+\cdots+x^{m-1}\) is a unit.
+Hence
+\[
+                              \chi(g)=1\pmod P.              \tag{DC10}
+\]
+Every weight-zero rank-three entry monomial
+modulo \(\mathfrak e\) is either zero or
+a product of middle entries and a
+weight-zero outer-block monomial.
+Equations (DC6), (DC7), and (DC10) make
+it a coefficient-field constant modulo
+\(P\).
+The outer local characters are constant
+by (DC6), and the middle local character
+equals the middle global character.
+Thus all the topological generators of
+\(B_3\) are coefficient-field constants
+modulo \(P\).
+The induced topology on its degree-zero
+part is its maximal-ideal topology by
+(LS2); the ideal \(P\) is closed.
+It follows that \(B_3/P\) is the
+coefficient residue field, or equivalently
+\(P=\mathfrak m_{B_3}\).
+We have proved
+\[
+ \mathfrak m_{B_3}\subset
+                     \sqrt{I_3+\mathfrak l_3}.               \tag{DC11}
+\]
+
+Equations (DC9)--(DC11) construct the
+finite exceptional ideal required by
+the rank-three component argument.
+In particular it is obtained from
+the actual rank-two supported quotient;
+it is not an independent finiteness
+assumption on all exceptional points.
+
+\paragraph{Exact source correspondence.}
+The trace calculation is
+\srcid{FrobeniusSmoothVectors.TraceMem.B\_gen};
+the group quotient, scalar twist, continuity,
+and surjection (DC4) are
+\srcid{CurveDVRSpecialization.PxIsCont.phiEx}.
+The corner calculation expands
+\srcid{ExistsFrobeniusCorner},
+\srcid{FrobeniusCornerOrderSkips},
+\srcid{FrobeniusCornerUnits}, and
+\srcid{FrobeniusCornerMemCone}.
+The middle-character argument is
+\srcid{FrobeniusCornerMiddleTrivial} and
+\srcid{FrobeniusCornerMiddleMem}.
+The finite ideal (DC8) and its two
+properties are
+\srcid{FrobeniusSmoothVectors.%
+QuotientHomNonvanishingBound.l53}.
+These are frozen-source modules under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}
+at tag \srcid{alpoge-source-7cbf7a0c}.

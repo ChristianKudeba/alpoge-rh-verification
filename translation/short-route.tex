@@ -38,15 +38,22 @@ bound chosen before cyclotomic depth, and the actual entry algebra,
 flat local charts, selected curves and sharp ideal.
 The ordinary modules and finite-level Selmer estimates are given;
 rank-four descent and the conditional rank-three endpoints are matched
-with their full local hypotheses.
-On the theta side we construct every finite matching map, prove the
+with their full local hypotheses. We prove the local crystalline
+component, original-level comparison and residual Bernoulli-unit
+vanishing, and count rank-four trace systems on fixed fields.
+On the theta side we construct the common archimedean Fock quotient
+and every finite matching map, prove the
 exact good-place coinvariant condition and both ordinary-convergence
 and decay clauses, and retain the actual measures, vacuum vectors and
 bar-model tests. The canonical cusp-weight mean and quadratic CM
 period are computed.
-The two uniform character estimates still require the remaining
-common-support and local original-level producers.
-The archimedean matching, global theta comparison and rank recursions,
+The rank-two/rank-three propagation runs are instantiated and the
+generic principal-character estimate is assembled. The rank-four
+common space, good residual lattice, modular ideal and residual
+paths are constructed; the final block-extension and exceptional
+arithmetic endpoint remain to be completed. The compact global theta
+base and all local branching multiplicities are proved.
+The all-signature global theta comparison and rank recursions,
 and uniform integral-model, slope and metric estimates remain to be
 completed on the same windows. Part II preserves the supporting
 longer-route translations with their explicit hypotheses.
@@ -73,11 +80,22 @@ This is not yet a completed standalone proof of RH.
 \input{short-chapters/arithmetic-frame}
 \input{short-chapters/entry-space}
 \input{short-chapters/entry-sharp}
+\input{short-chapters/determinant-entry}
 \input{short-chapters/support-propagation}
 \input{short-chapters/ordinary-control}
+\input{short-chapters/ordinary-arithmetic-action}
+\input{short-chapters/seed-propagation}
+\input{short-chapters/rank-four-space}
+\input{short-chapters/rank-four-lattice}
+\input{short-chapters/rank-four-modular-ideal}
+\input{short-chapters/rank-four-links}
 \input{short-chapters/rank-four-support}
 \input{short-chapters/rank-four-descent}
 \input{short-chapters/rank-three-endpoints}
+\input{short-chapters/local-crystalline}
+\input{short-chapters/residual-bernoulli}
+\input{short-chapters/exceptional-count}
+\input{short-chapters/generic-character-estimate}
 \input{short-chapters/geometry}
 \input{short-chapters/geometric-descent}
 \input{short-chapters/theta-regularization}
@@ -87,7 +105,12 @@ This is not yet a completed standalone proof of RH.
 \input{short-chapters/classical-doubling}
 \input{short-chapters/theta-finite-matching}
 \input{short-chapters/theta-inert-matching}
+\input{short-chapters/theta-real-matching}
 \input{short-chapters/theta-convergence}
+\input{short-chapters/theta-global-base}
+\input{short-chapters/theta-branching}
+\input{short-chapters/theta-cone-operator}
+\input{short-chapters/theta-cone-euler}
 \input{short-chapters/cusp-mean}
 \input{short-chapters/cm-period}
 \input{short-chapters/source-review}
@@ -169,116 +192,40 @@ later estimates is explicit.
 \input{chapters/windowexplicit}
 \input{chapters/analytic}
 \input{chapters/kernel-reading}
-\section*{Proofs still to be translated}
-\addcontentsline{toc}{section}{Proofs still to be translated}
-The proof of the reflection step, the determinant descent inequality,
-the conversion of the pointwise slope error into a prime-sum bound, and
-the passage from an admissible family of intervals to zero-freeness
-are given above. The following inputs carry substantive arithmetic or
-geometric content which the reader still needs for an independent proof.
-The newer Part I proofs additionally supply the finite-level
-Selmer estimates and auxiliary groups in
-Section~\ref{sec:sr-arithmetic-selmer-producers}, the selected
-curve regularity and distinguished local invariant calculation in
-Section~\ref{sec:sr-curve-regular-cosets}, and the actual Case II
-Hecke quotient in Subsection~\ref{subsec:sr-case-two-hecke}.
-Sections~\ref{sec:sr-classical-doubling-inputs},
-\ref{sec:sr-uniform-cusp-mean}, and
-\ref{sec:sr-quadratic-period-witness} respectively match the classical
-doubling inputs, prove the canonical mean bound, and construct the
-quadratic period witness. The remaining clauses below are read with
-these additions; they continue to require the compatible arithmetic
-and geometric realizations explicitly identified in Part I.
+\section*{Standalone-proof status}
+\addcontentsline{toc}{section}{Standalone-proof status}
+The present document is one working exposition. Part II retains
+supporting proofs from the longer route, with their hypotheses;
+it does not provide a second unconditional conclusion.
+The current construction-specific frontier is recorded in
+Section~\ref{sec:sr-source-review}.
 
+The first part now includes the actual rank-two and rank-three
+entry spaces, common modules and propagation runs, their Selmer
+presentations and local crystalline component, and the rank-four
+tower and descent calculations.
+It also constructs every local matching map, proves the exact
+convergence and decay assertions, and proves the nonzero global
+comparison at the compact base. The separate ramified,
+unramified and archimedean branching comparisons concern the
+same local models.
 
-The new Part I construction of the entry space and sharp ideal is in
-Sections~\ref{sec:entry-space-flat} and~\ref{sec:entry-nice-sharp}.
-Section~\ref{sec:sr-rank-four-actual-endpoint} gives the selected
-rank-four tower and descent with the full local window predicate.
-Section~\ref{sec:sr-rank-three-host-endpoints} proves the finite
-rank-three host implication and distinguishes the actual support
-output from the still-needed original-level clause.
-Sections~\ref{sec:sr-ramified-matching-construction},
-\ref{sec:sr-unramified-split-matching},
-\ref{sec:sr-inert-matching-construction},
-\ref{sec:sr-good-split-coinvariants}, and
-\ref{subsec:sr-theta-decay-closed} supply all finite matching,
-the exact coinvariant condition and the full ordinary decay clause.
-The remaining global theta, rank-recursion and covolume statements
-are independent of those local and convergence assertions.
+The generic principal-character estimate is proved in
+Theorem~\ref{thm:sr-generic-character-estimate}.
+A standalone RH proof still requires completion of the exceptional
+character estimate at its stated arithmetic endpoint,
+the global rank recursions and actual cone/evaluation maps at
+all signatures, the uniform integral-model and covolume
+construction, and their compatible assembly on the common
+windows. Those inputs cannot be replaced by the analytic
+implication, a seed specialization or an abstract finiteness
+statement. The formal verification reports and the indexed
+record edition are separate evidence about the released formal
+development; they do not certify this new prose edition.
 
-
-
-\begin{itemize}
-\item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-derivatives}
-give the generator count, the signed annihilator, the construction and
-local relations of the derivative classes, and the simultaneous choice
-of auxiliary primes. Proposition~\ref{prop:sr-PB} assembles the complete
-prime-to-degree minus estimate from those printed arguments and the
-Bernoulli integer calculation. Proposition~\ref{prop:sr-dyadic-generators}
-proves the separate 24-generator statement for the unramified cyclotomic
-module. Proposition~\ref{prop:sr-dyadic-descent} and
-\eqref{eq:sr-dyadic-return} give its finite-twist transport and the
-return to the CM field. Section~\ref{sec:sr-dyadic-bounds}
-proves the cokernel growth, the fixed 24-element exceptional set and
-the discriminant bound. Theorem~\ref{thm:sr-dyadic-window} proves the
-uniform common-window estimate conditional on \(K_2(C_K)\).
-Section~\ref{sec:sr-global-cohomology} proves that input by a separate
-integral-homology argument, so Proposition~\ref{prop:sr-K2-proved}
-discharges it with \(C_K=24\). On the rank-three side,
-Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
-derive the trace product and the full graded intersection inequality.
-Sections~\ref{sec:kato-rigidity} and~\ref{sec:type-one-rigidity} derive
-tangent rigidity at the identified modular points from the stated
-Galois-theoretic hypotheses. The spectrum count is derived from the arithmetic stabilizer bound,
-cohomological realization and cuspidal injection. Section~\ref{sec:ordinary-global-descent} identifies the twist and descends
-the specified representation across the cyclic layers. The global deformation
-model, the ordinary automorphy input over the auxiliary field, and the stated
-local--global compatibility theorems still enter the comparison.
-\item Sections~\ref{sec:sw-boundary} and~\ref{sec:theta-decay-proof}
-give the two-cell argument, the normalization of the definite theta
-value, the decay estimate from a nonzero minor, and the indefinite
-chamber integral. Section~\ref{sec:sw-singular-vacuum} evaluates all the singular
-vacuum tests at the distinguished parameter when \(m<n\). The differentiated
-sections, the other singular terms, Fock-space generation, automorphic reduction and coefficient estimates
-still enter these derivations.
-\item Sections~\ref{sec:component-volume}--\ref{sec:hs-component}
-derive the component degree and rank comparisons, the equality of
-covolumes, the Chow-form determinant and its metric, and the uniform
-height budget. The short period basis and the characteristic-zero harmonic
-jet are derived in the preceding sections. Inputs include the toroidal
-model and proportionality theorem, local isometry, strong approximation,
-and the construction of the global integral model with its level structures.
-Sections~\ref{sec:boundary-periods} and~\ref{sec:jet-connection}
-identify the boundary periods and derive the connection and twist comparisons
-on their respective domains. Section~\ref{sec:key-different} gives the fourth-root descent and the separate
-different bound. Section~\ref{sec:key-rule-dvr} proves the integral comparison at residue
-primes dividing an auxiliary denominator by changing invariants and comparing
-their powers. The transverse intersections, determinant comparison and
-connected-family input used there are specified in that section. Sections~\ref{sec:theta-translate-span}--\ref{sec:theta-unit-basis}
-prove the integral spanning, the valuation statement and the primitive
-frame from the specified local data. The horizontal and
-mixed-characteristic comparisons use different local ideals.
-\item Section~\ref{sec:window-exceptions} proves the character-count
-bound and derives the required mean-square estimate on the two prime
-progressions. Section~\ref{sec:window-explicit} derives the truncated explicit
-formula and the logarithmic derivative bound \(4\log y\). Section~\ref{sec:host-field} constructs the cyclotomic CM field with its
-conductor, local invariants and signature. Section~\ref{sec:window-relative-pnt} proves the required relative estimates,
-including the progression denominator and comparison of possible exceptional
-zeros. Section~\ref{sec:level-prime-selection} proves the exceptional-divisor
-count and the simultaneous selection of the level primes. It also derives
-the required norm-prime lower bound from the stated ray-class family
-estimates. Section~\ref{sec:ray-real-gap} proves the polynomial value bound
-and the real-zero gap from the counting, theta and positive-convolution
-identities. Section~\ref{sec:quadratic-ray-family} constructs the family and its
-shifted lattice, and proves the counting, theta, convolution and support
-identities. Section~\ref{sec:ray-explicit} proves its zero-free strip,
-uniqueness and simplicity of the possible exceptional zero, and the
-uniform explicit formula used for the prime selection. The remaining
-automorphic hypotheses and the passage from local geometric estimates to
-the global model still enter the common-window construction.
-\end{itemize}
-These are outstanding translations from the formal development.
-The independent verification of the released formal proof is recorded
-in the source note at the start of Part II.
+The earlier edition index is preserved in the
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/main/translation/archive/principia-edition-index-347.md}
+{GitHub archive index}.
+The editable Principia files are inputs to this same paper and
+compile together into one PDF.
 \end{document}

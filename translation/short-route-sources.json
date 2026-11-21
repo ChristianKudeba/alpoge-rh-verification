@@ -1,15 +1,15 @@
 {
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "Incomplete standalone exposition: actual seeds, arithmetic frame, flat charts, sharp ideal, rank-four descent, finite theta matching, Coinv and Decay printed; shared support/original-level local producers, uniform character counts and global geometric inputs remain.",
+  "status": "Incomplete standalone prose exposition; generic uniform character estimate assembled; exceptional endpoint and global geometric construction remain.",
   "prior_manuscript_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
-    "Actual completed-support/classical Galois coefficient comparison and selected generic twist-one crystalline component, then both uniform character estimates with fixed exponents",
-    "Archimedean common Fock quotient, global nonzero comparison scalar, existence of descended cone/evaluation maps and both uniform rank-two recursions",
-    "General-fibre saturation, slope, integral-point commensurability, tied short-section/root-tower and covolume estimates",
-    "One compatible eventual arithmetic/theta/lattice/numerical family on the same required windows"
+    "Rank-four nonsplit block-extension and final exceptional arithmetic endpoint; apply fixed-field count uniformly.",
+    "All-signature global theta constant-term comparison, actual upper-quotient descent, normalized recursions.",
+    "General semiabelian saturation, universal logarithmic slope bound, integral-model commensurability, tied height/covolume construction.",
+    "Compatible eventual common-window assembly."
   ],
   "principia_sources": [
     {
@@ -288,9 +288,9 @@
   "community_bundle": {
     "path": "rh-unpacked.tex",
     "id": "fd6fc09854184b61bca8dd800a4859b5",
-    "updated_at": 1795246680342,
-    "reported_translated": 1067,
-    "reported_reviewed": 1001,
+    "updated_at": 1795299776877,
+    "reported_translated": 2062,
+    "reported_reviewed": 1647,
     "total_project_modules": 175187,
     "scope": "Selected relevant geometric/cohomological entries inspected; entire bundle not claimed independently reviewed"
   },
@@ -711,25 +711,34 @@
   },
   "external_resources": {
     "check_interval": "Every few hours during active work; no background automation",
-    "last_checked_utc": "2026-11-21 21:32 UTC",
+    "last_checked_utc": "2026-11-21 23:32 UTC",
     "github": {
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
-      "head": "7da4577eb40dd74b09218d111114ca43bc2ad226",
+      "head": "f28a764e76a18f68680446bf09682c24d1a8b5c4",
       "pr45": "merged dead-import pruning",
       "pr44": {
         "head": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
         "combined_clean_build": "still reported pending",
-        "independent_comparator": "still reported pending"
-      }
+        "independent_comparator": "still reported pending",
+        "state": "open; mergeable_state dirty"
+      },
+      "pr53": "Merged cache-download source hint; no new mathematical shortcut"
     },
     "zulip": {
       "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642250042",
-      "status": "Live messages could not be loaded by text, public archive or browser; not claimed read"
+      "status": "Text fetch again returned unsupported-browser/error page at23:32UTC; live messages not claimed read."
     },
     "divX_audit": {
       "url": "https://github.com/aapolipponen/rh-lean-check-lumi/issues/2",
       "checked_in_frozen_source": true,
       "conclusion": "Degenerate geometric shell retains nontrivial actual lattices/metrics/numerical data. FamilyClassConnected is compatible eventual ChainTied window data, not classical moduli connectedness. ThetaIntegralsAgree, LocalMatching, CovolumeBoundOfX remain independent."
+    },
+    "chojecki": {
+      "url": "https://www.ulam.ai/research/rh-short.pdf",
+      "sha256": "9fb2e8afe44c597914297b5b176a2a20600e6e69c04fd9875377547f10fea568",
+      "pages": 23,
+      "read_utc": "2026-11-21 23:05 UTC",
+      "scope": "Expository mathematical companion to Alpöge; explicitly cites formal arithmetic construction and cohomological window rather than proving them. Arithmetic window Proposition7.1, geometric covolume §6 pp14-16. Useful analytic/Fourier/frame/cancellation proofs and source concordance; no standalone replacement for current arithmetic/geometric frontier."
     }
   },
   "community_translation_snapshot": {
@@ -832,7 +841,101 @@
     {
       "name": "root-exact-bar-cutoff-and-height-decay",
       "blob_sha": "b4021079494cac25f5f876fa197d244aa387ade4"
+    },
+    {
+      "name": "determinant-entry-finite-corner",
+      "blob_sha": "8735317b6faf985a56f1bdca1d349bdb09799171"
+    },
+    {
+      "name": "saturated-local-crystalline",
+      "blob_sha": "5eee1dc43dc770783b4e8a8958791966f22e9b9f"
+    },
+    {
+      "name": "gaussian-strengthened-base",
+      "blob_sha": "71f355cd26bf7a5488e9a7f752d206387bdb12d8"
+    },
+    {
+      "name": "archimedean-Fock-quotient",
+      "blob_sha": "dc77cf47494a90e6c1b932a68415e70b8f87a229"
+    },
+    {
+      "name": "actual-oscillator-sign",
+      "blob_sha": "aeab6df1188eb4849993dab0eb4f271d73ffd869"
+    },
+    {
+      "name": "residual-Bernoulli-unit",
+      "blob_sha": "64fc19f6599d33424575caef04a66fd596909128"
+    },
+    {
+      "name": "fixed-spectrum-exceptional-count",
+      "blob_sha": "901a5781322e879ef08879173d06b3e0b4510af9"
+    },
+    {
+      "name": "same-ordinary-arithmetic-action",
+      "blob_sha": "02d6b02a4973b3d081023057897f42580421bef8"
+    },
+    {
+      "name": "sharp-weight-augmentation-correction",
+      "blob_sha": "ab9fb0b82a06d957d0e5d883ad0e1ad405e4fbe2"
+    },
+    {
+      "name": "actual-seed-and-two-propagations",
+      "blob_sha": "1b7995307d750a0c0022082166ef0d3efa4df7b9"
+    },
+    {
+      "name": "common-arithmetic-action-audited",
+      "blob_sha": "41dded9016cff0f6cdf4770d40620495ededd695"
+    },
+    {
+      "name": "same-completion-GalOut",
+      "blob_sha": "eb12c1b02ff07eb96f5e805ebfc7161cfc30740d"
+    },
+    {
+      "name": "compact-base-global-comparison",
+      "blob_sha": "8936a93d23fe925e87a325c93ae6ba9aa2739fc2"
+    },
+    {
+      "name": "unramified-branching-vacuum",
+      "blob_sha": "261ecb2651fe21e2c21e1690df274993126ad120"
+    },
+    {
+      "name": "archimedean-branching-compact-type",
+      "blob_sha": "2b738519228f7462db525cacff118a679148b31a"
+    },
+    {
+      "name": "rank-four-common-space",
+      "blob_sha": "e4aac1a8783409d6764a926e8fea94c3950f8285"
+    },
+    {
+      "name": "generic-character-assembly",
+      "blob_sha": "9609fc1af9d7ebe63f892f36fc8c41832fb2ad31"
+    },
+    {
+      "name": "rank-four-good-residual-lattice",
+      "blob_sha": "0f789e0f42d6e9122d79a8cef273f7e2ad0ec11a"
+    },
+    {
+      "name": "rank-four-actual-modular-ideal",
+      "blob_sha": "98731cea7754348c8eea9d1557d47d201320bef3"
+    },
+    {
+      "name": "rank-four-actual-residual-links",
+      "blob_sha": "abb04d166e770dd351c8e423625fb0107cb7b45a"
+    },
+    {
+      "name": "actual-cone-evaluation",
+      "blob_sha": "93ecb80d09f7d7341c32b7248968bb1db6187e4c"
+    },
+    {
+      "name": "cone-coefficient-ideal-and-Euler",
+      "blob_sha": "a5375e75bc590dc48c1ffa48f42d3f3abcc0d81a"
     }
   ],
-  "current_revision_review": "All added proof chunks reviewed by root against their stated hypotheses; root Decay proof reviewed by connected_geometry. Document checks remain separate from mathematical verification."
+  "current_revision_review": "All added proof chunks reviewed by root against their stated hypotheses; root Decay proof reviewed by connected_geometry. Document checks remain separate from mathematical verification.",
+  "geometric_producer_audit": {
+    "frozen_commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+    "run_id": 44960372051,
+    "flat_saturation_source": "Development/AutomorphicSpectrum/Proofs/GeometryProofs/PhiDegFibLatLeOfIsOFamilyOfIsAdapted.lean",
+    "scope": "Located exact general-fibre producer; not yet translated completely. Depends on Top.Given and full FlatDegree, not only the quadratic CM witness."
+  }
 }

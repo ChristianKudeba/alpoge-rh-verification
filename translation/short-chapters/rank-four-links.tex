@@ -1,0 +1,345 @@
+\subsection{The actual Case II residual links}
+\label{subsec:sr-four-case-II-residual-links}
+
+This subsection supplies the residual-path producer in Case II.
+It starts with a residual point in the good stratum.
+Producing that point from an arbitrary original
+\(\mathrm{Star}\)-representation is the separate lattice step.
+
+\begin{srlemma}[A strict class with a prescribed ramification line]
+\label{lem:sr-four-ramified-line-class}
+Let \(F\) be a number field, \(\ell\ne2\), and \(M\) a finite
+\(\mathbb F_\ell[G_F]\)-module. Fix \(m_0\ne0\) in \(M\)
+and finitely many local groups at which the class must vanish
+in \(H^1\). After allowing ramification at finitely many fresh
+rational primes splitting completely in any prescribed finite
+Galois extension containing \(F\), the field of \(M\), and
+\(\mu_\ell\), there is a continuous cocycle \(c\) such that:
+it is locally a coboundary at the fixed groups;
+at every fresh inertia group its values lie in
+\(\mathbb F_\ell m_0\); and at one such inertia element \(t\),
+\[
+                    \rho(t)=1,\qquad c(t)\ne0.             \tag{R4L1}
+\]
+It is unramified outside the original and fresh sets.
+\end{srlemma}
+\begin{proof}
+Choose an original finite set \(S_0\) containing the required
+local groups and all ramification of \(M\).
+At \(S_0\) impose the zero local condition.
+At a fresh prime with \(\rho|_{G_v}=1\) and
+\(\mathrm Nv\equiv1\pmod\ell\), impose the condition
+that the inertia value belongs to \(\mathbb F_\ell m_0\).
+Local tame cohomology identifies this subspace with the
+direct sum of \(M\), for its unramified value, and the
+one-dimensional prescribed inertia line. Its dimension is
+\(\dim_{\mathbb F_\ell}M+1\).
+Its contribution
+\(\dim L_v-\dim H^0(F_v,M)\) to the
+Euler--Poitou--Tate formula is therefore \(1\).
+
+For each fresh rational prime choose one of its primes in \(F\)
+for this condition; at the other primes above it impose the
+unramified condition, whose contribution is zero.
+For \(h\) fresh rational primes the exact Selmer formula gives
+\[
+ \dim H^1_{\mathcal L_h}(F,M)
+       -\dim H^1_{\mathcal L_h^\perp}(F,M^\vee(1))
+                         =h+C,                            \tag{R4L2}
+\]
+where \(C\) depends only on the fixed original local data.
+The space of classes unramified at all the fresh primes is
+the fixed finite-dimensional Selmer space for \(S_0\).
+Choose \(h\) larger than its dimension minus \(C\).
+Since the dual dimension is nonnegative, (R4L2) gives a
+class ramified at one fresh prime.
+All cocycle representatives have the same inertia values
+there, because the local action is trivial and local
+coboundaries have zero inertia values.
+This proves (R4L1).
+The local conditions at \(S_0\) give the stated coboundaries.
+Chebotarev supplies as many fresh rational primes with all
+the required splitting conditions as needed.
+This is an existence argument; no numerical bound involving
+these auxiliary degrees will enter the final estimate.
+\end{proof}
+
+\begin{srlemma}[Simultaneous actual cup primitives]
+\label{lem:sr-four-simultaneous-cup}
+Let \(\alpha,\beta:G_F\to k^\times\) be the finite residual
+root characters, with \(k\) finite of characteristic \(\ell\).
+Given finitely many normalized \(\beta\)-cocycles \(y_j\),
+there are, after the fresh ramification just described, an
+\(\alpha\)-cocycle \(x\), its local splitting parameters \(m_v\),
+and functions \(z_j\) with local parameters \(o_{jv}\), such that
+\[
+ \begin{split}
+ x(gh)&=x(g)+\alpha(g)x(h),\\
+ z_j(gh)&=z_j(g)+\alpha(g)\beta(g)z_j(h)
+                         +y_j(g)\alpha(g)x(h),\\
+ x|_{G_v}&=m_v-\alpha m_v,\\
+ z_j|_{G_v}&=o_{jv}-\alpha\beta o_{jv}
+                              -y_j\alpha m_v.             \tag{R4L3}
+ \end{split}
+\]
+Moreover \(x\) is nonzero on \(\ker\alpha\).
+If \(\alpha(g_0)\ne1\), \(\alpha(g_0)\beta(g_0)\ne1\),
+and \(y_j(g_0)=0\), one may require
+\(x(g_0)=z_j(g_0)=0\).
+\end{srlemma}
+\begin{proof}
+Use the finite module
+\[
+ M=k\oplus k^J,\qquad
+ \rho(g)(a,(b_j))=
+ \bigl(\alpha(g)a,\
+       (\alpha(g)\beta(g)b_j+\alpha(g)y_j(g)a)_j\bigr).
+\]
+The cocycle equation for \(y_j\) proves that \(\rho\) is a
+representation.
+Apply Lemma~\ref{lem:sr-four-ramified-line-class} with
+\(m_0=(1,0,\ldots,0)\).
+The first and remaining coordinates of its cocycle are
+\(x,z_j\). The cocycle and local-coboundary equations give
+exactly (R4L3), with the negatives of the corresponding
+coordinates of the local correcting vectors.
+At the nonzero fresh inertia element, all \(z_j\) are zero
+and \(x\ne0\), while \(\alpha=1\).
+
+For normalization put
+\[
+ b=\frac{x(g_0)}{1-\alpha(g_0)},\qquad
+ a_j=\frac{z_j(g_0)}{1-\alpha(g_0)\beta(g_0)}.
+\]
+Replace
+\[
+ \begin{split}
+ x(g)&\longmapsto x(g)-(1-\alpha(g))b,\\
+ z_j(g)&\longmapsto z_j(g)
+        -(1-\alpha(g)\beta(g))a_j+y_j(g)\alpha(g)b,\\
+ m_v&\longmapsto m_v-b,\qquad
+ o_{jv}\longmapsto o_{jv}-a_j .
+ \end{split}
+\]
+Substitution proves every equation in (R4L3).
+The new values at \(g_0\) are zero.
+The value of \(x\) on \(\ker\alpha\), including its nonzero
+fresh inertia value, is unchanged.
+\end{proof}
+
+We apply this with
+\(\alpha=\bar\chi_1/\bar\chi_0\) and
+\(\beta=\bar\chi_2/\bar\chi_0\).
+Here \(\beta\) is the unramified quadratic root character of
+Case II and is \(1\) on every ordinary local group.
+The distinguished regular \(g_0\) makes
+\(\alpha(g_0),\beta(g_0),\alpha(g_0)\beta(g_0)\ne1\).
+
+\paragraph{The matrices and flags of the intermediate point.}
+Set
+\[
+ U(x,y,t)=
+ \begin{pmatrix}
+ 1&0&0&0\\x&1&0&0\\y&0&1&0\\t&y&-x&1
+ \end{pmatrix}.
+\]
+Direct multiplication gives
+\[
+ U(x,y,t)U(x',y',t')
+       =U(x+x',y+y',t+t'+yx'-xy'),\qquad
+                         U(x,y,t)^\#=U(-x,-y,-t).         \tag{R4L4}
+\]
+In particular these are lower unipotent symplectic matrices.
+
+Let \(p\) be the given good residual point, supported in
+\[
+ N_P=\{\beta_{\rm root},-\alpha_{\rm root},
+                       -\theta_{\rm root},-\psi_{\rm root}\},
+\]
+with its lower flags supported in
+\(Q=\{-\alpha_{\rm root},-\psi_{\rm root},-\theta_{\rm root}\}\).
+Its \(20\) entry is \(y(g)\bar\chi_0(g)\), where
+\[
+ y(gh)=y(g)+\beta(g)y(h),\quad y(g_0)=0,\quad
+ y|_{G_v}=n_v-\beta n_v,\quad n_v=p.n_v{}_{20}.             \tag{R4L5}
+\]
+These identities follow from the \(20\) entry of multiplication
+and of the ordinary flag equation; no other entry contributes
+in the support \(N_P\).
+
+Use Lemma~\ref{lem:sr-four-simultaneous-cup} for this \(y\),
+and write \(D(g)=\operatorname{diag}(\bar\chi_i(g))\).
+Then
+\[
+ q(g)=U(x(g),y(g),2z(g)-x(g)y(g))D(g),\qquad
+ q.n_v=U(m_v,n_v,2o_v-m_vn_v)                              \tag{R4L6}
+\]
+is the actual intermediate residual point.
+Indeed the fixed pairing gives
+\(D U(x,y,t)D^{-1}=U(\alpha x,\beta y,\alpha\beta t)\).
+The second equation in (R4L3) makes the central coordinate
+of (R4L6) satisfy exactly (R4L4).
+The local equations make
+\(q(g)=q.n_vD(g)(q.n_v)^{-1}\) on each ordinary group.
+Thus all local flags and their ordered diagonal characters
+are correct.
+The normalization at \(g_0\), multiplier, and killed-inertia
+conditions hold by construction.
+Its support is \(Q\).
+It has the same \(20\) entry and same local \(20\) flag
+coordinate as \(p\), and a nonzero \(10\) entry.
+These are the exact \(\mathrm{SamePs}\) and
+\(\mathrm{Ent}(-\alpha_{\rm root})\) assertions.
+
+\paragraph{Kill the introduced ramification before taking depth.}
+The fresh primes may be chosen to split completely also in the
+original residual point's field.
+At a fresh inertia group, (R4L1) makes \(y=z=0\);
+there (R4L6) has the form
+\(U(x,0,0)\), of exponent \(\ell\), including when \(\ell=3\).
+A fresh prime \(w\) satisfies \(w\equiv1\pmod\ell\).
+The unique degree-\(\ell\) subfield of
+\(\mathbb Q(\zeta_w)\) is real, unramified away from \(w\),
+and totally tamely ramified at \(w\).
+Its inertia subgroup is the kernel of the order-\(\ell\)
+tame quotient. Consequently restriction to its compositum
+with the current real field kills this introduced inertia.
+For finitely many fresh primes take the compositum of these
+real cyclic fields. It is abelian of \(\ell\)-power degree,
+unramified at \(\ell\).
+The original point was already unramified in the required
+sense at these primes and remains so.
+
+The nonzero \(x\)-entry survives every subsequent
+\(\ell\)-power base extension.
+In fact a cocycle for a nontrivial prime-to-\(\ell\)
+character cannot vanish on a normal \(\ell\)-power-index
+subgroup: that character is still nontrivial on the subgroup;
+the cocycle equation and its conjugates would then force
+the cocycle to vanish on the whole group.
+The same argument applies to a nonzero normalized Levi
+cocycle in (R4L5).
+The distinguished element may be replaced by an
+\(\ell\)-power of itself; its residual eigenvalues remain
+pairwise distinct.
+
+Restriction of flags is actual restriction, followed by
+lower/upper Gaussian factorization.
+For support \(N_P\), the first three principal minors of
+\(r(g)n_v\) are products of the nonzero prescribed diagonal
+characters. Thus this factorization exists.
+Its new \(20\) flag coordinate is determined by
+\[
+       n'_{20}\bar\chi_0(g)
+             =r(g)_{20}+\bar\chi_2(g)n_{20}.                \tag{R4L7}
+\]
+In particular two points with the same \(20\) data retain
+that equality after restriction.
+For lower support \(N_M\), the same argument uses the
+\(10\) coordinate.
+This is the required flag transport in the two
+\(\mathrm{Same}\) assertions.
+
+We now include these finitely many real cyclic fields in the
+fixed abelian base used for the Ferrero--Washington bound,
+and only afterwards choose the cyclotomic \(\ell\)-power
+depth. Thus the rank-four bounds hold with one finite \(C\)
+and \(d\ge30(C+1)^2\).
+No quantitative assertion uniform in this auxiliary \(C\)
+is needed.
+The normalized induced seed exists at that final depth by
+Proposition~\ref{prop:sr-induced-case-two-seed}.
+
+\paragraph{The three polynomial paths.}
+All statements below are over one finite coefficient field.
+Let \(s\) be that seed's residual point.
+It has support
+\(V=\{\beta_{\rm root},-\alpha_{\rm root},
+-\theta_{\rm root}\}\), lower flags in \(Q\), and
+\(s.n_v{}_{20}\ne0\) at every ordinary place.
+
+First join \(p\) to \(q\) by the affine path in the
+parabolic with Levi root \(-\psi_{\rm root}\), keeping
+their shared \(20\) data fixed.
+This is a polynomial residual path.
+One explicit check orders the two blocks as \((0,2)\)
+and \((1,3)\). Its matrices have the form
+\(\left(\begin{smallmatrix}A&0\\C&B\end{smallmatrix}\right)\),
+where the two Levi blocks are fixed and \(C\) varies affinely.
+Products of two differences in this off-diagonal block are
+zero. Thus the representation and symplectic equations
+are linear in the varying block.
+The same block calculation for the lower flags proves the
+ordinary equations along the whole path.
+
+Next let \(q_0(g)=U(x(g),0,0)D(g)\).
+Choose its lower flags
+\[
+        q_0.n_v=
+          U(m_v,s.n_v{}_{20},-m_v\,s.n_v{}_{20}).           \tag{R4L8}
+\]
+Since \(\beta|_{G_v}=1\), (R4L4) shows that these diagonalize
+\(q_0|_{G_v}\).
+Thus \(q_0\) has the same \(10\) data as \(q\), and the same
+\(20\) data as \(s\).
+Join \(q\) to \(q_0\) by the corresponding affine
+parabolic path with Levi root \(-\alpha_{\rm root}\).
+Its radical consists of the other three negative roots
+and is abelian; the identical two-block argument proves
+all its equations.
+Finally join \(q_0\) to \(s\) by the first kind of path,
+keeping \(20\) data fixed.
+
+The endpoints of these paths are good points.
+The initial point \(p\) is good by assumption.
+If its \(20\) entry is nonzero, \(q\) has both that entry
+and the newly nonzero \(10\) entry.
+If it is zero, the partially split good alternative has
+nonzero \(20\) flag coordinates, retained by (R4L7);
+then \(q\) lies in \(V\) and has its nonzero \(10\) entry.
+The point \(q_0\) has nonzero \(10\) entry and every
+\(20\) flag coordinate in (R4L8) is nonzero.
+The seed is good by its explicitly proved residual shape:
+either its \(10\) entry is nonzero, or its
+\(\beta_{\rm root}\) and \(-\theta_{\rm root}\) entries
+are nonzero and the required local root character is
+nontrivial. That local nontriviality is the tower's
+\(\mathrm{Two.bigL}\) condition.
+
+The line property of the actual common space in
+Section~\ref{subsec:sr-four-common-space-construction}
+therefore realizes
+\[
+                         p\longleftrightarrow q
+                          \longleftrightarrow q_0
+                          \longleftrightarrow s            \tag{R4L9}
+\]
+by its actual polynomial residual maps.
+Each consecutive pair has a common irreducible line
+specialization beneath it.
+The component propagation of
+Proposition~\ref{prop:sr-four-core}, the actual modular ideal
+of Section~\ref{subsec:sr-case-II-actual-pm}, and seed local
+zero consequently propagate support along this finite chain.
+
+All choices preceding (R4L9) are finite:
+the locally constant residual coordinates lie in a finite
+field; the auxiliary prime set and cyclic composita are
+finite; and the final depth and seed have finite coefficient
+fields. Their degree and the Ferrero--Washington constant
+are used only to produce support. The final fixed-field
+spectrum count is taken after descent and has no dependence
+on any of them.
+
+This reconstructs the Case II path producer
+\srcid{Chain2.deep\_tower\_residue\_chain\_exists}.
+The finite-module argument expands
+\srcid{RamifiedLineCharacters.CupRaw}, \srcid{CupNorm},
+and \srcid{GysinPsOf}; (R4L6) is the matrix construction in
+\srcid{CompactIntegralFields.GysinAl}.
+The restriction and flag transport are
+\srcid{DiesEx}, \srcid{RestrT}, and \srcid{FlagFacts}.
+The good residual lattice preceding this chain is constructed in
+Subsection~\ref{subsec:sr-four-good-residual-lattice}.
+The final block-extension and arithmetic endpoint assertions remain
+separate from these residual paths.

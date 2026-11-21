@@ -1,0 +1,380 @@
+
+% Exact finite vacuum support and adelic cone factorisation.
+% Scope: closes the analytic/arithmetic content of ConeFacA and ConeFacB,
+% given the explicitly constructed evaluation and oscillator models already
+% established in the preceding sections. It does not by itself identify
+% global theta constant terms or prove OneConst outside the compact base.
+
+\section{The coefficient ideal and the adelic cone integral}
+\label{sec:sr-cone-euler}
+
+We use the oscillator, evaluation, and compact stabilizer constructed above.
+Let \(E/F\) be the CM extension of the fixed base. In particular it is
+unramified at every finite place. Write
+\(\mathfrak c=\mathfrak d_{E/\mathbb Q}^{-1}\).
+An adapted hyperbolic plane in a Hermitian space \(X\) has basis \(x,y\),
+with \(\langle x,y\rangle=1\), and coefficient ideal \(\mathfrak b\)
+on \(x\). An adapted plane in the skew Hermitian space \(W\) has basis
+\(x',y'\), with \(\langle x',y'\rangle=1\), and coefficient ideal
+\(\mathfrak b'\) on \(x'\). Let \(X_1,W_1\) be the specified orthogonal
+complements. All the lattice decompositions here are the adapted
+decompositions, with their specified embeddings into the upper spaces.
+
+The two shifts, in the same tensor symplectic space and the same genuine
+oscillator representation as the evaluation operator, are
+\[
+ u_A(l)=l\,x\otimes y',\qquad
+ u_B(l)=\bar l\,y\otimes x'.
+\]
+The respective evaluation isotropic spaces are
+\[
+ I_A=X\otimes Ex'+Ex\otimes W_1,\qquad
+ I_B=Ex\otimes W+X_1\otimes Ex'.
+\]
+Their symplectic reductions are the specified \(X_1\otimes W_1\).
+The local evaluation maps are normalized to send the upper lattice vacuum
+to the lower lattice vacuum. This normalization is used at every finite
+place, including those above \(2\).
+
+\begin{srlemma}[The two coefficient ideals]
+\label{lem:sr-cone-coefficient-ideals}
+Put
+\[
+ \mathfrak a_A=\mathfrak b\,\mathfrak c\,
+                     \bar{\mathfrak b'}^{-1},
+ \qquad
+ \mathfrak a_B=
+       \overline{\bar{\mathfrak b}^{-1}\mathfrak b'}
+       =\mathfrak b^{-1}\bar{\mathfrak b'}.
+\]
+These are nonzero fractional ideals. At every finite place \(v\) of \(F\),
+\[
+ u_\epsilon(l)_v\in(\Lambda_X\otimes_{\mathcal O_E}\Lambda_W)_v
+ \quad\Longleftrightarrow\quad
+ l_w\in(\mathfrak a_\epsilon)_w
+       \quad\hbox{for every \(w\mid v\)},\qquad \epsilon=A,B.
+ \tag{C1}\label{eq:sr-cone-coefficient-support}
+\]
+At the distinguished split places of the fixed base the valuations of
+both ideals are zero.
+
+Let \(\nu\) be a unitary Hecke character, trivial on
+\(\mathbb A_F^\times\), unramified outside the distinguished places.
+For an ideal with zero valuations at those places, define
+\[
+ \nu(\mathfrak a)=
+ \prod_w\nu_w(\varpi_w)^{\operatorname{ord}_w\mathfrak a};
+\]
+this finite product is independent of the uniformizers. Then
+\[
+ \nu(\mathfrak a_A)=\nu(\mathfrak b)\nu(\mathfrak b'),
+ \qquad
+ \nu(\mathfrak a_B)=
+             \nu(\mathfrak b)^{-1}\nu(\mathfrak b')^{-1}.
+ \tag{C2}\label{eq:sr-cone-ideal-characters}
+\]
+\end{srlemma}
+
+\begin{proof}
+The duality conditions on the actual lattices give
+\[
+ \Lambda_X=
+   \mathfrak b x\ \oplus\ \Lambda_{X_1}\
+          \oplus\bar{\mathfrak b}^{-1}y,\qquad
+ \Lambda_W=
+   \mathfrak b'x'\ \oplus\ \Lambda_{W_1}\
+          \oplus\mathfrak c\,\bar{\mathfrak b'}^{-1}y'.
+ \tag{C3}\label{eq:sr-cone-lattice-splitting}
+\]
+For clarity, the last coefficient ideal in either formula is forced,
+rather than chosen independently: pairing \(t y\) with all \(s x\),
+\(s\in\mathfrak b\), requires
+\(t\bar{\mathfrak b}\subset\mathcal O_E\), and the corresponding
+trace duality for \(W\) requires
+\(t\bar{\mathfrak b'}\subset\mathfrak c\).
+Orthogonality and the adapted decomposition give the converse inclusions.
+
+Tensoring these direct decompositions identifies the coefficient ideal
+of \(x\otimes y'\) as
+\(\mathfrak b\mathfrak c\bar{\mathfrak b'}^{-1}\), and that of
+\(y\otimes x'\) as \(\bar{\mathfrak b}^{-1}\mathfrak b'\).
+Conjugating the coefficient in the second shift gives (C1).
+This argument can also be checked without a tensor decomposition:
+choose integral coefficient projections onto each line. Applying the
+tensor product of these projections gives necessity; products of elements
+of the two coefficient ideals generate their ideal product and give
+sufficiency. It works for fractional, nonprincipal ideals.
+
+At a distinguished split place the adapted line vectors are columns of
+the specified integral basis. Their coefficient projections are integral
+and take value \(1\) on these columns, so the relevant line ideals have
+valuation zero. The standard additive character there has integral
+conductor, so the codifferent has valuation zero there as well.
+
+The restriction of \(\nu\) gives
+\(\nu(\bar{\mathfrak j})=\nu(\mathfrak j)^{-1}\) for every ideal under
+consideration: a local generator times its conjugate comes from
+\(F_v^\times\). Finally finite unramifiedness of \(E/F\) gives
+\[
+ \mathfrak d_{E/\mathbb Q}^{-1}
+   =\mathfrak d_{F/\mathbb Q}^{-1}\mathcal O_E.
+\]
+Generators of the latter can be chosen in \(F_v^\times\), and therefore
+\(\nu(\mathfrak c)=1\). Multiplicativity now gives (C2).
+\end{proof}
+
+\begin{srlemma}[Exact translated vacuum and finite cone operator]
+\label{lem:sr-cone-finite-vacuum}
+Let \(e_v\) be either of the normalized finite evaluation maps above and
+let \(\phi_v^0,\phi_{1,v}^0\) be the actual upper and lower vacua. Then
+\[
+ e_v\rho_v(u_\epsilon(l))\phi_v^0
+       =\mathbf1_{(\mathfrak a_\epsilon)_v}(l)\,\phi_{1,v}^0.
+ \tag{C4}\label{eq:sr-cone-exact-vacuum}
+\]
+Here the indicator imposes its condition at all \(w\mid v\), and the
+Heisenberg operator and the shift are in the same upper model.
+
+Let \(K_{X,v}\) be the specified lattice stabilizer. Give it probability
+Haar measure, and give each \(E_w^\times\) multiplicative Haar measure
+with \(\operatorname{vol}\mathcal O_w^\times=1\).
+For every integer \(z\ge2\), the formula
+\[
+ \Lambda_{\epsilon,v}\phi=
+  \int_{K_{X,v}}\int_{(E\otimes_F F_v)^\times}
+       e_v\rho_v(u_\epsilon(l))\omega_v(k,1)\phi\,
+                  \nu_v(l)|l|_{E_v}^{z}\,d^\times l\,dk
+ \tag{C5}\label{eq:sr-cone-finite-operator}
+\]
+defines a linear map of Schwartz--Bruhat spaces.
+Whenever the two splitting characters and \(\nu\) are unramified at \(v\),
+\[
+ \Lambda_{\epsilon,v}\phi_v^0
+     =u_{\epsilon,v}\phi_{1,v}^0,\quad
+ u_{\epsilon,v}=
+ \prod_{w\mid v}
+ \frac{\bigl(\nu_w(\varpi_w)Nw^{-z}\bigr)^{
+                       \operatorname{ord}_w\mathfrak a_\epsilon}}
+      {1-\nu_w(\varpi_w)Nw^{-z}}
+ \ne0.
+ \tag{C6}\label{eq:sr-cone-finite-euler}
+\]
+\end{srlemma}
+
+\begin{proof}
+Work first at one \(w\). Localizing (C3) gives free orthogonal
+decompositions, since \(\mathcal O_w\) is a discrete valuation ring.
+In the partial Fourier coordinates defining \(e_v\), its eliminated
+coordinates and their duals are complementary isotropic coordinates.
+The corner \(x\otimes y'\), respectively \(y\otimes x'\), is one
+of the dual coordinates; its dual coefficient lattice is exactly the
+corresponding ideal in (C1). The upper vacuum is the characteristic
+function of the upper polarized lattice, up to its fixed model scalar.
+Integration in an eliminated coordinate has Fourier transform equal to
+its volume times the characteristic function of the dual coefficient
+lattice. Evaluation in the other eliminated coordinates gives their
+values at zero. Consequently the translated evaluation is zero outside
+(C1), and is a scalar multiple of the lower vacuum inside (C1).
+Its scalar inside is the same as at \(l=0\): translation in a lattice
+coordinate preserves its characteristic function and modulation on the
+dual lattice is \(1\). The normalization
+\(e_v\phi_v^0=\phi_{1,v}^0\) makes that scalar \(1\).
+The corner has zero symplectic self-pairing, so no quadratic Heisenberg
+phase occurs. This proves (C4), also in residue characteristic \(2\);
+the dual lattice uses the actual trace character and codifferent and
+does not require division of an integral coordinate by \(2\).
+
+Here is also a direct finiteness argument for (C5) on arbitrary
+Schwartz--Bruhat functions. A given function is fixed by Heisenberg
+translation and modulation from a sufficiently small lattice.
+Commuting such a modulation through the corner translation shows that
+a nonzero evaluation requires \(l\) to lie in a fixed fractional ideal:
+otherwise one of the invariant modulation characters is nontrivial.
+On this bounded set, the vector valued map
+\[
+ l\longmapsto e_v\rho_v(u_\epsilon(l))\phi
+\]
+is locally constant, extends to \(l=0\), and has finite image in the
+lower Schwartz--Bruhat space. For \(|l|\) sufficiently small it is
+constant. Thus its integral is a finite linear combination of lower
+Schwartz--Bruhat functions. The tail toward zero is absolutely
+integrable, since on a shell of valuation \(j\) its absolute weight is
+\(Nw^{-jz}\), and \(z>0\). The compact group \(K_{X,v}\) has finite orbit
+on a fixed smooth vector, so its average preserves this conclusion.
+These arguments also prove absolute integrability at each lower
+coordinate, and justify the linearity of the integral.
+
+At an unramified place the specified oscillator fixes \(\phi_v^0\)
+under \(K_{X,v}\); this includes the prescribed unramified splitting
+scalar, so it is equality of vectors. Insert (C4) into (C5). At \(w\)
+the resulting integral is
+\[
+ \sum_{j\ge m_w}\nu_w(\varpi_w)^jNw^{-jz}
+    =\frac{(\nu_w(\varpi_w)Nw^{-z})^{m_w}}
+                  {1-\nu_w(\varpi_w)Nw^{-z}},\qquad
+       m_w=\operatorname{ord}_w\mathfrak a_\epsilon.
+\]
+The absolute value of the denominator parameter is \(Nw^{-z}<1\).
+Multiplying over \(w\mid v\) proves (C6).
+\end{proof}
+
+We now use the archimedean cone map already constructed by partial
+Fourier transformation, Gaussian moments, and compact averaging:
+\[
+ L_{\epsilon,\infty}f=
+  \int_{K_{X,\infty}}\int_{E_\infty^\times}
+ e_\infty\rho_\infty(u_\epsilon(l))\omega_\infty(k,1)f\,
+             \nu_\infty(l)|l|_{E_\infty}^{z}\,d^\times l\,dk.
+ \tag{C7}\label{eq:sr-cone-arch-operator-again}
+\]
+It is a continuous map of Schwartz spaces and preserves the specified
+polynomial Gaussian subspaces. Its defining integrals converge in the
+Schwartz seminorms. The strict positivity of the exponent at zero and
+Schwartz decay along the nonzero corner give these facts, as proved
+above; no assertion about a global theta integral is used here.
+
+\begin{srproposition}[Adelic factorization with constants before packets]
+\label{prop:sr-cone-euler-factorization}
+Fix the base, the two adapted planes, the actual upper and lower models,
+their evaluation map \(e\), and \(z\ge2\). Fix Haar measures \(\mu_K\)
+on the specified compact stabilizer \(K_X\) and \(\mu_\times\) on
+\(\mathbb A_E^\times\), and fix the local measures used in (C5) and
+(C7). There is a nonzero scalar \(\kappa_\epsilon\), depending on these
+fixed data and \(z\), before choosing the finite character packet, with
+the following property.
+
+Let \(\nu\) be as in the coefficient ideal lemma. Let \(S_0\subset S\)
+be finite sets of finite places of \(F\) such that \(\nu\) and the
+splitting characters are unramified off \(S\), all the local factors
+of \(\nu\) above \(S\) are ramified, and
+\(\operatorname{ord}_w\mathfrak a_\epsilon=0\) for \(w\) above \(S\).
+For any finite \(U\supset S\) and pure Schwartz vector
+\(\Phi=f\otimes\bigotimes_v\phi_v\), with
+\(\phi_v=\phi_v^0\) off \(U\), put
+\[
+ \begin{split}
+ C_\epsilon\Phi={}&
+ \int_{K_X}\int_{\mathbb A_E^\times}
+ e\rho(u_\epsilon(l))\omega(k,1)\Phi\,
+                  \nu(l)|l|_E^z\,d\mu_\times(l)\,d\mu_K(k),\\
+ \Psi_U={}& L_{\epsilon,\infty}f\ \otimes
+        \bigotimes_{v\in U}\Lambda_{\epsilon,v}\phi_v
+              \ \otimes\bigotimes_{v\notin U}\phi_{1,v}^0.
+ \end{split}
+\]
+The integrals defining \(C_\epsilon\Phi\) converge, define a Schwartz
+vector, and satisfy
+\[
+ \left(\prod_{v\in U\setminus S}u_{\epsilon,v}\right)
+                 C_\epsilon\Phi
+   =\kappa_\epsilon\,\nu(\mathfrak a_\epsilon)\,
+                      L^{S_0}(\nu,z)\,\Psi_U.
+ \tag{C8}\label{eq:sr-cone-global-factorization}
+\]
+They extend linearly to the adelic Schwartz space. In particular their
+coefficient ideal factors are exactly
+\[
+ \nu(\mathfrak b)\nu(\mathfrak b')\quad\hbox{for \(A\)},\qquad
+ [\nu(\mathfrak b)\nu(\mathfrak b')]^{-1}
+                  \quad\hbox{for \(B\)}.
+ \tag{C9}\label{eq:sr-cone-fixed-ideal-exponents}
+\]
+The maps \(L_{\epsilon,\infty}\), \(\Lambda_{\epsilon,v}\), and the
+numbers \(u_{\epsilon,v}\) are the actual integral operators and actual
+vacuum factors of (C5)--(C7), rather than separately chosen matching
+maps.
+\end{srproposition}
+
+\begin{proof}
+The compact stabilizer condition is a condition at each completion:
+the fixed positive Hermitian metric at infinity and the specified
+lattice at every finite place. It therefore identifies \(K_X\)
+with the product of these compact local stabilizers. Its probability
+Haar measure is their product; comparison with \(\mu_K\) contributes a
+positive scalar depending only on the fixed Haar measures.
+Likewise the product of the chosen infinite multiplicative measure and
+the finite measures of unit volume defines Haar measure on the
+restricted product \(\mathbb A_E^\times\). Comparison with
+\(\mu_\times\) contributes a second positive scalar, also independent
+of every character and test vector. Denote their product by \(c_H>0\).
+
+Oscillator, Heisenberg, and evaluation actions factor in these product
+coordinates: their operators are the genuine ones already normalized
+in a common tensor symplectic model. Thus, off \(U\), their integrand is
+exactly the lower vacuum times the indicator in (C4). The finite
+operator lemma treats the places in \(U\), and (C7) treats infinity.
+
+There is an absolute majorant for the remaining restricted product
+integral. If \(m_w=\operatorname{ord}_w\mathfrak a_\epsilon\), its
+integral at \(w\) is
+\[
+  \sum_{j\ge m_w}Nw^{-jz}
+          =Nw^{-m_wz}(1-Nw^{-z})^{-1}.
+\]
+Only finitely many \(m_w\) are nonzero. The product of the other factors
+converges for \(z\ge2\): the prime ideal sum
+\(\sum_wNw^{-z}\) is finite, as follows by bounding the logarithm of
+the absolutely convergent Dedekind zeta Euler product there.
+This gives an integrable majorant on the restricted product, multiplied
+by the finite collection of integrable factors already considered.
+Consequently exhaustion by finite sets of places, Fubini, and dominated
+convergence all apply. They apply also to each lower Schwartz seminorm:
+outside \(U\) the lower factor is a fixed vacuum; at the finitely many
+remaining places we have the finite dimensional image in the proof of
+(C5), and at infinity (C7) converges in every Schwartz seminorm.
+Thus the result is a Schwartz vector.
+
+The resulting equality, before multiplying any finite vacuum factors,
+is
+\[
+ C_\epsilon\Phi
+      =c_H\left(\prod_{v\notin U}u_{\epsilon,v}\right)\Psi_U.
+ \tag{C10}\label{eq:sr-cone-before-euler}
+\]
+The product in (C10) includes the complete geometric series integrals;
+it is not an assertion that an unramified integral has compact support.
+The absolutely convergent Euler calculation (C6) gives
+\[
+ \prod_{v\notin S}u_{\epsilon,v}
+   =\left(\prod_wNw^{-zm_w}\right)
+        \left(\prod_w\nu_w(\varpi_w)^{m_w}\right)
+                         L^S(\nu,z)
+   =N(\mathfrak a_\epsilon)^{-z}
+             \nu(\mathfrak a_\epsilon)L^S(\nu,z).
+ \tag{C11}\label{eq:sr-cone-complete-euler}
+\]
+The zero valuation condition over \(S\) permits the products in the
+middle expression to run over all \(w\). The ramified local Euler
+factors over \(S\setminus S_0\) equal \(1\), so
+\(L^S(\nu,z)=L^{S_0}(\nu,z)\).
+Multiply (C10) by the finite product in (C8) and use (C11). This proves
+(C8) with
+\[
+ \kappa_\epsilon=c_H N(\mathfrak a_\epsilon)^{-z}>0.
+\]
+The ideal, its norm, the exponent \(z\), and the Haar comparisons were
+fixed before \(\nu\); none of their factors depends on the finite
+character packet. Formula (C9) follows from (C2).
+
+Finally each finite adelic Schwartz--Bruhat function is a finite sum of
+characteristic functions of compact open cosets. Each such coset
+splits into finitely many boxes at a finite set of places and the
+standard lattice outside that set. Hence every adelic Schwartz vector
+is a finite sum of the pure vectors just considered. The absolute
+convergence already proved permits addition and scalar multiplication
+under the integral and proves the stated extension.
+\end{proof}
+
+\paragraph{Exact scope for the rank recursions.}
+\label{rem:sr-cone-euler-scope}
+The powers in (C9) are universal: \((1,1)\) for the \(A\) cone and
+\((-1,-1)\) for the \(B\) cone. The sign in each ramified standard-vector
+Gauss factor remains the \(+1\) already calculated with the actual
+additive character. This section supplies the adelic cone factorization
+and its packet quantifiers. To deduce a global rank recursion one must
+still identify the appropriate global theta constant-term component
+with this cone integral, and prove the descent through the specified
+upper matching quotient. These are separate mathematical statements;
+neither follows solely from an Euler product or a one-dimensional
+space of local intertwining maps.
+

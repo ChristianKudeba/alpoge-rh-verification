@@ -1,0 +1,757 @@
+\section{The generic principal-character estimate}
+\label{sec:generic-character-complete-assembly}
+
+We now instantiate the generic estimate
+\eqref{eq:sr-generic-count}.
+The auxiliary imaginary quadratic field is always
+\(K=\mathbb Q(\sqrt{-3})\).
+No restriction on splitting of \(\ell\) in \(K\)
+is imposed.
+
+\subsection{Classicality at every dominant weight, including \(a=1\)}
+\begin{srlemma}\label{lem:sr-good-point-classical-all-dominant}
+The \(\mathrm{GoodPt}_n\) conclusion of
+Proposition~\ref{prop:actual-common-two-three-endpoint}
+gives the actual ordinary automorphic point at every
+dominant algebraic specialization of its weight ring.
+This includes rank three at exponents
+\((a-1,-1,-a-1)\) for every \(a\ge1\).
+\end{srlemma}
+\begin{proof}
+Let \(\mathcal M_n\) be the finite free ordinary weight module
+and \(\mathbb T_n\subseteq\operatorname{End}_{\Lambda_n}\mathcal M_n\)
+its faithful Hecke image.
+It is also finite as a \(\mathbb T_n\)-module.
+Its support over \(\mathbb T_n\) is all of
+\(\operatorname{Spec}\mathbb T_n\), because its
+annihilator is zero.
+A field-valued Hecke point \(x\), supplied by
+\(\mathrm{GoodPt}_n\), therefore has
+\[
+                       \mathcal M_n\otimes_{\mathbb T_n,x}E\ne0 .
+ \tag{GC1}
+\]
+Indeed localize at \(\ker x\), apply Nakayama, and
+then extend its residue field to \(E\).
+In particular its character occurs in the corresponding
+specialization \(\mathcal M_n\otimes_{\Lambda_n}E\).
+
+Proposition~\ref{prop:classical-ordinary-control}
+applies at every dominant algebraic weight.
+It requires neither strict dominance of the algebraic
+highest weight nor a lower bound on \(\ell\) in terms
+of that weight.
+Here is the boundary check in the exact normalization.
+For ordered Galois exponents \(h_i\), equations
+(CA3)--(CA4) give algebraic weight
+\(\lambda_i=h_i+i\), up to the harmless common
+scalar weight and the fixed choice of dual Borel.
+For rank three this is
+\[
+           \lambda=(a-1,0,1-a),\qquad
+           \lambda_i-\lambda_{i+1}=a-1\ge0 .
+ \tag{GC2}
+\]
+The controlling positive operator has ordinary slope
+zero, strictly below
+\(\lambda_i-\lambda_{i+1}+1=a\).
+Equivalently, in the integral proof (CC4)--(CC10),
+every nonextremal weight of the Schur module differs
+from the extremal weight by a nonzero sum of positive
+roots. A strictly positive diagonal element contracts
+it by at least one coefficient uniformizer.
+Zero simple-root differences merely remove some
+of these weights; they do not produce additional
+uncontracted coordinates.
+At \(a=1\), \(\lambda=(0,0,0)\) and the algebraic
+representation is one-dimensional, so those
+other coordinates are absent and the control
+map is immediate.
+For rank two the adjacent difference is
+\(2a-1\ge1\), unchanged by the scalar link character.
+These checks apply to the Gaussian rank-three
+specialization as well.
+
+Thus (GC1) is a nonzero quotient of the actual
+classical ordinary space with the same
+\(\tau_0,\theta^{-1}\) and normalized \(U_j\).
+Choose a classical automorphic constituent carrying
+this Hecke character.
+The classical Galois realization of
+Section~\ref{sec:common-ordinary-arithmetic-action}
+has its determinant.
+The given point and that semisimple representation
+are isomorphic by Chebotarev and Brauer--Nesbitt.
+If the point on the selected CM group is irreducible,
+the isobaric base change of this constituent has
+only one cuspidal block of full rank:
+any other discrete-block decomposition gives a
+reducible semisimple Galois representation.
+This proves the asserted cuspidal realization.
+The use of very regular weights to separate the
+Hecke algebra in (CA6) is therefore distinct from,
+and does not restrict, this all-dominant classicality.
+\end{proof}
+
+For type I, the actual ordinary flag and the
+nonresonance condition prove irreducibility on
+every open subgroup, as in
+Section~\ref{sec:type-one-rigidity}.
+The actual seed tower therefore preserves
+irreducibility of these points.
+For the rank-two outer block, its two residual
+characters restrict distinctly to \(G_L\):
+their ratio is \(\bar\Psi^2\ne1\) on a selected
+ordinary local group, by (SP16).
+The finite extension \(L/K\) is abelian.
+Lemma~\ref{lem:sr-residual-distinct-abelian-restriction},
+applied in rank two over \(K\), consequently
+preserves the irreducibility of the outer block
+on this actual tower.
+Thus the irreducibility premise in (GC1)
+has been verified in both runs.
+
+Remove the algebraic link character by
+Lemma~\ref{lem:sr-link-character-algebraic}.
+Exact cyclic descent through the CM tower,
+as in Lemma~\ref{lem:sr-cyclic-exact-descent},
+then gives the fixed-field rank-three endpoint
+of Proposition~\ref{prop:sr-generic-three-exact-endpoint}.
+The local result
+Corollary~\ref{cor:sr-generic-original-level}
+gives \(\mathrm{Th.Unl}\) and the original
+\(K_3(N)\)-fixed vector, including at \(a=1\)
+and at \(\ell\mid N\).
+The final representation has weight
+\[
+                         (a-1,-1,-a-1),                    \tag{GC3}
+\]
+not the arbitrarily large weight used to construct
+the initial Eisenstein seed.
+
+The analogous rank-two endpoint is rational.
+We fix its normalization before descending.
+The outer representation \(W\) is defined on
+\(G_{\mathbb Q}\), has determinant \(\eta_K\),
+and its restriction to \(G_K\) is irreducible.
+After removing the algebraic CM link, restore
+the algebraic and half-norm normalization of
+the rank-two correspondence before applying
+quadratic cyclic descent.
+Equivalently, apply descent to the system
+normalized to attach to \(W(-a)=W\epsilon_\ell^{-a}\).
+Its unramified geometric-Frobenius roots are
+\(p^a\) times the roots of \(W\);
+this prescription fixes the scalar normalization
+at every unramified place.
+We make no assertion that the unshifted
+unitary parameter of \(W\) is itself an
+unshifted regular-algebraic automorphic representation.
+
+The normalized system over \(K\) is invariant
+under \(\operatorname{Gal}(K/\mathbb Q)\):
+the Galois representation extends to
+\(G_{\mathbb Q}\), and strong multiplicity
+one identifies its conjugate system.
+Quadratic cyclic descent is cuspidal, since
+the original restriction is irreducible.
+Its real parameter is the holomorphic
+discrete-series parameter of weight \(2a+1\),
+with the scalar fixed by the preceding
+unramified normalization.
+Newform theory therefore gives a primitive
+holomorphic eigenform \(f\) of that weight.
+The exact newform attachment used in
+Section~\ref{sec:kato-rigidity} is
+\[
+ \det\!\left(X-W(-a)(\operatorname{Frob}^{\rm geom}_p)\right)
+       =X^2-a_p(f)X+\omega_f(p)p^{2a}
+       \qquad(p\nmid 3N\ell).
+ \tag{GC3a}
+\]
+Thus the Tate twist here is the inverse
+cyclotomic twist; \(\epsilon_\ell
+(\operatorname{Frob}^{\rm geom}_p)=p^{-1}\).
+The half-norm in algebraic local Langlands
+has already been restored when forming this
+newform system and is not discarded during
+the CM descent.
+
+Deligne's representation of \(f\) restricts
+to \(W(-a)|_{G_K}\).
+Schur's lemma makes its possible discrepancy
+from \(W(-a)\) a character of
+\(\operatorname{Gal}(K/\mathbb Q)\).
+Twisting the descended form by this finite
+quadratic character corrects the discrepancy
+exactly. This preserves the weight and
+cuspidality. The resulting primitive newform
+satisfies (GC3a) with \(W(-a)\) itself.
+In particular \(\omega_f=\eta_K\);
+the finite nebentype and the factor \(p^{2a}\)
+also fix the scalar normalization independently
+of the angular description at infinity.
+
+Full local comparison and the inherited local
+flags give the rational witness
+\(\mathrm{WitAQ}\).
+Its finite inertia characters have conductor
+bounded by the original \(3N\), with \(N=0\)
+for their Weil--Deligne monodromy.
+At \(\ell\) this also follows by taking the
+outer subrepresentation of the crystalline
+representation on the subgroup in (LC13);
+the exponent difference is \(2a\ge2\).
+At three the possible extra character is
+exactly \(\eta_K\).
+The induced principal-series vectors therefore
+give the principal congruence level \(3N\).
+These are all the clauses of
+\(\mathrm{Adm2A}\), not merely modularity at
+an unspecified level.
+
+These arguments prove the actual
+\srcid{AutomorphyUnramifiedCoefficientsAlt}
+output used in \(\mathrm{FOneCharU}\):
+one common marking, finite weight-zero
+algebra, type-I fixed-field automorphy,
+and modularity of the rank-two extensions.
+The characteristic-\(\ell\) finite-part assertion
+is Proposition~\ref{prop:actual-common-two-three-endpoint}
+and Proposition~\ref{prop:sr-host-finite-part-from-finend}.
+Classicality and exact descent are the preceding
+arguments. The finite integral representative
+of a geometric point is obtained by the graded
+torus scaling already proved in
+Section~\ref{sec:spectrum-deformation}.
+
+\subsection{Rigidity and the one-character inequality}
+Fix \(\ell\notin\{2,3,7\}\), \(a\ge1\) with
+\(\ell-1\nmid2a\), and an admitted host character
+\(\psi\).
+The good-data hypotheses of
+Section~\ref{sec:single-character} hold by
+Proposition~\ref{prop:sr-three-auxiliary}.
+In particular, if \(\ell\mid N\), write
+\[
+ \psi=\psi^{(\ell)}\widetilde\omega_\ell^{\,b},
+ \qquad b=0\ \hbox{or}\ (\ell-1)/2.
+\]
+Then
+\(\bar\Psi^2|_{I_\ell}=\bar\epsilon_\ell^{\,2a}\ne1\).
+This is exactly the residual separator used
+above. Absorbing \(b\) in the auxiliary seed
+weight changes no weight in (GC3).
+
+There is also no inertness requirement here.
+For split \(\ell\) the sign \(\eta_K\)
+is already trivial on its decomposition group.
+For inert \(\ell\ne3\) it is the unramified
+quadratic sign. In either case the constructed
+tower has split ordinary places above \(\ell\),
+and \(H=\ker\eta_K\cap\ker\tau\) in (LC13)
+is the appropriate open local subgroup.
+The proof of local crystallinity and descent
+of the ordered flag applies in both cases.
+
+At a type-I mixed point,
+Proposition~\ref{prop:sr-cyclotomic-restriction}
+gives irreducibility on
+\(G_{K(\mu_{\ell^\infty})}\).
+The tangent module over \(\mathbb Q\) is
+the descended polarized adjoint:
+on \(G_K\) it is ordinary conjugation and
+on complex conjugation it is
+\[
+                         X\longmapsto-J_3X^tJ_3^{-1}.
+\]
+The symmetric pairing and multiplier
+\(\epsilon_\ell^{-2}\) are precisely those
+of (GE3). Hence
+\href{https://arxiv.org/pdf/2207.04925}
+{Thorne, Theorem 6.1} gives its
+Bloch--Kato Selmer vanishing over \(\mathbb Q\).
+This is the descended adjoint in that theorem;
+no full-adjoint vanishing over \(K\) is substituted.
+
+The actual tangent cocycles satisfy those
+local conditions.
+Away from \(\ell\), the represented killed-inertia
+condition makes their restrictions inertia
+coboundaries. At \(\ell\), (LC8)--(LC14)
+applies also to dual-number points of the
+actual represented local condition.
+Their crystalline extensions therefore give
+the finite local condition.
+Restriction to the finite local extension is
+legitimate; averaging the corresponding local
+primitive over the finite quotient gives the
+original finite local class.
+Thus the published theorem acts on these
+actual tangents.
+
+For a type-II point the tangent decomposition
+proved in Section~\ref{sec:kato-rigidity} is
+\[
+ \operatorname{ad}r\simeq
+    \operatorname{ad}^0W\oplus W\oplus W\eta_K
+                         \oplus\eta_K\oplus\eta_K .
+ \tag{GC4}
+\]
+The actual rational newform just constructed
+has weight \(2a+1\) and is attached with the
+exact twist \(W\epsilon_\ell^{-a}\).
+Kato's finite Selmer theorem at the critical
+integer \(a\), as applied in that section,
+gives the finite-class vanishing for \(W\)
+and \(W\eta_K\); the inequalities are
+\(1\le a\le2a\) and \(2a\ne2a+1\).
+
+For the adjoint summand one may verify
+Newton--Thorne's hypothesis directly.
+A nontrivial quadratic self-twist of \(W\)
+preserves the unique higher-Hodge-weight line
+of its ordinary local flag. It acts trivially
+on its one-dimensional quotient, so the
+twisting character is trivial on the entire
+local decomposition group at \(\ell\).
+A CM quadratic field contained in
+\(\mathbb Q(\mu_{\ell^\infty})\), for odd
+\(\ell\), is ramified at \(\ell\).
+Its self-twist would contradict this
+local triviality. Therefore the CM exception
+in Newton--Thorne, Theorem 5.4, does not occur;
+the non-CM case is already covered by that
+theorem. It follows that
+\(H_f^1(\mathbb Q,\operatorname{ad}^0W)=0\).
+Finally \(\eta_K\) becomes trivial over \(K\);
+the finite local condition for the trivial
+character is unramified everywhere, and
+global class field theory factors it through
+the finite class group. Thus its vector
+Selmer group is zero. Equation (GC4) proves
+type-II tangent vanishing as well.
+
+At the reducible base point the same
+nonpositive-weight local finite-class
+calculation gives the prescribed triangular
+tangent statements.
+For exponent zero use the finite class group.
+For negative exponents, the local finite
+condition is zero at \(\ell\); the global
+strict vector group is zero by the finiteness
+comparison with \(K_{2b}\) already established
+in Section~\ref{sec:sr-character-finiteness}.
+Only finiteness, not a polynomial order
+estimate, is used at this step.
+The statement applies to the finite abelian
+character fields involved here, including
+the fixed quadratic sign.
+
+All algebraic inputs of the one-character
+proof are now instantiated: the marked
+represented condition and its finite tangent
+and obstruction spaces, normalized
+Poitou--Tate duality and global Euler
+characteristic, the proved uniform
+\(H^2\) bound, the finite weight-zero
+algebra, the actual mixed-point
+realizations, and the just-checked
+tangent vanishings.
+The lower cotangent comparison and the
+graded intersection calculation of
+Section~\ref{sec:single-character}
+therefore give the following actual assertion.
+For every \(\sigma\in G_K\), if
+\[
+  \operatorname{tr}\rho(\sigma)\ne
+       \Psi(\sigma)+1+\Psi(\sigma)^{-1}
+\]
+for every member of the two admissible
+classes, there is a finite set \(X_\psi\)
+of pairwise nonisomorphic admissible
+representations such that \(V'_{\ell,N,a}(\psi)\)
+is finite and
+\[
+ v_{\ell,a}(\psi)\le
+ 2\sum_{\rho\in X_\psi}
+ v_\ell\!\left(\operatorname{tr}\rho(\sigma)
+                   -\Psi(\sigma)-1-\Psi(\sigma)^{-1}\right).
+ \tag{GC5}
+\]
+The full decomposition conditions at
+\(\ell N\) and all finite inertia conditions
+in this assertion are exactly the defining
+conditions of \(V'\).
+
+The coefficient normalization is unchanged.
+First realize all prime-to-\(\ell\) character
+values in an unramified coefficient DVR.
+For two such realizations and an arbitrary
+finite splitting DVR take their finite
+compositum. Cohomology, restrictions and
+their strict kernels commute with this finite
+free coefficient extension.
+The module length and
+\(v_{\mathcal O}(\ell)\) both multiply
+by the relative ramification index.
+Thus (GC5), including its finiteness
+assertion, holds for the coefficient DVR
+in the question.
+This is the exact normalized quantity
+\(\operatorname{length}_{\mathcal O}(V')/
+  v_{\mathcal O}(\ell)\).
+
+\subsection{A coefficient-independent finite spectrum}
+We make the fixed constants in the trace
+integer independent of the large support
+tower. Only the original quadratic field
+and original arithmetic weights occur here.
+
+For rank three use the fixed field
+\(K=\mathbb Q(\sqrt{-3})\), level \(N\)
+and weight (GC3).
+The coefficient construction in
+Section~\ref{sec:spectrum-deformation}
+has dimension at most \(C(a+1)^{18}\).
+The proved arithmetic cohomology bound
+Proposition~\ref{prop:sr-level-cohomology}
+and the injection of cuspidal cohomology
+therefore bound its pairwise nonisomorphic
+systems by
+\[
+                           C_3[N(a+1)]^{18}.               \tag{GC6}
+\]
+The constants precede \(N,a,\ell,\psi\).
+The Lie-algebra cohomology criterion is the
+regular-algebraic criterion of Clozel,
+Theorem 3.13 and Lemma 3.14; cuspidal
+cohomology injects into ordinary cohomology
+by Borel,
+\href{https://doi.org/10.1215/S0012-7094-83-05028-7}
+{\emph{Regularization theorems in Lie algebra
+cohomology. Applications}}.
+Their hypotheses are exactly the regular
+algebraic cuspidal representations and
+the dual coefficient system constructed
+there.
+In particular these theorems are applied
+to the fixed field \(K\), not the growing
+totally real tower.
+
+For the rational rank-two systems one can
+retain the fixed quadratic catalogue of
+Section~\ref{sec:common-trace-integer}.
+Take
+\[
+ K_i=\mathbb Q(\sqrt{-d_i}),\qquad
+              d_i=3,7,11,19,23,31,
+\]
+and omit the field of discriminant \(-7\)
+when the test prime is seven.
+At most four quadratic self-twists of a
+rank-two representation exist, by the
+endomorphism-space argument of
+Lemma~\ref{lem:sr-quadratic-self-twists}.
+Thus at least one of the five remaining
+quadratic base changes of each rational
+cuspidal system is cuspidal.
+The same statement follows from cyclic
+cuspidality and its Galois realization.
+A fixed cuspidal base-change class has
+at most two rational preimages, the two
+twists by the quotient character.
+All these assertions concern a fixed
+finite list of fields.
+
+At these fixed CM fields the inherited
+principal congruence level is \(3N\).
+This can also be checked character by
+character: for a local quadratic extension
+of ramification index \(e\), the norm of
+\(1+\mathfrak p_L^{ec}\) lies in
+\(1+\mathfrak p_{\mathbb Q_p}^{c}\).
+The finite inertia characters that were
+trivial at level \(p^c\) therefore remain
+trivial at the scalar level \(p^c\) over
+the quadratic field. The monodromy is
+zero and the principal-series vector
+has that congruence invariance.
+The infinitesimal weights are the fixed
+rank-two weights \((a,-a)\), in the
+normalization of the rational trace
+construction.
+The same coefficient/cohomology argument
+has exponent \(8=2\cdot2^2\) in rank two.
+Maximize its constants over the five
+fixed fields, and include the factor two
+from the fibers. The rational systems
+are consequently bounded by
+\[
+                            C_2[N(a+1)]^8.                \tag{GC7}
+\]
+It suffices to take the systems which
+arise from the primitive holomorphic
+newforms just obtained. This is a
+coefficient-independent definition of
+the label set; the larger CM
+cohomological spaces give its bound.
+No requirement that a catalogue field
+be inert at the varying \(\ell\) is
+used in (GC7).
+
+The finite complex label sets in
+(GC6)--(GC7) are stable under every
+automorphism of \(\mathbb C\).
+For rank three this is Clozel's
+rationality/conjugation theorem,
+Theorem 3.13: the finite part is defined
+over a number field and its conjugates
+are again regular algebraic cuspidal,
+with the conjugate algebraic weight.
+Our weights are parallel, so they are
+unchanged; level and polarization are
+preserved.
+For rank two this is the rational
+structure on the holomorphic newform
+space, equivalently the same theorem
+with the conventional half-norm shift.
+All Satake roots and traces below use
+the integral normalization, so that
+shift introduces no ambiguity.
+The disjoint union of the two label
+sets has size at most
+\[
+                     C_*[N(a+1)]^{C_*'}                   \tag{GC8}
+\]
+for constants fixed before all hosts
+and coefficient primes.
+Equality of global labels makes the
+attached semisimple representations
+isomorphic, by Chebotarev and
+Brauer--Nesbitt. Labels may have equal
+numerical traces at the test place;
+they remain separate labels in the product.
+
+\paragraph{Scaled integral roots at the test prime.}
+There is no additional integral Satake
+hypothesis left in this application.
+Put \(p=7\), choose \(w\mid7\) in \(K\),
+and set \(q_0=Nw\), \(Q=q_0^a\).
+Here \(q_0=7\), since seven splits in
+\(\mathbb Q(\sqrt{-3})\); the following
+argument also works with residue degree
+two.
+
+For each rank-three label, let
+\(\alpha_1,\alpha_2,\alpha_3\) be the
+roots for the original untwisted
+representation at geometric Frobenius.
+They are algebraic by rationality.
+At a rational prime \(r\ne7\), the
+polarized Galois realization at \(r\)
+has compact image and hence a stable
+lattice over a finite coefficient field.
+Its Frobenius roots are integral at
+every place above \(r\).
+The scalar inverse-cyclotomic twist
+has unit value there, so the same
+is true of the \(\alpha_i\).
+For a place above seven use instead
+the crystalline realization at seven,
+which exists since the local
+automorphic component is spherical.
+Its untwisted exponents are
+\((a,0,-a)\).
+The Newton--Hodge inequality gives
+\[
+                       v_7(\alpha_i)\ge-a\,v_7(q_0).
+\]
+Indeed the least Newton slope has a
+Frobenius-stable isoclinic submodule;
+its induced Hodge slopes are bounded
+below by \(-a\), and weak admissibility
+gives the displayed inequality.
+Full local compatibility identifies
+these crystalline Frobenius roots
+with the same algebraic Satake roots.
+Thus \(Q\alpha_i\) is integral at
+every finite place, hence is an
+algebraic integer.
+
+The polarized realization and
+crystalline compatibility just used
+have no residual image assumption:
+they are the classical realization
+and unramified local assertions of
+Barnet-Lamb--Gee--Geraghty--Taylor,
+Theorem 2.1.1, together with its
+\(\ell=p\) compatibility in odd rank.
+For rational rank two the same
+integrality follows directly from
+Deligne's newform representation
+(or from its integral Hecke
+polynomial); after normalization
+its roots \(\beta_i\) satisfy
+\(p^a\beta_i\) integral.
+Over \(K\) the roots are their
+residue-degree powers.
+Consequently every trace label \(t_s\)
+satisfies
+\[
+                         Qt_s\text{ algebraic integral}. \tag{GC9}
+\]
+
+Unitarize the cusp representation.
+The strict unramified unitary Satake
+bound puts each normalized root
+between \(q_0^{-1/2}\) and \(q_0^{1/2}\)
+in absolute value, and their product
+has absolute value one.
+The elementary three-root estimate
+of Section~\ref{sec:common-trace-integer}
+then gives
+\[
+                            |t_s|\le\sqrt{q_0}+2 .            \tag{GC10}
+\]
+For rank two append the constant
+root \(1\); the same bound follows.
+This is the Jacquet--Shalika
+unramified bound in the exact
+unitary normalization used there.
+Equations (GC8)--(GC10) verify all
+three hypotheses of the common
+trace-product construction.
+
+\subsection{The simultaneous prime sum}
+\begin{srtheorem}\label{thm:sr-generic-character-estimate}
+There is a natural number \(A\), fixed before
+the principal host, \(t\), \(a\), the coefficient
+DVRs, and the finite prime set, with the following
+property.
+For every sufficiently large principal host
+\[
+ E=\mathbb Q\bigl(
+   \zeta_{2^{h+2}}+\zeta_{2^{h+2}}^{-1},
+                  \sqrt{-q},\sqrt{-d}\bigr),\qquad
+ N=2^{h+2}qd,
+\]
+with its stated principal congruence and size
+conditions, every \(t\ge2\), every \(1\le a<t\),
+and every finite set \(S\) of primes satisfying
+\[
+          \ell\notin\{2,3,7\},\qquad \ell-1\nmid2a,
+\]
+all the groups \(V'_{\ell,N,a}(\psi)\) in question
+are finite, and
+\[
+ \sum_{\ell\in S}(\log\ell)
+        \sum_{\substack{\psi\text{ a host character}\\
+                        \psi(-1)=(-1)^a}}
+ \frac{\operatorname{length}_{\mathcal O_\ell}
+                    V'_{\ell,N,a}(\psi)}
+                  {v_{\mathcal O_\ell}(\ell)}
+                              \le (Nt)^A .                \tag{GC11}
+\]
+The splitting coefficient DVR \(\mathcal O_\ell\)
+may be chosen independently at each \(\ell\).
+\end{srtheorem}
+
+\begin{proof}
+Increase the fixed lower threshold once to
+ensure the two principal odd primes exceed
+seven.
+For an orbit of characters with kernel \(J\)
+in \((\mathbb Z/N)^\times\), use the common
+label set just constructed and the roots
+\(z_\psi=\psi(q_0)^{-1}\).
+Its Eisenstein trace at inverse Frobenius is
+\[
+                 T_\psi=Q^{-1}z_\psi+1+Qz_\psi^{-1}.
+\]
+Since \(Q\ge q_0\ge7\),
+\[
+            |T_\psi|\ge Q-1-Q^{-1}>\sqrt{q_0}+2 .
+\]
+Thus (GC10) separates every admissible
+trace, and (GC5) applies at this inverse
+Frobenius. It proves finiteness before
+any length is treated as a real number.
+
+Equations (GC8)--(GC10) give the integer
+\(Z_J\ne0\) of
+Proposition~\ref{prop:sr-orbit-integer-implication}
+with constants \(c,C\in\mathbb N\) fixed
+only by the fixed spectrum:
+\[
+ \log|Z_J|\le
+       c\,\varphi([(\mathbb Z/N)^\times:J])
+                      [N(a+1)]^C\log7,\qquad
+ \sum_{\ker\psi=J}v_{\ell,a}(\psi)
+                            \le2\operatorname{ord}_\ell Z_J .
+ \tag{GC12}
+\]
+Each integer is selected before \(\ell\) or
+its coefficient DVR. The same integer controls
+every allowed \(\ell\ne7\), because it is the
+product of the full complex label set.
+Good data hold for all members of a kernel
+orbit, including the trivial orbit if admitted:
+their orders are powers of two, primitive
+powers preserve parity and the local quadratic
+components, and the fixed field is \(K\).
+There is no exclusion of the primes dividing
+\(N\); their finite quadratic component was
+already included in (GC2) and (LC13).
+
+The kernel orbits partition \(\mathcal X_a\)
+and, since the host Galois group is abelian
+of order \(2^{h+2}\),
+\[
+       \sum_{J}\varphi([(\mathbb Z/N)^\times:J])
+                    =|\mathcal X_a|
+                    \le[E:\mathbb Q]\le N .
+\]
+Sum (GC12) over these orbits and over the
+arbitrary finite set \(S\).
+Prime factorization of the nonzero integers
+gives
+\[
+ \begin{split}
+ \sum_{\ell\in S}\log\ell\sum_{\psi\in\mathcal X_a}
+                              v_{\ell,a}(\psi)
+ &\le2\sum_J\sum_{\ell\in S}
+                  (\log\ell)\operatorname{ord}_\ell Z_J\\
+ &\le2\sum_J\log|Z_J|\\
+ &\le2c\log7\,N[N(a+1)]^C .
+ \end{split}
+\]
+There is no factor \(|S|\).
+Choose \(k\in\mathbb N\) once with
+\(2^k\ge\max(1,2c\log7)\), and take
+\(A=C+1+k\).
+As \(a<t\), \(N(a+1)\le Nt\), \(N\le Nt\),
+and \(Nt\ge2\). The last bound is at most
+\((Nt)^A\), proving (GC11).
+All constant choices precede the quantified
+host and coefficient data.
+\end{proof}
+
+\paragraph{Scope and producer closure.}
+The numerical orbit argument was previously an
+implication from a trace integer and a one-character
+inequality.
+The actual support endpoint, all-dominant
+classicality, fixed-field descent, local crystalline
+component and original level, polarized tangent
+rigidity, fixed-field spectral count, and scaled
+integrality have now supplied those inputs for
+the generic principal packet.
+The source assembly is
+\(\mathrm{FOneCharU}\) followed by
+\(\mathrm{FPropGKU}\), with precisely
+\(\mathrm{Adm3U_s}\) and \(\mathrm{Adm2A}\).
+The proof of (GC11) is confined to the generic
+estimate. It asserts no exceptional/resonant
+character estimate and no completion of the
+separate geometric comparisons in the manuscript.

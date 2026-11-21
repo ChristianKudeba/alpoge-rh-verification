@@ -1,0 +1,291 @@
+\subsection{The rank-four good residual lattice}
+\label{subsec:sr-four-good-residual-lattice}
+
+We supply the lattice producer preceding the Case II residual
+chain. It is over the original rational group, before passing
+to the auxiliary real tower.
+Every value of the principal \(\psi\) has \(2\)-power order.
+Thus the source set
+\(S_b=\{p\ne\ell:\ell\mid\#\psi(I_p)\}\) is empty.
+
+\paragraph{Normalization and the two permitted labels.}
+Start with an actual integral Case II representation and its
+ordinary symplectic flag, over a complete DVR model with finite
+residue field. The representation reduces to the prescribed
+diagonal characters. At the ordinary local group the characters
+with labels \(0,2\) are separated from those with labels \(1,3\),
+by the actual separator in the data. The first flag line
+therefore reduces into the \(0,2\) coordinate plane.
+
+Its primitive vector has either a unit \(0\) coordinate or a
+unit \(2\) coordinate. In the second case interchange \(0,2\)
+and simultaneously \(1,3\), using the symplectic permutation.
+A unit \(2\) coordinate says that the first and third
+characters agree on the whole ordinary local group: apply
+each local group element to this flag vector and compare
+that coordinate. Thus the interchange is permitted exactly
+when \(\bar\Psi\) is trivial there, and preserves the
+required local order. These are the two actual tower labels.
+
+The first flag minor is now a unit, and so is the second.
+Split the two separated residual sectors. Modulo the first
+line the second flag vector lies in the other sector.
+Orthogonality gives \(a_0b_3-a_2b_1=0\).
+Since \(a_0\) is a unit, primitivity makes \(b_1\) a unit;
+the second minor is \(a_0b_1\).
+Subtracting a multiple of the first vector to obtain this
+sector decomposition does not change the minor.
+
+Choose the tower's \(g_0\), with four distinct residual
+eigenvalues. Hensel spectral projectors diagonalize it by
+a matrix congruent to \(1\). Its symplectic form pairs only
+opposite eigenlines: their eigenvalue products are the
+multiplier and residual separation excludes the other pairs.
+Rescaling the paired eigenvectors gives a symplectic basis.
+The flag minors stay units; lower/upper Gaussian factorization
+gives its unique lower unipotent representative \(n\).
+Its reduction has only the \(-\psi_{\rm root}\) coordinate,
+since the other lower coordinates join the separated sectors.
+Consequently
+\[
+ r(g_0)\text{ diagonal},\quad
+ r(g)_{ij}\in\mathfrak m\ (i\ne j),\quad
+                 n_{10},n_{21},n_{30}\in\mathfrak m,       \tag{R4V1}
+\]
+while \(n_{20}\) may be a unit.
+
+An irreducible representation has every root among its entries:
+a matrix entry missing on all group elements is missing in
+their span, whereas irreducibility over the algebraic closure
+makes that span the full matrix algebra.
+For a nonsplit two-block point with irreducible outer rank-two
+block, both \(\psi_{\rm root}\) and \(-\psi_{\rm root}\)
+occur in that block. At least one of
+\(\beta_{\rm root},-\alpha_{\rm root},-\theta_{\rm root}\)
+occurs across the blocks, since otherwise it is block diagonal
+and split. These statements survive normalization:
+the permutation preserves the two blocks and the spectral
+projectors may be chosen within the block parabolic.
+Thus in either source \(\mathrm{Star}\) case we have
+\[
+ \operatorname{Ent}(\psi_{\rm root}),\
+ \operatorname{Ent}(-\psi_{\rm root}),\
+ \operatorname{Ent}(\beta_{\rm root})\ \text{or}\
+ \operatorname{Ent}(-\alpha_{\rm root})\ \text{or}\
+ \operatorname{Ent}(-\theta_{\rm root}).                   \tag{R4V2}
+\]
+
+\paragraph{The explicit valuation vertex.}
+Our root coordinates are exactly
+\[
+ \alpha=(1,0),\quad\psi=(0,1),\quad
+ \beta=(-1,1),\quad\theta=(1,1);
+\]
+the four matrix weights are
+\(v_0=(1,1),v_1=(0,1),v_2=(1,0),v_3=(0,0)\),
+and an \(ij\) entry has weight \(v_i-v_j\).
+These are the actual \(\mathrm{lamW},\mathrm{muW}\)
+coordinates in the frozen source, including its half-root
+normalization, not the coordinates \(2e_1,2e_2\).
+Normalize the original DVR valuation by \(v(\varpi)=1\).
+For each root \(w\) include the valuations of all nonzero
+matrix entries of weight \(w\); for each negative root also
+include its independent flag coordinate
+\(n_{10},n_{21},n_{20},n_{30}\).
+Only their minima matter. Every finite minimum is attained,
+and all these valuations are positive except possibly
+the \(-\psi_{\rm root}\) flag valuation.
+
+For integers \(A,B\) impose the finitely many inequalities
+\[
+                       w_1A+w_2B+2k\ge0                  \tag{R4V3}
+\]
+for these minima \(k\).
+The feasible set contains \((0,0)\).
+Its \(B\) coordinate is bounded above by (R4V2) at
+\(-\psi_{\rm root}\).
+For fixed \(B\), its \(A\) coordinate is bounded above by
+one of the three cross-block roots in (R4V2), all with
+first coordinate \(-1\).
+Choose \(B\) maximal and then \(A\) maximal.
+Let \(\mathcal S\) be the tight roots. Its possibilities are
+\[
+\begin{array}{c|c|c}
+ &\text{necessarily tight}&\text{set containing }\mathcal S\\ \hline
+1&\beta,-\psi&\{\beta,-\alpha,-\theta,-\psi\}\\
+2&-\alpha,-\psi&\{-\alpha,-\psi,-\theta\}\\
+3&-\theta,-\psi&\{-\theta,-\psi\}\\
+4&-\alpha,-\beta&\{-\alpha,-\beta,-\psi,-\theta\}\\
+5&-\theta,-\beta&\{-\theta,-\psi,-\beta\}\\
+6&-\theta,\alpha&\{-\theta,-\psi,-\beta,\alpha\}.
+\end{array}                                               \tag{R4V4}
+\]
+Root subscripts are suppressed in this table.
+
+Here is the finite verification.
+Maximality under \((1,0)\) and \((0,1)\) gives
+\[
+ T_{-\alpha}\vee T_\beta\vee T_{-\theta},\qquad
+ T_{-\psi}\vee T_{-\beta}\vee T_{-\theta}.
+\]
+These tight equations imply \(A+B\) even: tight \(-\alpha\)
+fixes \(A\) even, tight \(-\psi\) fixes \(B\) even,
+and either long-root equation fixes \(A+B\) or \(A-B\) even.
+The two disjunctions give the assertion in every combination.
+The moves \((-1,1)\) and \((1,1)\) then give
+\[
+ T_{-\psi}\vee T_\alpha\vee T_{-\beta},\qquad
+ T_{-\psi}\vee T_{-\alpha}\vee T_{-\theta}.
+\]
+A possible decrease by two cannot cross a positive odd slack,
+since these long-root slacks are even.
+For tight \(w\ne-\psi\), the original valuation is positive,
+so \(w_1A+w_2B<0\); tight \(-\psi\) gives \(B\ge0\).
+Tight \(\alpha,-\alpha,\beta,-\beta,\theta,-\theta,\psi\)
+therefore imply, respectively,
+\[
+ A<0,\ A>0,\ B<A,\ A<B,\ A+B<0,\ A+B>0,\ B<0.
+\]
+Separate whether \(T_{-\psi}\) holds, then whether \(A<0\),
+then whether \(T_{-\beta}\) holds. The four disjunctions and
+these inequalities give exactly the six rows of (R4V4).
+This checks all eight roots.
+
+Adjoin \(p\) with \(p^2=\varpi\).
+The grading action with parameters \(p^A,p^B\) is conjugation by
+\(\operatorname{diag}(p^{A+B},p^B,p^A,1)\), a symplectic
+similitude.
+Since \(A+B\) is even, remove its scalar factor to use the
+actual symplectic matrix
+\[
+ T=\operatorname{diag}\bigl(
+ p^{(A+B)/2},p^{(B-A)/2},
+ p^{(A-B)/2},p^{-(A+B)/2}\bigr),\qquad T^{\mathsf t}JT=J .
+\]
+Every displayed exponent is an integer. Conjugation
+\(r\mapsto TrT^{-1}\), and likewise for \(n\), multiplies
+an entry of weight \(w\) by \(p^{w_1A+w_2B}\).
+An entry of weight \(w\) and valuation \(k\) has new valuation
+\((w_1A+w_2B)/2+k\).
+Thus every matrix entry and independent flag coordinate is
+integral. The remaining lower flag entries are
+\[
+               n_{32}=-n_{10},\qquad
+               n_{31}=n_{20}-n_{10}n_{21},
+\]
+so are integral too. The roots occurring in the reduction,
+in either a matrix entry or independent flag coordinate,
+are precisely \(\mathcal S\).
+This constructs an actual valuation vertex over a finite
+quadratic DVR extension.
+
+\paragraph{The two implications eliminating the other vertices.}
+For every odd root character \(\gamma\), a normalized residual
+cocycle killed on the required inertia kernels and locally a
+coboundary at \(\ell\) is zero.
+Indeed Proposition~\ref{prop:sr-actual-corx} makes it a global
+coboundary, since \(S_b=\varnothing\).
+Its normalization at \(g_0\), where \(\gamma(g_0)\ne1\),
+makes the global correcting scalar zero.
+The local correcting scalar is zero too: the actual local
+separator has \(\gamma(\sigma_\ell)\ne1\).
+For extension-field coefficients the same assertion follows
+by finite-field linear coordinate projections.
+
+Consequently, if an odd-root entry \(r_{ij}\) has no other
+contributing products in its multiplication equation, and
+\[
+ r(g)_{ij}=m_v(\bar\chi_j(g)-\bar\chi_i(g))
+                                  \quad(g\in G_v),
+\]
+then \(r_{ij}=0\) and all \(m_v=0\):
+the quotient \(r_{ij}/\bar\chi_j\) is precisely that normalized
+root cocycle.
+
+The ordinary first-column identity is
+\[
+ r(g)_{i0}+\sum_{j>0}r(g)_{ij}n_{j0}
+                                =n_{i0}\bar\chi_0(g).     \tag{R4V5}
+\]
+If \(-\alpha\notin\mathcal S\), then
+\(r_{10}=r_{32}=n_{10}=0\).
+For \(i=3\), (R4V5) makes \(r_{30}\) the local coboundary
+corrected by \(n_{30}\). Its other multiplication products
+vanish. The preceding vanishing gives \(r_{30}=n_{30}=0\).
+Hence
+\[
+ -\alpha\notin\mathcal S\Longrightarrow-\theta\notin\mathcal S.
+                                                        \tag{R4V6}
+\]
+If \(\beta,\psi\notin\mathcal S\), then \(r_{12}=r_{13}=0\).
+For \(i=1\), (R4V5) makes \(r_{10}\) the local coboundary
+corrected by \(n_{10}\); its other products vanish.
+Thus \(r_{10}=n_{10}=0\), and symplectic inversion gives
+\(r_{32}=0\). Therefore
+\[
+ \beta,\psi\notin\mathcal S\Longrightarrow-\alpha\notin\mathcal S.
+                                                        \tag{R4V7}
+\]
+Rows \(2,4\) contradict (R4V7), and rows \(3,5,6\)
+contradict (R4V6). Only row \(1\) remains.
+
+\paragraph{The actual good residual point and restriction.}
+The reduced representation has support \(N_P\).
+Its lower flag has support \(Q\), since
+\(-\beta\notin\mathcal S\) gives \(n_{21}=0\).
+The tight positive \(\beta\) root must be a matrix entry,
+so \(r_{12}\ne0\).
+
+If an entry at \(-\psi\) is nonzero, this is the first
+residual alternative.
+Otherwise tightness there gives \(n_{20}\ne0\), and the
+global support is \(V\).
+The \(i=2\) flag equation gives
+\(\bar\chi_0|_{G_\ell}=\bar\chi_2|_{G_\ell}\),
+which in either labeling is \(\bar\Psi|_{G_\ell}=1\).
+The local \(12\) cocycle is not a coboundary:
+otherwise its other products vanish in support \(N_P\),
+and the odd-root vanishing would give \(r_{12}=0\).
+This proves the full partially split alternative, including
+its noncoboundary condition, hence the exact
+\(\mathrm{LatShape}\).
+
+Restriction to the real abelian tower gives the good point
+required at the start of
+Section~\ref{subsec:sr-four-case-II-residual-links}.
+A normalized \(20\) or \(12\) cocycle cannot vanish on that
+whole normal subgroup unless it vanishes globally:
+conjugate a tower element at which its two characters differ
+and use the cocycle equation.
+The tower's regular \(g_0\) is such an element.
+Both nonzero entries of the first alternative therefore
+survive.
+In the partially split alternative the transported \(20\)
+flag coordinate remains nonzero by (R4L7).
+If the restricted \(10\) entry vanished, that same
+normal-subgroup argument would make it vanish globally.
+Then the \(i=1\) flag equation, divided by \(n_{20}\ne0\),
+would make the local \(12\) entry a coboundary, with correcting
+scalar \(n_{10}/n_{20}\), a contradiction.
+Thus the restricted point has support \(V\), every \(20\)
+flag coordinate nonzero, and a nonzero \(10\) entry.
+This is precisely the other good alternative used in the paths.
+
+Conjugation preserves the multiplier, the ordered inertial
+characters, the killed-inertia conditions and characteristic
+polynomials.
+Diagonalization, the square-root extension, torus powers and
+flag elimination all take place over a finite extension of
+the original complete DVR model, with finite residue field.
+This proves the actual good residual lattice producer.
+
+The frozen-source normalizations are
+\srcid{FlagsAndDiagonals.Choice}, \srcid{ExNorm},
+\srcid{StarConj}, and \srcid{CompactIntegralFields.Labels}.
+The valuation calculation is
+\srcid{RootSystemLinearProgramCases.h7} and
+\srcid{AdicLattices.Vertex}.
+Equations (R4V6)--(R4V7) expand
+\srcid{OddVan}, \srcid{EntVan}, and \srcid{NotTight};
+the final shape and restriction expand \srcid{LowCase},
+\srcid{LatSix.lat}, \srcid{RestrQ}, and \srcid{FlagFacts}.

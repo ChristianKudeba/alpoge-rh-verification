@@ -1,0 +1,788 @@
+\section{The full-dimensional seed and the two propagation runs}
+\label{sec:actual-seed-two-propagations}
+
+We continue with the actual arithmetic frame, entry spaces,
+and ordinary Hecke ideals constructed above.
+For \(n=2,3\) write
+\[
+ \mathcal B_n\twoheadrightarrow
+       \mathbb T_n=\mathcal B_n/J_n,\qquad
+ \Phi_n:\mathcal B_n\twoheadrightarrow B_n,\qquad
+ M_n=J_nB_n .
+                                                               \tag{SF1}
+\]
+The rings \(A_n,B_n\), their grading, and \(\Phi_n\)
+are the rings and maps of
+Sections~\ref{sec:entry-space-flat} and
+\ref{sec:det-entry-finite-corner}.
+The modules defining \(\mathbb T_n\), including their
+tame coefficient lattices, are the modules of
+Section~\ref{sec:common-ordinary-arithmetic-action}.
+We use the two actual cuspidal seeds, their symmetric
+conjugate-self-dual pairings, and their insertion in
+these same ordinary modules.
+This section turns those points into full-dimensional
+seeds and then performs the two propagation runs in
+their required order.
+
+We fix the exact weight augmentation notation.
+Put \(k=\mathcal O/\mathfrak m_{\mathcal O}\) and \(q=|k|\).
+The ideal used by \srcid{Space.FinLam} is
+\[
+ \mathfrak l_n=\mathfrak m_{\mathcal O}B_n+
+   \bigl(\psi_{vi}(g)-1:
+       g\in I_v,\ \Psi(\operatorname{loc}_v g)=1\bigr).
+                                                               \tag{SF2}
+\]
+Curve separation instead uses
+\[
+ N_v=I_v\cap\ker(\varepsilon\circ\operatorname{loc}_v).
+\]
+The frame supplies \(N_v\subseteq\ker(\Psi\circ\operatorname{loc}_v)\).
+Its \(d_v\) local inertia test elements lie in the latter
+kernel; all but one lie in \(N_v\).
+These are distinct assertions.
+
+\subsection{Finite weight support and all component dimensions}
+Each \(\mathbb T_n\) is finite and torsion-free over its
+weight power-series ring
+\(\Lambda_n\simeq\mathcal O[[X_1,\ldots,X_{nd}]]\).
+It is nonzero because its actual cuspidal seed occurs
+in the ordinary module.
+Every minimal prime \(Z\) over \(J_n\) satisfies
+\[
+                      \dim\mathcal B_n/Z=1+nd.              \tag{SF3}
+\]
+Indeed a minimal prime of a Noetherian ring is an
+associated prime. No nonzero element of the domain
+\(\Lambda_n\) is a zero divisor on \(\mathbb T_n\),
+so the contraction of every such prime to
+\(\Lambda_n\) is zero. The corresponding quotient is
+finite integral over \(\Lambda_n\), and has its dimension.
+
+Also
+\[
+                    \mathfrak m_{B_n}
+                           \subseteq\sqrt{M_n+\mathfrak l_n}.
+                                                               \tag{SF4}
+\]
+Here is the needed finite-weight argument.
+Take a prime \(P\supseteq M_n+\mathfrak l_n\) and pull
+it back to \(\mathcal B_n\).
+For an inertia element \(g\), the element \(g^{q-1}\)
+has trivial \(\Psi\)-value.
+Equation (SF2), together with the fixed scalar twist,
+therefore makes the \((q-1)\)-st power of each
+universal ordinary inertia character equal to one
+in the pulled-back quotient.
+The scalar factor also has \((q-1)\)-st power one
+after reduction modulo \(\mathfrak m_{\mathcal O}\).
+
+A unit \(a\) whose residue is fixed and for which
+\(a^{q-1}=1\) is the corresponding constant root of
+unity in this local quotient. For two such values
+\(a,c\), factor
+\[
+ a^{q-1}-c^{q-1}
+   =(a-c)\sum_{i=0}^{q-2}a^ic^{q-2-i}.
+\]
+The second factor has nonzero residue
+\((q-1)\bar a^{q-2}\), so it is a unit.
+The universal property of the inertia weight ring
+then makes its maximal ideal vanish in the quotient.
+Finiteness over \(\Lambda_n\) makes the pulled-back
+prime maximal. Surjectivity of \(\Phi_n\) makes
+\(P=\mathfrak m_{B_n}\).
+This proves (SF4) by intersecting the primes in question.
+It reconstructs \srcid{CurveDVRSpecialization.FinLamOf};
+it does not assume the finite-weight conclusion as an
+extra property of the entry space.
+
+\subsection{From one actual seed to the generic representation of a component}
+After a finite coefficient extension, the actual seed
+gives a map
+\[
+ x_0:\mathcal B_n\longrightarrow\overline{\mathbb Q}_\ell,
+ \qquad J_n\subseteq\ker x_0,
+                                                               \tag{SF5}
+\]
+and an absolutely irreducible representation with the
+prescribed ordered local characters.
+Untwisting by the fixed scalar \(\kappa_n\) gives
+the symmetric polarized frame representation constructed
+in the seed sections.
+It may be normalized as below: its trace and local
+characters are integral over one finite coefficient
+DVR, its marked difference has the separated residual
+eigenvalues, and the simultaneous normalization of
+the form and marked difference preserves its ordered
+ordinary identities.
+Thus (SF5) is the actual normalized seed required
+here, rather than only a congruent residual determinant.
+
+Choose a minimal prime \(Z\) over \(J_n\) with
+\(Z\subseteq\ker x_0\), and set
+\[
+ C=\mathcal B_n/Z,\quad
+ K=\overline{\operatorname{Frac}(C)},\quad
+ p=(D_C,\psi_C).
+\]
+Then \(C\) is a complete local domain with residue \(k\)
+and dimension \(1+nd\), and \(C\hookrightarrow K\)
+is injective.
+The determinant over \(K\) has a semisimple
+representation \(r_0\).
+The field-valued determinant theorem used here is
+\href{https://gaetan.chenevier.perso.math.cnrs.fr/articles/determinants.pdf}
+{Chenevier, Theorem 2.12}; it applies to a determinant
+over an algebraically closed field without any
+residual irreducibility assumption.
+
+In fact \(r_0\) is absolutely irreducible.
+Choose \(n^2\) group matrices spanning the full matrix
+algebra at the actual seed. Their trace Gram determinant
+is nonzero there. It is the image of
+\[
+          \Delta=\det\bigl(D_C^{\rm tr}(g_ag_b)\bigr)_{a,b}
+                                                        \in C .
+                                                               \tag{SF6}
+\]
+Thus \(\Delta\ne0\) in \(C\), and it remains nonzero
+in \(K\). The same Gram matrix therefore makes the
+\(n^2\) generic matrices linearly independent.
+They span \(\operatorname{Mat}_n(K)\), which proves
+irreducibility. This step starts from the actual
+irreducible seed; a merely reducible characteristic
+polynomial point would not give (SF6).
+
+We give the descent to the frame explicitly, since the
+generic matrices over \(K\) have not been equipped with
+a topology. Let
+\[
+ \widetilde r(g)=\kappa_n(g)^{-1}r_0(g),\qquad
+ \widetilde t(g)=\kappa_n(g)^{-1}D_C^{\rm tr}(g)\in C .
+\]
+The scalar twist is integral and continuous.
+Full matrix span gives the trace criterion
+\[
+ \widetilde r(g)=1
+ \quad\Longleftrightarrow\quad
+ \widetilde t(hg)=\widetilde t(h)\quad\hbox{for every }h .
+                                                               \tag{SF7}
+\]
+For the reverse implication, the trace pairing with
+the span of \(\widetilde r(h)\) kills
+\(\widetilde r(g)-1\); the matrix trace pairing is
+nondegenerate. Since \(\widetilde t\) is \(C\)-adically
+continuous and \(C\) is separated, (SF7) makes the
+kernel a closed subgroup of the profinite arithmetic
+group. It is normal, and the determinant polarization
+makes it stable under conjugation by \(c\).
+
+The unramified assertion (CA14) makes this kernel
+contain the distinguished inertia subgroup \(I_0\),
+where \(\kappa_n=1\).
+For an original tame inertia element \(g\) with
+\(\Psi(\pi g)=1\), the exact \srcid{TwLink.tame}
+condition gives a prime-to-\(\ell\) integer \(m\)
+such that
+\(\pi(g)^m=\kappa_n(g)^m=1\).
+Its \(m\)-th power lies in the residual inertia
+kernel killed by the universal pair.
+Full matrix span converts that determinant relation
+to \(r_0(g^m)=1\).
+Thus \(\widetilde r(g)^m=1\), while its integral
+characteristic polynomial reduces to \((X-1)^n\).
+It follows that \(\widetilde r(g)=1\).
+One direct proof writes
+\((M-1)(1+M+\cdots+M^{m-1})=0\);
+the determinant of the second factor is an integral
+polynomial in the characteristic coefficients and
+has residue \(m^n\ne0\), so the factor is invertible.
+
+Apply the closed-normal kernel property
+\srcid{TwLink.ker}.
+It proves that \(\ker\pi\subseteq\ker\widetilde r\).
+Surjectivity of \(\pi\) now gives an actual representation
+\(r:G_0\to\operatorname{GL}_n(K)\) of the fixed frame group.
+The trace descends to a continuous function
+\(t:G_0\to C\): the compact-to-Hausdorff surjection
+\(\pi\) is a quotient map, and (SF7) makes the descended
+trace well defined. The local group isomorphisms in
+\srcid{TwLink} similarly give continuous characters
+\(\chi_{vi}:G_v\to C^\times\).
+They satisfy
+\[
+ \begin{split}
+ \operatorname{tr}r(g)&=t(g),&
+ t(g^*)&=t(g),\\
+ \bar t(g)&=\sum_i\Psi(g)^{w_i},&
+ \bar\chi_{vi}(s)&=\Psi(\operatorname{loc}_vs)^{w_i}.
+ \end{split}                                                \tag{SF8}
+\]
+Every trace pairing with the ordinary product is zero
+by the defining ordinary determinant relations.
+Full matrix span makes the ordinary product itself
+zero. No generic automorphy assertion is used in this
+descent.
+
+\subsection{The symmetric form and marked normalization}
+Equality of the traces of \(r(g)\) and \(r(g^*)^t\),
+with full matrix span, gives an intertwiner by
+Skolem--Noether. Hence there is an invertible matrix
+\(P\) with
+\[
+             r(g^*)^tP=Pr(g),\qquad
+             r(g)^tP\,r(cgc^{-1})=P .
+\]
+Schur's lemma gives \(P^t=P\) or \(P^t=-P\).
+In odd rank the alternating case is impossible
+by its determinant and \(2\ne0\).
+
+In rank two the actual symmetric seed excludes it.
+For an invertible alternating two-by-two form,
+the first displayed relation gives
+\[
+                    r(g)+r(g^*)=\operatorname{tr}r(g)\,I_2 .
+\]
+Multiplying by \(r(h)\) and taking traces gives
+an identity entirely in the integral function \(t\):
+\[
+       t(hg)+t(hg^*)=t(g)t(h).                              \tag{SF9}
+\]
+If the generic form were alternating, (SF9) would
+hold in \(C\), and hence at the actual seed.
+At its normalized symmetric form \(J\), (SF9) and
+full matrix span imply
+\(\rho(g)+J\rho(g)^tJ=\operatorname{tr}\rho(g)I_2\).
+Its off-diagonal equations are
+\(2\rho(g)_{01}=2\rho(g)_{10}=0\).
+This contradicts irreducibility of the seed.
+Therefore \(P\) is symmetric in both ranks.
+
+Put
+\[
+ D=r(g_0)-r(g_0^*),\qquad
+ A=t(g_0^2)-t(g_0g_0^*)\in C .
+\]
+Then
+\[
+       D^tP=-PD,\qquad \operatorname{tr}(D^2)=2A,\qquad
+       \bar A=(\Psi(g_0)-\Psi(g_0)^{-1})^2\ne0 .
+                                                               \tag{SF10}
+\]
+Hensel's lemma gives the unique unit \(\zeta\in C\)
+with the specified residue and \(\zeta^2=A\).
+In ranks two and three, skew-adjointness and (SF10)
+give respectively the characteristic polynomials
+\[
+                       X^2-\zeta^2,\qquad X(X^2-\zeta^2).
+\]
+For rank three use additionally
+\(\det D=-\det D\), hence \(\det D=0\).
+Only division by \(2\) is needed.
+The distinct eigenvalues are \(\zeta w_i\).
+Choose eigenvectors in that order.
+Skew-adjointness makes their \(P\)-pairing zero
+unless their weights sum to zero.
+Nondegeneracy pairs opposite lines, and in rank
+three the middle line has nonzero self-pairing.
+Scaling these eigenvectors over the algebraically
+closed \(K\) puts \(P=J\).
+In this basis
+\[
+ \rho(g^*)=J\rho(g)^tJ,\qquad
+ \rho(g_0)-\rho(g_0^*)=\zeta\operatorname{diag}(w_i).
+                                                               \tag{SF11}
+\]
+Conjugation preserves every ordered ordinary product.
+The characters of \(\rho\) are still the images of
+\(\chi_{vi}\).
+Thus \(\rho\) is the actual normalized representation,
+with integral trace, integral ordinary characters,
+and the integral marked parameter \(\zeta\).
+
+\subsection{The finite entry cone and the full-dimensional point}
+The marked projectors in (DC2) are \(C\)-linear
+combinations of group matrices.
+Consequently
+\[
+ \rho(g)_{ii}\in C,\quad
+ \overline{\rho(g)_{ii}}=\Psi(g)^{w_i},\quad
+ \rho(g)_{ij}\rho(h)_{ji}\in\mathfrak m_C\quad(i\ne j).
+                                                               \tag{SF12}
+\]
+For the last assertion insert the two distinct marked
+projectors into a trace. Its residual value is zero,
+because the residual determinant is the sum of the
+distinct diagonal characters.
+The same argument with a cyclic list of projectors
+puts every closed index cycle in \(C\), and in
+\(\mathfrak m_C\) when it has an off-diagonal factor.
+The primitive balanced-weight lists of (DC3), with
+the polarization reflections, give the same assertion
+for every weight-zero entry monomial.
+
+For completeness, all entry spans are finite and
+continuous over \(C\). Choose the \(n^2\) group
+matrices in (SF6). Solving their trace Gram system
+expresses every \(\rho(g)\) with coefficients in
+\(\Delta^{-1}C\). Thus their \(C\)-span is a submodule
+of a fixed finite free \(C\)-module and is finite.
+Every individual entry span is finite as well.
+The numerators of these coefficients are continuous
+functions of \(g\). Artin--Rees for the finite
+matrix span in this free module converts this
+continuity into its own \(\mathfrak m_C\)-adic
+continuity. The same holds on every entry span.
+
+Let \(D_{\rm gr}\subset K[t,t^{-1}]\) be the graded
+\(C\)-algebra generated by
+\[
+                      t^{w_i-w_j}\rho(g)_{ij}
+\]
+and the degree-zero ordinary characters.
+Its degree-zero part is \(C\).
+By (SF12), reduction of this degree-zero part
+modulo \(\mathfrak m_C\), and annihilation of every
+nonzero-degree part, defines its vertex maximal ideal.
+The finite entry spans make \(D_{\rm gr}\) a finite-type
+Noetherian \(C\)-algebra.
+The fixed-degree topology and the vertex topology
+are cofinal by the primitive balanced-monomial
+argument of (LS3).
+In its vertex completion the displayed matrices
+are continuous and have diagonal residual representation.
+They therefore receive the universal diagonal
+deformation map.
+The weight-zero image is contained in the closed
+copy of \(C\), and the polynomial entry image lies
+in \(D_{\rm gr}\).
+Evaluating \(t=1\) gives
+\[
+             \xi:A_n\longrightarrow K,\qquad
+             \beta:B_n\longrightarrow C,\qquad
+             \xi|_{B_n}=\iota_C\beta,                       \tag{SF13}
+\]
+with exactly the matrices \(\rho\) and characters
+just constructed.
+The copy of \(C\) is closed here also by compactness:
+\(C\) is complete Noetherian with finite residue
+field, and the vertex completion is Hausdorff.
+
+The two maps \(\beta\Phi_n\) and the quotient
+\(\mathcal B_n\to C\) give the same determinant
+and the same local characters after injection into
+\(K\). They give the same pair over \(C\), by
+injectivity, so universality gives
+\[
+                   \beta\Phi_n=(\mathcal B_n\to C).         \tag{SF14}
+\]
+It follows that \(\beta\) is surjective.
+With \(\mathfrak p=\ker\xi\) and \(Z_B=\ker\beta\),
+we have
+\[
+ \begin{gathered}
+ \mathfrak p\text{ Type I},\quad
+ M_n\subseteq Z_B=\mathfrak p\cap B_n,\quad
+ \dim B_n/Z_B=1+nd .                                       \tag{SF15}
+ \end{gathered}
+\]
+Irreducibility implies Type I by the marked-projector
+coordinate-subspace argument.
+Equations (SF13)--(SF15) prove the source
+\srcid{SeedIn}, including its dimension.
+This is the full-dimensional \srcid{SeedOf}
+producer; a single arithmetic specialization by
+itself would not supply (SF15).
+
+\subsection{The exact support transfers}
+For a completed chart \(A_n\to R_x\), pull a prime
+\(P\) back to \(\mathcal B_n\) through
+\(A_n\leftarrow B_n\leftarrow\mathcal B_n\).
+A Type-I prime gives a stable determinant there:
+embed \(R_x/P\) into an algebraically closed field.
+The marked coordinate projectors and the rank-two
+or rank-three zero-entry classification make the
+entry representation irreducible, and scalar twisting
+and the surjection of arithmetic groups preserve
+that property. The determinant at this point is
+therefore stable.
+
+For a thick exceptional prime in rank three use
+the actual \(s_D\) of (SH7).
+Its even entries equal those of \(\rho\), its
+middle row off the diagonal is zero, and it has
+the two ordered identities (SH9).
+Its characteristic polynomials are those of the
+outer block plus the middle character, so are
+the same as those of \(\rho\).
+Twist \(s_D\) by \(\kappa_3\) and compose with
+the arithmetic group map. It kills the actual
+closed group-algebra kernel:
+the Cayley--Hamilton generators are killed by
+the matrix Cayley--Hamilton theorem, the ordinary
+and starred ordinary generators by the two
+identities (SH9), and the inertia generators by
+the prime-to-\(\ell\) torsion calculation following
+(SF7).
+
+This assertion includes the closure required in
+the source. For any target precision, continuity
+gives an open normal group subgroup acting trivially
+at that precision, and locality of the coefficient
+map sends a sufficiently high source maximal-ideal
+power into that target precision.
+A representative from the source's joint
+group/adic closure therefore has zero image at
+every target precision. Target separatedness
+makes its image zero.
+Thus the closed Cayley--Hamilton kernel is
+contained in the representation kernel in the
+needed quotient direction.
+
+The specialized determinant is not stable,
+since its semisimplification has the outer
+two-dimensional and middle one-dimensional
+summands.
+Its closed Cayley--Hamilton algebra is not
+semisimple either.
+Indeed extend the algebraic closure of its
+determinant residue field to an algebraically
+closed field containing
+\(\operatorname{Frac}(R_x/P)\).
+If this finite algebra were semisimple, it
+would remain a product of matrix algebras after
+this extension. Its representation by \(s_D\)
+would split the middle-character quotient,
+contrary to the nonsplitting assertion proved
+after (SH9).
+Here the source field is already an algebraic
+closure; this scalar-extension argument is not
+an assertion about an arbitrary imperfect field.
+Finiteness is the actual
+Proposition~\ref{prop:sr-finite-CH}.
+We have proved precisely the source
+\srcid{IsThick} property.
+
+Now apply Proposition~\ref{prop:common-ordinary-actual-input}
+to these stable and thick specializations.
+For a selected Type-I prime \(p\) with
+\(M_n\subseteq p\cap B_n\), \srcid{P1core} gives
+\[
+ P\subseteq p,\ P\text{ prime}
+                 \quad\Longrightarrow\quad
+                          M_n\subseteq P\cap B_n .         \tag{SF16}
+\]
+For a finite chain of selected exceptional primes
+\(p=p_0,\ldots,p_h=q\), with a thick prime below
+each successive pair, \srcid{P3core} gives
+\[
+ \begin{split}
+ &\exists P\subseteq p,\quad P\text{ Type I},\
+                               M_3\subseteq P\cap B_3\\
+ &\hspace{8mm}\Longrightarrow\
+ M_3\subseteq P'\cap B_3
+       \quad\text{for every Type-I }P'\subseteq q .
+ \end{split}                                                \tag{SF17}
+\]
+The selected chart curves give the actual normalized
+\(K[[T]]\)-points, \(N1,N3,N4\), and compatible
+determinant maps used by these calls.
+Pullback preserves the inclusions in (SF16)--(SF17).
+These are exactly \srcid{P1'} and \srcid{P23'}.
+Neither transfer asks for the residual outer
+constituents to be individually polarized.
+
+\subsection{Meeting the connected characteristic core}
+We verify the global incidence assertions as well.
+Let
+\[
+ C_n=\{x\in\operatorname{Spec}A_n:
+          x\cap B_n=\mathfrak m_{B_n},\
+                          \mathfrak t_+\not\subseteq x\}.
+\]
+On this fibre the residue-shape equations (LS4)
+make every point upper or lower triangular;
+the displayed avoidance selects the nonzero
+lower-triangular core.
+In rank two it is the nonzero strict linear-data
+core. In rank three it is the lower-data core.
+The explicit polynomial families of
+Lemma~\ref{lem:sr-low-interpolation}, and their
+actual point identifications in (LS3)--(LS4),
+make \(C_n\) connected.
+In rank three the nonexceptional part is dense,
+using the two actual nonzero strict classes in
+Lemma~\ref{lem:frame-strict-classes}.
+The fibre is finite type over \(k\), hence
+Jacobson. Every nonempty locally closed subset
+of it has a closed point. This supplies the
+closed-point assertions in
+Lemma~\ref{lem:sr-global-propagation}.
+
+Every relevant component meets \(C_n\).
+Here is the graded Nakayama argument.
+A minimal prime \(\eta\) of \(A_n\) is homogeneous:
+its homogeneous core is prime for the ordered
+\(\mathbb Z\)-grading and is contained in \(\eta\);
+minimality makes them equal.
+Suppose
+\(\mathfrak t_+\subseteq
+             \sqrt{\eta+\mathfrak m_{B_n}A_n}\).
+Finite generation gives
+\(\mathfrak t_+^m\subseteq\eta+\mathfrak m_{B_n}A_n\)
+for some \(m\ge1\).
+Every monomial of weight at most \(-2m\)
+contains at least \(m\) lower entries, since
+each entry weight is at least \(-2\) and
+every other entry weight is nonnegative.
+Thus for each such weight \(j\), projecting
+to the homogeneous component gives
+\[
+ (A_n)_j\subseteq
+          \eta\cap(A_n)_j+\mathfrak m_{B_n}(A_n)_j .
+\]
+The component is finite over \(B_n\), so
+Nakayama makes \((A_n)_j\subseteq\eta\).
+For each lower entry its \(2m\)-th power has
+such a weight. Primality now puts every lower
+entry in \(\eta\), a contradiction on a
+relevant component.
+There is consequently a prime over
+\(\eta+\mathfrak m_{B_n}A_n\) still avoiding
+a lower entry.
+The Jacobson property on that fibre gives
+a closed such point. It lies in \(C_n\).
+
+The full-dimensional seed (SF15) gives a
+supported component through this core with
+enough local dimension.
+Indeed there is a homogeneous prime
+\(\eta\subset A_n\) with
+\[
+ \eta\cap B_n=Z_B,\qquad
+ \eta\text{ Type I},\qquad
+       \operatorname{trdeg}_{B_n/Z_B}(A_n/\eta)=1 .          \tag{SF18}
+\]
+To construct it, localize \(A_n/Z_BA_n\)
+at \(B_n/Z_B\setminus\{0\}\), take a prime,
+and then its homogeneous core.
+Its contraction is zero on this field,
+so pulling back gives contraction \(Z_B\).
+Type I follows from the seed \(\mathfrak p\):
+a positive and a negative surviving homogeneous
+entry have a balanced product in \(B_n\)
+not in \(\mathfrak p\cap B_n=Z_B\).
+Neither entry can vanish at \(\eta\).
+Pair a surviving odd entry with an entry of
+the opposite weight sign to get the same
+conclusion for the odd ideal in rank three.
+A surviving homogeneous element of nonzero
+weight is transcendental over \(B_n/Z_B\),
+since a polynomial in it has distinct weights.
+Conversely, the balanced products of opposite
+weights express every other entry algebraically
+in terms of one such entry over
+\(\operatorname{Frac}(B_n/Z_B)\).
+This proves the transcendence-degree equality.
+
+Choose a closed \(x\in C_n\) over \(\eta\),
+as just proved. The exact chart dimension
+formula (LS6) gives a prime \(P\) over \(\eta\)
+with
+\[
+        \dim R_x/P=\dim B_n/Z_B+1=nd+2 .
+\]
+It is supported and Type I.
+This is at least the local propagation
+threshold \(nd+1\), so it supplies the
+supported component required by
+Lemma~\ref{lem:sr-global-propagation}.
+It is not an inference from a zero-dimensional
+arithmetic point.
+
+\subsection{Rank two first, then the exceptional ideal, then rank three}
+We now apply the proved local and global
+propagation lemmas with these actual objects.
+
+In rank two take the sharp ideal to be zero.
+The presentation (LS10), the connectedness
+statement (SH4), and the triangular bound (SH1)
+make its minimal-component graph connected
+at threshold \(2d+1\), and every minimal
+component in each core chart is Type I.
+The selected primes are (SH3), the supported
+locus is \(V(M_2A_2)\), and its support
+implication is (SF16).
+Lemma~\ref{lem:sr-local-propagation} proves
+the chart propagation.
+The flat chart (LS5), the core incidence
+just checked, its connectedness, and the
+full-dimensional seed then give, by
+Lemma~\ref{lem:sr-global-propagation},
+\[
+  M_2\subseteq P_2\cap B_2
+                \quad\text{for every rank-two Type-I prime }P_2.
+                                                               \tag{SF19}
+\]
+
+Only now construct the rank-three exceptional
+support ideal.
+Use the actual outer-corner map (DC6) and
+define \(I_3\) exactly as in (DC8).
+Equations (SF4) and (SF19) are the two
+rank-two premises (DC7).
+Thus the proved corner calculation gives
+\[
+ \mathfrak m_{B_3}\subseteq\sqrt{I_3+\mathfrak l_3},
+ \qquad
+ I_3\subseteq P\cap B_3
+                  \quad\text{at every rank-three Type-E prime }P .
+                                                               \tag{SF20}
+\]
+This use of the rank-two ideal is prior to
+rank-three propagation; no rank-three
+automorphy is assumed in obtaining it.
+
+In rank three use the actual sharp ideal
+\(I^\sharp\) of (SH5).
+Its minimal-component graph is connected
+at threshold \(3d+1\), its components have
+dimension at least \(3d+2\), and its
+dichotomy is Type I or the explicit thick
+representation (SH7).
+For the ordinary supported prime-selection
+step use (SF4); for the thick exceptional
+step use (SF20).
+The bounds (SH1)--(SH2) and the actual curve
+producer (SH3) then supply every selected
+prime required in the local propagation
+lemma. Its two support implications are
+(SF16) and (SF17).
+It follows that every Type-I minimal
+component through a supported Type-I
+component in a core chart is supported.
+
+For a closed core point outside the
+exceptional locus the sharp ideal is zero,
+so every local minimal component is Type I.
+Such a point lies on a relevant global
+component. The flat charts also show that
+support passes between any two relevant
+global components meeting at a closed
+core point. The connected core, its dense
+nonexceptional locus, its Jacobson
+closed points, and its full-dimensional
+supported seed are exactly the hypotheses
+of Lemma~\ref{lem:sr-global-propagation}.
+We conclude
+\[
+ M_3\subseteq P\cap B_3
+                 \quad\text{for every rank-three Type-I prime }P .
+                                                               \tag{SF21}
+\]
+Moreover \(M_3\cap I_3\) has the finite-weight
+property and is contained in \(P\cap B_3\)
+for every off-triangular prime:
+use (SF21) off the exceptional locus and
+(SF20) on it. The finite-weight property
+passes to this intersection by testing
+primes, each of which contains one factor.
+This is the actual \srcid{OffFin} conclusion.
+
+\begin{srproposition}[The instantiated shared rank-two/rank-three endpoint]
+\label{prop:actual-common-two-three-endpoint}
+For the constructed packets, the fixed Hecke ideals
+\(J_2,J_3\) satisfy the source's exact
+\srcid{ModIn} conditions and give
+\(\srcid{GoodPt}_2\), \(\srcid{GoodPt}_3\), and
+\(\srcid{FinPt}_3\).
+In particular every normalized lift over a complete
+coefficient DVR that is irreducible after injection
+into a field gives a determinant-pair map from
+\(\mathcal B_n/J_n\) with its actual ordered local
+characters.
+\end{srproposition}
+
+\begin{proof}
+Finiteness and dimension are (SF3)--(SF4);
+the distinguished unramified condition is (CA14);
+the all-point \(N4\) condition is its scalar
+residual-Frobenius matrix calculation.
+The actual common module proves
+\srcid{P1core}, \srcid{P3core}, and
+(SF16)--(SF17). The actual seeds give
+(SF5)--(SF15). These are all the displayed
+fields of \srcid{ModIn}.
+
+For a DVR lift, the actual point map
+\(A_n\to A\) of (LS4), followed by a field
+injection, is Type I by the marked-projector
+classification. Equations (SF19) or (SF21)
+make the composite
+\(\mathcal B_n\to B_n\to A\) kill \(J_n\).
+The determinant and all ordered local
+characters agree after the field injection
+and hence over \(A\). This is
+\srcid{GoodPt}_n.
+
+Finally \srcid{OffFin} and the graded
+finite-part argument of
+Lemma~\ref{lem:sr-graded-finite-part-criterion}
+give \srcid{FinPt}_3.
+Explicitly its conclusion is that any
+characteristic-\(\ell\) normalized DVR lift
+whose ordinary characters are trivial on
+\(I_v\cap\ker\Psi\) has, for every \(g\),
+the characteristic polynomial
+\[
+       \prod_{i=0}^{2}
+          \bigl(X-\Psi(g)^{w_i}\bigr)
+\]
+after its specified residue-field embedding.
+The constant-character triangularity and
+diagonal-character statements used in that
+graded argument have their exact scope in
+Lemma~\ref{lem:sr-constant-character-triangular}.
+This proves the three conclusions.
+\end{proof}
+
+This is the completed common support endpoint.
+Applying it to an arithmetic characteristic-zero
+point still uses its specified algebraic weights
+and the classical realization/descent statements.
+The original-level local conclusion
+\srcid{Th.Unl} is supplied by the separate
+crystalline-component analysis, not by replacing
+it with the existence of an ordinary flag.
+
+\paragraph{Exact frozen-source provenance.}
+The generic trace and form construction is
+\srcid{CurveDVRSpecialization.SeedOf}, especially
+\srcid{span\_of\_spec}, \srcid{ker\_le},
+\srcid{untwist}, and \srcid{seedOf},
+together with
+\srcid{FrobeniusSmoothVectors.OfTrace.of\_trace}
+and \srcid{OfForm.of\_form}.
+The finite entry cone is \srcid{PointField.point\_field}.
+The core-incidence arguments are
+\srcid{MinHom.min\_hom},
+\srcid{MonMemPow.l41}, and \srcid{FibreClosed.jac};
+the homogeneous seed lift and chart dimension are
+\srcid{FrobeniusCornerLiftTwoToThree} and \srcid{Seedpt.seedpt}.
+The support transfers are the actual
+\srcid{FirstPrimeConditionTransfer.p1Of},
+\srcid{StableOf.stableOf},
+\srcid{ThickOf.thickOf}, and
+\srcid{SecondThirdPrimeConditionTransfer.%
+rankThree\_deformationSetup\_splitting\_condition}.
+Finally the order (SF19), (SF20), (SF21) is
+\srcid{ComponentsGoodRankTwo},
+the outer-corner producer \srcid{l53}, and
+\srcid{PropagationTheoremGL3.components\_good\_rank\_three}.
+Their assembly is
+\srcid{CurveDVRSpecialization.AbsMain.absMain}.
+All paths lie under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}
+at the frozen tag \srcid{alpoge-source-7cbf7a0c}.

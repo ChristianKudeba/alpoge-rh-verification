@@ -1,0 +1,380 @@
+\subsection{The residual Bernoulli-unit input in the actual data}
+\label{subsec:sr-residual-bernoulli-input}
+The arithmetic data constructors use the following residual
+vanishing, called \(\mathrm{CorX}\) in the archive.
+We prove its explicit Bernoulli estimate and its precise
+unramified-cocycle consequence.
+
+\begin{srlemma}\label{lem:sr-dyadic-bernoulli-unit}
+Let \(\ell\) be odd, \(d\ge1\),
+\(Q=\ell^d\equiv1\pmod4\), and \(e=v_2(Q-1)\).
+Let \(f\) be odd, let \(\phi\) be primitive of conductor
+\(f\) and order dividing \(Q-1\), and let \(\xi\) be
+primitive of conductor \(2^n\).
+Suppose
+\[
+                 f4^e\le2^n,\qquad
+                         \phi(-1)\xi(-1)=-1.
+ \tag{BX1}
+\]
+Then \(B_{1,\phi\xi}\) is an \(\ell\)-adic unit.
+The statement permits \(\ell\mid f\).
+\end{srlemma}
+\begin{proof}
+Work in a finite splitting extension, with integer ring
+\(\mathcal O\) and residue field embedded in an algebraic
+closure of \(\mathbb F_\ell\).
+Put \(N_2=2^n\), \(m=n-e\).
+Equation (BX1) gives
+\[
+               e\ge2,\qquad m\ge e,\qquad
+                         s=f2^e\le2^m .
+ \tag{BX2}
+\]
+Extend both characters by zero on nonunits, as usual.
+
+We first construct an integral function \(g\) on
+\(\mathbb Z/N_2\).
+Put
+\[
+ A(u)=\sum_{\substack{0\le b<fN_2\\b\equiv u\ (N_2)}}\phi(b)b,
+ \qquad C=\frac1{N_2}\sum_{b=0}^{f-1}\phi(b),\qquad
+                  g(u)=\frac{A(u)-A(0)}{fN_2}.
+ \tag{BX3}
+\]
+Although the displayed denominator contains \(f\), every
+\(g(u)\) is integral.
+Indeed shifting the range of \(b\) by \(f\), using
+\(\phi(b+f)=\phi(b)\), gives
+\[
+              g(u)-g(u-f)
+                       =C-\mathbf1_{u_0<f}\phi(u_0),
+ \tag{BX4}
+\]
+where \(u_0\in[0,N_2)\) is the representative.
+The constant \(C\) is integral because \(N_2\) is an
+\(\ell\)-adic unit.
+Addition of \(f\) cycles through every residue modulo
+\(N_2\), and \(g(0)=0\).
+Thus (BX4) proves integrality at all residues without
+dividing by \(f\).
+It also shows that the reduction \(G(u)=\bar g(u)\)
+lies in \(\mathbb F_Q\), since every \(\bar\phi(b)\)
+does and \(N_2^{-1}\in\mathbb F_\ell\).
+Telescoping (BX4), whenever \(ft\le N_2\), gives
+\[
+        G(u)-G(u-ft)
+               =t\bar C-\mathbf1_{u_0<ft}\bar\phi(u_0).
+ \tag{BX5}
+\]
+The finite interval contains at most one boundary crossing;
+its \(\phi\)-value is unchanged by the multiples of \(f\).
+This also verifies (BX5) directly at the boundary.
+
+Since \(\phi\xi\) is nontrivial and odd, its character sum
+is zero, and the elementary Bernoulli formula gives
+\[
+ B_{1,\phi\xi}
+   =\frac1{fN_2}\sum_{b=0}^{fN_2-1}\phi(b)\xi(b)b
+   =\sum_{u\bmod N_2}\xi(u)g(u).
+ \tag{BX6}
+\]
+The last equality follows by grouping the first sum by
+\(u\bmod N_2\) and using \(\sum_u\xi(u)=0\).
+In particular the Bernoulli number is integral.
+
+Write \(X=\bar\xi\).
+Primitivity gives
+\[
+             X(1+N_2/2)=-1,
+ \tag{BX7}
+\]
+and its restriction to \(1+4\mathbb Z/2^n\) is faithful.
+Suppose for contradiction the reduction of (BX6) is zero.
+For every odd \(y\bmod N_2\), changing variables gives
+\(\sum_uX(u)G(uy)=0\).
+Raise this identity to the powers \(Q^j\).
+The coefficients \(G(uy)\) are fixed by that Frobenius.
+The powers of \(Q\) modulo \(2^n\) run through
+\(1+2^e\mathbb Z/2^n\):
+\(v_2(Q^{2^j}-1)=e+j\), by the elementary
+difference-of-squares induction.
+Averaging these identities with the geometric-sum
+identity therefore gives
+\[
+ H(y):=\sum_{\substack{x\bmod N_2\\X(x)^{2^e}=1}}
+                                      X(x)G(xy)=0
+                         \qquad(y\ \text{odd}).
+ \tag{BX8}
+\]
+More explicitly average the exponents \(1+2^ev\),
+\(0\le v<N_2\).
+The inner sum is \(N_2X(x)\) if \(X(x)^{2^e}=1\)
+and zero otherwise; \(N_2\) is invertible modulo \(\ell\).
+
+Let \(\mathcal C\) be the indexing subgroup in (BX8).
+The decomposition
+\((\mathbb Z/2^n)^\times=\{\pm1\}\times\langle5\rangle\)
+and \(v_2(5^{2^j}-1)=j+2\) give
+\[
+       \mathcal C
+       =\{x:x\equiv1\text{ or }-1\pmod{2^m}\}.
+ \tag{BX9}
+\]
+For example \(X(5)\) has exact order \(2^{n-2}\);
+writing \(x=(-1)^\delta5^j\), the condition is
+\(2^{m-2}\mid j\), exactly (BX9).
+
+Apply (BX5) with \(t=2^e\), so \(ft=s\), and subtract
+\(H(1-s)\) from \(H(1)\).
+For \(x\equiv1\pmod{2^m}\),
+\(x(1-s)=x-s\pmod{N_2}\).
+Among these \(x\), the interval \(0\le x_0<s\)
+contains only \(x=1\).
+For \(x\equiv-1\pmod{2^m}\),
+\(x(1-s)=x+s\pmod{N_2}\).
+The corresponding interval after addition of \(s\)
+contains only \(x=-1\), with representative \(s-1\).
+The two boundary terms are respectively
+\[
+                    -X(1)\bar\phi(1)=-1,\qquad
+                   X(-1)\bar\phi(s-1)=-1 .
+\]
+The second equality uses \(f\mid s\) and the oddness
+in (BX1).
+Thus
+\[
+ H(1)-H(1-s)
+  =2^e\bar C\sum_{x\in\mathcal C}\varepsilon(x)X(x)-2,
+ \tag{BX10}
+\]
+where \(\varepsilon(x)=1\) or \(-1\) according to its
+class in (BX9).
+The sum in (BX10) is zero.
+Indeed multiplication by \(1+N_2/2\) preserves
+\(\mathcal C\) and \(\varepsilon(x)\), and multiplies
+\(X(x)\) by \(-1\), by (BX7).
+Since \(2\ne0\), the sum equals its negative only if zero.
+Equations (BX8) and (BX10) now give \(0=-2\),
+a contradiction.
+The integral value in (BX6) has nonzero reduction,
+which proves it is an \(\ell\)-adic unit.
+\end{proof}
+
+\begin{srlemma}\label{lem:sr-bernoulli-unit-residual-unramified}
+Let \(\chi\ne1\) be a finite Dirichlet character of order
+prime to odd \(\ell\), with values in a splitting DVR
+\(\mathcal O\).
+Let \(\gamma=\bar\chi:G_{\mathbb Q}\to k^\times\),
+where \(k\) is any field of characteristic \(\ell\).
+Assume
+\[
+          \gamma\ne\bar\epsilon_\ell,\qquad
+                         B_{1,\chi^{-1}}\in\mathcal O^\times.
+ \tag{BX11}
+\]
+Suppose \(z:G_{\mathbb Q}\to k\) is a continuous
+\(\gamma\)-cocycle with the following exact
+\(\mathrm{UnrEv}\) condition:
+at each finite inertia group, its restriction to
+\(I\cap\ker\gamma\) is zero on a subgroup of
+index prime to \(\ell\).
+Then \(z\) is a coboundary.
+\end{srlemma}
+\begin{proof}
+Reduction is injective on roots of unity of order prime
+to \(\ell\), so \(\ker\chi=\ker\gamma\).
+Let \(L\) be their fixed field.
+Its degree over \(\mathbb Q\) is prime to \(\ell\).
+On \(G_L\), the cocycle is an additive homomorphism.
+On each \(I\cap G_L\) it has finite additive
+\(\ell\)-group image; the prime-to-\(\ell\) index in the
+hypothesis forces that image to be zero.
+Thus this homomorphism is unramified at every finite
+place.
+At real places an element of order two has zero image
+as well.
+Class field theory makes it a homomorphism
+\[
+                         F:\operatorname{Cl}(L)\longrightarrow k .
+ \tag{BX12}
+\]
+The cocycle identity gives
+\(F(\sigma A)=\gamma(\sigma)F(A)\).
+
+We recall the exact classical annihilator used on (BX12).
+For conductor \(F_\chi\), put
+\[
+ \Theta=\frac1{F_\chi}
+       \sum_{u\in(\mathbb Z/F_\chi)^\times}
+                       u_0\,\sigma_u^{-1}.
+\]
+For every integer \(b\) prime to \(F_\chi\),
+\((b-\sigma_b)\Theta\) is integral, and its projection
+to \(\mathbb Z[\operatorname{Gal}(L/\mathbb Q)]\)
+annihilates \(\operatorname{Cl}(L)\).
+This is the integral Stickelberger annihilation theorem,
+which applies to every abelian subfield, not merely the
+full cyclotomic field.\footnote{For this precise abelian
+subfield formulation see N.~Aoki,
+\href{https://archive.mpim-bonn.mpg.de/id/eprint/743/1/preprint_1990_16.pdf}
+{\emph{On the Stickelberger ideal of a composite field of
+some quadratic fields}}, Theorem 1.1 and the restriction
+definition immediately preceding it.
+The theorem is the classical Stickelberger relation.}
+Its integrality can also be seen immediately:
+the coefficient at \(\sigma_u^{-1}\) is
+\(\lfloor bu_0/F_\chi\rfloor\).
+
+Choose \(b\) so that
+\[
+                         b-\bar\chi(b)\ne0\quad\text{in }k .
+ \tag{BX13}
+\]
+If \(\ell\nmid F_\chi\), take \(b=\ell\).
+If \(\ell\mid F_\chi\), condition
+\(\gamma\ne\bar\epsilon_\ell\), cyclotomic
+surjectivity and a unit representative modulo \(F_\chi\)
+supply such a \(b\).
+Evaluating the integral annihilator at \(\chi\) gives
+\[
+           (b-\chi(b))B_{1,\chi_{\rm prim}^{-1}} .
+ \tag{BX14}
+\]
+It is a unit.
+To include an imprimitive displayed level, use
+\[
+ B_{1,\chi^{-1}}
+   =B_{1,\chi_{\rm prim}^{-1}}
+            \prod_{\substack{p\mid N\\p\nmid F_\chi}}
+                                  (1-\chi_{\rm prim}^{-1}(p)).
+\]
+The primitive Bernoulli number is integral because
+(BX13) and integrality of (BX14) permit division by
+the unit \(b-\chi(b)\).
+All the Euler factors are integral.
+The unit hypothesis in (BX11) therefore makes the
+primitive Bernoulli number a unit.
+This proves the assertion about (BX14).
+
+Apply \(F\) to the annihilator acting on an arbitrary
+ideal class.
+Equivariance in (BX12) multiplies \(F(A)\) by the
+nonzero reduction of (BX14).
+Thus \(F=0\), so \(z|_{G_L}=0\).
+The class of \(z\) descends to
+\(H^1(\operatorname{Gal}(L/\mathbb Q),k(\gamma))=0\):
+averaging is valid since the group order is prime to
+\(\ell\).
+Hence \(z\) is a coboundary, as asserted.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-actual-corx}
+For all the \(\mathrm{XData}\) in the actual Case II
+and large-conductor Gaussian constructions, the residual
+cocycles in \(\mathrm{CorX}\), for both the indicated
+character and its inverse, are coboundaries.
+\end{srproposition}
+\begin{proof}
+In general \(\mathrm{XData}(\ell,d,\phi,\xi)\) is
+exactly (BX1), together with the stated primitivity,
+order and positivity conditions in
+Lemma~\ref{lem:sr-dyadic-bernoulli-unit}.
+That lemma also applies to \(\phi^{-1},\xi^{-1}\):
+their conductors and orders are unchanged, and their
+parity values at \(-1\) are unchanged.
+Thus both required Bernoulli numbers are units.
+
+The product character is nontrivial and of order
+prime to \(\ell\).
+It differs residually from the cyclotomic character.
+Indeed choose a dyadic unit on which \(\xi=-1\),
+put the odd-modulus residues equal to one, and also
+put the residue modulo \(\ell\) equal to one.
+The Chinese remainder theorem gives a global cyclotomic
+element with \(\bar\chi=-1\) and
+\(\bar\epsilon_\ell=1\).
+Such a dyadic unit exists because the nontrivial
+\(2\)-power character has \(-1\) in its image.
+The same witness works for the inverse.
+Lemma~\ref{lem:sr-bernoulli-unit-residual-unramified}
+therefore proves exactly both clauses of
+\(\mathrm{CorX}\), with the source's
+\(\mathrm{UnrEv}\) condition retained.
+
+We check that the actual size choices supply (BX1).
+For Case II the required residual odd roots are
+the characters
+\(\bar\xi,\bar\Psi\bar\xi^{-1},
+  \bar\Psi\bar\xi\), and their inverses.
+Their odd-conductor primitive factors have conductors
+\(f\mid\ell N\) and orders dividing
+\(\ell^{d_0}-1\), with
+\[
+              d_0=\operatorname{ord}_4(\ell)\le2,\qquad
+                       e=v_2(\ell^{d_0}-1)=w .
+\]
+Multiplication by the original dyadic character does
+not lower the conductor of the primitive auxiliary
+dyadic character, since \(n>c_2(\psi)\).
+Their parity is odd: \(\Psi(c)=1\) while the
+auxiliary dyadic character is odd.
+The chosen bound
+\[
+                         2^n\ge\ell N4^w
+\]
+therefore gives \(f4^e\le2^n\).
+This supplies the residual vanishing used by
+\srcid{SymplecticGSp4.DataEx}, rather than
+assuming its \(\mathrm{Raw.Good}\) conclusion.
+
+For the Gaussian host the required corner character is
+\[
+                    \bar\Psi^{\,2}\eta_K
+                         =\bar\epsilon_\ell^{\,2}\bar\psi^{\,2}\eta_4.
+\]
+The odd-prime components of the principal \(\psi\)
+have order at most two, so they disappear after squaring.
+Its odd primitive conductor is consequently at most
+\(\ell\), not \(qd\ell\).
+The dyadic factor \(\psi_2^2\eta_4\) is primitive of
+conductor \(2^{c-1}\), since \(c\ge14\).
+It is odd.
+With \(d_0=2\), \(w=v_2(\ell^2-1)\), the large-branch
+condition gives
+\[
+        2^{c-1}\ge R_1(\ell)/2
+                  =8\ell^2 4^w\ge\ell4^w .
+\]
+Thus (BX1) holds here too.
+The source's \(\mathrm{HostXpp}\) is the restriction
+of this residual statement to the actual quotient.
+More explicitly put
+\(\kappa=(\eta_K,\bar\Psi)\) and
+\(\gamma=(\bar\Psi^2\eta_K)^{-1}\).
+The finite image of \(\kappa\) has order prime to
+\(\ell\), and \(\ker\kappa\subset\ker\gamma\).
+Away from \(\ell\), the actual host quotient makes
+the pulled-back corner cocycle zero on
+\(I_p\cap\ker\kappa\).
+Its index in \(I_p\cap\ker\gamma\) divides
+\(|\operatorname{im}\kappa|\), hence is prime to
+\(\ell\).
+At \(\ell\), the imposed full-local-group
+coboundary is zero on \(I_\ell\cap\ker\gamma\).
+These are exactly the \(\mathrm{UnrEv}\) conditions.
+The proved residual lemma makes the pulled-back cocycle
+a coboundary; surjectivity of the host quotient map
+gives the same formula on the quotient itself.
+This matches \srcid{LevelCohomology/Xpp.lean}
+without assuming its conclusion.
+
+All these estimates depend on the original conductor
+and \(\ell\), with the already fixed exponents.
+No additional field-degree or class-rank bound is introduced.
+\end{proof}
+
+% Frozen source:
+% LevelCohomology/LxPartial, LxCore, LemmaX,
+% ResidualBernoulliNonvanishing, ChrInvNeg, HcXvan, Xpp;
+% SymplecticGSp4/DataEx and DirichletPrimeToLPartMulLPowerPart.

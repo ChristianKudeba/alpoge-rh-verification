@@ -331,6 +331,26 @@ At \(\ell\), the completion of \(F_0^+\) is the
 unramified quadratic extension, since \(\ell\) is
 inert in \(K\).
 
+We now strengthen this fixed base without changing its
+index-two construction.
+Choose a further fresh positive prime \(B\equiv1\pmod8\)
+such that \((B/p)=1\) at every odd original level
+prime, including \(\ell\), and at \(p_0\).
+Dirichlet's theorem applies to the simultaneous reduced
+residue conditions.
+The real quadratic field \(F_B=\mathbb Q(\sqrt B)\)
+splits at every original level prime, including \(2\),
+and at \(p_0\).
+It is disjoint from \(F_0^+\).
+Replace the fixed real base by \(F_0^+F_B\);
+the original \(F_0^+\) remains the exact index-two
+\(\mathrm H_0\) used above.
+Finite-unramified CM extensions remain unramified under
+base change.
+All original split-local assertions are preserved.
+In particular the completion at \(\ell\) still has
+degree exactly two before the odd-degree layers.
+
 Choose a fresh prime
 \(w\equiv1\pmod{\ell N}\) and a character \(\vartheta\)
 of exact order \(\ell\), conductor \(w\).
@@ -340,14 +360,19 @@ Let \(F_\vartheta/\mathbb Q\) be its real cyclic
 degree-\(\ell\) field.
 For the depth \(r\) required by the common frame put
 \[
- F_r^+=F_0^+F_\vartheta
+ F_r^+=F_0^+F_BF_\vartheta
         \mathbb Q(\zeta_{\ell^{r+1}})^{\mu_{\ell-1}},
                   \qquad L_r=F_r^+K .
  \tag{G3}
 \]
 The CM extension remains finite-unramified and split
 at all level primes.
-Its real degree is even.
+Its real degree is \(4\ell^s\) for some \(s\ge1\):
+the two distinct quadratic fields are disjoint from the
+odd-degree layers.
+In particular \(4\mid n[F_r^+:\mathbb Q]\) in both
+ranks \(n=2,3\), as required by the arbitrary-classical-eigenline
+Galois realization used in the shared Hecke-module construction.
 The new residue degrees at \(p_0\) are powers of the
 odd prime \(\ell\), so (G2) survives on its decomposition
 groups over \(F_r^+\).
@@ -415,7 +440,10 @@ unchanged and the source's character \(\mathrm{H}_b\)
 may be the whole group.
 
 Apply the shared arithmetic-frame construction with this
-fixed real quadratic base and these witnesses.
+fixed real biquadratic base and these witnesses.
+The extra field \(F_B\) is included in the fixed
+abelian field \(E_0\) before the Ferrero--Washington
+constant is chosen; it does not vary with the depth.
 Its Ferrero--Washington class-rank bound is chosen
 before the cyclotomic depth; its local invariant
 conditions are the full-decomposition-group assertions
@@ -767,7 +795,7 @@ is supplied.
 This locates the remaining common dependency exactly.
 The Gaussian prime-\(3\) seed, its character normalization,
 its actual module insertion, the finite-unramified
-real quadratic base, local frame witnesses and the
+strengthened real base, local frame witnesses and the
 descent/local-comparison implication have been proved
 here. Completion of the shared sharp/flat propagation
 construction supplies (G10); none of the predicates
@@ -781,7 +809,6 @@ construction supplies (G10); none of the predicates
 % Host interface: DnHost, AutEnd3Alt, SymmetricCubeTheoremOfEndomorphisms.
 % Actual local conditions: FrobeniusSmoothVectors/
 % FrobeniusSplitPrimeDatum.Gen.g4,g5 and UFacts.mu,f3.
-
 
 \subsection{The actual generic rank-three endpoint after propagation}
 \label{subsec:sr-generic-three-endpoint}
@@ -993,8 +1020,9 @@ Here \(I_Y\) is the ordinary ideal saturated by
 \(\ell\,dd_0dd_1\), \(I_{\mathrm{cr}}=\sqrt{I_Y}\),
 and \(I_t\) is the selected component through the torus
 point, all in the actual local universal ring.
-Once (GE7), including the factorization of every
-selected global point through \(I_t\), is proved,
+Subsection~\ref{subsec:sr-saturated-ordinary-crystalline} proves
+(GE7), including the factorization of every selected global
+point through \(I_t\). Consequently
 its crystalline monodromy is zero.
 Full local--global compatibility then yields (GE5)
 without assuming \(\mathrm{Unl1}\).
@@ -1017,13 +1045,9 @@ This is precisely what prevents an unwanted factor
 of the varying coefficient prime from entering the
 common integer's fixed spectrum.
 
-Neither ordinarity alone nor the name
-\(I_{\mathrm{cr}}\) proves (GE7).
-The theorem
-\srcid{CrystallineOrdinaryIdeals/RtPoints.lean}
-uses the separate normal-form result
-\srcid{ideal\_cuts\_crystalline\_locus};
-its proof and the actual selected-chart factorization
-are the remaining local producers for this alternative.
-They are kept distinct here from the support output
-(GE1).
+The normal-form and saturated-Artinian-lift proof is printed
+in Subsection~\ref{subsec:sr-saturated-ordinary-crystalline}.
+Corollary~\ref{cor:sr-generic-original-level} then proves the
+original-level clause, including \(a=1\) and \(\ell\mid N\).
+The separate support output (GE1) remains an input until its
+actual completed coefficient comparison has been constructed.

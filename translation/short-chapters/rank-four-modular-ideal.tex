@@ -1,0 +1,158 @@
+\subsection{The actual Case II modular ideal}
+\label{subsec:sr-case-II-actual-pm}
+
+We apply the common module argument in rank four only at its
+stable curves. No rank-three component graph is used.
+
+The group of the common space in this subsection is \(G_F\),
+where \(F\) is the tower's totally real field and \(L/F\) is
+its quadratic CM extension; it is not the original rational group.
+Fix the actual tame Case II tower, its two links \(K,K'\) with
+the same scalar character \(\kappa\), and their distinct neat
+places \(v_0,v'_0\).
+Let \(X=(A,B,P)\) be its common rank-four space.
+The scalar-twisted restriction of \(P\) to \(G_L\), with its
+prescribed ordinary characters, gives by the universal determinant
+property the maps
+\[
+ \phi:\mathcal B_K\longrightarrow B,\qquad
+ \phi':\mathcal B_{K'}\longrightarrow B.
+\]
+Their formulas are the characteristic polynomial of the
+scalar-twisted restriction and its four ordered characters;
+the injective coefficient map \(B\hookrightarrow A\) makes
+the determinant and ordinary identities hold already over \(B\).
+The compact integral interpolation argument used for (H9)
+applies equally here and does not divide by \(4!\).
+Let \(J_K,J_{K'}\) be the actual Hecke kernels of
+Proposition~\ref{prop:sr-case-two-hecke-quotient}. Define
+\[
+                  J=\phi(J_K)B+\phi'(J_{K'})B.             \tag{R4M1}
+\]
+This is one ideal in the actual common space.
+
+\paragraph{The rank-four stable-curve support input.}
+For either link repeat (CA6)--(CA13) with \(n=4\), using
+the coefficient system and classical realization
+(H1)--(H11) already proved in
+Section~\ref{subsec:sr-case-two-hecke}.
+The field assumptions are satisfied: the CM extension is
+finite-unramified, every prescribed ramified place and every
+\(\ell\)-place splits, and \(4\mid4[F:\mathbb Q]\).
+Thorne's Theorem 6.5 therefore includes \(\ell=3\).
+The ordinary function modules, exact classical control and
+auxiliary projectivity are rank-independent.
+The same local double-coset maps and the finite torus weight
+calculation give the uniform exponent \(4!=24\).
+All auxiliary levels have the same tame coefficient lattice
+and the same base Hecke kernel.
+
+For an actual characteristic-\(\ell\) curve in \(X\) with
+irreducible generic representation and distinct ordered local
+characters on \(U_v\), the link construction gives its
+symmetric polarized determinant point.
+Proposition~\ref{prop:sr-four-curve-genericity} supplies the
+precise noncommutative image, cyclotomic restriction and
+regular-coset conditions required for this point's
+Taylor--Wiles prime choices.
+The actual tower's root separators and distinguished scalar
+Frobenius give its other local conditions, including \(N4\);
+these are the witnesses checked in the tower construction.
+The first-Selmer and prime-choice proofs are rank-independent
+under exactly these hypotheses.
+
+Apply the one common patched module and the same-completion
+calculation of Section~\ref{subsec:sr-same-completion-galout},
+now with
+\[
+                   D_0=4d+4q_{\rm TW}.
+\]
+The point is stable, so its completed Cayley--Hamilton algebra
+is the one-block algebra and its odd module is zero.
+Only the ordinary presentation-prime lemma is needed.
+It makes the stable completed support component contain every
+prime below the curve point.
+Transport to \(B\) proves that every prime beneath the curve
+kernel contains \(\phi(J_K)B\); the second link proves the
+same assertion for \(\phi'(J_{K'})B\).
+Thus \(J\) has exactly the stable-curve local-zero property
+required in Proposition~\ref{prop:sr-four-core}.
+This uses the rank-four common module and its stable-point
+presentation, not the rank-two/rank-three propagation theorem.
+
+\paragraph{Finite weight support.}
+We verify \eqref{eq:sr-pm-finite} without assuming that either
+map \(\phi\) is surjective.
+Let \(\mathfrak q\subset B\) contain \(J\), the coefficient
+uniformizer, and every \(\psi_{vi}(u)-1\) for inertia \(u\)
+above \(\ell\). Put \(R=B/\mathfrak q\).
+The scalar link character is fixed.
+Consequently all inertia weight characters of the determinant
+pair over \(R\) are constants.
+Universality of the local weight ring makes its entire image
+constant, by the root-of-unity factorization used in (SF4).
+
+The Hecke quotient is finite over that weight ring.
+Every image under \(\phi\) of a determinant coefficient or
+ordinary character is therefore integral over the finite
+coefficient field.
+The fixed scalar twist is a unit constant here and can be
+removed. Thus the characteristic coefficients on \(G_L\)
+are integral over this field.
+For \(g\in G_F\), \(g^2\in G_L\).
+More generally, for any finite-index restriction one may use a
+positive power lying in the restricting subgroup; the argument
+below uses no bound on this exponent.
+Each eigenvalue of \(P(g)\) is integral once its square is
+integral; hence every characteristic coefficient of \(P(g)\)
+is integral.
+At every ordinary local group the CM place splits, so its
+local characters are already obtained by restriction from
+the link pair and are integral as well.
+
+In the local domain \(R\), an element algebraic over its
+finite residue field equals its specified residue constant.
+Indeed a nonzero algebraic element is a unit, whereas the
+difference from its residue lies in the maximal ideal;
+equivalently use the separable finite-field minimal polynomial.
+The common space's characteristic-coefficient and
+ordinary-character generation property therefore makes
+\(B\to R\) equal to its residue map.
+Thus \(\mathfrak q=\mathfrak m_B\).
+Noetherianity now gives \eqref{eq:sr-pm-finite} by taking a
+power of the maximal ideal.
+
+\paragraph{The other three modular-ideal properties.}
+Proposition~\ref{prop:sr-seed-local-zero}, applied to each
+link and transported through \(\phi,\phi'\), says that \(J\)
+is zero locally at the actual induced seed.
+This is the seed property, stronger than merely having an
+arithmetic point kill \(J\).
+At a prescribed characteristic-zero weight, killing \(J\)
+gives actual classical ordinary eigensystems through the two
+Hecke quotients.
+The strict spectral inequality in
+Lemma~\ref{lem:sr-case-two-speh-exclusion} gives their purity
+condition on the original representation.
+If the restriction to \(G_L\) is irreducible, the classical
+base change is cuspidal.
+The exact descent and full local compatibility proved in
+Proposition~\ref{prop:sr-all-quadratic-automorphy} and
+Proposition~\ref{prop:sr-actual-wit} apply to it.
+The two different neat places remove the one omitted local
+place in either individual link comparison.
+The common scalar \(\kappa\) is essential: it makes the
+two resulting systems refer to the same rational
+representation before gluing.
+
+We have constructed all five fields of the actual
+\srcid{PotentialModularityTower}: finite weight support,
+stable-curve local zero, seed local zero, purity, and
+automorphy at the specified irreducible arithmetic points.
+The frozen-source assembly is \srcid{PmTwo}; the stable-curve
+step is \srcid{ModularDeformationQuotientRegularAtPoint}.
+This conclusion concerns an actual rank-four common space and
+the two actual links. Construction of that space and of the
+residual paths connecting its points to the seed is a separate
+rank-four step; it does not follow from this modular-ideal
+construction alone.

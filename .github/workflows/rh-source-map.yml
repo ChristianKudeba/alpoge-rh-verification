@@ -19,7 +19,8 @@ jobs:
           tar -xzf /tmp/rh-frozen-source.tar.gz --strip-components=1 -C formal-source
       - name: Locate the exact saturation and slope producers
         run: |
-          rg -n --glob '*.lean' 'FlatSat|height_comparison_global_model|SlopeBoundSt' formal-source/src | tee source-map.txt
+          set -euo pipefail
+          rg --no-ignore -n --glob '*.lean' 'FlatSat|height_comparison_global_model|SlopeBoundSt|def.*N3|N3 : Prop|Model.N3' formal-source/src | tee source-map.txt
           python3 - <<'PY'
           from pathlib import Path
           for path in Path("formal-source/src").rglob("*.lean"):

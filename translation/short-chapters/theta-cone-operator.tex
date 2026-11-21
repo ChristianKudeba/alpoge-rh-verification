@@ -1,0 +1,311 @@
+\section{Constructing the real cone operator and its nonzero pairing}
+\label{sec:sr-real-cone-operator}
+
+We construct the infinite-place cone map used in the two
+rank steps and prove its nonvanishing against every
+nonzero continuous first-invariant functional. The latter
+is the source's \(\mathrm{BumpA}\) and
+\(\mathrm{BumpB}\) assertion. It is separate from
+multiplicity one for the resulting branching line.
+
+\subsection{Actual Heisenberg reduction}
+
+Let \(X\) be the Hermitian first space of rank \(n\), \(W\)
+the skew space of rank \(d\), and let the actual adapted
+planes give
+\[
+ X=Ex\oplus X_1\oplus Ey,\qquad
+ W=Ex'\oplus W_1\oplus Ey'.
+\]
+The two exceptional vectors are isotropic dual partners.
+Their constants and signs are those of the adapted
+planes; reciprocal rescaling puts their pairings into the
+displayed normalized hyperbolic form without changing
+the remaining forms. On the tensor symplectic space put
+\[
+ \begin{split}
+ I_A&=(X\otimes Ex')+(Ex\otimes W_1),\\
+ I_B&=(Ex\otimes W)+(X_1\otimes Ex').
+ \end{split}
+\]
+Both are isotropic, have \(E\)-dimension \(n+d-2\), and
+their symplectic reductions are the \emph{actual}
+\(X_1\otimes W_1\). For example all pairings between the
+two summands of \(I_A\) vanish since
+\(W_1\perp x'\), and the remaining orthogonal quotient
+is obtained by deleting the two hyperbolic planes.
+The verification for \(I_B\) is identical.
+
+A partial Fourier change in a rational Darboux basis
+carries either \(I_A\) or \(I_B\) to modulation coordinates.
+Evaluation at zero in the corresponding extra
+Schr\"odinger variables gives a continuous onto map
+\[
+ e_\infty:\mathcal S(X\otimes W)
+                        \longrightarrow\mathcal S(X_1\otimes W_1).
+\]
+It commutes with the lower Heisenberg action and kills
+the prescribed \(I_A\)- or \(I_B\)-Heisenberg differences.
+At finite places use the same reduction with self-dual
+measures and normalize its nonzero vacuum value to the
+actual lower vacuum. The adapted lattice decomposition
+makes this value nonzero: in split coordinates it is a
+lattice indicator evaluated or integrated at zero; in
+the unramified nonsplit coordinates the self-dual
+hyperbolic lattice gives the same statement. These
+normalizations are one at almost every place, so their
+restricted tensor product gives the actual adelic
+evaluation map.
+
+For clarity this also identifies an arbitrary map
+satisfying the source's evaluation conditions. In extra
+modulation variables its continuous distribution is
+supported at zero and annihilates multiplication by
+every coordinate, hence is a scalar evaluation at zero,
+with no transverse derivatives. Intertwining the lower
+translations and modulations then makes its scalar
+independent of the lower variable. The finite
+Schwartz--Bruhat version has the same conclusion by
+coset subdivision and character orthogonality.
+The prescribed nonzero vacuum fixes its finite scalar.
+At infinity its nonzero scalar is allowed to remain
+part of the geometric constant of a rank step, chosen
+before finite characters. Thus the following calculation
+applies to the actual specified evaluation maps as well.
+
+\subsection{Convergence and polynomial preservation}
+
+At one infinite place use the Cartan-compatible positive
+metric of the actual model and put \(K_X=U(X)\cap K\).
+It is compact. The two shift vectors are
+\[
+       u_A(l)=l\,x\otimes y',\qquad
+       u_B(l)=\bar l\,y\otimes x',
+                         \qquad l\in\mathbb C^\times.
+\]
+The source's local cone map is precisely
+\[
+ C_\infty f=
+    \int_{K_X}\int_{\mathbb C^\times}
+       e_\infty\bigl(\rho(u_\bullet(l))\omega(k,1)f\bigr)
+                \nu_\infty(l)|l|_{\mathbb C}^{z}
+                                      \,d^\times l\,dk ,
+\]
+with \(z=\delta\) in the alpha step and \(z=\delta+1\)
+in the beta step. The local Haar measure on the compact
+group is the one fixed before the character packet;
+its mass need not be one. Both exponents are at least
+two in the actual range.
+
+Here is a direct Schwartz estimate. After the preceding
+partial Fourier change, \(u_\bullet(l)\) translates
+only extra variables, because it is symplectically
+orthogonal to \(X_1\otimes W_1\).
+It translates along an injective real-linear map
+\(T:\mathbb C\to\mathbb R^N\). The expression after
+evaluation is therefore restriction of a Schwartz
+function \(F_k(\xi,t)\) to
+\((\xi,t)=(\xi,Tl)\), possibly times a smooth scalar
+phase in \(l\). The shift space is itself isotropic,
+so the quadratic Heisenberg phase is identically one
+after choosing its dual polarization; any change back
+has polynomial derivatives and leaves the following
+estimate unchanged. For every output Schwartz seminorm
+and every integer \(M\), a finite sum of input seminorms
+bounds its integrand by
+\[
+       A_{N,j,M}(f)(1+|l|)^{-M}.
+\]
+The bound is uniform in \(k\): the oscillator action of
+a compact group on the Schwartz space has uniformly
+bounded seminorms. Since \(\nu_\infty\) is unitary,
+\[
+ \int_{\mathbb C^\times}|l|_{\mathbb C}^{z}
+                         (1+|l|)^{-M}\,d^\times l<\infty
+                                        \quad(M>2z,\ z>0).
+\]
+Near zero this is the elementary integral
+\(\int_0^1 r^{2z-1}\,dr\), and at infinity take \(M>2z\).
+Differentiation under the integral in the lower variables
+is justified by the same bound. Thus \(C_\infty\) is a
+continuous linear map of the actual Schwartz spaces.
+
+It preserves the polynomial Gaussian subspaces.
+Adaptedness makes \(X_1\otimes W_1\) Cartan orthogonal
+to the exceptional tensor coordinates. The positive
+Gaussian consequently splits between these two sets
+of variables. A partial Fourier transform preserves
+Gaussian times polynomial functions, and restriction
+to \(t=Tl\) followed by the above integral gives
+a polynomial in the lower variables times their
+same Gaussian. To check its coefficients explicitly,
+a unitary continuous character of \(\mathbb C^\times\)
+has the form
+\[
+               r e^{i\theta}\longmapsto r^{i t_0}e^{i k_0\theta}.
+\]
+Its angular integral kills monomials of the wrong
+weight. A surviving monomial contributes a constant
+multiple of
+\[
+       \int_0^\infty
+              r^{p+q+2z+i t_0-1}e^{-A r^2}\,dr
+       =\tfrac12 A^{-(p+q+2z+i t_0)/2}
+                          \Gamma((p+q+2z+i t_0)/2),
+\]
+which converges since \(z>0\).
+Compact first-group averaging preserves polynomial
+degree and hence each finite-dimensional polynomial
+Gaussian subspace. This proves the required polynomial
+preservation, not merely convergence of an abstract kernel.
+
+At a finite place the same mixed-coordinate argument is
+even simpler. The input is locally constant and compactly
+supported jointly in \((\xi,l)\). Its integral near each
+zero split coordinate is a convergent geometric series
+when \(z>0\); in the nonsplit case use the valuation on
+the quadratic field. A common compact open subdivision
+works for every lower variable, and compact first-group
+averaging is a finite sum on a fixed test vector.
+The result is locally constant with compact lower
+support. This supplies the actual local Schwartz cone
+operators at every finite place as well.
+
+\subsection{A local slice proves nonvanishing}
+
+Let \(\ell:\mathcal S(X_1\otimes W_1)\to\mathbb C\)
+be continuous, nonzero, and invariant under the full
+first group \(U(X_1)\). We prove
+\(\ell C_\infty\ne0\) in either actual rank step.
+In both cases \(X\) has positive and negative
+signature, since the step removes a hyperbolic plane.
+
+Use the mixed Schr\"odinger model associated with the
+line of \(W\). It has a vector variable \(w\in X\)
+and the remaining oscillator variables. At a nonzero
+isotropic \(w\), reduction along its isotropic line
+gives the lower oscillator space. In the alpha chart
+\[
+             e_\infty\rho(u_A(l))f
+\]
+is exactly the reduced value at \(w=lx\); in the beta
+chart the opposite line polarization gives the
+reduced value at \(w=\bar l\,y\).
+This is a linear-coordinate statement: the shift
+translates the vector variable, evaluation sets its
+origin to the indicated vector, and the remaining
+\(I_\bullet\)-directions are evaluated or Fourier
+integrated. The lower Heisenberg coordinates are
+unchanged.
+
+The nonzero isotropic cone
+\[
+          \mathcal N_X^\times
+                =\{w\ne0:\langle w,w\rangle_X=0\}
+\]
+is a smooth real hypersurface. Writing a vector in
+its positive and negative parts, the equation says
+their norms are equal and nonzero. Hence
+\(K_X\times\mathbb C^\times\) acts transitively on it.
+The stabilizer is the product of \(K_{X_1}\) with
+the compact common phase of the two removed directions.
+The source integrals are therefore integration of a
+reduced Schwartz family over this cone, with a
+nowhere-zero smooth density.
+
+We verify that this density is single valued; this is
+where the splitting character matters. For a compact
+phase \(z_1\in U(1)\), the hyperbolic first Levi
+\(m_X(z_1)\) multiplies both \(x,y\) by \(z_1\).
+In the alpha reduction, covariance of \(e_\infty\)
+is \(\chi_W(z_1)=\nu_\infty(z_1)^{-1}\).
+Changing \(l\) to \(z_1^{-1}l\) in the translated
+coordinate cancels this character against \(\nu_\infty(l)\).
+In the beta reduction the covariance is
+\(\chi_W(z_1)=\nu_\infty(z_1)\); the shift uses
+\(\bar l\,y\), so the change \(l\mapsto z_1 l\)
+cancels it instead. The absolute-value powers are
+one for this phase. The remaining stabilizer acts on
+the reduced family by \(K_{X_1}\), killed by invariance
+of \(\ell\). Thus \(\ell\) really produces a scalar
+family on \(\mathcal N_X^\times\), with no cancellation
+along a stabilizer fiber.
+
+Choose \(f_1\) with \(\ell(f_1)=1\).
+On a relatively compact coordinate patch in
+\(\mathcal N_X^\times\), select smooth frames carrying
+a fixed hyperbolic plane to the plane through \(w\).
+Ordinary Gram--Schmidt with a nonzero pivot constructs
+these frames smoothly on a smaller patch.
+In these frames the reduction is the same evaluation
+and partial integration in extra variables as above;
+it has a continuous right inverse obtained by tensoring
+with fixed extra Schwartz functions of value or integral
+one. Thus any compactly supported smooth family
+\(b(w)f_1\) on that patch is the reduced restriction
+of an actual Schwartz vector upstairs.
+For specificity, extend in a transverse coordinate
+to the smooth cone by a compact bump equal to one
+on the cone, use this right inverse in the fiber
+variables, and extend by zero outside the chart.
+The patch and its transverse extension are relatively
+compact, so the resulting function is Schwartz.
+
+The scalar cone density in this chart is a nowhere-zero
+smooth multiple \(a(w)\) of positive coordinate measure.
+Choose \(b(w)=a(w)^{-1}b_0(w)\), where \(b_0\) is a
+nonnegative compact bump with positive integral.
+After applying \(\ell\), the cone integral of this
+Schwartz vector is \(\int b_0>0\).
+Continuity justifies commuting \(\ell\) with the
+Schwartz-valued integral. Therefore
+\[
+                               \ell C_\infty\ne0 .
+\]
+The argument applies to the product of all infinite
+places by taking product coordinate patches and the
+product right inverse. A general nonzero continuous
+\(\ell\) on the lower product Schwartz space is
+handled by one lower test vector with \(\ell(f_1)=1\);
+the same construction still works.
+
+This proves the actual nonzero-pairing statements
+needed in the rank induction. It does not assert
+that every linear functional on an abstract quotient
+is continuous: in the application the functional is
+the already convergent lower theta period with fixed
+finite data, whose continuity follows from its
+Schwartz seminorm majorant.
+
+\subsection{Why the real normalization is fixed before finite characters}
+
+Keep \(B,G,G_1\), the two adapted planes, evaluation
+maps and real Haar measures fixed. The first real
+Weil action is determined by the actual oscillator
+Lie formula and the fixed infinite splitting exponent.
+Two character packets with the same infinite
+exponents consequently give the same infinitesimal
+action and the same compact action on Schwartz
+vectors. Their continuous unitary actions coincide:
+\(U(P,Q)\) is connected and generated by its one-parameter
+subgroups, on which the common infinitesimal oscillator
+action exponentiates uniquely. Equivalently the fixed
+Heisenberg intertwining and the prescribed splitting
+give the same operators at every translated origin.
+The real ratio character \(\nu_\infty\) is also fixed
+by \(B.m_\alpha-B.m_\beta\).
+
+Every term defining \(e_\infty\) and \(C_\infty\)
+therefore depends only on these fixed infinite data.
+Once the evaluation and cone maps have been descended
+to the common real quotient, their nonzero pairing with
+a lower theta functional proves that both descended
+maps are nonzero. Their proportionality scalar is then
+one fixed nonzero number for all finite character
+packets. This is the required quantifier order:
+it uses equality of the concrete operators and their
+nonzero test, in addition to multiplicity one.
+The separate descent still has to prove that the upper
+quotient kernels are killed. The construction here
+does not infer that assertion from scalarity.
+It gives no bound uniform in varying fields or metrics.

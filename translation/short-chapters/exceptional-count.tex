@@ -1,0 +1,405 @@
+\subsection{The fixed-field rank-four trace integer}
+\label{subsec:sr-rank-four-trace-integer}
+We make explicit that the large auxiliary CM field used to
+produce support is absent from the numerical estimate.
+Only the actual descended representations and their original
+local parameters enter this subsection.
+
+Fix eighteen imaginary quadratic fields \(K_i\) with
+pairwise coprime prime discriminants.
+They are fixed once and for all.
+For any rational prime \(p\), at most one discriminant
+is divisible by \(p\).
+Lemma~\ref{lem:sr-quadratic-self-twists} shows that
+a rank-four irreducible representation has reducible
+restriction to at most sixteen such quadratic fields.
+Thus for every irreducible rational rank-four point
+there is a \(K_i\) such that
+\[
+           p\nmid\operatorname{disc}K_i,\qquad
+                         r|_{G_{K_i}}\text{ is irreducible}.
+ \tag{Q1}
+\]
+For an irreducible fixed restriction there are at most
+two extensions to \(G_{\mathbb Q}\), by Schur's lemma
+and the quadratic character of \(K_i/\mathbb Q\).
+
+\begin{srproposition}\label{prop:sr-rank-four-fixed-integer}
+Assume the actual Case II support construction has supplied
+automorphy and the local conclusions proved in
+Section~\ref{subsec:sr-case-two-descent}.
+For its admissible rational points, the rank-four
+common-integer comparison of
+Proposition~\ref{prop:sr-rank-four-absorption}
+holds with constants \(C_4,A_4\) fixed before
+\(M,a,p,k\), and before the coefficient prime and field.
+\end{srproposition}
+\begin{proof}
+The arithmetic weights of the original rational point are
+\((a+1,a,1,0)\), \(a\ge2\).
+They are paired with common sum \(a+1\).
+After restriction to \(K_i\), their regular pure infinity
+parameter is cohomological for an algebraic coefficient
+system whose weight sizes are bounded by a fixed multiple
+of \(a+1\).
+This is the same cohomological criterion and highest-weight
+construction used in Section~\ref{sec:spectrum-deformation}.
+The criterion applies to every regular algebraic cusp
+over a totally imaginary field: its pure infinity
+parameter has nonzero relative Lie algebra cohomology.
+It does not require the finite polarization character
+to be trivial.\footnote{L.~Clozel,
+\href{https://www.jmilne.org/math/Books/AA1988a.pdf}
+{\emph{Motifs et formes automorphes: applications du
+principe de fonctorialit\'e}}, Lemma 3.14 (complex places),
+with the purity lemma used there; Theorem 3.13 gives
+the coefficient conjugation assertion used below.}
+Equivalently one may count all cohomological cusps with
+these infinity parameters and retain their polarized subset.
+
+We verify the level on the descended field.
+The actual point has ordinary rank-one local graded
+characters, finite inertia away from the coefficient prime,
+and zero Weil--Deligne monodromy.
+At that prime the local no-edge computation and
+Proposition~\ref{prop:sr-actual-wit} give the same
+character parameter with zero monodromy.
+Every finite inertial character is a restriction of a
+character whose conductor divides the original level \(M\).
+On restriction to \(K_{i,v}\), its conductor divides
+\(M\mathcal O_{K_{i,v}}\):
+local norms of units congruent to one modulo this ideal
+are congruent to one modulo \(M\) over the rational
+completion.
+Full local--global compatibility identifies the actual
+automorphic local component with the corresponding
+unlinked principal series.
+The induced-function vector is fixed by the principal
+congruence subgroup of level \(M\).
+Consequently the descended cusp has a \(K_4(M)\)-fixed
+vector over \(K_i\).
+This argument is on the original point and its finite
+characters; no level of the auxiliary field \(L\) occurs.
+
+The proved coefficient/level cohomology bound therefore
+gives, for the collection \(\Sigma_i(M,a)\) of all such
+global cuspidal Hecke systems, fixed constants
+\[
+ |\Sigma_i(M,a)|\le C_i[M(a+1)]^{A_i}.
+\]
+Take the sum of the constants and the maximum of these
+eighteen fixed exponents.
+After enlarging one fixed constant we obtain
+\[
+                \sum_i|\Sigma_i(M,a)|
+                       \le C_0[M(a+1)]^{A_0}.
+ \tag{Q2}
+\]
+Each collection is algebraic and stable under coefficient
+conjugation by Clozel's Theorem 3.13.
+That theorem supplies cuspidal conjugates, rather than
+assuming that the cuspidal summand of Betti cohomology
+already has a rational structure.
+The compact congruence subgroup is defined over
+\(\mathbb Q\), so coefficient conjugation preserves
+its fixed vectors, and the parallel infinity parameters
+are unchanged.
+Its cardinality and all constants in (Q2) are independent
+of the field used in the support construction.
+
+Fix \(p\ge5\), \(p\nmid M\).
+For each \(i\) with \(p\nmid\operatorname{disc}K_i\), put
+\(f_i=1\) or \(2\), its residue degree at \(p\).
+A system in \(\Sigma_i\) supplies the four arithmetic
+Frobenius eigenvalues \(\beta_1,\ldots,\beta_4\) over
+the residue field of size \(p^{f_i}\).
+Form every multiset
+\[
+                 \{\alpha_1,\ldots,\alpha_4\},
+                     \qquad \alpha_j^{f_i}=\beta_j,
+\]
+and its trace \(t=\sum_j\alpha_j\).
+There are at most \(2^4=16\) choices.
+Retain two labelled copies of every choice.
+This defines a finite Galois-stable trace list \(S\) with
+\[
+                       |S|\le32C_0[M(a+1)]^{A_0}.
+ \tag{Q3}
+\]
+Labels with equal numerical trace are retained.
+
+This list classifies every finite pairwise nonisomorphic
+family of actual rational points in the sense needed by
+Section~\ref{sec:common-trace-integer}.
+Assign each point one field satisfying (Q1), and then
+its descended global Hecke system there.
+The rational Frobenius eigenvalues are among the indicated
+\(f_i\)-th roots.
+For a given descended system at most two rational points
+occur, by the extension-fiber assertion above.
+The two labelled copies therefore make the label
+assignment injective on that finite family.
+No assertion of distinct traces is needed.
+
+For completeness all these candidate traces are algebraic
+integers in the present arithmetic normalization.
+At coefficient primes away from \(p\), continuous
+compatible Galois representations have stable lattices,
+giving integrality there.
+At \(p\), the local automorphic component is unramified,
+so its Galois representation is crystalline.
+The original arithmetic Hodge numbers have smallest
+exponent zero.
+In our convention the filtration indices of the
+crystalline module are the negatives of these exponents,
+and arithmetic Frobenius corresponds to inverse crystalline
+Frobenius.
+The upper Newton-polygon bound from weak admissibility
+therefore makes those inverse eigenvalues integral
+at \(p\).
+This is the integral Satake estimate used in
+Section~\ref{sec:common-trace-integer}, with its
+normalization made explicit.
+Thus the \(\beta_j\) are integral at every finite place,
+and every \(\alpha_j\), being a root of
+\(X^{f_i}-\beta_j\), is an algebraic integer.
+The compatible realizations here are those of the
+already polarized regular algebraic cusps.
+No automorphy lifting theorem at a small coefficient
+prime is being invoked.
+
+We next prove separation.
+The single global unitarizing norm twist has center
+\((a+1)/2\), determined by the central character.
+At arithmetic Frobenius the generic unitary bound gives
+\[
+       p^{a/2}<|\alpha_j|<p^{(a+2)/2},\qquad
+                       \prod_j|\alpha_j|=p^{2(a+1)} .
+\]
+The same inequalities hold for every candidate root,
+since its absolute value is determined by
+\(\alpha_j^{f_i}=\beta_j\).
+Put \(x_j=|\alpha_j|/p^{(a+1)/2}\).
+Then \(p^{-1/2}\le x_j\le p^{1/2}\) and \(\prod x_j=1\).
+On the compact polytope
+\(\sum\log x_j=0\), \(|\log x_j|\le\frac12\log p\),
+the convex function \(\sum e^{\log x_j}\) attains its
+maximum at a vertex.
+A vertex has two coordinates at each endpoint.
+Consequently
+\[
+                  |t|\le
+                       2\bigl(p^{(a+2)/2}+p^{a/2}\bigr).
+ \tag{Q4}
+\]
+For any roots of unity \(z_1,z_2,z_3\),
+\[
+ |p^{a+1}z_1+p^az_2+pz_3+1|
+                       \ge p^{a+1}-p^a-p-1
+                       >2\bigl(p^{(a+2)/2}+p^{a/2}\bigr).
+ \tag{Q5}
+\]
+To check the last inequality, divide by \(p^{a/2}\).
+Its left-minus-right increases with \(a\ge2\).
+At \(a=2\) it is
+\(p^2-3p-3-p^{-1}>0\) for \(p\ge5\).
+This proves every trace difference nonzero.
+
+Let \(\mathcal Z\) be the Galois orbit of the prescribed
+triple \((z_1,z_2,z_3)\), with all entries of order
+dividing \(k\).
+It has at most \(\varphi(k)\) elements.
+Define, before choosing a coefficient realization,
+\[
+ J=\prod_{z\in\mathcal Z}\prod_{s\in S}
+       \bigl(t_s-(p^{a+1}z_1+p^az_2+pz_3+1)\bigr).
+ \tag{Q6}
+\]
+Every factor is integral and nonzero.
+Galois stability makes \(J\) a nonzero rational
+algebraic integer, hence a nonzero integer.
+As in the common trace product proof, the injective label
+assignment and integrality permit discarding unused factors
+at every \(\ell\ne p\).
+Thus
+\[
+                       |J|_\ell\le\prod_r|d_r|_\ell.
+\]
+The uniform archimedean bound for a factor is
+\(8p^{a+1}\), whose logarithm is at most
+\(2(a+1)\log p\).
+Equations (Q3) and (Q6) give
+\[
+ \log|J|\le64C_0\varphi(k)
+                    [M(a+1)]^{A_0}(a+1)\log p
+           \le C_4\varphi(k)[M(a+1)]^{A_4}\log p,
+\]
+where \(C_4=64C_0\) and \(A_4=A_0+1\).
+This accounts for the weight factor inside the final
+fixed exponent; no extra \(a+1\) is left outside it.
+The quantifier order and normalization are exactly those
+of \(\mathrm{NumberSp4Alt}\).
+\end{proof}
+
+\subsection{Distinct marked Gaussian points after restriction}
+\label{subsec:sr-gaussian-restriction-classes}
+\begin{srlemma}\label{lem:sr-gaussian-marked-restriction-injective}
+Let two actual integral normalized rank-three unitary
+type-I points have isomorphic restrictions to \(G_K\).
+Then they differ by the marked torus scaling action.
+In particular distinct mixed torus orbits give distinct
+irreducible \(G_K\)-representations.
+\end{srlemma}
+\begin{proof}
+Write \(\theta(A)=J_3A^{-\mathsf t}J_3^{-1}\).
+Let \(A\rho_1A^{-1}=\rho_2\).
+The two unitary laws show that
+\(\theta(A)^{-1}A\) commutes with \(\rho_1(G_K)\).
+It is scalar by irreducibility.
+Thus \(A\theta(A)^{-1}=b1\) for some nonzero \(b\).
+Replacing \(A\) by \(\lambda A\), with
+\(\lambda^2b=1\), leaves its conjugation on \(G_K\)
+unchanged and makes its semidirect conjugation fix
+the normalized value at \(c\).
+It now intertwines the full normalized semidirect points.
+
+For either point the marked difference at \(g_1\) is
+\(\operatorname{diag}(\zeta_i,0,-\zeta_i)\).
+The intertwiner makes these differences conjugate.
+Their nonzero eigenvalues give
+\(\zeta_2=\zeta_1\) or \(-\zeta_1\).
+Both \(\zeta_i\) are integral and reduce to the same
+nonzero prescribed value.
+The negative alternative would give \(2\bar\zeta_1=0\),
+impossible at odd \(\ell\).
+Hence \(\zeta_2=\zeta_1\), and the intertwiner is diagonal.
+The relation \(A=\theta(A)\) gives
+\(A=\operatorname{diag}(u,b,u^{-1})\) with \(b^2=1\).
+Multiplying by \(-1\) if needed, which does not change
+ordinary matrix conjugation, makes \(b=1\).
+The resulting intertwiner is
+\(\operatorname{diag}(t,1,t^{-1})\), the actual marked
+scaling action.
+\end{proof}
+
+\subsection{The uniform nontrivial estimate and its remaining support premise}
+\label{subsec:sr-uniform-nontrivial-assembly}
+The following assembly retains only the indicated shared
+support construction as a premise.
+It also records where the auxiliary degree disappears.
+
+\begin{srproposition}\label{prop:sr-nontrivial-final-assembly}
+Suppose the common sharp/flat construction supplies its actual
+rank-two/rank-three propagation output (G10) and the
+Case II rank-four common-module support output used in
+Section~\ref{subsec:sr-case-two-hecke}.
+Then there is a single natural exponent \(B\), fixed
+before the principal host, \(a,\ell,\psi\) and the splitting
+ring, such that
+\[
+                  (\log\ell)v_{\ell,a}(\psi)
+                                      \le(\ell Na)^B
+\]
+for every nontrivial principal character in the required
+exceptional or resonant packet.
+\end{srproposition}
+\begin{proof}
+The actual host is the fixed field in
+Section~\ref{sec:sr-arithmetic}, with its even dyadic
+character packet.
+For \(a\ge2\),
+Proposition~\ref{prop:sr-principal-case-II-arithmetic}
+puts every required instance in Case II, with
+\(\ell\nmid N\).
+The actual seeds, local witnesses, Hecke kernels and
+selected-tower irreducibility have been matched to the
+shared common-module construction.
+Proposition~\ref{prop:sr-actual-corx} supplies the
+residual unramified-cocycle vanishing needed by the
+arithmetic data constructor and the marked comparison.
+Its assumed support output and exact descent give
+\(\mathrm{IsAutQA}\) and the original local parameters.
+The residual no-quadratic-self-twist argument gives
+cyclotomic-kernel irreducibility.
+The ordinary tangent calculation places the tangent
+classes in the descended polarized adjoint
+Bloch--Kato group, whose vanishing gives rigidity.
+Here the base of that adjoint group is the totally
+real field, as required by the polarized vanishing
+theorem; vanishing of the full adjoint group over
+a CM field is not asserted.
+
+The marked cotangent injection and the two Euler/Rees
+comparisons then give the normalized trace inequality
+\[
+ (\log\ell)v_{\ell,a}(\psi)
+                     \le2\sum_r-\log|d_r|_\ell.
+ \tag{Q7}
+\]
+These are the same actual finite representatives and
+the same local deformation problem as in the count.
+Proposition~\ref{prop:sr-rank-four-fixed-integer}
+supplies their common integer on fixed fields at
+the original level \(M=\ell2^nN\).
+Proposition~\ref{prop:sr-rank-four-absorption} gives
+\[
+ B_4=10A_4+12+b_4,\qquad 2C_4\le2^{b_4}.
+\]
+All these constants are fixed.
+In particular no estimate polynomial in \([L:\mathbb Q]\)
+or in the Ferrero--Washington constant is used:
+\(L\), its large local degrees and the seed weight
+were used only to obtain support, and descent preceded
+(Q2).
+
+For \(a=1\), the required primes are \(3,7\).
+The small dyadic-conductor branches satisfy
+Proposition~\ref{prop:sr-small-conductor-exceptional},
+with
+\[
+ B_{\rm small}=196609\cdot393216^{24}.
+\]
+In the large branches the actual Gaussian construction
+and the assumed shared output (G10) give finiteness,
+strong-open irreducibility and exact automorphy over
+the fixed field \(\mathbb Q(i)\).
+Proposition~\ref{prop:sr-gaussian-rigidity}
+and Lemma~\ref{lem:sr-gaussian-actual-level} give
+rigidity, crystalline local behavior and conductor
+norm at most \(N^4\), at the fixed weight
+\((0,-1,-2)\).
+Proposition~\ref{prop:sr-actual-corx} supplies its
+residual corner-vanishing condition.
+Lemma~\ref{lem:sr-gaussian-marked-restriction-injective}
+checks the distinctness needed by the trace product.
+Counting is therefore on this fixed Gaussian spectrum,
+rather than on the growing auxiliary field.
+At \(p=11\),
+Proposition~\ref{prop:sr-gaussian-fixed-prime} yields
+\[
+ B_G=A_G+1+b_G,\qquad
+                      4C_G2^{A_G}\log11\le3^{b_G}.
+\]
+The two possible marked embeddings are exactly the
+factor two already retained in that proposition.
+
+Set \(B=\max(B_4,B_G,B_{\rm small})\).
+This choice precedes every principal datum.
+The normalized strict length is invariant under finite
+splitting-coefficient extension, as already proved,
+so the estimate holds in every permitted coefficient ring.
+The three exhaustive branches prove the assertion.
+\end{proof}
+
+\paragraph{Exact scope of the premise.}
+The support premise in the proposition must produce the
+actual compatible curves, common modules and links for
+the displayed arithmetic data.
+It is not the name of the formal endpoint
+\(\mathrm{Sp4In0}\), \(\mathrm{BPrime_s}\) or
+\(\mathrm{ThmS6Core_s}\).
+Subject to that common construction, the subsequent
+finite-part, exact descent, original-level,
+cyclotomic-irreducibility, local tangent, fixed-spectrum,
+integer-product and scalar-absorption steps above leave
+no auxiliary-degree dependence in \(B\).

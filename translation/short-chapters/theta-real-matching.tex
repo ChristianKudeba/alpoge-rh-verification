@@ -1,0 +1,484 @@
+\section{The actual common archimedean Fock quotient}
+\label{sec:sr-real-matching-construction}
+
+The archimedean comparison can be obtained from an applicable
+published theta-correspondence theorem. We give the parameters,
+including the character twist which makes the two targets
+identical. Equality of a single lowest compact type alone
+would not suffice for this purpose.
+
+Fix an infinite place \(w\) of \(F\), with the chosen complex
+embedding of \(E\). For this subsection write
+\[
+ \begin{gathered}
+ P=a-p,\quad Q=p,\quad P'=q,\quad Q'=a'-q,\qquad
+ R=a+a'-(p+q),\quad S=p+q,\\
+ \kappa=m_\alpha(w)-m_\beta(w),\qquad c=\kappa/2.
+ \end{gathered}
+\]
+Then
+\begin{equation}\label{eq:sr-real-complementary-signatures}
+              R=P+Q',\qquad S=Q+P',\qquad R+S=d=a+a'.
+\end{equation}
+The packet has \(d\) even and \(\kappa>d\).
+Also \(\kappa\) is even. Indeed evaluate the restrictions of
+\(\alpha,\beta\) on the \(F\)-idele whose component at \(w\)
+is \(-1\) and whose other components are one.
+Their infinite-type formulas give \((-1)^{m_\alpha(w)}\)
+and \((-1)^{m_\beta(w)}\), whereas their quadratic restrictions
+give the same sign because \(a\equiv a'\pmod2\).
+Division gives \((-1)^\kappa=1\).
+In particular \(c\) is an integer.
+The stricter packet inequalities imply \(P,Q,P',Q'\ge0\);
+they do not require \(P,Q,P',Q'\) all to be positive.
+
+\subsection{The polynomial model and its two scalar shifts}
+Choose Hermitian frames carrying the given forms and their
+Cartan involutions to signatures \((P,Q)\), \((P',Q')\)
+and \((R,S)\). The last frame is chosen once, for the same
+skew-Hermitian space \(W\), and is used on both sides.
+These frames exist by diagonalizing the positive definite
+form \(x\mapsto\langle\theta x,x\rangle\) and the involution
+\(\theta\). The tensor product frames carry the compatible
+positive complex structures to the usual Fock structures.
+
+Here the ordinary Fock polynomial spaces are
+\[
+ \mathcal P=\mathbb C[z_{ij}:1\le i\le a,\ 1\le j\le d],
+ \qquad
+ \mathcal P'=\mathbb C[z'_{ij}:1\le i\le a',\ 1\le j\le d].
+\]
+Their canonical commuting differentiated actions will be denoted
+\(A_1,A_2\) and \(A'_1,A'_2\).
+The normalization is the one in which the compact diagonal
+vacuum weights are
+\[
+ \begin{array}{c|cc}
+   &\text{positive block}&\text{negative block}\\ \hline
+ A_1 &(R-S)/2&-(R-S)/2\\
+ A_2 &(P-Q)/2&-(P-Q)/2 .
+ \end{array}
+\]
+The primed formulas replace \(P,Q\) by \(P',Q'\).
+These constants can be checked directly on a single oscillator:
+differentiation of a rotation is \(z\partial_z+1/2\),
+and changing its complex orientation changes its sign.
+Summing over the positive and negative partner coordinates
+gives exactly the displayed half-signature constants.
+Off-diagonal operators follow from the corresponding
+quadratic multiplication and second-derivative operators.
+
+The chosen additive character has infinite component
+\(\exp(-2\pi i\,\operatorname{Tr}_{F/\mathbb Q}x)\).
+Apply the real symplectic Fourier change of variables
+associated with the tensor frames, with this sign.
+It carries the canonical Gaussian to a prescribed-model
+Gaussian and intertwines all infinitesimal Heisenberg operators.
+There is no new Gaussian-existence assumption in this step:
+in diagonal real coordinates its equations are
+\[
+               (\partial_{x_j}+2\pi x_j)f=0,
+\]
+whose Schwartz solutions are precisely
+\(C\exp(-\pi\sum_jx_j^2)\).
+The equations with the opposite complex orientation have
+only the zero Schwartz solution, because their nonzero
+solutions grow like \(\exp(\pi\sum_jx_j^2)\).
+Repeated creation operators give every polynomial times the
+Gaussian, while multiplication and differentiation preserve
+that space. Thus the smallest Heisenberg-derivative-stable
+space containing all the prescribed Gaussians is precisely
+the transported polynomial space. This is the source's
+\(\mathrm{Pol}\), with its given Cartan metric.
+
+The specified splitting characters add the following scalar
+trace terms to the two canonical actions:
+\begin{equation}\label{eq:sr-real-source-fock-shifts}
+ \begin{array}{c|cc}
+    &\text{first member}&\text{second member}\\ \hline
+ V   & A_1-c\,\operatorname{tr}
+        & A_2+\frac{m_\beta(w)}2\,\operatorname{tr}\\[2pt]
+ V'  & A'_1+c\,\operatorname{tr}
+        & A'_2+\frac{m_\alpha(w)}2\,\operatorname{tr}.
+ \end{array}
+\end{equation}
+To check the factor \(1/2\), a unitary determinant \(e^{it}\)
+is lifted under Hilbert's theorem 90 by \(e^{it/2}\);
+the infinite-type character \((z/|z|)^m\) therefore contributes
+\(e^{imt/2}\). Differentiation gives \(m\,\operatorname{tr}/2\).
+On the first member use the quotient characters
+\(\beta/\alpha\) and \(\alpha/\beta\); on the second use
+\(\beta\) and \(\alpha\). The canonical half-signature
+contribution was already included in \(A_i,A'_i\) and is
+not added a second time.
+The Siegel rule fixes the lift, and Egorov covariance fixes
+the remaining quadratic operators, so this calculation
+identifies the actual prescribed actions.
+
+\subsection{Checking the oscillator sign in the prescribed coordinates}
+\label{subsec:sr-real-oscillator-sign}
+
+We verify the sign of the preceding vacuum weights directly;
+using the conjugate oscillator would interchange the two
+character-lift cases. Write
+\[
+ E_P=\operatorname{diag}(1_P,-1_Q),\qquad
+ E_R=\operatorname{diag}(1_R,-1_S).
+\]
+The actual frames satisfy \(A^{\mathsf t}J_V\overline A=E_P\)
+and \(C^{\mathsf t}(iJ_W)\overline C=E_R\).
+Thus \(J_W\) has framed matrix \(-iE_R\), not \(iE_R\).
+For framed tensor coordinates \(c=(c_{ij}),c'=(c'_{ij})\),
+put \(\epsilon_i=1,-1\) on the two first blocks and
+\(\eta_j=1,-1\) on the two second blocks.
+The infinite symplectic form used in the model is
+\[
+ \operatorname{Tr}_{\mathbb C/\mathbb R}
+      \left(-\sum_{ij}c_{ij}\epsilon_i(-i\eta_j)
+                                      \overline{c'_{ij}}\right)
+        =-2\operatorname{Im}
+               \sum_{ij}\epsilon_i\eta_jc_{ij}\overline{c'_{ij}} .
+\]
+For each pair of signs use the real-linear coordinates
+\[
+ t_{ij}(c)=
+   \begin{cases}
+       c_{ij},&\epsilon_i\eta_j=1,\\
+       \overline{c_{ij}},&\epsilon_i\eta_j=-1.
+   \end{cases}
+\]
+Then the form is
+\(-2\operatorname{Im}\sum t_{ij}(c)\overline{t_{ij}(c')}\).
+
+There is an independent check on the additive-character sign.
+With Darboux coordinates \((a,b)\), the prescribed
+Schr\"odinger line is
+\[
+ \rho(t(a,b))f(x)=
+       \exp\!\bigl(-2\pi i(t\,b\cdot x+t^2 a\cdot b/2)\bigr)
+                                                          f(x+ta).
+\]
+Its derivative is
+\(D(a,b)=\partial_a-2\pi i\,b\cdot x\);
+its commutator is \(-2\pi i\) times the symplectic form.
+Therefore in the \(t\)-coordinates the commutator is
+\[
+        [D(c),D(c')]=
+            4\pi i\,\operatorname{Im}
+                \sum t_{ij}(c)\overline{t_{ij}(c')}.
+\]
+The polynomial Heisenberg operators realizing exactly this
+commutator and the decaying Gaussian are
+\[
+ D(c)=\sqrt{2\pi}\sum_{ij}
+        \bigl(t_{ij}(c)z_{ij}
+                         -\overline{t_{ij}(c)}\,\partial_{ij}\bigr).
+\]
+Indeed \([\partial_{ij},z_{ij}]=1\), so expansion gives
+the displayed commutator. Written as \(D_t(t)\) in the
+new positive complex coordinates, it also satisfies
+\(D_t(it)1=iD_t(t)1\). This fixes the choice
+of oscillator from the actual negative-exponential character.
+
+Set \(s_{ij}=\epsilon_i\eta_j\).
+The canonical, symmetrically ordered rotation operator
+on that coordinate is
+\[
+              s_{ij}\frac{z_{ij}\partial_{ij}
+                                  +\partial_{ij}z_{ij}}2
+                 =s_{ij}(z_{ij}\partial_{ij}+1/2).
+\]
+For a first-member rotation in the \(i\)-th coordinate,
+\(c_{ij}\) changes to \(e^{it}c_{ij}\).
+Its \(t_{ij}\)-coordinate rotates by \(e^{it}\) if
+\(s_{ij}=1\) and by \(e^{-it}\) if \(s_{ij}=-1\).
+The preceding ordered operator has exactly that infinitesimal
+Egorov action on \(D(c)\).
+The \(1/2\) is the metaplectic normal-ordering constant;
+it is not an extra splitting-character term.
+Consequently, for a monomial \(z^\alpha\),
+\[
+ A_1(E_{ii})z^\alpha
+   =\left(\sum_j s_{ij}(\alpha_{ij}+1/2)\right)z^\alpha,\qquad
+ A_2(E_{jj})z^\alpha
+   =\left(\sum_i s_{ij}(\alpha_{ij}+1/2)\right)z^\alpha.
+\]
+At \(\alpha=0\), these give the first-member weights
+\((R-S)/2,-(R-S)/2\) and the second-member weights
+\((P-Q)/2,-(P-Q)/2\), in the stated positive/negative
+block order. Thus the positive-character Paul--Trapa
+case really is the unprimed one.
+
+The exact frozen-source checks are as follows.
+\srcid{EvIHalfTrace.phase_line} and
+\(\mathrm{dop\_apply}\) differentiate the displayed
+negative-exponential line.
+\srcid{RLFock.herm_frame},
+\(\mathrm{exists\_heis}\), \(\mathrm{tw1}\), and
+\(\mathrm{heisOp\_eq}\) give precisely the signed coordinate
+change and polynomial Heisenberg operators above.
+\(\mathrm{RLLieH.fock\_eq}\) identifies the symmetrized
+quadratic operator with \(A_2\), and
+\(\mathrm{sw\_fock}\) transposes it to \(A_1\).
+Finally
+\srcid{Formalism.LocalRingCardinality.DataTheta.cartan1}
+and \(\mathrm{cartan2}\) are the monomial formulas just
+calculated. These statements can also be checked by the
+four choices of \((\epsilon_i,\eta_j)\):
+the raising/lowering pairs are \((z,\partial)\)
+in equal-sign blocks and \((-\partial,z)\)
+in opposite-sign blocks, and their ordered diagonal
+operators are \(z\partial+1/2\) and
+\(-\partial z+1/2=-(z\partial+1/2)\), respectively.
+
+\subsection{An applicable character-lift theorem}
+We use Paul--Trapa, \emph{One-dimensional representations of
+\(U(p,q)\) and the Howe correspondence},
+J.~Funct.~Anal.~195 (2002), 129--166,
+Theorem~4.1(1),(2), with the cohomological-induction normalization
+of their Sections~2.3 and~2.8.
+\footnote{\url{https://doi.org/10.1006/jfan.2002.3974};
+author version:
+\url{https://www.math.utah.edu/~ptrapa/char6_4.pdf}.}
+In the positive-character case their target is
+\(A_{\mathfrak q}(\det^{k/2}\otimes1)\);
+in the negative-character case it is
+\(A_{\mathfrak q}(1\otimes\det^{k/2})\).
+The two ordered Levi signatures are respectively
+\((p,q),(r-p,s-q)\) and
+\((r-q,s-p),(q,p)\).
+The character must occur in joint harmonics.
+Their Corollary~4.3 gives nonvanishing from this occurrence.
+Their square-root covers are retained; half-integral
+weights must not silently be regarded as characters of
+a linear unitary group.
+
+Here is a direct check of the occurrence condition in our parameters.
+Put
+\[
+       u=c-(R-S)/2>0,\qquad v=c+(R-S)/2>0.
+\]
+Both are positive integers, since \(\kappa>d\ge|R-S|\)
+and \(d,\kappa\) are even.
+The first compact character \(\det^c\), after subtracting
+the oscillator vacuum weights, has rectangular positive
+weights \(u\) on its \(P\) positive coordinates and \(v\)
+on its \(Q\) negative coordinates.
+These rectangles fit in the \(R\) and \(S\) partner
+coordinates, because \(P\le R,Q\le S\).
+Concretely products of powers of the corresponding
+\(P\)-by-\(P\) and \(Q\)-by-\(Q\) minors give a nonzero
+joint-harmonic highest vector.
+It uses the two diagonal Fock blocks.
+Every joint contraction differentiates one of the absent
+off-diagonal blocks, and therefore annihilates that product.
+A determinant of size zero is one, so this also covers
+\(P=0\) or \(Q=0\).
+For \(\det^{-c}\) on the primed side the two negative
+rectangles instead occupy the off-diagonal Fock blocks
+of sizes \(Q'\le R\) and \(P'\le S\).
+The same contraction check proves occurrence.
+Their parameters are \(k=\kappa\) and \(k=-\kappa\),
+respectively; the genuine-cover congruence
+\(k\equiv R-S\pmod2\) holds on both sides.
+
+Let \(\Theta_+\) be the irreducible theta quotient of
+\(\mathcal P\) for the first character \(\det^c\),
+and let \(\Theta_-\) be the corresponding quotient of
+\(\mathcal P'\) for \(\det^{-c}\).
+The theorem just cited gives nonzero surjective quotient maps
+\[
+ \mathcal P\twoheadrightarrow\Theta_+,\qquad
+                     \mathcal P'\twoheadrightarrow\Theta_-,
+\]
+on which \(A_1(X)\) and \(A'_1(X)\) act respectively by
+\(c\operatorname{tr}X\) and \(-c\operatorname{tr}X\).
+Thus these are quotients of the full polynomial spaces,
+rather than just maps on their harmonic highest vectors.
+
+\subsection{The two targets are the same module}
+Let \(\mathfrak q\) be the theta-stable parabolic with ordered
+Levi signatures
+\[
+                 (P,Q),\ (Q',P').
+\]
+For the positive side, \eqref{eq:sr-real-complementary-signatures}
+makes this exactly the parabolic in the positive-character
+formula, and the inducing character is
+\(\det_{P,Q}^c\otimes1\).
+For the negative side the first ordered block in its formula
+is
+\[
+          (R-Q',S-P')=(P,Q),
+\]
+and the second is \((Q',P')\). Its parabolic is therefore
+the very same \(\mathfrak q\), with inducing character
+\(1\otimes\det_{Q',P'}^{-c}\).
+Consequently
+\[
+ \Theta_+=A_{\mathfrak q}(\det_{P,Q}^c\otimes1),
+ \qquad
+ \Theta_-=A_{\mathfrak q}(1\otimes\det_{Q',P'}^{-c}).
+\]
+Cohomological induction commutes with twisting by a character
+of the whole group. This follows already at the inducing
+cochain complex: tensor every term by that one-dimensional
+character; its restriction on the Levi is the product of
+its two determinant characters, and all differentials
+commute with this tensoring.
+Hence
+\begin{equation}\label{eq:sr-real-common-derived-module}
+                   \Theta_-\otimes\det_{R,S}^c
+                                     \simeq\Theta_+ .
+\end{equation}
+No assertion that an infinitesimal character or a compact
+type uniquely determines an arbitrary module is used.
+
+The cover identifications also agree. The second-member
+metaplectic covers for the two dual pairs are controlled
+by \(P-Q\equiv a\) and \(P'-Q'\equiv a'\pmod2\).
+These parities coincide. Identify the covers by lifting
+paths from the identity, so their differentiated actions
+are identified without an extra trace shift.
+Their central order-two elements act by the same sign.
+The twist in \eqref{eq:sr-real-common-derived-module} is
+the honest integral character \(\det^c\), so does not
+change that sign. The normalized cohomological-induction
+functor and its square-root Levi cover are the same for
+both appearances of \(\mathfrak q\); there is consequently
+no uncancelled \(\rho(\mathfrak u)\) correction.
+
+Put \(N_w=\Theta_+\) and use
+\eqref{eq:sr-real-common-derived-module} to give the primed
+quotient the same codomain. We obtain onto maps \(p_w,p'_w\)
+satisfying, for all complexified first and second Lie algebra
+matrices \(X,Y\),
+\begin{align}
+ p_w(A_1(X)f)&=c\,\operatorname{tr}(X)\,p_w(f),&
+ p'_w(A'_1(X)f')&=-c\,\operatorname{tr}(X)\,p'_w(f'),\label{eq:sr-real-first-lifts}\\
+ N_w(Y)p_w(f)&=p_w(A_2(Y)f),&
+ N_w(Y)p'_w(f')&=p'_w(A'_2(Y)f')+
+                        c\,\operatorname{tr}(Y)\,p'_w(f').
+ \label{eq:sr-real-second-lifts}
+\end{align}
+These are precisely the two lift parameters \((c,0)\)
+and \((-c,c)\).
+Combining \eqref{eq:sr-real-source-fock-shifts} with
+\eqref{eq:sr-real-first-lifts} kills the actual first actions.
+On the second actions, the primed scalar relative to \(N_w\) is
+\[
+                m_\alpha(w)/2-c=m_\beta(w)/2.
+\]
+Thus the same actual second action on both quotient maps is
+\(N_w(Y)+m_\beta(w)\operatorname{tr}(Y)/2\).
+
+As a useful independent numerical check, their joint-harmonic
+compact types also agree after this twist. Writing
+\(b=(P-Q)/2\) and \(b'=(P'-Q')/2\), the positive side has weights
+\[
+ ( (u+b)^P,b^{Q'}\ ;\ (v-b)^Q,(-b)^{P'} ).
+\]
+The negative side, before twisting, has
+\[
+ ( (b')^P,(-u+b')^{Q'}\ ;\
+                    (-b')^Q,(-v-b')^{P'} ).
+\]
+Here \(x^j\) means that the weight \(x\) is repeated \(j\)
+times. The identities \(u+b=c+b'\) and
+\(v-b=c-b'\) show equality after adding \(c\) to every
+primed weight. This check detects both a wrong Levi order
+and a missing determinant twist.
+
+\subsection{Compact actions, scalar endomorphisms and tensoring}
+The quotient maps respect the actual compact actions as well.
+Each polynomial is compact finite, so lies in a finite-dimensional
+space stable under the relevant compact Lie algebra.
+A Lie-algebra intertwiner on that space intertwines the
+exponentials. The actual maximal compact groups are products
+of connected unitary groups, and every element is an
+exponential after unitary diagonalization. The first-member
+action is therefore the identity on either quotient.
+The second-member compact actions coincide because their
+Lie actions coincide. The genuine-cover signs and the
+original splitting characters have already been matched,
+so this passage introduces no monodromy condition.
+
+Each \(N_w\) is nonzero and irreducible.
+It has countable complex dimension because it is a quotient
+of a polynomial space in finitely many variables.
+Its equivariant endomorphisms are scalar.
+Here is an algebraic proof which also explains tensoring.
+If a commuting endomorphism \(T\) is nonscalar, irreducibility
+makes every \(T-\lambda\) invertible. For a nonzero vector \(x\),
+the vectors \((T-\lambda)^{-1}x\), as \(\lambda\) ranges over
+\(\mathbb C\), are linearly independent.
+A finite relation, after multiplication by
+\(\prod_\lambda(T-\lambda)\), would give a nonzero polynomial
+in \(T\) killing \(x\); factor that polynomial into linear
+factors to contradict the invertibility of each factor.
+An uncountable independent set contradicts countable dimension.
+Thus \(T\) is scalar.
+
+We recall the finite-vector density argument to avoid a hidden
+irreducibility assumption when tensoring different infinite places.
+Let an algebra act irreducibly on a complex vector space \(M\)
+with commuting endomorphisms exactly \(\mathbb C\).
+For independent \(x_1,\ldots,x_t\), the set of tuples
+\((A x_1,\ldots,A x_t)\) is all of \(M^t\).
+Induct on \(t\). Projection to the first \(t-1\) coordinates
+is onto. Its kernel in the last coordinate is either \(0\)
+or \(M\). In the second case the assertion follows; in the
+first it is the graph of a module homomorphism
+\(M^{t-1}\to M\), hence of a scalar linear combination
+of the coordinates. Applying the identity element would
+make \(x_t\) dependent on the preceding vectors, a contradiction.
+This proves the assertion.
+Given a nonzero finite tensor sum, apply this argument to
+independent vectors in its first factor to isolate a nonzero
+pure tensor, and repeat in the other factors.
+Irreducibility of each factor then generates every pure tensor.
+Therefore the finite external tensor product is irreducible.
+
+Take
+\[
+       N_\infty=\bigotimes_{w\mid\infty}N_w,\qquad
+       p_\infty=\bigotimes_{w\mid\infty}p_w,\qquad
+       p'_\infty=\bigotimes_{w\mid\infty}p'_w .
+\]
+Use the simultaneous frame transports above to view their
+domains as the two actual polynomial Gaussian spaces.
+Both maps are onto, since a pure tensor in the target has
+a preimage obtained by choosing one preimage in each factor.
+They annihilate all actual first-member Lie directions
+and identify the first-member compact actions with the identity.
+They intertwine the same actual second-member Lie and compact
+actions. The common image is nonzero and irreducible.
+These statements hold independently in every infinite-place
+factor and thus also for Lie directions supported at a
+single infinite place, which are the directions required
+in the source's irreducibility clause.
+
+Finally the source regards the maps as linear maps on the
+whole infinite Schwartz space while imposing these properties
+on its polynomial Gaussian subspace. Extend each map from that
+subspace by choosing an algebraic linear complement and putting
+it equal to zero on the complement.
+Every asserted action and derivative remains in the polynomial
+Gaussian subspace, so this extension changes none of the
+properties just proved. No continuity of an arbitrary algebraic
+extension is claimed or required. We have therefore produced
+the actual archimedean matching datum, including its full
+specified domain, rather than an abstract isomorphism of two
+local theta lifts.
+
+\subsection{Scope}
+This proves the archimedean common-quotient clause for every
+actual triple, using the published character-lift theorem with
+its exact ranks, signatures, parity, cover and twist.
+Combined with the inert, split and ramified finite constructions,
+it supplies the local comparison maps simultaneously for a
+fixed global triple.
+The global nonzero theta-integral comparison constant, its
+normalization, the two codimension-two recursion identities,
+and the covolume/metric estimate remain distinct assertions.
+None follows solely from the existence of these local quotients.

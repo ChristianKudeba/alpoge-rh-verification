@@ -1,0 +1,714 @@
+\section{The compact base of the global theta comparison}
+\label{sec:sr-compact-global-comparison}
+
+Fix an actual triple from the preceding local construction, put
+\(d=a+a'\), \(\nu=\alpha/\beta\), and suppose \(p=q=0\).
+Thus \(V\), \(V'\), and \(iW\) are definite at every infinite
+place, of signatures \((a,0)\), \((0,a')\), and \((d,0)\).
+The inequalities in the triple imply \(a'\geq2\), \(a>a'\),
+\(a\equiv a'\pmod2\), and
+\[
+       \kappa_w=m_{\alpha,w}-m_{\beta,w}>d
+                  \quad\hbox{at every infinite place }w.
+\]
+All measures below are the measures of the actual models.
+In particular, replacing an invariant measure by probability
+measure is always accompanied by its displayed volume factor.
+Write
+\[
+ [H]=H(F)\backslash H(\mathbb A_F),\qquad
+ I_\Phi(h)=\int_{[U(V)]}\theta_\Phi(g,h)\,dg,\qquad
+ I'_{\Phi'}(h)=\int_{[U(V')]}\theta'_{\Phi'}(g,h)\,dg.
+\]
+These three adelic quotients are compact: a rational isotropic
+vector would remain isotropic at a definite infinite place,
+so each group is anisotropic over \(F\); reduction theory for
+anisotropic reductive groups gives compactness. Consequently
+ordinary theta convergence, differentiation on compact sets,
+and Fubini apply to the Schwartz vectors used here.
+
+\subsection{Factoring the actual theta periods through the common module}
+
+We first supply the factorization needed for the global argument;
+the existence of common local quotient maps alone does not imply it.
+
+\begin{srlemma}
+Let \(Q\) be a finite-length admissible smooth representation of
+a totally disconnected group. Suppose that its maximal semisimple
+quotient is one irreducible representation \(\pi\), with
+multiplicity one. If a map from \(Q\) to a unitary representation
+has an invariant positive semidefinite pullback form, its kernel
+contains the kernel of \(Q\twoheadrightarrow\pi\).
+\end{srlemma}
+
+\begin{proof}
+Pass to the image, with its positive definite form. Every invariant
+submodule of this image has an invariant orthogonal complement
+inside the algebraic image. Indeed, for a vector fixed by a compact
+open subgroup \(K\), its orthogonal projection to the Hilbert closure
+of a submodule belongs to the closure's \(K\)-fixed space.
+That space equals the submodule's \(K\)-fixed space: averaging
+approximants over \(K\) proves density, and admissibility makes the
+latter space finite dimensional and hence closed. Thus the
+projection still belongs to the algebraic submodule. Orthogonal
+complements are invariant because the action is unitary.
+Induction on length shows that the image is semisimple.
+Every semisimple quotient of \(Q\) factors through its maximal
+semisimple quotient, proving the assertion, including the
+possibility of zero image.
+\end{proof}
+
+At a finite place take the quotient of the local Weil module
+by the first unitary group's augmentation space. It is the big
+theta lift of the trivial representation for the \emph{prescribed}
+splitting. It has finite length, and its maximal semisimple quotient
+is irreducible. For a nonsplit place these are the finite-length
+statement and Theorem~1.2 of Gan--Takeda,
+\emph{A proof of the Howe duality conjecture},
+\url{https://arxiv.org/pdf/1407.1995}; the ground field has
+characteristic zero, and the pair is unitary, so their hypotheses
+apply. At a split place use the type-II result of
+M\'inguez, \emph{Correspondance de Howe explicite: paires duales
+de type II}, Corollary~6.3 and the big-lift finite-length statement
+in its introduction,
+\url{https://arxiv.org/pdf/0709.4384}.
+Its model
+\[
+  (g,h)f(Y)=|\det g|^{-d/2}|\det h|^{n/2}f(g^{-1}Yh)
+\]
+is our split model after \(g\mapsto(g^{\mathsf t})^{-1}\)
+and the two prescribed determinant characters; these automorphisms
+and character twists preserve both finite length and the
+multiplicity-one assertion. The real and finite model
+identifications were established before constructing the maps,
+so these statements concern the actual Weil actions.
+
+For a fixed vector at all other places, the map
+\(\phi_v\mapsto I_{\phi_v\otimes\Phi^v}\) takes values in
+\(L^2([U(W)])\). First-group averaging kills the augmentation
+space, and second-group translation preserves its \(L^2\) form.
+The lemma therefore proves that this map kills the kernel of
+the actual irreducible local quotient map. The same argument
+applies to the primed model.
+
+At infinity all the groups in this base case are compact.
+Averaging the first group on polynomial Fock vectors is an
+algebraic projection onto its invariant part: each such vector
+has a finite-dimensional compact-group orbit. The Cauchy
+decomposition of polynomials on a matrix space identifies each
+prescribed first determinant type with one second Schur module.
+The determinant degrees are the rectangular degrees computed
+in the real matching construction. Hence the first-invariant
+part is exactly the common irreducible second module there,
+and averaging kills precisely the kernel of its quotient.
+This proves the same factorization at infinity without any
+claim about arbitrary extensions of the real maps off the
+polynomial vectors.
+
+Let
+\[
+             \Pi=\Pi_\infty\otimes
+                       \bigotimes_{v<\infty}'\Pi_v
+\]
+use the common finite quotients and their common distinguished
+vectors outside \(T\). Exactness of tensor products of complex
+vector spaces now gives maps
+\[
+        j,j':\Pi\longrightarrow C([U(W)]),\qquad
+        I_\Phi=j(r\Phi),\quad I'_{\Phi'}=j'(r'\Phi').
+\]
+To see the kernel assertion explicitly, write a vector as a
+finite sum of pure tensors and enlarge the finite exceptional
+set until every tensor is distinguished outside it. The kernel
+of the quotient map on that finite tensor product is the sum of
+the kernels in its individual factors. Each summand has just
+been killed by the theta period. The transition maps preserve
+the common distinguished vectors, so the factorization does
+not depend on the exceptional set.
+
+The module \(\Pi\) is irreducible and admissible. For irreducibility,
+a nonzero vector involves finitely many factors; the density
+theorem for finitely many irreducible modules isolates a pure
+tensor, after which the individual group actions generate every
+finite tensor product. At almost all places the distinguished
+vector generates the irreducible local module. Admissibility
+follows from local admissibility and the one-dimensional
+hyperspecial fixed lines outside a finite set. The module has
+countable complex dimension, so its endomorphisms are scalars
+by the countable-dimensional Schur argument proved in the real
+matching construction.
+
+We shall use the following slightly stronger consequence.
+If \(j'\ne0\), every invariant sesquilinear form on \(\Pi\)
+is a scalar multiple of
+\(\gamma(u,v)=\langle j'(u),j'(v)\rangle\).
+Indeed, \(j'\) is injective. Given another such form \(B\) and
+a \(K\)-fixed vector \(u\), invariance gives
+\(B(u,v)=B(u,e_Kv)\). The finite-dimensional positive space
+\(\Pi^K\) has a unique vector \(Tu\) representing this functional
+with respect to \(\gamma\). This represents it on all of \(\Pi\)
+by averaging; hence it is independent of the chosen \(K\).
+The resulting linear map \(T\) commutes with the group and is
+a scalar. Here \(K\) is compact open in the finite adelic group;
+\(\Pi_\infty\) is finite dimensional because \(U(W)_\infty\)
+is compact in this base case, so \(\Pi^K\) is still finite
+dimensional. This argument also applies to the mixed forms
+defined by \(j\) and \(j'\).
+
+\subsection{The local matrix-functional calculation}
+
+The following elementary distribution calculation will turn a
+theta back-lift into a constant. It applies to algebraic linear
+functionals on locally constant compactly supported functions;
+no continuity of such a functional is assumed.
+
+\begin{srlemma}
+Let \(k\) be a nonarchimedean local field with uniformizer \(\pi\).
+Let \(\xi:k^\times\to\mathbb C^\times\) be smooth and suppose
+\(\xi(\pi)\notin\mathbb R_{>0}\).
+If
+\[
+ \ell(f(\,\cdot\,h))=\xi(\det h)\ell(f)
+       \quad(h\in\operatorname{GL}_d(k))
+\]
+on \(\mathcal S(\operatorname{Mat}_{n,d}(k))\), then
+\(\ell=0\) when \(n<d\). If \(n=d\), then also
+\[
+                \ell(f(g\,\cdot\,))=\xi(\det g)\ell(f).
+\]
+\end{srlemma}
+
+\begin{proof}
+Filter the matrix space by rank. Within rank \(r\), right
+translation is transitive on the matrices with a specified
+column space. After choosing a basis of this column space,
+the stabilizer of \([1_r\ 0]\) is
+\[
+       H_r=\left\{\begin{pmatrix}1_r&0\\ C&D\end{pmatrix}
+                     :D\in\operatorname{GL}_{d-r}(k)\right\}.
+\]
+The elementary integration criterion for an equivariant
+functional on \(H_r\backslash\operatorname{GL}_d(k)\)
+requires the restriction of \(\xi\circ\det\) to \(H_r\)
+to equal the quotient of the two modular characters.
+This criterion follows directly by writing a test function
+as an integral over a compact open subgroup and then changing
+variables by an element of \(H_r\); conversely the same formula
+defines the functional when the characters agree. Thus it is
+valid for the algebraic dual of \(\mathcal S\) as well.
+For \(r<d\), use \(D=\operatorname{diag}(\pi,1,\ldots,1)\).
+The modular-character quotient is a positive real power of
+\(|\pi|\), whereas \(\xi(\pi)\) is not positive real.
+There is consequently no functional on this orbit.
+To pass from the individual column spaces to the whole rank
+stratum, use precisely the following localization principle:
+if \(q:Z\to T_0\) is a continuous map of locally compact,
+totally disconnected Hausdorff spaces, a locally compact
+totally disconnected group acts continuously on \(Z\)
+preserving every fiber, and \(\mu\) is a continuous character,
+then vanishing of all \(\mu\)-equivariant distributions on
+every fiber implies vanishing on \(Z\).
+This is Bernstein localization, in the form of Corollary~2.1
+of Aizenbud--Gourevitch--Rallis--Schiffmann,
+\emph{Multiplicity one theorems}, Annals of Mathematics
+172 (2010), \S2:
+\url{https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n2-p14-p.pdf}.
+Apply it to the rank-\(r\) stratum and the map sending a
+matrix to its column space in
+\(\operatorname{Gr}_r(k^n)\). Both spaces have all the stated
+topological properties and are countable at infinity.
+The column-space map is continuous: on a chart with an
+invertible \(r\)-minor its graph coordinates are obtained
+by multiplying the remaining rows by that minor's inverse.
+Right \(\operatorname{GL}_d(k)\) preserves the map, and
+each fiber is exactly the homogeneous orbit calculated
+above. The character \(\xi\circ\det\) is smooth and hence
+continuous. Thus every deficient-rank stratum has zero
+equivariant distributions.
+
+There is no unmentioned continuity assumption on \(\ell\).
+For any of these second-countable totally disconnected
+spaces, the Bruhat space \(\mathcal S\) is the inductive
+limit of its finite-dimensional spaces with prescribed
+compact support and prescribed compact-open subdivision.
+Every algebraic linear functional is continuous in this
+topology, since its restrictions to all these finite-dimensional
+spaces are continuous. It is therefore exactly a distribution
+to which localization applies.
+Finally the rank-at-most-\(r\) subsets are closed.
+Restriction of test functions to a closed subset is onto:
+a locally constant function of compact support there extends
+on finitely many compact-open neighborhoods and can be
+made zero off their union. A function vanishing on that
+subset has compact support away from it after such a
+subdivision. This gives the exact open/closed test-function
+sequence. Starting with the largest rank and descending
+therefore kills all strata with \(r<d\).
+
+If \(n<d\), these are all strata. If \(n=d\), only the open
+orbit \(\operatorname{GL}_d(k)\) remains. On that orbit an
+equivariant functional is a scalar multiple of
+\[
+                  f\longmapsto
+                    \int_{\operatorname{GL}_d(k)}
+                         f(Y)\xi(\det Y)^{-1}\,d^\times Y .
+\]
+On compact support inside the open orbit this is an ordinary
+finite integral and has the asserted left transformation law.
+Subtracting that left law from \(\ell\) gives a functional
+supported on deficient rank, already shown to vanish. No
+extension of the displayed integral across singular matrices
+is used.
+\end{proof}
+
+Suppose now \(u\in\Pi\) and put
+\(F_u=sj(u)+tj'(u)\), for fixed scalars \(s,t\). For a Schwartz
+vector \(\Psi\) in either model form the back-lift
+\[
+     T_{\Psi,V}F_u(g)=
+         \int_{[U(W)]}F_u(h)\,
+                          \overline{\theta_\Psi(g,h)}\,dh ,
+\]
+and define \(T_{\Psi',V'}\) similarly. At a good split finite
+place both models are the actual matrix models. To obtain
+the required local functional even when \(s\ne0\), express
+\(u\) as a finite sum of tensors \(u_v\otimes u^v\) and treat
+each summand. The complementary local quotient
+\[
+ r'_v:\mathcal S(\operatorname{Mat}_{a',d}(F_v))
+                                      \twoheadrightarrow\Pi_v
+\]
+is surjective. For fixed \(u^v\), define the \emph{linear}
+automorphic-valued map
+\[
+ C_v(\phi')=
+    s\,j(r'_v(\phi')\otimes u^v)
+           +t\,j'(r'_v(\phi')\otimes u^v).
+\]
+It is equivariant for the actual second local Weil action
+because both \(j\) and \(j'\) are maps of the common module.
+Pair \(C_v(\phi')\) with the unprimed local theta test
+\(\psi_v\), freezing every other component of that theta
+test. After conjugating \(\psi_v\) this is a bilinear
+functional on one \(a\)-row and one \(a'\)-row matrix
+space. Its total row count is therefore exactly \(d\),
+irrespective of \(s,t\); it is not a claim restricted to
+a product of one primed and one unprimed theta kernel.
+For the opposite back-lift use instead the onto quotient
+\(r_v:\mathcal S(\operatorname{Mat}_{a,d}(F_v))
+\twoheadrightarrow\Pi_v\), and pair with the \(a'\)-row
+primed theta test. The same argument applies with the
+two row blocks interchanged.
+Simultaneous right translation of both matrices acts
+on the first of these bilinear functionals by
+\[
+                 \xi(\det h)=
+                    \nu_v(\det h)^{-1}|\det h|^{-d/2}.
+\]
+Here the pairing is bilinear after complex conjugating its
+unprimed test vector. The source of this character can be
+checked without any convention about induction: the two
+second-group operators are
+\[
+ \beta_v(\det h)|\det h|^{a/2}f(Yh),\qquad
+ \alpha_v(\det h)|\det h|^{a'/2}f'(Y'h).
+\]
+Invariance of the adelic integral divides by
+\(\alpha_v\overline{\beta_v}|\det h|^{d/2}\), giving exactly
+the displayed \(\xi\).
+
+The good split non-torsion calculation gives
+\(\nu_v(\pi)\ne1\). Since it is unitary,
+\(\xi(\pi)\notin\mathbb R_{>0}\).
+The square-matrix conclusion of the lemma therefore moves
+left translation in the first \(a\) rows through the pairing.
+The actual unprimed first operator is
+\[
+        \nu_v(\det g)^{-1}|\det g|^{d/2}f(g^{\mathsf t}Y).
+\]
+Complex conjugation of this scalar cancels the left
+transformation factor
+\(\nu_v(\det g)^{-1}|\det g|^{-d/2}\) from the matrix lemma.
+Thus \(T_{\Psi,V}F_u\) is right invariant under \(U(V)(F_v)\).
+Interchanging the two models replaces \(\nu_v\) by its inverse
+and proves the corresponding invariance on \(U(V')(F_v)\).
+Finite sums of local pure tensors give the statement for all
+the polynomial adelic vectors. In particular this holds at
+every place outside \(T\) lying over a rational prime which
+splits completely in \(E\).
+
+\subsection{From good-place invariance to a constant}
+
+For completeness the density assertion needed here is stronger
+than strong approximation for the derived group alone.
+
+\begin{srlemma}
+Let \(E/F\) be an actual CM extension, with \(E/\mathbb Q\)
+Galois, and let \(H=U(X)\), \(\dim_E X\geq2\).
+A continuous left \(H(F)\)-invariant function which is right
+invariant under \(H(F_v)\) at every \(v\) outside a finite set
+and above a rational prime splitting completely in \(E\)
+is constant.
+\end{srlemma}
+
+\begin{proof}
+Choose one such split place. The simply connected group
+\(SU(X)\) is noncompact there, since it is
+\(\operatorname{SL}_{\dim X}(F_v)\).
+Strong approximation away from that place shows that the
+function is invariant under \(SU(X)(\mathbb A_F)\).
+The determinant quotient is the norm-one torus. It has a
+continuous adelic section preserving rational points and local
+supports: choose a rational nonisotropic line and let a
+norm-one scalar act on that line and as identity on its
+orthogonal complement. It remains to prove density on this torus.
+
+Its rational adelic quotient is compact. If the closed subgroup
+generated by rational points and the specified local norm-one
+groups were proper, a character of its compact abelian quotient
+would separate a point. Pull this character back along
+\(z\mapsto z/\bar z\) on \(\mathbb A_E^\times\).
+Adelic Hilbert 90 makes the pullback nontrivial. It is a
+unitary Hecke character \(\chi\), trivial on every local group
+at all degree-one primes of \(E\), apart from finitely many:
+because \(E/\mathbb Q\) is Galois, a degree-one unramified
+prime lies over a completely split rational prime.
+
+For real \(s>1\), the Euler product then gives
+\[
+              \log|L_E(s,\chi)|=\log\zeta_E(s)+O(1)
+                                      \quad(s\downarrow1).
+\]
+Indeed degree-one local factors outside the exceptional set
+are the zeta factors. Prime ideals of residue degree at least
+two contribute a uniformly convergent sum, bounded by a
+constant times \(\sum_p p^{-2s}\); the higher powers in all
+logarithmic Euler factors are bounded in the same manner.
+The right side tends to infinity, whereas a nontrivial unitary
+Hecke character has a finite value at \(1\).
+This contradiction proves density and then constancy.
+The classically known analytic statement used in this argument
+is ordinary Hecke continuation at \(1\); no zero-free assertion
+in the critical strip is used.
+\end{proof}
+
+Applying the lemma to the preceding back-lifts proves
+\[
+             T_{\Psi,V}F_u(g)=T_{\Psi,V}F_u(1),\qquad
+             T_{\Psi',V'}F_u(g)=T_{\Psi',V'}F_u(1).
+\tag{*}\label{eq:sr-base-backlift-constant}
+\]
+The first ranks are at least two by the actual triple
+inequalities. Continuity follows by dominated convergence
+on the two compact adelic quotients. The Galois hypothesis
+is a field hypothesis of the actual base.
+
+\subsection{Nonzero theta periods from explicit doubling tests}
+
+Here is the nonvanishing input, including the Euler factors
+and the bad-place choices. Let \(X\) be either \(V\) or \(V'\),
+of rank \(n\), and keep the definite \(W\) of even rank \(d>n\).
+The splitting character for the first group in this pair is
+\(\chi=\nu^{-1}\) or \(\nu\), respectively.
+It is unitary, trivial on \(\mathbb A_F^\times\), and has
+infinite absolute weights \(\kappa_w>d\).
+
+For every integer \(j\geq-d/2\),
+\[
+                            L_E(j,\chi)\ne0 .
+\tag{**}\label{eq:sr-base-critical-nonzero}
+\]
+In this formula \(L_E\) is the finite Hecke function continued
+from its Euler product. To verify the assertion, its completed
+function has infinite factors
+\(\prod_w\Gamma_{\mathbb C}(s+\kappa_w/2)\).
+For \(j\geq2\) use the absolutely convergent Euler product,
+and at \(j=1\) use the classical nonvanishing theorem for a
+unitary Hecke character at \(1\). For \(j\leq0\), the functional
+equation moves to \(1-j\geq1\) for \(\chi^{-1}\).
+Both sets of gamma factors are finite and nonzero since
+\(j+\kappa_w/2>0\). The conductor power and root number are
+nonzero as well. The character has nonzero infinite weight,
+so its finite Hecke function is entire. This proves
+\eqref{eq:sr-base-critical-nonzero}.
+
+Choose a nonzero polynomial real vector \(f_\infty\) invariant
+under the first compact group. Such a vector exists without
+a global nonvanishing assumption: the onto real quotient from
+local matching is first invariant, so compact averaging of
+a vector with nonzero quotient has the same nonzero quotient.
+For \(v\in T\), which is split in \(E/F\), use the matrix
+Schr\"odinger coordinates of our model and choose
+\[
+ \phi_v=\mathbf1_{[\,1_n\ 0\,]
+                         +\pi_v^{N_v}\operatorname{Mat}_{n,d}
+                                                   (\mathcal O_v)}.
+\]
+Take \(N_v\) large enough that the determinant character is
+trivial on
+\(K_v^0=1+\pi_v^{N_v}\operatorname{Mat}_{n,n}(\mathcal O_v)\)
+and that its doubled embedding is in the prescribed maximal
+compact. Normalize the coordinate intertwiner by the
+self-dual additive measures. Its Hilbert norm is then a
+positive scalar multiple of the original model's norm.
+A direct overlap calculation gives
+\[
+ \langle\omega_v(g,1)\phi_v,\phi_v\rangle
+            =\|\phi_v\|^2\mathbf1_{K_v^0}(g).
+\]
+Indeed, overlap of the first \(n\) columns forces
+\(g\in K_v^0\); conversely that subgroup preserves the box
+and its determinant twist is trivial. A transpose or inverse
+in the chosen split model gives the same subgroup.
+
+At \(v\notin T\) use the actual self-dual vacuum.
+The doubled vacuum is fixed by the prescribed doubled
+maximal compact when \(\chi\) is unramified. To check the
+scalar, use the Heisenberg eigenline of the tensor lattice
+and its prescribed quadratic refinement. Integral Siegel
+unipotents fix that line by the refinement formula; integral
+Levi elements have unit determinant and hence trivial
+unramified character; and the Fourier generator fixes the
+self-dual lattice indicator with self-dual measure.
+These elements generate the integral doubled unitary group.
+At an inert place two is a unit by the base hypothesis;
+at a split place the same assertion is the elementary
+generation of the integral general linear group, including
+residue characteristics two and three.
+Transporting this calculation to the actual Darboux model
+preserves the scalar. Thus its doubled matrix-coefficient
+section is the spherical section with value one on the
+maximal compact, multiplied by the positive squared norm
+of the vacuum. All but finitely many of these norms equal
+one; the exceptional positive normalization factors may
+be absorbed once into the global Schwartz norm. Put
+\(\Phi=f_\infty\otimes\bigotimes_v'\phi_v\).
+
+Write \(s_0=(d-n)/2>0\), let \(\iota\) denote the actual
+doubling embedding for \(X\), and let \(A\) be its positive
+height, equal to one on its maximal compact. The normalized
+flat section on the doubled \(X\)-group has restriction
+\[
+ Z\text{-integrand}(s,g)=
+ A(\iota(g,1))^{s-s_0}
+           \langle\omega(g,1)\Phi,\Phi\rangle.
+\]
+It transforms under the Siegel Levi by
+\(\chi(\det t)|\det t|_E^{s+n/2}\), exactly the convention
+of the classical doubling input established above.
+
+For clarity, the unramified integral used here is
+\[
+ \left(\int_{U(X)(F_v)}
+             f_{v,s}(\iota(g,1))\,dg\right)
+ \prod_{i=0}^{n-1}
+       (1-\eta_v(\pi_v)^{\,n-i-1}
+                         q_v^{-(2s+i+1)})^{-1}
+       =\prod_{i=0}^{n-1}
+                     L_{E,v}(s+n/2-i,\chi).
+\tag{***}\label{eq:sr-base-unramified-zeta}
+\]
+The spherical section has value one and the integral lattice
+stabilizer has volume one. One may use the unramified
+doubling calculation in Eischen--Harris--Li--Skinner,
+\emph{p-adic \(L\)-functions for unitary groups},
+\S4.2.1, equation~(53), DOI~10.1017/fmp.2020.4:
+\url{https://doi.org/10.1017/fmp.2020.4}.
+Here its representation is the trivial representation of
+\(U(X)(F_v)\); its base-change Satake exponents are
+\((n-1)/2-i\), \(0\leq i<n\), so their numerator
+\(L(s+1/2,\operatorname{BC}(1)\otimes\chi)\) is exactly
+our numerator. Replacing their index \(r\) by \(n-i-1\)
+gives our denominator. Finally \(\chi|_{F_v^\times}=1\),
+so there is no extra character in that denominator.
+This is a local computation for split and inert places in
+either parity; the global cuspidality and multiplicity
+hypotheses appearing elsewhere in that paper are not used.
+
+Let \(D^T_n(s)\) be the product of the displayed denominator
+over \(v\notin T\). It is holomorphic and nonzero for
+\(\operatorname{Re}s>0\): the smallest exponent has real
+part \(2\operatorname{Re}s+1>1\).
+In a sufficiently far right half-plane, absolute convergence,
+Fubini on finite products and then dominated convergence give
+\[
+ Z(s)D^T_n(s)
+      =H\prod_{i=0}^{n-1}L_E(s+n/2-i,\chi),\qquad H>0.
+\tag{****}\label{eq:sr-base-global-zeta}
+\]
+There are no missing \(T\)-Euler factors: \(\nu\) is ramified
+at every prime over each \(v\in T\), so those local Hecke
+factors are one. Here \(H\) is the factor remaining \emph{after dividing
+out the full unramified local integrals}. More explicitly,
+choose product additive measures and product group Haar
+measures, with each finite integral stabilizer of volume
+one. Write the actual additive measure as \(c_S\) times
+the chosen product and the actual group measure as \(c_G\)
+times its product, where \(c_S,c_G>0\). With the norms
+relative to the chosen additive product measures,
+\[
+ H=c_Sc_G\,\|f_\infty\|^2
+          \operatorname{vol}(U(X)(F_\infty))
+       \prod_{v\in T}\!
+            \bigl(\|\phi_v\|^2\operatorname{vol}(K_v^0)\bigr)
+       \prod_{v\notin T}\|\operatorname{vac}_v\|^2 .
+\]
+The last product has only finitely many factors different
+from one. The infinite group is compact and fixes
+\(f_\infty\), and the bad-place coefficient is supported
+on \(K_v^0\), where its doubled height is one.
+These facts account for every factor in \(H\), all positive
+and independent of \(s\). At a good place the factor removed
+was
+\[
+             J_v(s)=\int_{U(X)(F_v)}
+                       f_{v,s}(\iota(g,1))\,dg ,
+\]
+integrated over the \emph{whole} local group, as in
+\eqref{eq:sr-base-unramified-zeta}. We do not assert that
+a good-place matrix coefficient has compact support.
+The restricted-product Fubini identity in the convergent
+half-plane gives
+\(Z(s)=H\prod_{v\notin T}J_v(s)\); applying the exact
+unramified calculation yields
+\eqref{eq:sr-base-global-zeta}. Thus no unspecified
+possibly vanishing local factor is hidden in \(H>0\).
+
+The doubled theta identity and the anisotropic Siegel--Weil
+formula from the classical-input section give a meromorphic
+continuation of \(Z(s)\), regular at \(s_0\), and
+\[
+       I_\Phi=0\quad\Longrightarrow\quad Z(s_0)=0.
+\]
+Indeed the continued doubled Eisenstein convolution at this
+point is a positive nonzero multiple of
+\(\|I_\Phi\|^2_{L^2([U(W)])}\).
+The auxiliary space is the definite skew space \(W\), of
+rank \(d>n\). To apply the opposite Hermitian parity of
+the same formula, multiply its form by a nonzero rational
+trace-zero \(b\in E\) and the doubled \(X\)-form by \(b^{-1}\).
+The two unitary groups and their tensor symplectic form
+are unchanged, so the additive character, Darboux action
+and self-dual measures are unchanged. This is exactly the
+parity change checked in the classical-input section.
+The anisotropic formula therefore has scalar \(1\) before
+converting its average to the actual measure.
+The doubled matrix coefficient is the one obtained from
+the actual Heisenberg intertwiner, so its value at the
+identity is the positive Schwartz inner product.
+All changes of order here are on compact quotients.
+
+Continue \eqref{eq:sr-base-global-zeta} to \(s_0\) in
+\(\operatorname{Re}s>0\). Removing the discrete poles of
+the meromorphic continuation leaves a connected domain;
+the identity theorem applies, and both sides are regular
+at \(s_0\). Its Hecke arguments there are the integers
+\(d/2-i\), all at least \(1-d/2\); they are nonzero by
+\eqref{eq:sr-base-critical-nonzero}. As \(D^T_n(s_0)\ne0\)
+and \(H>0\), we obtain \(Z(s_0)\ne0\), and hence
+\(I_\Phi\ne0\). This proves nonvanishing in both models.
+
+On the primed side the good split coinvariant calculation
+and the exact bar-coordinate cutoff let the nonzero vector
+be replaced by one in the actual space \(S^\circ\).
+The cutoff maps onto the common local quotient at \(v_1\);
+its change has zero theta period by the factorization
+already proved. It can be performed on finitely many pure
+tensors and preserves polynomial real vectors. Thus
+\(j'\ne0\) is witnessed by a vector in the space required
+in the signed-data construction.
+
+\subsection{Doubling proves equality of the two maps}
+
+For \(u\in\Pi\) put \(F_u=sj(u)+tj'(u)\).
+The invariant-form conclusion above gives a scalar
+\(\lambda_{s,t}\) such that
+\[
+       \langle F_u,F_v\rangle
+              =\lambda_{s,t}
+                     \langle j'(u),j'(v)\rangle
+                                     \qquad(u,v\in\Pi).
+\]
+Fix a primed polynomial vector \(\Psi'\).
+On the doubled \(W\)-group use the box section built from
+\(\Psi'\otimes\overline{\Psi'}\). For real part of the
+parameter sufficiently large, ordinary Eisenstein unfolding
+expresses its quadratic convolution with \(F_u\) as the
+integral of that section against
+\(\langle F_{\pi(h)u},F_u\rangle\).
+Replace this coefficient by
+\(\lambda_{s,t}\langle j'(\pi(h)u),j'(u)\rangle\).
+The two meromorphic functions are therefore equal.
+
+This unfolding has only the open orbit. In fact, a boundary
+orbit would give a nonzero isotropic vector in \(W(F)\),
+whereas \(iW\) is definite. The open orbit is the diagonal
+copy of \(U(W)\); its stabilizer gives precisely the
+convolution integral just used. Absolute convergence in
+the far half-plane justifies the unfolding term by term.
+The Eisenstein continuation in the classical-input section
+continues the equality, with its uniform moderate-growth
+bounds sufficient for integration on our compact quotient.
+
+Evaluate at
+\[
+                 z_0=(a'-d)/2=-a/2 .
+\]
+The auxiliary space is now the definite \(V'\) of rank
+\(a'<d\). The anisotropic Siegel--Weil scalar is \(2\)
+and its normalized integral is the probability mean.
+The actual box identity and Fubini therefore give, for
+either \(F=F_u\) or \(F=j'(u)\),
+\[
+ \mathcal Q_{\Psi',z_0}(F)
+   =\frac{2}{\operatorname{vol}[U(V')]}
+             \big\|T_{\Psi',V'}F\big\|^2_{L^2([U(V')])}.
+\]
+The determinant character on the second doubled copy
+cancels the determinant twist in the box identity.
+It is identical on the two sides, as both use the same
+actual primed splitting. The constant is nonzero.
+Consequently
+\[
+ \big\|T_{\Psi',V'}F_u\big\|^2
+        =\lambda_{s,t}
+                    \big\|T_{\Psi',V'}j'(u)\big\|^2 .
+\tag{*****}\label{eq:sr-base-backlift-norm}
+\]
+
+The mixed invariant form has a scalar \(c\) with
+\[
+             \langle j(u),j'(v)\rangle
+                       =c\langle j'(u),j'(v)\rangle .
+\]
+Set \(D_u=j(u)-cj'(u)\); then \(D_u\) is orthogonal to the
+entire primed image. By
+\eqref{eq:sr-base-backlift-constant} its primed back-lift
+is a constant function. Its average equals
+\(\langle D_u,I'_{\Psi'}\rangle/
+                \operatorname{vol}[U(V')]=0\);
+hence the back-lift is zero. Choose \(u_0\) with
+\(j'(u_0)=I'_{\Phi'_0}\ne0\) and use
+\(\Psi'=\Phi'_0\). The back-lift of \(j'(u_0)\) is also
+constant and its average is
+\(\|j'(u_0)\|^2/\operatorname{vol}[U(V')]\ne0\).
+Equation~\eqref{eq:sr-base-backlift-norm} for \((s,t)=(1,-c)\)
+forces \(\lambda_{1,-c}=0\). Thus \(\|D_u\|^2=0\) for every
+\(u\). Continuity on a quotient with Haar measure of full
+support implies \(D_u=0\) pointwise. We have proved
+\[
+                    I_\Phi=c\,I'_{\Phi'}
+\]
+for every polynomial matched pair in the actual cutoff
+space. Both nonvanishing statements show \(c\ne0\);
+the primed nonzero vector shows uniqueness.
+
+This closes the compact-base comparison, the source leaf
+\(\mathrm{PolZero}\) with \(p=q=0\), including its nonzero
+constant and the precise \(S^\circ\) witness. It does not
+assert the full \(\mathrm{OneConst}\) for arbitrary
+signatures. Propagating this base through the two
+codimension-two constant-term recursions, and checking
+their finite-character-independent constants, remains
+the next global step. No constants in this compact-base
+argument have been used as uniform family metric bounds.

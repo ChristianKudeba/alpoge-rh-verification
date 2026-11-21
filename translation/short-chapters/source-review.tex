@@ -391,8 +391,10 @@ The actual marking and endpoint source is
 it produces \srcid{GdEndAlt} and \srcid{ThmS6Core\_s} from
 \srcid{HypothesesH'}.
 The endpoint is therefore present in the formal dependency chain.
-Its component-propagation, seed and local-compatibility proofs
-must be supplied in prose before using it here.
+Its common support, seed and local-compatibility producers are
+now instantiated in the chapters above, and
+Theorem~\ref{thm:sr-generic-character-estimate} applies the
+fixed-field trace count with all prime and host quantifiers.
 
 \item For the nontrivial exceptional and resonant characters,
 the source
@@ -441,6 +443,35 @@ and 1,647 reviewed modules out of 175,187.
 These are community prose-translation counts, not the coverage
 count of the literal record edition.
 
+\subsection{The linked short mathematical companion}
+\label{subsec:sr-chojecki-review}
+We also examined the 23-page
+\href{https://www.ulam.ai/research/rh-short.pdf}
+{\emph{Dirichlet \(L\)-functions and the critical line}},
+a short companion associated with Chojecki's exposition.
+The version read on 21 November 2026 has SHA-256
+\srcid{9fb2e8afe44c597914297b5b176a2a20600e6e69c04fd9875377547f10fea568}.
+It is a mathematical companion to the same formal development.
+Its opening scope explicitly retains the arithmetic and geometric
+construction as cited inputs.
+
+Sections 2--5 give an analytic criterion on logarithmic windows,
+finite Fourier extraction, frame and slope-transfer estimates,
+and cancellation of the arithmetic main terms.
+These provide useful comparisons for the exposition.
+Section 6 describes the compatible theta and integral-lattice
+construction; pages 14--16 identify its uniform covolume estimate
+as a substantial source theorem.
+Proposition 7.1 uses the cohomological window theorem from the
+formal development. Section 8 assembles these cited inputs.
+Thus its short length does not establish a short standalone
+translation of the construction.
+
+The source concordance is useful for locating those dependencies.
+We retain our conductor-one route and the full proofs being
+constructed here; we do not discharge a remaining input merely
+by citing this companion's summary of the same source result.
+
 \subsection{The resulting proof ledger}
 The analytic endpoint and signed finite comparison have complete
 printed arguments. The arithmetic groundwork includes the odd
@@ -454,8 +485,11 @@ unconditional. The coefficient-uniform arithmetic stabilizer
 and finite-level cohomology counts are also printed.
 Finiteness and a common integer for each fixed rational character
 packet are proved, with an explicit order-dependent bound.
-Those statements do not by themselves give the two stronger
-uniform estimates in Definition~\ref{def:sr-character-inputs}.
+Those statements alone do not give the two stronger uniform
+estimates in Definition~\ref{def:sr-character-inputs}.
+The generic estimate is now proved in
+Theorem~\ref{thm:sr-generic-character-estimate}; the exceptional
+estimate remains conditional on its final rank-four endpoint.
 
 The new construction of
 Section~\ref{sec:constructed-eisenstein-seed} gives actual classical
@@ -493,13 +527,37 @@ full local window predicate.
 Section~\ref{sec:sr-rank-three-host-endpoints} proves
 \(\mathrm{FinEnd}\)-to-finite-host and the exact Gaussian and generic
 descent implications.
-The two remaining shared arithmetic producers are explicitly kept
-in their applications: the actual completed-support/classical-Galois
-coefficient comparison, and the local original-level component
-assertion when the generic twist is one.
-The generic local window implication is proved with its exact
-nonlinking premise. Ordinarity alone is not substituted for the
-crystalline-component assertion.
+Section~\ref{sec:common-ordinary-arithmetic-action} supplies the
+same coefficient ring acting at all auxiliary levels, its classical
+Galois detectors, integral old/new coefficient identity, and its
+characteristic-prime support comparisons.
+Section~\ref{sec:det-entry-finite-corner} constructs the surjective
+determinant-to-entry map and the finite exceptional ideal from the
+rank-two supported quotient.
+Subsection~\ref{subsec:sr-saturated-ordinary-crystalline} proves
+the saturated local crystalline assertion, including the actual
+global-chart factorization and the nearest-weight case.
+Corollary~\ref{cor:sr-generic-original-level} proves the
+original-level comparison.
+Subsection~\ref{subsec:sr-residual-bernoulli-input} proves the
+dyadic Bernoulli-unit estimate and the residual unramified
+cocycle vanishing used in the exceptional data.
+The count in Subsection~\ref{subsec:sr-rank-four-trace-integer}
+takes place on eighteen fixed CM fields after descent;
+its constants have no dependence on the large support field.
+Section~\ref{sec:actual-seed-two-propagations} constructs the
+full-dimensional seed and proves the rank-two run, finite
+exceptional ideal and rank-three run in that order.
+It supplies the actual common rank-two/rank-three endpoint.
+Subsection~\ref{subsec:sr-four-common-space-construction}
+constructs the rank-four common space and its residual point
+maps. Subsections~\ref{subsec:sr-four-good-residual-lattice},
+\ref{subsec:sr-case-II-actual-pm} and
+\ref{subsec:sr-four-case-II-residual-links} construct its good
+residual lattice, actual modular ideal and finite residual path.
+The separate block-extension producer and final arithmetic endpoint
+specialization remain required by the nontrivial-character assembly.
+The fixed-field count must still be applied to those actual endpoints.
 The small-conductor twist-one branch at three and seven is already
 unconditional, as is its bounded-order comparison.
 
@@ -513,6 +571,11 @@ Sections~\ref{sec:sr-ramified-matching-construction},
 construct the finite local matching maps with the actual common
 actions and normalized vacua.
 The inert construction applies in both rank parities.
+Section~\ref{sec:sr-real-matching-construction} constructs the
+actual common archimedean Fock quotient, with its oscillator sign,
+cover, ordered Levi and determinant twist checked.
+Together these constructions supply the full local matching
+package. They do not supply the separate global theta identities.
 Section~\ref{sec:sr-ramified-branching} proves the ramified
 codimension-two uniqueness assertion, separately from existence
 of the global descended operators.
@@ -522,6 +585,19 @@ Subsection~\ref{subsec:sr-theta-decay-closed} proves every ordinary
 convergence and decay clause, with the precise bar-test cutoff,
 rational-translate height estimate and moderate growth after
 integration.
+Section~\ref{sec:sr-compact-global-comparison} proves the
+nonzero global comparison in the compact base \(p=q=0\),
+with complementary local quotient factorization, good-place
+back-lift constancy and normalized doubling.
+Sections~\ref{sec:sr-unramified-branching-vacuum} and
+\ref{sec:sr-real-branching-compact-type} prove the other two
+local branching multiplicity assertions.
+Sections~\ref{sec:sr-real-cone-operator} and
+\ref{sec:sr-cone-euler} construct the actual evaluation and cone
+integrals, their finite vacua and absolutely convergent Euler
+factorization. Descent of these operators through the specified
+upper quotient and the global constant-term identities remain
+required by the all-signature rank recursions.
 
 The integral descent, short generators, finite regularizer,
 finite theta tests, frame-slab reproduction and common-denominator
@@ -536,18 +612,17 @@ saturation or slopes for every admitted semiabelian fibre.
 The following obligations remain before this exposition is an
 unconditional standalone RH proof.
 \begin{enumerate}
-\item Finish the actual shared support specialization and the
-generic twist-one original-level local component proof, then
-make the quantitative automorphic count with all conductor,
+\item Finish the rank-four block-extension and arithmetic endpoint
+specializations, then apply the exceptional count with conductor,
 weight and rigidity bounds uniform before the host.
-Prove \eqref{eq:sr-generic-count} and
+Theorem~\ref{thm:sr-generic-character-estimate} proves
+\eqref{eq:sr-generic-count}. Prove
 \eqref{eq:sr-nontrivial-count}, or a valid weaker height envelope
 sufficient for \eqref{eq:sr-logcube-height}.
 An auxiliary-field bound depending on its unconstrained degree
 does not meet this requirement.
-\item Complete the archimedean common Fock quotient and global
-nonzero comparison scalar, prove existence of the descended
-cone/evaluation operators and both character-uniform rank-two
+\item Extend the compact-base comparison to all signatures, construct
+the descended cone/evaluation operators and both character-uniform rank-two
 recursions, and match them on the same triple.
 Finite local matching and multiplicity one alone do not prove
 those global identities.

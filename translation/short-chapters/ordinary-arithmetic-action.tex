@@ -1,0 +1,696 @@
+\section{The common ordinary coefficient system and its arithmetic action}
+\label{sec:common-ordinary-arithmetic-action}
+
+We supply the finite-level arithmetic input to the common
+patched module of Section~\ref{sec:sr-common-patched-module}.
+The coefficient system and the base support ideal remain fixed
+as auxiliary primes and auxiliary compact subgroups vary.
+In particular, we do not replace the coefficient ring separately
+by the image algebra on each auxiliary module.
+
+Fix either of the actual rank-two or rank-three packets in
+Sections~\ref{sec:seed-all-generic-primes} and
+\ref{sec:arithmetic-frame-uniform-depth}.
+Write \(F\) for the totally real field, \(L/F\) for its CM
+extension, \(d=[F:\mathbb Q]\), and \(n\in\{2,3\}\).
+Let \(S\) include the original level, the places above \(\ell\),
+and the distinguished neat place \(v_0\).
+The constructed fields satisfy
+\[
+ \ell\ne2,\quad L/F\text{ finite-unramified},\quad
+ v\in S\Longrightarrow v\text{ splits in }L,\quad
+ 4\mid nd,\quad d>1.                                      \tag{CA1}
+\]
+The definite unitary group is compact at every real place
+and quasi-split at every finite place.
+Its existence condition is \(nd/2\) even, which is (CA1).
+The fixed place \(v_0\) supplies the neatness condition of
+Lemma~\ref{lem:ordinary-neat-level}; all auxiliary places
+are outside \(S\).
+One finite extension of the coefficient DVR \(\mathcal O\)
+contains every required field embedding and every fixed
+tame character value in (CA2). Further finite coefficient extensions
+are taken faithfully flat.
+
+At a split tame level place \(u\), put
+\[
+ \tau_u=\bigoplus_{i=0}^{n-1}\widetilde{\bar\chi_i}|_{I_u},
+ \qquad
+ \tau_0=\bigotimes_{u\in S,\ u\nmid\ell}
+              \sigma_{\rm crys}(\tau_u)^\vee_{\mathcal O}.  \tag{CA2}
+\]
+Here the type lattice is the same finite free lattice as in
+the ordinary function modules of
+Section~\ref{sec:ordinary-module-construction}.
+Away from the distinguished neat place \(v_0\), the
+type theorem used in (CA2) is
+Emerton--Gee, Theorem 9.2.4: its characteristic-zero occurrence
+condition is the specified inertia type together with \(N=0\).
+At \(v_0\), restriction of the chosen coefficient lattice
+to the smaller neat subgroup does not impose the full
+maximal-compact type. The independent \(N4\) argument
+below proves Galois unramifiedness there.
+
+Choose the local unit bases and the ordering of the residual
+characters once. With
+\[
+ \Lambda=\mathcal O[[X_{vij}:
+              v\mid\ell,\ 0\leq i<n,\ 1\leq j\leq d_v]],
+\]
+the character \(\theta^{-1}\) in the coefficient system is
+characterized, in the reciprocity convention of the ordinary
+modules, by
+\[
+ \psi_{vi}(g)\,\varepsilon(g)^i\,
+       \theta(e_{vi}(y))=1
+       \quad\text{if }\operatorname{Art}(g)=y\in\mathcal O_{L_w}^{\times}.
+                                                               \tag{CA3}
+\]
+The normalized ordinary operators are
+\[
+ U_{vj}=\prod_{i=0}^{j}
+              \psi_{vi}(g_v)\varepsilon(g_v)^i,
+ \qquad \operatorname{Art}(g_v)=\varpi_v .
+                                                               \tag{CA4}
+\]
+Thus both the unit values and the uniformizer values of
+each \(\psi_{vi}\) are fixed. Equations (CA2)--(CA4), including
+the dual in (CA2) and the inverse character in (CA3), are
+the coefficient conditions required below.
+
+\paragraph{Classical detectors with these coefficients.}
+For a finite set \(Q\) of auxiliary split places, let
+\(M_Q(K)\) be the residual-localized ordinary function module,
+with coefficient lattice \(\tau_0\), character \(\theta^{-1}\),
+and auxiliary compact subgroup
+\(K\subset\prod_{v\in Q}\operatorname{GL}_n(L_w)\).
+All other levels, including the neat level at \(v_0\), are fixed.
+The constructions of
+Lemma~\ref{lem:ordinary-projector-free} and
+Proposition~\ref{prop:classical-ordinary-control} give finite
+free \(\Lambda\)-modules and classical control for these
+modules. The proof applies to smaller auxiliary compact
+subgroups since their stabilizers still satisfy the same
+neatness condition.
+
+Here is the precise classical separation used with these
+modules. Fix one sufficiently regular algebraic weight and
+vary the finite-order characters of every local unit
+coordinate. Require their \(n\) inertia characters at each
+\(v\mid\ell\) to be pairwise distinct.
+These arithmetic points are Zariski dense in \(\Lambda\):
+a nonzero one-variable power series over \(\mathcal O\)
+has only finitely many zeros among the characters under
+consideration after Weierstrass preparation; induction on
+the coordinates proves the assertion in several variables.
+The forbidden equalities between two inertia characters
+exclude only the corresponding proper character diagonals.
+If \(z\ne0\) in \(M_Q(K)\), write \(z\) in a \(\Lambda\)-basis.
+Some coefficient survives at one of these arithmetic points,
+and classical control shows that the resulting classical
+ordinary vector is nonzero. Decomposition of this classical
+space into automorphic representations then detects \(z\).
+
+For these detectors, the classical representation has a
+continuous semisimple Galois representation with the
+normalization
+\[
+ r_\ell(\Pi)=\operatorname{rec}
+                   \bigl(\Pi|\det|^{(1-n)/2}\bigr).
+                                                               \tag{CA5}
+\]
+This is used in the precise field and level scope (CA1).
+One may apply Thorne,
+\href{https://arxiv.org/pdf/1107.5989v1}{Theorem 6.5},
+with its additional type set \(R\) empty; it allows the
+remaining finite levels and does not require an irreducible
+residual representation.
+Equivalently, Labesse's Corollary 5.3, as stated in
+\href{https://arxiv.org/pdf/0906.4189}{Guerberoff, Theorem 2.2},
+gives the discrete isobaric base change, and Guerberoff's
+Theorem 2.3 constructs its semisimple Galois representation.
+The compact infinity factors satisfy Labesse's discrete-series
+condition, the finite non-split factors are spherical, and
+all prescribed ramified factors occur at split places.
+If a discrete block is a residual Speh block, the algebraic
+characters and powers of \(\varepsilon\) are combined as
+in Section~\ref{subsec:sr-case-two-hecke}; this gives exactly
+(CA5), rather than a different normalization on each block.
+
+We use full local--global compatibility at auxiliary places.
+For a regular algebraic cuspidal block this is
+\href{https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf}
+{Barnet-Lamb--Gee--Geraghty--Taylor, Theorem 2.1.1}.
+Taking the indicated direct sums and algebraic twists gives
+the compatibility for each discrete isobaric base change
+above. Thus its Weil--Deligne representation, including
+monodromy, is a representation of the local Langlands
+parameter used by the auxiliary calculation.
+The weaker statement identifying only characteristic
+polynomials would not suffice for this calculation.
+
+The ordered ordinary flag at \(v\mid\ell\) also has the
+characters in (CA3)--(CA4). Indeed, after killing the finite
+inertia characters, local compatibility gives a crystalline
+filtered module whose ordered Frobenius and descent root
+lines are those selected by the ordinary Jacquet line.
+For this assertion choose the fixed algebraic weight with
+all successive labelled gaps sufficiently large.
+Every cuspidal block then has Shin-regular weight, so
+\href{https://smf.emath.fr/system/files/2017-08/ens_ann-sc_47_165-179.pdf}
+{Barnet-Lamb--Gee--Geraghty--Taylor,
+\emph{Local--global compatibility for \(\ell=p\), II},
+Theorem 1.1} gives the Frobenius-semisimplified
+local compatibility used here. The distinct finite
+inertia characters give \(N=0\), so the finite extension
+killing those characters makes this filtered module
+crystalline.
+For its first \(j\) root lines, the unit value of \(U_{v,j-1}\)
+says that the Newton number is the sum of the \(j\) smallest
+labelled Hodge--Tate weights. The induced filtration has
+Hodge number at least that sum, whereas weak admissibility
+gives the opposite inequality. Equality makes each of
+these submodules weakly admissible. The corresponding
+Galois subrepresentations form the full ordered flag.
+The quotient characters are uniquely determined by their
+unit values (CA3) and uniformizer values (CA4).
+This is the rank-independent argument of
+Section~\ref{subsec:sr-case-two-hecke}; it applies to the
+ramified principal series just used for density.
+An unramified principal-series ordinary-flag result alone
+would not cover these detector points.
+
+Let \(\mathbb T_Q(K)\) denote the selected ordinary Hecke
+algebra acting faithfully on \(M_Q(K)\).
+It is finite over \(\Lambda\).
+The detectors just constructed are jointly faithful on
+\(M_Q(K)\).
+At each \(\ell\)-place the distinct finite inertial
+characters make the Jacquet module of the corresponding
+irreducible principal series the direct sum of its
+Weyl-labelled character lines. Distinct character
+lines are separated by a compact torus element;
+the chosen coefficient character and ordering select
+their indicated one-dimensional refinement.
+Thus the selected ordinary operators act by scalars
+on these lines, with no Jordan block. They act by
+the same scalar on the accompanying automorphic
+multiplicity space. The spherical operators act by
+their spherical Hecke characters as well.
+Consequently a nilpotent element of \(\mathbb T_Q(K)\)
+vanishes on every detector and hence on \(M_Q(K)\);
+faithfulness makes it zero. The algebra is reduced.
+The integral determinant interpolation of
+Lemma~\ref{lem:sr-compact-determinant-interpolation}
+then gives a continuous determinant and local characters
+over \(\mathbb T_Q(K)\), with (CA3)--(CA5).
+For clarity, this interpolation uses integral characteristic
+polynomial identities and compactness of the finite
+\(\Lambda\)-algebra. It does not divide by \(n!\);
+it remains valid when \(\ell\leq n\).
+At the tame level, (CA2) imposes the stated inertial
+relations. The polarization and ordinary determinant
+relations hold on every classical detector and hence
+over the Hecke algebra itself.
+
+\paragraph{One ring acting on all auxiliary levels.}
+Write \(\mathcal B_0\) for the base universal ordinary
+determinant ring, \(D_0,\psi_0\) for its universal pair,
+and
+\[
+ J_0=\ker(\mathcal B_0\longrightarrow\mathbb T_0),
+ \qquad
+ M_0=M_{\varnothing}.
+\]
+For the enlarged ramification set \(S\cup Q\), let
+\(\mathcal R_Q\) be its universal ordinary determinant
+ring, with its prescribed residual determinant and its
+universal pair \(D_Q,\psi_Q\).
+Thus \(\mathcal R_Q\), rather than
+\(\mathbb T_Q(K)\), is the coefficient ring common to
+all auxiliary compact subgroups \(K\).
+The interpolation above and its closed relations give
+\[
+ f_K:\mathcal R_Q\longrightarrow\mathbb T_Q(K).
+                                                               \tag{CA6}
+\]
+Before imposing the distinguished unramified relation,
+apply the independent \(N4\) calculation leading to
+(CA14) to the classical representations defining (CA6).
+Classical separation then gives the determinant-kernel
+relation itself, including its products with group-algebra
+elements. This check uses the scalar residual
+Frobenius polynomial and \(q_{v_0}\equiv-1\pmod\ell\);
+it does not use a maximal-compact type at the smaller
+neat level.
+The universal property also gives the weight map
+\(\lambda_Q:\Lambda\to\mathcal R_Q\). On the chosen
+coordinates its formula is
+\[
+ \lambda_Q(X_{vij})=
+       c_{vij}\,\psi_{Q,vi}(\gamma_{vj})-1,                 \tag{CA7}
+\]
+where \(c_{vij}\in\mathcal O^\times\) is the fixed
+normalizing character value. In particular
+\(f_K\lambda_Q\) is the scalar \(\Lambda\)-action, with
+the same bases and constants for every \(Q,K\).
+
+If \(K'\subset K\), the level inclusion
+\(M_Q(K)\hookrightarrow M_Q(K')\) intertwines every
+selected spherical and ordinary operator.
+Restriction therefore gives
+\(\mathbb T_Q(K')\to\mathbb T_Q(K)\).
+Under this map the interpolated determinants agree:
+their coefficients agree at the dense unramified
+Frobenius classes, and continuity gives agreement
+everywhere. Their local characters agree on units by
+(CA3) and on a uniformizer by successive ratios of
+(CA4); local reciprocity gives their equality on the
+whole decomposition group. Uniqueness in the universal
+ordinary determinant ring now gives compatibility of
+the maps (CA6) with level inclusion.
+The same argument applies to conjugated auxiliary levels.
+
+Put
+\[
+ P_Q=\bigcup_K M_Q(K),\qquad
+ G_Q=\prod_{v\in Q}\operatorname{GL}_n(L_w).
+\]
+Right translation makes \(P_Q\) a smooth
+\(\Lambda[G_Q]\)-module. The compatible actions (CA6)
+give a single homomorphism
+\[
+ \alpha_Q:\mathcal R_Q\longrightarrow
+                  \operatorname{End}_\Lambda(P_Q),
+ \quad
+ \alpha_Q(\lambda_Q(a))z=az,\quad
+ \alpha_Q(t)\rho(g)z=\rho(g)\alpha_Q(t)z .                 \tag{CA8}
+\]
+The last equality follows first for the generators of the
+selected Hecke algebra and then for the universal ring
+by the just-proved uniqueness. Thus (CA8) is a genuine
+action on the smooth union, not a collection of unrelated
+actions on finite modules.
+
+Let \(h_Q:\Gamma_Q\to\Gamma_0\) be the natural map obtained
+by imposing unramifiedness at the auxiliary places.
+The base pair pulled back by \(h_Q\) gives
+\[
+ \beta_Q:\mathcal R_Q\longrightarrow\mathcal B_0,
+ \quad
+ D_Q\otimes_{\beta_Q}\mathcal B_0=D_0\circ h_Q,\quad
+ \psi_Q\otimes_{\beta_Q}\mathcal B_0=\psi_0 .              \tag{CA9}
+\]
+At maximal auxiliary compact level there is an integral
+identification
+\[
+ P_Q^{K_Q^{\max}}=M_0,\qquad
+ \alpha_Q(t)|_{M_0}=\beta_Q(t)|_{M_0}.                    \tag{CA10}
+\]
+The first equality is the function-space fixed-vector
+identity before localization. Localization preserves it:
+a spherical auxiliary eigenpacket with the prescribed
+residual determinant away \(S\cup Q\) has, by Chebotarev,
+the same residual determinant everywhere that it is
+unramified. Its missing auxiliary spherical residual
+Hecke coefficients are therefore precisely the original
+ones. Hence the two residual localizations agree.
+For the second equality, compare the two Hecke actions on
+\(M_0\). They agree on the Frobenius polynomials and,
+by (CA3)--(CA4), on all local characters. The universal
+property gives their equality. In particular the base
+annihilator in (CA10) is always the single ideal \(J_0\).
+
+For the Taylor--Wiles subgroups \(U_1\triangleleft U_0\)
+at \(Q\), the earlier ordinary-module construction gives
+\[
+ P_Q^{U_1}\text{ finite over }\Lambda,\qquad
+ P_Q^{U_1}\text{ projective over }\Lambda[U_0/U_1].
+                                                               \tag{CA11}
+\]
+Together, (CA7)--(CA11) supply every ring, weight, finiteness,
+projectivity and base-action field of the source
+\srcid{LevMod}. Projectivity is the integral assertion
+of Lemma~\ref{lem:ordinary-aux-projective}, not a deduction
+from characteristic-zero dimensions.
+
+\paragraph{The actual classical points of the smooth union.}
+Fix an isomorphism
+\(\iota:\overline{\mathbb Q}_\ell\simeq\mathbb C\).
+For \(z\ne0\) in \(P_Q\), choose \(K\) with
+\(z\in M_Q(K)\) and a classical detector at which \(z\)
+survives. Choose an automorphic constituent and an ordered
+ordinary refinement with nonzero projection of this
+vector. Let \(\pi\) be its smooth auxiliary representation,
+including its multiplicity space, and let
+\[
+ {\rm sp}:P_Q\longrightarrow Y
+\]
+be projection to this classical isotypic part after
+specialization and extension through \(\iota\).
+This map is additive and auxiliary-equivariant. Because
+the action (CA8) was constructed from the same Hecke
+operators, there are a scalar character
+\(x:\mathcal R_Q\to\overline{\mathbb Q}_\ell\) and a
+continuous semisimple Galois representation \(r_x\) such that
+\[
+ \begin{split}
+ {\rm sp}(z)&\ne0,\\
+ {\rm sp}(\alpha_Q(t)y)&=\iota(x(t))\,{\rm sp}(y),\\
+ {\rm sp}(\rho(g)y)&=\pi(g){\rm sp}(y),\\
+ D_Q\otimes_x\overline{\mathbb Q}_\ell&=\det r_x .
+ \end{split}                                                \tag{CA12}
+\]
+For each \(v\in Q\), the restriction of \(Y\) to the local
+factor is an isotypic sum of its irreducible local
+constituent \(\pi_v\).
+The Weil--Deligne compatibility already checked after
+(CA5) is exactly the local compatibility field required
+in \srcid{LevPtAlt}. Equations (CA12), for every nonzero
+\(z\), prove \srcid{ClassicalAlt}.
+They also explain why the same coefficient lattice and
+the ramified ordinary flag are needed in this assertion.
+
+We spell out the remaining arithmetic coefficient
+identity in the old/new maps.
+At an auxiliary place \(v\), let \(q_v\) be its residue
+cardinality, \(\phi_v\) its chosen Frobenius, and
+\(\Theta_v(t_i)\) the normalized torus operators on the
+common unipotent-fixed module.
+On its maximal-compact submodule,
+\[
+ e_k\bigl(q_v^0\Theta_v(t_0),\ldots,
+          q_v^{n-1}\Theta_v(t_{n-1})\bigr)
+       =D_Q^{[k]}(\phi_v)\quad(0\leq k\leq n).             \tag{CA13}
+\]
+Here \(D_Q^{[k]}\) denotes the signed characteristic
+coefficient convention used by the determinant;
+the \(q_v^i\) are the same normalizations as in the
+old/new polynomial action.
+To prove (CA13), apply every map \({\rm sp}\) in (CA12).
+If the vector has zero image, both sides vanish on it.
+Otherwise its maximal-compact invariance makes
+\(\pi_v\) spherical. The Satake relation and local
+compatibility identify the \(n\) normalized torus
+characters with the roots of
+\(\det(X-r_x(\phi_v))\). Vieta's formula gives (CA13)
+over \(\mathbb C\).
+Classical separation in (CA12) gives the integral
+identity. Thus (CA13) is the arithmetic coefficient
+comparison required by
+Proposition~\ref{prop:concrete-two-maps}.
+
+The geometric lemma, tame local description and finite
+torus weight set now give the auxiliary relation ideal
+with the uniform exponent of
+Lemma~\ref{lem:torus-uniform-nil}.
+For ranks two and three one may take \(n!\).
+The intertwining maps are the actual two maps of
+Proposition~\ref{prop:concrete-two-maps}, and their base
+specializations are (CA10).
+There is no change of \(J_0\) in passing from these
+polynomial relations to the Taylor--Wiles modules.
+
+At \(v_0\), the determinant in every classical detector
+is unramified. Here one must use the scalar residual
+Frobenius and
+\(\bar\varepsilon(\phi_{v_0})=-1\) from the constructed
+packet, together with the matrix \(N4\) argument.
+Wild inertia has trivial residual action and maps
+trivially to the pro-\(\ell\) congruence kernel.
+For tame \(\ell\)-inertia the Frobenius conjugation
+relation, scalar residual Frobenius, and
+\(q_{v_0}\equiv-1\pmod\ell\) give the contraction
+\(Y=T\,V^{-n}YQ\), with \(V\) invertible and \(T\)
+topologically nilpotent, from the \(N4\) calculation.
+Thus inertia is trivial. Detector separation gives
+\[
+ (D_0\bmod J_0)\text{ kills the closed inertia ideal at }v_0.
+                                                               \tag{CA14}
+\]
+Neatness of the automorphic level alone would not prove
+(CA14).
+
+\begin{srproposition}[The arithmetic input for the common support calculation]
+\label{prop:common-ordinary-actual-input}
+For the constructed rank-two and rank-three packets,
+the fixed ordinary Hecke ideal \(J_0\) admits the
+Taylor--Wiles modules, comparison maps, coefficient
+identities and uniform nilpotent relations on the
+single base ring \(\mathcal B_0\) described in
+(CA6)--(CA14). These data satisfy the exact
+\srcid{HasAut} input of the common completed-support
+calculation.
+Consequently, using the arithmetic trace, obstruction
+and prime-choice results of
+Sections~\ref{sec:arithmetic-first-selmer},
+\ref{sec:arithmetic-second-selmer} and
+\ref{sec:arithmetic-tw-tower}, this same \(J_0\)
+satisfies the characteristic-\(\ell\) conclusions
+\srcid{P1core} and \srcid{P3core}.
+\end{srproposition}
+
+\begin{proof}
+The first assertion is (CA6)--(CA13), (CA11) supplying
+integral projectivity and (CA12) supplying the joint
+classical detector family.
+For any fixed finite list of nice curve points, normalize
+their ordered eigenlines over finite coefficient
+extensions and use the single Taylor--Wiles system of
+Section~\ref{sec:arithmetic-tw-tower}.
+Its coefficient-field extension can be chosen to have
+one common finite cardinality for the entire list.
+The trace detectors and obstruction estimates give
+the two finite-level Selmer bounds for that same
+system. The limit retains the original odd Selmer
+generators and their stated spanning property; hence
+Proposition~\ref{prop:tw-limit-coh} supplies its actual
+limit cohomology and specialization maps.
+
+Apply Proposition~\ref{prop:sr-one-patched-module} to
+these modules. The completed support and its chain
+are those of Proposition~\ref{prop:sr-completed-support-chain}.
+At a type-I point use the ordinary Selmer presentation;
+at a paired exceptional point use
+Theorem~\ref{thm:selmer-paired-pres} and the completed
+paired realization of Proposition~\ref{prop:paired-ch-realization}.
+The arithmetic inclusion \((*)\) in that completed-support
+chain is discharged in
+Section~\ref{subsec:sr-same-completion-galout}:
+the one added formal weight variable maps to the selected
+curve parameter, so the regular weight completion has
+dimension \(1+nd\). The \(n|Q|\) auxiliary variables
+give support dimension \(1+nd+n|Q|=1+D_0\), exactly the
+bound \(D_0=nd+n|Q|\) in the first-Selmer calculation.
+The coefficient DVR section and the first-/second-order
+tests are those in this same completion.
+Lemma~\ref{lem:sr-ordinary-presentation-prime} gives the
+single-block inclusion; the odd-product detector,
+Corollary~\ref{cor:paired-nonss}, and
+Lemma~\ref{lem:sr-paired-presentation-prime} give the
+paired inclusion from the actual Selmer presentation.
+Thus the application does not assume \((*)\).
+The cross-cocycle finiteness and the closed
+Cayley--Hamilton quotient required there are supplied
+by Proposition~\ref{prop:sr-finite-CH}.
+The closure is the joint profinite-group and adic
+closure used in that proposition.
+
+All modules in this step are the modules of (CA8);
+the distinguished maximal-compact fiber is \(M_0\)
+by (CA10). Thus annihilator transport and coefficient
+descent return the original \(J_0\).
+Faithful flatness of the finite coefficient extension
+allows descent to the original \(\mathcal O\).
+The completed support chain gives the two assertions:
+at a type-I curve, every specialization of its kernel
+under consideration lies in the support of \(J_0\);
+for a finite chain of exceptional curves, the same
+holds with the specified nonsemisimple closed
+Cayley--Hamilton quotients. These are precisely
+\srcid{P1core} and \srcid{P3core}.
+No residual Bernoulli-unit or residual unramified
+cohomology-vanishing assertion enters this construction.
+\end{proof}
+
+\paragraph{Exact source trace.}
+The finite-level coefficient construction above
+reconstructs
+\srcid{TCoreSep.coreSep\_coord} and
+\srcid{TCoreSep.coreSep\_kill},
+\srcid{TCoreDet.coreDet\_alt},
+\srcid{LevelUR2Compat.level\_change\_compat\_rank\_two\_of\_dense\_weight},
+\srcid{LevelUR2ActEx.levelUR2ActEx\_alt},
+\srcid{LevelUR2BaseEq.levelUR2BaseEq\_alt},
+\srcid{LevelUR2SmulKey.levelUR2SmulKey\_alt}, and
+\srcid{NonemptyUnitaryHeckeParts.levelUR2ModPack\_alt}
+under
+\srcid{ModularityArgument.ThresholdArguments.DenseThresholdCases}.
+Despite some source names, their displayed statements
+are rank-\(n\) statements.
+The coefficient identity (CA13) is
+\srcid{SymOfVieta.symOf\_alt};
+the two-map and uniform-relation assembly is
+\srcid{THasAutOf.has\_automorphy\_of\_statement}.
+The final common support descent is the actual chain
+\srcid{SeparableMatrixStability.LiftPt.core}
+\(\longrightarrow\)
+\srcid{CoreBC}
+\(\longrightarrow\)
+\srcid{RawMain.raw\_main}
+\(\longrightarrow\)
+\srcid{ChebotarevFamilies.PFromAutOf.chain\_of}
+and \srcid{pFromAut\_of}.
+These source names specify provenance; the construction
+and comparison needed at each arrow have been given above.
+
+\subsection{The same completed ring in the local support inclusion}
+\label{subsec:sr-same-completion-galout}
+
+We spell out the local inclusion used in
+Proposition~\ref{prop:common-ordinary-actual-input}.
+This also constructs the coefficient section required in
+Theorem~\ref{thm:selmer-paired-pres}.
+
+At a selected normalized curve, extend the coefficient DVR once
+so that its residue field is the curve's finite field \(k\).
+Write \(A_0=k[[T]]\), \(F=k((T))\).
+Let \(R\) be the single enlarged coefficient ring of the common
+patched module, let \(I\) be its already imposed relation ideal,
+and let
+\[
+ B_0=R/I,\qquad f:B_0\twoheadrightarrow A_0,\qquad
+ B=\widehat{(B_0)_{\ker f}} .
+\]
+The point supplies \(s\in B_0\) with \(f(s)=T\).
+All determinants and characters below are the pair over this
+\(B_0\), extended to this \(B\).
+Neither \(B\) nor \(I\) is replaced by the image algebra of an
+auxiliary automorphic module.
+
+\paragraph{An explicit compatible coefficient DVR.}
+Choose a uniformizer \(\pi\) of \(\mathcal O\).
+The continuous evaluation \(Z\mapsto s\) defines
+\(\mathcal O[[Z]]\to B_0\).
+Its composite with \(f\) is coefficient reduction followed by
+\(Z\mapsto T\); its kernel is exactly \((\pi)\).
+The residue field of \(B\) is \(F\):
+localization inverts every nonzero element of \(A_0\), and the
+surjectivity of \(f\) supplies every such fraction.
+Consequently the inverse image of \(\mathfrak m_B\) in
+\(\mathcal O[[Z]]\) is \((\pi)\).
+Evaluation therefore extends to a local map
+\[
+ \mathcal O_0=
+    \widehat{\mathcal O[[Z]]_{(\pi)}}\longrightarrow B .
+ \tag{LCJ1}
+\]
+The localization is a DVR, since \(\mathcal O[[Z]]\) is regular
+and \((\pi)\) is a height-one prime.
+Its completion \(\mathcal O_0\) is a complete DVR with residue
+field \(F\), and (LCJ1) induces the identity on \(F\).
+Extension of the map uses completeness of \(B\);
+a \(\pi\)-adic Cauchy sequence maps to a
+\(\mathfrak m_B\)-adic Cauchy sequence.
+
+This section has all three required compatibilities.
+Coefficientwise lifts in \(\mathcal O[[Z]]\) of an arbitrary
+element of \(k[[T]]\) give a common lift in \(\mathcal O_0\) and
+\(B_0\); constants give the original \(\mathcal O\)-lifts;
+and \(Z\) maps to the specified element \(s\).
+Thus the section assumptions in the finite-test boundedness
+argument of Theorem~\ref{thm:selmer-paired-pres} hold here
+without an additional coefficient-field assumption.
+This is the explicit construction in
+\srcid{SelmerScaling.OoExKer.ooEx}.
+
+\paragraph{The dimension is the same integer as in the Selmer bound.}
+Adjoin the one formal variable \(S\) to the weight ring and to
+all common modules before patching; the curve map sends \(S\)
+to \(T\).
+This formal extension preserves freeness, the two control
+maps, their uniform annihilator relations, and the extended
+base ideal \(J_0\).
+The augmented weight ring is
+\[
+ \Lambda^\dagger=\mathcal O[[S,X_1,\ldots,X_{nd}]] .
+\]
+It has dimension \(nd+2\).
+Its map to \(k[[T]]\) is surjective because \(S\mapsto T\),
+so the quotient by its kernel has dimension one.
+Regularity and the dimension formula show that completion at
+this kernel is regular of dimension \(nd+1\).
+If the Taylor--Wiles system has \(q_{\rm TW}\) places, its
+\(nq_{\rm TW}\) auxiliary variables consequently give
+\[
+ \dim(\text{each completed support component})
+      =nd+1+nq_{\rm TW}=D_0+1,\qquad
+ D_0=nd+nq_{\rm TW}.
+ \tag{LCJ2}
+\]
+Here the first equality is precisely
+Lemma~\ref{lem:sr-patched-support-dimension}.
+The integer \(D_0\) on the right is precisely the first-Selmer
+bound for this same Taylor--Wiles system, as supplied by
+Proposition~\ref{prop:tw-limit-coh}.
+This is the dimension matching of
+\srcid{AnnihilatorBaseChange.LaDimArith.laDim}.
+In particular the dimension threshold is not obtained by
+completing the unaugmented weight ring and discarding its
+one-dimensional curve quotient.
+
+\paragraph{The actual local inclusion.}
+The finite closed Cayley--Hamilton construction and
+Proposition~\ref{prop:paired-ch-realization}, applied over
+\(B_0\) and then extended to \(B\), give the algebra
+\(\mathcal A=B\oplus N\) and its actual representation.
+The point's block span is the residue span used in that
+proposition.  Its two cases are the one-block case and the
+paired-block case.
+The finite group/adic closure was imposed in \(B_0\) before
+scalar extension; hence the kernel comparison is the one
+required in Corollary~\ref{cor:paired-nonss}.
+
+Take primes \(Z,Q\subset B\) occurring in the completed
+support chain, with \(Z\) stable and
+\(\dim B/Z\ge D_0+1\), and suppose that \(Q\) is stable or
+has the specified nonsemisimple closed Cayley--Hamilton
+quotient.
+The actual limit cohomology gives the three Laurent inputs
+of Theorem~\ref{thm:selmer-paired-pres}, with bound \(D_0\).
+The section (LCJ1) and the finite-lattice continuity already
+proved for the closed algebra verify its remaining hypotheses.
+
+In the one-block case \(N=0\), that theorem gives
+\[
+ \mathfrak m_B\subset
+   (X_1,\ldots,X_{D_0})+\mathfrak m_{\mathcal O_0}B+
+                                      \mathfrak m_B^2 .
+\]
+Lemma~\ref{lem:sr-ordinary-presentation-prime} gives \(Z=0\),
+hence \(Z\subseteq Q\).
+
+In the paired-block case put \(I_{\rm odd}=(NN)\subset B\).
+Lemma~\ref{lem:sr-odd-product-detector} makes stability at
+\(Z\) imply \(I_{\rm odd}\not\subseteq Z\).
+At \(Q\), stability gives \(I_{\rm odd}\not\subseteq Q\);
+the nonsemisimple alternative instead gives
+\(\operatorname{Ann}_B N\subseteq Q\), by
+Corollary~\ref{cor:paired-nonss}.
+Theorem~\ref{thm:selmer-paired-pres} gives the independent
+coefficient rows and the relations required by
+Lemma~\ref{lem:sr-paired-presentation-prime}.
+That lemma gives \(Z\subseteq Q\) in both alternatives.
+
+This proves exactly the local inclusion \((*)\) of
+Proposition~\ref{prop:sr-completed-support-chain}.
+Its stable and nonsemisimple predicates are those of the
+same extended determinant, and (LCJ2) gives its actual
+dimension threshold.
+All its hypotheses now refer to the single ring \(R\), the
+single relation ideal \(I\), and the same common module.
+Thus the chain's annihilator transport returns the original
+base Hecke ideal \(J_0\).
+Together with (CA6)--(CA14), this supplies the local
+component-inclusion step used for \srcid{P1core} and
+\srcid{P3core}; it is not a further automorphy hypothesis.
