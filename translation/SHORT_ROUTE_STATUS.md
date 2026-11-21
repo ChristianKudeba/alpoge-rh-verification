@@ -1,6 +1,6 @@
 # Ordinary RH through fourth-power samples
 
-The current single [310-page PDF](https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444) is pinned to source commit `6ea985a68c17c0c38d2c92d47becfd87826c3640`.
+The current single [347-page PDF](https://principia-math.com/api/ws/files/abbc587cbe529d1d0d337a66f4552119) is pinned to source commit `eb4a9b483869b4b3c07606d80375cc58534e3cfd`.
 
 This is a working exposition, **not a completed standalone unconditional proof of RH**.
 

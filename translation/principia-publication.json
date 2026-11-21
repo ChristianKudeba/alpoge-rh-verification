@@ -4,54 +4,54 @@
   "paper_page": "https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper",
   "status": "Published consolidated working manuscript; mathematical proof remains incomplete",
   "canonical_pdf": {
-    "id": "1bda9b6e2d268b4151aa70c7d053c444",
+    "id": "abbc587cbe529d1d0d337a66f4552119",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 2782992,
-    "url": "https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444",
+    "size": 3062998,
+    "url": "https://principia-math.com/api/ws/files/abbc587cbe529d1d0d337a66f4552119",
     "attached": {
-      "id": "940ebe823531b72d90560177038ee4a7",
+      "id": "839b76c37ed226722a6ec215bb9d4362",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 310,
-    "verified_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
-    "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+    "pages": 347,
+    "verified_sha256": "00f9d7a1311995a462a0a7c34c304895e6d7a233e7e94310ec659b3d40818e87",
+    "source_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
     "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size"
   },
   "canonical_latex_master": "alpoge-rh-working-translation.tex",
   "source_files": [
     {
       "path": "alpoge-translation/arithmetic.tex",
-      "bytes": 370329,
-      "sha256": "49471203c4163e47f59808aa1a31bac459e72dedd5144712bb9e0aba48af2126",
+      "bytes": 402672,
+      "sha256": "ce33683fa6aa9dc7f7c5fe3d37be7ad799196bc76026279e2d621af82e579a2c",
       "file_id": "c3e3338d13685e0a6803c622713a922b",
-      "updated_at": 1795297664362
+      "updated_at": 1795299404724
     },
     {
       "path": "alpoge-translation/theta-and-geometry.tex",
-      "bytes": 363561,
-      "sha256": "e507ea234a4400375321b6d764915db542e9544826df291e0b7c6c52533222af",
+      "bytes": 403957,
+      "sha256": "e5ae90b0082128cbf090d529a689a1e5c5b76a7df043e91534c9680fc076a6cf",
       "file_id": "b7608052b93602f39ba6d6627f506a81",
-      "updated_at": 1795297674894
+      "updated_at": 1795299417557
     },
     {
       "path": "alpoge-translation/prime-sums-and-zeros.tex",
-      "bytes": 359829,
-      "sha256": "edaf5aa3759445c835de7d0c6fd738117ef66887b69d7e72c268971b9c7a75de",
+      "bytes": 403699,
+      "sha256": "aa0a102a7191f89987574f858f74ece3bb1a0cbebae7bb019a9d78c2da4faf40",
       "file_id": "b2a369c30823d8ea8d0edb2a807767c1",
-      "updated_at": 1795297687866
+      "updated_at": 1795299427014
     },
     {
       "path": "alpoge-rh-working-translation.tex",
-      "bytes": 354280,
-      "sha256": "f8ef8f5c23db92c4c0f9c0a560946c30c59b4df7d29517db5ab0f4d41c0dc14d",
+      "bytes": 409840,
+      "sha256": "f4678601190be76b5cf0ec8131d9a4cdf9da59e2cb163a04937ebfeaf612e9aa",
       "file_id": "9c8cc33a546414334e2d4da3aade5210",
-      "updated_at": 1795297696287
+      "updated_at": 1795299436336
     }
   ],
   "expanded_source": {
-    "bytes": 1447855,
-    "sha256": "8514a84987d052f69a12aa8fbe1ffb21702cfc6f3270ef9a3cabb582bb720e5b"
+    "bytes": 1620024,
+    "sha256": "7d1bc42cbbf63306cb73cd62d8edeb2c88df565c737d9aca28b41424a82396cd"
   },
   "removed_superseded_files": [
     {
@@ -99,40 +99,40 @@
   },
   "paper_stage_completion_unchanged": true,
   "previous_pdf": {
-    "id": "e7637127b4253ed4e1a910a0fbaab5ef",
+    "id": "1bda9b6e2d268b4151aa70c7d053c444",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 2069934,
-    "url": "https://principia-math.com/api/ws/files/e7637127b4253ed4e1a910a0fbaab5ef",
+    "size": 2782992,
+    "url": "https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444",
     "attached": {
-      "id": "2b82796e0ffbad16f3f9a74c4105ebf9",
+      "id": "940ebe823531b72d90560177038ee4a7",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 214,
-    "verified_sha256": "e73bdd9a009d26764e794379a895c30fa322dc3579f1c04407bbb76e1e9a394b",
-    "source_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
-    "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size"
+    "pages": 310,
+    "verified_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
+    "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+    "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size"
   },
   "title_credit": "with reductions from Principia contributors",
   "expanded_source_matches_compiled_release": true,
   "source_readback_matches_generated_text": true,
   "document_checks": {
-    "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+    "source_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
     "status": "working exposition; character estimates and connected geometric supply unproved",
-    "pages": 310,
+    "pages": 347,
     "supporting_part_start_pages": [
-      151
+      188
     ],
     "title_credit_check": "passed",
     "reference_and_glyph_check": "passed",
     "distributed_and_flattened_text": "identical",
     "words_outside_page": [],
     "box_warnings": [
-      "Underfull \\hbox (badness 10000) in paragraph at lines 20326--20336\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
-      "Underfull \\hbox (badness 1533) in paragraph at lines 20800--20802\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
+      "Underfull \\hbox (badness 10000) in paragraph at lines 24584--24594\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
+      "Underfull \\hbox (badness 1533) in paragraph at lines 25058--25060\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
     ],
-    "pdf_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
-    "tex_sha256": "8514a84987d052f69a12aa8fbe1ffb21702cfc6f3270ef9a3cabb582bb720e5b",
+    "pdf_sha256": "00f9d7a1311995a462a0a7c34c304895e6d7a233e7e94310ec659b3d40818e87",
+    "tex_sha256": "7d1bc42cbbf63306cb73cd62d8edeb2c88df565c737d9aca28b41424a82396cd",
     "contact_sheets": [
       "contact-01.png",
       "contact-02.png",
@@ -159,7 +159,10 @@
       "contact-23.png",
       "contact-24.png",
       "contact-25.png",
-      "contact-26.png"
+      "contact-26.png",
+      "contact-27.png",
+      "contact-28.png",
+      "contact-29.png"
     ]
   },
   "current_manuscript_count": 1,
@@ -231,11 +234,29 @@
       "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size",
       "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-e52042ab25cc04c0c282c1caa55b311fafc6374b",
       "replaced_attachment_removed": true
+    },
+    {
+      "id": "1bda9b6e2d268b4151aa70c7d053c444",
+      "filename": "alpoge-rh-consolidated-manuscript.pdf",
+      "content_type": "application/pdf",
+      "size": 2782992,
+      "url": "https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444",
+      "attached": {
+        "id": "940ebe823531b72d90560177038ee4a7",
+        "path": "alpoge-rh-consolidated-manuscript.pdf"
+      },
+      "pages": 310,
+      "verified_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
+      "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+      "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size",
+      "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-6ea985a68c17c0c38d2c92d47becfd87826c3640",
+      "replaced_attachment_removed": true
     }
   ],
   "remaining_inputs": [
-    "Uniform polynomial bounds in the two character estimates; individual finiteness and a nonuniform common-integer bound are proved",
-    "Connected geometric construction with compatible theta, local and metric inputs on the same windows"
+    "Compatible nice-curve/link selection, rank3 seed/support insertion and quadratic automorphic descent with full local level data",
+    "Theta quotient matching and rank recursions, ramified matching and local integral-model/reached-section calculus",
+    "Uniform algebraic-point height lower bound and compatible integral root-tower construction on common windows"
   ],
   "new_components": [
     "Global high-twist bound via integral homology with exponent 24, all coefficient primes",
@@ -247,7 +268,11 @@
     "Finite Cayley–Hamilton quotient, paired coefficient algebra and Laurent Selmer presentation conversion",
     "Ordinary function modules, classical control, integral old/new maps and nilpotence exponent n!",
     "CaseII induced seed and Gaussian local rigidity with remaining arithmetic realization inputs explicit",
-    "Fixed ambient theta system, phase normalization, heat jets, frame-slab reproduction and denominator assembly"
+    "Fixed ambient theta system, phase normalization, heat jets, frame-slab reproduction and denominator assembly",
+    "Finite-level arithmetic first/second Selmer bounds, finite trace detectors and actual Taylor–Wiles common group limit",
+    "Rank3 selected-curve regularity with closed-zero-set/minor proof and all-ranks N4 from V0ok",
+    "Actual CaseII Hecke quotient and integral interpolation; residual Speh exclusion and exact ordinary normalization",
+    "Normalized classical anisotropic doubling inputs, canonical mean Cu=4 and exact quadratic CM elliptic period witness"
   ],
   "new_prose_independently_refereed": false,
   "new_prose_separately_formalized": false,
