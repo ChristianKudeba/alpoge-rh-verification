@@ -1,4 +1,5 @@
 import Mathlib
+import Lemmata.SubmersionNormalForm
 
 noncomputable section
 
@@ -17,37 +18,10 @@ def SubmLB : Prop :=
 theorem submLB_holds : SubmLB := by
   intro n m μ ν hμ hν f hf x0 hx0 W hW hxW
   let A := fderiv ℝ f x0
-  obtain ⟨B, hB⟩ := A.exists_rightInverse_of_surjective (LinearMap.range_eq_top.2 hx0)
-  have hRI : Function.RightInverse B A := fun y => by
-    simpa using congrArg (fun L : (Fin m → ℝ) →L[ℝ] (Fin m → ℝ) => L y) hB
-  let T := ContinuousLinearEquiv.equivOfRightInverse A B hRI
-  have hT1 : ∀ x, (T x).1 = A x := fun x => rfl
+  obtain ⟨T, hT1, hΘc, hfA, hid, hs⟩ := SubmersionNormalForm.exists_normalFormAt hf x0 hx0
   let Θ : (Fin n → ℝ) → (Fin n → ℝ) := fun x => T.symm (f x, (T x).2)
-  have hΘc : ContDiff ℝ 1 Θ :=
-    T.symm.contDiff.comp (hf.prodMk (contDiff_snd.comp T.contDiff))
-  have hfA : ∀ x, A (Θ x) = f x := by
-    intro x
-    rw [← hT1]; simp [Θ]
   have hd : ∀ x, HasFDerivAt Θ (fderiv ℝ Θ x) x :=
     fun x => ((hΘc.differentiable one_ne_zero) x).hasFDerivAt
-  have hid : fderiv ℝ Θ x0 = ContinuousLinearMap.id ℝ (Fin n → ℝ) := by
-    let P := (ContinuousLinearMap.snd ℝ (Fin m → ℝ) A.ker).comp T.toContinuousLinearMap
-    have hP : HasFDerivAt (fun x => (T x).2) P x0 := P.hasFDerivAt
-    have h1 : HasFDerivAt (fun x => (f x, (T x).2)) ((fderiv ℝ f x0).prod P) x0 :=
-      ((hf.differentiable one_ne_zero) x0).hasFDerivAt.prodMk hP
-    have h2 := T.symm.toContinuousLinearMap.hasFDerivAt.comp x0 h1
-    rw [show fderiv ℝ Θ x0 = T.symm.toContinuousLinearMap.comp ((fderiv ℝ f x0).prod P) from
-      h2.fderiv]
-    ext1 y
-    change T.symm ((fderiv ℝ f x0) y, (T y).2) = y
-    have : ((fderiv ℝ f x0) y, (T y).2) = T y := Prod.ext (hT1 y).symm rfl
-    rw [this, ContinuousLinearEquiv.symm_apply_apply]
-  have hs : HasStrictFDerivAt Θ
-      ((ContinuousLinearEquiv.refl ℝ (Fin n → ℝ) : (Fin n → ℝ) ≃L[ℝ] (Fin n → ℝ)) :
-        (Fin n → ℝ) →L[ℝ] (Fin n → ℝ)) x0 := by
-    have := hΘc.contDiffAt.hasStrictFDerivAt (x := x0) one_ne_zero
-    rw [hid] at this
-    exact this
   let PH := hs.toOpenPartialHomeomorph Θ
 
   have hO : IsOpen (PH.source ∩ W) := PH.open_source.inter hW

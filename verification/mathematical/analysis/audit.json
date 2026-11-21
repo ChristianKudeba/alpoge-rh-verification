@@ -1,0 +1,65 @@
+{
+  "source_commit": "82828c35242b4e5778c2ae1a4e7764026b1766c2",
+  "path": "src/GroundTheory/AutomorphicForms/ArchimedeanWhittaker/WronskianEqZeroOfModerate.lean",
+  "theorem": "GroundTheory.Automorphic.ArchWhittaker.tendsto_zero_of_moderate",
+  "before": {
+    "physical_lines": 429,
+    "nonblank_lines": 400,
+    "utf8_bytes": 21552,
+    "sha256": "166be3687324f953a16596a2da001673f4e26d96dc246f971e4cd6f43a217a88"
+  },
+  "after": {
+    "physical_lines": 402,
+    "nonblank_lines": 376,
+    "utf8_bytes": 20323,
+    "sha256": "81c1bb4e4d19cad3373536d8e616eaccd580c34271b604b06bb1bde8fa54e5aa"
+  },
+  "branch_before": {
+    "physical_lines": 82,
+    "nonblank_lines": 79,
+    "utf8_bytes": 4302,
+    "sha256": "737984192e0070cc454fc73c589fe8b20090c64c3f0aa7f94eb1bf5129fd44c9"
+  },
+  "branch_after": {
+    "physical_lines": 55,
+    "nonblank_lines": 55,
+    "utf8_bytes": 3073,
+    "sha256": "e4a9ee320fe13006da45116d38c3db54a9a6bf41602c93284a2e66af5255d5f6"
+  },
+  "theorem_before": {
+    "physical_lines": 147,
+    "nonblank_lines": 142,
+    "utf8_bytes": 7713,
+    "sha256": "a8cbd2079875f76f9045380a3079e2748012509bd9a90b24e1120e5847ebc9dd"
+  },
+  "theorem_after": {
+    "physical_lines": 120,
+    "nonblank_lines": 118,
+    "utf8_bytes": 6484,
+    "sha256": "cbfee5ddfef4399337eb860dd838418c0f48efe96bbd6d0d7da73c30d0f8f0ed"
+  },
+  "unchanged_signature_count": 10,
+  "exact_signature_check": true,
+  "only_selected_proof_branch_changed": true,
+  "mathematical_change": {
+    "before": "Use monotonicity of Q=(u')\u00b2\u22122c\u00b2u\u00b2, define an energy constant K0 and explicit threshold y2, prove cu\u2264u' after that threshold, and derive exponential growth of u.",
+    "after": "For u=norm(f)\u00b2, use convexity to bound u'(y)\u2264u(y+1). The quantity v=u'+cu satisfies v'\u2265cv. Thus v grows at least exponentially if u' is ever positive, but the secant bound and moderate growth of u give a polynomial upper bound, contradiction.",
+    "preserved": "Negative-derivative decay argument, theorem assumptions/conclusion, all other helper proofs, imports and downstream theorems are unchanged."
+  },
+  "verification": {
+    "check_id": "bed623292d3cbcb103ca8df9e0ccdb51",
+    "result": "closed",
+    "sorries": 0,
+    "scope": "Whole 402-line replacement module under original package Lean options and namespace; axiom inventory for changed theorem.",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "snippet": "check-wronskian.lean",
+    "snippet_sha256": "ca89cd6ab2f57166e78dba7eda34f8f712320a5c8e551078bc2caa374a7e5eff",
+    "raw_result": "check-final-result.json"
+  },
+  "limits": "Hosted module check is not a full RH/GRH Comparator pass.",
+  "applied_to_source": true
+}

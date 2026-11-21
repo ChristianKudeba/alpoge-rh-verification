@@ -27,95 +27,17 @@ def Fc (c : ℕ → ℂ) (ell : ℂ) (y : ℝ) : ℂ :=
 
 lemma Fc_lip (c : ℕ → ℂ) (hc : ∀ n, ‖c n‖ ≤ Λ n) (ell : ℂ) (y z : ℝ) (hy : 1 ≤ y) :
     ‖Fc c ell y - Fc c ell z‖ ≤ |y - z| * (Real.log (max y z) + (Real.log 4 + 4) + ‖ell‖) := by
-  have hyM : ⌊y⌋₊ ≤ ⌊max y z⌋₊ := Nat.floor_le_floor (le_max_left _ _)
-  have hzM : ⌊z⌋₊ ≤ ⌊max y z⌋₊ := Nat.floor_le_floor (le_max_right _ _)
-  have hmax1 : 1 ≤ max y z := le_trans hy (le_max_left _ _)
-  have hM1 : 1 ≤ ⌊max y z⌋₊ := Nat.le_floor (by simpa using hmax1)
-  have ty := truncC c y _ hyM
-  have tz := truncC c z _ hzM
-  unfold Fc
-  rw [ty, tz]
-  have e : (∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (y / n - 1) 0 : ℝ) : ℂ) + (y : ℂ) * ell)
-      - (∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (z / n - 1) 0 : ℝ) : ℂ) + (z : ℂ) * ell)
-      = ∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)
-        + ((y - z : ℝ) : ℂ) * ell := by
-    have : ∀ n : ℕ, c n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)
-        = c n * ((max (y / n - 1) 0 : ℝ) : ℂ) - c n * ((max (z / n - 1) 0 : ℝ) : ℂ) := by
-      intro n; push_cast; ring
-    simp only [this, Finset.sum_sub_distrib]
-    push_cast; ring
-  rw [e]
-  refine le_trans (norm_add_le _ _) ?_
-  have h1 : ‖∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)‖
-      ≤ |y - z| * Formalism.LogFactorialMertensBounds.A ⌊max y z⌋₊ := by
-    refine le_trans (norm_sum_le _ _) ?_
-    unfold Formalism.LogFactorialMertensBounds.A
-    rw [← Formalism.LogFactorialMertensBounds.Icc_one_eq_Ioc, Finset.mul_sum]
-    apply Finset.sum_le_sum
-    intro n hn
-    rw [Finset.mem_Icc] at hn
-    have hn0 : (0 : ℝ) < n := by exact_mod_cast hn.1
-    rw [norm_mul, Complex.norm_real, Real.norm_eq_abs]
-    have ha : |max (y / n - 1) 0 - max (z / n - 1) 0| ≤ |y - z| / n := by
-      refine le_trans (abs_max_sub_max_le_abs _ _ _) ?_
-      have : y / n - 1 - (z / n - 1) = (y - z) / n := by ring
-      rw [this, abs_div, abs_of_pos hn0]
-    calc ‖c n‖ * |max (y / n - 1) 0 - max (z / n - 1) 0|
-        ≤ Λ n * (|y - z| / n) := mul_le_mul (hc n) ha (abs_nonneg _) ArithmeticFunction.vonMangoldt_nonneg
-      _ = |y - z| * (Λ n / n) := by ring
-  have h2 : ‖((y - z : ℝ) : ℂ) * ell‖ = |y - z| * ‖ell‖ := by
-    rw [norm_mul, Complex.norm_real, Real.norm_eq_abs]
-  have h3 := Formalism.LogFactorialMertensBounds.mertens_upper _ hM1
-  have h4 : Real.log (⌊max y z⌋₊ : ℝ) ≤ Real.log (max y z) :=
-    Real.log_le_log (by exact_mod_cast hM1) (Nat.floor_le (by linarith))
-  rw [h2]
-  have h5 : |y - z| * Formalism.LogFactorialMertensBounds.A ⌊max y z⌋₊ ≤ |y - z| * (Real.log (max y z) + (Real.log 4 + 4)) :=
-    mul_le_mul_of_nonneg_left (by linarith) (abs_nonneg _)
-  nlinarith
+  exact Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.smoothedSum_lip c hc ell y z hy
 
 lemma wFc (c : ℕ → ℂ) (ell : ℂ) (A w : ℝ) (hw : 0 < w) (M : ℕ) (hM : ⌊A / w⌋₊ ≤ M) :
     (w : ℂ) * Fc c ell (A / w)
       = ∑ n ∈ Icc 1 M, c n * ((max (A / n - w) 0 : ℝ) : ℂ) + (A : ℂ) * ell := by
-  have t := truncC c (A / w) M hM
-  unfold Fc
-  rw [t, mul_add, Finset.mul_sum]
-  congr 1
-  · apply Finset.sum_congr rfl
-    intro n hn
-    rw [Finset.mem_Icc] at hn
-    have hn0 : (n : ℝ) ≠ 0 := by
-      have : (0 : ℝ) < n := by exact_mod_cast hn.1
-      exact this.ne'
-    have : max (A / n - w) 0 = w * max (A / w / n - 1) 0 := by
-      rw [mul_max_of_nonneg _ _ hw.le, mul_zero]
-      congr 1
-      field_simp
-    rw [this]; push_cast; ring
-  · rw [← mul_assoc, ← Complex.ofReal_mul, mul_div_cancel₀ _ hw.ne']
+  exact Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.smoothedSum_scale c ell A w hw M hM
 
 lemma Fc_lipW (c : ℕ → ℂ) (hc : ∀ n, ‖c n‖ ≤ Λ n) (ell : ℂ)
     (A w w' : ℝ) (hA : 0 < A) (hw : 0 < w) (hw' : 0 < w') :
     ‖(w : ℂ) * Fc c ell (A / w) - (w' : ℂ) * Fc c ell (A / w')‖ ≤ 3 * A / min w w' * |w - w'| := by
-  have hμ : 0 < min w w' := lt_min hw hw'
-  rw [wFc c ell A w hw _ (floor_div_le hA.le hμ (min_le_left _ _)),
-    wFc c ell A w' hw' _ (floor_div_le hA.le hμ (min_le_right _ _)), add_sub_add_right_eq_sub,
-    ← Finset.sum_sub_distrib]
-  refine le_trans (norm_sum_le _ _) ?_
-  have hterm : ∀ n ∈ Icc 1 ⌊A / min w w'⌋₊,
-      ‖c n * ((max (A / n - w) 0 : ℝ) : ℂ) - c n * ((max (A / n - w') 0 : ℝ) : ℂ)‖ ≤ Λ n * |w - w'| := by
-    intro n _
-    rw [← mul_sub, ← Complex.ofReal_sub, norm_mul, Complex.norm_real, Real.norm_eq_abs]
-    have ha : |max (A / n - w) 0 - max (A / n - w') 0| ≤ |w - w'| := by
-      refine le_trans (abs_max_sub_max_le_abs _ _ _) ?_
-      have : A / n - w - (A / n - w') = -(w - w') := by ring
-      rw [this, abs_neg]
-    exact mul_le_mul (hc n) ha (abs_nonneg _) ArithmeticFunction.vonMangoldt_nonneg
-  refine le_trans (Finset.sum_le_sum hterm) ?_
-  rw [← Finset.sum_mul]
-  have := sum_vM_le (Y := A / min w w') (by positivity)
-  calc (∑ n ∈ Icc 1 ⌊A / min w w'⌋₊, Λ n) * |w - w'| ≤ (3 * (A / min w w')) * |w - w'| :=
-        mul_le_mul_of_nonneg_right this (abs_nonneg _)
-    _ = 3 * A / min w w' * |w - w'| := by ring
+  exact Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.smoothedSum_lip_scale c hc ell A w w' hA hw hw'
 
 lemma log_form {E : Type*} [NormedAddCommGroup E] (F : ℝ → E) (A : ℝ) (hA : 0 < A)
     (h : ∀ w w' : ℝ, 0 < w → 0 < w' → ‖F w - F w'‖ ≤ 3 * A / min w w' * |w - w'|)

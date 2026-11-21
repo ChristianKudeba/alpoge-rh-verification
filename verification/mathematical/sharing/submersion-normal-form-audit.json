@@ -1,0 +1,81 @@
+{
+  "changes": [
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerOrbitVolume/DensInfCV.lean",
+      "draft": "/workspace/principia-harness/a0564e7e/mathematical/sharing/StabilizerOrbitVolume-DensInfCV.proposed.lean",
+      "original_sha256": "a368f3a705ae9b49ff3d051c8afd29a4892beb00adde0352fd27cb4a2007a25b",
+      "original_lines": 132,
+      "candidate_lines": 15,
+      "existing_top_level_headers_preserved": true,
+      "imports_added": [
+        "Lemmata.SubmersionNormalForm"
+      ],
+      "new_sha256": "4ddb0e90ec80742ff9087ea9af8ebfcb1ede6e6518b76663fe366f9f9ad0f32e",
+      "exact_final_source_in_hosted_probe": true
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/DensInfCV.lean",
+      "draft": "/workspace/principia-harness/a0564e7e/mathematical/sharing/StabilizerVolume-DensInfCV.proposed.lean",
+      "original_sha256": "ea6230abdc00142c39eb9720b98c2b48a172e362dad8c6ff7f99d31abb159197",
+      "original_lines": 132,
+      "candidate_lines": 15,
+      "existing_top_level_headers_preserved": true,
+      "imports_added": [
+        "Lemmata.SubmersionNormalForm"
+      ],
+      "new_sha256": "a62fa2ecd141663e9175b0cc9d1c25110f83af850a630a9e3379c37de3e01b0d",
+      "exact_final_source_in_hosted_probe": true
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/WeilStabilizerVolume/DensInfCV.lean",
+      "draft": "/workspace/principia-harness/a0564e7e/mathematical/sharing/WeilStabilizerVolume-DensInfCV.proposed.lean",
+      "original_sha256": "b9f56c273dc0a7e8358158b38be584f7f966857d1e1d382d17fc1ce680333ad8",
+      "original_lines": 132,
+      "candidate_lines": 15,
+      "existing_top_level_headers_preserved": true,
+      "imports_added": [
+        "Lemmata.SubmersionNormalForm"
+      ],
+      "new_sha256": "1531a9532812ae0150be4670d8c955c8302cfd3a32ef463fbc6be4029f83212a",
+      "exact_final_source_in_hosted_probe": true
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerOrbitVolume/LBSubm.lean",
+      "draft": "/workspace/principia-harness/a0564e7e/mathematical/sharing/StabilizerOrbitVolume-LBSubm.proposed.lean",
+      "original_sha256": "f30c71959ce64bf7d5c00eaa42642b7a043a7358dbd5e0b420a0bcc0ec4a91f5",
+      "original_lines": 130,
+      "candidate_lines": 104,
+      "existing_top_level_headers_preserved": true,
+      "imports_added": [
+        "Lemmata.SubmersionNormalForm"
+      ],
+      "new_sha256": "57c811021092bfc9864c5d65c14cf879023bc112368a12108ca6dc3473c66a1b",
+      "exact_final_source_in_hosted_probe": true
+    }
+  ],
+  "new_helper_lines": 161,
+  "net_saved_lines": 216,
+  "mathematical_generalization": "One submersion normal-form theorem for an arbitrary real normed domain and a finite-dimensional real normed codomain, then one Haar local change-of-variables theorem additionally requiring a finite-dimensional domain; the original Euclidean statements become specializations.",
+  "validation": "Passed hosted check a052d45eadb2d35ad5dcd44fc8692ed6: the exact complete new helper module, original predicate definitions, and all four complete modified consumer proofs, flattened over Mathlib; zero sorries, with only propext, Classical.choice, and Quot.sound printed for all six theorems. The full RH import graph was not compiled by this check.",
+  "normal_form_domain_generality": "Arbitrary real normed domain; only codomain is required finite-dimensional. Haar change-of-variables also requires finite-dimensional domain.",
+  "statement_preservation": "Four original public theorem signatures and existing SubmLB definition unchanged. Full probe includes exact original ChangeVar definitions from all three DensInfLoc files.",
+  "status": "applied",
+  "baseline_commit": "82828c35242b4e5778c2ae1a4e7764026b1766c2",
+  "new_helper_path": "src/Lemmata/SubmersionNormalForm.lean",
+  "new_helper_sha256": "633ab093f8f10c801389695f5d443485303fd48f16f4433d94b9a09e86185d32",
+  "normal_form_generality": "Arbitrary real normed domain and finite-dimensional real normed codomain; Haar change-of-variables additionally assumes finite-dimensional domain and Borel measurable spaces.",
+  "check_id": "a052d45eadb2d35ad5dcd44fc8692ed6",
+  "hosted_result": "closed",
+  "sorries": 0,
+  "printed_axioms_for_both_general_theorems_and_all_four_consumers": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "validation_scope": "Exact full new helper module plus exact four complete modified proof bodies and their original public predicate definitions, flattened over Mathlib. Does not compile the complete RH import graph.",
+  "check_source": "submersion-check-02.lean",
+  "check_result": "submersion-check-02-result.json",
+  "patch": "submersion-normal-form.patch",
+  "imports": "Only added Lemmata.SubmersionNormalForm, which imports Mathlib alone; all prior imports retained.",
+  "committed": false
+}

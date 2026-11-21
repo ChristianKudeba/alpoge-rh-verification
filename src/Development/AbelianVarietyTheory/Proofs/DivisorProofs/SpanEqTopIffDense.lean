@@ -402,27 +402,9 @@ theorem span_eq_top_iff_dense (K : Type*) [Field K] [Algebra R K] [IsFractionRin
     have := congrArg (algebraMap R K) h; simp at this
   constructor
   · intro h x
-    have hx : x ∈ Submodule.span K (L : Set N) := h ▸ Submodule.mem_top
-    induction hx using Submodule.span_induction with
-    | mem y hy => exact ⟨1, one_mem _, by simpa using hy⟩
-    | zero => exact ⟨1, one_mem _, by simp⟩
-    | add y z _ _ hy hz =>
-      obtain ⟨r, hr, hry⟩ := hy
-      obtain ⟨s, hs, hsz⟩ := hz
-      refine ⟨r * s, mul_mem hr hs, ?_⟩
-      rw [smul_add]
-      refine L.add_mem ?_ ?_
-      · rw [mul_comm, mul_smul]; exact L.smul_mem _ hry
-      · rw [mul_smul]; exact L.smul_mem _ hsz
-    | smul k y _ hy =>
-      obtain ⟨r, hr, hry⟩ := hy
-      obtain ⟨a, b, hb, rfl⟩ := IsFractionRing.div_surjective (A := R) k
-      have hB : algebraMap R K b ≠ 0 := IsFractionRing.to_map_ne_zero_of_mem_nonZeroDivisors hb
-      have hc : algebraMap R K b * (algebraMap R K a / algebraMap R K b) = algebraMap R K a := by
-        field_simp
-      have e : (b * r) • ((algebraMap R K a / algebraMap R K b) • y) = a • (r • y) := by
-        rw [mul_comm b r, mul_smul, ← algebraMap_smul K b, smul_smul, hc, algebraMap_smul, smul_comm]
-      exact ⟨b * r, mul_mem hb hr, e ▸ L.smul_mem a hry⟩
+    obtain ⟨r, hr⟩ := multiple_mem_span_of_mem_localization_span
+      (nonZeroDivisors R) K (L : Set N) x (h ▸ Submodule.mem_top)
+    exact ⟨r, r.property, by simpa only [Submodule.span_eq, Submonoid.smul_def] using hr⟩
   · intro h
     rw [eq_top_iff]
     intro x _

@@ -80,85 +80,58 @@ theorem tendsto_zero_of_moderate {q f f' : ℝ → ℂ} {Y₀ c C : ℝ} {N : �
   · exfalso
     obtain ⟨y₁, hy₁, hpos₁⟩ := hpos
     have hmono1 : MonotoneOn u1 (Ici y₁) := monotoneOn_Ici_of_hasDerivAt
-      (fun y hy => hu1 y (le_trans hy₁ hy)) (fun y hy => hwpos y (le_trans hy₁ hy))
-    have hu1ge : ∀ y ≥ y₁, u1 y₁ ≤ u1 y := fun y hy => hmono1 (mem_Ici.2 le_rfl) hy hy
-
-    have hlin : ∀ y ≥ y₁, u y₁ + u1 y₁ * (y - y₁) ≤ u y := by
-      have hm : MonotoneOn (fun y => u y - u1 y₁ * y) (Ici y₁) := monotoneOn_Ici_of_hasDerivAt
-        (fun y hy => ((hu y (le_trans hy₁ hy)).sub ((hasDerivAt_id y).const_mul (u1 y₁))))
-        (fun y hy => by simpa using hu1ge y hy)
-      intro y hy
-      have := hm (mem_Ici.2 le_rfl) hy hy
-      linarith
-
-    have hQ : MonotoneOn (fun y => u1 y ^ 2 - 2 * c ^ 2 * u y ^ 2) (Ici y₁) := by
-      refine monotoneOn_Ici_of_hasDerivAt
-        (u' := fun y => 2 * u1 y * w y - 2 * c ^ 2 * (2 * u y * u1 y))
-        (fun y hy => ?_) (fun y hy => ?_)
-      · have h3 := ((hu1 y (le_trans hy₁ hy)).pow 2).sub
-          (((hu y (le_trans hy₁ hy)).pow 2).const_mul (2 * c ^ 2))
-        refine h3.congr_deriv ?_
-        push_cast
-        ring
-      · have h1 : 0 ≤ u1 y := le_trans hpos₁.le (hu1ge y hy)
-        have h2 := hw y (le_trans hy₁ hy)
-        nlinarith [mul_nonneg h1 (sub_nonneg.2 h2)]
-    set K₀ := u1 y₁ ^ 2 - 2 * c ^ 2 * u y₁ ^ 2 with hK₀
-    have hQge : ∀ y ≥ y₁, K₀ ≤ u1 y ^ 2 - 2 * c ^ 2 * u y ^ 2 := fun y hy =>
-      hQ (mem_Ici.2 le_rfl) hy hy
-    set y₂ := y₁ + (|K₀| + 1) / (c * u1 y₁) with hy₂def
-    have hy₂ : y₁ ≤ y₂ := by
-      rw [hy₂def]; have : 0 ≤ (|K₀| + 1) / (c * u1 y₁) := by positivity
-      linarith
+      (fun y hy => hu1 y (hy₁.trans hy)) (fun y hy => hwpos y (hy₁.trans hy))
     have hmonou : MonotoneOn u (Ici y₁) := monotoneOn_Ici_of_hasDerivAt
-      (fun y hy => hu y (le_trans hy₁ hy)) (fun y hy => le_trans hpos₁.le (hu1ge y hy))
-    have hcu₂ : |K₀| + 1 ≤ c * u y₂ := by
-      have := hlin y₂ hy₂
-      have e : u1 y₁ * (y₂ - y₁) = (|K₀| + 1) / c := by
-        rw [hy₂def]; field_simp; ring
-      have hu1 : 0 ≤ u y₁ := hu0 y₁
-      rw [e] at this
-      have : (|K₀| + 1) / c ≤ u y₂ := by linarith
-      rwa [div_le_iff₀ hc, mul_comm] at this
-    have hcu : ∀ y ≥ y₂, |K₀| + 1 ≤ c * u y := fun y hy =>
-      le_trans hcu₂ (mul_le_mul_of_nonneg_left
-        (hmonou (mem_Ici.2 hy₂) (mem_Ici.2 (le_trans hy₂ hy)) hy) hc.le)
-    have hu1cu : ∀ y ≥ y₂, c * u y ≤ u1 y := by
+      (fun y hy => hu y (hy₁.trans hy))
+      (fun y hy => hpos₁.le.trans (hmono1 (mem_Ici.2 le_rfl) (mem_Ici.2 hy) hy))
+    have hsecant : ∀ y ≥ y₁, u1 y ≤ u (y + 1) := by
       intro y hy
-      have h1 := hQge y (le_trans hy₂ hy)
-      have h2 := hcu y hy
-      have h3 : 0 ≤ u1 y := le_trans hpos₁.le (hu1ge y (le_trans hy₂ hy))
-      have h4 : 0 ≤ c * u y := le_trans (by positivity) h2
-      have h5 : (c * u y) ^ 2 ≤ u1 y ^ 2 := by
-        have : |K₀| ≤ (c * u y) ^ 2 := by nlinarith [abs_nonneg K₀]
-        nlinarith [neg_abs_le K₀]
-      exact (pow_le_pow_iff_left₀ h4 h3 (by norm_num : (2 : ℕ) ≠ 0)).1 h5
-
-    have hE : MonotoneOn (fun y => u y * Real.exp (-(c * y))) (Ici y₂) := by
+      have hm : MonotoneOn (fun t => u t - u1 y * t) (Ici y) :=
+        monotoneOn_Ici_of_hasDerivAt
+          (fun t ht => (hu t (hy₁.trans (hy.trans ht))).sub
+            ((hasDerivAt_id t).const_mul (u1 y)))
+          (fun t ht => by
+            simpa only [mul_one, sub_nonneg] using
+              hmono1 (mem_Ici.2 hy) (mem_Ici.2 (hy.trans ht)) ht)
+      have := hm (mem_Ici.2 le_rfl) (mem_Ici.2 (by linarith)) (by linarith : y ≤ y + 1)
+      linarith [hu0 y]
+    -- The first-order quantity u' + c*u grows at least exponentially.
+    have hE : MonotoneOn (fun y => (u1 y + c * u y) * Real.exp (-(c * y)))
+        (Ici y₁) := by
       refine monotoneOn_Ici_of_hasDerivAt
-        (u' := fun y => u1 y * Real.exp (-(c * y)) + u y * (Real.exp (-(c * y)) * -(c * 1)))
+        (u' := fun y => (w y + c * u1 y) * Real.exp (-(c * y)) +
+          (u1 y + c * u y) * (Real.exp (-(c * y)) * -(c * 1)))
         (fun y hy => ?_) (fun y hy => ?_)
-      · exact (hu y (le_trans hy₁ (le_trans hy₂ hy))).mul
+      · exact ((hu1 y (hy₁.trans hy)).add ((hu y (hy₁.trans hy)).const_mul c)).mul
           (((hasDerivAt_id y).const_mul c).neg.exp)
-      · have := hu1cu y hy
-        have he := Real.exp_pos (-(c * y))
-        nlinarith
-    have hu₂pos : 0 < u y₂ := by
-      have : 0 < c * u y₂ := lt_of_lt_of_le (by positivity) hcu₂
-      exact pos_of_mul_pos_right this hc.le
-    refine exp_growth_false (A := u y₂ * Real.exp (-(c * y₂))) (b := c) (K := C ^ 2)
-      (M := 2 * N) (Y := max y₂ (max Y₀ 0)) (mul_pos hu₂pos (Real.exp_pos _)) hc fun y hy => ?_
-    have hy2 : y₂ ≤ y := le_trans (le_max_left _ _) hy
-    have h1 := hE (mem_Ici.2 le_rfl) (mem_Ici.2 hy2) hy2
-    simp only at h1
-    have h2 := hug y (le_trans (le_max_right _ _) hy)
-    have e : u y * Real.exp (-(c * y)) * Real.exp (c * y) = u y := by
-      rw [mul_assoc, ← Real.exp_add, neg_add_cancel, Real.exp_zero, mul_one]
-    calc u y₂ * Real.exp (-(c * y₂)) * Real.exp (c * y)
-        ≤ u y * Real.exp (-(c * y)) * Real.exp (c * y) :=
-          mul_le_mul_of_nonneg_right h1 (Real.exp_pos _).le
-      _ = u y := e
-      _ ≤ C ^ 2 * y ^ (2 * N) := h2
+      · have hwc : 0 ≤ w y - c ^ 2 * u y := by
+          nlinarith [hw y (hy₁.trans hy), mul_nonneg (sq_nonneg c) (hu0 y)]
+        nlinarith [mul_nonneg hwc (Real.exp_pos (-(c * y))).le]
+    have hvpos : 0 < u1 y₁ + c * u y₁ := by
+      nlinarith [mul_nonneg hc.le (hu0 y₁)]
+    refine exp_growth_false (A := (u1 y₁ + c * u y₁) * Real.exp (-(c * y₁)))
+      (b := c) (K := (1 + c) * C ^ 2 * 2 ^ (2 * N))
+      (M := 2 * N) (Y := max y₁ (max Y₀ 1))
+      (mul_pos hvpos (Real.exp_pos _)) hc fun y hy => ?_
+    have hy1 : y₁ ≤ y := (le_max_left _ _).trans hy
+    have hy0 : Y₀ ≤ y := (le_trans (le_max_left _ _) (le_max_right _ _)).trans hy
+    have hyone : 1 ≤ y := (le_trans (le_max_right _ _) (le_max_right _ _)).trans hy
+    have h1 := hE (mem_Ici.2 le_rfl) (mem_Ici.2 hy1) hy1
+    have h2 := mul_le_mul_of_nonneg_right h1 (Real.exp_pos (c * y)).le
+    rw [mul_assoc (u1 y + c * u y), ← Real.exp_add, neg_add_cancel,
+      Real.exp_zero, mul_one] at h2
+    refine h2.trans ?_
+    calc u1 y + c * u y ≤ (1 + c) * u (y + 1) := by
+          have huy : u y ≤ u (y + 1) :=
+            hmonou (mem_Ici.2 hy1) (mem_Ici.2 (by linarith)) (by linarith)
+          nlinarith [hsecant y hy1, mul_le_mul_of_nonneg_left huy hc.le]
+      _ ≤ (1 + c) * (C ^ 2 * (y + 1) ^ (2 * N)) :=
+        mul_le_mul_of_nonneg_left (hug (y + 1) (by simp; constructor <;> linarith))
+          (by linarith)
+      _ ≤ (1 + c) * (C ^ 2 * (2 * y) ^ (2 * N)) := by
+        gcongr <;> linarith
+      _ = ((1 + c) * C ^ 2 * 2 ^ (2 * N)) * y ^ (2 * N) := by
+        rw [mul_pow]; ring
   · push Not at hpos
     have hanti : AntitoneOn u (Ici Y₀) := antitoneOn_Ici_of_hasDerivAt hu hpos
 

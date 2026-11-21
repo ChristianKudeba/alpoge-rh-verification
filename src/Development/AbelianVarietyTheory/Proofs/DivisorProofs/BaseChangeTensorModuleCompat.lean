@@ -24,56 +24,25 @@ theorem baseChange_tensor_int_field_equiv :
   have hf : ∀ (r : R) (o : O), f (r ⊗ₜ o) = algebraMap R R' r ⊗ₜ o := fun r o => rfl
 
   haveI : Module.FaithfullyFlat R R' := inferInstance
-  haveI : IsScalarTower R (R ⊗[ℤ] O) (R' ⊗[ℤ] O) := IsScalarTower.of_algebraMap_eq (fun r => rfl)
-  let l : R' →ₗ[R] R' ⊗[ℤ] O :=
-    { toFun := fun r' => r' ⊗ₜ 1
-      map_add' := fun x y => add_tmul x y 1
-      map_smul' := fun r r' => rfl }
-  let u : (R ⊗[ℤ] O) ⊗[R] R' →ₗ[R ⊗[ℤ] O] R' ⊗[ℤ] O := LinearMap.liftBaseChange _ l
-  have hu : ∀ (r : R) (o : O) (r' : R'), u ((r ⊗ₜ o) ⊗ₜ r') = (algebraMap R R' r * r') ⊗ₜ o := by
-    intro r o r'
-    change f (r ⊗ₜ o) * (r' ⊗ₜ 1) = _
-    rw [hf, Algebra.TensorProduct.tmul_mul_tmul, _root_.mul_one]
-  let w : R' →ₗ[ℤ] O →ₗ[ℤ] (R ⊗[ℤ] O) ⊗[R] R' :=
-    LinearMap.mk₂ ℤ (fun r' o => ((1 : R) ⊗ₜ[ℤ] o) ⊗ₜ[R] r')
-      (fun x y o => by simp [tmul_add])
-      (fun n x o => map_zsmul (TensorProduct.mk R (R ⊗[ℤ] O) R' ((1 : R) ⊗ₜ[ℤ] o)) n x)
-      (fun x o o' => by simp [tmul_add, add_tmul])
-      (fun n x o => by
-        change (TensorProduct.mk R (R ⊗[ℤ] O) R').flip x (TensorProduct.mk ℤ R O 1 (n • o)) =
-          n • (TensorProduct.mk R (R ⊗[ℤ] O) R').flip x (TensorProduct.mk ℤ R O 1 o)
-        rw [map_zsmul, map_zsmul])
-  let v : R' ⊗[ℤ] O →ₗ[ℤ] (R ⊗[ℤ] O) ⊗[R] R' := TensorProduct.lift w
-  have hv : ∀ (r' : R') (o : O), v (r' ⊗ₜ o) = ((1 : R) ⊗ₜ[ℤ] o) ⊗ₜ[R] r' := fun r' o => rfl
-  have huv : ∀ y, u (v y) = y := by
-    intro y
-    induction y using TensorProduct.induction_on with
-    | zero => simp
-    | tmul r' o =>
-      rw [hv, hu, map_one, _root_.one_mul]
-    | add x y hx hy => rw [map_add, map_add, hx, hy]
-  have hvu : ∀ x, v (u x) = x := by
-    intro x
-    induction x using TensorProduct.induction_on with
-    | zero => simp
-    | tmul a r' =>
-      induction a using TensorProduct.induction_on with
-      | zero => simp
-      | tmul r o =>
-        rw [hu, ← Algebra.smul_def, hv, ← TensorProduct.smul_tmul, TensorProduct.smul_tmul', smul_eq_mul,
-          _root_.mul_one]
-      | add a b ha hb => rw [add_tmul, map_add, map_add, ha, hb]
-    | add x y hx hy => rw [map_add, map_add, hx, hy]
-  have hubij : Function.Bijective u :=
-    ⟨fun a b hab => by rw [← hvu a, ← hvu b, hab], fun y => ⟨v y, huv y⟩⟩
+  haveI : IsScalarTower R (R ⊗[ℤ] O) (R' ⊗[ℤ] O) :=
+    IsScalarTower.of_algebraMap_smul (R := R) (A := R ⊗[ℤ] O) (M := R' ⊗[ℤ] O) fun r x => by
+      change algebraMap R (R' ⊗[ℤ] O) r * x = r • x
+      exact (Algebra.smul_def r x).symm
+  haveI : Algebra.IsPushout R R' (R ⊗[ℤ] O) (R' ⊗[ℤ] O) :=
+    Algebra.IsPushout.tensorProduct_tensorProduct ℤ O R R' (by
+      ext o
+      change f ((1 : R) ⊗ₜ[ℤ] o) = (1 : R') ⊗ₜ[ℤ] o
+      rw [hf, map_one])
+  haveI : Algebra.IsPushout R (R ⊗[ℤ] O) R' (R' ⊗[ℤ] O) :=
+    Algebra.IsPushout.symm inferInstance
   have hFF : Module.FaithfullyFlat (R ⊗[ℤ] O) (R' ⊗[ℤ] O) :=
     Module.FaithfullyFlat.of_linearEquiv (R ⊗[ℤ] O) ((R ⊗[ℤ] O) ⊗[R] R')
-      (LinearEquiv.ofBijective u hubij).symm
+      (Algebra.IsPushout.equiv R (R ⊗[ℤ] O) R' (R' ⊗[ℤ] O)).toLinearEquiv.symm
 
   have hj : ∀ (a : R ⊗[ℤ] O) (m : M), e (1 ⊗ₜ (a • m)) = f a • e (1 ⊗ₜ m) := by
     intro a m
     induction a using TensorProduct.induction_on with
-    | zero => simp
+    | zero => simp only [Module.zero_smul, _root_.zero_smul, tmul_zero, map_zero]
     | tmul r o =>
       rw [hf, TensorProduct.Algebra.smul_def, TensorProduct.Algebra.smul_def, ← he,
         TensorProduct.tmul_smul, ← algebraMap_smul R', map_smul]
@@ -83,56 +52,32 @@ theorem baseChange_tensor_int_field_equiv :
       map_add' := fun x y => by simp [tmul_add]
       map_smul' := fun a m => hj a m }
   let Φ : (R' ⊗[ℤ] O) ⊗[R ⊗[ℤ] O] M →ₗ[R' ⊗[ℤ] O] N := LinearMap.liftBaseChange _ j
-  let g : R' →+ M →+ (R' ⊗[ℤ] O) ⊗[R ⊗[ℤ] O] M :=
-    AddMonoidHom.mk' (fun r' => (TensorProduct.mk (R ⊗[ℤ] O) (R' ⊗[ℤ] O) M
-      (r' ⊗ₜ[ℤ] (1 : O))).toAddMonoidHom) (by intro a b; ext m; simp [add_tmul])
-  let ψ : R' ⊗[R] M →+ (R' ⊗[ℤ] O) ⊗[R ⊗[ℤ] O] M := TensorProduct.liftAddHom g (by
-    intro r r' m
-    have hr : r • m = ((r ⊗ₜ[ℤ] (1 : O)) : R ⊗[ℤ] O) • m := by
-      rw [TensorProduct.Algebra.smul_def, one_smul]
-    simp only [g, AddMonoidHom.mk'_apply, LinearMap.toAddMonoidHom_coe, TensorProduct.mk_apply]
-    rw [hr, ← TensorProduct.smul_tmul, Algebra.smul_def]
-    congr 1
-    change _ = f (r ⊗ₜ 1) * _
-    simp only [hf, Algebra.TensorProduct.tmul_mul_tmul, _root_.mul_one, Algebra.smul_def])
-  have h1 : ∀ y, Φ (ψ y) = e y := by
+  haveI : IsScalarTower R (R ⊗[ℤ] O) M :=
+    IsScalarTower.of_algebraMap_smul (R := R) (A := R ⊗[ℤ] O) (M := M) fun r m => by
+      change r • ((1 : O) • m) = r • m
+      rw [one_smul]
+  haveI : IsScalarTower R' (R' ⊗[ℤ] O) N :=
+    IsScalarTower.of_algebraMap_smul (R := R') (A := R' ⊗[ℤ] O) (M := N) fun r n => by
+      change r • ((1 : O) • n) = r • n
+      rw [one_smul]
+  let c := Algebra.IsPushout.cancelBaseChange R R' (R ⊗[ℤ] O) (R' ⊗[ℤ] O) M
+  have hΦ : (Φ.restrictScalars R').comp c.symm.toLinearMap = e.toLinearMap := by
+    apply LinearMap.ext
     intro y
     induction y using TensorProduct.induction_on with
-    | zero => simp
-    | tmul r' m =>
-      simp only [ψ, TensorProduct.liftAddHom_tmul, g, AddMonoidHom.mk'_apply,
-        LinearMap.toAddMonoidHom_coe, TensorProduct.mk_apply, Φ, LinearMap.liftBaseChange_tmul]
-      change (r' ⊗ₜ[ℤ] (1 : O)) • e (1 ⊗ₜ m) = _
+    | zero => simp only [map_zero]
+    | add y z hy hz => simp only [map_add, hy, hz]
+    | tmul r m =>
+      simp only [LinearMap.comp_apply, LinearEquiv.coe_coe, c,
+        Algebra.IsPushout.cancelBaseChange_symm_tmul, Φ, LinearMap.liftBaseChange_tmul]
+      change (r ⊗ₜ[ℤ] (1 : O)) • e (1 ⊗ₜ m) = e (r ⊗ₜ m)
       rw [TensorProduct.Algebra.smul_def, one_smul, ← map_smul, TensorProduct.smul_tmul',
         smul_eq_mul, _root_.mul_one]
-    | add x y hx hy => rw [map_add, map_add, hx, hy, map_add]
-  have h2 : ∀ z, ψ (e.symm (Φ z)) = z := by
-    intro z
-    induction z using TensorProduct.induction_on with
-    | zero => simp
-    | tmul x m =>
-      induction x using TensorProduct.induction_on with
-      | zero => simp
-      | tmul r' o =>
-        have hΦ : Φ ((r' ⊗ₜ[ℤ] o) ⊗ₜ m) = e (r' ⊗ₜ (o • m)) := by
-          simp only [Φ, LinearMap.liftBaseChange_tmul]
-          change (r' ⊗ₜ[ℤ] o) • e (1 ⊗ₜ m) = _
-          rw [TensorProduct.Algebra.smul_def, ← he, ← map_smul, TensorProduct.smul_tmul',
-            smul_eq_mul, _root_.mul_one]
-        rw [hΦ, LinearEquiv.symm_apply_apply]
-        simp only [ψ, TensorProduct.liftAddHom_tmul, g, AddMonoidHom.mk'_apply,
-          LinearMap.toAddMonoidHom_coe, TensorProduct.mk_apply]
-        have ho : o • m = (((1 : R) ⊗ₜ[ℤ] o) : R ⊗[ℤ] O) • m := by
-          rw [TensorProduct.Algebra.smul_def, one_smul]
-        rw [ho, ← TensorProduct.smul_tmul, Algebra.smul_def]
-        congr 1
-        change f (1 ⊗ₜ o) * _ = _
-        rw [hf, map_one, Algebra.TensorProduct.tmul_mul_tmul, _root_.one_mul, _root_.mul_one]
-      | add x y hx hy => rw [add_tmul, map_add, map_add, map_add, hx, hy]
-    | add x y hx hy => rw [map_add, map_add, map_add, hx, hy]
-  have hinj : Function.Injective Φ := fun a b hab => by rw [← h2 a, ← h2 b, hab]
-  have hsurj : Function.Surjective Φ := fun n =>
-    ⟨ψ (e.symm n), by rw [h1, LinearEquiv.apply_symm_apply]⟩
-  exact ⟨f.toRingHom.toAlgebra, hFF, ⟨LinearEquiv.ofBijective Φ ⟨hinj, hsurj⟩⟩⟩
+  have hbij : Function.Bijective Φ := by
+    have hcomp : Function.Bijective ((Φ.restrictScalars R').comp c.symm.toLinearMap) := by
+      rw [hΦ]
+      exact e.bijective
+    exact (Function.Bijective.of_comp_iff Φ c.symm.bijective).mp hcomp
+  exact ⟨f.toRingHom.toAlgebra, hFF, ⟨LinearEquiv.ofBijective Φ hbij⟩⟩
 
 end GlobalTheory

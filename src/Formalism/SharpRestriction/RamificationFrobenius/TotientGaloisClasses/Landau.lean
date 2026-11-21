@@ -236,31 +236,6 @@ theorem landau_entire (P : ℂ → ℂ) (hP : Differentiable ℂ P) (hP1 : ∀ s
           abs_of_nonneg (hH x (le_of_lt (mem_Ioi.mp hx)))])
         measurableSet_Ioi) s hs
     exact hD.differentiableAt.differentiableWithinAt
-  have hAd := differentiable_AP hP a b
-  have hf1 : DifferentiableOn ℂ (fun s => s * (s - 1) * P s * (I s - C / (s - θ))) U := by
-    intro s hs
-    have hsθ : s - (θ : ℂ) ≠ 0 := sub_ne_zero_of_lt_re hs
-    have hIs := (hId s hs).differentiableAt (hUopen.mem_nhds hs)
-    have hEs := hP s
-    apply DifferentiableAt.differentiableWithinAt
-    fun_prop (disch := exact hsθ)
-  have hEq : EqOn (fun s => s * (s - 1) * P s * (I s - C / (s - θ))) (AP P a b) U := by
-    refine AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
-      (hf1.analyticOnNhd hUopen) (hAd.differentiableOn.analyticOnNhd hUopen)
-      (convex_halfSpace_re_gt θ).isPreconnected (z₀ := 2)
-      (show θ < (2:ℂ).re by simp; linarith) ?_
-    have h2mem : (2:ℂ) ∈ {s : ℂ | 1 < s.re} := by simp
-    filter_upwards [(isOpen_lt continuous_const Complex.continuous_re).mem_nhds h2mem] with z hz
-    have hz' : 1 < z.re := hz
-    have hZ := hP1 z hz'.le
-    have hs1' : z - 1 ≠ 0 := sub_ne_zero.mpr (ne_one_of_one_lt_re hz')
-    have hs0 : z ≠ 0 := ne_zero_of_lt_re zero_le_one hz'
-    have hsθ : z - θ ≠ 0 := sub_ne_zero_of_lt_re (a := θ) (by linarith)
-    have e : I z = _ := hM z hz'
-    rw [e]
-    unfold AP
-    field_simp
-    ring
   set q : ℂ → ℂ := fun s => (a + b * s) + s * (s - 1) * (I s - C / (s - θ)) with hq_def
   have hqd : DifferentiableOn ℂ q U := by
     intro s hs
@@ -269,15 +244,21 @@ theorem landau_entire (P : ℂ → ℂ) (hP : Differentiable ℂ P) (hP1 : ∀ s
     apply DifferentiableAt.differentiableWithinAt
     simp only [hq_def]
     fun_prop (disch := exact hsθ)
-  have hid : ∀ s ∈ U, deriv P s = q s * P s := by
-    intro s hs
-    have he := hEq hs
-    simp only at he
-    unfold AP at he
-    simp only [hq_def]
-    linear_combination -he
-  intro s hs
-  exact logDerivZeroFree P q U hUopen hP ⟨1, hP10⟩ hqd hid s hs
+  refine logDerivZeroFree_of_eventuallyEq logDerivZeroFree hUopen
+    (convex_halfSpace_re_gt θ).isPreconnected hP ⟨1, hP10⟩ hqd (z₀ := 2)
+    (show θ < (2 : ℂ).re by simp; linarith) ?_
+  have h2mem : (2 : ℂ) ∈ {s : ℂ | 1 < s.re} := by simp
+  filter_upwards [(isOpen_lt continuous_const Complex.continuous_re).mem_nhds h2mem] with z hz
+  have hz' : 1 < z.re := hz
+  have hZ := hP1 z hz'.le
+  have hs1' : z - 1 ≠ 0 := sub_ne_zero.mpr (ne_one_of_one_lt_re hz')
+  have hs0 : z ≠ 0 := ne_zero_of_lt_re zero_le_one hz'
+  have hsθ : z - θ ≠ 0 := sub_ne_zero_of_lt_re (a := θ) (by linarith)
+  have e : I z = _ := hM z hz'
+  simp only [hq_def]
+  rw [e]
+  field_simp
+  ring
 
 section Family
 

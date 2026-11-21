@@ -1,0 +1,48 @@
+{
+  "source_base": "51c81ba76f4f038169ae93ced8a6ac91b8ce15fc",
+  "run_id": "a0564e7e17c42b9e277692d9d711b227",
+  "check_id": "682d0327f3af43f54424ffc50df4ff35",
+  "result": "closed",
+  "sorries": 0,
+  "files": [
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/BaseChangeTensorModuleCompat.lean",
+      "theorem": "baseChange_tensor_int_field_equiv",
+      "mechanism": "Tensor-product pushout universal property and base-change cancellation replace two hand-built tensor inverses and their proofs.",
+      "statement_byte_identical": true,
+      "old_lines": 138,
+      "new_lines": 83,
+      "old_bytes": 7553,
+      "new_bytes": 4564,
+      "old_sha256": "8af288208c77e9c8c16c378a41f6f67c716b3d72bca571e1898a0f7fbfe111bd",
+      "new_sha256": "24471d3e758ece66ead46f19f09f4b8b8bbae4a9fec71b6fd39c92becc88c853"
+    },
+    {
+      "path": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/SpanEqTopIffDense.lean",
+      "theorem": "span_eq_top_iff_dense",
+      "mechanism": "The localization denominator-clearing theorem replaces explicit span induction, denominator products and scalar arithmetic.",
+      "statement_byte_identical": true,
+      "old_lines": 489,
+      "new_lines": 471,
+      "old_bytes": 21402,
+      "new_bytes": 20483,
+      "old_sha256": "03c03fb5b26e873c7cf9d11f6c9afe47b9f7e4864f4763c635cfc4e9a15acd67",
+      "new_sha256": "d2da175398e680ae80b73f9a757776648718232aded97beea06f4d850135cf18"
+    }
+  ],
+  "scope": "Both complete Mathlib-only source modules checked in hosted Mathlib. Imports removed only from scratch submission because hosted Mathlib is preloaded. Full repository Comparator still required.",
+  "axioms_by_theorem": {
+    "GlobalTheory.baseChange_tensor_int_field_equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "GlobalTheory.Morita.span_eq_top_iff_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "total_lines_saved": 73,
+  "total_bytes_saved": 3908
+}

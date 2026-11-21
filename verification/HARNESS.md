@@ -11,12 +11,17 @@ For every compaction pass:
 
 1. Read the current repository commit, Machine Verification files, and accessible
    harness notes. Other users' private runs are not available automatically.
-2. Choose a concrete duplication or unnecessarily long proof in the actual source.
-   Preserve public theorem types and the independent statements in `Challenge.lean`.
+2. Prioritize mathematical reductions: stronger existing theorems, reusable general
+   results, or alternate arguments that remove intermediate constructions. Rank
+   long proof bodies, inspect their hypotheses and conclusions, and explain the
+   mathematical before/after mechanism. Formatting and inferred-argument cleanup
+   are secondary. Preserve public theorem types and the independent statements in
+   `Challenge.lean`.
 3. Record the hypothesis and target files in the harness. Check the replacement
    with Lean. A standalone helper check is evidence for that helper only.
 4. Edit and commit the actual source files. Record before/after line and byte
-   counts, the base and candidate commits, and the Lean check identifiers.
+   counts (including any new shared helpers), the base and candidate commits,
+   the mathematical construction removed, and the Lean check identifiers.
 5. Push the candidate source to the connected verification repository. Pull the
    canonical Machine Verification files from that same commit into Principia.
    Confirm the saved bytes and references; a patch in the editor alone is not a

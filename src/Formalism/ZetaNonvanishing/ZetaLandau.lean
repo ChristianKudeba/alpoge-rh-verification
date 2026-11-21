@@ -5,6 +5,7 @@ import Formalism.ZetaNonvanishing.MellinSgen
 import Formalism.ZetaNonvanishing.MellinElem
 import Formalism.ZetaNonvanishing.ZetaRealNonvanish
 import Formalism.ZetaNonvanishing.LogDerivZeroFree
+import Formalism.ZetaNonvanishing.LogDerivContinuation
 import Formalism.ZetaNonvanishing.MellinDeriv
 
 open Complex MeasureTheory Set Filter Topology
@@ -158,33 +159,6 @@ lemma riemannZetaOne_ne_zero_of_integrable_mellin (h1 : MellinDeriv) (h3 : Melli
           abs_of_nonneg (hH x (le_of_lt (mem_Ioi.mp hx)))])
         measurableSet_Ioi) s hs
     exact hD.differentiableAt.differentiableWithinAt
-  have hZd : Differentiable ℂ riemannZeta₁ := differentiable_riemannZeta₁
-  have hAd := differentiable_AZ
-  have hf1 : DifferentiableOn ℂ
-      (fun s => s * (s - 1) * riemannZeta₁ s * (IZ ε C θ s - C / (s - θ))) U := by
-    intro s hs
-    have hsθ : s - (θ : ℂ) ≠ 0 := sub_ne_zero_of_lt_re hs
-    have hIs := (hId s hs).differentiableAt (hUopen.mem_nhds hs)
-    have hEs := hZd s
-    apply DifferentiableAt.differentiableWithinAt
-    fun_prop (disch := exact hsθ)
-  have hEq : EqOn (fun s => s * (s - 1) * riemannZeta₁ s * (IZ ε C θ s - C / (s - θ)))
-      (fun s => (ε : ℂ) * AZ s) U := by
-    refine AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
-      (hf1.analyticOnNhd hUopen)
-      ((hAd.const_mul (ε : ℂ)).differentiableOn.analyticOnNhd hUopen)
-      (convex_halfSpace_re_gt θ).isPreconnected (z₀ := 2)
-      (show θ < (2:ℂ).re by simp; linarith) ?_
-    have h2mem : (2:ℂ) ∈ {s : ℂ | 1 < s.re} := by simp
-    filter_upwards [(isOpen_lt continuous_const Complex.continuous_re).mem_nhds h2mem] with z hz
-    have hz' : 1 < z.re := hz
-    have hZ := riemannZetaOne_ne_zero_of_one_le_re hz'.le
-    have hs1' : z - 1 ≠ 0 := sub_ne_zero.mpr (ne_one_of_one_lt_re hz')
-    have hs0 : z ≠ 0 := ne_zero_of_lt_re zero_le_one hz'
-    have hsθ : z - θ ≠ 0 := sub_ne_zero_of_lt_re (a := θ) (by linarith)
-    rw [mellin_HZ h3 h5 hθ1 hz', AZ_eq hZ]
-    field_simp
-    ring
   set q : ℂ → ℂ := fun s => linZ s - (ε : ℂ) * (s * (s - 1) * (IZ ε C θ s - C / (s - θ)))
     with hq_def
   have hqd : DifferentiableOn ℂ q U := by
@@ -194,16 +168,24 @@ lemma riemannZetaOne_ne_zero_of_integrable_mellin (h1 : MellinDeriv) (h3 : Melli
     apply DifferentiableAt.differentiableWithinAt
     simp only [hq_def, linZ]
     fun_prop (disch := exact hsθ)
-  have hid : ∀ s ∈ U, deriv riemannZeta₁ s = q s * riemannZeta₁ s := by
-    intro s hs
-    have he := hEq hs
-    simp only at he
-    unfold AZ at he
-    have hεc : (ε : ℂ) * ε = 1 := by exact_mod_cast hε
-    simp only [hq_def]
-    linear_combination (ε : ℂ) * he - (deriv riemannZeta₁ s - linZ s * riemannZeta₁ s) * hεc
-  intro s hs
-  exact h11 riemannZeta₁ q U hUopen hZd ⟨1, by simp⟩ hqd hid s hs
+  refine logDerivZeroFree_of_eventuallyEq h11 hUopen (convex_halfSpace_re_gt θ).isPreconnected
+    differentiable_riemannZeta₁ ⟨1, by simp⟩ hqd (z₀ := 2)
+    (show θ < (2 : ℂ).re by simp; linarith) ?_
+  have h2mem : (2 : ℂ) ∈ {s : ℂ | 1 < s.re} := by simp
+  filter_upwards [(isOpen_lt continuous_const Complex.continuous_re).mem_nhds h2mem] with z hz
+  have hz' : 1 < z.re := hz
+  have hZ := riemannZetaOne_ne_zero_of_one_le_re hz'.le
+  have hs1' : z - 1 ≠ 0 := sub_ne_zero.mpr (ne_one_of_one_lt_re hz')
+  have hs0 : z ≠ 0 := ne_zero_of_lt_re zero_le_one hz'
+  have hsθ : z - θ ≠ 0 := sub_ne_zero_of_lt_re (a := θ) (by linarith)
+  have he : z * (z - 1) * riemannZeta₁ z * (IZ ε C θ z - C / (z - θ)) = (ε : ℂ) * AZ z := by
+    rw [mellin_HZ h3 h5 hθ1 hz', AZ_eq hZ]
+    field_simp
+    ring
+  unfold AZ at he
+  have hεc : (ε : ℂ) * ε = 1 := by exact_mod_cast hε
+  simp only [hq_def]
+  linear_combination (ε : ℂ) * he - (deriv riemannZeta₁ z - linZ z * riemannZeta₁ z) * hεc
 
 lemma Sz_bound {x X : ℝ} (hx1 : 1 ≤ x) (hxX : x ≤ X) :
     0 ≤ Sz x ∧ Sz x ≤ X * ∑ n ∈ Finset.Icc 1 ⌊X⌋₊, Λ n := by

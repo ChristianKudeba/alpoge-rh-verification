@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"verified\": \"on Principia\",\n  \"check_id\": \"770bee0c2874a507d27072692533b42d\",\n  \"mode\": \"scratch\",\n  \"result\": \"closed\",\n  \"checked_by\": \"server\",\n  \"sorries\": 0,\n  \"axioms\": [],\n  \"messages\": [\n    {\n      \"severity\": \"warning\",\n      \"line\": 135,\n      \"column\": 4,\n      \"text\": \"`AEMeasurable.ennreal_tsum` has been deprecated: Use `AEMeasurable.tsum` from `Mathlib.MeasureTheory.Constructions.Polish.Basic` instead\"\n    },\n    {\n      \"severity\": \"warning\",\n      \"line\": 290,\n      \"column\": 4,\n      \"text\": \"`AEMeasurable.ennreal_tsum` has been deprecated: Use `AEMeasurable.tsum` from `Mathlib.MeasureTheory.Constructions.Polish.Basic` instead\"\n    },\n    {\n      \"severity\": \"info\",\n      \"line\": 303,\n      \"column\": 0,\n      \"text\": \"'Formalism.mxS_mellin_real' depends on axioms: [propext, Classical.choice, Quot.sound]\"\n    },\n    {\n      \"severity\": \"info\",\n      \"line\": 304,\n      \"column\": 0,\n      \"text\": \"'Formalism.Before.mxS_mellin_real' depends on axioms: [propext, Classical.choice, Quot.sound]\"\n    }\n  ],\n  \"note\": \"scratch checks never close a step\"\n}\n\n[status] Route A: 4/5 closing steps closed, open: strip. Route B: 5/6 closing steps closed, open: bound. Focused: bound (bd5646d9, closing step), 0 attempts. Next: attack bound (bd5646d9) on route B, which is focused — harness_compose_check with a proof. Make that call now; do not end your turn."
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

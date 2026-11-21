@@ -1,0 +1,18 @@
+{
+  "bytes": 17922,
+  "lines": 371,
+  "sha256": "84dbf8f74f1098bfa80a1352f16c0b727de0183d092ea4a50e286eb59c675d9b",
+  "axiom_reports": [
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.truncR",
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.smoothedSum_lip",
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.smoothedSum_scale",
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.smoothedSum_lip_scale",
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.deriv_char",
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.wG_char",
+    "Formalism.LFunctionChainParameters.ThickSetMeanBounds.AN.lip_char",
+    "Formalism.MainNotions.ShortIntervalPrimes.Br.Fc_lip",
+    "Formalism.MainNotions.ShortIntervalPrimes.Br.wFc",
+    "Formalism.MainNotions.ShortIntervalPrimes.Br.Fc_lipW"
+  ],
+  "scope": "Exact changed proof bodies and statements with actual project definitions and fully proved supporting finite-sum, norm and Mertens lemmas; not a whole-project build."
+}

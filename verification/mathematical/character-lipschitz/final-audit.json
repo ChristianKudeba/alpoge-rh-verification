@@ -1,0 +1,46 @@
+{
+  "check_id": "7d16a9bfd3b1315f6fe903de57dfcdfe",
+  "result": "closed",
+  "attempts": 1,
+  "sorries": 0,
+  "custom_axioms": [],
+  "standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "bundle_sha256": "84dbf8f74f1098bfa80a1352f16c0b727de0183d092ea4a50e286eb59c675d9b",
+  "bundle_bytes": 17922,
+  "net_lines_removed": 77,
+  "net_nonblank_removed": 81,
+  "source_changes": [
+    {
+      "path": "src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+      "old_lines": 993,
+      "new_lines": 994,
+      "old_sha256": "90e749885560a742ca12305e0f028da32a95ef10bb42580986306387be48894d",
+      "new_sha256": "39c9f2d4ba0463353b46eb0ec483854fb1b1f0ecc1b6ea9c3e3462419b354d78",
+      "original_proof_signatures_preserved": 51,
+      "added_proof_names": [
+        "smoothedSum_lip",
+        "smoothedSum_lip_scale",
+        "smoothedSum_scale"
+      ],
+      "nonblank_before": 909,
+      "nonblank_after": 906
+    },
+    {
+      "path": "src/Formalism/SharpRestriction/GlobalSchurBounds/FirstClaimLemmaTwoFourOfLemmaTwoThree.lean",
+      "old_lines": 3397,
+      "new_lines": 3319,
+      "old_sha256": "1dcba9474c1680f769afe55efac99ad6b99ca449fc34b81e23696e671f72a6f2",
+      "new_sha256": "ca3f5dacd41e175571275dc53f884676c8a1e9502e8b402b12c47fcbee03d368",
+      "original_proof_signatures_preserved": 166,
+      "added_proof_names": [],
+      "nonblank_before": 3125,
+      "nonblank_after": 3047
+    }
+  ],
+  "scope": "Exact changed proof bundle, not whole project or RH verification",
+  "own_check_lock_released": true
+}

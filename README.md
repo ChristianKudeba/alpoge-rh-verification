@@ -66,6 +66,15 @@ modules passed hosted Lean. Repeated archive proofs are also shared. The combine
 candidate still needs the full Comparator. See the
 [audit and verification limits](verification/aggressive/README.md).
 
+The mathematical pass removes another **823 net lines**, including four new
+shared modules. It replaces Smith normal form with finite-dimensional duality,
+manual tensor inverses with pushout/cancellation, repeated coordinate and density
+arguments with general theorems, and analytic calculations with differentiation,
+specialization and comparison arguments. All included reductions passed focused
+Lean checks; the combined full-project Comparator remains pending. The source
+now contains 165,124 modules and 16,624,300 lines. See the
+[mathematical explanations and checks](verification/mathematical/README.md).
+
 Follow [verification/HARNESS.md](verification/HARNESS.md) for every new pass:
 change actual source files, preserve theorem statements, commit the edits, sync
 Machine Verification to that source revision, and record the exact checks.

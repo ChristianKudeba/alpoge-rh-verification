@@ -1,4 +1,5 @@
 import Mathlib
+import Lemmata.ContinuousDensityLimit
 import Formalism.PeriodIntegrals.UnitaryGroupMassFormula.StabilizerOrbitVolume.FibFour
 
 noncomputable section
@@ -28,51 +29,23 @@ def HasDens (μ : Measure V) (f : V → Y) (ι : X → Y) (ν : Measure X) (φ :
 
 theorem HasDens.sub [IsFiniteMeasureOnCompacts ν] {φ₁ φ₂ : V → ℝ} {g₁ g₂ : X → ℝ}
     (h₁ : HasDens μ f ι ν φ₁ g₁) (h₂ : HasDens μ f ι ν φ₂ g₂) :
-    HasDens μ f ι ν (fun v => φ₁ v - φ₂ v) (fun b => g₁ b - g₂ b) := by
-  obtain ⟨i1, c1, e1⟩ := h₁
-  obtain ⟨i2, c2, e2⟩ := h₂
-  refine ⟨i1.sub i2, c1.sub c2, fun S hS => ?_⟩
-  rw [integral_sub i1.integrableOn i2.integrableOn,
-    integral_sub (c1.continuousOn.integrableOn_compact hS) (c2.continuousOn.integrableOn_compact hS),
-    e1 S hS, e2 S hS]
+    HasDens μ f ι ν (fun v => φ₁ v - φ₂ v) (fun b => g₁ b - g₂ b) :=
+  ContinuousDensityLimit.HasDensity.sub h₁ h₂
 
 theorem HasDens.const_mul (c : ℝ) {φ : V → ℝ} {g : X → ℝ} (h : HasDens μ f ι ν φ g) :
-    HasDens μ f ι ν (fun v => c * φ v) (fun b => c * g b) := by
-  obtain ⟨hi, hc, he⟩ := h
-  refine ⟨hi.const_mul c, continuous_const.mul hc, fun S hS => ?_⟩
-  rw [integral_const_mul, integral_const_mul, he S hS]
+    HasDens μ f ι ν (fun v => c * φ v) (fun b => c * g b) :=
+  ContinuousDensityLimit.HasDensity.const_mul c h
 
 theorem nonneg_of_setIntegral [LocallyCompactSpace X] [IsFiniteMeasureOnCompacts ν]
     [ν.IsOpenPosMeasure] (D : X → ℝ) (hD : Continuous D)
-    (h0 : ∀ S, IsCompact S → 0 ≤ ∫ b in S, D b ∂ν) (b0 : X) : 0 ≤ D b0 := by
-  by_contra hneg
-  push_neg at hneg
-  have hU : {b | D b < D b0 / 2} ∈ 𝓝 b0 :=
-    (isOpen_lt hD continuous_const).mem_nhds (by show D b0 < D b0 / 2; linarith)
-  obtain ⟨K, hKn, hKU, hKc⟩ := local_compact_nhds hU
-  have hpos : 0 < ν K := ν.measure_pos_of_mem_nhds hKn
-  have hfin : ν K < ⊤ := hKc.measure_lt_top
-  have h1 : ∫ b in K, D b ∂ν ≤ ∫ b in K, D b0 / 2 ∂ν :=
-    setIntegral_mono_on (hD.continuousOn.integrableOn_compact hKc)
-      (continuousOn_const.integrableOn_compact hKc) hKc.measurableSet
-      (fun x hx => le_of_lt (hKU hx))
-  rw [setIntegral_const, smul_eq_mul] at h1
-  try simp only [Measure.real] at h1
-  have h2 : 0 < (ν K).toReal := ENNReal.toReal_pos hpos.ne' hfin.ne
-  have h3 := h0 K hKc
-  nlinarith
+    (h0 : ∀ S, IsCompact S → 0 ≤ ∫ b in S, D b ∂ν) (b0 : X) : 0 ≤ D b0 :=
+  ContinuousDensityLimit.nonneg_of_setIntegral D hD h0 b0
 
 theorem HasDens.le [LocallyCompactSpace X] [IsFiniteMeasureOnCompacts ν] [ν.IsOpenPosMeasure]
     {φ₁ φ₂ : V → ℝ} {g₁ g₂ : X → ℝ}
     (h₁ : HasDens μ f ι ν φ₁ g₁) (h₂ : HasDens μ f ι ν φ₂ g₂) (hle : ∀ v, φ₁ v ≤ φ₂ v) (b : X) :
-    g₁ b ≤ g₂ b := by
-  have h := h₂.sub h₁
-  have hS : ∀ S, IsCompact S → 0 ≤ ∫ x in S, g₂ x - g₁ x ∂ν := by
-    intro S hS
-    rw [← h.2.2 S hS]
-    exact integral_nonneg fun v => sub_nonneg.mpr (hle v)
-  have key : 0 ≤ g₂ b - g₁ b := nonneg_of_setIntegral (fun x => g₂ x - g₁ x) h.2.1 hS b
-  linarith
+    g₁ b ≤ g₂ b :=
+  ContinuousDensityLimit.HasDensity.le h₁ h₂ hle b
 
 end Dens
 
@@ -264,110 +237,13 @@ theorem densApprox_lc (μ : Measure V) [IsFiniteMeasureOnCompacts μ] (f : V →
       have h2 : φ x = 0 := image_eq_zero_of_notMem_tsupport fun h => hx (hKK' h)
       rw [hind_def, Set.indicator_of_notMem hx, h1, h2]
       simp
-  have hgg : ∀ n m b, |g n b - g m b| ≤ (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1)) * g0 b := by
-    intro n m b
-    have hA := hg0.const_mul (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1))
-    have hle : ∀ n m x, φn n x - φn m x ≤ (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1)) * ind x := by
-      intro n m x
-      have h1 := abs_le.1 (hbd n x)
-      have h2 := abs_le.1 (hbd m x)
-      rw [add_mul]
-      linarith [h1.1, h1.2, h2.1, h2.2]
-    have u1 := ((hg n).sub (hg m)).le hA (hle n m) b
-    have hA' := hg0.const_mul (1 / ((m : ℝ) + 1) + 1 / ((n : ℝ) + 1))
-    have u2 := ((hg m).sub (hg n)).le hA' (hle m n) b
-    refine abs_le.2 ⟨?_, u1⟩
-    have : (1 / ((m : ℝ) + 1) + 1 / ((n : ℝ) + 1)) = (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1)) :=
-      add_comm _ _
-    rw [this] at u2
-    linarith
-  have hcauchy : ∀ b, CauchySeq fun n => g n b := by
-    intro b
-    refine cauchySeq_of_le_tendsto_0 (fun N : ℕ => 2 * (1 / ((N : ℝ) + 1)) * |g0 b|)
-      (fun n m N hn hm => ?_) ?_
-    · rw [Real.dist_eq]
-      have hN : (N : ℝ) ≤ n := by exact_mod_cast hn
-      have hM : (N : ℝ) ≤ m := by exact_mod_cast hm
-      have h1 : 1 / ((n : ℝ) + 1) ≤ 1 / ((N : ℝ) + 1) :=
-        one_div_le_one_div_of_le (by positivity) (by linarith)
-      have h2 : 1 / ((m : ℝ) + 1) ≤ 1 / ((N : ℝ) + 1) :=
-        one_div_le_one_div_of_le (by positivity) (by linarith)
-      calc |g n b - g m b| ≤ (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1)) * g0 b := hgg n m b
-        _ ≤ (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1)) * |g0 b| :=
-          mul_le_mul_of_nonneg_left (le_abs_self _) (by positivity)
-        _ ≤ (1 / ((N : ℝ) + 1) + 1 / ((N : ℝ) + 1)) * |g0 b| :=
-          mul_le_mul_of_nonneg_right (by linarith) (abs_nonneg _)
-        _ = 2 * (1 / ((N : ℝ) + 1)) * |g0 b| := by ring
-    · have := (tendsto_one_div_add_atTop_nhds_zero_nat.const_mul (2 : ℝ)).mul_const |g0 b|
-      rwa [mul_zero, zero_mul] at this
-  set G : X → ℝ := fun b => limUnder atTop fun n => g n b with hG_def
-  have hlim : ∀ b, Tendsto (fun n => g n b) atTop (𝓝 (G b)) := fun b =>
-    (hcauchy b).tendsto_limUnder
-  have hGn : ∀ n b, |G b - g n b| ≤ 1 / ((n : ℝ) + 1) * g0 b := by
-    intro n b
-    have ht : Tendsto (fun m => |g m b - g n b|) atTop (𝓝 |G b - g n b|) :=
-      ((hlim b).sub_const _).abs
-    have ht2 : Tendsto (fun m : ℕ => (1 / ((n : ℝ) + 1) + 1 / ((m : ℝ) + 1)) * g0 b) atTop
-        (𝓝 ((1 / ((n : ℝ) + 1) + 0) * g0 b)) :=
-      (tendsto_const_nhds.add tendsto_one_div_add_atTop_nhds_zero_nat).mul_const _
-    have := le_of_tendsto_of_tendsto' ht ht2 fun m => by
-      rw [abs_sub_comm]
-      exact hgg n m b
-    rwa [add_zero] at this
-  have hGc : Continuous G := by
-    refine TendstoLocallyUniformly.continuous (F := g) (p := atTop) ?_
-      (Eventually.of_forall fun n => (hg n).2.1).frequently
-    rw [Metric.tendstoLocallyUniformly_iff]
-    intro ε hεp x
-    refine ⟨{y | g0 y < g0 x + 1}, (isOpen_lt hg0.2.1 continuous_const).mem_nhds (by simp), ?_⟩
-    have ht : Tendsto (fun n : ℕ => 1 / ((n : ℝ) + 1) * (|g0 x| + 1)) atTop (𝓝 0) := by
-      have := tendsto_one_div_add_atTop_nhds_zero_nat.mul_const (|g0 x| + 1)
-      rwa [zero_mul] at this
-    filter_upwards [ht.eventually (Iio_mem_nhds hεp)] with n hn y hy
-    have hy' : g0 y < g0 x + 1 := hy
-    have hx' := le_abs_self (g0 x)
-    rw [Real.dist_eq]
-    calc |G y - g n y| ≤ 1 / ((n : ℝ) + 1) * g0 y := hGn n y
-      _ ≤ 1 / ((n : ℝ) + 1) * (|g0 x| + 1) :=
-        mul_le_mul_of_nonneg_left (by linarith) (by positivity)
-      _ < ε := hn
-  refine ⟨G, hGc, fun S hS => ?_⟩
-  have hφi : Integrable φ μ := hc.integrable_of_hasCompactSupport hs
-  have hC : ∀ n : ℕ, |∫ v in f ⁻¹' (ι '' S), φ v ∂μ - ∫ b in S, G b ∂ν| ≤
-      2 * (1 / ((n : ℝ) + 1)) * |∫ b in S, g0 b ∂ν| := by
-    intro n
-    have e1 : |∫ v in f ⁻¹' (ι '' S), φ v ∂μ - ∫ v in f ⁻¹' (ι '' S), φn n v ∂μ| ≤
-        ∫ v in f ⁻¹' (ι '' S), 1 / ((n : ℝ) + 1) * ind v ∂μ := by
-      rw [← integral_sub hφi.integrableOn (hg n).1.integrableOn, ← Real.norm_eq_abs]
-      refine norm_integral_le_of_norm_le (g := fun v => 1 / ((n : ℝ) + 1) * ind v)
-        (hg0.1.const_mul _).integrableOn (ae_of_all _ ?_)
-      intro x
-      rw [Real.norm_eq_abs, abs_sub_comm]
-      exact hbd n x
-    have e2 : |∫ b in S, g n b ∂ν - ∫ b in S, G b ∂ν| ≤ ∫ b in S, 1 / ((n : ℝ) + 1) * g0 b ∂ν := by
-      rw [← integral_sub ((hg n).2.1.continuousOn.integrableOn_compact hS)
-        (hGc.continuousOn.integrableOn_compact hS), ← Real.norm_eq_abs]
-      refine norm_integral_le_of_norm_le (g := fun b => 1 / ((n : ℝ) + 1) * g0 b)
-        ((continuous_const.mul hg0.2.1).continuousOn.integrableOn_compact hS) (ae_of_all _ ?_)
-      intro b
-      rw [Real.norm_eq_abs, abs_sub_comm]
-      exact hGn n b
-    rw [integral_const_mul, hg0.2.2 S hS] at e1
-    rw [integral_const_mul] at e2
-    rw [(hg n).2.2 S hS] at e1
-    have h3 := abs_sub_le (∫ v in f ⁻¹' (ι '' S), φ v ∂μ) (∫ b in S, g n b ∂ν) (∫ b in S, G b ∂ν)
-    have h4 : 1 / ((n : ℝ) + 1) * ∫ b in S, g0 b ∂ν ≤ 1 / ((n : ℝ) + 1) * |∫ b in S, g0 b ∂ν| :=
-      mul_le_mul_of_nonneg_left (le_abs_self _) (by positivity)
-    linarith
-  by_contra hne
-  have hpos : 0 < |∫ v in f ⁻¹' (ι '' S), φ v ∂μ - ∫ b in S, G b ∂ν| :=
-    abs_pos.2 (sub_ne_zero.2 hne)
-  have ht : Tendsto (fun n : ℕ => 2 * (1 / ((n : ℝ) + 1)) * |∫ b in S, g0 b ∂ν|) atTop (𝓝 0) := by
-    have := (tendsto_one_div_add_atTop_nhds_zero_nat.const_mul (2 : ℝ)).mul_const
-      |∫ b in S, g0 b ∂ν|
-    rwa [mul_zero, zero_mul] at this
-  obtain ⟨n, hn⟩ := (ht.eventually (Iio_mem_nhds hpos)).exists
-  exact absurd (hC n) (not_le.2 hn)
+  exact ContinuousDensityLimit.exists_of_weighted_approximation
+    (pull := fun S => f ⁻¹' (ι '' S))
+    (fun n : ℕ => 1 / ((n : ℝ) + 1)) (fun n => (hε n).le)
+    (fun n m hnm => one_div_le_one_div_of_le (by positivity)
+      (by exact_mod_cast Nat.add_le_add_right hnm 1))
+    tendsto_one_div_add_atTop_nhds_zero_nat
+    (hc.integrable_of_hasCompactSupport hs) hg0 hg hbd
 
 end Main
 

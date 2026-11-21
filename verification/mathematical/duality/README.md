@@ -1,0 +1,7 @@
+# A dual-family argument replaces Smith normal form
+
+Lean-checked mathematical mechanism: let v send a finite coefficient vector to its linear combination of the independent family b. The map e(c)_i = B(b_i,v(c)) is an endomorphism of the finite-dimensional coefficient space. Nondegeneracy on span(b), followed by linear independence, makes e injective. Finite-dimensional injective-surjective duality supplies vectors d_j with B(b_i,d_j)=delta_ij. By linearity their pairings with the integral span lie in the coefficient ring. The original dual-lattice-containment hypothesis therefore puts each d_j in that integral span.
+
+The original pb_abs conclusion follows with x=b, x'=d and every exponent equal to N. Its former Smith-normal-form construction, coordinate determinant calculations, divisibility arguments and parity rounding are unnecessary for this conclusion. The reusable theorem does not require discrete valuation, a uniformizer, a fraction field instance, or finite dimension of the ambient space. All original public pb_abs hypotheses are retained in its statement for compatibility.
+
+The stronger statement is an integral dual family indexed by an arbitrary finite type, not an assumption added to the original theorem. The entire original proof, generic replacement and an original-versus-new theorem equality passed check `5375e27c016545a731dd7681583653e6`, with zero sorries and only standard axioms. Full-project verification remains pending.

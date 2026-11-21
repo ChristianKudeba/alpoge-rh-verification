@@ -1,0 +1,31 @@
+{
+  "baseline": "82828c35242b4e5778c2ae1a4e7764026b1766c2",
+  "checks": [
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerOrbitVolume/DensVGen.lean",
+      "all_public_declaration_headers_byte_identical": true,
+      "four_existing_definitions_byte_identical": true,
+      "old_sha256": "6fdca96f311be68af0bb2d55047d6eb5d95dfcf206cbb74eef805bfbe2f5f89d",
+      "proposed_sha256": "8199a44fb9399bf6253a7fd7677ae2988fd17daf95f5d302d1a3d358abae42e4"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/DensVGen.lean",
+      "all_public_declaration_headers_byte_identical": true,
+      "four_existing_definitions_byte_identical": true,
+      "old_sha256": "643f9fb5feb772734dc5ac5f09c9782e9319a6eb3f14ae4a5b4f2139f31f8df1",
+      "proposed_sha256": "4242f9c9816bdf3d345afc4bbeab2517f76861b0695a5846b3e524b25c86f1ea"
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/WeilStabilizerVolume/DensVGen.lean",
+      "all_public_declaration_headers_byte_identical": true,
+      "four_existing_definitions_byte_identical": true,
+      "old_sha256": "33868702c1d38ad270db71c780ce0fa8bd865cee72357f8676ddc86fd5a601dd",
+      "proposed_sha256": "08fd17f8fc76042c2c7e272b4378a5bef67e4ecf43091460d913ccf548640d2d"
+    }
+  ],
+  "shared_imports": [
+    "Mathlib"
+  ],
+  "no_import_cycle_argument": "Shared lemma imports only Mathlib; no project imports can lead back to consumers.",
+  "scope": "Proposed content checked structurally; source not yet applied."
+}

@@ -1,0 +1,90 @@
+{
+  "baseline": "82828c35242b4e5778c2ae1a4e7764026b1766c2",
+  "consumers": [
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerOrbitVolume/DensVGen.lean",
+      "baseline_sha256": "6fdca96f311be68af0bb2d55047d6eb5d95dfcf206cbb74eef805bfbe2f5f89d",
+      "applied_sha256": "8199a44fb9399bf6253a7fd7677ae2988fd17daf95f5d302d1a3d358abae42e4",
+      "old_lines": 374,
+      "new_lines": 250,
+      "all_public_declaration_headers_byte_identical": true,
+      "all_four_existing_definition_bodies_byte_identical": true,
+      "all_original_namespace_section_variable_omit_scopes_retained": true,
+      "applied_equals_checked_proposal": true
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/DensVGen.lean",
+      "baseline_sha256": "643f9fb5feb772734dc5ac5f09c9782e9319a6eb3f14ae4a5b4f2139f31f8df1",
+      "applied_sha256": "4242f9c9816bdf3d345afc4bbeab2517f76861b0695a5846b3e524b25c86f1ea",
+      "old_lines": 351,
+      "new_lines": 230,
+      "all_public_declaration_headers_byte_identical": true,
+      "all_four_existing_definition_bodies_byte_identical": true,
+      "all_original_namespace_section_variable_omit_scopes_retained": true,
+      "applied_equals_checked_proposal": true
+    },
+    {
+      "path": "src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/WeilStabilizerVolume/DensVGen.lean",
+      "baseline_sha256": "33868702c1d38ad270db71c780ce0fa8bd865cee72357f8676ddc86fd5a601dd",
+      "applied_sha256": "08fd17f8fc76042c2c7e272b4378a5bef67e4ecf43091460d913ccf548640d2d",
+      "old_lines": 351,
+      "new_lines": 230,
+      "all_public_declaration_headers_byte_identical": true,
+      "all_four_existing_definition_bodies_byte_identical": true,
+      "all_original_namespace_section_variable_omit_scopes_retained": true,
+      "applied_equals_checked_proposal": true
+    }
+  ],
+  "shared": {
+    "path": "src/Lemmata/ContinuousDensityLimit.lean",
+    "sha256": "b431ef290210de1669f1eaa168948c966561da09decb04d5bebc9b7320f31643",
+    "lines": 186,
+    "imports_only_Mathlib": true,
+    "no_project_import_cycle_possible": true
+  },
+  "net_lines_saved": 180,
+  "mathematical_generalization": "Closedness of continuous integral densities under a common-envelope approximation, for arbitrary source measurable space, target locally compact full-support measure, arbitrary set assignment pull, and any nonnegative antitone error rate tending to zero.",
+  "check": {
+    "run_id": "a0564e7e17c42b9e277692d9d711b227",
+    "check_id": "c50b4d504840c636345fee3be658f128",
+    "result": "closed",
+    "sorries": 0,
+    "source_path": "/workspace/principia-harness/a0564e7e/mathematical/sharing/density-limit-check-01.lean",
+    "source_sha256": "214cca228b625b03cb1358892787570496eff3fb9ea839b9783375ab902877b7",
+    "scope": "Full new theorem plus all three complete modified DensVGen modules, imports removed; exact baseline FibFour DensOn/IsCcOn/DensApprox definitions reproduced in original scopes. Principia hosted Mathlib environment, not full archive imports or end-to-end RH.",
+    "printed_axiom_inventory": "First response truncated; exact inventories confirmed by final quiet check."
+  },
+  "public_interface_evidence": "All textual theorem and definition headers, four existing definition bodies, and their namespace/section/variable/omit scopes are unchanged. The full flattened consumers elaborate. No claim of a separate old/new elaborated-type equality check.",
+  "git_diff_check": "Passed for the owned four paths.",
+  "final_check": {
+    "run_id": "a0564e7e17c42b9e277692d9d711b227",
+    "check_id": "edb9da4d89623768b06d6925b6c8b911",
+    "result": "closed",
+    "sorries": 0,
+    "source_path": "/workspace/principia-harness/a0564e7e/mathematical/sharing/density-limit-check-02-quiet.lean",
+    "source_sha256": "b26e83004d6c481007df8a48cbab8ae4440734ae7efb0f140442ca5d49a3ce51",
+    "printed_axiom_inventories": {
+      "ContinuousDensityLimit.exists_of_weighted_approximation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PI.VolStabSW.densApprox_lc": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PI.VolStabS.densApprox_lc": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PI.VolStabW.densApprox_lc": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "only_difference_from_first_check": "Added set_option linter.all false to expose diagnostics."
+  }
+}

@@ -718,26 +718,7 @@ lemma truncC (c : ℕ → ℂ) (y : ℝ) (M : ℕ) (hM : ⌊y⌋₊ ≤ M) :
 
 lemma truncR (c : ℕ → ℝ) (y : ℝ) (M : ℕ) (hM : ⌊y⌋₊ ≤ M) :
     ∑ n ∈ Icc 1 ⌊y⌋₊, c n * (y / n - 1) = ∑ n ∈ Icc 1 M, c n * (max (y / n - 1) 0) := by
-  have h1 : ∑ n ∈ Icc 1 ⌊y⌋₊, c n * (max (y / n - 1) 0) = ∑ n ∈ Icc 1 M, c n * (max (y / n - 1) 0) := by
-    apply Finset.sum_subset (Finset.Icc_subset_Icc_right hM)
-    intro n hn hn'
-    rw [Finset.mem_Icc] at hn hn'
-    have hlt : ⌊y⌋₊ < n := by
-      by_contra h; exact hn' ⟨hn.1, not_lt.1 h⟩
-    have hy : y < n := (Nat.floor_lt' (by omega)).1 hlt
-    have hn0 : (0 : ℝ) < n := by exact_mod_cast hn.1
-    have : y / n - 1 ≤ 0 := by
-      have := (div_lt_one hn0).2 hy; linarith
-    rw [max_eq_right this]; simp
-  rw [← h1]
-  apply Finset.sum_congr rfl
-  intro n hn
-  rw [Finset.mem_Icc] at hn
-  have hn0 : (0 : ℝ) < n := by exact_mod_cast hn.1
-  have hy : (n : ℝ) ≤ y := (Nat.le_floor_iff' (by omega)).1 hn.2
-  have : 0 ≤ y / n - 1 := by
-    have := (one_le_div hn0).2 hy; linarith
-  rw [max_eq_left this]
+  exact_mod_cast (truncC (fun n => (c n : ℂ)) y M hM)
 
 section
 variable {H : Type} [AddCommGroup H] [Fintype H] [DecidableEq H]
@@ -772,34 +753,35 @@ end AN
 
 namespace AN
 
-section
-variable {H : Type} [AddCommGroup H] [Fintype H] [DecidableEq H]
+lemma floor_div_le {A w μ : ℝ} (hA : 0 ≤ A) (hμ : 0 < μ) (h : μ ≤ w) : ⌊A / w⌋₊ ≤ ⌊A / μ⌋₊ :=
+  Nat.floor_le_floor (div_le_div_of_nonneg_left hA hμ h)
 
-lemma deriv_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddChar (E0 × H) ℂ) (hψ : ψ ≠ 0)
-    (y z : ℝ) (hy : 1 ≤ y) (_hz : 1 ≤ z) :
-    ‖GPsi D ell ψ y - GPsi D ell ψ z‖ ≤ |y - z| * (Real.log (max y z) + (Real.log 4 + 4) + ‖ell ψ‖) := by
+def smoothedSum (c : ℕ → ℂ) (ell : ℂ) (y : ℝ) : ℂ :=
+  ∑ n ∈ Icc 1 ⌊y⌋₊, c n * ((y / n - 1 : ℝ) : ℂ) + (y : ℂ) * ell
+
+lemma smoothedSum_lip (c : ℕ → ℂ) (hc : ∀ n, ‖c n‖ ≤ Λ n) (ell : ℂ) (y z : ℝ) (hy : 1 ≤ y) :
+    ‖smoothedSum c ell y - smoothedSum c ell z‖ ≤ |y - z| * (Real.log (max y z) + (Real.log 4 + 4) + ‖ell‖) := by
   have hyM : ⌊y⌋₊ ≤ ⌊max y z⌋₊ := Nat.floor_le_floor (le_max_left _ _)
   have hzM : ⌊z⌋₊ ≤ ⌊max y z⌋₊ := Nat.floor_le_floor (le_max_right _ _)
   have hmax1 : 1 ≤ max y z := le_trans hy (le_max_left _ _)
   have hM1 : 1 ≤ ⌊max y z⌋₊ := Nat.le_floor (by simpa using hmax1)
-  have ty := truncC (fun n => (Λ n : ℂ) * primVal D ψ n) y _ hyM
-  have tz := truncC (fun n => (Λ n : ℂ) * primVal D ψ n) z _ hzM
-  unfold GPsi
-  rw [if_neg hψ, if_neg hψ, ty, tz]
-  have e : (∑ n ∈ Icc 1 ⌊max y z⌋₊, (Λ n : ℂ) * primVal D ψ n * ((max (y / n - 1) 0 : ℝ) : ℂ) + (y : ℂ) * ell ψ)
-      - (∑ n ∈ Icc 1 ⌊max y z⌋₊, (Λ n : ℂ) * primVal D ψ n * ((max (z / n - 1) 0 : ℝ) : ℂ) + (z : ℂ) * ell ψ)
-      = ∑ n ∈ Icc 1 ⌊max y z⌋₊, (Λ n : ℂ) * primVal D ψ n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)
-        + ((y - z : ℝ) : ℂ) * ell ψ := by
-    have : ∀ n : ℕ, (Λ n : ℂ) * primVal D ψ n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)
-        = (Λ n : ℂ) * primVal D ψ n * ((max (y / n - 1) 0 : ℝ) : ℂ)
-          - (Λ n : ℂ) * primVal D ψ n * ((max (z / n - 1) 0 : ℝ) : ℂ) := by
+  have ty := truncC c y _ hyM
+  have tz := truncC c z _ hzM
+  unfold smoothedSum
+  rw [ty, tz]
+  have e : (∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (y / n - 1) 0 : ℝ) : ℂ) + (y : ℂ) * ell)
+      - (∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (z / n - 1) 0 : ℝ) : ℂ) + (z : ℂ) * ell)
+      = ∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)
+        + ((y - z : ℝ) : ℂ) * ell := by
+    have : ∀ n : ℕ, c n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)
+        = c n * ((max (y / n - 1) 0 : ℝ) : ℂ) - c n * ((max (z / n - 1) 0 : ℝ) : ℂ) := by
       intro n; push_cast; ring
     simp only [this, Finset.sum_sub_distrib]
     push_cast; ring
   rw [e]
   refine le_trans (norm_add_le _ _) ?_
-  have h1 : ‖∑ n ∈ Icc 1 ⌊max y z⌋₊, (Λ n : ℂ) * primVal D ψ n
-      * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)‖ ≤ |y - z| * Formalism.LogFactorialMertensBounds.A ⌊max y z⌋₊ := by
+  have h1 : ‖∑ n ∈ Icc 1 ⌊max y z⌋₊, c n * ((max (y / n - 1) 0 - max (z / n - 1) 0 : ℝ) : ℂ)‖
+      ≤ |y - z| * Formalism.LogFactorialMertensBounds.A ⌊max y z⌋₊ := by
     refine le_trans (norm_sum_le _ _) ?_
     unfold Formalism.LogFactorialMertensBounds.A
     rw [← Formalism.LogFactorialMertensBounds.Icc_one_eq_Ioc, Finset.mul_sum]
@@ -812,10 +794,10 @@ lemma deriv_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : A
       refine le_trans (abs_max_sub_max_le_abs _ _ _) ?_
       have : y / n - 1 - (z / n - 1) = (y - z) / n := by ring
       rw [this, abs_div, abs_of_pos hn0]
-    calc ‖(Λ n : ℂ) * primVal D ψ n‖ * |max (y / n - 1) 0 - max (z / n - 1) 0|
-        ≤ Λ n * (|y - z| / n) := mul_le_mul (norm_coef_le D ψ n) ha (abs_nonneg _) ArithmeticFunction.vonMangoldt_nonneg
+    calc ‖c n‖ * |max (y / n - 1) 0 - max (z / n - 1) 0|
+        ≤ Λ n * (|y - z| / n) := mul_le_mul (hc n) ha (abs_nonneg _) ArithmeticFunction.vonMangoldt_nonneg
       _ = |y - z| * (Λ n / n) := by ring
-  have h2 : ‖((y - z : ℝ) : ℂ) * ell ψ‖ = |y - z| * ‖ell ψ‖ := by
+  have h2 : ‖((y - z : ℝ) : ℂ) * ell‖ = |y - z| * ‖ell‖ := by
     rw [norm_mul, Complex.norm_real, Real.norm_eq_abs]
   have h3 := Formalism.LogFactorialMertensBounds.mertens_upper _ hM1
   have h4 : Real.log (⌊max y z⌋₊ : ℝ) ≤ Real.log (max y z) :=
@@ -825,13 +807,12 @@ lemma deriv_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : A
     mul_le_mul_of_nonneg_left (by linarith) (abs_nonneg _)
   nlinarith
 
-lemma wG_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddChar (E0 × H) ℂ) (hψ : ψ ≠ 0)
-    (A w : ℝ) (hw : 0 < w) (M : ℕ) (hM : ⌊A / w⌋₊ ≤ M) :
-    (w : ℂ) * GPsi D ell ψ (A / w)
-      = ∑ n ∈ Icc 1 M, (Λ n : ℂ) * primVal D ψ n * ((max (A / n - w) 0 : ℝ) : ℂ) + (A : ℂ) * ell ψ := by
-  have t := truncC (fun n => (Λ n : ℂ) * primVal D ψ n) (A / w) M hM
-  unfold GPsi
-  rw [if_neg hψ, t, mul_add, Finset.mul_sum]
+lemma smoothedSum_scale (c : ℕ → ℂ) (ell : ℂ) (A w : ℝ) (hw : 0 < w) (M : ℕ) (hM : ⌊A / w⌋₊ ≤ M) :
+    (w : ℂ) * smoothedSum c ell (A / w)
+      = ∑ n ∈ Icc 1 M, c n * ((max (A / n - w) 0 : ℝ) : ℂ) + (A : ℂ) * ell := by
+  have t := truncC c (A / w) M hM
+  unfold smoothedSum
+  rw [t, mul_add, Finset.mul_sum]
   congr 1
   · apply Finset.sum_congr rfl
     intro n hn
@@ -846,33 +827,53 @@ lemma wG_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddC
     rw [this]; push_cast; ring
   · rw [← mul_assoc, ← Complex.ofReal_mul, mul_div_cancel₀ _ hw.ne']
 
-lemma floor_div_le {A w μ : ℝ} (hA : 0 ≤ A) (hμ : 0 < μ) (h : μ ≤ w) : ⌊A / w⌋₊ ≤ ⌊A / μ⌋₊ :=
-  Nat.floor_le_floor (div_le_div_of_nonneg_left hA hμ h)
-
-lemma lip_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddChar (E0 × H) ℂ) (hψ : ψ ≠ 0)
+lemma smoothedSum_lip_scale (c : ℕ → ℂ) (hc : ∀ n, ‖c n‖ ≤ Λ n) (ell : ℂ)
     (A w w' : ℝ) (hA : 0 < A) (hw : 0 < w) (hw' : 0 < w') :
-    ‖(w : ℂ) * GPsi D ell ψ (A / w) - (w' : ℂ) * GPsi D ell ψ (A / w')‖ ≤ 3 * A / min w w' * |w - w'| := by
+    ‖(w : ℂ) * smoothedSum c ell (A / w) - (w' : ℂ) * smoothedSum c ell (A / w')‖ ≤ 3 * A / min w w' * |w - w'| := by
   have hμ : 0 < min w w' := lt_min hw hw'
-  rw [wG_char D ell ψ hψ A w hw _ (floor_div_le hA.le hμ (min_le_left _ _)),
-    wG_char D ell ψ hψ A w' hw' _ (floor_div_le hA.le hμ (min_le_right _ _)), add_sub_add_right_eq_sub,
+  rw [smoothedSum_scale c ell A w hw _ (floor_div_le hA.le hμ (min_le_left _ _)),
+    smoothedSum_scale c ell A w' hw' _ (floor_div_le hA.le hμ (min_le_right _ _)), add_sub_add_right_eq_sub,
     ← Finset.sum_sub_distrib]
   refine le_trans (norm_sum_le _ _) ?_
   have hterm : ∀ n ∈ Icc 1 ⌊A / min w w'⌋₊,
-      ‖(Λ n : ℂ) * primVal D ψ n * ((max (A / n - w) 0 : ℝ) : ℂ)
-        - (Λ n : ℂ) * primVal D ψ n * ((max (A / n - w') 0 : ℝ) : ℂ)‖ ≤ Λ n * |w - w'| := by
+      ‖c n * ((max (A / n - w) 0 : ℝ) : ℂ) - c n * ((max (A / n - w') 0 : ℝ) : ℂ)‖ ≤ Λ n * |w - w'| := by
     intro n _
     rw [← mul_sub, ← Complex.ofReal_sub, norm_mul, Complex.norm_real, Real.norm_eq_abs]
     have ha : |max (A / n - w) 0 - max (A / n - w') 0| ≤ |w - w'| := by
       refine le_trans (abs_max_sub_max_le_abs _ _ _) ?_
       have : A / n - w - (A / n - w') = -(w - w') := by ring
       rw [this, abs_neg]
-    exact mul_le_mul (norm_coef_le D ψ n) ha (abs_nonneg _) ArithmeticFunction.vonMangoldt_nonneg
+    exact mul_le_mul (hc n) ha (abs_nonneg _) ArithmeticFunction.vonMangoldt_nonneg
   refine le_trans (Finset.sum_le_sum hterm) ?_
   rw [← Finset.sum_mul]
   have := sum_vM_le (Y := A / min w w') (by positivity)
   calc (∑ n ∈ Icc 1 ⌊A / min w w'⌋₊, Λ n) * |w - w'| ≤ (3 * (A / min w w')) * |w - w'| :=
         mul_le_mul_of_nonneg_right this (abs_nonneg _)
     _ = 3 * A / min w w' * |w - w'| := by ring
+
+section
+variable {H : Type} [AddCommGroup H] [Fintype H] [DecidableEq H]
+
+lemma deriv_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddChar (E0 × H) ℂ) (hψ : ψ ≠ 0)
+    (y z : ℝ) (hy : 1 ≤ y) (_hz : 1 ≤ z) :
+    ‖GPsi D ell ψ y - GPsi D ell ψ z‖ ≤ |y - z| * (Real.log (max y z) + (Real.log 4 + 4) + ‖ell ψ‖) := by
+  simpa only [GPsi, if_neg hψ, smoothedSum] using
+    smoothedSum_lip (fun n => (Λ n : ℂ) * primVal D ψ n) (norm_coef_le D ψ)
+      (ell ψ) y z hy
+
+lemma wG_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddChar (E0 × H) ℂ) (hψ : ψ ≠ 0)
+    (A w : ℝ) (hw : 0 < w) (M : ℕ) (hM : ⌊A / w⌋₊ ≤ M) :
+    (w : ℂ) * GPsi D ell ψ (A / w)
+      = ∑ n ∈ Icc 1 M, (Λ n : ℂ) * primVal D ψ n * ((max (A / n - w) 0 : ℝ) : ℂ) + (A : ℂ) * ell ψ := by
+  simpa only [GPsi, if_neg hψ, smoothedSum] using
+    smoothedSum_scale (fun n => (Λ n : ℂ) * primVal D ψ n) (ell ψ) A w hw M hM
+
+lemma lip_char (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (ψ : AddChar (E0 × H) ℂ) (hψ : ψ ≠ 0)
+    (A w w' : ℝ) (hA : 0 < A) (hw : 0 < w) (hw' : 0 < w') :
+    ‖(w : ℂ) * GPsi D ell ψ (A / w) - (w' : ℂ) * GPsi D ell ψ (A / w')‖ ≤ 3 * A / min w w' * |w - w'| := by
+  simpa only [GPsi, if_neg hψ, smoothedSum] using
+    smoothedSum_lip_scale (fun n => (Λ n : ℂ) * primVal D ψ n) (norm_coef_le D ψ)
+      (ell ψ) A w w' hA hw hw'
 
 end
 

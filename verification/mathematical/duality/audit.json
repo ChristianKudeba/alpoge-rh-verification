@@ -1,0 +1,32 @@
+{
+  "base_commit": "51c81ba76f4f038169ae93ced8a6ac91b8ce15fc",
+  "changed_path": "src/Formalism/SharpRestriction/GrowthBounds/HermitianTensor/GrowthOfBasic.lean",
+  "new_helper": "src/Lemmata/IntegralDualFamily.lean",
+  "before": {
+    "lines": 245,
+    "nonblank_lines": 239,
+    "bytes": 12070,
+    "sha256": "e766bfee432e9805fdc361f8842ef6ce6638a0e670c6ccffccd1d57ae965b93c"
+  },
+  "replacement": {
+    "lines": 31,
+    "nonblank_lines": 25,
+    "bytes": 1439,
+    "sha256": "c1e9efe44aae0ec6f7932a3259f9a0d08d29264eef760ce1c51ea95de653bf08"
+  },
+  "helper": {
+    "lines": 62,
+    "nonblank_lines": 58,
+    "bytes": 2533,
+    "sha256": "0ea68a7599dad2626f512bef5ad8636e1c8417fdfd623232966b05701b070a30"
+  },
+  "net_lines_removed": 152,
+  "mechanism": "Finite-dimensional injective/surjective duality gives an integral right-dual family; choose every exponent N. Eliminates Smith normal form, divisibility and valuation parity rounding. Generic theorem does not require a DVR, uniformizer or fraction-field instance.",
+  "original_statement": "Preserved byte-for-byte; now-unused hw, hpi and hd hypotheses retained for compatibility.",
+  "check_id": "5375e27c016545a731dd7681583653e6",
+  "result": "closed",
+  "sorries": 0,
+  "validation": "Exact complete original proof and replacement compiled with proved generic helper; rfl comparison of old/new pb_abs proofs confirms identical theorem type. Both printed axiom inventories contain only propext, Classical.choice, Quot.sound.",
+  "check_source_sha256": "2b41c065b18f79fda88258c64fb87c4d82646bbf2833fb916331707c781d41ac",
+  "full_project_comparator": "pending"
+}

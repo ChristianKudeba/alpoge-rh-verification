@@ -1,0 +1,272 @@
+[
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaRealNonvanish.lean",
+    "declaration": "MellinDeriv",
+    "sha256": "38bf614f490849f72c6577f55dee32e309d26f54e791a367fcca3727a7344509"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaRealNonvanish.lean",
+    "declaration": "LandauLemma",
+    "sha256": "0461d8361a01306f05167a7f58927abccc124e485e71870214fd82cfd14744db"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaRealNonvanish.lean",
+    "declaration": "MellinElem",
+    "sha256": "7d9c51b0db9556c7d4148d33dcaced8b05cd662dea1d35702d197deae254f889"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaRealNonvanish.lean",
+    "declaration": "ZetaRealNonvanish",
+    "sha256": "c39e93b8773157939879841f40b634ee7f2b5726746d3c812b225f6cebc459bd"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaRealNonvanish.lean",
+    "declaration": "LogDerivZeroFree",
+    "sha256": "ecf6143057b8081f6059777b7bbe0209ab410f2c90b19b8359d2299e49205877"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/DefsOC.lean",
+    "declaration": "Sa",
+    "sha256": "8fd073996baf618f7c7f8bc27972ef5a91f64a0199346e13ff8f3d8a40b7e5ee"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/DefsOC.lean",
+    "declaration": "MellinSgen",
+    "sha256": "8267d51e9b43dda17fae31d84ef44ae22de43ada748326133349f67a56e30351"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/DefsOC.lean",
+    "declaration": "LandauEq",
+    "sha256": "c927410564a379d99caec314859c8652937f8c26058ba2450267ecc6f80577a6"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/DefsOC.lean",
+    "declaration": "LogDerivResidue",
+    "sha256": "c1a6d8e2ad0d686f749773ef7e9307293479bc78b362ed830321ff1a21f3597a"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/StatementOC.lean",
+    "declaration": "Sz",
+    "sha256": "6a1d56217b1ee23c586d4b5ea6e2fcc3a35911f353837102a045bd2402578855"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/StatementOC.lean",
+    "declaration": "Gz",
+    "sha256": "4b1e2e8a35277a63767294cd78710d119500a61b7218b3dfe8c91a0b984ed0a7"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/Assembly.lean",
+    "declaration": "cint_of_abs",
+    "sha256": "c0f1ed5a3371d3e8999e4a6f077fcab44af14ea4e0f4cd0ae2549c79b1f2bf0b"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/Assembly.lean",
+    "declaration": "rint_of_abs",
+    "sha256": "837dcc4d1a74d22607a7f0122d7627ff182527b0456ce51b29b98436b72f70c4"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/Assembly.lean",
+    "declaration": "int_abs_rpow",
+    "sha256": "4b8b13bee1b34ebb922e0e63dc9db856ba61df0dc895552d5e7867affa4d6475"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/Assembly.lean",
+    "declaration": "ne_one_of_one_lt_re",
+    "sha256": "99067ada3fb65fcc59469c0854fabaa6ed8c162c2084e981050735674b73f8fe"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/Assembly.lean",
+    "declaration": "sub_ne_zero_of_lt_re",
+    "sha256": "0fd507f268f5408a7bfa42446a995c307b0765fd4f3e2f01360b2804028b7692"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/Assembly.lean",
+    "declaration": "ne_zero_of_lt_re",
+    "sha256": "3e5c72d00221add92186f5799864feed09e5ae5871c47a66bcdbb862d57558d3"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/MeasurableGchi.lean",
+    "declaration": "Sz_eq_Sa",
+    "sha256": "194435714568f5ceefa2a936684ce9e2b5fe9caf5d3a9e6bb142b38111c5bc32"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/MeasurableGchi.lean",
+    "declaration": "vM_bound",
+    "sha256": "ef8d0ad4d40e7482e5242c74a38475cf0810f2dc401709725e873ae0f6809285"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/MeasurableGchi.lean",
+    "declaration": "measurable_Gz",
+    "sha256": "2774c26783237397789960924cc86ae15516e85aadf8031c63680ec5bf6243bc"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/MeasurableGchi.lean",
+    "declaration": "mellin_Gz",
+    "sha256": "2d4e063bb35536454821757050fb306cb0551e29f9812a13eedbabcd579a9ffd"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/RiemannZetaOneNeZeroOfRealMemIoo.lean",
+    "declaration": "riemannZetaOne_eq_mul_of_ne_one",
+    "sha256": "586d0f0b793f5e0167b82823e7c4f8f3e1fb5f2d21d62631dc89dd2dca9ace8f"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/RiemannZetaOneNeZeroOfRealMemIoo.lean",
+    "declaration": "riemannZetaOne_ne_zero_of_one_le_re",
+    "sha256": "4ad3497043a90b7ff6c96cb40756609fecedb2f165b9c6816bb4310c6e72b177"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/RiemannZetaOneNeZeroOfRealMemIoo.lean",
+    "declaration": "ofReal_ne_one_of_lt",
+    "sha256": "1b14417f6fed406e020c25842a1684c9e3f043ad8bd1af20befd99507866b7c1"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/RiemannZetaOneNeZeroOfRealMemIoo.lean",
+    "declaration": "deriv_riemannZetaOne_of_ne_one",
+    "sha256": "12fc79b090b8533d023dadbdd5f0b01a71a7057386cb10e7af1dd62864b408ec"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/RiemannZetaOneNeZeroOfRealMemIoo.lean",
+    "declaration": "logderiv_zeta_eq",
+    "sha256": "9f8a6e62e783abc9dbca34d49b140d4a885703d8a5fa6e53452249a3a6b753f2"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/RiemannZetaOneNeZeroOfRealMemIoo.lean",
+    "declaration": "differentiable_deriv_of",
+    "sha256": "f5413ba4ae3d10c28c99b1e09151fe30397942107d8436ded54f72e4a69bb1db"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/OfRealNeOfRealOfLt.lean",
+    "declaration": "ofReal_ne_ofReal_of_lt",
+    "sha256": "1780c680479236a18cd9257d9577cccadd4953ef24a62d6e7c8ca862f1ed92fb"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/OfRealNeOfRealOfLt.lean",
+    "declaration": "ne_ofReal_of_lt_re",
+    "sha256": "d6edddc36bf454cead2d9ac69e13feee1f7884e7da8ac0a1e4bd0d431ddf3cca"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/MellinDeriv.lean",
+    "declaration": "all",
+    "sha256": "8f444d1c21885ff82600baacb7735ddad5fbb530f5617d5b40ce626cccff7860"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/LandauLemma.lean",
+    "declaration": "all",
+    "sha256": "8a61c3a20982d2b26a65bed5d18f719d5b609ea31851aa28178de181131854d4"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/LandauEq.lean",
+    "declaration": "all",
+    "sha256": "3fd290e5baf398b7abc1d481ebee50f1b3364c553b944b2bd9dabddfd59b5609"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/LogDerivZeroFree.lean",
+    "declaration": "all",
+    "sha256": "b1571193f3d6fa9bc059d4e72d20c587f795dffdf0d0666ab1d351a3fc581346"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/LogDerivContinuation.lean",
+    "declaration": "all",
+    "sha256": "5f2545fd7ead61fee27a1ebbd531eab63e13fdd9d0cc925c861ed86e46273b99"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "linZ",
+    "sha256": "42af06bc67c15dd0f5a5814cfc2a209c533a480c2a73d9ba22a807e26f0edf92"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "nZ",
+    "sha256": "b3e6444cc8a52b2bed4fea7a4e75f34ef5539cc6ac7821d08c773f015ab922c4"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "AZ",
+    "sha256": "f35aea559fb045f457999a4569c924a17c481654a632f5c1395aade38ddcad13"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "HZ",
+    "sha256": "baf95f1949fb69c59dc882cdc22f76ac94e4fae8e7a22e9877b7fab351a711ce"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "IZ",
+    "sha256": "4baff04c4e82a0537346ed74ff33058ff251ae52a0ffae69280c9457d7c729a5"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "AZ_eq",
+    "sha256": "084a213e5e458ea31ca164827d4238881520b66c402ab164557db7a2dc3e8aee"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "differentiable_AZ",
+    "sha256": "df335e5d27f1c030df8aeafb977f902aa71cf6ca7104c2abd8e86ecce7b5e8d8"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "mellin_Gz_n",
+    "sha256": "a150c2d5ecb74af8f79058c1b523f708c19cda852fa7bd40f1aaea58591f4cc2"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "measurable_HZ",
+    "sha256": "c370bfbbb7fde8a546cc76a380a8eef9fc0edaad321efba75dac7422f04e18e6"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "mellin_HZ",
+    "sha256": "7c11f95a911e30bf6752e2e1f447ee3939eb932298ab217b881e6ec641c908fc"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+    "declaration": "riemannZetaOne_ne_zero_of_integrable_mellin",
+    "sha256": "079520683fc1641edb863f421200eb60a307dfb0f5a345061634d52a8c47f2a8"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "logDerivResidue'",
+    "sha256": "16ee2fcde2991fabf947b3fae62073fa82501f07fac2c9493c22c10a94d0e5c5"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "natOrder_ne_zero'",
+    "sha256": "847f97885299b272baf640e9763fc6d04df427e1f15bf2f7010efab22cc00784"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "integral_real'",
+    "sha256": "9902f1a82981c7d77e970d4ee3b68cde6a821f5a090b4da35f36c15a130a4ca2"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "AP",
+    "sha256": "5d634d627dee121a9dccc7b849d986e286f681bfb816a0369dcaf58f827f3e5c"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "PhiP",
+    "sha256": "36f6704f08904a0e25200c3eb2fd551218e0f1afa08fe66f139b5548a19e16fe"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "differentiable_AP",
+    "sha256": "06a6f04a26c9d79ed0f2675c52a6a93ac272fe7f9dbba9194065233e13fed042"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "PhiP_eq",
+    "sha256": "69b2094fffbe4af95d6514205e7f86bd49f0b56da97b3cd41f6f0c6733116794"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "PhiP_analyticAt",
+    "sha256": "3e24d49f54e04d56230d9fa87336b6c562034efc997da351ecb8ffa012e17807"
+  },
+  {
+    "path": "/workspace/alpoge-compaction/src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+    "declaration": "landau_entire",
+    "sha256": "19e999c43c1c74681576e746e9f47246318758bc0cf37857238a5fa230146af2"
+  }
+]

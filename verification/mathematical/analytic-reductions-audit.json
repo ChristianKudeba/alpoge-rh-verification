@@ -1,0 +1,104 @@
+{
+  "source_base": "51c81ba76f4f038169ae93ced8a6ac91b8ce15fc",
+  "files": [
+    {
+      "path": "src/Formalism/ZetaNonvanishing/MellinElem.lean",
+      "before": {
+        "lines": 139,
+        "nonblank": 130,
+        "bytes": 6893,
+        "sha256": "383cc1b9132461e7d6e521ca74e45a0d899c78cf1532278f2350d1d841708996"
+      },
+      "after": {
+        "lines": 85,
+        "nonblank": 76,
+        "bytes": 4073,
+        "sha256": "120e30dabd80da141c33abf844f715ba01cbe657a56c3ef8a529e47fe7ec8530"
+      },
+      "declarations_preserved": 5,
+      "changed_or_missing_signature": []
+    },
+    {
+      "path": "src/Formalism/ZetaNonvanishing/MellinSAux.lean",
+      "before": {
+        "lines": 156,
+        "nonblank": 144,
+        "bytes": 7785,
+        "sha256": "0cacb10e18ef0fd1cab68be9ae10d24d39d10794885c04ed8b090eaac16529df"
+      },
+      "after": {
+        "lines": 129,
+        "nonblank": 118,
+        "bytes": 6410,
+        "sha256": "d338c2b843204fda25fb76bf5fa4e1f3edfc3196fe905919e6f5a32ac4ced476"
+      },
+      "declarations_preserved": 6,
+      "changed_or_missing_signature": []
+    },
+    {
+      "path": "src/Formalism/ZetaNonvanishing/ZetaLandau.lean",
+      "before": {
+        "lines": 300,
+        "nonblank": 273,
+        "bytes": 14485,
+        "sha256": "79337648b9cece41ed54ddd5c774c91dbbffe9a77d9933060c41f09415de6fe6"
+      },
+      "after": {
+        "lines": 282,
+        "nonblank": 255,
+        "bytes": 13713,
+        "sha256": "ef4f5a3e9f1f77d0619fc7f5a27994159d50c1ee917ebfc73fd89ee9d28257a4"
+      },
+      "declarations_preserved": 22,
+      "changed_or_missing_signature": []
+    },
+    {
+      "path": "src/Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean",
+      "before": {
+        "lines": 592,
+        "nonblank": 560,
+        "bytes": 31816,
+        "sha256": "08921efb40c16f3be4290b48c153cc6a6b6be790dd2cdb672202c165cea5ebae"
+      },
+      "after": {
+        "lines": 573,
+        "nonblank": 541,
+        "bytes": 31015,
+        "sha256": "dff37fddf95c01b1bf606a7494f30a602a50f28b9b2bdd2f058ec090ce05285b"
+      },
+      "declarations_preserved": 19,
+      "changed_or_missing_signature": []
+    },
+    {
+      "path": "src/Formalism/ZetaNonvanishing/LogDerivContinuation.lean",
+      "before": {
+        "lines": 0,
+        "nonblank": 0,
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "lines": 20,
+        "nonblank": 15,
+        "bytes": 885,
+        "sha256": "5f2545fd7ead61fee27a1ebbd531eab63e13fdd9d0cc925c861ed86e46273b99"
+      },
+      "new_declarations": [
+        "Formalism.logDerivZeroFree_of_eventuallyEq"
+      ]
+    }
+  ],
+  "total_delta": {
+    "lines": -98,
+    "nonblank": -102,
+    "bytes": -4883
+  },
+  "hosted_checks": [
+    "ba0e3945350d3ed91fa5f6338421d052",
+    "770bee0c2874a507d27072692533b42d",
+    "af30427ed4e10b2779df79591e0d2994"
+  ],
+  "full_project_verification": "pending",
+  "source_definitions_changed": false,
+  "only_new_declaration": "Formalism.logDerivZeroFree_of_eventuallyEq"
+}
