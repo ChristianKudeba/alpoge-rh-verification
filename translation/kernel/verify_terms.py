@@ -14,6 +14,7 @@ import tempfile
 
 from prepare import SOURCE, verify_manifest
 from proof_foundations import appendix, foundations
+from edition_reading import reading_guide
 from make_endpoints import make_endpoints
 from prose_records import add_volume, annotated_volume, meaning
 from publish import check_report, read_back
@@ -275,12 +276,16 @@ def finish(folder):
         put(target, assets, path, tag=AUDIT_TAG)
         digest, size = info(path)
         extracts.append(dict(asset=path.name, sha256=digest, bytes=size))
+    guide = folder / "READING.md"
+    guide.write_text(reading_guide(edition, totals, total_volumes, total_print_bytes, ax), encoding="utf-8")
+    put(target, assets, guide, tag=AUDIT_TAG)
     index = folder / "reverse-audit.json"
     write_json(index, dict(version=1, source=SOURCE, reader_sha256=reader_hash, render_commit=RENDER_COMMIT,
                            core_index_sha256=info(folder / "edition-index.json")[0], totals=totals,
                            terms=edition["targets"], ranges=ranges, shards=by_shard, endpoint_extract=extracts,
                            prose_writer_sha256=prose_hash, prose_volumes=total_volumes, prose_tex_bytes=total_print_bytes,
-                           foundations=[{k: val for k, val in a.items() if k != "tex"} for a in ax]))
+                           foundations=[{k: val for k, val in a.items() if k != "tex"} for a in ax],
+                           reading_guide=dict(asset=guide.name, sha256=info(guide)[0], bytes=info(guide)[1])))
     put(target, assets, index, tag=AUDIT_TAG)
     if target["draft"]:
         body = (f"All {totals['records']:,} numbered solution-export records were independently decoded "
