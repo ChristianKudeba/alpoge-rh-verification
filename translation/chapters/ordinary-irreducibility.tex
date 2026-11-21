@@ -1,0 +1,120 @@
+\section{Irreducibility of the ordinary point on every open subgroup}
+\label{sec:spectrum-open-irreducibility}
+
+The rank-three automorphy endpoint in
+Section~\ref{sec:spectrum-deformation} needs irreducibility on every
+open subgroup contained in $G_K$. We prove this for the ordinary
+integral type-I points in that section. The essential restriction on
+the residual character is visible in the proof.
+
+Write $G=G_{\mathbb Q}$, $H=\ker\eta=G_K$, and $I_\ell$ for inertia at
+the chosen valuation above $\ell$. Let $\mathcal O\subset A\subset
+\overline{\mathbb Q}_\ell$ be the finite DVR of the ordinary point. Use
+$k_A$ for its residue field and write
+$\Psi=\chi_\ell^e\psi_{\mathrm{Gal}}$ in the coefficient units, with
+$\psi_{\mathrm{Gal}}$ of Dirichlet level $N$ and $e\ge1$. On $H$ the
+matrix part of the point is an ordinary representation, denoted by
+$R$. In the marked integral basis its reduction has diagonal entries
+$\overline\Psi,1,\overline\Psi^{-1}$ on $H$ (equivalently one may
+use just this residual trace identity below). At the decomposition
+group at $\ell$ intersected with $H$, the ordinary flag gives a
+basis in which the matrices are upper triangular. On inertia the
+diagonal characters in that basis are $\Psi,1,\Psi^{-1}$.
+The arithmetic input \texttt{dat\_facts} gives
+\begin{equation}
+ I_\ell\subset H,\qquad
+ \exists x\in I_\ell:\quad \Psi(x)^2-1\in\mathcal O^\times .
+ \label{eq:open-residue-separation}
+\end{equation}
+In particular this difference also has nonzero image in $k_A$.
+The hypothesis that $R$ acts irreducibly on $H$ is precisely type I.
+
+\subsection{A three-dimensional permutation argument}
+
+Let $H$ act irreducibly on $V=L^3$ over a field $L$, let $U$ be a
+normal subgroup of $H$, and suppose some $u\in U$ has three distinct
+eigenvalues in $L$. Suppose $R(u)$ and $R(x)$ are upper triangular
+in a common basis for some $x\in H$. If $U$ acts reducibly then there
+is a $g\in H$ for which
+\begin{equation}
+               \operatorname{tr} R(gx^j)=0\qquad(j\ge0).
+ \label{eq:open-vanishing-coset}
+\end{equation}
+To see this, diagonalize $R(u)$ by an upper triangular change of
+basis. For each diagonal position its eigenvector is obtained by
+choosing entry one at that position, zero below it, and solving
+successively in the rows above it. The differences of diagonal
+entries that must be divided by are all nonzero. Thus $R(x)$
+remains upper triangular. Denote the three resulting eigenlines
+by $L_0,L_1,L_2$.
+
+Any $U$-invariant subspace is a sum of some of these lines: the
+projection to the $i$th line is the polynomial in $R(u)$ given by
+$\prod_{a\ne i}(R(u)-\lambda_a)/(\lambda_i-\lambda_a)$.
+Take a nonzero proper $U$-invariant subspace $W$. If it is a line,
+then a $U$-invariant eigenline has been found. If it is a plane,
+irreducibility on $H$ gives $h\in H$ with $hW\ne W$.
+Normality makes $hW$ another $U$-invariant plane. Their intersection
+is a $U$-invariant line. Every translate by $H$ of a $U$-invariant
+line is again $U$-invariant, hence one of the three eigenspaces.
+The span of its orbit is nonzero and $H$-invariant. Irreducibility
+implies that the orbit consists of all three lines. Thus the action
+on the three lines gives a transitive subgroup of $S_3$.
+Its order is divisible by three, so it contains a three-cycle
+by Cauchy's theorem. Choose $g$ realizing this cycle.
+
+Every $R(h)$ is now a monomial matrix. The permutation of an upper
+triangular invertible monomial matrix fixes each index: if it sends
+column $i$ to row $p(i)$, then $p(i)\le i$ for every $i$, and
+$\sum_i p(i)=\sum_i i$. In particular $R(x)$ is diagonal.
+$R(gx^j)$ therefore has the same permutation as $R(g)$ and all its
+diagonal entries vanish. This proves \eqref{eq:open-vanishing-coset}.
+
+\subsection{Inertia supplies both matrices}
+
+Let $V_0$ be an arbitrary open subgroup of $G$ contained in $H$,
+and set $U=\bigcap_{g\in G}gV_0g^{-1}$. Openness in the profinite
+group gives finite index, so the normal core $U$ also has finite
+index. It suffices to prove irreducibility on $U$, as every
+$V_0$-invariant subspace is $U$-invariant. Fix the element $x$ in
+\eqref{eq:open-residue-separation}. The cyclotomic inertia theorem
+over $\mathbb Q_\ell$ gives $\sigma\in I_\ell$ with
+$\chi_\ell(\sigma)=1+\ell$. Put
+\[
+    m=[G:U]\, |(\mathbb Z/N\mathbb Z)^\times|,\qquad u=\sigma^m .
+\]
+Here $m>0$, $u\in U\cap I_\ell$, and $\psi_{\mathrm{Gal}}(u)=1$,
+since its order divides the order of the Dirichlet unit group.
+It follows that $\Psi(u)^2=(1+\ell)^{2em}\ne1$ in characteristic
+zero. In the ordinary basis the three eigenvalues of $R(u)$ are
+therefore distinct. Both $u$ and $x$ belong to inertia, so the
+ordinary flag triangularizes both matrices.
+
+If $U$ acted reducibly, \eqref{eq:open-vanishing-coset} would produce
+$g\in H$. Compute its vanishing traces in the integral basis, and
+reduce modulo the maximal ideal of $A$. Put $a=\overline\Psi(g)$,
+$b=\overline\Psi(x)$ in $k_A^\times$. The residual trace identity
+gives
+\[
+                 ab^j+1+(ab^j)^{-1}=0\quad(j\ge0).
+\]
+Then each of $a,ab,ab^2$ is a root of $X^2+X+1$.
+Since $b^2\ne1$ by \eqref{eq:open-residue-separation}, $b\ne1$
+and the three units are pairwise distinct. A quadratic polynomial
+over a field has at most two distinct roots. This contradiction proves
+irreducibility on $U$ and hence on $V_0$. The proof works for each
+open $V_0\subseteq H$ and supplies the required quantifier.
+
+\paragraph{Source and inputs.}
+This is \texttt{matIrr\_open\_gd}. The argument above derives the open
+irreducibility conclusion from the residual trace, the ordinary flag,
+\eqref{eq:open-residue-separation}, and cyclotomic surjectivity on
+inertia. For the given good deformation data the residual and ordinary
+conditions belong to \texttt{OrdPt}; \texttt{dat\_facts} supplies the
+displayed separation by the character and unramifiedness conditions
+of the datum. The characteristic-zero and residual eigenvalue
+conditions have different uses. The power $u$ distinguishes the
+three eigenlines in characteristic zero, and $x$ distinguishes three
+residual values after applying the Frobenius-independent trace test.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/CurveDVRSpecialization/MatIrrOpenGd.lean}{The invariant subspaces, trace obstruction and arithmetic specialization},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/UnitaryThreeGroups/DatFacts.lean}{inertia and residual separation}.}

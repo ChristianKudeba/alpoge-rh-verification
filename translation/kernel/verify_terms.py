@@ -16,13 +16,14 @@ from make_endpoints import make_endpoints
 from prose_records import add_volume, annotated_volume, meaning
 from publish import check_report, read_back
 from read_terms import iter_records
+from recover_stage import ACTIVE_EDITION, core_edition, recover_staged
 from release_store import REPO, api, download, info, listing, matches, put, release, write_json
 
 
 AUDIT_TAG = "rh-literal-audit-v1"
 RENDER_COMMIT = "4e22ad3692dae97711b2d3c7ee465719b7545828"
 BASE = Path(__file__).resolve().parent
-EXPECTED_CORE_RELEASE = 453277794
+EXPECTED_CORE_RELEASE = ACTIVE_EDITION
 DECLARATIONS = {"axiom", "def", "opaque", "thm", "quot"}
 
 
@@ -45,14 +46,8 @@ def check_core(rel):
 
 
 def plan(folder):
-    core = check_core(release())
-    # The publication tag describes a release. Its precise source and render
-    # code are pinned separately. Keep publication possible if other work
-    # changes the default branch's workflow files during this long build.
-    if core["draft"] and core["target_commitish"] == RENDER_COMMIT:
-        api(f"repos/{REPO}/releases/{core['id']}", "--method", "PATCH",
-            "-f", "target_commitish=main", "-f", "body=The literal solution export is being translated. "
-            f"The renderer is pinned at {RENDER_COMMIT}; the final manifest records the source and volume hashes.")
+    core = check_core(core_edition())
+    recover_staged(folder, core)
     core_assets = listing(core["id"])
     work = []
     complete = False
@@ -147,7 +142,7 @@ def verify_records(source, archive, part, report, index, prose_archive):
 
 
 def verify_one(folder, index):
-    core = check_core(release())
+    core = check_core(core_edition())
     assets = listing(core["id"])
     parts = load_asset_json(assets, "shards.json", folder)
     verify_manifest(parts, assets)
@@ -201,7 +196,7 @@ def export_lookup(conn, folder, target, assets):
 
 
 def finish(folder):
-    core = check_core(release())
+    core = check_core(core_edition())
     if core["draft"]:
         raise ValueError("full term publication has not completed")
     cores = listing(core["id"])
@@ -283,7 +278,7 @@ def finish(folder):
                 "immediate type and value records are printed in rh-theorem-records.pdf and .tex. "
                 "This verifies fidelity of the formal typesetting. The prose paper has its own coverage statement.")
         api(f"repos/{REPO}/releases/{target['id']}", "--method", "PATCH", "-F", "draft=false",
-            "-f", "target_commitish=main", "-f", "make_latest=false", "-f", "body=" + body)
+            "-f", "tag_name=" + AUDIT_TAG, "-f", "target_commitish=main", "-f", "make_latest=false", "-f", "body=" + body)
     print(f"Verified all {totals['records']:,} records; indexed {totals['declarations']:,} declarations.")
 
 

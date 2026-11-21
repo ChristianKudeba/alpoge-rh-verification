@@ -1,0 +1,252 @@
+\section{A relative prime number theorem for the window moduli}
+\label{sec:window-relative-pnt}
+
+The denominator in Section~\ref{sec:window-exceptions} counts primes
+in a single reduced residue class. An exceptional real zero can make
+this count small. We prove the estimate with an error proportional to
+the corrected main term, and then give the lower bound on the
+denominator for the moduli used in the two selections of primes.
+
+For \(z\ge2\) set
+\(\ell(z)=\int_2^z dt/\log t\), and let \(\pi(X;M,b)\) count primes
+\(p\le X\) congruent to \(b\bmod M\). Call \((\chi,\beta)\) eligible
+at \(M\) if \(\chi\) is a nonprincipal real Dirichlet character modulo
+\(M\), \(L(\beta,\chi)=0\), and
+\[
+       1-\frac{1}{8\log M}<\beta<1.
+\]
+There are absolute positive constants \(c,A,C\) with the following
+property. For every positive multiple \(M\) of \(8\), select one
+eligible pair if one exists, and select the empty option otherwise.
+The selection can be made depending only on \(M\), in such a way that
+for all integers \(b\) coprime to \(M\) and all real \(X\ge2\) with
+\[
+             \log X\ge C\log M\,\log(\log M+2)
+\]
+one has
+\begin{align}
+ B(X)&=\frac{\ell(X)-\chi(b)\ell(X^\beta)}{\varphi(M)},&
+ E_c(X,M)&=\exp\!\left(-\frac{c\log X}{\log M}\right)
+                   +\exp\!\left(-\sqrt{c\log X}\right),
+ \nonumber\\
+ |\pi(X;M,b)-B(X)|&\le A E_c(X,M) B(X).
+ \label{eq:window-relative-pnt}
+\end{align}
+The character term is omitted for the empty option. The choice of
+\(C\) below ensures \(X^\beta\ge2\) everywhere the estimate is used.
+
+\paragraph{The weighted count.}
+We use the unconditional progression theorem of J.~Thorner and
+A.~Zaman. Their exceptional pair has \(\beta\ge1-1/(50\log M)\).
+McCurley's zero-free region gives uniqueness in this interval,
+simplicity, and a nonprincipal real character. With the exceptional
+pair in their sense put \(\sigma=\chi(b)\) and
+\(F(t)=t-\sigma t^\beta/\beta\). In its absence put \(F(t)=t\)
+and \(\sigma=0\). Define
+\(\vartheta(t;M,b)=\sum_{p\le t,\ p\equiv b\bmod M}\log p\).
+When \(M\ge2\), \((b,M)=1\), \(t\ge3\), and
+\(F(t)/\varphi(M)\ge t^{18/19}\), their Corollary~1.5 gives
+\[
+ \left|\vartheta(t;M,b)-\frac{F(t)}{\varphi(M)}\right|
+ \ll \frac{F(t)}{\varphi(M)}
+ \left\{\exp\!\left(-\frac{a\log t}{\log M}\right)
+       +\exp\!\left(-a\frac{(\log t)^{3/5}}{(\log\log t)^{1/5}}\right)
+ \right\}
+\]
+for an absolute \(a>0\). We use the weaker consequence
+\(1-\beta\gg M^{-1}\) of the exceptional-zero estimate in their
+equation~(1.2). Both results concern all characters at modulus
+\(M\), which permits imprimitive characters. Equivalently, the
+extra Euler factors of an induced character are nonzero at real
+\(\beta>0\), since \(|\chi^*(p)p^{-\beta}|<1\).
+See Thorner and Zaman, \emph{Refinements to the prime number theorem
+for arithmetic progressions}, Math.~Z. 306 (2024), article~54,
+\href{https://doi.org/10.1007/s00209-023-03414-3}{journal publication},
+\href{https://arxiv.org/abs/2108.10878}{authors' text}.
+
+Hereafter increase the absolute \(C\) so that
+\(s=\sqrt X\ge M^{100}\) and \(s\) exceeds any required absolute
+threshold. This is possible since \(M\ge8\).
+For the sign \(\sigma=1\) write \(\delta=1-\beta\) and
+\(w(t)=\min(1,\delta\log t)\). For \(\sigma=0,-1\) put \(w(t)=1\).
+Uniformly on \(t\ge s\) we have \(F(t)\asymp t w(t)\).
+For \(\sigma=1\), indeed, \(\beta>1/2\) yields
+\(0\le-\log\beta\le2\delta\). Thus for \(\log t\ge4\),
+\[
+   1-e^{-\delta\log t/2}
+      \le \frac{F(t)}{t}
+      =1-\frac{e^{-\delta\log t}}{\beta}
+      \le 1-e^{-\delta\log t}.
+\]
+Use \(1-e^{-v}\asymp\min(1,v)\) for \(v\ge0\).
+For \(\sigma=-1\) the claimed comparison follows from
+\(1\le F(t)/t\le3\). In all three cases \(w(t)\gg M^{-1}\).
+Since \(\varphi(M)\le M\),
+\[
+           F(t)/\varphi(M)\gg t M^{-2}\ge t^{49/50}.
+\]
+This exceeds \(t^{18/19}\) once \(s\) exceeds an absolute constant.
+The published hypothesis therefore holds at every \(t\in[s,X]\),
+for the same class and the same exceptional option.
+
+\paragraph{Removing the logarithmic weight.}
+First form \(B\) with the authors' exceptional option.
+For \(\sigma=1\),
+\[
+  \varphi(M) B(X)=\int_{X^\beta}^{X}\frac{dt}{\log t}
+     \ge \frac{X(1-e^{-\delta\log X})}{\log X}.
+\]
+For \(\sigma=0,-1\), integration over \([X/2,X]\)
+gives the corresponding lower bound \(X/(2\log X)\).
+Together these inequalities yield
+\begin{equation}
+ B(X)\gg \frac{X w(X)}{\varphi(M)\log X}
+          \gg\frac{X}{M^2\log X}.
+ \label{eq:window-ap-main-lower}
+\end{equation}
+Write \(H(t)=\vartheta(t;M,b)-F(t)/\varphi(M)\).
+Uniformly for \(s\le t\le X\), the weighted theorem gives
+\[
+ |H(t)|\ll \frac{t w(X)}{\varphi(M)} E_c(X,M)
+\]
+after choosing \(c>0\) sufficiently small. Indeed
+\(\log t\ge\tfrac12\log X\), \(w(t)\le w(X)\), and
+\(u^{3/5}/(\log u)^{1/5}\gg\sqrt u\) for large \(u\).
+On this interval \(\varphi(M)B'(t)=F'(t)/\log t\), including the
+factor \(1/\beta\) in \(F\). Partial summation with lower endpoint
+\(s\) gives the exact identity
+\[
+ \pi(X;M,b)-B(X)=\pi(s;M,b)-B(s)
+   +\frac{H(X)}{\log X}-\frac{H(s)}{\log s}
+   +\int_s^X\frac{H(t)}{t(\log t)^2}\,dt.
+\]
+It follows either by integration by parts for the prime-mass step
+function or by applying ordinary integration by parts separately to
+\(F'(t)/\log t\). In particular the normalization of \(\ell\) at
+\(2\) is retained at the lower endpoint. The two boundary terms
+in \(H\) and the integral together are
+\(O(X w(X) E_c(X,M)/(\varphi(M)\log X))\), since
+\(\log s=\tfrac12\log X\) and
+\(\int_s^Xdt/(\log t)^2\le4X/(\log X)^2\).
+Also \(|\pi(s;M,b)-B(s)|\ll s\), by the elementary upper bounds
+\(\ell(z)\ll z\) and \(\pi(s;M,b)\le s\).
+As \(M\le X^{1/200}\), \eqref{eq:window-ap-main-lower} gives
+\(s/B(X)\ll X^{-49/100}\log X\ll\exp(-\sqrt{c\log X})\).
+This proves \eqref{eq:window-relative-pnt} for the authors' option.
+
+\paragraph{The release's wider exceptional interval.}
+If the authors' pair exists, it is eligible, so choose it. Otherwise,
+if there is an eligible pair, fix any such \((\chi,\beta)\) once for
+this \(M\). Its distance from \(1\) satisfies
+\(1-\beta>1/(50\log M)\). Uniformly for \(\beta>1/2\) and
+\(X^\beta\ge4\),
+\[
+ 0\le\frac{\ell(X^\beta)}{\ell(X)}
+     \ll X^{\beta-1}
+     \le \exp\!\left(-\frac{\log X}{50\log M}\right).
+\]
+Here \(\ell(z)\asymp z/\log z\) for \(z\ge4\), obtained by splitting
+the upper estimate at \(\sqrt z\) for large \(z\) and integrating
+over \([z/2,z]\) for the lower estimate. Increase \(C\) so the last
+bound, with its implied constant, is at most \(1/2\).
+The newly selected main term is then between one half and twice
+\(\ell(X)/\varphi(M)\), and their difference is bounded by a constant
+times the new main term times \(E_c(X,M)\) on taking \(c\le1/50\).
+If no eligible pair exists the empty option already works.
+This proves the asserted choice for all \(M,X,b\) and also preserves
+the lower bound \(B(X)\gg X/(M^2\log X)\). In particular the proof
+requires uniqueness only for zeros in the narrower interval.
+
+\paragraph{The actual prime interval.}
+For every \(\epsilon>0\) there exists \(Y_0(\epsilon)\) such that
+for every \(Y\ge Y_0(\epsilon)\), every \(m>0\) divisible by \(8\),
+every \(a_0\) coprime to \(m\), and every \(V>0\) satisfying
+\[
+  \tfrac14(\log Y)^2\log m\le\log V,\qquad
+  Y^{\epsilon/6}\le \log V\le Y^{\epsilon/5}(\log Y)^2,
+\]
+the set \(\mathcal P=\{p\text{ prime}:\sqrt V<p\le V,\
+p\equiv a_0\bmod m\}\) satisfies
+\begin{equation}
+                       |\mathcal P|\ge V^{9/10}.
+ \label{eq:window-ap-lower-count}
+\end{equation}
+Put \(L=\log Y\), \(u=\log V\).
+Then \(\log m\le4u/L^2\) and \(\log m\le4Y^{\epsilon/5}\), whence
+\(\log(\log m+2)=O_\epsilon(L)\).
+Thus \(C\log m\log(\log m+2)\le u\) for sufficiently large \(Y\).
+Both exponentials in \(E_c(V,m)\) tend to zero uniformly, because
+\(u/\log m\ge L^2/4\) and \(u\ge Y^{\epsilon/6}\).
+Consequently \(\pi(V;m,a_0)\ge B(V)/2\). For large \(Y\) one has
+\(m\le V^{1/100}\). The preceding main-term lower bound gives
+\(\pi(V;m,a_0)\gg V^{49/50}/\log V\). Subtracting at most
+\(\sqrt V\) primes leaves at least \(V^{9/10}\) for sufficiently
+large \(V\), uniformly in \(a_0,m\). The lower hypothesis on \(u\)
+ensures that this last threshold follows from \(Y\ge Y_0(\epsilon)\).
+The formal statement also quantifies over nonpositive real \(V\).
+Under its real-power convention \(V^{9/10}=|V|^{9/10}\cos(9\pi/10)\)
+for \(V<0\), and \(0^{9/10}=0\). These cases satisfy the inequality
+by nonnegativity of the cardinality.
+
+There is also uniformity over the enlarged moduli occurring in
+the character sums. Given fixed \(D,B_0>0\), take \(M=ms\)
+with any positive integer \(s\le Y^D\). Then
+\(\log M\le4u/L^2+DL\le8u/L^2\) once \(Y\) is large, since
+\(Y^{\epsilon/6}/L^3\) tends to infinity. The upper bound
+\(\log M\le4Y^{\epsilon/5}+DL\) still gives
+\(\log(\log M+2)=O_{\epsilon,D}(L)\).
+Thus \eqref{eq:window-relative-pnt} applies with
+\(E_c(V,M)=o(Y^{-B_0})\), uniformly over \(s\) and every reduced
+class modulo \(M\). In particular one can use \(D=800K\) and
+\(B_0=K+1\) for fixed \(K\ge1\) in Section~\ref{sec:window-exceptions}.
+
+\paragraph{Exceptional pairs at two different moduli.}
+For the use of Landau--Page uniqueness in
+Section~\ref{sec:window-exceptions}, let \(H\ge3\), take integers
+\(1\le M_1,M_2\le H\), and suppose nonprincipal real characters
+\(\chi_i\bmod M_i\) have real zeros
+\[
+                  1-\frac{1}{100\log H}<\beta_i<1 .
+\]
+Put \(q=M_1M_2\). The induced character \(\widetilde\chi_i\bmod q\)
+is nonprincipal, since the reduction map on unit groups is
+surjective. This surjectivity follows by lifting a unit modulo
+\(M_i\) to an integer congruent to \(1\) at each prime divisor of
+\(q\) absent from \(M_i\), using the Chinese remainder theorem.
+The identity
+\[
+ L(s,\widetilde\chi_i)=L(s,\chi_i)
+   \prod_{\substack{p\mid q\\p\nmid M_i}}(1-\chi_i(p)p^{-s})
+\]
+preserves the zero at \(\beta_i\).
+Since \(\log q\le2\log H\), both zeros lie in
+\([1-1/(50\log q),1)\). Fixed-modulus uniqueness at \(q\) now yields
+\(\widetilde\chi_1=\widetilde\chi_2\) and \(\beta_1=\beta_2\).
+In particular \(\chi_1(n)=\chi_2(n)\) for all integers \(n\)
+coprime to \(M_1M_2\). This supplies precisely the cross-modulus
+conclusion of \texttt{MSqPage.page\_across} and verifies that the
+same primitive character accounts for all such zeros. The constant
+\(1/100\) is independent of the two moduli and the window. The
+fixed-modulus theorem is due to K.~S.~McCurley,
+\href{https://doi.org/10.1016/0022-314X(84)90089-1}{\emph{Explicit
+zero-free regions for Dirichlet \(L\)-functions}}, J.~Number Theory
+19 (1984), 7--32, in the form stated by Thorner and Zaman.
+
+\paragraph{Source correspondence.}
+In the tagged release the definitions of \(\ell,\pi,B\) and
+\texttt{PNTAPRelW} are in \texttt{MeanSquareHypWIff}. The declaration
+\texttt{pnt\_progressions\_relative\_weak\_holds} in
+\texttt{PNTFinal} proves the estimate internally. Its
+\texttt{PNTGlue} separates the ranges
+\(\log M\le c_A\sqrt{\log t}\) and \(\log M>c_A\sqrt{\log t}\).
+The latter uses the smoothed explicit formula, a differenced
+explicit formula, the zero-density estimate, and the
+Deuring--Heilbronn estimate. \texttt{PrimeCountOfPsi} converts the
+combined estimate to the unweighted prime count. The proof above
+uses the published weighted theorem to establish the same
+\texttt{PNTAPRelW} directly. The window count
+\eqref{eq:window-ap-lower-count} is \texttt{MSqCount.count\_a}.
+These modules are in
+\srcid{Formalism.GL3MeanSquares.GenusMeanAsymptotics.JacobiCharacterSums}.
+The common-window application is
+\srcid{Development.AutomorphicArithmetic.MeanSquareBounds.twistK}.

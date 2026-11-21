@@ -1,0 +1,185 @@
+\section{The fourth root on each component and the different at a finite prime}
+\label{sec:key-different}
+
+The weight-one twist of Section~\ref{sec:jet-connection} comes from a
+weight-four theta rule. Here we explain its descent from the complex
+chart and compute the precise determinant loss in a vertical
+valuation. Write \(k\) for the coefficient number field and
+\(m_\tau\) for the multiplicity of the embedding \(\tau:E\hookrightarrow k\)
+in the Lie algebra. Repetitions of a single embedding occur through
+the integer \(m_\tau\). Embeddings of multiplicity zero may be retained.
+
+\subsection{Descending the fourth root}
+
+On each smooth framed chart with coordinate ring \(A\), the
+functorial theta scalar in a primitive frame is a unit \(u\in A^\times\).
+Its transformation law under a triangular change of frame is the
+fourth power of the frame character. The chartwise values therefore
+give the weight-four rule \(K_4\), and the reciprocal values glue
+in the opposite weight. Their product has value one at each generic
+component, hence is the identity. The complex uniformization gives
+one more piece of data: after embedding \(k\) in \(\mathbb C\), the
+complex-valued function \(C u\), \(C\in\mathbb C^\times\), has a
+continuous fourth root on the complex points of the chart. The root
+is built from the determinant of a matrix of holomorphic periods,
+divided by the square of the scalar relating the primitive theta
+frames, with the common normalization from the Hermitian datum.
+The adapted-period charts and the transformation law of the normalized
+frames make this value independent of the representative and
+continuous. These are hypotheses on the actual normalized theta
+uniformization. A fourth root at individual complex points would
+give no descent.
+
+Here is the algebraic descent. Put
+\(B=\mathbb C\otimes_k A\), a smooth integral affine algebra, and
+\(u'=Cu\) in \(B^\times\). The integral-domain assertion here is
+the geometric integrality of the chart of the chosen component.
+The finite cover \(t^4=u'\) is étale, since \(4t^3\) is invertible.
+On any connected component of its complex points the ratio of \(t\)
+to the supplied continuous fourth root belongs to \(\mu_4\), so it
+is constant. An integral algebraic component has connected complex
+points. Smoothness makes the algebraic components disjoint, and
+each maps onto the connected base, as the image of a finite étale
+component is both open and closed. For one such component the
+constant-ratio assertion gives at most one point above each complex
+point of the base. Its rank is consequently one, and the component
+maps isomorphically to the base. This gives \(b'\in B^\times\)
+with \(b'^4=u'\).
+
+Choose a fourth root of \(C\) in \(\mathbb C\) and absorb it into
+\(b'\), so that \(b'^4=u\). Each automorphism of \(\mathbb C/k\)
+takes \(b'\) to a fourth root of the same unit. The ratio is a
+constant fourth root of unity: the polynomial \(t^4-1\) splits into
+linear factors over \(\mathbb C\), and \(B\) is a domain. Expand
+\(b'=\sum_j c_j a_j\) in finitely many members of a \(k\)-basis of
+\(A\), with \(c_1\ne0\). All ratios \(c_j/c_1\) are fixed by every
+automorphism over \(k\), so belong to \(k\). For a number field,
+the fixed field is \(k\): an algebraic element outside \(k\) has a
+different conjugate, and a transcendental element may be moved in
+a transcendence basis, in either case extending the isomorphism
+to the algebraic closure. Write \(b'=c_1 b\) with \(b\in A\).
+Then \(u=a b^4\) with \(a=c_1^4\in k^\times\), because
+\(1\otimes u=c_1^4(1\otimes b^4)\) and \(u,b^4\in A\) are nonzero.
+
+Fix a generic frame on each component \(Z\), and absorb the
+frame character into \(b\). This gives a rational element \(b_Z\)
+in its function field. In another frame with character \(j\),
+\((j b_Z)^4\) is a nonzero coefficient-field multiple of the local
+unit representing \(K_4\). Both \(j b_Z\) and its inverse satisfy
+monic equations over the smooth chart ring. Normality therefore
+makes them regular there. The rational rules of opposite weights
+glue to inverse regular rules. Equality of their fourth powers with
+\(K_4\) up to \(a_Z\in k^\times\) can be checked at the generic
+frame. This proves \(e_Z\rho^4=a_Ze_ZK_4\) once the continuous
+root and the chartwise unit above are given.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ContinuousOnKeySectionComplexValue.lean}{Continuity from the adapted period chart and the theta scalar};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsKeySectionUnif.lean}{descent of the power up to a base-field scalar};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsKeySectionFourthRootPerComponent.lean}{the componentwise rational root and normality argument}.}
+
+\subsection{The integral scalar in two different Lie frames}
+
+Let \(T\) be a complete discrete valuation ring of characteristic-zero
+fraction field \(F\). Fix an integral framed point and a prime
+\(w\) of \(k\), with the frame valuation restricting to \(e v_w\),
+\(e>0\). Take the split eigendirections \(u_{\tau i}\) furnished by
+the point, \(1\le i\le m_\tau\). For each \(\tau\) they span the
+entire integral \(\tau\)-eigenspace in the tangent module. They
+form a basis collectively on the fraction field. Write \(U\) for
+the square matrix whose rows are these vectors in an integral Lie
+basis and set \(D=\det U\). The good-model theorem for the theta
+scalar applies to an integral generating theta section in an
+integral Lie basis. The assumptions in the source application
+include \(p_0+q_0\ge1\) and the level predicate
+\srcid{GoodAt} at every rational prime. The primitive scalar is
+then a unit \(\eta\in T^\times\); its comparison with the eigenframe
+gives
+\[
+                            K_4(y)=D^4\eta .
+\]
+In particular, in this equation unitness refers to \(\eta\).
+The eigenframe can have positive colength at ramified primes.
+
+For clarity on the scope of the good-model input, the release
+uses the invertibility of the theta pushforward, its model
+uniformization, the arc property, and the split-fiber theorem. On
+the normal affine chart it starts with a unit on the dense
+generic open. A rational function on a normal noetherian affine
+domain extends if it belongs to all its height-one valuation rings.
+The proof applies this test to both the function and its reciprocal.
+At the boundary the arc comparison supplies bounded complex values
+for both; at the good-reduction tests the good-reduction unit theorem
+does the same algebraically. The local extensions multiply to one
+by density. The resulting chart unit pulls back to the trait, where
+a change between two integral generating frames multiplies it by an
+eighth power of a unit and the inverse fourth power of a determinant
+unit. The arc comparison and good-reduction assertions are separate
+geometric inputs. An arbitrary chart centered at a bad level prime
+does not acquire these hypotheses from the field-valued connection.
+
+\subsection{The different controls the colength}
+
+Put \(\mathfrak D=\mathfrak D_{E/\mathbb Q}\).
+For each \(\tau\) choose a nonzero
+\(\delta_\tau\in\mathfrak D\) such that
+\[
+    v_w(\tau(\delta_\tau))
+      =\operatorname{ord}_w(\tau(\mathfrak D)\mathcal O_k).
+\]
+Such an element exists: the extended ideal is contained in the
+power of \(w\) on the right and fails containment in the next power.
+If all images of elements of \(\mathfrak D\) lay in the next power,
+so would the generated ideal.
+
+Let \(\omega_j\) be a \(\mathbb Z\)-basis of \(\mathcal O_E\) and
+\(\omega_j^*\) its trace dual. By definition of the inverse different
+\(\delta_\tau\omega_j^*\in\mathcal O_E\). Let \(A(a)\) be the matrix
+for \(a\) in the integral Lie basis. Set
+\[
+   d_\tau=\tau(\delta_\tau),\qquad
+   P_\tau=\sum_j \tau(\delta_\tau\omega_j^*)A(\omega_j).
+\]
+All the coefficients on the right are integral in \(T\), via the
+given embedding. Over \(F\) the \(d_\tau^{-1}P_\tau\) are the
+character projectors. Indeed
+\(\sum_j\tau(\omega_j^*)\sigma(\omega_j)=\delta_{\tau\sigma}\).
+To verify this, form the square embedding matrices of the two
+bases. Their pairing under the trace is the identity, and inverting
+in the opposite order gives exactly this relation. The embeddings
+indexed here are all embeddings of \(E\), whose images belong to
+\(F\). The relation acts on each eigenspace as claimed and yields
+\(\sum_\tau d_\tau^{-1}P_\tau=I\).
+
+Every column of \(P_\tau\) is an integral eigenvector of character
+\(\tau\). Resolve it in the generating vectors \(u_{\tau i}\).
+Stacking the integral coefficients gives a matrix \(G\) whose
+\((j,(\tau,i))\)-entry is the coefficient of \(u_{\tau i}\) in
+column \(j\) of \(P_\tau\). The transpose of the projector sum is
+then
+\[
+  G\,\operatorname{diag}(d_\tau^{-1}
+           \text{ repeated }m_\tau\text{ times})\,U=I .
+\]
+Taking determinants yields the integral identity
+\(\det G\cdot D=\prod_\tau d_\tau^{m_\tau}\).
+Thus
+\[
+  0\le \frac{v_T(K_4(y))}{e}
+   =\frac{4v_T(D)}{e}
+   \le 4\sum_\tau m_\tau
+          \operatorname{ord}_w(\tau(\mathfrak D)\mathcal O_k).
+\]
+The estimate is zero wherever all the displayed different ideals
+are units. If the fourth root on \(Z\) uses \(a_Z\), then the
+weight-one section \(e_Z\rho^{-1}\), at any nonzero evaluation
+of \(e_Z\), has normalized order in
+\[
+ \left[-\frac{v_w(a_Z)}4
+       -\sum_\tau m_\tau\operatorname{ord}_w(\tau(\mathfrak D)\mathcal O_k),
+       \ -\frac{v_w(a_Z)}4\right].
+\]
+This is the vertical contribution; on a horizontal trait the
+coefficient field lies in \(T\) and the valuation comparison in
+Section~\ref{sec:jet-connection} directly gives order zero.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ColengthDvdOfNeZero.lean}{Trace-dual projectors and the determinant divisibility};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ThetaKeySectionValuationBoundsDifferent.lean}{the exact normalized vertical bounds};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ThetaKeyScalarIsUnitOnIntegralModels.lean}{the model hypotheses and height-one extension}.}

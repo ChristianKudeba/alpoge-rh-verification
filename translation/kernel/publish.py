@@ -145,7 +145,7 @@ def finalize(data, folder, rel, assets):
                 f"This edition renders kernel expressions in dependent type theory. "
                 f"The accompanying human-readable manuscript has its own coverage statement.")
         api(f"repos/{REPO}/releases/{rel['id']}", "--method", "PATCH", "-F", "draft=false",
-            "-f", "body=" + body)
+            "-f", "tag_name=" + TAG, "-f", "target_commitish=main", "-f", "body=" + body)
     url = f"https://github.com/{REPO}/releases/tag/{TAG}"
     print(f"Verified {total_records:,} records in {total_volumes:,} volumes; {url}", flush=True)
     if "GITHUB_STEP_SUMMARY" in os.environ:
