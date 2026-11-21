@@ -21,3 +21,5 @@ The new prose proofs have not been separately formalized or independently refere
 Build entry point: [short-route.tex](short-route.tex). Artifacts are saved remotely on GitHub and Principia; the workflow publishes the PDF, standalone LaTeX, source manifest, build report and page contact sheets.
 
 The literal edition is a lossless typesetting of the formal records with generated dependent-type annotations. Its completion does not mean that every mathematical argument has already been translated into explanatory prose. The source review now maps the exact rank-three, rank-four and geometric producer chains and distinguishes this coverage issue from a gap in the original formal proof.
+
+Current edition: [214-page PDF](https://principia-math.com/api/ws/files/e7637127b4253ed4e1a910a0fbaab5ef) and [immutable source/build release](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-e52042ab25cc04c0c282c1caa55b311fafc6374b). The four-file Principia source expands exactly to the compiled single-file source (SHA-256 `5956058cca4d8989550027502c070cfa8497fe09f3ba671cce8b906f27486773`).
