@@ -1,0 +1,974 @@
+\section{A uniform maximal-slope bound for the principal Lie bundle}
+\label{sec:sr-general-principal-slope}
+
+All degrees in this section are divided by the
+degree of the number field.
+For a Hermitian bundle \(\overline V\), write
+\(\widehat{\deg}_{\mathrm n}\overline V\) for this
+normalized degree and
+\(\widehat\mu(\overline V)=
+\widehat{\deg}_{\mathrm n}\overline V/\operatorname{rk}V\).
+The metric on the Lie bundle is the metric
+\(\mathrm{HodgeIP}\) of the principal polarization.
+In period coordinates its squared norm is
+\(\pi H(v,v)\), where \(H\) is the positive
+Hermitian Riemann form.
+
+\begin{srtheorem}\label{thm:sr-general-principal-slope}
+There is an absolute real constant \(C\ge0\)
+with the following property.
+Let \(L\) be any number field.
+Let \(\mathcal G/\mathcal O_L\) be a smooth,
+separated, commutative group scheme of finite
+type with geometrically connected semiabelian
+fibres, whose generic fibre \(A/L\) is an
+abelian variety.
+Suppose a symmetric, rigidified cubical line
+bundle \(\mathcal L\) on \(\mathcal G\) induces
+a principal ample polarization on \(A\).
+Let
+\[
+ B=\operatorname{Lie}(\mathcal G/\mathcal O_L),
+ \qquad g=\operatorname{rk}_{\mathcal O_L}B,
+ \qquad
+ h=\max\{-\widehat{\deg}_{\mathrm n}\overline B,0\}.
+\]
+Give \(B\) the preceding Hodge metric.
+Then
+\[
+ \widehat\mu_{\max}(\overline B)
+           \le C\log(2+g+h).                         \tag{SB1}
+\]
+The same \(C\) works with any compatible
+endomorphism action and any CM host.
+In particular the statement is exactly the
+inequality required by \(\mathrm{SlopeBoundSt}\)
+for every \(\mathrm{PPData}\) packet.
+\end{srtheorem}
+
+We prove the theorem below.
+We retain the high directional-jet determinant
+argument of the frozen source.
+For its arithmetic theta input we use a
+precise classical integral model theorem,
+and check its compatibility with the given
+connected model.
+Thus the proof does not require an estimate
+for the degree of a field used to acquire
+torsion points or to principalize an ideal.
+
+\subsection{The connected model and the normalization of the height}
+
+\begin{srlemma}\label{lem:sr-slope-model-metric}
+After any finite extension \(L'/L\), the
+base change of \(\mathcal G\) is the identity
+component of the Neron model of \(A_{L'}\).
+Its rigidified line bundle and Lie metric
+agree with the restrictions of any
+Moret--Bailly model of the same rigidified
+generic line bundle.
+Moreover
+\[
+ h_{\mathrm F}^{\mathrm D}(A)
+       =-\widehat{\deg}_{\mathrm n}\overline B,        \tag{SB2}
+\]
+where the superscript denotes Deligne's
+normalization
+\[
+ \|\omega\|_{\mathrm D,\sigma}^{\,2}
+   ={i^{g^2}\over(2\pi)^g}
+                  \int_{A_\sigma(\mathbb C)}
+                         \omega\wedge\overline\omega .
+\]
+All these identifications commute with
+further finite extensions.
+\end{srlemma}
+
+\begin{proof}
+The model assertion is
+Bosch--Lutkebohmert--Raynaud,
+\emph{Neron Models}, Section 7.4, Proposition 3
+and Corollary 4.
+These results apply over the localization at
+every nonzero prime of \(\mathcal O_L\);
+they identify a semiabelian model of an abelian
+generic fibre with the identity component,
+and allow faithfully flat extensions of
+discrete valuation rings, including ramified ones.
+They therefore identify the global connected
+models as well.
+
+Here is also the finite-place check on the
+line bundle.
+On the common connected smooth model,
+the generic identification between two
+rigidified extensions of the same line bundle
+has a vertical Cartier divisor.
+The model is regular, and every closed fibre
+is geometrically integral and has multiplicity
+one.
+Consequently every vertical divisor is a sum
+of whole fibres, hence is pulled back from
+the base.
+The rigidification at zero identifies this
+base divisor with zero.
+The resulting identification is integral.
+The cubical and symmetric structures agree:
+their discrepancies are units equal to one
+on the dense generic fibre.
+This proves the needed line-bundle
+identification without making an assertion
+about the extra components of a
+Moret--Bailly model.
+
+For (SB2), choose complex coordinates on
+\(A_\sigma=\mathbb C^g/\Lambda_\sigma\).
+If \(H_\sigma\) is the matrix of its Riemann
+form, principality gives
+\(\operatorname{vol}(\Lambda_\sigma)=
+(\det H_\sigma)^{-1}\).
+For a Lie basis with coordinate matrix \(W\),
+the Gram determinant for \(B\) is
+\[
+             \det\operatorname{Gram}_{B,\sigma}
+                =\pi^g|\det W|^2\det H_\sigma .
+\]
+The invariant differential dual to this basis
+has Deligne norm squared
+\[
+ \pi^{-g}|\det W|^{-2}
+                 \operatorname{vol}(\Lambda_\sigma)
+             =(\det\operatorname{Gram}_{B,\sigma})^{-1}.
+\]
+The integral differential lattice is
+\(\det(B)^\vee\).
+Thus its Hermitian line is isometric to
+\(\det(\overline B)^\vee\), proving (SB2).
+The usual normalization without the factor
+\(\pi^{-g}\) has height
+\[
+ h_{\mathrm F}^{0}(A)
+       =h_{\mathrm F}^{\mathrm D}(A)
+                         -{g\over2}\log\pi.           \tag{SB3}
+\]
+Normalized degrees and normalized sums over
+complex embeddings are unchanged by the
+finite extensions under consideration.
+\end{proof}
+
+A reference for the model assertions, with
+the stated base-change scope, is
+\href{https://www.math.stonybrook.edu/~kamenova/homepage_files/Bosch_Raynaud_Neron_Model_tc.pdf}
+{Bosch--Lutkebohmert--Raynaud, Section 7.4,
+Proposition 3 and Corollary 4}.
+The complex normalization in (SB2) is the
+one used in
+\href{https://www.numdam.org/item/BSMF_2012__140_1_19_0.pdf}
+{Pazuki, \emph{Theta height and Faltings height},
+Section 2.2}.
+
+\subsection{One integral theta section and its normalized translates}
+
+We use the following exact part of the
+Moret--Bailly model theorem.
+For a symmetric ample \(L_A\) on an abelian
+variety over \(\overline{\mathbb Q}\), and a
+finite set \(F\) of algebraic points, there is,
+after a finite extension of any given field
+of definition, a semistable model carrying
+a cubist Hermitian extension of \(L_A\) and
+sections extending every point of \(F\).
+For such models the integral \(L^2\) module of
+global sections is independent of the model
+under its generic identification and commutes
+isometrically with finite base change.
+When \(h^0(A,L_A)=1\), its normalized degree is
+\[
+ \widehat{\deg}_{\mathrm n}\pi_*\overline{\mathcal L}
+       =-{1\over2}h_{\mathrm F}^{\mathrm D}(A)
+                              -{g\over4}\log(2\pi).  \tag{SB4}
+\]
+These are Definition 3.1 and Theorem 3.4
+(i), (iii), (iv), (v) of
+\href{https://www.numdam.org/item/BSMF_2012__140_1_19_0.pdf}
+{Pazuki, \emph{loc.\ cit.}}.
+The model may have disconnected special
+fibres. No good-reduction hypothesis is
+imposed, and the metric uses Haar measure
+of total mass one.
+
+\begin{srlemma}\label{lem:sr-slope-joint-theta-witness}
+After a finite extension of \(L\) there is an
+integral nonzero theta section \(s\) on the
+connected model with
+\[
+ b_\sigma=\|s\|_{2,\sigma}>0,\qquad
+ \langle\log b_\sigma\rangle
+       ={1\over2}h_{\mathrm F}^{\mathrm D}(A)
+                               +{g\over4}\log(2\pi)
+       \le {h\over2}+C_0g.                           \tag{SB5}
+\]
+Here and below brackets denote the normalized
+sum over all complex embeddings.
+For every positive integer \(m\), after a
+further finite extension there are
+\(r=m^{2g}\) integral sections \(s_P\) of
+\(\mathcal L^{m^2}\), indexed by \(A[m]\),
+which span its full complex space of sections
+at every embedding and satisfy
+\[
+ \|s_P(z)\|_{\mathcal L^{m^2}}
+                   =\|s(mz+P)\|_{\mathcal L}.        \tag{SB6}
+\]
+All comparisons with \(s\), \(B\), \(g\), and
+the quantities in (SB5) are by base change
+from the same original data.
+\end{srlemma}
+
+\begin{proof}
+Choose a Moret--Bailly model and principalize
+the rank-one projective module
+\(\pi_*\mathcal L\) by a finite extension.
+Let \(s\) be a generator.
+Its restriction to the connected model is
+integral by Lemma~\ref{lem:sr-slope-model-metric}.
+Equation (SB4), and the degree formula for a
+generator, give (SB5).
+The section need not generate the larger
+module of all sections on the connected
+model. Neither the proof nor the jet
+integrality below requires that assertion.
+
+For a given \(m\), replace the model, after
+finite extension, by one containing all
+points of \(A[m]\) as sections.
+Model independence and base-change
+compatibility in the quoted theorem preserve
+the integral section \(s\) under the fixed
+generic identification.
+We explain why its normalized translates
+are integral; extending a torsion point
+to the connected model is not being assumed.
+
+For a torsion section \(P\), put
+\(M_P=P^*\overline{\mathcal L}\), an integral
+Hermitian line on the base.
+The cube identity, including its isometric
+rigidification, gives for every \(n\ge1\)
+\[
+ [n]^*\overline{\mathcal L}
+   \simeq
+ \overline{\mathcal L}^{\,n(n+1)/2}
+       \otimes[-1]^*\overline{\mathcal L}^{\,n(n-1)/2}.
+\]
+Set \(A_m=m(m+1)/2\) and \(B_m=m(m-1)/2\).
+Since \(mP=0\) as sections of the separated
+group model, evaluation at \(P\) and \(-P\)
+gives isometries
+\[
+ M_P^{A_m}\otimes M_{-P}^{B_m}\simeq\mathcal O,
+ \qquad
+ M_P^{B_m}\otimes M_{-P}^{A_m}\simeq\mathcal O.
+\]
+Eliminating \(M_{-P}\), and using
+\(A_m^2-B_m^2=m^3\), gives
+\[
+                         M_P^{m^3}\simeq\mathcal O   \tag{SB7}
+\]
+isometrically and integrally.
+This argument does not assume that a generic
+symmetry of the line bundle extends over
+every disconnected component.
+
+A Hermitian integral line with an isometric
+trivialization of a positive tensor power
+becomes isometrically trivial after a finite
+extension.
+Indeed first principalize its underlying
+ideal. If \(e\) is an integral generator
+and \(e^k\) maps to a unit \(u\), adjoin a
+\(k\)-th root of \(u\); the generator
+\(e/u^{1/k}\) then has norm one at every
+embedding. Apply this simultaneously to the
+finitely many lines \(M_P\).
+
+Let \(\mathcal G\) now denote the common
+identity component.
+The cube identity defines a biextension
+\[
+ \mathcal P(x,y)=
+ \mathcal L(x+y)\otimes\mathcal L(x)^{-1}
+                              \otimes\mathcal L(y)^{-1}.
+\]
+On \(\mathcal G\), the line in \(x\) obtained
+by putting \(y=P\) satisfies
+\([m]^*\mathcal P(x,P)=\mathcal P(x,mP)
+\simeq\mathcal O\).
+The integral identification of the symmetric
+rigidified line on \(\mathcal G\) also gives
+\([m]^*\mathcal L\simeq\mathcal L^{m^2}\).
+Consequently
+\[
+ ([m]+P)^*\overline{\mathcal L}
+       \simeq\overline{\mathcal L}^{m^2}\otimes M_P.
+\]
+These are isometries for the cubist metrics.
+Pull back \(s\) and divide by the norm-one
+integral generator of \(M_P\).
+The result is \(s_P\); it is integral on
+\(\mathcal G\), and the isometry proves (SB6).
+
+For clarity, the spanning assertion is also
+explicit.
+In an Appell--Humbert trivialization write
+\(s\) as a nonzero theta function \(\theta\).
+If \(p\) represents \(P\in A[m]\), the
+function representing \(s_P\) differs by a
+nonzero scalar from
+\[
+ \theta(mz+p)\exp\{-\pi m H(z,p)\}.
+\]
+Its weighted norm is the norm on the right
+of (SB6). Translation by \(\lambda/m\),
+\(\lambda\in\Lambda\), acts, after removing
+one common multiplier, by the character
+\[
+                \lambda\longmapsto
+                         \exp(2\pi i\,\operatorname{Im}H(p,\lambda)).
+\]
+Different \(p\) modulo \(\Lambda\) give
+different characters, by unimodularity
+of the principal alternating form.
+There are \(m^{2g}\) such functions, all
+nonzero.
+Eigenvectors for these different characters
+are linearly independent.
+Riemann--Roch gives
+\(h^0(A,L_A^{m^2})=m^{2g}\), so they span.
+Multiplication of the functions by the
+nonzero normalization scalars does not
+alter this conclusion.
+\end{proof}
+
+The same arithmetic construction also
+explains the product-formula input behind
+torsion sampling.
+If \(s(P)\ne0\), evaluate it in the
+trivialization (SB7).
+The resulting scalar \(T_P\) is an algebraic
+integer and
+\[
+             |\sigma T_P|=\|s(P)\|_\sigma^{m^3}.
+\]
+Hence
+\(\langle\log\|s(P)\|_\sigma\rangle\ge0\).
+When a complete packet of nonzero torsion
+values is used, the common exponent \(m^3\)
+cancels from the normalized sum.
+The archived definition of \(\mathrm{TorsVal}\)
+uses a more specific cubical trivialization
+and the exponent \(m^2\).
+We need neither identify that scalar with
+\(T_P\) nor assert its universal integrality
+to obtain (SB5)--(SB6).
+This is a joint witness for the actual slope
+argument, with all finite places included.
+
+\subsection{The mean of the theta supremum}
+
+\begin{srlemma}\label{lem:sr-slope-theta-mean-sup}
+For the section of
+Lemma~\ref{lem:sr-slope-joint-theta-witness}
+there are positive \(M_\sigma\) such that
+\[
+ \|s\|_{\infty,\sigma}\le M_\sigma,\qquad
+ \langle\log M_\sigma\rangle
+        \le {h\over2}+C_1g\log(2+g+h).                \tag{SB8}
+\]
+The same bounds \(M_\sigma\), pulled back by
+the embeddings, bound every section in (SB6),
+for every \(m\).
+Here \(C_1\) is absolute.
+\end{srlemma}
+
+\begin{proof}
+Let \(\rho_\sigma\) be the first minimum
+of the period lattice in the Riemann metric
+\(H_\sigma\), without the factor \(\pi\).
+The principal-polarization Gromov estimate
+of Gaudron,
+\href{https://lmbp.uca.fr/~gaudron/art19.pdf}
+{\emph{Some explicit computations in Arakelov
+geometry of abelian varieties}, Proposition 3.1},
+is
+\[
+ \|s\|_{\infty,\sigma}
+     \le b_\sigma(1.7g)^{g/2}
+                       \max(1,\rho_\sigma^{-1})^{g/2}. \tag{SB9}
+\]
+This compares the same cubist norm and
+the same probability-Haar \(L^2\) norm.
+
+To verify its uniform averaged use, apply
+Autissier's
+\href{https://www.math.u-bordeaux.fr/~pautissi/Matrix2.pdf}
+{\emph{Un lemme matriciel effectif},
+Corollary 1.4}, with \(\varepsilon=1/2\).
+It gives, in the height normalization
+\(h_{\mathrm F}^{0}\) of (SB3),
+\[
+ \langle\rho_\sigma^{-2}\rangle
+       \le {12\over\pi}
+                 \bigl(h_{\mathrm F}^{0}(A)
+                                      +{g\over2}\log(4\pi^2)\bigr)
+       \le C_2(h+g).                                \tag{SB10}
+\]
+This theorem holds for every principally
+polarized abelian variety over every number
+field, with the normalized sum shown.
+It has no unramifiedness, CM, fixed-degree,
+or good-reduction restriction.
+
+Set the right side of (SB9) equal to
+\(M_\sigma\).
+Concavity of logarithm gives
+\[
+ \begin{split}
+ \langle\log\max(1,\rho_\sigma^{-1})\rangle
+   &\le {1\over2}
+                  \langle\log(1+\rho_\sigma^{-2})\rangle\\
+   &\le {1\over2}\log(1+C_2(h+g)).
+ \end{split}
+\]
+Together with (SB5) and
+\(\log(1+C_2(h+g))\le C_3\log(2+g+h)\),
+this proves (SB8).
+Equation (SB6) proves the assertion about
+all translated sections.
+
+For the analytic content of (SB9), its
+explicit proof writes \(A_\sigma\) as
+\(\mathbb C^g/(\mathbb Z^g+\tau\mathbb Z^g)\),
+puts \(Y=\operatorname{Im}\tau\), and uses
+\[
+ \|\theta\|_2=(\det(2Y))^{-1/4},\qquad
+ {\|\theta\|_\infty\over\|\theta\|_2}
+       \le2^{g/4}
+                  \bigl(\theta(iY,0)\theta(iY^{-1},0)\bigr)^{1/2}.
+\]
+Poisson summation and the Gaussian
+lattice-counting estimates in that proof
+give (SB9).
+Thus the logarithmic loss in (SB8) is a
+specified theta estimate, rather than a
+supremum bound depending on an unspecified
+compact subset of moduli.
+\end{proof}
+
+\subsection{Integral jets and the determinant inequality}
+
+\begin{srlemma}\label{lem:sr-slope-first-jet-integral}
+Let \(x\in B\), and let \(s_1,\ldots,s_r\)
+be integral sections of \(\mathcal L^n\).
+There are \(L\)-linear forms \(J_i\) on
+\(L^r\), \(i\ge0\), with the following
+properties.
+For
+\[
+                 F_i=\bigcap_{j<i}\ker J_j
+\]
+one has
+\[
+       J_i(F_i\cap\mathcal O_L^r)\subseteq\mathcal O_L. \tag{SB11}
+\]
+At every embedding, if \(f_j\) are the theta
+functions of \(s_j\), and \(v_\sigma\)
+is the analytic vector corresponding to
+\(x\), then \(F_i\otimes_\sigma\mathbb C\)
+is the space of combinations whose first
+\(i\) derivatives at zero along \(v_\sigma\)
+vanish.
+On this space,
+\[
+       \sigma J_i(c)
+          ={d^i\over dt^i}
+                \left.\sum_j c_j f_j(tv_\sigma)\right|_{t=0}. \tag{SB12}
+\]
+There is no division by \(i!\) in (SB11).
+\end{srlemma}
+
+\begin{proof}
+The integral Lie vector \(x\) gives an
+invariant derivation on the smooth group.
+Choose a local frame for \(\mathcal L\)
+near zero on the generic fibre, and use the
+rigidification to normalize its value at
+zero.
+Iterating this derivation on the local
+coefficients of \(s_j\), and evaluating at
+zero, defines \(J_i\).
+
+Under a change of local frame by a unit
+\(u\), the \(i\)-th derivative changes by
+\(u(0)\) times the old \(i\)-th derivative
+plus a linear combination of its lower
+derivatives.
+Thus on \(F_i\) only the value at zero of
+the frame change remains.
+The rigidification cancels this value.
+At each finite place use a frame which is
+a generator over the local ring at zero.
+Its coefficients and the invariant
+derivation are integral, so its first
+nonvanishing derivative is integral.
+The transition calculation just made
+identifies it with \(J_i\).
+Intersecting these valuation rings proves
+(SB11).
+
+Analytically, a local algebraic frame and an
+Appell--Humbert frame differ by an invertible
+holomorphic function with value one at zero
+after the same rigidification.
+Leibniz' rule makes their derivative
+matrices triangular with diagonal one.
+This proves both the kernel assertion and
+(SB12).
+It also shows why the individual \(J_i\)
+need not be asserted integral on all of
+\(\mathcal O_L^r\).
+\end{proof}
+
+\begin{srlemma}\label{lem:sr-slope-integral-flag-det}
+Suppose \(J_0,\ldots,J_k\) satisfy (SB11),
+and each successive form is nonzero on
+\(F_i\).
+Suppose positive numbers \(A_{i,\sigma}\)
+satisfy
+\[
+ |(\sigma J_i)(c)|
+      \le A_{i,\sigma}\left(\sum_j|c_j|^2\right)^{1/2}
+ \quad(c\in F_i\otimes_\sigma\mathbb C).
+\]
+Then
+\[
+                   0\le\sum_{i=0}^k
+                                   \langle\log A_{i,\sigma}\rangle. \tag{SB13}
+\]
+\end{srlemma}
+
+\begin{proof}
+The successive nonzero restrictions imply
+that the \(k+1\) rows \(J_i\) are linearly
+independent.
+Choose a nonzero maximal minor \(\Delta\).
+We first show that every such minor is
+integral.
+Over a finite-place DVR \(R\), the chain
+\[
+ R^r\supseteq F_1\cap R^r\supseteq\cdots
+                      \supseteq F_{k+1}\cap R^r
+\]
+is a chain of saturated direct summands,
+each step dropping rank by one.
+Choose an adapted \(R\)-basis.
+In this basis the first \(k+1\) columns
+of the jet matrix are triangular and all
+the other columns are zero.
+Its diagonal entries are integral by
+(SB11).
+Its top exterior power therefore has
+integral coordinates.
+Changing back by a matrix in
+\(\operatorname{GL}_r(R)\) preserves this
+assertion, proving that \(\Delta\) is
+integral at this place.
+Hence \(\Delta\) is an algebraic integer.
+
+At an archimedean place, Gram--Schmidt on
+the row functionals shows that the norm of
+their exterior product is at most
+\(\prod_iA_{i,\sigma}\).
+Indeed the \(i\)-th orthogonal row is the
+restriction of \(J_i\) to the common
+kernel of the preceding rows, so has norm
+at most \(A_{i,\sigma}\).
+Every maximal minor consequently satisfies
+\[
+                     |\sigma\Delta|
+                            \le\prod_i A_{i,\sigma}.
+\]
+The product formula for the nonzero
+algebraic integer \(\Delta\) gives
+\(\langle\log|\sigma\Delta|\rangle\ge0\).
+Taking logarithms proves (SB13).
+\end{proof}
+
+\subsection{Every jet order occurs}
+
+\begin{srlemma}\label{lem:sr-slope-directional-jet-jumps}
+Let \(\theta\ne0\) be a principal theta
+function, and \(v\ne0\).
+For every \(k\ge1\) and \(0\le i\le k\)
+there is a theta function of level \(3k\)
+which has order exactly \(i\) on the line
+\(t\mapsto tv\) at zero.
+\end{srlemma}
+
+\begin{proof}
+One can use the very ampleness of \(L_A^3\):
+there are sections \(u_0,u_1\) of \(L_A^3\)
+with \(u_0(0)\ne0\), \(u_1(0)=0\), and
+\(\partial_vu_1(0)\ne0\).
+Then \(u_0^{k-i}u_1^i\) has the required
+order.
+
+Here is the theta calculation producing
+this precise separation, as in the source.
+The functions
+\[
+ u_{p,q}(z)=
+      \theta(z+p)\theta(z+q)\theta(z-p-q)
+\]
+are of level three.
+There are \(p,q\) with \(u_{p,q}(0)\ne0\),
+since the nonzero locus of a nonzero entire
+theta function is open and dense.
+If these functions failed to separate
+\(v\) from the value at zero, their
+logarithmic derivatives would all have
+one common value at zero.
+Writing
+\(f=\partial_v\theta/\theta\), this says
+\[
+                 f(p)+f(q)+f(-p-q)=\gamma
+\]
+where the three denominators are nonzero.
+Mixed differentiation in \(p,q\) shows
+that all second derivatives of the
+meromorphic function \(f\) vanish.
+Thus \(f(z)\) is affine complex linear.
+The theta law, however, gives
+\[
+                  f(z+\lambda)-f(z)
+                                  =\pi H(v,\lambda).
+\]
+The lattice spans the tangent space over
+\(\mathbb R\).
+The complex-linear part on the left would
+therefore equal the conjugate-linear form
+\(\lambda\mapsto\pi H(v,\lambda)\) on that
+whole real vector space.
+Evaluation at \(v\) and \(iv\) forces
+\(H(v,v)=0\), contrary to positivity.
+Thus two such functions have different
+ratios of derivative to value.
+A linear combination gives \(u_1\) as
+above, while one of them gives \(u_0\).
+\end{proof}
+
+\subsection{The directional line bound}
+
+\begin{srproposition}\label{prop:sr-slope-integral-line-bound}
+For every nonzero \(x\in B\), one has
+\[
+ -\left\langle\log\|x\|_\sigma\right\rangle
+                    \le C_4\log(2+g+h),              \tag{SB14}
+\]
+where \(C_4\) is absolute.
+The statement holds after every finite
+extension, with the same constant.
+\end{srproposition}
+
+\begin{proof}
+The case in question has \(g\ge1\).
+Work first over the extension supplied by
+Lemma~\ref{lem:sr-slope-joint-theta-witness};
+then make the further extension for the
+integer \(m\) specified below.
+Let
+\[
+ \ell_\sigma=\|x\|_\sigma>0,\qquad n=m^2,\qquad r=m^{2g}.
+\]
+The field extensions preserve the normalized
+degree, \(g,h\), and the normalized mean
+of \(\log\|x\|\).
+
+Choose \(m\) divisible by three, put
+\(k=m^2/3\), and take the integral spanning
+family \(s_P\) of (SB6).
+For any complex coefficients \(c_P\), its
+theta functions satisfy
+\[
+ \left|\sum_P c_P f_P(tv_\sigma)\right|
+   \le \sqrt r\,M_\sigma
+          \left(\sum_P|c_P|^2\right)^{1/2}
+                    \exp\{n|t|^2\ell_\sigma^2/2\}.  \tag{SB15}
+\]
+Indeed each weighted norm is at most
+\(M_\sigma\), Cauchy--Schwarz bounds the
+sum of coefficients by their Euclidean
+norm times \(\sqrt r\), and
+\(\ell_\sigma^2=\pi H(v_\sigma,v_\sigma)\).
+
+For an entire \(F\) with
+\(|F(t)|\le M\exp(n|t|^2\ell^2/2)\),
+Cauchy's formula on the circle
+\(R=\sqrt{i/(n\ell^2)}\), \(i>0\), gives
+\[
+ |F^{(i)}(0)|\le i!\,M e^{i/2}
+                                   (n\ell^2/i)^{i/2}
+                    \le(\sqrt{enk}\,\ell)^iM
+                         \qquad(1\le i\le k).
+\]
+The last step follows from
+\((i!)^2\le i^{2i}\le(ik)^i\).
+For \(i=0\), the same bound is immediate
+by evaluation at zero.
+Thus (SB15) gives the constants
+\[
+ A_{i,\sigma}
+       =(\sqrt{enk}\,\ell_\sigma)^i
+                                      \sqrt r\,M_\sigma. \tag{SB16}
+\]
+By Lemma~\ref{lem:sr-slope-first-jet-integral}
+these bound the first jets on each step
+of the integral vanishing filtration.
+Since \(n=3k\), the spanning property and
+Lemma~\ref{lem:sr-slope-directional-jet-jumps}
+show that every step \(0\le i\le k\)
+is nonzero.
+Apply Lemma~\ref{lem:sr-slope-integral-flag-det}.
+Using \(\sum_{i=0}^k i=k(k+1)/2\) gives
+\[
+ -\langle\log\ell_\sigma\rangle
+     \le {1\over2}\log(enk)
+           +{2\over k}\bigl(g\log m
+                                 +\langle\log M_\sigma\rangle\bigr).
+                                                               \tag{SB17}
+\]
+This is the explicit integral determinant
+inequality; in particular, the growing
+number \(m^{2g}\) of theta sections occurs
+only through \(g\log m\).
+
+Put
+\[
+ Y=2+g+h,\qquad
+ K=\lceil2+g^2+h\rceil,\qquad m=3K,\qquad k=3K^2.
+\]
+Then \(Y\ge3\), \(m\le3Y^2\), and
+\(k\ge g^2+h+1\).
+Consequently
+\[
+ \log m\le3\log Y,\qquad
+ {g\over k}\le1,\qquad {h\over k}\le1,\qquad
+ {1\over2}\log(enk)
+        ={1\over2}\log(3e)+\log k\le C_5\log Y.
+\]
+Insert (SB8) in (SB17).
+Each remaining term is at most an absolute
+constant times \(\log Y\).
+This proves (SB14), with all constants
+chosen before \(A,L,g\) and before any
+extension.
+
+Finally the vector \(x\) here is the base
+change of the original vector.
+For every finite \(L'/L\),
+\[
+ {1\over[L':\mathbb Q]}
+     \sum_{\tau:L'\hookrightarrow\mathbb C}
+            \log\|x\|_\tau
+       ={1\over[L:\mathbb Q]}
+     \sum_{\sigma:L\hookrightarrow\mathbb C}
+            \log\|x\|_\sigma,
+\]
+because each \(\sigma\) has \([L':L]\)
+extensions.
+Thus the argument proves (SB14) over the
+original field as well.
+\end{proof}
+
+\subsection{The absolute line theorem and maximal slope}
+
+The precise absolute Siegel input is:
+for every Hermitian bundle \(\overline V\)
+of rank \(d>0\), and every \(\varepsilon>0\),
+there are a finite extension and a line
+subbundle \(M\) of its base change with
+\[
+ \widehat{\deg}_{\mathrm n}\overline M
+       \ge\widehat\mu(\overline V)
+                              -\tfrac12\log d-\varepsilon. \tag{SB18}
+\]
+The line and the extension may depend on
+\(\overline V,\varepsilon\).
+This is a consequence of Zhang's absolute
+successive-minima theorem, in the form of
+Bost--Chen,
+\href{https://webusers.imj-prg.fr/~huayi.chen/Recherche/bost_chen.pdf}
+{\emph{Concerning the semistability of
+tensor products in Arakelov geometry},
+Theorem 2.5 and Corollary 2.7}.
+Indeed the corollary gives spanning lines
+whose sum of degrees is at least
+\(\widehat{\deg}_{\mathrm n}\overline V
+-\tfrac d2\sum_{j=2}^d j^{-1}-\varepsilon\);
+one line has at least the average degree,
+and \(\sum_{j=2}^d j^{-1}\le\log d\).
+Every line over \(\overline{\mathbb Q}\)
+appearing here descends to a finite
+extension. This is the scope of the
+absolute theorem; no assertion about a
+short vector over the original number
+field is used.
+
+\begin{proof}[Proof of Theorem~\ref{thm:sr-general-principal-slope}]
+If \(g=0\), the Lie bundle has no nonzero
+submodule and the inequality is immediate.
+Assume \(g\ge1\).
+Let \(F\subseteq B\) be a nonzero saturated
+submodule of rank \(d\), with its induced
+metric.
+Apply (SB18) to \(F\), with
+\(\varepsilon=1\).
+After a further finite extension,
+principalize the underlying ideal of the
+resulting saturated line \(M\).
+An integral generator \(x\ne0\) of that
+line then satisfies
+\[
+ -\langle\log\|x\|_\sigma\rangle
+       =\widehat{\deg}_{\mathrm n}\overline M
+       \ge\widehat\mu(\overline F)
+                                     -\tfrac12\log d-1. \tag{SB19}
+\]
+The equality uses an actual generator,
+so has no extra finite-place index.
+Normalized degree is unchanged by
+principalization and base change.
+
+The base change of \(B\) is the actual Lie
+bundle, and its metrics are isometric,
+by Lemma~\ref{lem:sr-slope-model-metric}.
+Proposition~\ref{prop:sr-slope-integral-line-bound}
+therefore applies to this \(x\).
+Since \(d\le g\), (SB19) gives
+\[
+ \widehat\mu(\overline F)
+       \le C_4\log(2+g+h)+\tfrac12\log g+1
+       \le(C_4+2)\log(2+g+h).
+\]
+Taking the supremum over \(F\) proves (SB1).
+Nonsaturated submodules have no larger
+degree than their saturation.
+The endomorphism host was never used in
+choosing any constant.
+\end{proof}
+
+\subsection{Exact relation to the frozen producer chain}
+
+The final determinant and line-to-slope
+steps are the mathematical content of
+\[
+ \begin{gathered}
+ \srcid{ExistsIntegralJetBasis.jets},\qquad
+ \srcid{IntegralFlagEmbeddingCriterion.flag\_slope},\\
+ \srcid{ThetaDerivativeBound.lefschetz\_direction},\qquad
+ \srcid{LineOfKeyDegree.core\_applied},\\
+ \srcid{LineOfKeyDegree.line\_of\_key},\qquad
+ \srcid{SlopeBoundOfLargeDegreeLine.slopeBound}.
+ \end{gathered}
+\]
+The first five modules have prefix
+\srcid{Development.AutomorphicSpectrum.Proofs.};
+their respective subdirectories are
+\srcid{GeometryProofs}, \srcid{AdelicProofs},
+\srcid{MetricProofs}, \srcid{GeometryProofs},
+\srcid{GeometryProofs}.
+The last module is in
+\srcid{GeometryProofs}.
+The frozen blobs for the last two are
+\srcid{666e2dd3ab1ce84b3448899b33f83d08030c4ad3}
+and
+\srcid{89a20c55b564e35e40ef9c2a02178c32b8104a8c}.
+
+The source obtains the theta mean input by
+\[
+ \srcid{KeyBadReductionHolds.key\_bad}
+ \longrightarrow
+ \srcid{KeyDegreeOfBadReduction.keyDeg\_of\_keyBad}.
+\]
+The latter has frozen blob
+\srcid{9ac84964f5bca6b0f36e6538f59ba6a393efb2ea}.
+Its key scalar satisfies, for an integral
+Lie basis \(e\),
+\[
+ b_\sigma^8=
+ { (2\pi)^{2g}
+             |\det\operatorname{Gram}_{B,\sigma}(e)|^2
+        \over|\sigma\kappa|}.                         \tag{SB20}
+\]
+Together with
+\(\langle\log|\det\operatorname{Gram}(e)|\rangle
+=-2\widehat{\deg}_{\mathrm n}\overline B\),
+the integrality of \(\kappa\ne0\) gives
+precisely the upper bound in (SB5).
+The bad-reduction producer runs through
+\srcid{WeilBound.CoreStatements.HodgeTatePoints.LieMultComp},
+whose frozen blob is
+\srcid{3f7d4370da34864229be0897f207d911de688a71}.
+It squares the packet, places it in a
+unitary moduli problem, and invokes
+\srcid{KftwoModel.key\_unit}.
+The latter uses
+\srcid{ThetaKeyScalarIsUnitOnIntegralModels}:
+normal charts carry the key function and
+its inverse; good-reduction trait values
+are units; degeneration arcs have bounded
+theta coefficient and nonzero limiting
+Lie determinant; the no-pole criterion and
+normality then extend both functions.
+This is a genuine integral-model argument,
+not an inference from complex theta
+identities alone.
+
+Likewise the archived
+\srcid{TorsionValueIntegral} proves
+integrality of its specific normalized
+torsion scalar through Mumford
+uniformization and a weight-space valuation
+bound; the latter uses shortest
+representatives of the quadratic form.
+That universal assertion must not be
+replaced by the claim that every torsion
+point extends to the connected model.
+
+The present proof supplies instead the
+joint witness of
+Lemma~\ref{lem:sr-slope-joint-theta-witness}
+from the cited classical model theorem,
+with its finite-place compatibility
+proved above.
+Equations (SB5)--(SB6) are exactly the
+theta inputs actually used in
+(SB15)--(SB17).
+The explicit matrix and Gromov estimates
+supply (SB8).
+Consequently no uninstantiated
+\(\mathrm{KeyBadSt}\),
+\(\mathrm{KeyDegSt}\), or
+theta-supremum hypothesis remains in
+Theorem~\ref{thm:sr-general-principal-slope}.
+We have not thereby supplied a separate
+prose proof of the universal key-rule and
+torsion-value declarations for arbitrary
+inputs: their stronger quantifiers are
+distinct from the joint witness sufficient
+for this theorem.
+The published inputs retained here are
+the precise Moret--Bailly model theorem,
+the two specified principal-theta
+estimates, the Neron-model comparison, and
+Zhang's absolute line theorem.

@@ -1,0 +1,248 @@
+
+\section{Square integrability of the actual theta periods}
+\label{sec:sr-theta-period-square-integrability}
+
+We retain the coefficient-square lattice majorants proved in
+Section~\ref{sec:theta-decay-proof}. This section draws their two-variable
+consequence. The first and second quotient variables have different
+roles here; square integrability of the final theta period does not
+follow by squaring a separate pointwise bound in the first variable.
+
+For decreasing nonnegative vectors \(s=(s_1,\ldots,s_q)\) and
+\(t=(t_1,\ldots,t_y)\), set
+\[
+ \begin{split}
+ \rho_n(s)&=\sum_{i=1}^q(n-2i+1)s_i,\\
+ P_{n,d}(s,t)&=
+    d\sum_i s_i+n\sum_jt_j
+                    -2\sum_{i,j}\min(s_i,t_j),\\
+ \Delta(s,t)&=\max_{0\le k\le q}
+             \left(\sum_{i\le k}s_i-\sum_{j\le k}t_j\right).
+ \end{split}
+ \tag{Q1}\label{eq:sr-theta-square-chamber-data}
+\]
+In a sum involving \(t_j\) beyond its length we put \(t_j=0\).
+Write \(D=[E:\mathbb Q]>0\).
+The proved coefficient-square and lattice estimates, after absorbing
+the compact factors of the two Siegel sets, give
+\[
+ |\theta(f;a_X(s)k,a_W(t)k')|
+       \le C_f\exp\{DP_{n,d}(s,t)/2\}.
+ \tag{Q2}\label{eq:sr-theta-square-all-bound}
+\]
+On the actual full-rank cutoff they give, for every \(M>0\), a possibly
+different \(C_{f,M}\) such that
+\[
+ |\theta(f;a_X(s)k,a_W(t)k')|
+   \le C_{f,M}
+       \exp\{DP_{n,d}(s,t)/2-M\Delta(s,t)\}.
+ \tag{Q3}\label{eq:sr-theta-square-full-bound}
+\]
+Indeed these are square roots of
+\eqref{eq:theta-all-torus} and
+\eqref{eq:theta-full-torus}, with the already proved
+coefficient-square majorant. The order of the Schwartz bound is
+chosen before its compact finite support. Arbitrarily large \(M\)
+is therefore permitted for every fixed test vector.
+Finite sums of pure vectors satisfy the same estimates by the
+triangle inequality. The actual cutoff projection gives the same
+finite-sum assertion on the small side.
+
+The Haar majorants for the first and second Siegel sets are respectively
+\[
+       C e^{-D\rho_n(s)}\,ds,\qquad
+       C'e^{-D\rho_d(t)}\,dt.
+ \tag{Q4}\label{eq:sr-theta-square-haar}
+\]
+These are the same rational Witt frames and Haar densities used in
+the convergence proof, so no comparison with a different height
+or a different local Fourier matrix is involved.
+
+\begin{srlemma}[A partial-sum inequality]
+\label{lem:sr-theta-square-majorization}
+Suppose \(2n\le d\), \(q,y\le Y\), and \(2Y+1<n\), where all these
+parameters are integers. Put \(M_0=d+q+1\).
+Then
+\[
+ \frac{P_{n,d}(s,t)}2-\rho_n(s)-M_0\Delta(s,t)
+ \le \frac{\rho_d(t)}2-\frac14\sum_jt_j
+                 -\frac1{4(q+1)}\sum_i s_i .
+ \tag{Q5}\label{eq:sr-theta-square-exponent}
+\]
+\end{srlemma}
+
+\begin{proof}
+Put \(\delta=\Delta(s,t)\ge0\), and let
+\(u=(t_1,\ldots,t_q)\), padded with zeros or truncated as necessary.
+For \(0\le k\le q\),
+\(\sum_{i\le k}s_i\le\sum_{i\le k}u_i+\delta\).
+We first prove
+\[
+ \sum_{i,j\le q}\min(s_i,s_j)
+      -\sum_{i,j\le q}\min(s_i,u_j)
+       \le\sum_{j\le q}(q-j)u_j+q\delta .
+ \tag{Q6}\label{eq:sr-theta-square-minimum-slack}
+\]
+The summand on the left is at most \((s_i-u_j)_+\), because
+\(\min(s_i,s_j)\le s_i\).
+For fixed \(j\), the set \(s_i>u_j\) is an initial interval of length
+\(k\). Hence
+\[
+ \sum_i(s_i-u_j)_+
+  =\sum_{i\le k}s_i-ku_j
+  \le\sum_{i\le k}(u_i-u_j)+\delta
+  \le\sum_{i<j}u_i+\delta.
+\]
+For the last inequality discard the nonpositive terms with \(i\ge j\)
+and bound each term with \(i<j\) by \(u_i\).
+Summing over \(j\) proves (Q6).
+Also
+\[
+ \sum_{i,j\le q}\min(s_i,u_j)
+      \le\sum_{i\le q,j\le y}\min(s_i,t_j),
+ \qquad
+ \sum_i s_i\le\sum_j u_j+\delta .
+\]
+
+Set \(\varepsilon=1/[4(q+1)]\) and \(c=d/2-n+\varepsilon\ge0\).
+For decreasing \(s\),
+\[
+ \sum_{i,j}\min(s_i,s_j)=\sum_i(2i-1)s_i,
+ \qquad
+ \rho_n(s)=n\sum_i s_i-\sum_{i,j}\min(s_i,s_j).
+\]
+Substitute these identities and (Q6) into the left side of (Q5),
+and add \(\varepsilon\sum s_i\).
+The result is at most
+\[
+ \sum_{j\le q}(c+q-j)u_j
+       +\frac n2\sum_jt_j
+       +(c+q-M_0)\delta .
+ \tag{Q7}\label{eq:sr-theta-square-intermediate}
+\]
+Here we used \(c\sum s_i\le c\sum u_j+c\delta\).
+The last term in (Q7) is nonpositive, since \(c\le d+1\).
+For \(j\le q\),
+\[
+ c+q-j\le
+       \frac{d-2j+1}2-\frac n2-\frac14:
+\]
+the difference of right and left is
+\(n/2-q+1/4-\varepsilon>0\), using \(n\ge2Y+2\) and \(q\le Y\).
+The right coefficient is nonnegative also for \(q<j\le y\),
+because \(d\ge2n\) and \(j\le Y<n/2\).
+We may therefore bound (Q7) by
+\[
+ \sum_{j\le y}
+       \left(\frac{d-2j+1}2-\frac n2-\frac14\right)t_j
+          +\frac n2\sum_jt_j
+     =\frac{\rho_d(t)}2-\frac14\sum_jt_j .
+\]
+Subtracting \(\varepsilon\sum_i s_i\) proves (Q5).
+\end{proof}
+
+\begin{srproposition}[Two ranges of square integrability]
+\label{prop:sr-theta-period-L2}
+Let \(n=\dim_E X\), \(d=\dim_E W\), and let \(q,y\) be their
+rational Witt indices. The actual theta period on \(U(W)\) is
+square integrable in either of the following ranges.
+
+First, for every Schwartz vector in the large convergence range,
+it suffices that
+\[
+          q=0\ \hbox{or}\ d+2q<2n,\qquad
+          y=0\ \hbox{or}\ n+y<d .
+ \tag{Q8}\label{eq:sr-theta-period-L2-large-range}
+\]
+Second, for every vector in the actual small full-rank cutoff,
+it suffices that
+\[
+       2n\le d,\qquad
+       q,y\le Y,\qquad 2Y+1<n
+                     \quad\hbox{for some integer \(Y\)}.
+ \tag{Q9}\label{eq:sr-theta-period-L2-small-range}
+\]
+These assertions concern the specified Haar theta periods; changing a
+quotient Haar measure multiplies them by a fixed finite scalar.
+\end{srproposition}
+
+\begin{proof}
+For the first assertion use
+\(P_{n,d}(s,t)\le d\sum_i s_i+n\sum_jt_j\) in (Q2).
+Integrate its right side in the first quotient using (Q4).
+The resulting first chamber integral is
+\[
+ \int_{s_1\ge\cdots\ge s_q\ge0}
+   \exp\left\{D\sum_{i=1}^q(d/2-n+2i-1)s_i\right\}ds.
+ \tag{Q10}\label{eq:sr-theta-period-L2-first-integral}
+\]
+For a decreasing nonnegative chamber, an exponential
+\(\exp(\sum c_i s_i)\) is integrable exactly when every nonempty
+initial coefficient sum is negative: substitute
+\(r_i=s_i-s_{i+1}\), \(s_{q+1}=0\).
+In (Q10) that initial sum is
+\(Dk(d/2-n+k)\), negative for \(1\le k\le q\) under (Q8).
+For \(q=0\) the chamber has volume \(1\).
+Thus on the second Siegel set
+\[
+        |I_X(f)(a_W(t)k')|
+               \le C\exp\{Dn\sum_jt_j/2\}.
+\]
+Its squared integral, with (Q4), is bounded by a constant times the
+exponential chamber integral with coefficients
+\(D(n-d+2j-1)\). The initial sums are \(Dk(n-d+k)\),
+negative under the second condition of (Q8). This proves the large
+assertion without applying a divergent integral of \(|\theta|^2\)
+in the first variable.
+
+For the second assertion choose the minor gain in (Q3) with
+\(M=DM_0\), and apply (Q5). On the two Siegel sets this gives
+\[
+ |\theta(f;a_X(s)k,a_W(t)k')|
+ \le C
+ \exp\left\{D\rho_n(s)-\frac{D}{4(q+1)}\sum_i s_i\right\}
+ \exp\left\{\frac D2\rho_d(t)-\frac D4\sum_j t_j\right\}.
+ \tag{Q11}\label{eq:sr-theta-period-L2-separated}
+\]
+The first Haar density cancels its \(\rho_n(s)\) term.
+The remaining integral
+\(\int\exp\{-D\sum_i s_i/[4(q+1)]\}\,ds\) is finite.
+Therefore
+\[
+ |I_X(f)(a_W(t)k')|
+       \le C'\exp\{D\rho_d(t)/2-D\sum_jt_j/4\}.
+\]
+After squaring, the second Haar density cancels the
+\(D\rho_d(t)\) term. The remaining bound
+\(\exp\{-D\sum_jt_j/2\}\) is integrable on its chamber.
+All estimates are uniform on the compact factors of the two
+Siegel sets. Reduction theory transfers the chamber bounds to
+the actual quotient integrals, proving square integrability.
+The measurability needed here follows either from the locally
+uniform Schwartz sums or directly from the dominated first period.
+\end{proof}
+
+\begin{srcorollary}[The source square-integrability condition]
+\label{cor:sr-theta-SqInt}
+Every actual geometric triple in the two theta towers satisfies the
+square-integrability condition for its large polynomial theta periods
+and its small polynomial theta periods in the actual cutoff.
+\end{srcorollary}
+
+\begin{proof}
+Put \(Y=p+q\), in the notation of the geometric triple.
+Its exact inequalities are
+\[
+ 2Y+1<(a-a')/2,\qquad 2Y+1<a'.
+\]
+The large first Witt index is at most \(p\le Y\), and the target
+Witt index is at most \(Y\).
+With \(n=a,d=a+a'\), the first inequality gives
+\(d+2p<2a\), and the second gives \(a+Y<d\).
+Thus (Q8) applies.
+For the small side \(n=a'\), \(d=a+a'>2a'\);
+both its first Witt index and the target Witt index are at most
+\(Y\), and \(2Y+1<a'=n\). Thus (Q9) applies.
+The inequalities in particular give \(a'\ge2\), so no unproved
+rank-zero convergence endpoint is being used.
+\end{proof}

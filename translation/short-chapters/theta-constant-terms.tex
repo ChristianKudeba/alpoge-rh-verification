@@ -1,0 +1,565 @@
+
+% Actual theta constant-term producers, not conditional restatements.
+% Requires the actual models/evaluations and the convergence estimates proved
+% in the preceding sections. The seminorm consequence needed here is proved
+% explicitly below from the same coefficient majorants.
+
+\section{The two polarizations and the theta constant terms}
+\label{sec:sr-theta-constant-terms}
+
+All oscillator actions in this section are the common genuine actions
+fixed above, with the specified splitting characters and additive
+character. The evaluations \(e_0,e_A,e_B\) are the corresponding partial
+Fourier and evaluation maps. Thus \(e_0\) removes the plane in \(W\),
+whereas \(e_A,e_B\) remove the planes in both \(X\) and \(W\).
+No choice of a new local matching quotient is made in this section.
+Write \(\Theta(f)\) for the rational theta functional in the indicated
+model, and put
+\[
+ T_A(\xi,f)=\Theta\bigl(e_A\rho(\xi x\otimes y')f\bigr),
+ \qquad
+ T_B(\xi,f)=\Theta\bigl(e_B\rho(\xi y\otimes x')f\bigr)
+ \quad(\xi\in E).
+\]
+In these two definitions the coefficient is \(\xi\) itself; the
+conjugation in \(u_B(l)=\bar l\,y\otimes x'\) will enter when we unfold
+the first unitary group.
+
+\begin{srlemma}[Poisson comparison of the two line sums]
+\label{lem:sr-theta-two-line-poisson}
+There is \(c_{AB}\ne0\), depending on the two evaluations and their
+fixed Haar normalizations, such that for every adelic Schwartz vector
+\(f\),
+\[
+ \sum_{\xi\in E}T_A(\xi,f)
+        =c_{AB}\sum_{\xi\in E}T_B(\xi,f).
+ \tag{T1}\label{eq:sr-theta-two-line-poisson}
+\]
+Both series are absolutely convergent. The scalar is fixed before the
+finite splitting and Hecke character packet.
+\end{srlemma}
+
+\begin{proof}
+Let
+\[
+ I_\cap=Ex\otimes Ex'+X_1\otimes Ex'+Ex\otimes W_1.
+\]
+The two evaluation spaces are
+\(I_A=I_\cap+Ey\otimes Ex'\) and
+\(I_B=I_\cap+Ex\otimes Ey'\).
+Reduce first by \(I_\cap\). The remaining symplectic space is the
+orthogonal sum of \(X_1\otimes W_1\) and the plane spanned by
+\(x\otimes y'\) and \(y\otimes x'\). Their tensor pairing is a unit,
+with the sign forced by
+\(\langle y',x'\rangle=-1\).
+Consequently the latter summand has one \(E\)-valued Schr\"odinger
+coordinate. In these coordinates the two evaluations are, respectively,
+evaluation in this coordinate and evaluation after its Fourier
+transformation. They have the same reduced Heisenberg action on
+\(X_1\otimes W_1\).
+
+To spell out the normalization issue, the constructed partial Fourier
+maps identify the common reduced model with
+\(\mathcal S(\mathbb A_E)\otimes
+ \mathcal S(X_1\otimes W_1)\).
+An intertwiner with the stated evaluation invariances is a nonzero
+scalar multiple of these coordinate maps: translation invariance in an
+integrated coordinate and modulation invariance in an evaluated
+coordinate force Haar integration and evaluation at zero, respectively.
+Applying this one coordinate at a time proves the assertion, including
+for the actual evaluations. The scalars are fixed by the evaluations
+and their measures; finite unramified vacuum normalization fixes their
+finite local scalars. They do not depend on a splitting character on a
+unitary Levi, since the present operators involve only the Heisenberg
+action and the fixed rational theta functional.
+
+Thus, after fixed nonzero scalar factors, the two sides of (T1) are
+\[
+ \sum_{\xi\in E}\sum_{\eta}
+        F(\xi,\eta),\qquad
+ \sum_{\xi\in E}\sum_{\eta}
+        \widehat F(\xi,\eta)
+\]
+in a common adelic Schwartz model. Here \(\eta\) runs over the rational
+coordinates of the lower model, and the hat is Fourier transformation
+in the \(E\) coordinate for the actual trace character. A possible
+reflection or conjugation of this coordinate permutes \(E\) and has
+no effect on the sum. Poisson summation in that coordinate proves (T1).
+
+For completeness, these sums and the uses of Poisson summation are
+absolute: finite support and local constancy leave finitely many
+cosets of a fractional lattice at infinity, and every infinite
+Schwartz seminorm bounds a summand by
+\(C_N(1+\|\xi\|+\|\eta\|)^{-N}\).
+Lattice packing makes the latter sum finite for \(N\) larger than its
+real dimension. The same argument is uniform on compact families of
+Heisenberg parameters. Hence all the preceding regroupings and partial
+Fourier transformations are justified.
+\end{proof}
+
+\begin{srlemma}[The full-rank cutoff under the \(B\) evaluation]
+\label{lem:sr-theta-cone-cutoff}
+In the specified split local Fourier model the upper cutoff means
+support on matrices of full row rank \(n=\dim_E X\).
+For a vector \(f\) in this cutoff space,
+\[
+ e_Bf=0,\qquad
+ e_B\rho(a\,y\otimes x')f\in\mathcal S^o(X_1\otimes W_1)
+                 \quad(a\in\mathbb A_E).
+ \tag{T2}\label{eq:sr-theta-cone-cutoff}
+\]
+The lower cutoff uses the same split place and the same embedding.
+If \(e_0f\) is in the corresponding cutoff for \(X\otimes W_1\), then
+\[
+                         e_Af=0.                 \tag{T3}
+ \label{eq:sr-theta-zero-A}
+\]
+These statements include \(\dim X_1=0\), for which full row rank is
+the unrestricted rank-zero condition.
+\end{srlemma}
+
+\begin{proof}
+Use the adapted bases
+\((x,X_1,y)\) and \((x',W_1,y')\), and transport the split Fourier
+matrix by the invertible Gram matrices. This does not change rank.
+For a lower Fourier matrix \(C_1\), the Heisenberg invariances of
+\(e_B\rho(a\,y\otimes x')\) force a possible upper Fourier matrix to
+have block shape
+\[
+ C=\begin{pmatrix}
+       0&0&\lambda\\
+       0&C_1&b\\
+       c&d&e
+    \end{pmatrix}.                               \tag{T4}
+ \label{eq:sr-theta-cone-cutoff-matrix}
+\]
+Indeed invariance under \(x\otimes W\) forces the first row, except
+possibly its \(y'\) entry, to vanish; commuting the shift through this
+invariance supplies that possible entry. Invariance under
+\(X_1\otimes x'\) gives the zero first column in the middle block.
+Intertwining the reduced Heisenberg action identifies the remaining
+middle block as exactly \(C_1\). These are eigenvalue identities for
+every local modulation, so the Fourier support is contained in (T4),
+including for arbitrary linear combinations of test functions.
+
+If \(C_1\) has a nonzero left kernel vector \(r\), its combination of
+the middle rows has support only in the last column. If \(\lambda=0\)
+the first row is already zero. If \(\lambda\ne0\), subtract the suitable
+multiple of the first row from this combination. In either case
+\(C\) has a nonzero left kernel vector. Thus a full upper row rank
+forces full lower row rank. At \(a=0\) the commutator eigenvalue
+\(\lambda\) is zero, so the first row itself is zero and the
+evaluation vanishes. This proves (T2).
+
+Finally \(e_A\) is, up to its fixed nonzero model scalar, the
+composition of \(e_0\) with the evaluation invariant under
+\(Ex\otimes W_1\). In the split Fourier model this invariance forces
+the nonzero \(x\) row to vanish. A full row rank vector is therefore
+killed, proving (T3). The argument only uses elementary row operations
+and the actual modulation eigenvalues. In particular it does not
+replace the split Fourier matrix by an unrelated coordinate matrix.
+\end{proof}
+
+\begin{srlemma}[The seminorm form of the convergence bounds]
+\label{lem:sr-theta-integrated-seminorm}
+Fix a finite dimensional space of finite test functions.
+On the large side in its proved convergence range there are a
+continuous infinite Schwartz seminorm \(p\) and an integrable
+nonnegative function \(G\) on the first unitary quotient such that,
+for \(h\) in any fixed compact subset of the second unitary group,
+\[
+ |\theta(f\otimes\phi;g,h)|\le p(f)G(g)
+ \tag{T5}\label{eq:sr-theta-seminorm-domination}
+\]
+for each of a fixed finite basis of finite test functions.
+The same assertion holds on the small side when that finite test
+space lies in the actual full-rank cutoff.
+The constants and seminorm may depend on this fixed test space,
+the fixed model, and the compact set of \(h\).
+They do not depend on \(f\).
+\end{srlemma}
+
+\begin{proof}
+We give the upgrade from the coefficient estimates, since a mere
+constant \(C_f\) for each individual \(f\) would not imply (T5).
+In the large-side proof choose a single Schwartz order \(N\) greater
+than the dimension and all exponents used in its lattice majorants.
+Every occurrence of a test-function bound there is bounded by
+\[
+ P_N(f)=\max_{|\alpha|\le N}\sup_z
+                 (1+\|z\|)^N|\partial^\alpha f(z)|.
+\]
+Finite linear coordinate changes, the finitely many finite
+coefficient values, and the specified compact angular variables change
+this to at most \(C P_M(f)\) for some fixed \(M,C\).
+This follows directly by the chain rule; the matrices and all their
+inverses range in a compact set. The root and lattice sums are then
+exactly the previously proved integrable chamber majorant, multiplied
+by \(C P_M(f)\).
+
+For the small side, use the coefficient-square majorant in the
+full-rank decay proof, keeping its test-function bound as \(P_N(f)\).
+The compact-coset Fourier cancellation and the nonzero minor occur
+only in the finite coefficients. They have a common level and common
+finite coefficient bounds on a fixed finite basis. The remaining
+Schwartz bounds, finite coordinate changes, and chamber summations
+are linear inequalities in \(P_N(f)\). Thus their rapid chamber
+majorant has coefficient \(C P_M(f)\), again with fixed \(M,C\).
+Choose the decay order larger than the fixed Haar-growth exponent.
+The resulting \(G\) is integrable; finite quotient volume handles the
+remaining bounded chamber. This is precisely the same coefficient
+argument as the preceding full-rank decay proof, with its constants
+left in seminorm form.
+
+For a compact family of \(h\), its finite action has finite orbit on
+a fixed smooth finite vector. Its infinite action carries each
+Schwartz seminorm into a uniformly bounded Schwartz seminorm.
+In the present oscillator model this last assertion follows from
+the explicit linear changes, Fourier transforms, and quadratic
+phases on finitely many compact coordinate patches; their coefficients
+are bounded. Taking the finite maximum proves the compact uniformity.
+
+There is a small linear-algebra point when a family is known to lie
+in the cutoff but its displayed finite tensor factors do not.
+Let \(V\) be their finite dimensional span and let \(V^o\) be the
+subspace satisfying the finite cutoff. Choose a projection
+\(V\longrightarrow V^o\). At every infinite coordinate the finite
+slice of such a family lies in \(V^o\), so applying this projection
+does not change the family. Re-expand in a basis of \(V^o\).
+Only finitely many constant linear combinations of infinite Schwartz
+functions occur, and their seminorms are bounded by a fixed sum of
+the original seminorms. This supplies exactly the cutoff basis needed
+above.
+\end{proof}
+
+\begin{srlemma}[Joint integrability for unfolding a cone]
+\label{lem:sr-theta-cone-joint-integrability}
+Let \(F_l=e_A\rho(u_A(l))f\) on the large side, or
+\(F_l=e_B\rho(u_B(l))f\) on the small side with \(f\in\mathcal S^o\).
+Use the respective exponents
+\[
+ z_A=n-\frac d2,\qquad z_B=1+\frac d2-n,
+\]
+in the rank ranges in which they are at least \(2\), and in which
+the large lower theta integral has the proved convergence range.
+Then for every fixed lower second-group argument \(h_1\),
+\[
+ \int_{\mathbb A_E^\times}\int_{[U(X_1)]}
+       |\theta(F_l;g_1,h_1)|\,dg_1\,|l|_E^{z_\epsilon}
+                       \,d^\times l <\infty .
+ \tag{T6}\label{eq:sr-theta-cone-joint-integrability}
+\]
+The assertion also holds after compact averaging in the upper first
+unitary group. All exchanges of the cone integral with the lower
+theta period are consequently valid.
+\end{srlemma}
+
+\begin{proof}
+In the common partial Fourier coordinates an eliminated coordinate is
+fixed to the nonzero corner parameter \(l_\infty\). Accordingly, for
+every lower Schwartz seminorm \(q\) and every \(N\) there is an upper
+Schwartz seminorm \(p\) such that the infinite factors satisfy
+\[
+ q(F_l)\le p(f)(1+\|l_\infty\|)^{-N}.
+\]
+This is the restriction estimate proved for the actual cone operator:
+differentiate only in lower coordinates, bound their polynomial
+weights by upper weights, and retain arbitrary extra weight in the
+corner coordinate. At the finite places the argument in the finite
+cone lemma leaves a finite dimensional space of lower test functions,
+and forces the finite part of \(l\) into one fixed fractional ideal.
+Near \(l=0\) these finite factors are locally constant.
+
+On the \(B\) side (T2) puts every \(F_l\) in the actual lower cutoff.
+Use the finite projection at the end of the preceding lemma to put
+its entire finite test space in that cutoff. Now (T5), on either side,
+bounds the inner integral by a fixed finite sum of the just displayed
+Schwartz seminorms. The finite idele integral of the absolute
+weight converges for \(z_\epsilon\ge2\): away from finitely many
+places it is the Euler product
+\(\prod_w(1-Nw^{-z_\epsilon})^{-1}\), and the finitely many remaining
+tails are geometric series. At infinity write each complex coordinate
+as \(r e^{i\theta}\). The weight and multiplicative Haar density give
+\(r^{2z_\epsilon-1}\,dr\,d\theta\), integrable at zero since
+\(z_\epsilon>0\). Choose \(N\) larger than the sum of all radial growth
+exponents to obtain integrability at infinity.
+
+The same estimates are uniform on the compact set being averaged.
+This proves (T6), by an absolute majorant, and also proves convergence
+in every Schwartz seminorm before applying any continuous lower theta
+functional or lower theta period.
+\end{proof}
+
+\begin{srlemma}[The constant term of a single theta kernel]
+\label{lem:sr-theta-kernel-constant-term}
+Let \(N_W\) be the unipotent radical stabilizing \(Ex'\).
+Give \([N_W]\) probability Haar measure. There are nonzero
+\(c_0,c_1\), fixed by the model and evaluations before the finite
+character packet, such that
+\[
+ \begin{split}
+ \int_{[N_W]}\theta(f;g,uh)\,du
+   ={}&c_0\Theta(e_0\omega(g,h)f)\\
+     &+c_1\sum_{v\in X(E),\ v\ne0,\ \langle v,v\rangle=0}
+       T_A(1,\omega(\gamma_vg,h)f).
+ \end{split}
+ \tag{T7}\label{eq:sr-theta-kernel-ct}
+\]
+Here \(\gamma_v\in U(X)(F)\) is chosen with \(\gamma_vv=x\).
+If \(X\) is anisotropic, the second line is absent.
+For each \(g,h\) the series is absolute.
+\end{srlemma}
+
+\begin{proof}
+In the polarization \(W=Ex'\oplus W_1\oplus Ey'\), Poisson expansion
+in the line coordinates writes the upper theta functional as the sum,
+over \(v\in X(E)\), of the lower theta functional applied to
+\(e_0\rho(v\otimes y')f\), with a fixed nonzero normalization.
+The lattice Schwartz estimate in the first lemma proves absolute
+convergence uniformly as the unipotent parameter ranges over its
+compact adelic quotient. Thus it is legitimate to average this
+expansion term by term.
+
+Here is the orbit calculation behind that average. In the displayed
+basis of \(W\), an element of \(N_W\) fixes \(x'\), sends
+\[
+ q\in W_1\ \longmapsto\ q-\langle q,z\rangle x',\qquad
+ y'\ \longmapsto\ y'+z+
+            \bigl(c-\tfrac12\langle z,z\rangle\bigr)x',
+ \quad z\in W_1(\mathbb A_F),\ c\in\mathbb A_F .
+\]
+The skew Hermitian identities verify that these matrices preserve
+the form. The center acts on the \(v\) term by the additive character
+with coefficient \(\langle v,v\rangle\). Orthogonality on
+\(F\backslash\mathbb A_F\) kills it unless this coefficient is zero.
+At \(v=0\) the noncentral action also disappears, giving exactly the
+first term in (T7). Its normalization is nonzero.
+
+For nonzero isotropic \(v\), Witt decomposition over \(E/F\) supplies
+\(\gamma_v\). A direct construction extends \(v\) to a hyperbolic
+pair by choosing \(w\) with \(\langle v,w\rangle=1\) and subtracting
+\(\langle w,w\rangle v/2\); Witt extension then identifies its
+orthogonal complement with the fixed one. Rational invariance of
+theta moves this term to the term with \(v=x\).
+The remaining \(z\)-average is the average of the Heisenberg
+translations in \(Ex\otimes W_1\). Fourier orthogonality in those
+coordinates keeps exactly their zero modes. Its symplectic reduction
+is \(X_1\otimes W_1\); in the common partial Fourier coordinates it is
+the actual \(e_A\rho(x\otimes y')\) evaluation.
+The fixed comparison of these coordinate evaluations gives \(c_1\ne0\).
+This proves (T7). A different choice of \(\gamma_v\) changes the
+expression by a rational stabilizer action, which has no effect on
+the lower theta functional. No unitary splitting scalar is introduced
+by either unipotent average: those matrices have determinant \(1\).
+\end{proof}
+
+\begin{srlemma}[Unfolding the two isotropic-vector sums]
+\label{lem:sr-theta-isotropic-unfold}
+In the convergence ranges of (T6), the respective isotropic-vector
+sums have integrable absolute value on \([U(X)]\), and their integrals
+are
+\[
+ \begin{split}
+ \int_{[U(X)]}\sum_v T_A(1,\omega(\gamma_vg,h)f)\,dg
+     &=k_A I_{X_1,W_1}(C_A\omega(1,h)f),\\
+ \int_{[U(X)]}\sum_v T_B(1,\omega(\gamma_vg,h)f)\,dg
+     &=k_B I_{X_1,W_1}(C_B\omega(1,h)f),
+ \end{split}
+ \tag{T8}\label{eq:sr-theta-isotropic-unfold}
+\]
+with fixed \(k_A,k_B\ne0\). The exponents in the cone operators are
+exactly \(z_A,z_B\) in (T6). On the \(A\) line its character is
+\(\chi_W^{-1}\), and on the \(B\) line its character is \(\chi_W\).
+\end{srlemma}
+
+\begin{proof}
+The rational nonzero isotropic vectors form the homogeneous space
+\(Q_x(F)\backslash U(X)(F)\), where
+\(Q_x=N_X\rtimes U(X_1)\) is the stabilizer of the vector \(x\).
+The integrand is invariant under \(Q_x(F)\) and under \(N_X(\mathbb A_F)\).
+Unfold this rational sum, first with nonnegative absolute values.
+Iwasawa decomposition writes the resulting quotient integral in
+coordinates \(g=m_X(t,g_1)k\), with
+\(g_1\in[U(X_1)]\), \(t\in\mathbb A_E^\times\), and \(k\in K_X\).
+
+The Jacobian can be read off the same explicit unipotent matrices.
+Conjugation by \(m_X(t,1)\) multiplies its \(n-2\) \(E\)-coordinates
+by \(t\), and its central \(F\)-coordinate by \(t\bar t\).
+Their additive module is \(|t|_E^{n-2}|t|_E=|t|_E^{n-1}\).
+The quotient Haar density is consequently \(|t|_E^{1-n}\).
+The volume of the rational unipotent quotient and the comparisons of
+the chosen Haar measures give a positive geometric factor.
+
+The actual mixed evaluation has first Levi multipliers
+\[
+ \begin{array}{c|c|c}
+       &\hbox{multiplier of the evaluation}
+                  &\hbox{corner after moving the Levi}\\ \hline
+ A&\chi_W(t)|t|_E^{d/2-1}
+                    &t^{-1}x\otimes y'\\
+ B&\chi_W(t)|t|_E^{d/2}
+                    &\bar t\,y\otimes x'.
+ \end{array}                                      \tag{T9}
+ \label{eq:sr-theta-evaluation-levi-table}
+\]
+To check the powers, the \(A\) eliminated space is
+\(X\otimes x'+x\otimes W_1\): its determinant under the first Levi
+is \(t^{d-2}\). The \(B\) space
+\(x\otimes W+X_1\otimes x'\) has determinant \(t^d\).
+The oscillator half-density gives half these powers.
+The splitting multiplier is the prescribed \(\chi_W(t)\).
+Conjugating the corner by the inverse first Levi gives the last
+column. These computations use the same evaluation and same
+oscillator action as the local constructions.
+
+Multiplying by the Haar density, the \(A\) integrand has weight
+\(\chi_W(t)|t|_E^{d/2-n}\); substitute \(l=t^{-1}\).
+The \(B\) integrand has weight
+\(\chi_W(t)|t|_E^{d/2-n+1}\), with \(l=t\).
+This gives exactly the stated characters and exponents.
+Joint integrability (T6), uniformly in \(k\), makes the unfolded
+absolute integral finite. Tonelli therefore proves the asserted
+summability almost everywhere and integrability of the rational
+sums, and Fubini proves the complex equalities in (T8).
+It also moves the cone operator through the lower theta period.
+The geometric Haar and evaluation comparisons are nonzero and
+independent of the finite character packet.
+\end{proof}
+
+\begin{srproposition}[The four actual constant-term producers]
+\label{prop:sr-theta-four-constant-terms}
+For a triple with upper ranks \(a,a'\), \(d=a+a'\), write
+\[
+ \chi_X=\beta,\quad \chi_W=\beta/\alpha
+       \quad\hbox{on the \(V\) side},\qquad
+ \chi_X=\alpha,\quad \chi_W=\alpha/\beta=\nu
+       \quad\hbox{on the \(V'\) side}.
+\]
+Assume exactly the rank and signature ranges of the two adapted
+codimension-two steps. Then the following hold with nonzero constants
+fixed by the geometric models, evaluations, and Haar measures before
+the finite packet.
+
+On the large side the \(\beta|t|_E^{a/2}\) constant-term component is
+the lower theta integral of \(e_0\omega(1,h)f\), times a fixed
+nonzero constant. In the \(A\) step its
+\(\alpha|t|_E^{a'/2}\) component is the lower large theta integral of
+\[
+       C_A\omega(1,h)f,\qquad z_A=(a-a')/2 .
+ \tag{T10}\label{eq:sr-theta-large-cone-producer}
+\]
+On the small side with actual full-rank cutoff, in the \(B\) step
+the \(\beta|t|_E^{a/2}\) component is the lower small theta integral of
+\[
+       C_B\omega(1,h)f',\qquad z_B=(a-a')/2+1 .
+ \tag{T11}\label{eq:sr-theta-small-cone-producer}
+\]
+If \(V'\) is definite, the entire small constant term is its
+\(\alpha|t|_E^{a'/2}\) component, equal to the lower theta integral of
+\(e'_0\omega'(1,h)f'\), times a fixed nonzero constant.
+These formulas hold on every specified lower Levi
+\(m_W(1,h_1)\), with the lower theta integral evaluated at \(h_1\).
+\end{srproposition}
+
+\begin{proof}
+First interchange the compact unipotent average with the first
+theta period. On the large side (T5) gives an integrable majorant
+uniform on this compact unipotent family. On the small side use the
+same assertion on the actual cutoff, which is stable under the
+second unitary action. Hence Fubini applies in both cases.
+In (T7) the zero term has second Levi character and power
+\(\chi_X(t)|t|_E^{n/2}\), by direct evaluation in the removed
+\(W\) line. Changing the first quotient Haar measure to that of the
+specified lower model contributes a fixed positive factor. This
+already proves the large zero-term formula. If \(V'\) is definite
+there are no nonzero rational isotropic vectors, so it proves the
+entire small assertion as well. This includes rank zero.
+
+On the large side (T8) applies to the nonzero orbit in (T7).
+The rank inequality is precisely
+\(2n=d+2z_A\) and
+\(z_A\ge\min(r_0,s_0)+2\) for the lower signature \((r_0,s_0)\);
+it puts the lower large integral in its proved convergence range.
+The second Levi law of this cone is
+\[
+       (\chi_X/\chi_W)(t)|t|_E^{(d-n)/2}.
+ \tag{T12}\label{eq:sr-theta-cone-second-law}
+\]
+It follows by the same mixed-coordinate computation as (T9), now
+for the second Levi; scaling its line coordinate in the cone integral
+gives the ratio of splitting characters. Since on this side
+\(n=a\), the law is exactly
+\(\alpha(t)|t|_E^{a'/2}\). This proves (T10).
+
+For the small side it would be incorrect to unfold the \(A\) orbit
+with absolute values in its divergent range. Instead apply (T1)
+separately on every rational isotropic line in \(V'\).
+Choose one representative \(v_L\) of each line \(L\), and let
+\(\gamma_Lv_L=x\). The other nonzero vectors of that line are
+\(\xi v_L\), \(\xi\in E^\times\). The first Levi formula, with
+\(|\xi|_{\mathbb A_E}=1\) and trivial rational Hecke characters,
+identifies their \(A\) terms with
+\(T_A(\xi,\omega(\gamma_Lg,h)f')\).
+For the \(B\) terms it gives the coefficient
+\(\overline{\xi^{-1}}\); this is a permutation of \(E^\times\).
+The zero \(B\) term vanishes by (T2).
+Subtracting the zero terms from (T1) therefore gives, on each line,
+\[
+ \sum_{\xi\ne0}T_A(\xi,\omega(\gamma_Lg,h)f')
+   =c_{AB}\sum_{\xi\ne0}
+          T_B(\xi,\omega(\gamma_Lg,h)f')
+                -T_A(0,\omega(\gamma_Lg,h)f').
+ \tag{T13}\label{eq:sr-theta-small-paired-orbits}
+\]
+This identity is between absolutely convergent line series.
+
+The \(B\) rational-vector sum is integrable by (T8), because its
+lower functions retain the actual cutoff by (T2) and
+\(z_B\ge2\). The full kernel constant term is integrable by the
+compact-average majorant at the start of the proof. Thus the
+difference of that kernel term and the \(B\) sum is integrable,
+without asserting separate global absolute convergence of the
+\(A\) orbit. By (T7) and (T13) this difference is
+\[
+ c_0\Theta(e_0\omega(g,h)f')
+       -c_1\sum_L T_A(0,\omega(\gamma_Lg,h)f')
+ \tag{T14}\label{eq:sr-theta-small-alpha-correction}
+\]
+wherever the \(B\) sum is summable. Both summands in (T14) have
+second Levi law \(\chi_X(t)|t|_E^{n/2}\): the corner is now zero,
+so evaluation has the zero-term law. The line series is summable
+almost everywhere, by (T13) and the two rational-vector sums.
+Consequently its integral, taken as the integrable combined
+expression (T14), has that same law.
+
+The remaining component is, by (T8), a fixed nonzero constant times
+the lower small theta integral of \(C_B\omega(1,h)f'\).
+Its law (T12) is now
+\(\beta(t)|t|_E^{a/2}\), since \(n=a'\), whereas (T14) has law
+\(\alpha(t)|t|_E^{a'/2}\). This proves (T11) and constructs the
+required two-term splitting on the small side.
+
+Finally these two Levi laws are distinct: \(a>a'\), and the
+characters are unitary, so at an idele with \(|t|_E\ne1\) their
+absolute values differ. A function having both laws is zero.
+Subtracting any two two-term splittings shows their components
+coincide. Hence the formulas just proved apply to the actual named
+components of any specified splitting, not only to the splitting
+used in this proof. Throughout, inserting a lower second Levi
+\(m_W(1,h_1)\) intertwines the reduced oscillator action with the
+specified lower model. The same Fubini arguments give the stated
+formulas at every \(h_1\).
+\end{proof}
+
+\paragraph{Scope.}
+\label{rem:sr-theta-ct-scope}
+The small-side correction (T14) is essential. Omitting it, or
+interchanging a divergent \(A\) orbit sum with an absolute integral,
+would not prove the small cone formula. The construction above gives
+the four constant-term identities and the exact cone exponents using
+the actual full-rank cutoff and the actual evaluation maps. It still
+does not infer descent of these maps through the upper matching
+quotient merely from local scalarity. That descent and the global
+orthogonality argument are the remaining steps in using these
+identities for a rank recursion.
+

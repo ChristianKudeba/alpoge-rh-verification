@@ -6,9 +6,9 @@
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
-    "Rank-four nonsplit block-extension and final exceptional arithmetic endpoint; apply fixed-field count uniformly.",
-    "All-signature global theta constant-term comparison, actual upper-quotient descent, normalized recursions.",
-    "General semiabelian saturation, universal logarithmic slope bound, integral-model commensurability, tied height/covolume construction.",
+    "Rank-four finite-weight and no-block final endpoint; apply exceptional fixed-field count uniformly.",
+    "All-signature global theta comparison, actual upper-quotient descent, normalized recursions; four constant-term producers are now printed.",
+    "General semiabelian saturation, integral-model commensurability, tied height/covolume construction; universal logarithmic Lie slope is proved.",
     "Compatible eventual common-window assembly."
   ],
   "principia_sources": [
@@ -929,6 +929,26 @@
     {
       "name": "cone-coefficient-ideal-and-Euler",
       "blob_sha": "a5375e75bc590dc48c1ffa48f42d3f3abcc0d81a"
+    },
+    {
+      "name": "actual-four-theta-constant-terms",
+      "blob_sha": "11253e52c85f0268b4be43dee8a4b6f2110e6897"
+    },
+    {
+      "name": "actual-nonsplit-block-extension",
+      "blob_sha": "ff586d83e72b362e3d5f13ef206ead920d51082d"
+    },
+    {
+      "name": "rank-four-actual-triangular-alternatives",
+      "blob_sha": "d838a593c03027ff894339fe4bd433dda1145e15"
+    },
+    {
+      "name": "theta-period-square-integrability",
+      "blob_sha": "8c11cbff27b3b1a797381211c3cf105789fe545a"
+    },
+    {
+      "name": "general-principal-Lie-slope",
+      "blob_sha": "d3966c815f696ba612fc2e33a77aab8ad3ac8ad5"
     }
   ],
   "current_revision_review": "All added proof chunks reviewed by root against their stated hypotheses; root Decay proof reviewed by connected_geometry. Document checks remain separate from mathematical verification.",
@@ -936,6 +956,10 @@
     "frozen_commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
     "run_id": 44960372051,
     "flat_saturation_source": "Development/AutomorphicSpectrum/Proofs/GeometryProofs/PhiDegFibLatLeOfIsOFamilyOfIsAdapted.lean",
-    "scope": "Located exact general-fibre producer; not yet translated completely. Depends on Top.Given and full FlatDegree, not only the quadratic CM witness."
+    "scope": "Located exact general-fibre producer; not yet translated completely. Depends on Top.Given and full FlatDegree, not only the quadratic CM witness.",
+    "frozen_source_map_run": 44962500027,
+    "slope_closed_by": "d3966c815f696ba612fc2e33a77aab8ad3ac8ad5",
+    "flat_sat_actual_producer": "e917b6d3c43ffcbc37cc7674c184039f8960cb56",
+    "model_N3_path": "src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/BirationalGeometry/ToroidalCompactification/UniformisationConclusion.lean"
   }
 }

@@ -1,0 +1,238 @@
+\subsection{The actual nonsplit block extension}
+\label{subsec:sr-four-actual-block-extension}
+
+We supply the additional producer used to pass from the
+characteristic-\(\ell\) support calculation to finite weight zero
+and the no-full-block conclusion.
+
+\begin{srproposition}\label{prop:sr-four-actual-block-extension}
+Let \(r\) be an actual integral Case II block-diagonal point
+whose \(0,2\) block is irreducible over the fraction field.
+There is an actual integral symplectic block extension \(r'\)
+with the same characteristic polynomial at every group
+element, the same residual representation, and the same
+ordered inertial characters and ramification conditions.
+Its other rank-two block is irreducible and the extension
+does not split.
+This holds both in mixed characteristic and for a
+characteristic-\(\ell\) complete DVR model.
+\end{srproposition}
+\begin{proof}
+Work over its complete DVR model \(\mathcal A\), with
+uniformizer \(\pi\) and finite residue field \(k\).
+After grouping indices as \((0,2),(1,3)\), let \(M\) be the
+free rank-three \(\mathcal A\)-module of symplectic Lie
+matrices in the lower off-diagonal block.
+It is the symmetric-square block radical:
+\(XY=0\) for \(X,Y\in M\), and \(X^\#=-X\).
+Conjugation by \(r\) preserves \(M\).
+
+At complex conjugation \(c\), the actual block matrix is
+exactly the prescribed block scalar
+\(\operatorname{diag}(-1,1,-1,1)\).
+Indeed its square is \(1\), its reductions on the two blocks
+are respectively \(-1,1\), and the opposite factor of
+\(X^2-1\) is invertible on each block, since \(2\) is a unit.
+Consequently \(\operatorname{Ad}r(c)=-1\) on \(M\).
+
+The actual local separator \(\sigma_\ell\) satisfies
+\[
+ \bar\varepsilon(\sigma_\ell)=1,\qquad
+ \operatorname{Ad}r(\sigma_\ell)-1
+                         \text{ invertible on }M.         \tag{BE1}
+\]
+Its three residual eigencharacters are the odd roots
+\(-\alpha,\beta,-\theta\); all are nontrivial at this
+separator by the arithmetic data.
+The full cyclotomic value is \(1\) here, as in the actual
+chosen decomposition element.
+In particular (BE1) also kills the invariants of
+\(M^\vee(1)\), globally and locally.
+
+Let \(u\) be the actual ordinary flag matrix and put
+\[
+ P=\{X\in M:u^{-1}Xu\text{ strictly upper triangular}\}.
+\]
+This is a saturated, stable free rank-one submodule.
+We verify the rank assertion.
+The two block characteristic polynomials of
+\(r(\sigma_\ell)\) have disjoint residual roots, by the
+cross-block separator. Their resultant is a unit.
+The block projector is therefore a polynomial in
+\(r(\sigma_\ell)\) over \(\mathcal A\), by Bezout and
+Cayley--Hamilton. As \(r(\sigma_\ell)\) preserves the
+ordinary flag, the projector does too.
+The ordinary flag consequently decomposes into its two
+block flags, with successive block labels \(0,1,2,3\).
+A block-compatible symplectic basis identifies \(P\) with
+the single upper-root line \(E_{12}\).
+This also proves stability and saturation; alternatively
+saturation follows directly from its defining zero-entry
+equations. Thus \(M/P\) is free.
+
+We construct a nonzero integral cocycle rather than
+postulating an extension class.
+For \(n\ge1\), set \(M_n=M/\pi^nM\), \(P_n=P/\pi^nP\).
+At \(\ell\) impose the local condition
+\[
+ L_\ell=\operatorname{im}
+           \bigl(H^1(\mathbb Q_\ell,P_n)
+                         \longrightarrow H^1(\mathbb Q_\ell,M_n)\bigr).
+\]
+At every other finite prime impose the unramified condition.
+The invariants of \(P_n,(M/P)_n\), and \(P_n^\vee(1)\)
+vanish at \(\ell\), by (BE1): invertibility there is
+preserved on a stable saturated submodule and its quotient.
+Local duality and the Euler characteristic formula give
+\[
+ H^2(\mathbb Q_\ell,P_n)=0,\qquad
+ |H^1(\mathbb Q_\ell,P_n)|=|P_n|,\qquad
+                         |L_\ell|=|P_n|.                 \tag{BE2}
+\]
+The last map is injective because \(H^0((M/P)_n)=0\).
+
+Take a finite global ramification set containing that of
+\(M_n\), the original level and \(\ell\); it may be fixed
+for all \(n\) from the original DVR representation.
+At a prime different from \(\ell\),
+\[
+                      |H^1_{\rm unr}(\mathbb Q_p,M_n)|
+                                =|H^0(\mathbb Q_p,M_n)|.
+\]
+Indeed the unramified group is the cokernel of Frobenius
+minus one on the finite module \(M_n^{I_p}\), whose
+cokernel and kernel have equal cardinality.
+The real local factor is one, since complex conjugation
+acts as \(-1\) and \(\ell\ne2\).
+The global invariants and dual invariants are zero by
+(BE1).
+The exact Greenberg--Wiles/Poitou--Tate formula therefore
+gives
+\[
+ \frac{|\operatorname{Sel}_{L}(M_n)|}
+      {|\operatorname{Sel}_{L^\perp}(M_n^\vee(1))|}
+                       =|P_n|=|k|^n,
+ \qquad |\operatorname{Sel}_{L}(M_n)|\ge|k|^n.              \tag{BE3}
+\]
+These are the actual finite Selmer groups with the stated
+ordinary and unramified conditions.
+
+Normalize a cocycle representative by \(z_n(c)=0\).
+This representative is unique in its global cohomology
+class: on \(M_n\), a global coboundary has value \(-2Y\)
+at \(c\).
+At \(\ell\), its correcting vector modulo \(P_n\) is
+unique, since \(H^0((M/P)_n)=0\).
+For the inverse limit use the exact inertia relations of the
+deformation problem. Put
+\[
+ \mathcal N=\bigcup_{p\ne\ell}
+                   \bigl(I_p\cap\ker r\bigr).
+\]
+Let \(Z_n\) be the set of continuous cocycles normalized by
+\(z_n(c)=0\), satisfying \(z_n|_{\mathcal N}=0\), together
+with the unique ordinary correcting-vector coset in
+\(M_n/P_n\).
+These sets are finite: every such cocycle is unramified
+outside the fixed ramification set of \(r\), and
+\(H^1(G_{\mathbb Q,S},M_n)\) is finite for a finite
+coefficient module; normalization injects \(Z_n\) into
+that finite group.
+Every normalized unramified Selmer class counted in
+(BE3) belongs to \(Z_n\), since an inertia coboundary
+vanishes on \(I_p\cap\ker r\).
+Consequently \(|Z_n|\ge|k|^n\).
+The sets \(Z_n\) may be larger than that Selmer group;
+only this lower bound is needed.
+
+These sets have compatible primitive elements at every
+precision.
+If every value of a representative is divisible by \(\pi\),
+divide it by \(\pi\) to obtain a unique representative at
+precision \(n-1\).
+The ordinary condition divides as well.
+Indeed modulo \(\pi\) the correcting coset is invariant
+in \(M/P\), so (BE1) makes it zero.
+Subtract a vector of \(P\) from its lift and write the
+remainder as \(\pi Y'\).
+Dividing the local cocycle relation is then legitimate
+because \(P\) is saturated.
+The exact zero conditions on \(\mathcal N\) and at \(c\)
+also divide.
+Thus the nonprimitive part of \(Z_n\) injects into \(Z_{n-1}\).
+If primitive representatives were absent at one precision,
+they would be absent at all greater precisions, and this
+injection would bound all subsequent \(|Z_n|\) by one fixed
+finite cardinality, contradicting (BE3).
+Every precision therefore has a primitive representative.
+Their finite inverse-system tree has vertices at every
+height; the finite branching argument gives a compatible
+infinite branch.
+
+Completeness now produces an actual nonzero continuous
+cocycle \(z:G_{\mathbb Q}\to M\), with \(z(c)=0\), and
+a correcting vector \(Y\in M\) such that
+\[
+                  u^{-1}(z-dY)u
+                           \text{ is strictly upper locally}. \tag{BE4}
+\]
+The compatible correcting cosets lift because \(M/P\) is
+finite free and complete.
+The exact zero relations in the definition of \(Z_n\) give
+\[
+                 z(g)=0\quad(g\in I_p,\ r(g)=1),          \tag{BE5}
+\]
+for \(p\ne\ell\), at every precision and hence integrally.
+We do not assert that arbitrary division preserves the
+smaller unramified Selmer group; it is the exact
+killed-inertia relation (BE5) that is needed and preserved.
+Multiply \(z,Y\) by \(\pi\) once. They remain nonzero where
+required and now reduce to zero.
+
+Define
+\[
+                         r'(g)=(1+z(g))r(g),\qquad
+                         u'=(1-Y)u .
+\]
+Because products of two elements of \(M\) are zero, the
+cocycle equation is exactly the representation equation
+for \(r'\).
+The equations \(z^\#=-z\), \(Y^\#=-Y\) and square-zero
+multiplication preserve the multiplier and make \(u'\)
+symplectic.
+Equation (BE4) gives an upper triangular local matrix:
+\[
+ (u')^{-1}r'(g)u'
+    =u^{-1}(1+z(g)-dY(g))r(g)u .
+\]
+Its diagonal is unchanged, so all actual ordered inertial
+characters are unchanged.
+Equation (BE5) gives the required killed-inertia relations.
+Reduction is unchanged because \(z,Y\in\pi M\).
+
+The matrices \(r'\) are block triangular with the same
+diagonal blocks as \(r\), hence have the same characteristic
+polynomials.
+The symplectic pairing identifies the two diagonal blocks
+as duals up to the fixed multiplier; irreducibility of one
+therefore implies that of the other.
+
+Finally a splitting would give an off-block matrix \(Q\)
+with \(z(g)=r(g)Qr(g)^{-1}-Q\).
+At \(c\) its right-hand side is \(-2Q\), while \(z(c)=0\).
+Thus \(Q=0\), forcing \(z=0\), a contradiction.
+This proves the exact nonsplit \(\mathrm{BlockExt}\)
+conclusion with all local and integral properties.
+\end{proof}
+
+The fixed-precision cohomological formula used above is
+the same proved finite-module formula used in the arithmetic
+Selmer estimates; neither automorphic adjoint vanishing
+nor a lift of the original rank-two block was used here.
+Finite residue fields, finite cocycle sets and the compatible
+inverse limit give the required complete DVR model.
+The source producers expanded are
+\srcid{BlockMatrixPlaces.GwIneq}, \srcid{GwCount},
+\srcid{PrimEx}, \srcid{DivStep}, \srcid{Compat},
+\srcid{CocT}, and \srcid{CocA}, assembled in
+\srcid{CompactIntegralFields.NotOver.bl}.

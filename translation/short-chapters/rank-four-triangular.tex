@@ -1,0 +1,281 @@
+\subsection{The actual rank-four triangular alternatives}
+\label{subsec:sr-four-actual-triangular-alternatives}
+
+This subsection concerns the original rational representation,
+before restriction to the real tower. Its root coordinates are
+\[
+ v_0=(1,1),\quad v_1=(0,1),\quad v_2=(1,0),\quad v_3=(0,0),
+ \qquad w_{ij}=v_i-v_j.
+\]
+The two sectors are \(A=\{0,2\}\) and \(B=\{1,3\}\).
+All coefficient extensions below are finite on a complete DVR
+model. The arguments therefore apply both to characteristic zero
+and to characteristic \(\ell\).
+
+\paragraph{Integral coordinate projectors.}
+Let \(\mathcal C=\operatorname{span}_{\mathcal V}\{r(g)\}\),
+where \(\mathcal V\) is the valuation ring of an actual
+normalized point. This span is a subalgebra and is stable under
+symplectic adjoint: \(r(g)^\#=\nu(g)r(g^{-1})\).
+The actual normalization supplies elements \(\varphi,g_*\) with
+\(X=r(\varphi)\) block diagonal on \(A,B\), disjoint residual
+spectra on those blocks, and
+\[
+ H=r(g_*)+\chi_0(g_*)r(g_*^{-1}),\qquad H_{02}=H_{20}=0.
+ \tag{TA1}
+\]
+Here \(\chi_0=\chi_2\chi_1\), \(\chi_3=1\), and the residual
+values of \(\chi_1,\chi_2\) at \(g_*\) differ from \(1\).
+These are precisely the relations imposed by the original
+normalization, rather than an assumption that an arbitrary
+regular element is diagonal.
+
+Let \(p_B\) be the characteristic polynomial of the \(B\)-block
+of \(X\), and set \(Y=p_B(X)\).
+Its \(B\)-block is zero and the determinant \(\Delta\) of its
+\(A\)-block is a unit: its reduction is the product of all four
+cross-block eigenvalue differences.
+Cayley--Hamilton in the \(A\)-block gives
+\[
+ E_A=\frac{\operatorname{tr}(Y_A)Y-Y^2}{\Delta}
+                                                       \in\mathcal C.
+\]
+Moreover
+\[
+ \overline{H_{00}-H_{22}}
+       =(\bar\chi_2(g_*)-1)(\bar\chi_1(g_*)-1)\ne0.
+\]
+Consequently
+\[
+ E_{00}=\frac{E_AHE_A-H_{22}E_A}{H_{00}-H_{22}}\in\mathcal C,
+ \qquad E_{22}=E_A-E_{00}\in\mathcal C .
+ \tag{TA2}
+\]
+Their adjoints give \(E_{33},E_{11}\).
+All four coordinate projectors thus belong to the integral
+span, with unit denominators only.
+
+Put \(i\leadsto j\) when \(r(g)_{ij}\ne0\) for some \(g\).
+Over the fraction field, (TA2) gives
+\[
+ i\leadsto j\quad\Longleftrightarrow\quad
+       E_{ij}\in\operatorname{span}\{r(g)\}.
+ \tag{TA3}
+\]
+Indeed sandwich by \(E_{ii},E_{jj}\), and divide by the nonzero
+entry. Hence this relation is reflexive and transitive,
+and symplectic adjoint gives
+\(i\leadsto j\Rightarrow 3-j\leadsto3-i\).
+The representation is absolutely irreducible precisely when
+all sixteen relations hold. This is the matrix-algebra form
+of irreducibility, which also avoids any semisimplicity
+assumption in positive characteristic.
+
+\paragraph{An isolated odd two-dimensional block is impossible.}
+Suppose \(i,j\) lie in different sectors, mutually satisfy
+\(\leadsto\), and form a strongly connected component by
+themselves. Every multiplication term through another vertex
+vanishes: such a term would put that vertex in the same
+component. In particular
+\[
+ r(gh)_{ij}=r(g)_{ii}r(h)_{ij}
+                         +r(g)_{ij}r(h)_{jj}.            \tag{TA4}
+\]
+Use a complete DVR model and choose a nonzero entry
+\(b=r(g_1)_{ij}\) of smallest valuation.
+Write \(r(g)_{ij}=b\,c(g)\).
+Then \(c(g)\) is integral, its residue is locally constant,
+and \(c(g_1)=1\).
+Equation (TA4) makes
+\[
+ z(g)=\frac{\overline{c(g)}}{\bar\chi_j(g)}
+\]
+a cocycle for the odd root
+\(\gamma=\bar\chi_i/\bar\chi_j\).
+
+The ordinary local flag induces a flag on the corresponding
+two-dimensional subquotient. One way to see this without
+assuming a direct-sum decomposition is to order the strongly
+connected components, take the invariant coordinate-subspace
+filtration, and intersect and project the ordinary flag.
+The resulting nonzero rank-two subquotient has an invariant
+line. Write its coordinates as \((v,1)\) after interchanging
+\(i,j\) if necessary; the valuation-ring property permits
+\(v\in\mathcal V\).
+If this interchanges the two indices, reselect \(b\) as a
+smallest-valuation nonzero entry in that orientation; mutual
+reachability supplies it, and the preceding cocycle calculation
+applies to the reversed root as well.
+Its eigenline equation is
+\[
+ b\,c(s)=\bigl(r(s)_{ji}v+r(s)_{jj}-r(s)_{ii}\bigr)v
+                  \qquad(s\in G_{\mathbb Q_\ell}).        \tag{TA5}
+\]
+At the actual separator the bracket is a unit: the opposite
+off-diagonal entry is in the maximal ideal, and the residual
+diagonal values in different sectors are distinct.
+Thus \(v/b\) is integral.
+Divide (TA5) by \(b\) and reduce. It says that \(z\) is a
+coboundary on the full local group at \(\ell\).
+In the principal Case II packet \(S_b=\varnothing\), because
+\(\psi\) has \(2\)-power order. At every \(p\ne\ell\) the
+actual relation for \(r\) therefore kills
+\(I_p\cap\ker\bar r\).
+This subgroup has index prime to \(\ell\) in
+\(I_p\cap\ker\gamma\): the residual representation is a
+sum of finite prime-to-\(\ell\) characters.
+Thus \(z\) satisfies exactly the unramified-up-to-prime-to-\(\ell\)
+index condition in the residual vanishing theorem.
+No further bad-prime local condition is needed.
+
+Apply the already proved residual odd-root vanishing
+(Proposition~\ref{prop:sr-actual-corx}, equivalently
+the six root instances of the Bernoulli-unit calculation).
+It follows that
+\[
+ \overline{c(g)}
+           =m\bigl(\bar\chi_i(g)-\bar\chi_j(g)\bigr)
+                         \quad\text{for every }g.         \tag{TA6}
+\]
+The same conclusion over an extended residue field follows
+coordinate by coordinate: apply each linear functional over
+the original finite residue field to \(z\).
+For a nontrivial \(\gamma\), one element with
+\(\gamma(g)\ne1\) determines the coboundary scalar; the
+coordinate conclusions therefore combine into (TA6).
+
+But (TA2) writes \(E_{ii}=\sum_g a_g r(g)\) with finitely many
+integral coefficients. Its \(ij\)-entry, divided by \(b\),
+has zero residue. Equation (TA6) makes this residue
+\[
+ m\sum_g\bar a_g
+            \bigl(\bar\chi_i(g)-\bar\chi_j(g)\bigr)=m,
+\]
+using the \(ii\) and \(jj\) entries of that same projector
+identity. Hence \(m=0\).
+This contradicts \(c(g_1)=1\).
+There is therefore no isolated strongly connected pair
+joining different sectors.
+
+\begin{srlemma}\label{lem:sr-four-actual-triangular-alternatives}
+An actual normalized rank-four point has one of the following
+three forms:
+\[
+ \begin{array}{ll}
+ \mathrm{(I)}&r\text{ is absolutely irreducible};\\
+ \mathrm{(D)}&
+  i\ne j,\ i\leadsto j\ \Longrightarrow\ j\not\leadsto i;\\
+ \mathrm{(B)}&
+ 0\leadsto2,\ 2\leadsto0,\text{ and all cross-sector entries}\\
+ &\text{in one of the two block directions vanish}.
+ \end{array}
+\]
+In the last case both diagonal blocks are absolutely
+irreducible.
+\end{srlemma}
+\begin{proof}
+Strongly connected components are carried to strongly connected
+components by \(i\mapsto3-i\).
+A component of size three would meet its image and thus equal
+it, impossible for a fixed-point-free involution on three
+vertices. A component of size four gives (I).
+A component of size two joining different sectors was just
+excluded. The only remaining pair is \(A=\{0,2\}\), whose
+image is \(B=\{1,3\}\).
+These are both components, and their quotient directed graph
+has no cycle; hence entries in at least one direction vanish.
+Equation (TA3) gives the full matrix algebra on each
+two-dimensional diagonal block.
+If there is no nonsingleton component, (D) holds.
+\end{proof}
+
+\paragraph{Take the block-diagonal part without losing ordinarity.}
+In case (B), erase all cross-sector entries and call the result
+\(r_0\). A block-triangular product shows that \(r_0\) is a
+representation, with the same characteristic polynomials.
+Symplectic adjoint commutes with this operation and preserves
+its multiplier.
+
+The ordinary flag is still valid.
+The matrix \(r(\varphi)\) in (TA1) is already block diagonal
+and preserves that flag. The polynomial formula producing
+\(E_A\) shows that \(E_A\) also preserves it.
+In a flag-adapted basis both \(r(s)\) and \(E_A\) are upper
+triangular; therefore
+\[
+             r_0(s)=E_A r(s)E_A+(1-E_A)r(s)(1-E_A)
+\]
+is upper triangular with exactly the same diagonal.
+This preserves both ordered residual local characters and
+the exact prescribed inertial characters.
+Erasing entries preserves every killed-inertia relation and
+the complete DVR model.
+Thus \(r_0\) is an actual block-diagonal ordinary point to
+which Proposition~\ref{prop:sr-four-actual-block-extension}
+applies.
+
+\paragraph{The diagonal alternative in characteristic \(\ell\).}
+Assume (D), characteristic \(\ell\), and the original
+fixed-inertia weight-zero specialization:
+the ordinary character on each \(I_\ell\) is exactly the
+image of the prescribed \(\chi_i|_{I_\ell}\), whose
+characteristic-\(\ell\) image is its finite residual character.
+No unspecialized ordinary weight variable is allowed in this
+paragraph. The curve used in the finite-weight-zero argument
+below has this condition by construction.
+The diagonal entries \(\delta_i(g)=r(g)_{ii}\) are characters:
+every off-diagonal term in a diagonal entry of \(r(g)r(h)\)
+would give a two-cycle.
+
+We check that these characters have finite order.
+Let \(U=\ker\bar r\cap\ker\psi\), an open normal subgroup.
+At inertia at \(\ell\), an element of \(U\) has all ordinary
+diagonal characters equal to \(1\); the representation is
+unipotent there. A strictly upper \(4\) by \(4\) matrix has
+fourth power zero, so in characteristic \(\ell\)
+\[
+                  r(s)^{\ell^2}=1
+                   \quad(s\in U\cap I_\ell),             \tag{TA7}
+\]
+including \(\ell=3\).
+At every other prescribed prime the actual killed-inertia
+condition applies on \(U\); elsewhere the global unramified
+condition applies.
+Thus, with \(m=[G_{\mathbb Q}:U]\), every
+\(\delta_i^{m\ell^2}\) is unramified at every finite prime.
+At every finite DVR precision its image is finite.
+Minkowski's theorem says that the corresponding everywhere
+unramified finite extension of \(\mathbb Q\) is trivial.
+Taking all precisions yields
+\[
+                         \delta_i^{m\ell^2}=1.            \tag{TA8}
+\]
+These characters therefore take values algebraic over
+\(\mathbb F_\ell\).
+
+There is a linear functional on the root lattice strictly
+positive on every occurring nonzero off-diagonal weight.
+For an explicit formula put
+\[
+ a_i=\#\{j:i\leadsto j\},\qquad h_i=a_i-a_{3-i},\qquad
+ L(x,y)=(h_0-h_1)x+(h_0-h_2)y .
+\]
+If \(i\ne j\) and \(i\leadsto j\), transitivity and absence of
+a two-cycle give \(a_i>a_j\); applying the reflected relation
+gives \(a_{3-j}>a_{3-i}\).
+Thus
+\[
+                  L(w_{ij})=h_i-h_j>0.                  \tag{TA9}
+\]
+Consequently a nonzero balanced entry monomial contains no
+off-diagonal factor. It is a product of diagonal character
+values, and (TA8) makes it algebraic over \(\mathbb F_\ell\).
+Every balanced monomial \(x\) therefore satisfies
+\(x^{\ell^n}=x\) for some \(n>0\).
+This proves the required constant-character conclusion,
+rather than just a triangularity assertion.
+
+The source calculations expanded here are
+\srcid{SymplecticGSp4.EiiUnit}, \srcid{GeAlgTop},
+\srcid{CompactIntegralFields.CobOfCoord.triV},
+\srcid{BlockPart}, and \srcid{DiagConst}.
