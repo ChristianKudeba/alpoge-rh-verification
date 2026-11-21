@@ -337,3 +337,82 @@ include \(\ell=3,a=1\), for which an argument requiring \(a\geq2\)
 would leave a gap.
 The two estimates in Definition~\ref{def:sr-character-inputs}
 therefore remain unproved in this edition.
+
+\subsection{Twist one with bounded character order}
+\label{sec:sr-bounded-order-one}
+The global estimate just proved already supplies a portion of the
+nontrivial-character bound at the exceptional primes.
+
+\begin{srproposition}\label{prop:sr-bounded-order-one}
+Fix an integer \(R\geq1\), before the host is chosen.
+Let \(\ell\in\{3,7\}\), and let \(\psi\) be a principal-host
+character of order at most \(R\).
+With the rational strict group and normalization of this section,
+\[
+ (\log\ell)v_{\ell,1}(\psi)
+       \leq(\ell N)^{B_R},\qquad
+                  B_R=(6R+1)(12R)^{24}.
+\]
+The group is finite. The exponent depends only on \(R\).
+\end{srproposition}
+\begin{proof}
+Let \(F_\psi\subset\mathbb Q(\mu_N)\) be the field fixed by
+\(\ker\psi\), and put \(F=F_\psi(\mu_\ell)\).
+Its degree \(n\) divides
+\(\operatorname{ord}(\psi)(\ell-1)\), hence is prime to \(\ell\)
+and at most \(6R\).
+Here the principal character order is a power of two.
+The field \(F\) is totally imaginary and contains \(\mu_\ell\).
+
+Restriction of the rational strict group is injective.
+Indeed restriction followed by corestriction is multiplication by
+\(n\), a unit in the coefficient ring; this also proves injectivity
+using the finite-quotient inflation--restriction sequence.
+The finite character becomes trivial over \(F\).
+The local zero restrictions at primes dividing \(\ell N\) persist
+under restriction, and unramifiedness persists elsewhere.
+Thus the restricted group lies in
+\(T_{\ell,1}(F)\) after extending coefficients to \(\mathcal O\).
+A finite free coefficient extension commutes with the cochain
+complexes and their finite products of localization maps.
+Moreover
+\[
+ \operatorname{length}_{\mathcal O}
+        (M\otimes_{\mathbb Z_\ell}\mathcal O)
+       =v_{\mathcal O}(\ell)\,
+                          \operatorname{length}_{\mathbb Z_\ell}M
+\]
+for a finite \(\mathbb Z_\ell\)-module \(M\), by its cyclic
+decomposition. Consequently
+\[
+ v_{\ell,1}(\psi)\leq s_{\ell,F}(1).
+\]
+Poitou--Tate places the dual of this strict group in
+\(X_{\ell,1}(F)\). Theorem~\ref{thm:sr-global-high-twist}
+therefore proves finiteness and
+\[
+ (\log\ell)v_{\ell,1}(\psi)
+             \leq\exp((2n)^{24}\log(2|\operatorname{disc}F|)).
+\]
+
+The abelian field \(F\) has conductor dividing \(\ell N\).
+The conductor--discriminant formula gives
+\(|\operatorname{disc}F|\leq(\ell N)^n\): the discriminant is the
+product of the conductors of its \(n\) characters, each dividing
+\(\ell N\).
+This identity is also the local different formula applied to the
+regular representation, decomposed into its characters.
+Since \(n\leq6R\) and \(\ell N\geq3\),
+\[
+ (2n)^{24}\log(2|\operatorname{disc}F|)
+     \leq(12R)^{24}(6R+1)\log(\ell N).
+\]
+Exponentiating proves the stated estimate.
+\end{proof}
+
+This gives a uniform polynomial bound for the bounded-order portion
+at twist one, including nontrivial characters.
+The exponent \(B_R\) is chosen before the host and coefficient ring.
+To establish Definition~\ref{def:sr-character-inputs} in full one
+still needs an exponent independent of unbounded character order
+and the estimates for every required twist.

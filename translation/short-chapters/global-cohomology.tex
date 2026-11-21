@@ -1,0 +1,669 @@
+\section{The global high-twist bound from integral homology}
+\label{sec:sr-global-cohomology}
+We prove the quantitative cohomology estimate needed at the exceptional
+dyadic twists. The argument uses integral linear-group homology, retaining
+the finite stabilizers and hence the small coefficient primes.
+The alternative route in Sections 6.76--6.83 of the
+\href{https://principia-math.com/api/ws/files/8c527eb7a1dbba0b1dc69c2ba0e60db0}{777-page reorganized working draft}
+suggested this approach. We give the geometric count, the integral
+torsion calculation and all numerical absorptions explicitly.
+The standard comparison theorems used are stated below with their
+published sources; no theorem of the Lean archive supplies the estimate.
+
+For a totally imaginary number field \(F\), put
+\[
+ n=[F:\mathbb Q],\qquad D=|\operatorname{disc}F|,\qquad
+ S_\ell=\{v:v\mid\ell\},\qquad
+ X_{\ell,a}(F)=H^2(G_{F,S_\ell},\mathbb Z_\ell(a+1)).
+\]
+Here \(G_{F,S_\ell}\) is the full Galois group unramified outside
+\(S_\ell\), and cohomology uses continuous cochains with the compact
+coefficient module.
+
+\begin{srtheorem}\label{thm:sr-global-high-twist}
+Let \(a\geq1\) and let \(\ell\) be prime.
+Suppose \(\mu_\ell\subset F\) if \(\ell\) is odd, and
+\(\mu_4\subset F\) if \(\ell=2\).
+Then \(X_{\ell,a}(F)\) is finite and
+\begin{equation}\label{eq:sr-global-high-twist}
+ \log\#X_{\ell,a}(F)
+       \leq \exp\bigl((2an)^{24}\log(2D)\bigr).
+\end{equation}
+The exponent is independent of \(F,\ell,a\).
+\end{srtheorem}
+The proof occupies the following subsections.
+
+\subsection{The standard comparison theorems}
+We use the following established results, in these precise forms.
+First, the even group \(K_{2a}(\mathcal O_F)\), \(a\geq1\),
+is finite by Quillen's finite generation and Borel's rank theorem.
+The arithmetic Quillen--Lichtenbaum comparison gives
+\begin{equation}\label{eq:sr-K-comparison}
+ K_{2a}(\mathcal O_F)\otimes\mathbb Z_\ell
+                      \simeq X_{\ell,a}(F).
+\end{equation}
+For odd \(\ell\), see
+\href{https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/weibel-ints.pdf}{Weibel, Theorem 70 and Corollary 71}.
+For two, the totally imaginary comparison is
+\href{https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf}{Rognes--Weibel, Theorem 0.4}.
+Inverting \(\ell\) does not change the \(\ell\)-primary group in
+positive even degree: in Quillen's localization sequence the adjacent
+positive-degree groups of the finite residue fields have orders prime
+to \(\ell\).
+Finite-coefficient restricted Galois cohomology agrees with the
+corresponding etale cohomology of \(\mathcal O_F[1/\ell]\).
+The hypotheses for this comparison are \(S_\ell\) containing all
+places above \(\ell\), and no real-place correction at two; see
+\href{https://www.mathi.uni-heidelberg.de/~schmidt/papers/kpi1.pdf}{Schmidt, Proposition 2.3 and its proof}.
+The finite-coefficient groups are finite, so inverse limits have the
+Mittag--Leffler property. The degree-two compact-coefficient comparison
+therefore has no \(\lim^1 H^1\) term. These observations specify both
+the ramification set and the twist in \eqref{eq:sr-K-comparison}.
+In particular this comparison proves finiteness before we estimate
+the order.
+
+Second, the plus construction gives
+\(K_m(\mathcal O_F)=\pi_m(B\mathrm{GL}(\mathcal O_F)^+)\) for \(m>0\).
+The indicated connected component is an infinite loop space, and the
+plus map preserves integral homology.
+Integral homology stability for number rings identifies its \(m\)-th
+homology with
+\(H_m(\mathrm{GL}_N(\mathcal O_F),\mathbb Z)\) when
+\(N\geq2m+1\); we use the more generous choice
+\(N=2m+4\).
+This is the number-ring stability theorem of van der Kallen, also used
+in
+\href{https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-kato/soule.dm.pdf}{Soule, Section 4.2}.
+
+Third,
+\href{https://msp.org/agt/2016/16-2/agt-v16-n2-p12-p.pdf}{Mathew, Theorem 6.3}
+bounds the kernel of the unstable Hurewicz map of a connected infinite
+loop space. In degree \(2a\), its \(\ell\)-primary kernel is killed by
+\(\ell^{b_\ell}\), where one may take
+\[
+ b_2=a+3,\qquad
+ b_\ell=\left\lceil\frac{2a+2}{2\ell-2}\right\rceil+1
+                                             \quad(\ell>2).
+\]
+Both are at most \(a+3\leq4a\).
+The connectivity parameter in that theorem is one; no simple
+connectivity of \(B\mathrm{GL}^+\) is required.
+We will also use Minkowski's convex body and ideal-class theorems,
+the Kummer exact sequence, and the local-invariant form of
+Brauer--Hasse--Noether. Their applications and estimates are printed
+below.
+
+\subsection{A positive-definite region of forms}
+Fix \(N\geq1\), set \(d=nN\), and choose one embedding from each
+complex pair. In
+\[
+ V=\prod_{\sigma:F\hookrightarrow\mathbb C/\mathrm{conj}}\mathbb C^N
+                       \simeq\mathbb R^d
+\]
+use the Euclidean norm
+\(\|x\|^2=\sum_\sigma\sum_j|x_{\sigma,j}|^2\), and let
+\(\Lambda=\mathcal O_F^N\) with its diagonal embedding.
+It is a full lattice with
+\[
+           \operatorname{covol}(\Lambda)=2^{-d/2}D^{N/2}.
+\]
+Indeed the determinant of the embedding matrix of an integral basis
+squares to the discriminant; replacing each pair of conjugate
+coordinates by its real and imaginary parts contributes a factor
+\(1/2\) to the absolute determinant.
+
+Every nonzero element of \(\Lambda\) has norm at least one.
+A nonzero coordinate \(z\in\mathcal O_F\) satisfies
+\(\prod_\sigma|\sigma z|^2=|\operatorname{Norm}_{F/\mathbb Q}z|\geq1\),
+so at least one of its archimedean absolute values is at least one.
+Let
+\[
+ W=\prod_\sigma\operatorname{Herm}_N(\mathbb C),\qquad
+ q_h(x)=\sum_\sigma x_\sigma^*h_\sigma x_\sigma,\qquad
+ P=\{h\in W:q_h(y)\geq1\ (0\ne y\in\Lambda)\}.
+\]
+The set \(P\) is closed, convex and nonempty: the tuple of identity
+matrices belongs to it. Let \(T\subset W\) be the closed cone of
+positive semidefinite tuples, and put
+\[
+ I_0=D^N d^d .
+\]
+
+\begin{srlemma}\label{lem:sr-form-region}
+Every \(h\in P\) is positive definite and
+\begin{equation}\label{eq:sr-form-det}
+                       \det_{\mathbb R}h\geq I_0^{-2}.
+\end{equation}
+Near each point of \(P\), only finitely many lattice inequalities
+are needed to define \(P\). A point is a vertex exactly when its
+active functionals \(h\mapsto q_h(y)\) span \(W^*\).
+\end{srlemma}
+\begin{proof}
+The rational span \(\Lambda\otimes\mathbb Q\) is dense in \(V\).
+If \(q_h\) were negative somewhere, it would be negative on a rational
+lattice direction. Clearing the denominator would contradict
+\(q_h(y)\geq1\). Thus \(h\in T\).
+
+For \(\delta>0\), the ellipsoid
+\(q_{h+\delta\,1}(x)<1\) contains no nonzero lattice point.
+If \(v_d\) is the Euclidean unit-ball volume, Minkowski gives
+\[
+ \frac{v_d}{\sqrt{\det_{\mathbb R}(h+\delta\,1)}}
+                      \leq2^d\operatorname{covol}(\Lambda).
+\]
+The cube \([-1/\sqrt d,1/\sqrt d]^d\) is contained in the unit
+ball, so \(v_d\geq2^dd^{-d/2}\).
+Dropping the factor \(2^{-d/2}\leq1\) in the covolume formula,
+\[
+ \sqrt{\det_{\mathbb R}(h+\delta\,1)}
+       \geq D^{-N/2}d^{-d/2}=I_0^{-1/2}\geq I_0^{-1}.
+\]
+Let \(\delta\downarrow0\). The determinant stays positive, hence
+the semidefinite tuple \(h\) is positive definite and
+\eqref{eq:sr-form-det} follows.
+
+In a sufficiently small neighborhood of such a tuple, all quadratic
+forms are bounded below by a common positive multiple of \(\|x\|^2\).
+Only a bounded set of lattice vectors can violate an inequality
+there, and that set is finite.
+Thus \(P\) is locally cut out by finitely many linear inequalities.
+If the active functionals at \(h\) do not span \(W^*\), a nonzero
+annihilating direction gives a short segment through \(h\) inside
+\(P\); the finitely many inactive nearby inequalities have positive
+slack. The point is then not extreme.
+If they span, any expression of \(h\) as the midpoint of two points
+of \(P\) forces all the active inequalities to be equalities at both
+points, and their span forces both points to equal \(h\).
+This proves the vertex characterization.
+\end{proof}
+
+\subsection{The normal-cone complex is integrally acyclic}
+Let \(U\subset W^*\) be the open cone of functionals strictly positive
+on \(T\setminus\{0\}\).
+For each vertex \(v\) of \(P\), set
+\[
+ C_v=\{u\in U:u(h)\geq u(v)\text{ for all }h\in P\}.
+\]
+These are convex, relatively closed subsets of \(U\).
+
+\begin{srlemma}\label{lem:sr-normal-acyclic}
+The \(C_v\) cover \(U\).
+The augmented chain complex freely generated in degree \(p\) by all
+ordered tuples \((v_0,\ldots,v_p)\) with
+\(C_{v_0}\cap\cdots\cap C_{v_p}\ne\varnothing\), repetitions allowed,
+is exact. Its boundary is the alternating sum deleting one entry.
+\end{srlemma}
+\begin{proof}
+For \(u\in U\), compactness of the unit sphere in \(T\) gives
+\(u(h)\geq c\|h\|\) on \(T\) for some \(c>0\).
+Consequently a sublevel of \(u\) on \(P\) is compact, so its minimum
+is attained. The compact minimizing face has an extreme point:
+successively minimize independent linear coordinates on that face
+until the remaining face is a point. An extreme point of a
+minimizing face is extreme in \(P\), hence is a vertex by
+Lemma~\ref{lem:sr-form-region}. This proves the cover.
+
+Only finitely many \(C_v\) meet a fixed compact \(K\subset U\).
+Fix \(h_0\in P\). On \(K\) the constants \(c\) above have a common
+positive lower bound and \(u(h_0)\) has a finite upper bound.
+If \(u\in C_v\cap K\), then \(u(v)\leq u(h_0)\); all such \(v\)
+therefore lie in a fixed compact subset of \(P\).
+Local finite presentation, followed by a finite covering of that
+compact set, gives a finite list of possible active inequalities.
+Each vertex is specified by a spanning sublist, so only finitely
+many occur.
+
+Consider a finite cycle in the ordinary oriented nerve of the
+\(C_v\). Choose one witness in the common intersection for every
+simplex in its support, and let \(K\) be the convex hull of those
+witnesses. This is a compact convex subset of \(U\).
+The nonempty \(C_v\cap K\) form a finite closed convex cover of \(K\),
+and its nerve contains the cycle.
+
+Here is the finite closed-convex nerve argument used at this point.
+For a finite family of compact sets, every subfamily with empty
+intersection still has empty intersection after sufficiently small
+open thickening. Otherwise a sequence of almost common points would
+have a convergent subsequence with limit in the common intersection.
+Choose one thickness working for all subfamilies.
+The thickenings are open and convex, their intersection pattern is
+unchanged, and their union is the corresponding open neighborhood
+of \(K\), which is convex. The open convex nerve is acyclic:
+the double complex of singular chains on intersections computes
+both the nerve and the union, since the intersections are
+contractible. Exactness in the covering direction follows after
+subdividing each finite singular chain until its simplices lie in
+members of the open cover. Thus the original finite cycle bounds.
+Every finite cycle in the full ordinary nerve consequently bounds.
+
+Finally compare ordered tuples with the ordinary oriented nerve.
+Send a tuple with repeated entries to zero and a tuple with distinct
+entries to its sorted oriented simplex. This is a chain map:
+the two faces that remove a repeated entry cancel, and on distinct
+entries the assertion is the usual orientation rule.
+Increasing tuples give a section.
+The composite is chain homotopic to the identity on the ordered
+complex. To construct the homotopy inductively on a basis tuple,
+subtract the already defined homotopy on its boundary from the
+difference of the two chain maps.
+The result is a cycle supported on the same finite vertex set.
+That entire tuple subcomplex contracts by prepending one chosen
+vertex, because all its vertices have a common witness.
+Use this contraction to fill the cycle and define the next homotopy.
+This proves the induction in every degree.
+Hence the augmented ordered complex has the same, zero, homology
+as the ordinary nerve.
+\end{proof}
+
+\subsection{A common frame and a uniform orbit count}
+The group \(\Gamma=\mathrm{GL}_N(\mathcal O_F)\) acts by change of
+variables on \(P\), preserving the preceding complex.
+
+\begin{srlemma}\label{lem:sr-common-frame}
+Every tuple in that complex has \(N\) \(F\)-independent lattice
+vectors of value one for every member of the tuple.
+If they are the columns of \(A\in M_N(\mathcal O_F)\), then
+\[
+                   1\leq|\operatorname{Norm}\det A|\leq I_0.
+\]
+\end{srlemma}
+\begin{proof}
+Let \(u\) be a common minimizing functional and \(h\) the average
+of the tuple. Its active vectors are precisely those active for every
+member, since all their individual values are at least one.
+If their \(F\)-span were proper, choose a nonzero \(F\)-linear
+functional annihilating them.
+At one complex place its squared absolute value, and zero at the
+other places, defines a nonzero element \(b\in T\).
+It vanishes on all active vectors.
+Local finite presentation gives \(h-\delta b\in P\) for sufficiently
+small \(\delta>0\).
+But \(u(b)>0\), contradicting minimality of \(h\).
+Thus the common active vectors span \(F^N\), and \(N\) independent
+ones can be chosen.
+
+Put \(I=|\operatorname{Norm}\det A|\), a positive integer.
+For a member \(h_i\) of the tuple, the pulled-back blocks
+\(A_\sigma^*h_{i,\sigma}A_\sigma\) have diagonal entries at most
+one: for each column, their sum over the places is one.
+Hadamard therefore gives
+\(\det_{\mathbb R}(A^*h_iA)\leq1\).
+Its real determinant is \(I^2\det_{\mathbb R}h_i\).
+Apply \eqref{eq:sr-form-det} to get \(I\leq I_0\).
+\end{proof}
+
+Define the positive integers
+\[
+ R=I_0^2N^d,\qquad V_0=(2R+1)^d,\qquad
+ B_p=I_0^{d^2+d+1}(V_0+1)^{dN(p+1)}.
+\]
+\begin{srproposition}\label{prop:sr-orbit-bound}
+The number of \(\Gamma\)-orbits of ordered tuples of \(p+1\) vertices
+with a common witness is at most \(B_p\).
+Equivalently, \(B_p\) bounds the degree-\(p\) simplex orbits.
+For \(L_0=\log(2D)\), and \(m\geq1\), one common bound
+\(B=B_{m+1}\) in degrees \(0,\ldots,m+1\) satisfies
+\begin{equation}\label{eq:sr-orbit-log}
+                   \log B\leq22(m+2)N d^4L_0 .
+\end{equation}
+\end{srproposition}
+\begin{proof}
+The row module of the matrix \(A\) in the preceding lemma is an
+additive sublattice of \(\mathcal O_F^N\) of index \(I\leq I_0\).
+Matrices with the same row module differ by left multiplication by
+\(\mathrm{GL}_N(\mathcal O_F)\), since their rows are bases of that
+same free module.
+Thus these row modules distinguish the possible left orbits of frames.
+
+A fixed integral basis identifies the ambient additive group with
+\(\mathbb Z^d\). Hermite normal form bounds the number of its
+sublattices of index \(j\) by \(j^{d(d+1)/2}\):
+there are at most \(j^d\) diagonal choices and at most
+\(j^{d(d-1)/2}\) reduced off-diagonal choices.
+Summing over \(1\leq j\leq I_0\) gives at most
+\(I_0^{d^2+d+1}\) possibilities.
+Counting all additive sublattices only enlarges the number of
+\(\mathcal O_F\)-row modules.
+Choose one frame representative per orbit and move the tuple so
+that its common frame is this representative.
+
+For a fixed representative \(A\), put \(h'=A^*hA\).
+All its real eigenvalues are at most \(N\), by the diagonal bound
+and the trace bound in each positive Hermitian block.
+Their product is at least \(I_0^{-2}\), since \(I\geq1\).
+Thus every eigenvalue is at least \(I_0^{-2}N^{-(d-1)}\).
+If \(y\in\mathcal O_F^N\) is active for one such vertex and
+\(z=A^{-1}y\), then
+\[
+                    \|z\|\leq I_0N^{(d-1)/2}.
+\]
+Moreover \(Iz\in\mathcal O_F^N\): the finite additive group
+\(\mathcal O_F^N/A\mathcal O_F^N\) has order \(I\), hence is killed
+by \(I\). Therefore
+\(\|Iz\|\leq I_0^2N^{(d-1)/2}\leq R\).
+
+Distinct points of \(\Lambda\) have distance at least one.
+Disjoint open balls of radius \(1/2\) about points in its radius-\(R\)
+ball fit inside the radius-\(R+1/2\) ball. Comparing Euclidean volumes
+bounds their number by \(V_0\).
+The injection \(y\mapsto IA^{-1}y\) therefore leaves at most \(V_0\)
+possible active vectors.
+A vertex is determined by independent active equations numbering
+\(\dim_{\mathbb R}W=nN^2/2\leq dN\).
+Its number is at most \((V_0+1)^{dN}\), allowing a dummy entry in
+an encoding shorter than \(dN\).
+Taking \(p+1\) vertices and multiplying by the number of frames proves
+the formula for \(B_p\).
+
+For clarity, the logarithmic estimate also has fixed constants.
+Use \(L_0\geq1/2\), \(N\leq d\), and
+\(\log t\leq t\) for \(t\geq1\). Then
+\[
+ \log I_0=N\log D+d\log d\leq3d^2L_0,
+ \qquad
+ \log R\leq2NL_0+3d^2.
+\]
+As \(R\geq1\), these give
+\[
+ \log V_0\leq d(2+2NL_0+3d^2)\leq12d^3L_0,
+ \qquad
+ \log(V_0+1)\leq13d^3L_0.
+\]
+Consequently
+\[
+ \log B\leq
+       [9+13(m+2)N]d^4L_0
+                 \leq22(m+2)Nd^4L_0,
+\]
+which is \eqref{eq:sr-orbit-log}.
+\end{proof}
+
+\subsection{Integral homology with the stabilizers retained}
+\begin{srlemma}\label{lem:sr-stabilizer-size}
+Every stabilizer of an ordered simplex is finite of order at most
+\(J=3^{d^2}\).
+\end{srlemma}
+\begin{proof}
+The stabilizer of a vertex preserves its positive definite real form.
+The image of each vector of a fixed integral basis of \(\Lambda\)
+therefore lies in a finite set of lattice vectors of fixed norm.
+There are finitely many possible matrices, so this stabilizer is finite.
+An ordered-tuple stabilizer is a subgroup of the stabilizer of its
+first vertex.
+
+A finite subgroup of \(\mathrm{GL}_d(\mathbb Z)\) injects under
+reduction modulo three. Indeed, otherwise its congruence kernel
+would contain an element \(g\) of prime order \(p\).
+Write \(g=1+3^sA\), where \(s\geq1\) and some entry of \(A\) is
+not divisible by three.
+If \(p\ne3\), expansion of \(g^p\) modulo \(3^{s+1}\) gives
+\(pA\equiv0\pmod3\), a contradiction.
+If \(p=3\), expansion modulo \(3^{s+2}\) gives the same contradiction:
+\[
+ (1+3^sA)^3-1
+      =3^{s+1}A+3^{2s+1}A^2+3^{3s}A^3,
+\]
+and the last two terms are divisible by \(3^{s+2}\).
+The action on the additive lattice embeds the finite vertex stabilizer
+in \(\mathrm{GL}_d(\mathbb Z)\).
+Its reduction consequently embeds in
+\(\mathrm{GL}_d(\mathbb F_3)\), of order at most \(3^{d^2}\).
+\end{proof}
+
+\begin{srlemma}\label{lem:sr-integral-action-bound}
+Let a group \(G\) act on an exact augmented complex whose degree-\(p\)
+basis consists of ordered simplices with the alternating deletion
+boundary. Suppose that in degrees \(0,\ldots,m+1\) there are at most
+\(B\) orbits and stabilizers of order at most \(J\), with \(J\geq2\).
+Then \(H_m(G,\mathbb Z)\) is finitely generated, its torsion is finite,
+and
+\begin{equation}\label{eq:sr-integral-action-bound}
+ \log\#H_m(G,\mathbb Z)_{\rm tors}
+                 \leq B\log(m+2)+mBJ^m\log J .
+\end{equation}
+\end{srlemma}
+\begin{proof}
+Apply a free group resolution to the augmented complex.
+Exactness of the augmentation identifies the total homology with
+\(H_*(G,\mathbb Z)\). Taking group homology first and using the
+permutation bases gives the first-quadrant spectral sequence
+\[
+ E^1_{p,q}=\bigoplus_{[\sigma]\in G\backslash X_p}
+                    H_q(G_\sigma,\mathbb Z)
+                  \ \Longrightarrow\ H_{p+q}(G,\mathbb Z).
+\]
+There is no orientation-character twist: fixing an ordered basis
+simplex fixes each of its entries.
+This description also follows directly by writing its permutation
+module as a sum of induced trivial modules and using the free
+resolution on each summand.
+
+For a finite group \(H\) of order at most \(J\), the integral
+bar group in degree \(q\) is free of rank at most \(J^q\).
+Its cycles have at most that rank, so its homology is generated by
+at most \(J^q\) elements.
+For \(q>0\), restriction and transfer to the trivial subgroup show
+that \(|H|\) kills \(H_q(H,\mathbb Z)\).
+Thus
+\[
+                  \#H_q(H,\mathbb Z)\leq J^{J^q}\quad(q>0).
+\]
+Every positive-row term in total degree \(m\) consequently has order
+at most \(J^{BJ^q}\), where \(1\leq q\leq m\).
+The same bound applies to its eventual subquotient.
+
+The row \(q=0\) is the orbit chain complex, free of rank at most
+\(B\) in each relevant degree.
+Each column of its boundary from degree \(m+1\) has Euclidean norm
+at most \(m+2\).
+If the boundary has rank \(r\leq B\), the torsion order of its
+cokernel is the greatest common divisor of its nonzero
+\(r\)-by-\(r\) minors, by Smith normal form.
+Hadamard bounds each such minor by \((m+2)^r\).
+If \(r=0\), the cokernel is free.
+The row-zero homology is a subgroup of that cokernel, so its torsion
+order is at most \((m+2)^B\).
+
+For \(r\geq2\), the differential has bidegree \((-r,r-1)\).
+There is no incoming differential to \((m,0)\), since its source
+would have second coordinate \(1-r<0\).
+Thus \(E^\infty_{m,0}\) is a subgroup of \(E^2_{m,0}\), and its
+torsion has the same upper bound.
+This direction avoids any assertion that a quotient of a free
+abelian group must be torsion-free.
+
+All the relevant terms are finitely generated.
+The abutment has a finite filtration with these subquotients.
+For an exact sequence of abelian groups, torsion in the middle
+maps into torsion of the last group with kernel contained in
+torsion of the first; its order is at most the product of the
+two torsion orders.
+Apply this successively to the filtration.
+The positive-row terms contribute at most
+\(B\sum_{q=1}^mJ^q\log J\leq mBJ^m\log J\).
+Together with the row-zero bound this proves
+\eqref{eq:sr-integral-action-bound}, finiteness of torsion and finite
+generation.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-all-prime-homology}
+For \(a\geq1\), \(m=2a\), \(N=4a+4\), and \(z=2an\),
+\begin{equation}\label{eq:sr-homology-final}
+ \log\#H_{2a}(\mathrm{GL}_{4a+4}(\mathcal O_F),\mathbb Z)_{\rm tors}
+                           \leq\exp(z^{23}\log(2D)).
+\end{equation}
+\end{srproposition}
+\begin{proof}
+Use the ordered normal-cone complex, with
+\(B=B_{m+1}\), \(J=3^{d^2}\), \(d=nN\).
+It is exact by Lemma~\ref{lem:sr-normal-acyclic}.
+Its orbits and stabilizers have the bounds just proved.
+Write \(L_0=\log(2D)\geq1/2\).
+Since \(\log J\leq2d^2\) and \(m\geq1\),
+\[
+ \log(m+2)+mJ^m\log J
+       \leq5md^2e^{2md^2}\leq e^{7md^2}.
+\]
+Here \(\log(m+2)\leq3m\), and \(5md^2\leq e^{5md^2}\).
+Therefore \eqref{eq:sr-integral-action-bound} and
+\eqref{eq:sr-orbit-log} give
+\[
+ \log\#H_m(\Gamma,\mathbb Z)_{\rm tors}
+ \leq
+ \exp\bigl([22(m+2)Nd^4+14md^2]L_0\bigr)
+ \leq \exp\bigl(36(m+2)Nd^4L_0\bigr).
+\]
+Finally \(m+2\leq4a\), \(N\leq8a\), \(d\leq8an\), so
+\[
+ 36(m+2)Nd^4
+       \leq 4{,}718{,}592\,a^6n^4
+       \leq (2an)^{23}.
+\]
+The last inequality uses \(4{,}718{,}592<2^{23}\) and \(a,n\geq1\).
+This proves \eqref{eq:sr-homology-final}, including at the small
+torsion primes.
+\end{proof}
+
+\subsection{The number of cohomology generators}
+Put \(X=X_{\ell,a}(F)\), already finite by
+\eqref{eq:sr-K-comparison}, and
+\(r=\dim_{\mathbb F_\ell}(X/\ell X)\).
+
+\begin{srlemma}\label{lem:sr-global-generator}
+With \(L_0=\log(2D)\),
+\begin{equation}\label{eq:sr-global-generator}
+                         r\log\ell\leq6n^2L_0 .
+\end{equation}
+\end{srlemma}
+\begin{proof}
+Reduction of continuous cochains gives an injection
+\[
+ X/\ell X\ \hookrightarrow\
+                  H^2(G_{F,S_\ell},\mathbb F_\ell(a+1)).
+\]
+One can verify its kernel without any finiteness assertion.
+If an integral two-cocycle reduces to a coboundary, choose a
+continuous lift of the finite-valued one-cochain, subtract its
+coboundary and divide by \(\ell\).
+The result is still a continuous two-cocycle, since multiplication
+by \(\ell\) is injective on the coefficient lattice.
+Thus the original class was in \(\ell X\).
+
+The roots-of-unity hypothesis makes the mod-\(\ell\) cyclotomic
+character trivial. The reduced coefficient module is isomorphic
+to \(\mu_\ell\).
+On \(R=\mathcal O_F[1/\ell]\), the
+\href{https://stacks.math.columbia.edu/tag/03PK}{Kummer exact sequence}
+therefore gives
+\[
+ 0\longrightarrow\operatorname{Pic}(R)/\ell
+ \longrightarrow H^2_{\rm et}(R,\mu_\ell)
+ \longrightarrow\operatorname{Br}(R)[\ell]\longrightarrow0.
+\]
+The Picard group is a quotient of the ideal class group.
+Brauer--Hasse--Noether embeds the last group into
+\(\bigoplus_{v\mid\ell}\operatorname{Br}(F_v)[\ell]\):
+the local invariants vanish outside \(S_\ell\), and all infinite
+places are complex.
+Each local group has order \(\ell\); there are at most \(n\)
+such places. Consequently
+\[
+                         r\log\ell\leq\log h_F+n\log\ell.
+\]
+
+We include a crude sufficient class-number bound.
+Minkowski gives an integral representative in every ideal class
+with norm at most \(2^nD\).
+The number of ideals of norm \(k\) is at most the coefficient
+\(d_n(k)\) of \(\zeta(s)^n\).
+To check this locally, for primes above a rational prime \(p\)
+with residue degrees \(f_i\), send an ideal exponent vector
+\((e_i)\), \(\sum f_ie_i=b\), to an \(n\)-tuple of nonnegative
+integers by repeating \(e_i\) in \(f_i\) slots and filling the
+remaining slots with zeros. This is injective, because
+\(\sum f_i\leq n\).
+Multiplying over rational primes gives the assertion.
+Also \(d_n(k)\leq k^n\), by counting ordered \(n\)-tuples of positive
+factors of \(k\).
+Summing up to the integer \(2^nD\) proves
+\[
+ h_F\leq(2^nD)^{n+1},\qquad
+ \log h_F\leq(n+1)^2L_0\leq4n^2L_0.
+\]
+For odd \(\ell\), \(\mathbb Q(\mu_\ell)\subset F\) implies
+\(\ell-1\leq n\). For two, \(\ell\leq n+1\) is automatic.
+Hence
+\(n\log\ell\leq n\log(n+1)\leq n^2\leq2n^2L_0\).
+Combining these inequalities proves
+\eqref{eq:sr-global-generator}.
+\end{proof}
+
+\subsection{Completion of the global bound}
+\begin{proof}[Proof of Theorem~\ref{thm:sr-global-high-twist}]
+Put \(m=2a,N=4a+4,z=2an,L_0=\log(2D)\).
+The comparison \eqref{eq:sr-K-comparison}, followed by Hurewicz
+and homology stability, gives a map
+\[
+ X\longrightarrow
+ H_{2a}(\mathrm{GL}_{4a+4}(\mathcal O_F),\mathbb Z)
+                                      \otimes\mathbb Z_\ell .
+\]
+Flatness of \(\mathbb Z_\ell\) over \(\mathbb Z\) preserves the
+kernel description. Mathew's bound makes this kernel a subgroup
+of \(X[\ell^{b_\ell}]\), with \(b_\ell\leq4a\).
+A finite \(\ell\)-group with \(r\) cyclic factors has at most
+\(\ell^{br}\) elements killed by \(\ell^b\), as follows immediately
+by writing it as a direct sum of cyclic groups.
+The kernel therefore has logarithmic order at most
+\(4ar\log\ell\).
+
+The image is finite and lies in the torsion of the target.
+By Proposition~\ref{prop:sr-all-prime-homology} its logarithmic
+order is at most \(\exp(z^{23}L_0)\).
+Lemma~\ref{lem:sr-global-generator} consequently gives
+\[
+ \log\#X\leq24an^2L_0+\exp(z^{23}L_0).
+\]
+As \(a,n\geq1\), \(24an^2\leq z^5\leq z^{23}\).
+For \(t=z^{23}L_0\geq1\),
+\[
+ \log\#X\leq t+e^t\leq e^{2t}
+                    \leq\exp(z^{24}L_0),
+\]
+using \(z\geq2\). This is \eqref{eq:sr-global-high-twist}.
+Every bound precedes the field, the coefficient prime and the twist.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-K2-proved}
+The specialized assertion \(K_2(24)\) of
+Definition~\ref{def:sr-K2} holds.
+The dyadic common-window theorem
+\ref{thm:sr-dyadic-window} is consequently unconditional with
+\[
+ C_K=24,\qquad
+ \eta=\epsilon/48,\qquad
+ J=2^{26}(19248/\epsilon)^{24}.
+\]
+\end{srproposition}
+\begin{proof}
+The field \(L_7\) is totally imaginary, contains \(\mu_4\), and
+has degree 1024. Apply Theorem~\ref{thm:sr-global-high-twist}
+with \(\ell=2\), \(F=L_7\), and \(2an=2048a\).
+This gives exactly the finiteness and inequality in
+Definition~\ref{def:sr-K2}.
+The remaining conclusions follow by substitution into
+Theorem~\ref{thm:sr-dyadic-window}.
+\end{proof}
+
+The \(H^2\) group here is also the one in the archive's
+\srcid{LemmaK}: its ramification set is precisely the primes above
+\(\ell\), and its compact coefficient is the cyclotomic
+\((a+1)\)-st twist.
+Changing the algebraic closure identifies these Galois groups;
+the factorization of the cyclotomic character through the unramified
+quotient is unique. The local embedding choices do not enter this
+global \(H^2\).
+Thus this bound applies uniformly to the allowed localization data.
+The character-counting bounds and connected geometric supply remain
+separate tasks. This new prose proof has not been separately
+formalized in Lean.

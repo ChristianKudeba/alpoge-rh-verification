@@ -5,8 +5,9 @@ Sections~\ref{sec:sr-dyadic-generators}--\ref{sec:sr-dyadic-descent}
 permit a quantitative argument with fixed constants.
 We prove that argument here. Its last step is conditional on a
 single high-twist cohomology bound, stated explicitly in
-Definition~\ref{def:sr-K2}; that bound is not proved by the
-linear algebra below.
+Definition~\ref{def:sr-K2}. Section~\ref{sec:sr-global-cohomology}
+proves this input, so the resulting window is unconditional by
+Proposition~\ref{prop:sr-K2-proved}.
 
 Fix the principal primes \(q,d\), the field
 \(L=\mathbb Q(i,\sqrt{-q},\sqrt{-d})\), its cyclotomic extension
@@ -255,7 +256,7 @@ In particular, if \(x\geq1\) and \(\log(qd)\leq x^{\epsilon/4}\),
  \leq (8193\log2+512)x^{\epsilon/4}.
 \end{equation}
 
-\subsection{The one high-twist input still required}
+\subsection{The high-twist input and global duality}
 Let \(S_2(F)\) be the primes above two in a number field \(F\).
 Write
 \[
@@ -291,8 +292,8 @@ This inequality uses the inclusion of the displayed kernel into
 
 \subsection{The local cohomology terms throughout the tower}
 For these particular fields the local correction in global duality can
-be computed exactly. This removes a further imported estimate without
-proving the remaining global class-counting bound.
+be computed exactly. This computes the local correction independently of the global size
+bound proved in Section~\ref{sec:sr-global-cohomology}.
 
 \begin{srproposition}\label{prop:sr-H2-exact}
 For every \(m\geq0\), the field \(F=L_m\) has exactly two primes above two.
@@ -450,8 +451,8 @@ For \(m<7\), \(c_m(a)\leq c_7(a)\) and \(m+2\leq9\),
 giving the asserted bound with zero extra term.
 \end{proof}
 
-In particular, the missing size theorem is a global strict-group
-estimate, rather than an additional local correction.
+In particular, one could also obtain the size theorem from a global
+strict-group estimate.
 More precisely, suppose a uniform \(C\geq1\) gave
 \[
  s_{2,L_7}(a)\log2\leq
@@ -489,9 +490,10 @@ the group \(\mathcal H_2(L_7,a)\) is finite and
 \end{srdefinition}
 The archive's general Lemma \(K\) implies this assertion by the
 degree calculation above and \(\mu_4\subset L_7\).
-Its class-counting and geometric proof has not been replaced by
-a standalone proof here. Thus \(K_2(C_K)\) remains an explicit
-input to the next theorem.
+The independent argument of Section~\ref{sec:sr-global-cohomology}
+proves \(K_2(24)\), with every geometric count and torsion estimate
+used in that argument printed. We keep the parameterized deduction
+below so that its dependence on the supplied exponent is explicit.
 
 \subsection{The dyadic estimate on the same common windows}
 \begin{srtheorem}\label{thm:sr-dyadic-window}
@@ -597,7 +599,8 @@ This proves the theorem and all its quantifiers.
 This proves the dyadic tower growth, finite-center estimate,
 24-element exceptional-set construction, discriminant comparison
 and common-window deduction.
-The high-twist bound \(K_2(C_K)\) is still required.
+Proposition~\ref{prop:sr-K2-proved} supplies the high-twist bound
+\(K_2(24)\), so the dyadic estimate has no remaining arithmetic input.
 The uniform plus estimates and the geometric supply assertion
 are separate inputs; none follows from the dyadic calculation.
 

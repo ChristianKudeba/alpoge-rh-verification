@@ -22,36 +22,30 @@ with reductions from Principia contributors}
 \begin{document}
 \maketitle
 \begin{abstract}
-We organize the shorter conductor-one route around one explicit supply
-assertion for arithmetic-geometric data, and compare its analytic ending
-with a spectral approach.
-We prove the prime-only fourth-power criterion, its full analytic ending,
-the signed finite-group comparison, the explicit conductor-one field and
-degree bounds, cyclotomic class-number regularity at 2, 3 and 7, strict
-descent at 3 and 7, a uniform dyadic generator bound in the cyclotomic
-limit, its finite-twist cokernel description and descent back to the CM
-field, the uniform matrix and cokernel estimates, a fixed set of at most
-24 exceptional twists, an explicit fixed-layer discriminant bound, and
-the numerical interval and length-budget comparisons. The dyadic
-common-window estimate is proved conditional on one specialized
-high-twist cohomology bound. We compute the local correction exactly
-throughout the tower, obtaining cohomology length
-\(s_{2,L_m}(a)+m+2+v_2(a)\).
-The odd prime-to-degree minus bound is assembled from the full descent
-printed in the supporting chapters. We prove trivial rational-character
-vanishing at the exceptional and resonant primes and assemble the plus
-height from two explicitly stated character estimates. We also prove the centered prime
-distribution identity, a spectral uniqueness criterion, and direct
-logarithmic-integrability, determinant-prescribed fractional-ideal lattice,
-covolume and positive-definite lattice-theta comparisons.
-The existing longer-route translations are included as supporting chapters.
-The two remaining character estimates, the uniform supply assertion,
-its plus-height input, the high-twist cohomological size bound needed
-at the exceptional dyadic twists, and parts of the global theta and
-integral geometric construction
-are not proved in this edition.
-This document is therefore a working exposition with proved implications,
-not a completed unconditional proof of the Riemann hypothesis.
+We organize the conductor-one route around explicit prime-sum,
+cohomological and geometric comparisons.
+We prove the prime-only fourth-power criterion and its analytic ending,
+the signed finite-group comparison, the conductor-one fields and degree
+bounds, the odd prime-to-degree minus estimate, and the dyadic
+24-generator and finite-twist descent arguments.
+The matrix bounds, fixed exceptional set and local cohomology terms
+are printed in full.
+A new integral-homology argument proves the uniform global high-twist
+bound, including at two, using published arithmetic K-theory comparison
+and Hurewicz theorems. Its geometric nerve, lattice-orbit count,
+finite-stabilizer torsion estimate and numerical constants are given here.
+This discharges the specialized input \(K_2(24)\) and makes the dyadic
+common-window bound unconditional.
+We also prove the rational trivial-character vanishing and reduce the
+plus-height bound to two stated rational-character estimates.
+The exact prime-distribution identity, spectral uniqueness argument and
+determinant, covolume, logarithmic-integrability and lattice-theta
+comparisons are included.
+The longer-route translations remain as supporting chapters.
+The two character estimates and the connected geometric construction,
+with the uniform theta, ramified matching and metric estimates needed
+for the prime-sum comparison, still require their full proofs.
+This is a working exposition, not a completed standalone proof of RH.
 \end{abstract}
 \begingroup\small
 \tableofcontents
@@ -64,6 +58,7 @@ not a completed unconditional proof of the Riemann hypothesis.
 \input{short-chapters/finite}
 \input{short-chapters/arithmetic}
 \input{short-chapters/dyadic-bounds}
+\input{short-chapters/global-cohomology}
 \input{short-chapters/plus-reduction}
 \input{short-chapters/geometry}
 \input{short-chapters/source-review}
@@ -166,8 +161,9 @@ return to the CM field. Section~\ref{sec:sr-dyadic-bounds}
 proves the cokernel growth, the fixed 24-element exceptional set and
 the discriminant bound. Theorem~\ref{thm:sr-dyadic-window} proves the
 uniform common-window estimate conditional on \(K_2(C_K)\).
-The class-counting proof of this one high-twist input remains to be
-translated. On the rank-three side,
+Section~\ref{sec:sr-global-cohomology} proves that input by a separate
+integral-homology argument, so Proposition~\ref{prop:sr-K2-proved}
+discharges it with \(C_K=24\). On the rank-three side,
 Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
 derive the trace product and the full graded intersection inequality.
 Sections~\ref{sec:kato-rigidity} and~\ref{sec:type-one-rigidity} derive

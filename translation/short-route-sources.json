@@ -1,15 +1,13 @@
 {
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "incomplete: two rational-character estimates, specialized high-twist cohomology bound K_2 and uniform geometric construction remain",
+  "status": "incomplete: two rational-character estimates and connected geometric supply remain; uniform global high-twist bound proved in prose with exponent 24",
   "prior_manuscript_commit": "8f24eadc552967b963390bdf83f085f6838f4c12",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
-    "Uniform signed-data supply on arbitrarily late fourth-power windows",
-    "Two rational-character estimates implying polynomial plus-height, or a valid weaker cubic-logarithmic bound",
-    "Specialized high-twist cohomology bound K_2(C_K); matrix growth, fixed centers and exceptional-set construction are proved in prose",
-    "Relevant global theta, ramified matching, cusp/metric and integral-model constructions"
+    "Two rational-character estimates uniform in unbounded character order and every required twist, or a valid weaker cubic-logarithmic plus-height bound",
+    "Connected geometric families or signed-data supply on the common windows, including the specified global theta, ramified matching, metric and integral-model constructions"
   ],
   "principia_sources": [
     {
@@ -207,7 +205,10 @@
     "Full dyadic common-window estimate conditional on specialized high-twist cohomology bound K_2(C_K), which remains unproved",
     "Exact local/global cyclotomic images and H² length s_2(L_m,a)+m+2+v_2(a) in the principal dyadic tower; cohomology growth at most 25(m-7)_+",
     "Fixed Q(sqrt(-3)) auxiliary arithmetic packet for every odd nonresonant prime, including seven; substantial PropGK producer still required",
-    "Determinant-prescribed fractional-ideal lattice comparison (SStein), with CRT construction, valuation equivalence and exact Minkowski covolume scaling"
+    "Determinant-prescribed fractional-ideal lattice comparison (SStein), with CRT construction, valuation equivalence and exact Minkowski covolume scaling",
+    "Uniform global high-twist cohomology bound, including at 2, with exponent 24, via published K-theory and Hurewicz comparisons plus a full integral torsion and geometric orbit calculation",
+    "K_2(24), hence the dyadic common-window bound with C_K=24, eta=epsilon/48 and J=2^26*(19248/epsilon)^24",
+    "Bounded-order twist-one polynomial character bound at 3 and 7 with B_R=(6R+1)*(12R)^24"
   ],
   "latest_combined_source": {
     "path": "verification/LogCubeRH.lean",
@@ -409,11 +410,12 @@
     }
   ],
   "latest_notes": {
-    "updated_at": 1795251139277,
-    "reported_at": "2026-11-21 03:15 America/Toronto",
-    "translated": 1155,
-    "reviewed": 1071,
-    "total": 175187
+    "queue_snapshot": {
+      "translated": 1721,
+      "reviewed": 1621,
+      "total": 175187
+    },
+    "notes_updated_at": 1795283539158
   },
   "new_dyadic_provenance": [
     {
@@ -496,5 +498,67 @@
       }
     ]
   },
-  "remaining_class_counting_note": "SStein lattice comparison and local cohomology corrections proved independently; remaining class-counting chain includes primitive homology classes, detection/counting, stable-rank bounds, torsion estimates and global strict comparison"
+  "remaining_class_counting_note": "The needed global high-twist conclusion is supplied by an independent integral-homology proof. The old class-counting chain is not required for this replacement. The sharper character-counting and connected-family producers remain to be proved in prose.",
+  "new_papers_review": [
+    {
+      "path": "reorganized_incomplete_proof_777p.pdf",
+      "file_id": "d0ead4c30442424ee484e50060d75e4a",
+      "artifact_id": "8c527eb7a1dbba0b1dc69c2ba0e60db0",
+      "owner": "Yuankun123",
+      "bytes": 7313929,
+      "pages": 777,
+      "sha256": "e511490ea7990fd8af80befb4ae931266a0aa5354cec9316dae32c5ad84c1697",
+      "reviewed": "targeted cohomology sections 6.4-6.9, 6.76-6.83 and character-counting sections 7.1-7.6; not claimed a complete independent review of all pages",
+      "modified": false
+    },
+    {
+      "path": "reorganized_incomplete_proof.pdf",
+      "file_id": "b4c9f703fa4b7873109916a1d3673528",
+      "artifact_id": "ae360903d3e2eb839b7c461ff43c4a94",
+      "owner": "Yuankun123",
+      "bytes": 7257366,
+      "pages": 755,
+      "sha256": "d93ac4cb5a0978184c4345f0400fc1da23fa7446ed652b4a5cdbe30b1ce1841a",
+      "reviewed": "opening conditional statement and corresponding integral K-theory route at pages 110-115; selected comparison, not full-paper independent review",
+      "modified": false
+    }
+  ],
+  "latest_lean_review": {
+    "pull_request": 44,
+    "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/44",
+    "repository": "mmmbeer/riemann-hypothesis",
+    "ref": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
+    "scope": "read PR report and checked source scope; no independent combined build performed",
+    "combined_build": "reported pending",
+    "full_comparator": "reported pending",
+    "checked_shortcuts_editor_updated_at": 1795273427365
+  },
+  "global_cohomology_proof": {
+    "chapter": "translation/short-chapters/global-cohomology.tex",
+    "uniform_exponent": 24,
+    "published_background": [
+      {
+        "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/weibel-ints.pdf",
+        "result": "Weibel Theorem 70 and Corollary 71, odd-prime arithmetic K-theory comparison"
+      },
+      {
+        "url": "https://sites.math.rutgers.edu/~weibel/archive/papers-dir/RognesWeibel.pdf",
+        "result": "Rognes-Weibel Theorem 0.4, totally imaginary comparison at 2"
+      },
+      {
+        "url": "https://www.mathi.uni-heidelberg.de/~schmidt/papers/kpi1.pdf",
+        "result": "Schmidt Proposition 2.3 and proof, restricted Galois/etale comparison when S contains the coefficient primes"
+      },
+      {
+        "url": "https://msp.org/agt/2016/16-2/agt-v16-n2-p12-p.pdf",
+        "result": "Mathew Theorem 6.3, connected infinite loop space and explicit Hurewicz kernel exponent"
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/03PK",
+        "result": "Kummer exact sequence"
+      }
+    ],
+    "proof_scope": "geometric nerve, frame and orbit estimates, integral stabilizer spectral sequence, generator bound and numerical constants printed; established comparison theorems used with exact hypotheses",
+    "separately_formalized": false
+  }
 }
