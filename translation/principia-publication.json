@@ -4,18 +4,19 @@
   "paper_page": "https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper",
   "status": "Published consolidated working manuscript; mathematical proof remains incomplete",
   "canonical_pdf": {
-    "id": "c532a07c96ea42d67bf46ff0858324a5",
+    "id": "4a1b45566c2ad381d409d24891ab6b48",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 1904474,
-    "url": "https://principia-math.com/api/ws/files/c532a07c96ea42d67bf46ff0858324a5",
+    "size": 1982067,
+    "url": "https://principia-math.com/api/ws/files/4a1b45566c2ad381d409d24891ab6b48",
     "attached": {
-      "id": "ca2fe82ad31a9134df8ec31f7672ef0d",
+      "id": "b2ed97f6a568e468ef9aebd77e073068",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 194,
-    "verified_sha256": "5f2dc5e7ecfb8a3bc76fc61c76a47f3868323e4a937a30ac8b470cf658db9d63",
-    "source_commit": "35d65233980e51bda663ec97c44d5e9b3189680d"
+    "pages": 202,
+    "verified_sha256": "86c674233a77c36f501ad636ef3fd037619ae2e5a58a39e472c2a3bc4650b8ce",
+    "source_commit": "8adba4c8416b9902abdbea235166141f99cb1bdb",
+    "hash_scope": "GitHub release PDF verified in memory; Principia source_url import returned matching file size"
   },
   "canonical_latex_master": "alpoge-rh-working-translation.tex",
   "source_files": [
@@ -23,34 +24,34 @@
       "path": "alpoge-translation/arithmetic.tex",
       "bytes": 319429,
       "sha256": "4436b182d40f41946a2262522b146dac901c70070bb92e3278dc8924cfe2a98f",
-      "changed": false,
-      "file_id": "c3e3338d13685e0a6803c622713a922b"
+      "file_id": "c3e3338d13685e0a6803c622713a922b",
+      "updated_at": 1795219741737
     },
     {
       "path": "alpoge-translation/theta-and-geometry.tex",
       "bytes": 301532,
       "sha256": "f5f372cb061327282bae716c0db9a473a90288b6bdd108f82e1b301876d2c847",
-      "changed": false,
-      "file_id": "b7608052b93602f39ba6d6627f506a81"
+      "file_id": "b7608052b93602f39ba6d6627f506a81",
+      "updated_at": 1795219748048
     },
     {
       "path": "alpoge-translation/prime-sums-and-zeros.tex",
-      "bytes": 161153,
-      "sha256": "6acfc2dfaf6ebaa52fc618d9d450640ae7f801a368c9a22148a042e248bdee3f",
-      "changed": true,
-      "file_id": "b2a369c30823d8ea8d0edb2a807767c1"
+      "bytes": 161412,
+      "sha256": "5d2b9c9a1f2fb1eaf8efe02201948633b674889bd07828da85ea38067ec4e20a",
+      "file_id": "b2a369c30823d8ea8d0edb2a807767c1",
+      "updated_at": 1795253046310
     },
     {
       "path": "alpoge-rh-working-translation.tex",
-      "bytes": 132240,
-      "sha256": "b841019df2cab5ffb24fdbcc059d576e6debeceee41494ae18d0402912f49da0",
-      "changed": true,
-      "file_id": "9c8cc33a546414334e2d4da3aade5210"
+      "bytes": 167910,
+      "sha256": "61b1401954b18cfa6934901d03a5628891f392cc9d32e4530408583275f38469",
+      "file_id": "9c8cc33a546414334e2d4da3aade5210",
+      "updated_at": 1795253036332
     }
   ],
   "expanded_source": {
-    "bytes": 914210,
-    "sha256": "e28113c7efb76303d2ac91e957b3a6fa65fa3a50f5d358bda36fb826ac5474c3"
+    "bytes": 950139,
+    "sha256": "d384ec7a19f0a45a5baf75a164abd2193a82d360be5df89815a69a13bc7c919c"
   },
   "removed_superseded_files": [
     {
@@ -96,5 +97,63 @@
     "commit": "b5d5f465049e6f9df7af49f9b486164dee5acd60",
     "path": "translation/archive/principia-before-194-page-consolidation.json"
   },
-  "paper_stage_completion_unchanged": true
+  "paper_stage_completion_unchanged": true,
+  "previous_pdf": {
+    "id": "c532a07c96ea42d67bf46ff0858324a5",
+    "filename": "alpoge-rh-consolidated-manuscript.pdf",
+    "content_type": "application/pdf",
+    "size": 1904474,
+    "url": "https://principia-math.com/api/ws/files/c532a07c96ea42d67bf46ff0858324a5",
+    "attached": {
+      "id": "ca2fe82ad31a9134df8ec31f7672ef0d",
+      "path": "alpoge-rh-consolidated-manuscript.pdf"
+    },
+    "pages": 194,
+    "verified_sha256": "5f2dc5e7ecfb8a3bc76fc61c76a47f3868323e4a937a30ac8b470cf658db9d63",
+    "source_commit": "35d65233980e51bda663ec97c44d5e9b3189680d",
+    "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-35d65233980e51bda663ec97c44d5e9b3189680d",
+    "replaced_attachment_removed": true
+  },
+  "title_credit": "with reductions from Principia contributors",
+  "expanded_source_matches_compiled_release": true,
+  "source_readback_matches_generated_text": true,
+  "document_checks": {
+    "source_commit": "8adba4c8416b9902abdbea235166141f99cb1bdb",
+    "status": "working exposition; uniform geometric supply unproved",
+    "pages": 202,
+    "supporting_part_start_pages": [
+      43
+    ],
+    "title_credit_check": "passed",
+    "reference_and_glyph_check": "passed",
+    "distributed_and_flattened_text": "identical",
+    "words_outside_page": [],
+    "box_warnings": [
+      "Underfull \\hbox (badness 10000) in paragraph at lines 8663--8673\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
+      "Underfull \\hbox (badness 1533) in paragraph at lines 9137--9139\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
+    ],
+    "pdf_sha256": "86c674233a77c36f501ad636ef3fd037619ae2e5a58a39e472c2a3bc4650b8ce",
+    "tex_sha256": "d384ec7a19f0a45a5baf75a164abd2193a82d360be5df89815a69a13bc7c919c",
+    "contact_sheets": [
+      "contact-01.png",
+      "contact-02.png",
+      "contact-03.png",
+      "contact-04.png",
+      "contact-05.png",
+      "contact-06.png",
+      "contact-07.png",
+      "contact-08.png",
+      "contact-09.png",
+      "contact-10.png",
+      "contact-11.png",
+      "contact-12.png",
+      "contact-13.png",
+      "contact-14.png",
+      "contact-15.png",
+      "contact-16.png",
+      "contact-17.png"
+    ]
+  },
+  "current_manuscript_count": 1,
+  "source_file_count": 99
 }

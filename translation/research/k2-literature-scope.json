@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-21",
+  "target": "Specialized bound K_2(C_K) for L_7 at the coefficient prime 2",
+  "conclusion": "The reviewed large-prime K-theory bounds do not establish this dyadic bound without an additional argument.",
+  "sources": [
+    {
+      "title": "Christophe Soulé, A Bound for the Torsion in the K-Theory of Algebraic Integers (2003)",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-kato/soule.dm.pdf",
+      "sections": [
+        "4.2, Theorem 2",
+        "4.3, Theorem 3"
+      ],
+      "scope": "The torsion bound omits small primes; the étale-cohomology product in Theorem 3 is over sufficiently large odd primes. It does not cover the coefficient prime 2."
+    },
+    {
+      "title": "Alejandro de la Torre Durán, Perfect Forms and Torsion Bounds in Algebraic K-Theory over Totally Real and CM Fields",
+      "version": "arXiv:2611.06300v2 (19 November 2026)",
+      "url": "https://arxiv.org/html/2611.06300v2",
+      "sections": [
+        "4.2, Lemma 4.3 and Remark 4.4",
+        "Theorem 4.5"
+      ],
+      "scope": "The improved bound still omits a specified set of small primes. Remark 4.4 corrects the cyclotomic-intersection assumption in the older prime cutoff. This improvement does not itself supply the missing dyadic estimate."
+    }
+  ],
+  "own_consequences": [
+    "A bound on the number of generators or on mod-2 dimension does not bound length: Z/2^n has one generator for every n.",
+    "The manuscript proves the matrix, fixed-center, exceptional-set, local-cohomology and fractional-ideal comparisons; its dyadic common-window deduction remains conditional on K_2.",
+    "The remaining global strict-group size estimate must be proved through the archive's class-counting chain or a separately justified replacement; none of the checked literature bounds closes it as stated."
+  ]
+}

@@ -19,3 +19,5 @@ All earlier papers from this account explaining the same RH route have been cons
 Build entry point: [short-route.tex](short-route.tex). The GitHub workflow publishes the PDF, flattened LaTeX, page-rendering contact sheets, build report and source manifest in a release named `short-route-COMMIT`.
 
 All artifacts are saved remotely on GitHub and Principia.
+
+Current published edition: [202-page PDF](https://principia-math.com/api/ws/files/4a1b45566c2ad381d409d24891ab6b48), [standalone LaTeX](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-8adba4c8416b9902abdbea235166141f99cb1bdb/rh-short-route.tex), [build report](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-8adba4c8416b9902abdbea235166141f99cb1bdb/build-report.json). Compiled source commit: `8adba4c8416b9902abdbea235166141f99cb1bdb`. All four Principia source files were read back and expanded to the exact compiled LaTeX hash.
