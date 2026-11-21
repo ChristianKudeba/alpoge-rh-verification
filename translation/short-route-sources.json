@@ -414,12 +414,13 @@
   ],
   "latest_notes": {
     "queue_snapshot": {
-      "translated": 1953,
-      "reviewed": 1621,
+      "translated": 2021,
+      "reviewed": 1630,
       "total": 175187
     },
     "notes_updated_at": 1795294339248,
-    "append_progress": "Attempted required progress append; service rejected because existing notes plus entry exceed400000-character limit. No shared notes edited or deleted; progress retained in canonical manuscript index."
+    "append_progress": "Attempted required progress append; service rejected because existing notes plus entry exceed400000-character limit. No shared notes edited or deleted; progress retained in canonical manuscript index.",
+    "latest_sample_scope": "Queue counts and recent summaries sampled; not a claim all new modules independently reviewed."
   },
   "new_dyadic_provenance": [
     {
