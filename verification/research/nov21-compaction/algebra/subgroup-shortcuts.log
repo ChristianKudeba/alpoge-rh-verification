@@ -1,0 +1,3 @@
+'SubgroupIndexShortcuts.inf_sup_normal_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SubgroupIndexShortcuts.index_sup_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SubgroupIndexShortcuts.relIndex_sup_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

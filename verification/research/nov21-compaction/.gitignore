@@ -1,0 +1,5 @@
+*.olean*
+*.ilean*
+*.ast
+*.c
+output/

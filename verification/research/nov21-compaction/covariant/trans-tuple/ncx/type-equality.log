@@ -1,0 +1,15 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/ncx/type-equality.lean:207:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/ncx/type-equality.lean:230:10: warning: This simp argument is unused:
+  Module.Basis.dualBasis_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

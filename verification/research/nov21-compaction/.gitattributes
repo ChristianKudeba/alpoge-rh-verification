@@ -1,0 +1,3 @@
+# Preserve compiler output and unified-diff fixtures byte for byte.
+*.log -whitespace
+*.diff -whitespace

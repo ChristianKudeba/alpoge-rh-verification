@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "seconds": 13.723417151999456,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "--run",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/ReplayIsotypicCertificate.lean",
+    "IsoSepActualChecked",
+    "GlobalTheory.IsoSep.main"
+  ],
+  "log_sha256": "6739e09937611758a701c00bd5913032877aa5795c4ed78e90ccb1eb379009c4"
+}

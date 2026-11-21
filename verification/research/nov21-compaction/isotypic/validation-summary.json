@@ -1,0 +1,72 @@
+{
+  "target": "GlobalTheory.IsoSep.main",
+  "actual_source_path": "/workspace/alpoge-compaction/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsIntertwiningMapNeZeroOfIsotypicIrreducible.lean",
+  "actual_source_sha256": "48137a89210acb1fea033a672334c7d6d24b56b463be1e66f1f082d68298c689",
+  "helper_source_sha256": "34bc182c864fac8d33d916be00244ad14dc584091119d8a509aa07d277657667",
+  "source_matches_snapshot_after_checks": true,
+  "checked_source_sha256": "7d41a9bf417e047e5f6c5153f45783a0ba20eff5b0976a951c80ecd4db0b0839",
+  "candidate_olean_sha256": "fc9c0140d0575569bef876094165621cc47751ee083f8241e75b8d7919d162dc",
+  "original_olean_sha256": "b69b4bf2aeb8a3ed73aeb1f90625eb1f6d43c856be304469c4e53d17480ffddf",
+  "exact_type_ast_sha256": "cc3b0e2434b14ddd1798df607a49ae77a579c7c3cd369326026013ebc1354b21",
+  "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
+  "helper_olean_sha256": "17a265cbbb63500a710a9652d4762ce8b29feb9a4d9129b22a497a065f4cf6ea",
+  "checks": {
+    "native": {
+      "exit_code": 0,
+      "seconds": 3.673202797999693,
+      "command": [
+        "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "-j1",
+        "-s400000",
+        "-R",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-DmaxSynthPendingDepth=3",
+        "-DmaxHeartbeats=4000000",
+        "-o",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/output/IsoSepActualChecked.olean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/IsoSepActualChecked.lean"
+      ],
+      "log_sha256": "62b64bec1dc7fb3af0c302da2167e4c8feb26c31c84b7fae4cf1a81f2925b77f"
+    },
+    "exact_type": {
+      "exit_code": 0,
+      "seconds": 0.7690179959990928,
+      "command": [
+        "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "--run",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/CompareIsotypicTypes.lean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/output/IsoSepOriginalChecked.olean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/output/IsoSepActualChecked.olean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/original-type.ast"
+      ],
+      "log_sha256": "968fdb43af62ec2c66a5bb7fae33f41cb0081dada71738fe9703b19076495e48"
+    },
+    "kernel_replay": {
+      "exit_code": 0,
+      "seconds": 13.723417151999456,
+      "command": [
+        "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "-j1",
+        "-s400000",
+        "--run",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/ReplayIsotypicCertificate.lean",
+        "IsoSepActualChecked",
+        "GlobalTheory.IsoSep.main"
+      ],
+      "log_sha256": "6739e09937611758a701c00bd5913032877aa5795c4ed78e90ccb1eb379009c4"
+    }
+  },
+  "scope": "targeted theorem compaction with unchanged compiled public type; no full Main/Comparator verdict",
+  "replayed_declarations": 12291,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all_targeted_checks_passed": true,
+  "original_source_sha256": "57ff15365c0826008f255dc57604b3b233bf7e5d2a31086475c24f95d9b26997",
+  "original_source_lines": 139,
+  "actual_source_lines": 16
+}

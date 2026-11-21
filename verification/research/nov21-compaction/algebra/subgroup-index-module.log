@@ -1,0 +1,3 @@
+'GroundTheory.ProfCoh.inf_sup_normal_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GroundTheory.ProfCoh.index_sup_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GroundTheory.ProfCoh.relIndex_sup_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

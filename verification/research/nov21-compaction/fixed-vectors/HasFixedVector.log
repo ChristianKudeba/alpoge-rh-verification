@@ -1,0 +1,24 @@
+/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/HasFixedVector.lean:10:18: warning: Variable name `inst` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _inst
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/HasFixedVector.lean:10:35: warning: Variable name `inst_1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _inst_1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/HasFixedVector.lean:10:79: warning: Variable name `inst_2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _inst_2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/HasFixedVector.lean:11:7: warning: Variable name `inst_3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _inst_3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

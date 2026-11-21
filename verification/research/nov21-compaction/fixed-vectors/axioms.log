@@ -1,0 +1,8 @@
+'Lemmata.IsotypicGeneration.properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemmata.IsotypicGeneration.separates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemmata.IsotypicGeneration.intertwiner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemmata.IsotypicGeneration.embeds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpperTheory.Reformulated.B.HasFixedVector.hasFixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpperTheory.Reformulated.B.SubgroupFixed.sub_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpperTheory.irreducible_projection_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GlobalTheory.UnrLoc.fixed_ne_bot_of_mem_iSup_range' depends on axioms: [propext, Classical.choice, Quot.sound]

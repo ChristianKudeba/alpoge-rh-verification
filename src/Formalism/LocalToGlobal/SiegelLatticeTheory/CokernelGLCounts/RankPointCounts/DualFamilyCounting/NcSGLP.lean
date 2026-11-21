@@ -9,120 +9,42 @@ variable {K : Type*} [Field K]
 theorem surj_equiv {C W : Type*} [AddCommGroup C] [Module K C] [FiniteDimensional K C]
     [AddCommGroup W] [Module K W] (L1 L2 : C →ₗ[K] W) (h1 : Function.Surjective L1)
     (h2 : Function.Surjective L2) : ∃ δ : C ≃ₗ[K] C, ∀ c, L1 (δ c) = L2 c := by
-  obtain ⟨s, hs⟩ := LinearMap.exists_rightInverse_of_surjective L1 (LinearMap.range_eq_top.mpr h1)
-  obtain ⟨p, hp⟩ := LinearMap.exists_leftInverse_of_injective (LinearMap.ker L2).subtype
-    (LinearMap.ker L2).ker_subtype
-  have hdim : Module.finrank K (LinearMap.ker L2) = Module.finrank K (LinearMap.ker L1) := by
-    have e1 := LinearMap.finrank_range_add_finrank_ker L1
-    have e2 := LinearMap.finrank_range_add_finrank_ker L2
-    rw [LinearMap.range_eq_top.mpr h1, finrank_top] at e1
-    rw [LinearMap.range_eq_top.mpr h2, finrank_top] at e2
-    omega
-  let e : LinearMap.ker L2 ≃ₗ[K] LinearMap.ker L1 := by
-    first
-    | exact LinearEquiv.ofFinrankEq _ _ hdim
-    | exact LinearEquiv.ofFinrankEq hdim
-  let δ : C →ₗ[K] C := s ∘ₗ L2 + (LinearMap.ker L1).subtype ∘ₗ (e.toLinearMap ∘ₗ p)
-  have hδ : ∀ c, δ c = s (L2 c) + ((e (p c) : LinearMap.ker L1) : C) := by
-    intro c
-    first
-    | rfl
-    | simp [δ]
-  have hL1 : ∀ c, L1 (δ c) = L2 c := by
-    intro c
-    have h1' : L1 (s (L2 c)) = L2 c := by simpa using LinearMap.congr_fun hs (L2 c)
-    have h2' : L1 ((e (p c) : LinearMap.ker L1) : C) = 0 := LinearMap.mem_ker.mp (e (p c)).2
-    rw [hδ, map_add, h1', h2', add_zero]
-  have hinj : Function.Injective δ := by
-    refine (injective_iff_map_eq_zero δ).mpr fun c hc => ?_
-    have hc2 : L2 c = 0 := by rw [← hL1 c, hc, map_zero]
-    have hpc : p c = ⟨c, hc2⟩ := by simpa using LinearMap.congr_fun hp ⟨c, hc2⟩
-    rw [hδ, hc2, map_zero, zero_add, hpc] at hc
-    have hk : (⟨c, hc2⟩ : LinearMap.ker L2) = 0 := by simpa using hc
-    first
-    | exact congrArg Subtype.val hk
-    | simpa using congrArg Subtype.val hk
-  refine ⟨LinearEquiv.ofInjectiveEndo δ hinj, fun c => ?_⟩
-  first
-  | exact hL1 c
-  | simpa using hL1 c
-
-private theorem dual_apply_eq_sum_mul_single {a : ℕ} (μ : Module.Dual K (Fin a → K)) (t : Fin a → K) :
-    μ t = ∑ i, t i * μ (Pi.single i 1) := by
-  have ht : t = ∑ i, t i • (Pi.single i 1 : Fin a → K) := by
-    ext j
-    first
-    | simp [Finset.sum_apply, Pi.single_apply]
-    | simp [Finset.sum_apply, Pi.single_apply, eq_comm]
-  calc μ t = μ (∑ i, t i • (Pi.single i 1 : Fin a → K)) := congrArg μ ht
-    _ = ∑ i, t i * μ (Pi.single i 1) := by simp [map_sum, map_smul]
+  letI : FiniteDimensional K W := Module.Finite.of_surjective L1 h1
+  let e1 := LinearEquiv.ofInjective L1.dualMap (LinearMap.dualMap_injective_of_surjective h1)
+  let e2 := LinearEquiv.ofInjective L2.dualMap (LinearMap.dualMap_injective_of_surjective h2)
+  obtain ⟨A, hA⟩ := Submodule.exists_linearEquiv_restrict_eq (e1.symm.trans e2)
+  let δ : C ≃ₗ[K] C := (Module.evalEquiv K C).trans
+    (A.dualMap.trans (Module.evalEquiv K C).symm)
+  refine ⟨δ, fun c => ?_⟩
+  apply (Module.evalEquiv K W).injective
+  ext φ
+  have h := congrArg (fun f : Module.Dual K C => f c) (hA (e1 φ))
+  simp only [LinearEquiv.trans_apply, LinearEquiv.symm_apply_apply] at h
+  change (L1.dualMap φ) ((Module.evalEquiv K C).symm (A.dualMap ((Module.evalEquiv K C) c))) = _
+  rw [Module.apply_evalEquiv_symm_apply]
+  exact h.symm
 
 theorem pi_surj {V : Type*} [AddCommGroup V] [Module K V] {a : ℕ} (ψ : Fin a → Module.Dual K V)
     (hψ : LinearIndependent K ψ) : Function.Surjective (LinearMap.pi ψ) := by
-  rw [← LinearMap.range_eq_top]
-  by_contra hne
-  obtain ⟨μ, hμ0, hμ⟩ : ∃ μ : Module.Dual K (Fin a → K), μ ≠ 0 ∧ ∀ v, μ (LinearMap.pi ψ v) = 0 := by
-    first
-    | (obtain ⟨μ, hμ0, hμ⟩ := Submodule.exists_le_ker_of_lt_top _ (lt_top_iff_ne_top.mpr hne)
-       exact ⟨μ, hμ0, fun v => LinearMap.mem_ker.mp (hμ (LinearMap.mem_range_self _ v))⟩)
-    | (obtain ⟨μ, hμ0, hμ⟩ := Submodule.exists_dual_map_eq_bot_of_lt_top (lt_top_iff_ne_top.mpr hne)
-       refine ⟨μ, hμ0, fun v => ?_⟩
-       have hm : μ (LinearMap.pi ψ v) ∈ (LinearMap.range (LinearMap.pi ψ)).map μ :=
-         Submodule.mem_map_of_mem (LinearMap.mem_range_self _ v)
-       rw [hμ] at hm
-       simpa using hm)
-  have hsum : ∑ i, μ (Pi.single i 1) • ψ i = 0 := by
-    refine LinearMap.ext fun v => ?_
-    have hv := hμ v
-    rw [dual_apply_eq_sum_mul_single] at hv
-    simpa [LinearMap.sum_apply, mul_comm] using hv
-  have hzero := Fintype.linearIndependent_iff.mp hψ _ hsum
-  exact hμ0 (LinearMap.ext fun t => by rw [dual_apply_eq_sum_mul_single μ t]; simp [hzero])
+  have hdual : (LinearMap.pi ψ).dualMap =
+      (Pi.basisFun K (Fin a)).dualBasis.constr K ψ := by
+    apply (Pi.basisFun K (Fin a)).dualBasis.ext
+    intro i
+    rw [Module.Basis.constr_basis]
+    ext v
+    simp [Module.Basis.dualBasis_apply]
+  rw [← LinearMap.dualMap_injective_iff, hdual]
+  exact (Pi.basisFun K (Fin a)).dualBasis.injective_constr_of_linearIndependent hψ
 
 theorem trans_tuple {V : Type*} [AddCommGroup V] [Module K V] [FiniteDimensional K V] {a : ℕ}
     (x y : Fin a → V) (hx : LinearIndependent K x) (hy : LinearIndependent K y) :
     ∃ A : V ≃ₗ[K] V, ∀ j, A (x j) = y j := by
-  obtain ⟨CX, hX⟩ := Submodule.exists_isCompl (Submodule.span K (Set.range x))
-  obtain ⟨CY, hY⟩ := Submodule.exists_isCompl (Submodule.span K (Set.range y))
-  have hdim : Module.finrank K CX = Module.finrank K CY := by
-    have h1 := Submodule.finrank_add_eq_of_isCompl hX
-    have h2 := Submodule.finrank_add_eq_of_isCompl hY
-    rw [finrank_span_eq_card hx] at h1
-    rw [finrank_span_eq_card hy] at h2
-    omega
-  let bx := Module.Basis.span hx
-  let bY := Module.Basis.span hy
-  let e1 := bx.equiv bY (Equiv.refl (Fin a))
-  let e2 : CX ≃ₗ[K] CY := by
-    first
-    | exact LinearEquiv.ofFinrankEq _ _ hdim
-    | exact LinearEquiv.ofFinrankEq hdim
-  let P : (Submodule.span K (Set.range x) × CX) ≃ₗ[K] (Submodule.span K (Set.range y) × CY) := by
-    first
-    | exact LinearEquiv.prodCongr e1 e2
-    | exact LinearEquiv.prod e1 e2
-  have hsymm : ∀ j, (Submodule.prodEquivOfIsCompl _ _ hX).symm (x j) = (bx j, 0) := by
-    intro j
-    rw [LinearEquiv.symm_apply_eq]
-    first
-    | (rw [Submodule.coe_prodEquivOfIsCompl']; simp [bx, Module.Basis.span_apply])
-    | simp [bx, Module.Basis.span_apply]
-    | simp [bx]
-  refine ⟨(Submodule.prodEquivOfIsCompl _ _ hX).symm.trans (P.trans (Submodule.prodEquivOfIsCompl _ _ hY)),
-    fun j => ?_⟩
-  rw [LinearEquiv.trans_apply, LinearEquiv.trans_apply, hsymm j]
-  have hP : P (bx j, 0) = (bY j, 0) := by
-    first
-    | (show (e1 (bx j), e2 0) = (bY j, 0)
-       rw [map_zero]
-       simp [e1, Module.Basis.equiv_apply])
-    | simp [P, e1, Module.Basis.equiv_apply]
-    | simp [P, e1]
-  rw [hP]
-  first
-  | (rw [Submodule.coe_prodEquivOfIsCompl']; simp [bY, Module.Basis.span_apply])
-  | simp [bY, Module.Basis.span_apply]
-  | simp [bY]
+  obtain ⟨A, hA⟩ := Submodule.exists_linearEquiv_restrict_eq
+    ((Module.Basis.span hx).equiv (Module.Basis.span hy) (Equiv.refl (Fin a)))
+  refine ⟨A, fun j => ?_⟩
+  have hj := hA ((Module.Basis.span hx) j)
+  rw [Module.Basis.equiv_apply] at hj
+  simpa only [Equiv.refl_apply, Module.Basis.span_apply] using hj.symm
 
 private theorem eq_zero_of_mem_of_disjoint {V : Type*} [AddCommGroup V] [Module K V] {S T : Submodule K V}
     (h : Disjoint S T) {v : V} (hS : v ∈ S) (hT : v ∈ T) : v = 0 :=

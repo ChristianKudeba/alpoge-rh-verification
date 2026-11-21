@@ -1,0 +1,270 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:24:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:30:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:44:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:48:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:24:6: warning: Unused tactic linter: `exact LinearEquiv.ofFinrankEq hdim` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:30:6: warning: Unused tactic linter: `simp [δ]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:44:6: warning: Unused tactic linter: `simpa using congrArg Subtype.val hk` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:48:4: warning: Unused tactic linter: `simpa using hL1 c` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:56:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:56:6: warning: Unused tactic linter: `simp [Finset.sum_apply, Pi.single_apply, eq_comm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:68:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:68:6: warning: Unused tactic linter: `(
+  obtain ⟨μ, hμ0, hμ⟩ := Submodule.exists_dual_map_eq_bot_of_lt_top (lt_top_iff_ne_top.mpr hne)
+  refine ⟨μ, hμ0, fun v => ?_⟩
+  have hm : μ (LinearMap.pi ψ v) ∈ (LinearMap.range (LinearMap.pi ψ)).map μ :=
+    Submodule.mem_map_of_mem (LinearMap.mem_range_self _ v)
+  rw [hμ] at hm
+  simpa using hm)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:99:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:103:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:109:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:110:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:119:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:120:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:124:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:125:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:99:6: warning: Unused tactic linter: `exact LinearEquiv.ofFinrankEq hdim` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:103:6: warning: Unused tactic linter: `exact LinearEquiv.prod e1 e2` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:109:6: warning: Unused tactic linter: `simp [bx, Module.Basis.span_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:110:6: warning: Unused tactic linter: `simp [bx]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:119:6: warning: Unused tactic linter: `simp [P, e1, Module.Basis.equiv_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:120:6: warning: Unused tactic linter: `simp [P, e1]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:124:4: warning: Unused tactic linter: `simp [bY, Module.Basis.span_apply]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:125:4: warning: Unused tactic linter: `simp [bY]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:135:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:139:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:177:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:177:8: warning: Unused tactic linter: `simpa [hc] using hm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:223:21: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:244:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:248:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:258:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:266:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:286:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:289:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:244:6: warning: Unused tactic linter: `simpa using h0` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:248:6: warning: Unused tactic linter: `exact
+  LinearMap.range_eq_top.mp
+    ((LinearMap.ker_eq_bot_iff_range_eq_top_of_finrank_eq_finrank hTdim).mp
+      (LinearMap.ker_eq_bot.mpr hfinj))` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:258:8: warning: Unused tactic linter: `exact (LinearEquiv.ofBijective_apply f _ (eT.symm t)).symm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:266:6: warning: Unused tactic linter: `simp [B]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:286:6: warning: Unused tactic linter: `simpa using hBx j` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:289:6: warning: Unused tactic linter: `simpa using congrFun (hΨB v) i` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:305:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:305:6: warning: Unused tactic linter: `simpa [LinearMap.sum_apply] using hgv` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:327:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:350:10: warning: This simp argument is unused:
+  Module.Basis.dualBasis_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:372:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:376:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:414:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:414:8: warning: Unused tactic linter: `simpa [hc] using hm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:460:21: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:481:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:485:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:495:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:503:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:523:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:526:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:481:6: warning: Unused tactic linter: `simpa using h0` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:485:6: warning: Unused tactic linter: `exact
+  LinearMap.range_eq_top.mp
+    ((LinearMap.ker_eq_bot_iff_range_eq_top_of_finrank_eq_finrank hTdim).mp
+      (LinearMap.ker_eq_bot.mpr hfinj))` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:495:8: warning: Unused tactic linter: `exact (LinearEquiv.ofBijective_apply f _ (eT.symm t)).symm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:503:6: warning: Unused tactic linter: `simp [B]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:523:6: warning: Unused tactic linter: `simpa using hBx j` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:526:6: warning: Unused tactic linter: `simpa using congrFun (hΨB v) i` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:542:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean:542:6: warning: Unused tactic linter: `simpa [LinearMap.sum_apply] using hgv` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+
+{
+  "source": "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean",
+  "source_sha256": "ef403329316fd54622371613b728b4c7e55d94dffcc581d8f85311740603b612",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-R",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean"
+  ],
+  "lean_path": "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/Qq/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/aesop/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/batteries/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/plausible/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "exit_code": 0,
+  "seconds": 9.309061533000204,
+  "compiler": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

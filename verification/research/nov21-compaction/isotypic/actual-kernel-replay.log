@@ -1,0 +1,2 @@
+Replaying 12291 declarations for [GlobalTheory.IsoSep.main] into an empty kernel environment
+REPLAY PASSED; axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,151 @@
+{
+  "base_commit": "6186b8d5c272c08c90f6f5cce1a25d22232ed78d",
+  "compiler": "Lean 4.33.1 (819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib_pin": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "files": [
+    {
+      "source": "src/Formalism/SharpRestriction/LevelLetterCocycles/LevelKernelDetection/ExistsBasisOfSurjective.lean",
+      "evidence": "basis-surjection",
+      "mechanism": "Projectivity supplies the section; a coproduct bijection supplies the kernel decomposition, replacing coordinate lifting and an explicit inverse pair.",
+      "old_lines": 100,
+      "new_lines": 67,
+      "old_bytes": 4478,
+      "new_bytes": 3256,
+      "original_sha256": "5a8c9d2f6c58f4c47be1f369dcefb429fc5c9e0720e570a45e1f2c28e331aa45",
+      "candidate_sha256": "0451c3550a4daffbf98d60fff675ca17f4b1031064d17d6402af6837a0996826",
+      "public_statements_byte_identical": true,
+      "imports_identical": true,
+      "changed_declarations": [
+        {
+          "name": "exists_linear_rightInverse_of_surjective",
+          "private": true,
+          "old_proof_lines": 8,
+          "new_proof_lines": 2,
+          "status": "replaced"
+        },
+        {
+          "name": "exists_basis_of_surjective",
+          "private": false,
+          "old_proof_lines": 74,
+          "new_proof_lines": 47,
+          "status": "replaced"
+        }
+      ]
+    },
+    {
+      "source": "src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLinearEquivMapEqOfFinrankEq.lean",
+      "evidence": "subspace-transport",
+      "mechanism": "Extend an isomorphism between equal-dimensional subspaces to the ambient space instead of choosing and identifying two complements.",
+      "old_lines": 65,
+      "new_lines": 52,
+      "old_bytes": 2914,
+      "new_bytes": 2424,
+      "original_sha256": "59441af673a2deff6792eb030c70998e68d88e5a7545ac2730b1a74acf75c7e2",
+      "candidate_sha256": "335e517f390600dc9aa27a0bc52f96a29b7471feeaabb37084e450861284801a",
+      "public_statements_byte_identical": true,
+      "imports_identical": true,
+      "changed_declarations": [
+        {
+          "name": "exists_linearEquiv_map_eq_of_finrank_eq",
+          "private": false,
+          "old_proof_lines": 25,
+          "new_proof_lines": 12,
+          "status": "replaced"
+        }
+      ]
+    },
+    {
+      "source": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DualFamilyCounting/NcSGLP.lean",
+      "evidence": "trans-tuple",
+      "mechanism": "Use ambient extension and duality to replace complement constructions, kernel rank/projection machinery, and an annihilator argument.",
+      "old_lines": 315,
+      "new_lines": 237,
+      "old_bytes": 14331,
+      "new_bytes": 10757,
+      "original_sha256": "0bc8c6c0f6b027b68251c348023169ca61b7201036c95a53bc449e92017763f0",
+      "candidate_sha256": "98bc745f07fb564f5bf019f4f9916f12fe6fba30eb60f292e8e21d201f996825",
+      "public_statements_byte_identical": true,
+      "imports_identical": true,
+      "changed_declarations": [
+        {
+          "name": "surj_equiv",
+          "private": false,
+          "old_proof_lines": 37,
+          "new_proof_lines": 14,
+          "status": "replaced"
+        },
+        {
+          "name": "pi_surj",
+          "private": false,
+          "old_proof_lines": 19,
+          "new_proof_lines": 9,
+          "status": "replaced"
+        },
+        {
+          "name": "trans_tuple",
+          "private": false,
+          "old_proof_lines": 41,
+          "new_proof_lines": 6,
+          "status": "replaced"
+        },
+        {
+          "name": "dual_apply_eq_sum_mul_single",
+          "private": true,
+          "old_proof_lines": 7,
+          "new_proof_lines": 0,
+          "status": "unused_private_helper_removed"
+        }
+      ]
+    },
+    {
+      "source": "src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DualFamilyCounting/NcXGLP.lean",
+      "evidence": "trans-tuple/ncx",
+      "mechanism": "Use the same ambient-extension and duality abstractions in the parallel proof.",
+      "old_lines": 195,
+      "new_lines": 154,
+      "old_bytes": 10129,
+      "new_bytes": 7830,
+      "original_sha256": "28cd10f8a2b91de1ddb5131c5eb5cda889bf9616b60cfd9e2518e73b17956d9b",
+      "candidate_sha256": "45c8656ca284ed0917d8b87f5fa51fc5e5e7ba37c4ba76cdd564a07a7006d785",
+      "public_statements_byte_identical": true,
+      "imports_identical": true,
+      "changed_declarations": [
+        {
+          "name": "surj_equiv",
+          "private": false,
+          "old_proof_lines": 29,
+          "new_proof_lines": 14,
+          "status": "replaced"
+        },
+        {
+          "name": "pi_surj",
+          "private": false,
+          "old_proof_lines": 17,
+          "new_proof_lines": 9,
+          "status": "replaced"
+        },
+        {
+          "name": "trans_tuple",
+          "private": false,
+          "old_proof_lines": 24,
+          "new_proof_lines": 6,
+          "status": "replaced"
+        }
+      ]
+    }
+  ],
+  "total_old_lines": 675,
+  "total_new_lines": 510,
+  "total_lines_saved": 165,
+  "total_bytes_saved": 7585,
+  "changed_proof_lines_before": 281,
+  "changed_proof_lines_after": 119,
+  "proof_lines_saved": 162,
+  "verbose_statement_compression_lines": 0,
+  "verification_scope": "Native recompilation of all four complete modules, plus two-copy rfl equality checks for all changed public statements. Pinned cached dependencies are loaded; this is not a fresh full-project Comparator run."
+}

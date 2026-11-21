@@ -1,0 +1,100 @@
+{
+  "inspected_at_utc": "2026-11-21T21:04:00Z",
+  "correction": {
+    "subject": "FixPiIff",
+    "supersedes": "Earlier community audit describing8029→36asnewmathematicalabstraction.",
+    "finding": "The original already contains privatefix_pi_iff and the short publicmem_UCapplication. Its large reduction chiefly compresses an expanded theoremstatement using notation/typeinference; it is not8,000lines of newly replaced argument.",
+    "credit": "PR44author@mmmbeer, immutablec9b3e57f0fe987012d32c2523635387bfe56d5a5, for conciseinterface. OriginalabstractionalreadyinLeventAlpöge/Claude source.",
+    "supporting_parent_audit": "Originalprefix/bodyblame0fb9869; privateproof15lines, publicproof3lines."
+  },
+  "site_targets": [
+    {
+      "path": "principia-harness/a0564e7e/compaction/COMPACTION.txt",
+      "id": "169033a1ca049dccd0c9447b3cc40751",
+      "author": "ChristianKudeba",
+      "updated_at": 1795212977922,
+      "recommendation": "Updateexistingownedhistoricalcompactionnote, preservefirst-passmeasurementsasdatedhistoricalresults and addcurrentcheckedlocalmathematicalreductions."
+    },
+    {
+      "path": "checked-lean-shortcuts.md",
+      "id": "1b1643f26658ca43d0cc673443fdac07",
+      "author": "anton",
+      "updated_at": 1795288088857,
+      "recommendation": "Sharedcheckedshorteningindex; newDiagZentrywouldfit. Existingentriesremoveunusedhpi/hLlocalfacts, notnewarguments; explaincheckscopeascompleteflattenedsmall-lemma bundle, notfullRHarchive."
+    },
+    {
+      "path": "masullo-research-notes.md",
+      "id": "3dc3aafc46cbf0763b27b98d4f61b6d4",
+      "author": "anton",
+      "updated_at": 1795213957903,
+      "recommendation": "Existingresearchnotesexplainconditionaltrace/RHreductionscorrectly. Addlinktocertificatefactorizationnotesratherthanimplyinglatestclosedintegralidentityprovestracewindowbound."
+    }
+  ],
+  "fresh_checked_site_math": {
+    "checked_lean_shortcuts": [
+      {
+        "lemma": "norm_sub_le_of_rectangle_identity",
+        "replacement_check": "e39908d686bb5d5028ea6f09d0da6e42",
+        "scope": "Sameargument, unusedlocalhpi removed."
+      },
+      {
+        "lemma": "tent_shift_energy",
+        "replacement_check": "4c7fed1ef005730b181c474e413c5217",
+        "scope": "SameLipschitz/compact-supportintegralmajorantargument, unusedlocalhLremoved."
+      }
+    ],
+    "no_new_mathematical_route_found_in_2050_2100_refresh": true
+  },
+  "additional_tractable_proof_reuse_candidates": [
+    {
+      "name": "Jacquet–Shalika rigidity",
+      "callsite": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 289,
+      "replace": "GlobalTheory.JSW.jacquetShalikaRigidity_holds",
+      "with": "PositivityTheory.AdelicQuotientData.jacquetShalikaRigidity",
+      "retained_module": "src/Development/WeilBound/CoreStatements/PublishedTheorems/JacquetShalikaRigidity/JacquetShalikaRigidity.lean",
+      "reason": "ReusesthealreadyprovedRankin–Selbergpole/boundrigidityrouteinstead of retainingaseparateunitary-twist/cancellationargument.",
+      "validation": "PR44compiledinterfacesidentical; individualactualproviderandconsumerchecksneededforourtree."
+    },
+    {
+      "name": "Formal algebraisation",
+      "callsite": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 381,
+      "replace": "PositivityTheory.FormalThickening.formalAlgebraisation",
+      "with": "GlobalTheory.formalAlgebraisation",
+      "retained_module": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FormalAlgebraisation.lean",
+      "reason": "UsesexistingpairformalAlgebraisation_morphisms'/algebraisation_properFormalScheme_ampleBundle instead of duplicatingformal-morphismexistence/uniquenessassembly.",
+      "validation": "ExactnamedpropositionGlobalTheory.Published.FormalAlgebraisation; PR44interfacecomparison, fullassembledproofpending."
+    },
+    {
+      "name": "Abelian de Rham",
+      "callsite": "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+      "line": 239,
+      "replace": "PositivityTheory.DualRT.abelianDeRham",
+      "with": "GlobalTheory.abelianDeRham",
+      "retained_module": "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AbelianSchemeFirstDeRhamStructure.lean",
+      "reason": "ReusestheexistingHodge/duality/Poincareproducer instead of distinctcrystalline-surjectivity/pageassembly.",
+      "validation": "BothcompletecompiledtypesareGlobalTheory.Published.AbelianDeRham; dependenciesandcyclefreedommustbecheckedbeforeclaimingnetclosurecut."
+    }
+  ],
+  "candidate_credit": {
+    "author": "mmmbeer",
+    "pr": "https://github.com/leanprover-community/riemann-hypothesis/pull/44",
+    "commit": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
+    "scope": "These3reusechoicesarecommunitycontributions, notournewdiscoveries. Reportednet77,690linesforwholeRow/windowshared-inputstageisnotanindividualvalidatedsavinginthistree."
+  },
+  "upstream_change": {
+    "pr": 45,
+    "author": "rohanarun",
+    "additional_credit": "nil-commits/alpoge-rh-golf",
+    "commit": "1e921c49491c8928c2061fdfb7f1374dc0971226",
+    "merged_at": "2026-11-21T20:54:20Z",
+    "scope": "11,163deadmodules/832,333reportedtotaldeletions; importedsubtreecleanup, overlappingourandPR44counts. Rebasecomparisonneeded; do notaddadvertisedsavings."
+  },
+  "our_new_math": {
+    "artifact": "diagz-change.json",
+    "formula_note": "diagz-research-note.tex",
+    "scope": "IndependentlyfoundsharedalternatingcubiccertificateforthreeprojectiveWeierstrassadditioncompatibilitylemmas. Nativechecked, actualsrcmodifiedwithpermission, sourcefrozen."
+  },
+  "no_external_mutations": true
+}

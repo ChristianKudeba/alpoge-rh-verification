@@ -1,0 +1,18 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/ncx/candidate-audit.lean:12:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/ncx/candidate-audit.lean:35:10: warning: This simp argument is unused:
+  Module.Basis.dualBasis_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Formalism.L2.SG.Pf.NcX.LT.GLP.surj_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Formalism.L2.SG.Pf.NcX.LT.GLP.pi_surj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Formalism.L2.SG.Pf.NcX.LT.GLP.trans_tuple' depends on axioms: [propext, Classical.choice, Quot.sound]

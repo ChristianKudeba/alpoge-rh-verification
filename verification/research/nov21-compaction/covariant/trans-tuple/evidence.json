@@ -1,0 +1,53 @@
+{
+  "source": "/workspace/alpoge-compaction/src/Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/DualFamilyCounting/NcSGLP.lean",
+  "original_sha256": "0bc8c6c0f6b027b68251c348023169ca61b7201036c95a53bc449e92017763f0",
+  "candidate_sha256": "98bc745f07fb564f5bf019f4f9916f12fe6fba30eb60f292e8e21d201f996825",
+  "original_body_lines": 41,
+  "candidate_body_lines": 6,
+  "exit_code": 0,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "successful_log": "passed.log",
+  "successful_native_record": "passed.json",
+  "audit_sha256": "ab25bd3e42079b26df4ad854363821b6bb07dacd42f200748ed505162620f23a",
+  "stronger_api": "Submodule.exists_linearEquiv_restrict_eq",
+  "status": "PASS",
+  "stronger_apis": [
+    "Submodule.exists_linearEquiv_restrict_eq",
+    "LinearMap.dualMap_injective_of_surjective",
+    "Module.evalEquiv",
+    "LinearMap.dualMap_injective_iff",
+    "Module.Basis.injective_constr_of_linearIndependent"
+  ],
+  "changed_declarations": [
+    "surj_equiv",
+    "pi_surj",
+    "trans_tuple"
+  ],
+  "removed_helper": "dual_apply_eq_sum_mul_single",
+  "original_file_lines": 315,
+  "candidate_file_lines": 237,
+  "type_equality_exit_code": 0,
+  "type_equality_sha256": "ef403329316fd54622371613b728b4c7e55d94dffcc581d8f85311740603b612",
+  "type_equality_log": "type-equality.log",
+  "total_line_reduction": 78,
+  "proof_lines": {
+    "surj_equiv": {
+      "original": 37,
+      "candidate": 14
+    },
+    "trans_tuple": {
+      "original": 41,
+      "candidate": 6
+    },
+    "pi_surj": {
+      "original": 19,
+      "candidate": 9
+    }
+  },
+  "authoritative_candidate": "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate.lean",
+  "native_validated_source": "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean"
+}

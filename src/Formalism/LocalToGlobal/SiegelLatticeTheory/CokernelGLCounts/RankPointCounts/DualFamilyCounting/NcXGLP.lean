@@ -9,83 +9,42 @@ variable {K : Type*} [Field K]
 theorem surj_equiv {C W : Type*} [AddCommGroup C] [Module K C] [FiniteDimensional K C]
     [AddCommGroup W] [Module K W] (L1 L2 : C →ₗ[K] W) (h1 : Function.Surjective L1)
     (h2 : Function.Surjective L2) : ∃ δ : C ≃ₗ[K] C, ∀ c, L1 (δ c) = L2 c := by
-  obtain ⟨D1, hD1⟩ := Submodule.exists_isCompl (LinearMap.ker L1)
-  obtain ⟨D2, hD2⟩ := Submodule.exists_isCompl (LinearMap.ker L2)
-  let e1 : D1 ≃ₗ[K] W := (Submodule.quotientEquivOfIsCompl _ _ hD1).symm.trans (L1.quotKerEquivOfSurjective h1)
-  let e2 : D2 ≃ₗ[K] W := (Submodule.quotientEquivOfIsCompl _ _ hD2).symm.trans (L2.quotKerEquivOfSurjective h2)
-  have he1 : ∀ d : D1, e1 d = L1 d := fun d => by
-    simp [e1, Submodule.quotientEquivOfIsCompl_symm_apply]
-  have he2 : ∀ d : D2, e2 d = L2 d := fun d => by
-    simp [e2, Submodule.quotientEquivOfIsCompl_symm_apply]
-  have : FiniteDimensional K W := Module.Finite.of_surjective L1 h1
-  have hk : Module.finrank K (LinearMap.ker L2) = Module.finrank K (LinearMap.ker L1) := by
-    have a1 := LinearMap.finrank_range_add_finrank_ker L1
-    have a2 := LinearMap.finrank_range_add_finrank_ker L2
-    rw [LinearMap.range_eq_top.2 h1, finrank_top] at a1
-    rw [LinearMap.range_eq_top.2 h2, finrank_top] at a2
-    omega
-  let k : LinearMap.ker L2 ≃ₗ[K] LinearMap.ker L1 := LinearEquiv.ofFinrankEq _ _ hk
-  let δ : C ≃ₗ[K] C := (Submodule.prodEquivOfIsCompl _ _ hD2).symm.trans
-    ((k.prodCongr (e2.trans e1.symm)).trans (Submodule.prodEquivOfIsCompl _ _ hD1))
+  letI : FiniteDimensional K W := Module.Finite.of_surjective L1 h1
+  let e1 := LinearEquiv.ofInjective L1.dualMap (LinearMap.dualMap_injective_of_surjective h1)
+  let e2 := LinearEquiv.ofInjective L2.dualMap (LinearMap.dualMap_injective_of_surjective h2)
+  obtain ⟨A, hA⟩ := Submodule.exists_linearEquiv_restrict_eq (e1.symm.trans e2)
+  let δ : C ≃ₗ[K] C := (Module.evalEquiv K C).trans
+    (A.dualMap.trans (Module.evalEquiv K C).symm)
   refine ⟨δ, fun c => ?_⟩
-  set p := (Submodule.prodEquivOfIsCompl _ _ hD2).symm c with hp
-  have hc : c = (p.1 : C) + (p.2 : C) := by
-    rw [← Submodule.coe_prodEquivOfIsCompl' _ _ hD2, hp, LinearEquiv.apply_symm_apply]
-  have hδ : δ c = ((k p.1 : LinearMap.ker L1) : C) + ((e1.symm (e2 p.2) : D1) : C) := by
-    simp only [δ, LinearEquiv.trans_apply, ← hp]
-    rw [Submodule.coe_prodEquivOfIsCompl']
-    rfl
-  rw [hδ, map_add, LinearMap.mem_ker.1 (k p.1).2, zero_add, ← he1, LinearEquiv.apply_symm_apply, he2]
-  conv_rhs => rw [hc]
-  rw [map_add, LinearMap.mem_ker.1 p.1.2, zero_add]
+  apply (Module.evalEquiv K W).injective
+  ext φ
+  have h := congrArg (fun f : Module.Dual K C => f c) (hA (e1 φ))
+  simp only [LinearEquiv.trans_apply, LinearEquiv.symm_apply_apply] at h
+  change (L1.dualMap φ) ((Module.evalEquiv K C).symm (A.dualMap ((Module.evalEquiv K C) c))) = _
+  rw [Module.apply_evalEquiv_symm_apply]
+  exact h.symm
 
 theorem pi_surj {V : Type*} [AddCommGroup V] [Module K V] {a : ℕ} (ψ : Fin a → Module.Dual K V)
     (hψ : LinearIndependent K ψ) : Function.Surjective (LinearMap.pi ψ) := by
-  rw [← LinearMap.range_eq_top]
-  by_contra hne
-  obtain ⟨f, hf0, hfk⟩ := Submodule.exists_le_ker_of_lt_top _ (lt_top_iff_ne_top.2 hne)
-  apply hf0
-  have hsum : ∑ i, f (Pi.single i 1) • ψ i = 0 := by
+  have hdual : (LinearMap.pi ψ).dualMap =
+      (Pi.basisFun K (Fin a)).dualBasis.constr K ψ := by
+    apply (Pi.basisFun K (Fin a)).dualBasis.ext
+    intro i
+    rw [Module.Basis.constr_basis]
     ext v
-    have hv : f (LinearMap.pi ψ v) = 0 := hfk ⟨v, rfl⟩
-    have hdec : LinearMap.pi ψ v = ∑ i, ψ i v • (Pi.single i 1 : Fin a → K) := by
-      ext j
-      simp [Finset.sum_apply, Pi.single_apply]
-    rw [hdec, map_sum] at hv
-    simpa [smul_eq_mul, mul_comm] using hv
-  have hc := Fintype.linearIndependent_iff.1 hψ _ hsum
-  apply LinearMap.pi_ext'
-  intro i
-  ext
-  simp [hc i]
+    simp [Module.Basis.dualBasis_apply]
+  rw [← LinearMap.dualMap_injective_iff, hdual]
+  exact (Pi.basisFun K (Fin a)).dualBasis.injective_constr_of_linearIndependent hψ
 
 theorem trans_tuple {V : Type*} [AddCommGroup V] [Module K V] [FiniteDimensional K V] {a : ℕ}
     (x y : Fin a → V) (hx : LinearIndependent K x) (hy : LinearIndependent K y) :
     ∃ A : V ≃ₗ[K] V, ∀ j, A (x j) = y j := by
-  set U := Submodule.span K (Set.range x)
-  set U' := Submodule.span K (Set.range y)
-  obtain ⟨C, hC⟩ := Submodule.exists_isCompl U
-  obtain ⟨C', hC'⟩ := Submodule.exists_isCompl U'
-  let bx := Module.Basis.span hx
-  let by' := Module.Basis.span hy
-  have hU : Module.finrank K U = a := by rw [Module.finrank_eq_card_basis bx, Fintype.card_fin]
-  have hU' : Module.finrank K U' = a := by rw [Module.finrank_eq_card_basis by', Fintype.card_fin]
-  have h1 := Submodule.finrank_add_eq_of_isCompl hC
-  have h2 := Submodule.finrank_add_eq_of_isCompl hC'
-  let eC : C ≃ₗ[K] C' := LinearEquiv.ofFinrankEq _ _ (by omega)
-  let eU : U ≃ₗ[K] U' := bx.equiv by' (Equiv.refl _)
-  refine ⟨(Submodule.prodEquivOfIsCompl _ _ hC).symm.trans
-    ((eU.prodCongr eC).trans (Submodule.prodEquivOfIsCompl _ _ hC')), fun j => ?_⟩
-  have hxj : x j ∈ U := Submodule.subset_span ⟨j, rfl⟩
-  simp only [LinearEquiv.trans_apply]
-  rw [Submodule.prodEquivOfIsCompl_symm_apply_left _ _ hC ⟨x j, hxj⟩]
-  rw [Submodule.coe_prodEquivOfIsCompl']
-  have : eU ⟨x j, hxj⟩ = ⟨y j, Submodule.subset_span ⟨j, rfl⟩⟩ := by
-    have hb : (⟨x j, hxj⟩ : U) = bx j := by ext; simp [bx, Module.Basis.span_apply]
-    rw [hb]
-    simp only [eU, Module.Basis.equiv_apply, Equiv.refl_apply]
-    exact Module.Basis.span_apply hy j
-  simp [LinearEquiv.prodCongr_apply, this]
+  obtain ⟨A, hA⟩ := Submodule.exists_linearEquiv_restrict_eq
+    ((Module.Basis.span hx).equiv (Module.Basis.span hy) (Equiv.refl (Fin a)))
+  refine ⟨A, fun j => ?_⟩
+  have hj := hA ((Module.Basis.span hx) j)
+  rw [Module.Basis.equiv_apply] at hj
+  simpa only [Equiv.refl_apply, Module.Basis.span_apply] using hj.symm
 
 theorem fix_tuple {V : Type*} [AddCommGroup V] [Module K V] [FiniteDimensional K V] {a : ℕ}
     (x : Fin a → V) (hx : LinearIndependent K x) (φ ψ : Fin a → Module.Dual K V)

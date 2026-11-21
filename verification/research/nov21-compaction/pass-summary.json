@@ -1,0 +1,32 @@
+{
+  "base_commit": "6fc3615fcae0da5c47c04aa1ff1441b4f0e05948",
+  "source_totals": {
+    "modules": -1,
+    "physical_lines": 8863,
+    "nonblank_lines": 8867,
+    "bytes": 787671
+  },
+  "net_lines_removed_by_family": {
+    "polynomial_certificates": 440,
+    "isotypic": 231,
+    "linear_algebra": 165,
+    "interface_and_stabilizer": 7996,
+    "torsion_and_subgroups": 31
+  },
+  "mathematical_family_net_physical_lines": 867,
+  "additional_stabilizer_proof_body_lines_removed": 6,
+  "remaining_interface_inference_cleanup_lines": 7990,
+  "source_files_changed": 14,
+  "existing_files_changed": 13,
+  "new_helpers": 1,
+  "full_project_verdict": "pending; targeted checks and static source audit only",
+  "publication": {
+    "artifact_id": "db3a104892d741ee89cc7fe4615da509",
+    "file_id": "99e062c0a5f33244ce663ba984287bf0",
+    "url": "https://principia-math.com/api/ws/files/db3a104892d741ee89cc7fe4615da509",
+    "pdf_sha256": "55510d4ab82e7f9e57f255a5165640fba9fe565d9b260fb0072a5a11096f2257",
+    "bytes": 189546,
+    "pages": 3
+  },
+  "notes_source_sha256": "54b127663544441293a15dec72d315bb2fc19495ee1f7cfcfb08f10e6bb0e8a2"
+}

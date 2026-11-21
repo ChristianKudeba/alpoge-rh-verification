@@ -1,0 +1,15 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/IsoSepActualChecked.lean:14:31: error: Type mismatch
+  IntertwiningMap.isIntertwining ?m.205 ?m.206 ?m.207
+has type
+  ∀ (g : ?m.196) (v : ?m.197), ?m.207 ((?m.205 g) v) = (?m.206 g) (?m.207 v)
+but is expected to have type
+  f.toLinearMap ((σ g) x) = (ρ g) (f.toLinearMap x)
+/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/IsoSepActualChecked.lean:14:31: error: Application type mismatch: The argument
+  f
+has type
+  σ.IntertwiningMap ρ
+but is expected to have type
+  IntertwiningMap ?m.205 ?m.206
+in the application
+  IntertwiningMap.isIntertwining ?m.205 ?m.206 f
+'GlobalTheory.IsoSep.main' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

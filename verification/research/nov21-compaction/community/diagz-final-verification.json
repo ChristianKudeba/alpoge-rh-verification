@@ -1,0 +1,9 @@
+{
+  "actual_source_sha256": "bf2f89aed313954ebebb4595cb5fd79ebc0fda68bb558e79fd6d2a08a0e1ac57",
+  "checked_bundle_sha256": "ad4f82b5984b1d4f50c3a2be00fb36ffdc3625c67d7d11533ad97a7dad381d82",
+  "checked_bundle_is_exact_source_plus_three_axiom_reports": true,
+  "native_exit_code": 0,
+  "native_seconds": 37.3499110419998,
+  "all_three_changed_endpoints_standard_axioms_only": true,
+  "note": "Original61.36s andcandidate37.35s were singleuncontrolledruns, not a benchmark or full-project validation."
+}

@@ -1,0 +1,2 @@
+Replaying 38790 declarations for [UpperTheory.Reformulated.B.Gr34.mem_UC] into an empty kernel environment
+REPLAY PASSED; axioms: [propext, Classical.choice, Quot.sound]

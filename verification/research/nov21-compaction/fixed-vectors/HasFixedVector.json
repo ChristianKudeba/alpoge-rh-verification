@@ -1,0 +1,20 @@
+{
+  "module": "Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.HasFixedVector",
+  "source_sha256": "d23afc117deea11fd2c9daae04266a64595581dd2f59daac0a2dae7819cfc3dd",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/alpoge-compaction/src",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/fixed-vectors/output/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/HasFixedVector.olean",
+    "/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/HasFixedVector.lean"
+  ],
+  "exit_code": 0,
+  "seconds": 3.347352781000154
+}

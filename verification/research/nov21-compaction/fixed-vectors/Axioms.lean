@@ -1,0 +1,15 @@
+import Lemmata.IsotypicGeneration
+import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.IrreducibleProjectionExists
+import Development.AbelianVarietyTheory.Proofs.IwasawaDecomposition.FixedVectorsNeBotOfMemSumIntertwiningRanges
+import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.HasFixedVector
+import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.SubgroupFixed
+
+#print axioms Lemmata.IsotypicGeneration.properties
+#print axioms Lemmata.IsotypicGeneration.separates
+#print axioms Lemmata.IsotypicGeneration.intertwiner
+#print axioms Lemmata.IsotypicGeneration.embeds
+#print axioms UpperTheory.Reformulated.B.HasFixedVector.hasFixed
+#print axioms UpperTheory.Reformulated.B.SubgroupFixed.sub_fixed
+
+#print axioms UpperTheory.irreducible_projection_exists
+#print axioms GlobalTheory.UnrLoc.fixed_ne_bot_of_mem_iSup_range

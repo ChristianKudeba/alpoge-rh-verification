@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref,xurl}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newtheorem{proposition}{Proposition}
+\newcommand{\HomR}{\operatorname{Hom}_R}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\src}[1]{\nolinkurl{#1}}
+\title{Lean research notes: reusable mathematical reductions}
+\author{Principia contributors}
+\date{21 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We record checked replacements in Alp\"oge's formal development: separation
+of an isotypic module by equivariant projections, extension of subspace
+isomorphisms, projective splitting, torsion finiteness, and a common
+polynomial certificate for three projective addition identities.
+The replacements preserve the existing public theorem types.
+The mathematical families save 867 physical source lines, including their
+new shared helper. A further stabilizer abstraction saves six proof-body
+lines. Expanded-statement cleanup is counted separately.
+\end{abstract}
+
+\section{An isotypic module is detected by its simple type}
+Let $R$ be a ring, $S$ a simple left $R$-module, and $M$ another module.
+Suppose
+\[
+ M=\sum_{f\in\HomR(S,M)}\operatorname{im} f.
+\]
+\begin{proposition}
+The module $M$ is semisimple and isotypic of type $S$. For every
+$0\ne v\in M$, there is $p\in\HomR(M,S)$ with $p(v)\ne0$.
+Every nonzero submodule of $M$ contains an embedded copy of $S$.
+\end{proposition}
+\begin{proof}
+A nonzero map from $S$ is injective, so each nonzero image is a copy of $S$.
+The spanning condition therefore makes the isotypic component of type $S$
+equal to $M$, and expresses $M$ as a sum of semisimple submodules.
+Mathlib's isotypic decomposition gives
+$M\simeq\bigoplus_{i\in I} S$. A nonzero vector has a nonzero coordinate;
+the corresponding coordinate map is $p$. Finally, a nonzero submodule of a
+semisimple module contains a simple submodule, and isotypy identifies that
+submodule with $S$.
+\end{proof}
+
+For representations over a field $k$, apply this to the monoid algebra
+$R=k[G]$. The resulting map $p$ is an intertwiner. If a subgroup $U$
+fixes $v$, then $p(v)$ is a nonzero $U$-fixed vector in $S$.
+The algebraic statement requires no topology, compactness, smoothness or
+finite-index hypothesis.
+
+This replaces compact-group averaging in \src{HasFixedVector}, finite-sum
+induction in \src{FixedVectorsNeBotOfMemSumIntertwiningRanges}, and repeated
+projection constructions in two other consumers. The same lemma reduces
+\src{GlobalTheory.IsoSep.main} from a 139-line module to 16 lines: its
+additional isomorphism premise is retained in the public interface but is
+unnecessary for the new proof. The reusable implementation is
+\src{Lemmata/IsotypicGeneration.lean}.
+
+\section{One cubic certificate replaces three expanded certificates}
+Write a projective point as $P=(x,y,z)$, and let $F(P)=0$ be its
+homogeneous Weierstrass equation. Define
+\begin{align*}
+r(P)={}&(a_1^2+a_2)x^3+3xy(a_1x+y+a_3z)\\
+ &+3xz\big((a_1a_3+a_4)x+(a_3^2+3a_6)z\big)+b_8z^3,
+\end{align*}
+where $b_8=a_1^2a_6+4a_2a_6-a_1a_3a_4+a_2a_3^2-a_4^2$.
+The three cross-coordinate compatibility identities for the two projective
+addition formulas each admit certificate multipliers
+\[
+ -C(P,Q)r(Q),\qquad C(P,Q)r(P),
+\]
+against the two curve equations. Thus they all factor through the same
+alternating residual $r(P)F(Q)-r(Q)F(P)$. Each coefficient $C$ has only a
+few bilinear terms. For example, the $X,Z$ identity uses
+\[
+ C(P,Q)=a_1x_Pz_Q+y_Pz_Q+z_Py_Q+a_3z_Pz_Q.
+\]
+
+The original expanded multipliers do not factor directly. The useful step
+is to change a certificate $(A,B)$ by
+\[
+ (A,B)\longmapsto\big(A-HF(Q),\ B+HF(P)\big).
+\]
+This preserves $AF(P)+BF(Q)$ by commutativity. Choosing this zero relation
+before factoring exposes the common cubic. Changing $r$ by a multiple of
+$F$ likewise leaves the alternating residual unchanged.
+
+The three original certificate expressions occupy 102, 142 and 223 physical
+lines. Their replacements occupy 5, 6 and 7 lines, plus the shared cubic.
+The full \src{DiagZEqNegAddY.lean} module falls from 629 to 189 lines,
+saving 440 after including the new definition. Lean checks the resulting
+polynomial identities over an arbitrary commutative ring; no division or
+nonsingularity assumption is added.
+
+\section{Extension, splitting, and duality replace coordinate constructions}
+An isomorphism between subspaces of a finite-dimensional vector space
+extends to an automorphism of the ambient space. Applying Mathlib's extension
+theorem replaces separate complement choices and block-product identifications
+in three tuple/subspace arguments.
+
+If $f:V\to k^n$ is surjective, projectivity supplies a linear section $s$.
+The decomposition $V=\ker f\oplus\operatorname{im}s$ follows from the
+bijectivity of
+\[
+ \ker f\oplus k^n\longrightarrow V,\qquad (u,y)\longmapsto u+s(y).
+\]
+This avoids constructing each lift separately and writing two explicit
+inverse maps. Existing public basis conclusions and their hypotheses are
+preserved.
+
+For the dual counting arguments, independent coordinate functionals make
+the dual map injective. Finite-dimensional duality then gives surjectivity
+of the original map, replacing kernel-dimension, projection, and annihilator
+arguments. Across four modules these changes remove 165 physical lines;
+the changed proof bodies fall from 281 to 119 nonempty lines. No new shared
+module is needed for this family.
+
+\section{Torsion, modularity, and stabilizers}
+The module named \src{QZ} is definitionally $\mathbb Q/\mathbb Z$, represented
+by Mathlib's additive circle of period $1$. Consequently, for $m\ne0$,
+\[
+ \{x\in\mathbb Q/\mathbb Z:mx=0\}
+\]
+is finite by \src{AddCircle.finite_torsion}. This replaces a 27-line
+residue enumeration by one line.
+
+For subgroups $U\trianglelefteq G$ and $U\le X$, Dedekind's identity yields
+$X\cap(HU)=(X\cap H)U$. Converting products to joins gives the required
+subgroup equality directly. Finite-index inheritance handles the related
+nonzero-index claims. This family saves 31 physical lines.
+
+For a representation of a finite product group, the stabilizer of a vector
+is already a subgroup supplied by Mathlib. The theorem that a product
+subgroup is generated by its coordinate embeddings then gives the
+fixed-vector equivalence. This replaces the private helper's manual
+stabilizer construction, reducing its proof from 11 to 5 lines.
+
+\section{Counts, attribution, and verification}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Family & Net physical lines removed\\
+\midrule
+Shared isotypic argument, including all new helper code & 231\\
+Common polynomial certificate & 440\\
+Subspace extension, splitting, and duality & 165\\
+Torsion and subgroup identities & 31\\
+\midrule
+Mathematical families & 867\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are source-line measurements, including imports, comments and spacing;
+they are not percentages of mathematical difficulty. The separate fixed-vector
+helper saves six proof-body lines. Its surrounding expanded public statement
+also contracts substantially: that entire module falls from 8,029 to 33 lines.
+Most of that latter saving is inference/statement cleanup and is excluded from
+the 867-line table.
+
+The concise fixed-vector interface follows
+\href{https://github.com/leanprover-community/riemann-hypothesis/pull/44}{mmmbeer's PR 44},
+pinned at \src{c9b3e57f0fe987012d32c2523635387bfe56d5a5}. Its general
+product-subgroup argument was already present in the original archive;
+we do not count that existing abstraction as new work. The proofs build on
+Alp\"oge's archive and the cited Mathlib theorems.
+
+All changed modules have focused native Lean checks with Lean 4.33.1 and
+Mathlib \src{0df444a360eaa60ab8c11dca51a86af692955474}.
+The changed audited endpoints report only propositional extensionality,
+classical choice and quotient soundness. Selected public types are compared
+directly with their original compiled expressions; other unchanged public
+headers are preserved byte for byte. Additional empty-kernel replay checks
+cover \src{mem_UC} (38,790 declarations) and \src{GlobalTheory.IsoSep.main}
+(12,291 declarations), including their transitive proof dependencies.
+
+The repository contains source snapshots, hashes, commands, logs and an
+independent review under \src{verification/research/nov21-compaction/}.
+These focused results do not supply a full-project Comparator verdict or
+replace the central arithmetic/geometric RH argument. The five final
+statements, Challenge, Solution, permitted axioms and dependency pins are
+preserved.
+\end{document}

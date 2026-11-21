@@ -1,0 +1,19 @@
+{
+  "source_path": "src/GroundTheory/ProfiniteCohomology/OfNatRelIndexSupAntitone.lean",
+  "source_sha256": "3bdcad4d5aa5959e7a678ebaf4997623424635017c8d90e42c082da5b516081a",
+  "check_sha256": "bab87b1b360cc7a80ff3c4b03e7374aa025e2c3d5c11d516d5fbc0fee52af498",
+  "exit_code": 0,
+  "seconds": 4.175909771000079,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/algebra/subgroup-index-check.lean"
+  ],
+  "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "scope": "Exact modified source module plus axiom prints, checked against pinned archive dependency cache; not full-project Comparator."
+}

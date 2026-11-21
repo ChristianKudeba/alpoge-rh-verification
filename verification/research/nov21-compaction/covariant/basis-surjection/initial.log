@@ -1,0 +1,6 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/candidate.lean:27:8: error: Type mismatch: After simplification, term
+  congrArg (⇑f) h
+ has type
+  u + f (f.ker.subtype k) = v + f (f.ker.subtype l)
+but is expected to have type
+  u = v

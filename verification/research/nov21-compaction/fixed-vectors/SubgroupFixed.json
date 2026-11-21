@@ -1,0 +1,20 @@
+{
+  "module": "Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.SubgroupFixed",
+  "source_sha256": "1a13219c2f319c62dcfcafd99132bc6ca3810c7d037c77f0b62a64c46e47f705",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/alpoge-compaction/src",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/fixed-vectors/output/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/SubgroupFixed.olean",
+    "/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/SubgroupFixed.lean"
+  ],
+  "exit_code": 0,
+  "seconds": 3.6899298610005644
+}

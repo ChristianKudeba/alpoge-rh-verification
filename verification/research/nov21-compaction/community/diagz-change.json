@@ -1,0 +1,76 @@
+{
+  "path": "/workspace/alpoge-compaction/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/DiagZEqNegAddY.lean",
+  "original": {
+    "physical_lines": 629,
+    "newline_count": 629,
+    "nonblank_lines": 607,
+    "bytes": 49829,
+    "sha256": "3dc889d583265317eb85de95a10ff8928de59ba0bca0d814246d1405bb309575"
+  },
+  "modified": {
+    "physical_lines": 189,
+    "newline_count": 189,
+    "nonblank_lines": 166,
+    "bytes": 12780,
+    "sha256": "bf2f89aed313954ebebb4595cb5fd79ebc0fda68bb558e79fd6d2a08a0e1ac57"
+  },
+  "changed_lemma_headers_identical": true,
+  "all_original_public_headers_identical": true,
+  "public_declaration_count": 17,
+  "lemmas": [
+    {
+      "lemma": "diagX_mul_addZ",
+      "original_proof": {
+        "physical_lines": 102,
+        "newline_count": 102,
+        "nonblank_lines": 101,
+        "bytes": 8984,
+        "sha256": "36274ba97ad6a64ba049b1eef078571bdd590178ce7a659b2c17265e67620864"
+      },
+      "candidate_proof": {
+        "physical_lines": 5,
+        "newline_count": 5,
+        "nonblank_lines": 4,
+        "bytes": 373,
+        "sha256": "7cac8c8773e65faf77f4223090bf92d1a8a771eea2acd690202da9f113152592"
+      }
+    },
+    {
+      "lemma": "negDiagY_mul_addZ",
+      "original_proof": {
+        "physical_lines": 142,
+        "newline_count": 142,
+        "nonblank_lines": 141,
+        "bytes": 12004,
+        "sha256": "283a6b6bae319698c8d75867f1cc0746dd7d92b0f390117d6db747e2c412470e"
+      },
+      "candidate_proof": {
+        "physical_lines": 6,
+        "newline_count": 6,
+        "nonblank_lines": 5,
+        "bytes": 410,
+        "sha256": "cdf52bb674d8af62746cf88725e8c7caa2178589bf384d4a7c061d3f59313217"
+      }
+    },
+    {
+      "lemma": "diagX_mul_negAddY",
+      "original_proof": {
+        "physical_lines": 223,
+        "newline_count": 223,
+        "nonblank_lines": 222,
+        "bytes": 17801,
+        "sha256": "944e26375cff367175bb5e3f28229a9760349c4f64e542930f615f56890e7ba6"
+      },
+      "candidate_proof": {
+        "physical_lines": 7,
+        "newline_count": 7,
+        "nonblank_lines": 6,
+        "bytes": 467,
+        "sha256": "b46568fe4ded3c43ff75883372377e80935895bb543f00b34b3e32f6ba04f3d9"
+      }
+    }
+  ],
+  "classification": "algebraic certificate factorization, not a new RH proof route",
+  "mathematical_change": "All three cross-coordinate polynomial certificates use one alternating residual r(P)F(Q)-r(Q)F(P), with a common four-summand cubic using b8 and a small bilinear coefficient per identity.",
+  "native_candidate_check": "diagz-candidate-check.json"
+}

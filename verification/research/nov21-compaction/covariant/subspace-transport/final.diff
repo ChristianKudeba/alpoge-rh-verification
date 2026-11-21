@@ -1,0 +1,43 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLinearEquivMapEqOfFinrankEq.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/SatakeParameters/ExistsLinearEquivMapEqOfFinrankEq.lean
+@@ -10,31 +10,18 @@
+     [Module k V] [FiniteDimensional k V] (W W' : Submodule k V)
+     (h : Module.finrank k W = Module.finrank k W') :
+     ∃ e : V ≃ₗ[k] V, W.map e.toLinearMap = W' := by
+-  obtain ⟨U, hU⟩ := W.exists_isCompl
+-  obtain ⟨U', hU'⟩ := W'.exists_isCompl
+-  have h1 := Submodule.finrank_add_eq_of_isCompl hU
+-  have h2 := Submodule.finrank_add_eq_of_isCompl hU'
+-  have h3 : Module.finrank k U = Module.finrank k U' := by omega
+   let a : W ≃ₗ[k] W' := LinearEquiv.ofFinrankEq _ _ h
+-  let b : U ≃ₗ[k] U' := LinearEquiv.ofFinrankEq _ _ h3
+-  let e : V ≃ₗ[k] V := (Submodule.prodEquivOfIsCompl W U hU).symm ≪≫ₗ (a.prodCongr b) ≪≫ₗ
+-    Submodule.prodEquivOfIsCompl W' U' hU'
+-  have he : ∀ w : W, e w = a w := by
+-    intro w
+-    simp [e]
++  obtain ⟨e, he⟩ := Submodule.exists_linearEquiv_restrict_eq a
+   refine ⟨e, ?_⟩
+-  apply le_antisymm
+-  · rintro _ ⟨w, hw, rfl⟩
+-    have := he ⟨w, hw⟩
+-    change e w ∈ W'
+-    simp only at this
+-    rw [this]
+-    exact (a ⟨w, hw⟩).2
+-  · intro w hw
++  ext w
++  constructor
++  · rintro ⟨v, hv, rfl⟩
++    change e v ∈ W'
++    rw [← he ⟨v, hv⟩]
++    exact (a ⟨v, hv⟩).2
++  · intro hw
+     refine ⟨a.symm ⟨w, hw⟩, (a.symm ⟨w, hw⟩).2, ?_⟩
+-    change e _ = w
+-    rw [he]
+-    simp
++    simpa using (he (a.symm ⟨w, hw⟩)).symm
+ 
+ theorem exists_gl_map_residue_eq (O : Type) [CommRing O] [IsLocalRing O] (n : ℕ)
+     (W W' : Submodule (IsLocalRing.ResidueField O) (Fin n → IsLocalRing.ResidueField O))

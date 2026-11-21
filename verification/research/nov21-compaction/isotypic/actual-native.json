@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "seconds": 3.673202797999693,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/output/IsoSepActualChecked.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/isotypic/IsoSepActualChecked.lean"
+  ],
+  "log_sha256": "62b64bec1dc7fb3af0c302da2167e4c8feb26c31c84b7fae4cf1a81f2925b77f"
+}

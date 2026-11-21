@@ -1,0 +1,120 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:24:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:30:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:44:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:48:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:24:6: warning: Unused tactic linter: `exact LinearEquiv.ofFinrankEq hdim` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:30:6: warning: Unused tactic linter: `simp [δ]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:44:6: warning: Unused tactic linter: `simpa using congrArg Subtype.val hk` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:48:4: warning: Unused tactic linter: `simpa using hL1 c` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:56:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:56:6: warning: Unused tactic linter: `simp [Finset.sum_apply, Pi.single_apply, eq_comm]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:68:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:68:6: warning: Unused tactic linter: `(
+  obtain ⟨μ, hμ0, hμ⟩ := Submodule.exists_dual_map_eq_bot_of_lt_top (lt_top_iff_ne_top.mpr hne)
+  refine ⟨μ, hμ0, fun v => ?_⟩
+  have hm : μ (LinearMap.pi ψ v) ∈ (LinearMap.range (LinearMap.pi ψ)).map μ :=
+    Submodule.mem_map_of_mem (LinearMap.mem_range_self _ v)
+  rw [hμ] at hm
+  simpa using hm)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:88:2: error: Type mismatch: After simplification, term
+  Eq.symm (hA ((Module.Basis.span hx) j))
+ has type
+  A (x j) = ↑(((Module.Basis.span hx).equiv (Module.Basis.span hy) (Equiv.refl (Fin a))) ⟨x j, ⋯⟩)
+but is expected to have type
+  A (x j) = y j
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:99:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:103:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:141:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:141:8: warning: Unused tactic linter: `simpa [hc] using hm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:187:21: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:208:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:212:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:222:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:230:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:250:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:253:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:208:6: warning: Unused tactic linter: `simpa using h0` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:212:6: warning: Unused tactic linter: `exact
+  LinearMap.range_eq_top.mp
+    ((LinearMap.ker_eq_bot_iff_range_eq_top_of_finrank_eq_finrank hTdim).mp
+      (LinearMap.ker_eq_bot.mpr hfinj))` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:222:8: warning: Unused tactic linter: `exact (LinearEquiv.ofBijective_apply f _ (eT.symm t)).symm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:230:6: warning: Unused tactic linter: `simp [B]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:250:6: warning: Unused tactic linter: `simpa using hBx j` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:253:6: warning: Unused tactic linter: `simpa using congrFun (hΨB v) i` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:269:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/candidate-audit.lean:269:6: warning: Unused tactic linter: `simpa [LinearMap.sum_apply] using hgv` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Formalism.L2.SG.Pf.NcS.LT.GLP.trans_tuple' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

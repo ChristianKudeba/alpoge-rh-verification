@@ -1,0 +1,32 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/ncx/candidate-audit.lean:50:10: warning: This simp argument is unused:
+  Module.Basis.dualBasis_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Formalism.L2.SG.Pf.NcX.LT.GLP.pi_surj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Formalism.L2.SG.Pf.NcX.LT.GLP.trans_tuple' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+{
+  "source": "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/ncx/candidate-audit.lean",
+  "source_sha256": "48ea6d6f001c61dedb9682d43ef168370bd0e89b4930277bfc61b47233965325",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-R",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/ncx",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/ncx/passed.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/ncx/candidate-audit.lean"
+  ],
+  "lean_path": "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/Qq/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/aesop/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/batteries/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/plausible/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "exit_code": 0,
+  "seconds": 6.231927277000068,
+  "compiler": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

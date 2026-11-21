@@ -1,0 +1,479 @@
+{
+  "seconds": 1.309185713998886,
+  "total_archive_bytes": 2544810,
+  "records": [
+    {
+      "name": "Development.AbelianVarietyTheory.Proofs.TwistedOperators.IwahoriTraceOfBorelCasselman",
+      "sha256": "801883b12bbbf2c110e64a560fe39d7d52625c5fde2be342b1e29139b4291491",
+      "bytes": 111173,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/062bb4c4a8446eaf.ltar",
+      "hash": "db4dc2f0dbb5f968",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AbelianVarietyTheory/Proofs/TwistedOperators",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AbelianVarietyTheory/Proofs/TwistedOperators"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.HeckePairTop",
+      "sha256": "5d779c336e6a6dfc3afc796d18746405b80b1988c38cd5fe1bbb23f25b7c51a6",
+      "bytes": 27829,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/70e0abcf7456dd09.ltar",
+      "hash": "f41984b244d3a68d",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.HkDefs",
+      "sha256": "594d94c94f16c625365d700b67dc3573c41ce91c009a1006cb76007c5f965433",
+      "bytes": 35160,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/e71a0cb243f9a2d0.ltar",
+      "hash": "f8f9054ab25daf8e",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IsCplAtSelf",
+      "sha256": "e06c5b0f94319e32b68d72d08c5013d39a697b96eacc55248138aed1c9e05084",
+      "bytes": 5538,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/a62cb090717e161a.ltar",
+      "hash": "e17ea337729188d6",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwDomMul",
+      "sha256": "b0441dd995bc1cc9cd98d443c9ae003c489b65c2b0ce8b981e5cbcdd879482e9",
+      "bytes": 51969,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/d409ad14b7d4cdab.ltar",
+      "hash": "e7b01fe705046fe8",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwFactTorus",
+      "sha256": "4534d84a5f49bf525a6dff96e3b5b294690ce1045ba83121c2859218706727b7",
+      "bytes": 31765,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/30792fd3c4bd6bbf.ltar",
+      "hash": "28ccf4d573236b57",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwFundNorm",
+      "sha256": "cbdfc81c0d6afb89dbd74583fe345ee7d56490d4daf86258e5c927003b1e6cad",
+      "bytes": 44217,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/408525efad5e0e6e.ltar",
+      "hash": "249c39374f3ca5b0",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwHeckePairIwC",
+      "sha256": "889b2a3f06162c414259f8d23794735088cab0bab2761b0251343fdb1dc32604",
+      "bytes": 10264,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/ab6bfa3b2e18dac2.ltar",
+      "hash": "eca8c0500a8b92c7",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwHkApply",
+      "sha256": "368b235a603dfdf3a92af6839ec32243bdb07fbb6cf51fbbd13911a62ba1b537",
+      "bytes": 9708,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/cc8df699cf42549c.ltar",
+      "hash": "6f70f8066ad58b5f",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwHkMul",
+      "sha256": "4d560fb686c774fbbebe9287da511ba6f72cdacdaeb91dc8803c8dce8931f006",
+      "bytes": 19766,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/027b97e86407e27d.ltar",
+      "hash": "7934697c6ab6ca72",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwHkNorm",
+      "sha256": "089debc5c9daea24cb370bd9395b6318c6c07d0f36dca948e63beb93137546f3",
+      "bytes": 27486,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/bd42a0d14d7a69e6.ltar",
+      "hash": "b924245c620ebf2b",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwLenStep",
+      "sha256": "995130ab25f17c5d2ede1b7d2e3238bb94b17eccd4c518e16049334975b05dc0",
+      "bytes": 26304,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/4d1db4ba41740668.ltar",
+      "hash": "79d4fa6b1c3e4f99",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwLeviLevel",
+      "sha256": "6cf4a23b82bbcd77a16635712350521b20433a0147d88326a01f654065eb1942",
+      "bytes": 33367,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/450dad42c7d8439e.ltar",
+      "hash": "8eceeb2d0d34951c",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwLeviMul",
+      "sha256": "d47ecf541c09bc5226f88c3e98f244cca302282783946fecc9bfea74def21ccc",
+      "bytes": 27780,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/2d3c600cc697d4e4.ltar",
+      "hash": "982ae100ea94f316",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwLeviSum",
+      "sha256": "80b70d63df823c7838a3b319a13219a6f28430e3aa382320346d1f14d4c584a1",
+      "bytes": 24123,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/a3c3961764adbd9d.ltar",
+      "hash": "616de52eb4d911ff",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwMemIwC",
+      "sha256": "c8e945fd4de85dd8dc2850b3ee193be3974c9c773093222c6d43a819c4b55050",
+      "bytes": 54263,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/e00761fe639c7ebb.ltar",
+      "hash": "78531e16d171c041",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwMonoidExt",
+      "sha256": "98631dcb89addd31ca4de7c0c2c9131bbf4218c72cee410b9bed3c6010eb2f42",
+      "bytes": 9924,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/ef76f23b0950a3cf.ltar",
+      "hash": "552a226737354397",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwPermCard",
+      "sha256": "d315e5318582dd94ad614e3a142d1b0ac0c970e39142635294e8ca2d59a7d762",
+      "bytes": 56747,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/44a0b2e17132d2c5.ltar",
+      "hash": "29911d900f0411a2",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwPermMul",
+      "sha256": "0c15947bddf72ac01b69677805bb5458f1c1d8876eaae7ce244c5b88943f8b85",
+      "bytes": 26996,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/995fb933d0a38c06.ltar",
+      "hash": "a77d76e0aa8cc883",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwPermUnit",
+      "sha256": "0db5afa882e1396d154562d925f33733b0fbb751a28b7f866df099a17c5464dd",
+      "bytes": 13147,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/83287ed3c8700289.ltar",
+      "hash": "052d41be9f6edaea",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwSimpleOrbit",
+      "sha256": "de5a08d2a5aa3bee9ab5e8984821ac29245f65ec1cc1479fe88e647000e203c2",
+      "bytes": 48942,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/9ac61aad82404f75.ltar",
+      "hash": "a5f273ed681da0f1",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwSimpleQuad",
+      "sha256": "2ffd14c6e6e85fd140dcf71623937cc14dd92f4cecc8135da06f55dce4f00359",
+      "bytes": 80505,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/c5237d414e623540.ltar",
+      "hash": "7c5e7689907e009c",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwThetaEx",
+      "sha256": "983c194e1f948a5b27444815ef8d5bd41b4d9f6eb765e5839d7ae54649746130",
+      "bytes": 21599,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/b62f2da1b91247b0.ltar",
+      "hash": "480d896237a514a8",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.MSplitDefs",
+      "sha256": "02bedad9e5d21bd4fbd20568a7f3f5ac325a0596d45c8300f8f63eef21a4e6d5",
+      "bytes": 12030,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/35184f75a169bcad.ltar",
+      "hash": "96daf22196ed439d",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.TopNilDefs",
+      "sha256": "e4951c5fd13f25792a75789cdbf250abeb52389ac3344d33ca30ede3e8cfc9ec",
+      "bytes": 18245,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/a81cdb1753159aa1.ltar",
+      "hash": "cf00efb2e3017575",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/AlgebraTools"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.CommutativeAlgebraHeight.OfDetToDet",
+      "sha256": "f14b5b88d5013cce71e1ee8ccd98388a80f7ad381ff1ea30ca965e7b2d13bb20",
+      "bytes": 217215,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/908feb44b175db4c.ltar",
+      "hash": "de6347671e4096c4",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/CommutativeAlgebraHeight",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/CommutativeAlgebraHeight"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.CoefficientRepTrivialOnUnramified",
+      "sha256": "684bb71e66e28b6a7087c2519029c1c44ba95e6ed2a0d43bd006c2e11206e82a",
+      "bytes": 173916,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/a25fc5893560d6bb.ltar",
+      "hash": "d2e7a19a125a9feb",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.Distinct",
+      "sha256": "a35f85443f1617fc71bedb4dccf0653781a710ee10ececfe9a9fce0bd0c06cd8",
+      "bytes": 29529,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/9b06caf5b2a1d89f.ltar",
+      "hash": "081c9d86f0571c14",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.HeckeCommRing",
+      "sha256": "c368a4ad76f838ddb6152c42f19059846e7055845ff2f7e24b4d1bdd7d040abd",
+      "bytes": 10566,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/429c580deb0c7b4d.ltar",
+      "hash": "0e7a02bf55f83117",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.OrdinaryHeckeCharacters.DcSumEqOfMk",
+      "sha256": "0cb5159adaf4454f8cf6c97fc2423b5bd01159dc40528c9b4b15e99403d9b654",
+      "bytes": 13531,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/07b82aa4421656cf.ltar",
+      "hash": "c808b2c33f640127",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.OrdinaryHeckeCharacters.DivMono",
+      "sha256": "04f1f37f3551b02dcfd66f61e8070e39bfa9c2e33a34aaea1146979ffa0a3a82",
+      "bytes": 17068,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/8f057e5e93a226e6.ltar",
+      "hash": "6995539d4be8367c",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.OrdinaryHeckeCharacters.IndexNeZero",
+      "sha256": "e12632fc25af2d0842a27656d0aee8d162a9796baa7d45c7c87898b75591d4d1",
+      "bytes": 104443,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/01cca314c6d5681a.ltar",
+      "hash": "e453e9c610276f8a",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras/OrdinaryHeckeCharacters"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.HeckeAlgebras.TcAnti",
+      "sha256": "d32ce8a510585b8dc7a2dfd57338fc6b039acf9a54539dc51b9b8e471e80ac6f",
+      "bytes": 35935,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/556982dd3a03d578.ltar",
+      "hash": "0442d55a57004cb6",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/HeckeAlgebras"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.Classical",
+      "sha256": "08e8ebbb3fe22f0d5cad767aaee711e9551498712d835c5e7b888588e5c3245c",
+      "bytes": 184721,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/c4663fe58bd1c534.ltar",
+      "hash": "a03d066a12d16075",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.NilpotentLevelLowering.ActUVariableEqPow",
+      "sha256": "fab03bc6de2896fab0f28f9f2c630574e10e3241dfc92fecd9bb8471791a1029",
+      "bytes": 69383,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/4a48cc5febbbe0d7.ltar",
+      "hash": "ea5e8e9eb37e5e07",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/NilpotentLevelLowering",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/NilpotentLevelLowering"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.NilpotentLevelLowering.LevelModule",
+      "sha256": "9356dc4fddc5f20c13b9c7c08fd3c19a0db2622e439c59f8d26ef5266e67e17a",
+      "bytes": 109614,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/daaa3a7000d21257.ltar",
+      "hash": "5c2f92aaa50c3330",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/NilpotentLevelLowering",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/NilpotentLevelLowering"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.PairedDualFirstOrderDualMatrixSpace",
+      "sha256": "3a13464fbea0dcf0bab06b7109ffda9fa65b4697bc757f04732e3df5fa2eb1e9",
+      "bytes": 166583,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/e811a64998dc899e.ltar",
+      "hash": "6ac5be3320d800bf",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.PatchedSupportCompletions",
+      "sha256": "d64af111efc5276f31a475d4dcf7ed1ce73966ccabf3e2af239168097913f0be",
+      "bytes": 149668,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/74b180091992a67c.ltar",
+      "hash": "9e7a410e4575d8bf",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.TaylorWilesObstructionBound",
+      "sha256": "0c44a29843b98e70685743303d3d7ea6c09d780bba83db96e645b234c675d988",
+      "bytes": 82111,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/4dfb577de08ada6f.ltar",
+      "hash": "28a2a3681e73696e",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.PatchingModules.ThetaCoefficientMapEq",
+      "sha256": "7d3571292ba67ac776c9244d719766648706b525860d0c29db1ad49592ed4c35",
+      "bytes": 227385,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/5f4b9d67ac116c18.ltar",
+      "hash": "ef8a7317140776f5",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.WeilGroupCharacters.Inertia",
+      "sha256": "8428fc65ed607e8412f137434eaff57704644c8754838419423c7f8e65e559c0",
+      "bytes": 64336,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/0ca846ea410ee2c6.ltar",
+      "hash": "ee3824664f802731",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/AutomorphicVarieties/WeilGroupCharacters",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/AutomorphicVarieties/WeilGroupCharacters"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.UnopSMul",
+      "sha256": "9f301693c1b8d377cc56c0c7bc49dc7a7f7ca817140eb68e131fba0f5b631606",
+      "bytes": 14976,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/181cad1609c20c62.ltar",
+      "hash": "83ad7bf87fd1edd8",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities"
+      ]
+    },
+    {
+      "name": "Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.FixPiIff",
+      "sha256": "1c22d5c1e9baec853cfec1be570131ee3ccf3603e99cf94a54a2ecd8b84e63f8",
+      "bytes": 44983,
+      "file": "/workspace/principia-harness/certificate-hour/matrix/project-cache/archives/ded28a727afe1188.ltar",
+      "hash": "3dfd505bdfd11bb8",
+      "base": [
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/ir/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities"
+      ]
+    }
+  ]
+}

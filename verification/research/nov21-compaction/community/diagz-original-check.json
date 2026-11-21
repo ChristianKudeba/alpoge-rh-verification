@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "seconds": 61.355853862000004,
+  "sha256": "3dc889d583265317eb85de95a10ff8928de59ba0bca0d814246d1405bb309575",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-DmaxHeartbeats=0",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/community/DiagZEqNegAddY.original.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/community/DiagZEqNegAddY.original.lean"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "exit_code": 0,
+  "seconds": 5.0237072270010685,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/build/FixPiIffCandidateChecked.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/FixPiIffCandidateChecked.lean"
+  ],
+  "source_sha256": "a4d1a2beb4bf04f93af019b26e61351b6702b41a0fedda0111beb7d9c354d3d1",
+  "candidate_source_sha256": "5d2832685a3340b467ce665f5da8724b80c5adce9bc00f04f0ff4dc55cfed60d",
+  "lean_path": "[PosixPath('/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/build'), PosixPath('/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/LeanSearchClient/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/Qq/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/aesop/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/batteries/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/importGraph/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/mathlib/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/plausible/.lake/build/lib/lean'), PosixPath('/workspace/alpoge-compaction/.lake/packages/proofwidgets/.lake/build/lib/lean')]"
+}

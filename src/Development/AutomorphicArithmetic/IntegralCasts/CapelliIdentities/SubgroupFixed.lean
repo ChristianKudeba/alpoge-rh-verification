@@ -1,4 +1,5 @@
 import Mathlib
+import Lemmata.IsotypicGeneration
 
 noncomputable def UpperTheory.Reformulated.B.SubgroupFixed.HasFixed :
     {Γ V : Type} →
@@ -11,32 +12,8 @@ private lemma UpperTheory.Reformulated.B.SubgroupFixed.core {R M N : Type*} [Rin
     (hsup : ∀ S : Submodule R N, (∀ f : M →ₗ[R] N, LinearMap.range f ≤ S) → S = ⊤)
     (W : Submodule R N) (hW : W ≠ ⊥) :
     ∃ g : M →ₗ[R] N, Function.Injective g ∧ LinearMap.range g ≤ W := by
-  have hss : IsSemisimpleModule R N := by
-    refine isSemisimpleModule_of_isSemisimpleModule_submodule'
-      (p := fun f : M →ₗ[R] N => LinearMap.range f) (fun f => IsSemisimpleModule.range f) ?_
-    exact hsup _ (fun f => le_iSup (fun f : M →ₗ[R] N => LinearMap.range f) f)
-  obtain ⟨C, hC⟩ := exists_isCompl W
-  let p : N →ₗ[R] W := W.linearProjOfIsCompl C hC
-  have hex : ∃ f : M →ₗ[R] N, p ∘ₗ f ≠ 0 := by
-    by_contra hno
-    push Not at hno
-    have htop : LinearMap.ker p = ⊤ := hsup _ (fun f => by
-      rintro _ ⟨x, rfl⟩
-      exact LinearMap.congr_fun (hno f) x)
-    apply hW
-    rw [eq_bot_iff]
-    intro w hw
-    have h1 : p w = 0 := by
-      have : w ∈ LinearMap.ker p := htop ▸ Submodule.mem_top
-      exact this
-    have h2 : p w = ⟨w, hw⟩ := Submodule.linearProjOfIsCompl_apply_left hC ⟨w, hw⟩
-    have h3 : (⟨w, hw⟩ : W) = 0 := h2.symm.trans h1
-    simpa using congrArg Subtype.val h3
-  obtain ⟨f, hf⟩ := hex
-  have hinj := (LinearMap.injective_or_eq_zero (p ∘ₗ f)).resolve_right hf
-  refine ⟨W.subtype ∘ₗ p ∘ₗ f, W.injective_subtype.comp hinj, ?_⟩
-  rintro _ ⟨x, rfl⟩
-  exact (p (f x)).2
+  exact Lemmata.IsotypicGeneration.embeds
+    (hsup _ (fun f => le_iSup (fun f : M →ₗ[R] N => LinearMap.range f) f)) W hW
 
 theorem UpperTheory.Reformulated.B.SubgroupFixed.sub_fixed :
     ∀ {Γ X V : Type} [inst : Group Γ] [inst_1 : AddCommGroup X] [inst_2 : _root_.Module ℂ X] [inst_3 : AddCommGroup V]

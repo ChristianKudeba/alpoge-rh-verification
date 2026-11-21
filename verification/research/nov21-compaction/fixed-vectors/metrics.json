@@ -1,0 +1,42 @@
+{
+  "HasFixedVector": {
+    "before_lines": 113,
+    "after_lines": 23,
+    "before_nonempty_proof_body_lines": 84,
+    "after_nonempty_proof_body_lines": 6,
+    "public_theorem_header_byte_identical": true,
+    "source_sha256": "d23afc117deea11fd2c9daae04266a64595581dd2f59daac0a2dae7819cfc3dd"
+  },
+  "SubgroupFixed": {
+    "before_lines": 111,
+    "after_lines": 88,
+    "before_nonempty_proof_body_lines": 81,
+    "after_nonempty_proof_body_lines": 57,
+    "public_theorem_header_byte_identical": true,
+    "source_sha256": "1a13219c2f319c62dcfcafd99132bc6ca3810c7d037c77f0b62a64c46e47f705"
+  },
+  "IrreducibleProjectionExists": {
+    "before_lines": 76,
+    "after_lines": 67,
+    "before_nonempty_proof_body_lines": 61,
+    "after_nonempty_proof_body_lines": 51,
+    "public_theorem_header_byte_identical": true,
+    "source_sha256": "acd2911aafde6e09209a5809ea9931870b474ab13dc23f9a91c39aaa01f44259"
+  },
+  "FixedVectorsNeBotOfMemSumIntertwiningRanges": {
+    "before_lines": 84,
+    "after_lines": 28,
+    "before_nonempty_proof_body_lines": 70,
+    "after_nonempty_proof_body_lines": 14,
+    "public_theorem_header_byte_identical": true,
+    "source_sha256": "a37d8fa8ba2e99aaac0a78f94310c4ab57c3fb86fa31b52cea2db05a90ac8e6c"
+  },
+  "new_shared_helper_lines": 70,
+  "new_shared_helper_nonempty_proof_body_lines": 41,
+  "before_total_lines": 384,
+  "after_total_lines": 276,
+  "net_lines_removed": 108,
+  "before_nonempty_proof_body_lines": 296,
+  "after_nonempty_proof_body_lines": 169,
+  "net_nonempty_proof_body_lines_removed": 127
+}

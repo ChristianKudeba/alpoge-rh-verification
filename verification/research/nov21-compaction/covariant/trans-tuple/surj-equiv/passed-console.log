@@ -1,0 +1,112 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:12:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:35:10: warning: This simp argument is unused:
+  Module.Basis.dualBasis_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:57:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:61:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:99:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:99:8: warning: Unused tactic linter: `simpa [hc] using hm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:145:21: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:166:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:170:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:180:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:188:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:208:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:211:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:166:6: warning: Unused tactic linter: `simpa using h0` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:170:6: warning: Unused tactic linter: `exact
+  LinearMap.range_eq_top.mp
+    ((LinearMap.ker_eq_bot_iff_range_eq_top_of_finrank_eq_finrank hTdim).mp
+      (LinearMap.ker_eq_bot.mpr hfinj))` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:180:8: warning: Unused tactic linter: `exact (LinearEquiv.ofBijective_apply f _ (eT.symm t)).symm` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:188:6: warning: Unused tactic linter: `simp [B]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:208:6: warning: Unused tactic linter: `simpa using hBx j` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:211:6: warning: Unused tactic linter: `simpa using congrFun (hΨB v) i` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:227:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean:227:6: warning: Unused tactic linter: `simpa [LinearMap.sum_apply] using hgv` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Formalism.L2.SG.Pf.NcS.LT.GLP.surj_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Formalism.L2.SG.Pf.NcS.LT.GLP.pi_surj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Formalism.L2.SG.Pf.NcS.LT.GLP.trans_tuple' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+{
+  "source": "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean",
+  "source_sha256": "ab25bd3e42079b26df4ad854363821b6bb07dacd42f200748ed505162620f23a",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-R",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/passed.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/candidate-audit.lean"
+  ],
+  "lean_path": "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/Qq/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/aesop/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/batteries/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/plausible/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "exit_code": 0,
+  "seconds": 6.533326156999465,
+  "compiler": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

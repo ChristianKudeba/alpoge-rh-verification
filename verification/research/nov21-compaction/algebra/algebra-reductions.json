@@ -1,0 +1,47 @@
+{
+  "changes": [
+    {
+      "source_path": "src/GroundTheory/ProfiniteCohomology/RestrictedRamification/FiniteSetOfNsmulEqZeroQZ.lean",
+      "theorem": "finite_setOf_nsmul_eq_zero_QZ",
+      "unchanged_type": true,
+      "old_proof_lines": 27,
+      "new_proof_lines": 1,
+      "proof_lines_removed": 26,
+      "old_source_sha256": "faf29052b9c3fb008e2be21a706cb5da35b9def80c08dfe513ea55771c9698fa",
+      "new_source_sha256": "c60a0cc7f47356f0adc7ee17e04d4afce212aa3c79a5d4870e909a04f4cb2bb9"
+    },
+    {
+      "source_path": "src/GroundTheory/ProfiniteCohomology/OfNatRelIndexSupAntitone.lean",
+      "theorem": "inf_sup_normal_eq",
+      "unchanged_type": true,
+      "old_proof_lines": 7,
+      "new_proof_lines": 3,
+      "proof_lines_removed": 4,
+      "old_source_sha256": "e4c400fce6e0a4df85ad4c138143b1789050c7ed08cb2b752b209159c410f080",
+      "new_source_sha256": "3bdcad4d5aa5959e7a678ebaf4997623424635017c8d90e42c082da5b516081a"
+    },
+    {
+      "source_path": "src/GroundTheory/ProfiniteCohomology/OfNatRelIndexSupAntitone.lean",
+      "theorem": "index_sup_ne_zero",
+      "unchanged_type": true,
+      "old_proof_lines": 2,
+      "new_proof_lines": 2,
+      "proof_lines_removed": 0,
+      "old_source_sha256": "e4c400fce6e0a4df85ad4c138143b1789050c7ed08cb2b752b209159c410f080",
+      "new_source_sha256": "3bdcad4d5aa5959e7a678ebaf4997623424635017c8d90e42c082da5b516081a"
+    },
+    {
+      "source_path": "src/GroundTheory/ProfiniteCohomology/OfNatRelIndexSupAntitone.lean",
+      "theorem": "relIndex_sup_ne_zero",
+      "unchanged_type": true,
+      "old_proof_lines": 3,
+      "new_proof_lines": 2,
+      "proof_lines_removed": 1,
+      "old_source_sha256": "e4c400fce6e0a4df85ad4c138143b1789050c7ed08cb2b752b209159c410f080",
+      "new_source_sha256": "3bdcad4d5aa5959e7a678ebaf4997623424635017c8d90e42c082da5b516081a"
+    }
+  ],
+  "proof_lines_removed": 31,
+  "type_expansion_lines_removed": 0,
+  "full_comparator_run": false
+}

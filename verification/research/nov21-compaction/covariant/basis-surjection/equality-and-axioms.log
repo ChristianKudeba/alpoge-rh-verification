@@ -1,0 +1,50 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:66:65: warning: `LinearEquiv.ofLinear` has been deprecated: Use `LinearEquiv.ofLinearMap` instead
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:31:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:38:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:50:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:54:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:78:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:79:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:94:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:98:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:31:6: warning: Unused tactic linter: `simp [q]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:38:6: warning: Unused tactic linter: `simp [r, hq]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:50:6: warning: Unused tactic linter: `simp [g]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:54:6: warning: Unused tactic linter: `simp [h]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:78:6: warning: Unused tactic linter: `exact Module.free_of_projective_of_isLocalRing` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:79:6: warning: Unused tactic linter: `infer_instance` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:94:6: warning: Unused tactic linter: `simp [bp]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/type-and-axiom-check.lean:98:6: warning: Unused tactic linter: `simp [bp]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'ReducedBasis.exists_basis_of_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]

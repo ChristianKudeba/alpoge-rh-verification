@@ -11,34 +11,8 @@ local notation "ℚ̄" => AlgebraicClosure ℚ
 
 noncomputable section
 
-theorem finite_setOf_nsmul_eq_zero_QZ {m : ℕ} (hm : m ≠ 0) : {q : QZ | m • q = 0}.Finite := by
-  have hmk : ∀ (j : ℕ) (r : ℚ), j • QZ.mk r = QZ.mk (j * r) := by
-    intro j r
-    induction j with
-    | zero => simp
-    | succ j ih => rw [succ_nsmul, ih, ← QZ.mk_add]; congr 1; push_cast; ring
-  refine (Set.finite_range fun a : Fin m => (QZ.mk ((a : ℚ) / m) : QZ)).subset ?_
-  intro q hq
-  obtain ⟨r, rfl⟩ := QZ.mk_surjective q
-  have h0 : QZ.mk (m * r) = 0 := by rw [← hmk]; exact hq
-  obtain ⟨n, hn⟩ := (QZ.mk_eq_zero_iff _).1 h0
-  have hm0 : (0 : ℤ) < m := by exact_mod_cast Nat.pos_of_ne_zero hm
-  have hnn : 0 ≤ n % (m : ℤ) := Int.emod_nonneg n hm0.ne'
-  have hlt : n % (m : ℤ) < m := Int.emod_lt_of_pos n hm0
-  refine ⟨⟨(n % (m : ℤ)).toNat, by omega⟩, ?_⟩
-  have hmq : (m : ℚ) ≠ 0 := by exact_mod_cast hm
-  have hr : r = ((n % (m : ℤ) : ℤ) : ℚ) / m + ((n / (m : ℤ) : ℤ) : ℚ) := by
-    have e := Int.mul_ediv_add_emod n (m : ℤ)
-    have e' : ((n % (m : ℤ) : ℤ) : ℚ) + (m : ℚ) * ((n / (m : ℤ) : ℤ) : ℚ) = (n : ℚ) := by
-      rw [add_comm]; exact_mod_cast e
-    field_simp
-    rw [hn] at e'
-    linarith
-  change QZ.mk (((n % (m : ℤ)).toNat : ℕ) / (m : ℚ)) = QZ.mk r
-  rw [hr, QZ.mk_add, (QZ.mk_eq_zero_iff _).2 ⟨_, rfl⟩, add_zero]
-  congr 1
-  rw [show (((n % (m : ℤ)).toNat : ℕ) : ℚ) = ((n % (m : ℤ) : ℤ) : ℚ) by
-    rw [← Int.cast_natCast, Int.toNat_of_nonneg hnn]]
+theorem finite_setOf_nsmul_eq_zero_QZ {m : ℕ} (hm : m ≠ 0) : {q : QZ | m • q = 0}.Finite :=
+  AddCircle.finite_torsion (1 : ℚ) (Nat.pos_of_ne_zero hm)
 
 variable (K : FiniteSubfield)
 

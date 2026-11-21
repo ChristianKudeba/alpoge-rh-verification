@@ -1,0 +1,29 @@
+/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/basis-surjection/candidate.lean:30:12: error: don't know how to synthesize implicit argument `a`
+  @add_left_cancel (Fin m₁ → R) Pi.instAdd Pi.instIsLeftCancelAdd ?m.205 (↑(u, k).2) (↑(v, l).2)
+    (Eq.mpr (id (Eq.trans (add_right_inj._simp_1 ?m.205) SetLike.coe_eq_coe._simp_1))
+      (Eq.mp
+        (Eq.trans
+          (Eq.trans
+            (congrFun' (congrArg Eq (congrArg (⇑(s.coprod f.ker.subtype)) (congrFun' (congrArg Prod.mk huv) k)))
+              (s v + ↑l))
+            (add_right_inj._simp_1 (s v)))
+          SetLike.coe_eq_coe._simp_1)
+        h))
+context:
+R : Type
+inst✝¹ : CommRing R
+inst✝ : IsLocalRing R
+m₁ m₂ : ℕ
+f : (Fin m₁ → R) →ₗ[R] Fin m₂ → R
+hf : Function.Surjective ⇑f
+s : (Fin m₂ → R) →ₗ[R] Fin m₁ → R
+hs : ∀ (y : Fin m₂ → R), f (s y) = y
+hfk : ∀ (k : ↥f.ker), f ↑k = 0
+g : (Fin m₂ → R) × ↥f.ker →ₗ[R] Fin m₁ → R := ⋯
+u : Fin m₂ → R
+k : ↥f.ker
+v : Fin m₂ → R
+l : ↥f.ker
+h : g (u, k) = g (v, l)
+huv : u = v
+⊢ Fin m₁ → R

@@ -1,23 +1,14 @@
 import Mathlib
+import Lemmata.IsotypicGeneration
 
 private lemma sepCore {R S N ι : Type} [Ring R] [AddCommGroup S] [Module R S] [IsSimpleModule R S]
     [AddCommGroup N] [Module R N] (f : ι → S →ₗ[R] N)
     (h : ⨆ i, LinearMap.range (f i) = ⊤) {x : N} (hx : x ≠ 0) :
     ∃ p : N →ₗ[R] S, p x ≠ 0 := by
-  have hss : ∀ i, IsSemisimpleModule R (LinearMap.range (f i)) := fun i => .range (f i)
-  have : IsSemisimpleModule R N := isSemisimpleModule_of_isSemisimpleModule_submodule' hss h
-  have hiso : IsIsotypicOfType R N S := by
-    apply IsIsotypicOfType.of_isotypicComponent_eq_top
-    rw [eq_top_iff, ← h]
-    refine iSup_le fun i => ?_
-    rcases (f i).injective_or_eq_zero with hi | hi
-    · exact le_sSup ⟨(LinearEquiv.ofInjective (f i) hi).symm⟩
-    · rw [hi, LinearMap.range_zero]
-      exact bot_le
-  obtain ⟨κ, ⟨e⟩⟩ := hiso.linearEquiv_finsupp
-  have hne : e x ≠ 0 := (LinearEquiv.map_ne_zero_iff e).mpr hx
-  obtain ⟨i, hi⟩ := Finsupp.ne_iff.mp hne
-  exact ⟨(Finsupp.lapply i) ∘ₗ e.toLinearMap, by simpa using hi⟩
+  apply Lemmata.IsotypicGeneration.separates (v := x) ?_ hx
+  apply top_unique
+  rw [← h]
+  exact iSup_le fun i => le_iSup (fun f : S →ₗ[R] N => LinearMap.range f) (f i)
 
 theorem UpperTheory.irreducible_projection_exists :
     ∀ {H V M : Type} [Group H] [AddCommGroup V] [Module ℂ V] [AddCommGroup M] [Module ℂ M]

@@ -1,0 +1,20 @@
+{
+  "target": "UpperTheory.Reformulated.B.Gr34.mem_UC",
+  "candidate_source_sha256": "5d2832685a3340b467ce665f5da8724b80c5adce9bc00f04f0ff4dc55cfed60d",
+  "checked_source_sha256": "a4d1a2beb4bf04f93af019b26e61351b6702b41a0fedda0111beb7d9c354d3d1",
+  "candidate_olean_sha256": "7b369a4b2703ee3b65dc7e0302af945eb6ef5e8a7d72225bdf54a9d9e0aabbcd",
+  "original_olean_sha256": "ba45774503f377f256bf57677a912baac96d02069b6cb83c1430c2cb2d734010",
+  "exact_type_ast_sha256": "09074c3bd0fb7a4b462d759e7184b1070a9b0b34f04b2971fcff29aefed5be9c",
+  "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
+  "native_seconds": 5.0237072270010685,
+  "exact_type_seconds": 1.4251224370000273,
+  "kernel_replay_seconds": 31.46243357899948,
+  "replayed_declarations": 38774,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all_targeted_checks_passed": true,
+  "scope": "targeted statement/import cleanup; no full Main/Comparator verdict and no mathematical argument reduction claim"
+}

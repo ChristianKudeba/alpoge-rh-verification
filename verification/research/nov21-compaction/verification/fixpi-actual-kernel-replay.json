@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "seconds": 33.18678039699989,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "--run",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/ReplayFixPiCertificate.lean",
+    "FixPiIffActualChecked",
+    "UpperTheory.Reformulated.B.Gr34.mem_UC"
+  ],
+  "log_sha256": "73b0ef50fef8b8784b6c1bbb8cfa42ee61e5e7e9c1d473343668e4cc263b5c6d"
+}

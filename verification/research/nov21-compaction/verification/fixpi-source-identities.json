@@ -1,0 +1,11 @@
+{
+  "original_source_ref": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "original_source_git_blob": "d145cb504169a5cd139e9bbf5b49ac11d03671d5",
+  "original_source_sha256": "1376551996d1143b5107e2e26492c88d58576aa77079756765e17a90c485d3b7",
+  "original_source_lines": 8029,
+  "candidate_source_sha256": "5d2832685a3340b467ce665f5da8724b80c5adce9bc00f04f0ff4dc55cfed60d",
+  "candidate_source_lines": 36,
+  "artifact_bundle_sha256": "fa7133b08811b67d541826c51371eb8e45aa09e4c61b2deb466ae771d3bdbfdf",
+  "artifact_key": "FixPiIff.lean",
+  "scope": "statement and import cleanup; no claim of mathematical argument reduction"
+}

@@ -1,0 +1,7 @@
+{
+  "git_head": "6fc3615fcae0da5c47c04aa1ff1441b4f0e05948",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lean_version": "4.33.1",
+  "public_theorem_headers_byte_identical": true,
+  "comparison_scope": "Four existing public declarations; newly added shared module counted in total cost."
+}

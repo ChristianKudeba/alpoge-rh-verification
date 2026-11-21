@@ -1,0 +1,22 @@
+{
+  "source": "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean",
+  "source_sha256": "ef403329316fd54622371613b728b4c7e55d94dffcc581d8f85311740603b612",
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-R",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv",
+    "-o",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/covariant/trans-tuple/surj-equiv/type-equality.lean"
+  ],
+  "lean_path": "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/Qq/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/aesop/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/batteries/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/plausible/.lake/build/lib/lean:/workspace/alpoge-compaction/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "exit_code": 0,
+  "seconds": 9.309061533000204,
+  "compiler": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

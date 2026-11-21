@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "seconds": 1.4251224370000273,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "--run",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/CompareFixPiTypes.lean",
+    "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/build/FixPiIffCandidateChecked.olean",
+    "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/fixpi-original-type.ast"
+  ],
+  "original_olean_sha256": "ba45774503f377f256bf57677a912baac96d02069b6cb83c1430c2cb2d734010",
+  "candidate_olean_sha256": "7b369a4b2703ee3b65dc7e0302af945eb6ef5e8a7d72225bdf54a9d9e0aabbcd",
+  "original_type_ast_sha256": "09074c3bd0fb7a4b462d759e7184b1070a9b0b34f04b2971fcff29aefed5be9c"
+}

@@ -1,0 +1,2 @@
+'ReducedTransport.exists_linearEquiv_map_eq_of_finrank_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ReducedTransport.exists_gl_map_residue_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

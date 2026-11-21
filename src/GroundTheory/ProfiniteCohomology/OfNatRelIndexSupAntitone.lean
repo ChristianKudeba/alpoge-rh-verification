@@ -11,13 +11,9 @@ variable {G : Type*} [Group G]
 
 theorem inf_sup_normal_eq {X H U : Subgroup G} [U.Normal] (hUX : U ≤ X) :
     X ⊓ (H ⊔ U) = (X ⊓ H) ⊔ U := by
-  refine le_antisymm (fun x hx => ?_) (sup_le (inf_le_inf_left _ le_sup_left) (le_inf hUX le_sup_right))
-  obtain ⟨hxX, hxHU⟩ := Subgroup.mem_inf.mp hx
-  obtain ⟨h, hh, u, hu, rfl⟩ := Subgroup.mem_sup_of_normal_right.mp hxHU
-  have hhX : h ∈ X := by
-    have := X.mul_mem hxX (X.inv_mem (hUX hu))
-    rwa [mul_inv_cancel_right] at this
-  exact Subgroup.mul_mem_sup (Subgroup.mem_inf.mpr ⟨hhX, hh⟩) hu
+  apply SetLike.coe_injective
+  simpa only [Subgroup.coe_inf, Subgroup.mul_normal] using
+    (Subgroup.inf_mul_assoc X H U hUX).symm
 
 theorem relIndex_sup_normal_eq {X H U : Subgroup G} [U.Normal] [U.FiniteIndex] (hUX : U ≤ X) :
     X.relIndex (H ⊔ U) = X.relIndex H := by
@@ -66,15 +62,14 @@ instance OpenNormalSubgroup.finiteIndex (U : OpenNormalSubgroup G) :
   Subgroup.finiteIndex_of_finite_quotient
 
 theorem index_sup_ne_zero (H : Subgroup G) (U : OpenNormalSubgroup G) :
-    (H ⊔ (U : Subgroup G)).index ≠ 0 :=
-  fun h => Subgroup.FiniteIndex.index_ne_zero (H := (U : Subgroup G))
-    (Nat.eq_zero_of_zero_dvd (h ▸ Subgroup.index_dvd_of_le le_sup_right))
+    (H ⊔ (U : Subgroup G)).index ≠ 0 := by
+  let : (H ⊔ (U : Subgroup G)).FiniteIndex := Subgroup.finiteIndex_of_le le_sup_right
+  exact Subgroup.FiniteIndex.index_ne_zero
 
 theorem relIndex_sup_ne_zero (K H : Subgroup G) (U : OpenNormalSubgroup G) :
-    (K ⊔ (U : Subgroup G)).relIndex H ≠ 0 :=
-  fun h => Subgroup.FiniteIndex.index_ne_zero (H := (U : Subgroup G))
-    (Nat.eq_zero_of_zero_dvd (h ▸ (Subgroup.relIndex_dvd_of_le_left H le_sup_right).trans
-      (Subgroup.relIndex_dvd_index_of_normal (U : Subgroup G) H)))
+    (K ⊔ (U : Subgroup G)).relIndex H ≠ 0 := by
+  let : (K ⊔ (U : Subgroup G)).FiniteIndex := Subgroup.finiteIndex_of_le le_sup_right
+  exact Subgroup.FiniteIndex.index_ne_zero (H := (K ⊔ (U : Subgroup G)).subgroupOf H)
 
 theorem ofNat_index_sup_antitone (H : Subgroup G) {U V : OpenNormalSubgroup G} (h : U ≤ V) :
     Supernatural.ofNat (H ⊔ (V : Subgroup G)).index ≤

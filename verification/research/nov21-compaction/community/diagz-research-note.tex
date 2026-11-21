@@ -1,0 +1,61 @@
+\subsection*{One cubic for three projective addition-law certificates}
+
+This is an algebraic certificate factorization in the original argument, not a
+new route to RH. It replaces three large expanded ideal-membership witnesses
+in \texttt{DiagZEqNegAddY.lean}. All original public definitions, lemma statements
+and hypotheses are unchanged.
+
+Write $P=(x_P,y_P,z_P)$ and $Q=(x_Q,y_Q,z_Q)$, and let
+\[
+ F(x,y,z)=y^2z+a_1xyz+a_3yz^2-x^3-a_2x^2z-a_4xz^2-a_6z^3.
+\]
+Thus the hypotheses that $P,Q$ lie on the Weierstrass curve are precisely
+$F(P)=F(Q)=0$. With the usual invariant
+\[
+ b_8=a_1^2a_6+4a_2a_6-a_1a_3a_4+a_2a_3^2-a_4^2,
+\]
+define the single cubic
+\[
+ r(x,y,z)=(a_1^2+a_2)x^3+3xy(a_1x+y+a_3z)
+       +3xz\bigl((a_1a_3+a_4)x+(a_3^2+3a_6)z\bigr)+b_8z^3.
+\]
+Set $K(P,Q)=r(P)F(Q)-r(Q)F(P)$ and define
+\begin{align*}
+ c_1&=a_1x_Pz_Q+y_Pz_Q+z_Py_Q+a_3z_Pz_Q,\\
+ c_2&=3x_Px_Q+a_2(x_Pz_Q+z_Px_Q)-a_1z_Py_Q+a_4z_Pz_Q,\\
+ c_3&=a_2x_Px_Q+a_4(x_Pz_Q+z_Px_Q)
+       -y_P(a_1x_Q+y_Q+a_3z_Q)-a_3z_Py_Q+3a_6z_Pz_Q.
+\end{align*}
+Let $D_X,D_Y,D_Z$ denote the source's \texttt{diagX},
+\texttt{negDiagY}, \texttt{diagZ}, and let $A_X,A_Y,A_Z$ denote its
+\texttt{addX}, \texttt{negAddY}, \texttt{addZ}. The three exact polynomial
+identities are
+\begin{align*}
+ D_XA_Z-D_ZA_X&=c_1K(P,Q),\\
+ D_YA_Z-D_ZA_Y&=c_2K(P,Q),\\
+ D_XA_Y-D_YA_X&=c_3K(P,Q).
+\end{align*}
+They hold over every commutative ring: there is no division, cancellation,
+characteristic restriction, or nonsingularity assumption. On the curve,
+$K(P,Q)=0$, so the three desired compatibility identities follow at once.
+
+The reduction uses the elementary syzygy
+\[
+ (A-HF(Q))F(P)+(B+HF(P))F(Q)=AF(P)+BF(Q).
+\]
+For the first certificate, division by the monic $x_Q^3$ term of $F(Q)$ exposes
+weights $-c_1r_0(Q)$ and $c_1r_0(P)$. Replacing
+$r_0(T)$ by $r(T)=r_0(T)-(a_1^2+a_2)F(T)$ does not change the alternating
+residual. The other two minors have the same residual and the small bilinear
+factors $c_2,c_3$ above. Symbolic computation suggested these expressions;
+Lean's \texttt{linear\_combination} and \texttt{ring1} check the resulting
+polynomial certificates, so correctness does not depend on trusting the CAS.
+
+The complete Mathlib-only module compiled with the pinned Lean 4.33.1.
+All three changed lemmas have axiom inventory
+\texttt{[propext, Classical.choice, Quot.sound]}. All 17 original public
+headers are byte-for-byte identical. Physical lines fall from 629 to 189;
+nonblank lines from 607 to 166; UTF-8 bytes from 49,829 to 12,780.
+The three proof bodies fall from 464 to 15 nonblank lines, with one shared
+private cubic definition added. These are local certificate savings, not a
+claimed reduction in the full RH dependency closure.

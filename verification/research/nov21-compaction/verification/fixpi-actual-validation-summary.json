@@ -1,0 +1,68 @@
+{
+  "target": "UpperTheory.Reformulated.B.Gr34.mem_UC",
+  "candidate_source_sha256": "02ee771e754045d82860f3e2ec66928113661e9ff22647470fce9c2ffef1f235",
+  "checked_source_sha256": "dca0ee20f88d7f1d202bdf63dd62b747748b08b34aea66e1303a7eb2f5844dc4",
+  "candidate_olean_sha256": "b8b7b4469c82690a5fa67e028681a66f258887655505e5ed31a93450a19e4482",
+  "original_olean_sha256": "ba45774503f377f256bf57677a912baac96d02069b6cb83c1430c2cb2d734010",
+  "exact_type_ast_sha256": "09074c3bd0fb7a4b462d759e7184b1070a9b0b34f04b2971fcff29aefed5be9c",
+  "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
+  "checks": {
+    "native": {
+      "exit_code": 0,
+      "seconds": 4.293504002998816,
+      "command": [
+        "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "-j1",
+        "-s400000",
+        "-R",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification",
+        "-DautoImplicit=false",
+        "-DrelaxedAutoImplicit=false",
+        "-DmaxSynthPendingDepth=3",
+        "-DmaxHeartbeats=4000000",
+        "-o",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/build/FixPiIffActualChecked.olean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/FixPiIffActualChecked.lean"
+      ],
+      "log_sha256": "83daf5e0240843118293178cc6363481dc2ecdea627449535492248f94125cfa"
+    },
+    "exact_type": {
+      "exit_code": 0,
+      "seconds": 0.9337108239997178,
+      "command": [
+        "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "--run",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/CompareFixPiTypes.lean",
+        "/workspace/principia-harness/certificate-hour/matrix/project-cache/.lake/build/lib/lean/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.olean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/build/FixPiIffActualChecked.olean",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/fixpi-actual-original-type.ast"
+      ],
+      "log_sha256": "10a1df1b8af2f9c34dde6aa903091727c79063c2dbe09b0dd3bbd3cce9061aaa"
+    },
+    "kernel_replay": {
+      "exit_code": 0,
+      "seconds": 33.18678039699989,
+      "command": [
+        "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "-j1",
+        "-s400000",
+        "--run",
+        "/workspace/alpoge-compaction/verification/research/nov21-compaction/verification/ReplayFixPiCertificate.lean",
+        "FixPiIffActualChecked",
+        "UpperTheory.Reformulated.B.Gr34.mem_UC"
+      ],
+      "log_sha256": "73b0ef50fef8b8784b6c1bbb8cfa42ee61e5e7e9c1d473343668e4cc263b5c6d"
+    }
+  },
+  "scope": "targeted statement/import cleanup; no full Main/Comparator verdict and no mathematical argument reduction claim",
+  "actual_source_path": "/workspace/alpoge-compaction/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean",
+  "actual_source_matches_snapshot_after_checks": true,
+  "actual_source_lines": 33,
+  "replayed_declarations": 38790,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "all_targeted_checks_passed": true
+}
