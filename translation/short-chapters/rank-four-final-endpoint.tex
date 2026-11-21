@@ -1,0 +1,381 @@
+\subsection{The actual Case II endpoint}
+\label{subsec:sr-four-final-endpoint}
+
+We now make the last support and finite-weight-zero passages
+explicit. All ordinary inertia characters in this subsection
+are specialized to those of the original rational datum:
+at \(\ell\) they are the prescribed finite characters times
+the indicated cyclotomic powers. They are not independent
+ordinary weight variables.
+
+\paragraph{The actual point kills the modular ideal.}
+Let \(r\) be an actual ordinary point which is either
+absolutely irreducible or a nonsplit block extension with
+irreducible diagonal blocks.
+Section~\ref{subsec:sr-four-good-residual-lattice} gives,
+after a finite coefficient extension and one of the two
+permitted labels, its actual good residual lattice.
+Choose the tame Case II real tower with this label.
+Section~\ref{subsec:sr-four-case-II-residual-links} constructs
+the finite residual chain and the finitely many fresh
+ramification-killing fields.
+Include these fields in the fixed abelian base before
+using the Ferrero--Washington bound.
+Choose the final cyclotomic layer with
+\[
+                              d\ge30(C+1)^2 .
+ \tag{FE1}
+\]
+The cohomology constant \(C\) is then fixed throughout the
+chain, and the seed is constructed on this final layer.
+
+Take one finite coefficient extension containing the
+coefficients of the chain, seed and integral point model.
+The actual common space of
+Section~\ref{subsec:sr-four-common-space-construction}
+receives all these points and their polynomial residual
+paths. Section~\ref{subsec:sr-case-II-actual-pm} supplies
+one ideal \(J\) in its base \(B\), with the five proved
+modular-ideal properties.
+
+The seed's local-zero property gives a minimal component
+through the seed's residual point on which \(JA\) vanishes.
+Proposition~\ref{prop:sr-four-core}, using (FE1), makes it
+vanish on every component through that point.
+A residual polynomial path has a prime kernel contained in
+the maximal ideals of both endpoints.
+Choose a minimal component below that kernel.
+If all components at the first endpoint contain \(JA\),
+this component does, and hence there is one such component
+at the second endpoint. The same proposition makes every
+component at the second endpoint contain \(JA\).
+Induction along the actual finite chain proves this at the
+residual point of the original integral lattice.
+
+In the localization of \(A\) at that residual point,
+\(JA\) is therefore in every minimal prime, hence in the
+nilradical. The map to the original DVR model extends to
+this localization, since elements with nonzero residual
+value map to units. Its target is a domain, so it kills
+\(J\). This proves the actual point factorization; it
+does not assume the point was already automorphic.
+Conjugation back to the original representation preserves
+characteristic polynomials, purity and automorphy.
+
+In characteristic \(\ell\), its ordinary inertial
+characters over the real tower are \(1\).
+The finite-weight property of \(J\) then kills
+\(\mathfrak m_B\).
+Lemma~\ref{lem:sr-four-characteristic-ell} proves that the
+original rational characteristic polynomials are exactly
+the four prescribed residual characters.
+It excludes both an absolutely irreducible rank-four point
+and a block extension with an irreducible rank-two block.
+
+In characteristic zero the same factorization, at the fixed
+original weight, gives the strict spectral bound (H13).
+For an irreducible original point,
+Proposition~\ref{prop:sr-case-two-tower-irreducible}
+gives irreducibility on the actual selected \(G_L\):
+the finite abelian quotient and the residual characters
+which remain pairwise distinct there are the needed
+hypotheses. Thus the actual classical base change is
+cuspidal. Propositions~\ref{prop:sr-all-quadratic-automorphy}
+and \ref{prop:sr-actual-wit} give the required rational
+quadratic-field automorphy and original-level local data.
+This is the all-irreducible-point conclusion with its
+restriction and descent premises discharged.
+
+\paragraph{The weight-zero curve has the fixed inertia condition.}
+We give the commutative-algebra passage used to deduce finite
+weight zero, including the flag at the selected point.
+
+Start with the universal normalized framed representation
+with the fixed multiplier and killed-inertia relations.
+It is a quotient of a finite-variable complete power-series
+ring over the coefficient DVR \(\mathcal O\).
+For completeness, finite generation follows from the finite
+dimension of continuous \(H^1\) for the finite residual
+module and fixed finite ramification set.
+Choose lifts of a tangent basis and map a power-series ring
+to the universal framed ring. Successive approximation and
+completeness make this map surjective.
+The normalization equations are closed matrix equations.
+
+Form the local universal framed ring \(\mathcal R_\ell\)
+for the same residual representation and multiplier.
+Over it, use the projective symplectic full flag variety.
+Impose preservation by the local group and the equations
+that inertia acts on the \(i\)-th graded line by the
+prescribed \(\chi_i\).
+This is a closed projective incidence scheme.
+The infinitely displayed group equations generate a
+coherent ideal, so finitely many suffice.
+
+We select its prescribed residual ordering by an
+open-and-closed condition, not by an arbitrary formal tube.
+Choose finitely many local group elements \(s_j\) separating
+the distinct residual local characters; coincident characters
+need no separation.
+The characteristic polynomial of \(r(s_j)\) has a unique
+Hensel factorization into clusters
+\[
+             f_j(X)=\prod_\lambda f_{j,\lambda}(X),
+ \qquad
+             \bar f_{j,\lambda}=(X-\lambda)^{m_{j,\lambda}},
+\]
+with pairwise coprime factors.
+Bezout and Cayley--Hamilton give polynomial spectral
+projectors \(e_{j,\lambda}(r(s_j))\).
+They preserve every flag in the incidence scheme.
+Their ranks on each flag quotient are locally constant;
+on a line each idempotent has rank \(0\) or \(1\).
+Require rank \(1\) exactly for
+\(\lambda=\bar\chi_i(s_j)\) on the \(i\)-th line.
+These finitely many rank patterns select an open-and-closed
+subscheme \(X_\ell\) of the proper incidence scheme.
+It is therefore proper over the complete local base.
+Equivalently one may complete this already proper
+open-and-closed piece along the whole base special fiber.
+
+Put
+\[
+ I_\ell=\ker\bigl(\mathcal R_\ell
+                         \longrightarrow H^0(X_\ell,\mathcal O)\bigr).
+\]
+Its proper scheme-theoretic image has underlying set equal
+to the proper image.
+Take the global quotient by the pullback of \(I_\ell\),
+and likewise by the prescribed local image ideals at the
+other finitely many places; call the resulting ring \(U\).
+Using pullbacks of these local ideals avoids any assumption
+that a proper scheme-theoretic image commutes with arbitrary
+nonflat base change.
+
+Here is why every original component point maps from \(U\).
+Its local \(\mathrm{OnComp}(\mathrm{condL},r_0)\) witness
+is a complete local domain \(C\), with the local ordinary
+family and a specialization to the split representation
+over \(\mathcal O\).
+The ordinary condition gives a flag at its generic point
+after a finite field extension.
+Properness makes the union of the finitely many ordering
+images cover \(\operatorname{Spec}C\).
+Since \(C\) is a domain, some ordering image is all of
+\(\operatorname{Spec}C\).
+At the split specialization in characteristic zero the
+prescribed inertia weights are distinct
+\((a+1,a,1,0)\), so their ordered flag is unique.
+Thus this dominating ordering is exactly the one selected
+above. Its proper pullback dominates \(\operatorname{Spec}C\),
+so \(I_\ell\) maps to zero in \(C\), and hence in the
+original coefficient ring.
+The other local component conditions are treated the same
+way. This proves factorization through \(U\).
+
+We use this closed ordinary locus as an enlargement of the
+original component condition.
+We do not identify ordinary flags with a choice of
+irreducible component.
+Conversely, a valuation-valued point of \(U\) belongs
+locally to the proper image.
+It acquires an actual flag after a finite valued-field
+extension, and properness extends the generic flag to
+the valuation ring. Its ordered residue characters and
+exact fixed inertia characters are those just imposed.
+The enlargement suffices: the support exclusion above
+holds for every point satisfying these \(KPair\)
+conditions, not only the original component condition.
+
+Diagonal change of basis by
+\(\operatorname{diag}(t_1t_2,t_2,t_1,1)\) preserves all
+these incidence equations.
+Thus \(U\) has the complete \(\mathbb Z^2\) grading with
+entry weight \(w_{ij}\).
+Choose finitely many homogeneous generators \(z_j\) of its
+maximal ideal modulo \(\mathfrak m_{\mathcal O}\).
+They may be chosen as matrix-entry differences from the
+prescribed diagonal representation.
+Put
+\[
+                B_0=U_0,\qquad A_0=\bigoplus_w U_w.
+\]
+As in the actual common-space construction, the finite
+balanced-monomial semigroup shows that \(B_0\) is complete
+Noetherian and \(A_0\) is of finite type over \(B_0\).
+
+If \(B_0\) were not finite over \(\mathcal O\), then
+\(B_0/\mathfrak m_{\mathcal O}B_0\) would have positive
+dimension. Otherwise a power of \(\mathfrak m_{B_0}\)
+would lie in \(\mathfrak m_{\mathcal O}B_0\), and complete
+Nakayama would make \(B_0\) finite over \(\mathcal O\).
+Choose a one-dimensional domain quotient in characteristic
+\(\ell\), with nonzero maximal ideal, and normalize it.
+This gives a map from \(B_0\) to a complete DVR finite over
+\(k[[T]]\), with finite residue field.
+
+Here is the required lift from weight zero to the whole
+representation.
+For a prime \(\mathfrak p\) of \(B_0\), the grading projection
+gives
+\(\mathfrak pA_0\cap B_0=\mathfrak p\).
+The same holds after localization. Thus the generic fiber
+of \(A_0\) over the chosen domain is nonzero.
+A closed point in this finite-type fiber has a finite
+extension of its fraction field.
+Choose a valuation on this extension and write
+\(a_j=v(z_j)\) for each nonzero generator image.
+Every nonconstant balanced monomial in these generators
+lies in \(\mathfrak m_{B_0}\), so has positive valuation.
+
+There is a rational functional \(q:\mathbb Z^2\to\mathbb Q\)
+such that
+\[
+                            a_j+q(w_j)>0
+                       \quad\text{for every nonzero }z_j. \tag{FE2}
+\]
+To verify this elementary strict-inequality assertion, its
+failure would give nonnegative rational numbers \(c_j\),
+not all zero, with
+\(\sum c_jw_j=0\) and \(\sum c_ja_j\le0\), by separation
+of the rational polyhedral cone.
+Clear denominators. The corresponding nonconstant balanced
+monomial would have nonpositive valuation, a contradiction.
+After a finite ramified extension, conjugating by the
+diagonal torus with parameter valuations \(q(1,0),q(0,1)\)
+makes every \(z_j\) have positive valuation.
+It leaves every balanced element unchanged.
+The map from \(A_0\) therefore extends by completion to
+\(U\) and to an actual continuous DVR-valued representation.
+Properness of the incidence scheme supplies its actual
+ordinary flag and the exact fixed-inertia specialization.
+
+At least one balanced matrix-entry monomial at this point
+is not algebraic over \(\mathbb F_\ell\).
+Indeed the maximal ideal of \(B_0\) is topologically generated
+by \(\mathfrak m_{\mathcal O}\) and finitely many
+nonconstant balanced monomials in the \(z_j\).
+Some such monomial survives the nonconstant domain quotient.
+Expand the diagonal differences in these monomials.
+If every resulting balanced matrix-entry monomial were
+algebraic over the finite field, their polynomial combination
+would be a constant with zero residue, hence zero.
+This contradicts the chosen surviving element.
+Thus the selected actual point has a balanced monomial \(x\)
+such that
+\[
+                          x^{\ell^n}\ne x
+                                      \quad(n>0).        \tag{FE3}
+\]
+The lift just constructed has exactly the fixed inertia
+condition used in (TA7), not a variable-weight ordinary
+deformation.
+
+\begin{srproposition}\label{prop:sr-four-actual-final-endpoint}
+For every nontrivial principal Case II datum with \(a\ge2\),
+the weight-zero algebra is finite over the coefficient DVR;
+there is no full irreducible two-block endpoint; and every
+irreducible characteristic-zero point has the automorphy
+and original-level local properties used in the rank-four
+count.
+These assertions hold uniformly over finite coefficient
+extensions, including coefficient prime \(3\).
+\end{srproposition}
+\begin{proof}
+Suppose finite weight zero failed.
+The preceding construction gives an actual
+characteristic-\(\ell\) point with (FE3).
+Apply Lemma~\ref{lem:sr-four-actual-triangular-alternatives}.
+
+In alternative (I), the actual modular-ideal factorization
+proved above and
+Lemma~\ref{lem:sr-four-characteristic-ell} exclude the point.
+In alternative (D), the fixed-inertia diagonal argument
+(TA7)--(TA9) makes every balanced monomial algebraic over
+\(\mathbb F_\ell\), contradicting (FE3).
+In alternative (B), take the actual block-diagonal part
+and apply Proposition~\ref{prop:sr-four-actual-block-extension}.
+It gives an actual nonsplit block extension with irreducible
+rank-two constituents. The same actual factorization and
+characteristic-\(\ell\) lemma exclude this extension.
+All three alternatives are impossible.
+Consequently \(B_0\) is finite over \(\mathcal O\).
+
+For any original admissible deformation, its balanced
+matrix-entry algebra is an image of an \(\mathcal O\)-submodule
+of \(B_0\). Since \(\mathcal O\) is Noetherian this algebra is
+finite over \(\mathcal O\).
+This is the full finite-weight-zero assertion for every
+admissible coefficient ring, not merely finiteness of the
+reduced characteristic-zero spectrum.
+
+Now suppose a characteristic-zero actual point is block
+diagonal with irreducible \(A\)-block.
+The block-extension proposition produces a nonsplit actual
+extension with the same characteristic polynomials.
+Its modular-ideal factorization gives (H13), hence the
+same spectral inequality for the original block-diagonal
+point.
+
+The ordinary block-projector calculation determines its
+two determinant characters on inertia at \(\ell\):
+their cyclotomic weights are respectively
+\[
+                         (a+1)+1=a+2,\qquad a+0=a.
+ \tag{FE4}
+\]
+Each determinant differs from the corresponding cyclotomic
+power by a finite character.
+Here this follows directly from the local conditions:
+after a common finite exponent the quotient character
+is trivial on inertia at every finite prime.
+At \(\ell\) use the prescribed finite inertial characters;
+elsewhere use the actual killed-inertia subgroup of finite
+index. At each finite coefficient precision, Minkowski
+makes that power character globally trivial.
+Completeness gives the same identity integrally, so the
+quotient character has finite order.
+
+Choose an open subgroup killing those two finite characters
+and lying in the subgroup of (H13).
+Chebotarev gives an unramified rational Frobenius in it at
+a prime \(p>1\), outside the finite exceptional set.
+By (FE4), the ratio of the absolute values of its two block
+determinants is \(p^2\).
+But if their roots are \(\alpha_1,\alpha_2\) and
+\(\beta_1,\beta_2\), (H13) gives
+\[
+ \frac{|\alpha_1\alpha_2|}{|\beta_1\beta_2|}
+       =\frac{|\alpha_1|}{|\beta_1|}
+          \frac{|\alpha_2|}{|\beta_2|}<p^2,
+\]
+a contradiction. This proves the no-full-block conclusion
+using the strict bound already proved, without replacing
+it by an unproved Ramanujan assertion.
+
+Finally, an irreducible characteristic-zero point factors
+through the actual modular ideal as above.
+Its irreducibility on the selected CM tower and its descent,
+original conductor and local compatibility were proved
+there. They give exactly the all-irreducible-point assertion.
+Every argument permitted finite coefficient extension;
+the arithmetic finite-field comparisons and characteristic
+polynomials, rather than division by \(4!\), included
+\(\ell=3\).
+\end{proof}
+
+The real-tower degree, its class-rank constant and the Hilbert
+seed's weight occur only in producing support and the ideal
+factorization. No estimate in this endpoint bounds a count
+by a function of those auxiliary quantities.
+The final spectrum is counted only after descent to the
+fixed original rational/imaginary-quadratic level, as in
+the uniform nontrivial-character count.
+
+The expanded final source joins are
+\srcid{Gsp4PromodularityCaseTwo.last\_step},
+\srcid{proMod\_of\_pmEx\_of\_ctx2\_of\_kPair\_of\_star},
+\srcid{CompactIntegralFields.PtOver},
+\srcid{PtPair}, \srcid{NotOver.bl},
+\srcid{DiagConst}, and
+\srcid{VWinPm.fin0\_no\_end\_all\_irr\_of\_good\_con\_purity\_aut}.

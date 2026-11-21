@@ -1,0 +1,326 @@
+
+\section{Descent of theta periods through their actual matching quotients}
+\label{sec:sr-theta-quotient-descent}
+
+The square-integrability statement just proved supplies the positive
+Hermitian form needed for descent. Merely knowing a one-dimensional
+space of local branching maps would not supply this step.
+
+\begin{srlemma}[A unitary image kills the radical of a local theta lift]
+\label{lem:sr-theta-unitary-head}
+Let \(Q\) be a finite-length admissible smooth representation of a
+nonarchimedean reductive group, or an admissible finite-length
+Harish--Chandra module for a real reductive group. Suppose its maximal
+semisimple quotient is an irreducible \(\pi\), with multiplicity one.
+A map from \(Q\) into a unitary representation factors through
+\(Q\longrightarrow\pi\), provided in the real case it intertwines
+the compact group and the infinitesimal actions on smooth vectors.
+\end{srlemma}
+
+\begin{proof}
+Give its image \(M\) the inherited positive Hermitian form.
+For an invariant submodule \(N\subset M\), take closure in the Hilbert
+space. In the nonarchimedean case, a vector fixed by a compact open
+group \(K\) projects into the closure of \(N^K\); the latter space is
+finite dimensional by admissibility and hence closed. Thus its
+orthogonal projection belongs to \(N\). In the real case perform the
+same argument on the finitely many compact types of a given vector.
+Every such isotypic component of \(N\) is finite dimensional by
+admissibility and closed, so again the projection belongs to \(N\).
+It follows that
+\(M=N\oplus(N^\perp\cap M)\) algebraically.
+The complement is invariant under the group in the first case.
+In the real case it is invariant under the compact group and under
+the Lie algebra, since the infinitesimal unitary action is skew
+adjoint on these smooth vectors.
+Induction on length makes \(M\) semisimple. Every semisimple quotient
+of \(Q\) factors through its maximal semisimple quotient, proving
+the claim. This argument allows the map to be zero.
+\end{proof}
+
+We recall exactly the classical local theorem used with this lemma.
+For a characteristic-zero local unitary dual pair and an irreducible
+admissible representation of its first member, the big theta lift is
+admissible of finite length and its maximal semisimple quotient is
+irreducible or zero. At real places Howe's Theorem~1A (p.~536) gives the finitely
+generated admissible quasisimple big lift and its unique irreducible
+quotient; its polynomial algebraic version is Theorem~2.1
+(pp.~538--539). At nonsplit finite places it is Howe duality in
+arbitrary residual characteristic.
+At a split finite place the pair is the corresponding type II
+general linear pair, with the same finite-length and unique-head
+statement. We use respectively Howe,
+\emph{Transcending classical invariant theory};
+Gan--Takeda, \emph{A proof of the Howe duality conjecture}, including
+the finite-length assertion recalled before their main theorem;
+and M\'inguez, \emph{Correspondance de Howe explicite: paires duales
+de type II}, Corollary~6.3 and the big-lift finite-length statement.
+\footnote{Primary texts:
+\url{https://www.math.utah.edu/~ptrapa/math-library/howe/howe-transcending-1989.pdf},
+\url{https://arxiv.org/abs/1407.1995},
+\url{https://arxiv.org/abs/0709.4384}.}
+
+Their application here is to the trivial representation of the
+\emph{actual first group}, after its specified splitting.
+Thus the real polynomial realization has character parameters
+\(\det^c\) and \(\det^{-c}\) in the canonical first Fock actions,
+with \(c=(m_\alpha-m_\beta)/2\), exactly as calculated above.
+The target twist is the already checked \(\det^c\) on the primed
+canonical second action. The finite pairs are the actual
+\(U(X_v),U(W_v)\), or their displayed split general linear models.
+All local fields have characteristic zero, including places above
+\(2\). The genuine covers, trace character, and splitting twists
+are those already used to construct the matching maps.
+The nonzero maps constructed there identify the small local theta
+lift with the specified \(\Pi_v\), or \(\Pi_\infty\); no new
+local quotient is chosen.
+
+\begin{srproposition}[Actual period factorization]
+\label{prop:sr-theta-actual-period-factor}
+On polynomial infinite vectors, the large theta period factors through
+\[
+       \Pi=\Pi_\infty\otimes
+                   \bigotimes\nolimits'_v\Pi_v .
+ \tag{D1}\label{eq:sr-theta-common-global-module}
+\]
+The small theta period, on its actual full-rank cutoff, factors through
+the same space, using its already chosen primed matching maps.
+In particular a polynomial matching relation with zero on one side
+has zero theta period on that side. These are exactly the two
+vanishing assertions of the source condition \(\mathrm{Factor}\).
+\end{srproposition}
+
+\begin{proof}
+Fix every local test factor except one.
+The resulting theta-period map has values in
+\(L^2(U(W)(F)\backslash U(W)(\mathbb A_F))\) by the preceding section.
+Right translation on this space is unitary and agrees with the
+actual second oscillator action. The theta period is invariant
+under the first unitary action: it is just a change of variable
+in its convergent first quotient integral. Unimodularity gives
+invariance of its Haar measure. The dominated Schwartz estimates
+justify differentiation of this identity.
+
+At a finite place other than the selected cutoff place, the local
+map therefore factors first through the big theta lift of the
+trivial first representation. Its unitary image factors through
+the small lift by the preceding lemma, hence through the actual
+chosen matching map \(p_v\), or \(p'_v\).
+At infinity the same argument applies to the polynomial
+Harish--Chandra module. All required differentiations are valid in
+\(L^2\): retaining the Schwartz seminorm in the square-integrability
+proof gives
+\(\|I(f\otimes\phi)\|_2\le C p(f)\) for each fixed finite test space.
+The smooth oscillator action and its differentiated polynomial
+action are consequently carried into the genuine smooth and
+infinitesimal right actions in \(L^2\). The matching quotient is the
+already constructed real theta quotient, so its kernel is killed.
+
+There is a separate useful point at the small selected split place
+\(v_1\). Here varying a factor must keep it in the actual cutoff.
+In its opposite linear model this is the Schwartz space supported
+on the open full-row-rank frame locus.
+Its first-group coinvariant quotient is already the actual
+irreducible \(\Pi_{v_1}\), as proved in the good split coinvariant
+calculation. Explicitly, the full-rank frame bundle has free
+\(\mathrm{GL}_{a'}\) fibers over a Grassmannian, and fiber integration
+with the specified character identifies its coinvariants with the
+common normalized parabolic induction. That induction is irreducible.
+Its map onto the whole Schwartz coinvariant quotient is nonzero
+and hence an isomorphism. Thus its kernel is precisely its own
+first augmentation space. Invariance of the convergent small period
+kills this kernel directly; the map at \(v_1\) also descends to the
+actual \(\Pi_{v_1}\). This argument never evaluates the small
+period on vectors outside its convergence cutoff.
+
+These local factorizations imply the tensor assertion by the
+universal property of the algebraic tensor product. For a fixed
+finite set of nonvacuum places, the theta period is multilinear
+in its infinite factor and these finitely many finite factors.
+It kills the kernel of each quotient map, so it factors through
+their tensor product. Enlarging this set inserts the same nonzero
+matched vacuum and gives the restricted product (D1).
+
+For clarity, a displayed finite sum representing a small cutoff
+vector may initially have factors outside the cutoff at \(v_1\).
+Use a linear projection of their finite dimensional span onto the
+subspace satisfying the cutoff. Every infinite slice of the
+displayed sum belongs to that subspace, so applying the projection
+to the sum leaves the actual Schwartz vector unchanged.
+The finite tensor embedding into functions is injective:
+evaluate successively against a linearly independent finite basis
+of functions in each variable. Hence two equal finite tensor
+presentations have the same image under the matching tensor
+quotient. We can therefore apply the preceding factorization to
+the projected presentation without altering any polynomial
+matching relation. This proves the asserted zero-relation
+vanishing for both sides.
+\end{proof}
+
+\begin{srlemma}[Nonzero periods are injective on the common module]
+\label{lem:sr-theta-nonzero-period-injective}
+The common module (D1) is algebraically irreducible for its finite
+local group actions and infinite Lie and compact actions.
+Consequently each of the descended theta-period maps is either
+zero or injective.
+\end{srlemma}
+
+\begin{proof}
+Each local factor is irreducible and has scalar endomorphism ring.
+At finite places this follows from admissible Schur's lemma; at
+infinity it is the scalar endomorphism assertion already proved
+for the countable polynomial quotient.
+The algebraic density theorem then says that finitely many
+linearly independent vectors in one factor can be sent to any
+prescribed vectors by an element of its action algebra.
+It follows that a finite tensor product of these factors is
+irreducible: apply these operators to isolate one nonzero pure
+term of a finite tensor sum, then generate every pure tensor.
+Every vector in the restricted product belongs to such a finite
+tensor product. Acting at further places generates each local
+factor from its nonzero vacuum. Thus a nonzero submodule contains
+every restricted pure tensor. The kernel of a descended period
+is stable under these actions, proving the last assertion.
+\end{proof}
+
+\begin{srlemma}[Local cone augmentation, including the cutoff place]
+\label{lem:sr-theta-cone-augmentation}
+Let \(D_v\) be either actual local cone operator, with the exact
+exponent \(z_A=n-d/2\) or \(z_B=1+d/2-n\).
+For every lower first-group invariant linear functional
+\(\ell\) on the finite lower Schwartz space,
+\[
+    \ell(D_v\omega_v(g,1)\phi)=\ell(D_v\phi)
+               \qquad(g\in U(X)(F_v)).
+ \tag{D2}\label{eq:sr-theta-cone-augmentation}
+\]
+In particular \(p_{1,v}D_v\) kills the upper first augmentation
+space. This assertion holds on the whole local Schwartz space;
+it therefore also compares a cutoff representative with the
+ordinary vacuum when their actual upper matching classes agree
+at a good split place.
+\end{srlemma}
+
+\begin{proof}
+Let \(Q_x=N_X\rtimes U(X_1)\) be the stabilizer of the nonzero
+isotropic vector \(x\). Set
+\[
+       F_\phi(g)=
+            \ell(e_\epsilon\rho(u_\epsilon(1))
+                                      \omega_v(g,1)\phi).
+\]
+The evaluation invariances, the same corner commutators as in (T9),
+and invariance of \(\ell\) show that \(F_\phi\) is left invariant
+under \(Q_x(F_v)\). The stabilizer \(Q_x\) is unimodular: its
+unipotent part is unimodular and the determinant of the
+\(U(X_1)\) action on that part has local absolute value \(1\).
+Hence \(Q_x\backslash U(X)\) has invariant quotient measure.
+
+In Iwasawa coordinates for this quotient its integral is, up to
+a fixed nonzero Haar scalar,
+\[
+ \int_{K_{X,v}}\int_{E_v^\times}
+       F_\phi(m_X(t,1)k)|t|_{E_v}^{1-n}\,d^\times t\,dk .
+\]
+Insert the exact two rows of (T9).
+For \(A\), substitute \(l=t^{-1}\); for \(B\), put \(l=t\).
+The resulting expression is exactly \(\ell(D_v\phi)\), up to
+that same Haar scalar. All these integrals are absolutely
+convergent. This follows from the finite-image and finite-level
+argument for the finite cone operator: \(\ell\) is bounded on
+that finite dimensional image, the corner parameter is bounded
+at the finite place, and its tail at zero has exponent \(z>0\).
+The compact average has finite orbit on a smooth vector.
+Right invariance of the quotient measure now proves (D2).
+
+Apply (D2) with every algebraic linear functional on the lower
+matching quotient composed with its quotient map. Their
+invariance follows because that quotient kills lower first
+augmentation. These functionals separate points, so
+\(p_{1,v}D_v\) kills the upper augmentation.
+At a good split place the whole upper matching kernel equals
+that augmentation space. This proves the final assertion as well.
+\end{proof}
+
+\begin{srproposition}[Descent of the actual constant-term operators]
+\label{prop:sr-theta-constant-term-descent}
+Consider either codimension-two step, and suppose the lower
+large and small periods are nonzero. This is the nonvanishing
+available at the earlier stage of the signature induction.
+Each actual zero evaluation or cone evaluation appearing in the
+four constant-term formulas descends through the upper matching
+quotient to the lower matching quotient. Its descended map
+intertwines the actual line parabolic of \(U(W)\), with the
+character and exponent of that constant-term component.
+
+These are actual descended operators. Their kernel property is
+a consequence of the global constant-term formula and the
+injective lower period; it is not assumed as an additional
+matching condition.
+\end{srproposition}
+
+\begin{proof}
+Let \(D\) be one of the actual adelic evaluation operators, including
+its actual compact cone average when appropriate.
+Its finite and infinite factorization was proved above.
+If an upper polynomial vector has zero common matching class,
+its upper theta period is zero by the period factorization
+proposition. Hence both of its distinct Levi constant-term
+components are zero. The corresponding formula (T10), (T11),
+or its zero-term counterpart gives
+\[
+                      I_1(D\Phi)=0.
+\]
+The lower period is injective on its common module by the preceding
+lemma and lower nonvanishing. Therefore the lower matching class
+of \(D\Phi\) is zero. This proves the adelic kernel property.
+
+To obtain the local maps, fix pure factors at all other places
+whose images after \(D\) are nonzero in the corresponding lower
+quotients. Such choices are simultaneous: outside the finite bad
+set use the exact nonzero vacuum factors; at each bad split place
+use the already calculated standard vector with nonzero lower
+image. At infinity ordinary zero evaluation is onto on polynomial
+Gaussians. For a cone use the proved compact cone bump: the
+nonzero lower period gives a nonzero invariant continuous
+functional, whose composition with the actual infinite cone
+operator is nonzero. Polynomial Gaussian density and the
+continuous seminorm estimates give a polynomial choice with
+nonzero lower image.
+
+For a small cone the selected cutoff place needs one extra check.
+Its ordinary vacuum has nonzero lower image, by its nonzero
+unramified cone factor. The full-rank coinvariant calculation
+gives a cutoff vector with the same actual upper matching class
+as this vacuum. By (D2) their lower images under \(D_v\) agree.
+This supplies a nonzero cutoff factor as well. Thus every
+required outside pure tensor can indeed be chosen inside the
+allowed global domain.
+
+If a local input has zero upper matching class, pair it with
+these fixed outside inputs. The adelic kernel property makes
+its output tensor zero. The outside output tensor is nonzero,
+so the local lower output class is zero. Hence the actual local
+operator factors through the actual upper quotient at every
+place. The same argument at infinity uses the algebraic
+polynomial quotient and gives its descended infinite map.
+
+Finally right translating a global theta period by the line
+parabolic translates its constant term by that same parabolic.
+Its unipotent radical acts trivially on the constant-term
+component. On its Levi the component has exactly the character
+and norm power calculated above, and the lower unitary group
+acts by right translation in the lower period. Apply the
+injectivity of that lower period and separate the nonzero
+outside tensor factors as just done. This proves the stated
+local parabolic equivariance for the descended operators.
+\end{proof}
+
+The last proposition is an induction step with a fully stated
+earlier-stage hypothesis. The square integrability and the
+period factorization propositions preceding it hold for every
+actual triple, independently of that induction. They remove
+the quotient-kernel obstruction from the rank-step comparison;
+they do not alone prove that two embeddings of the common
+global module into automorphic functions are proportional.
+That is the remaining global comparison.

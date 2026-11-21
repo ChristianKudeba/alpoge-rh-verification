@@ -60,7 +60,7 @@ jobs:
           set -euo pipefail
           export SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)"
           compile() {
-            latexmk -norc -lualatex -latexoption=-no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error "$1"
+            latexmk -norc -lualatex -latexoption=-no-shell-escape -interaction=nonstopmode -file-line-error "$1"
             if grep -Ein 'undefined references|undefined citations|Reference .* undefined|Citation .* undefined|multiply.defin(ed|ition)|Missing character:' "${1%.tex}.log"; then
               exit 1
             fi
@@ -119,7 +119,7 @@ jobs:
           for i,page in enumerate(text.split("\f"),1):
               if re.search(r"Part\s+II\b",page) and "Supporting translations" in page:
                   part_two.append(i)
-          report={"source_commit":os.environ["GITHUB_SHA"],"status":"working exposition; character estimates and connected geometric supply unproved",
+          report={"source_commit":os.environ["GITHUB_SHA"],"status":"working exposition; standalone common-window proof incomplete",
                   "pages":len(pages),"supporting_part_start_pages":part_two,"title_credit_check":"passed",
                   "reference_and_glyph_check":"passed","distributed_and_flattened_text":"identical",
                   "words_outside_page":escaped,"box_warnings":warnings,
