@@ -83,7 +83,7 @@ jobs:
           pdftotext -bbox "$out/rh-short-route.pdf" "$out/qa/bounds.html"
           /usr/bin/python3 - <<'PY'
           import hashlib, json, os, re
-          import xml.etree.ElementTree as ET
+          import html
           from pathlib import Path
           from PIL import Image, ImageDraw
           root = Path(os.environ["RUNNER_TEMP"]) / "rh-short-route"
@@ -99,14 +99,15 @@ jobs:
                   sheet.paste(im, (x+(350-im.width)//2, y))
                   draw.text((x+5,y-15), f"Page {start+off+1}", fill="black")
               sheet.save(root / "qa" / f"contact-{start//12+1:02d}.png")
-          xml = ET.parse(root / "qa/bounds.html")
+          bounds=(root/"qa/bounds.html").read_text(errors="replace")
           escaped = []
-          for i,page in enumerate(xml.findall(".//{*}page"),1):
-              w,h=float(page.attrib["width"]),float(page.attrib["height"])
-              for word in page.findall(".//{*}word"):
-                  a=word.attrib
+          for i,(attributes,body) in enumerate(re.findall(r"<page\b([^>]*)>(.*?)</page>",bounds,re.S),1):
+              attrs=dict(re.findall(r'(\w+)="([^"]*)"',attributes))
+              w,h=float(attrs["width"]),float(attrs["height"])
+              for attributes,content in re.findall(r"<word\b([^>]*)>(.*?)</word>",body,re.S):
+                  a=dict(re.findall(r'(\w+)="([^"]*)"',attributes))
                   if float(a["xMin"]) < -.5 or float(a["yMin"]) < -.5 or float(a["xMax"]) > w+.5 or float(a["yMax"]) > h+.5:
-                      escaped.append({"page":i,"text":"".join(word.itertext())[:100]})
+                      escaped.append({"page":i,"text":html.unescape(content)[:100]})
           log=(root / "rh-short-route.log").read_text(errors="replace")
           warnings=re.findall(r"(?:Overfull|Underfull) \\[hv]box[^\n]*(?:\n[^\n]*)?",log)
           text=Path(os.environ["RUNNER_TEMP"],"short-standalone.txt").read_text()
