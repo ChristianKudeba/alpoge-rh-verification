@@ -19,3 +19,7 @@ All papers from this account explaining this same RH route remain consolidated i
 The new prose proofs have not been separately formalized or independently refereed. Document compilation and rendering do not certify a complete RH proof.
 
 Build entry point: [short-route.tex](short-route.tex). Artifacts are saved remotely on GitHub and Principia; the workflow publishes the PDF, standalone LaTeX, source manifest, build report and page contact sheets.
+
+Current edition: [212-page PDF](https://principia-math.com/api/ws/files/2e7d574f1458283c873cb4dd88988d13) and [immutable source/build release](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-c46a979d5afbb919a2b9b28f9bb2da90f7b486a7). The four-file Principia source expands byte for byte to the compiled source (SHA-256 `ea67a2eb844e06800a59328774dfba61b7b2d60dd12aedcac5d727044955d5ee`).
+
+The final queue check reports 1,768 translated and 1,621 reviewed modules. EqOneOfRoot, LocK and PolarOfLift were inspected with their Lean sources; their Lean matches the preserved baseline and their translations were not yet reviewed. They clarify local implications and retain their explicit global compatibility assumptions.

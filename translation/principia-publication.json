@@ -4,29 +4,22 @@
   "paper_page": "https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper",
   "status": "Published consolidated working manuscript; mathematical proof remains incomplete",
   "canonical_pdf": {
-    "id": "2ee1c508abb5f50dfda689e69cc9ae9c",
+    "id": "2e7d574f1458283c873cb4dd88988d13",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 2034422,
-    "url": "https://principia-math.com/api/ws/files/2ee1c508abb5f50dfda689e69cc9ae9c",
+    "size": 2052000,
+    "url": "https://principia-math.com/api/ws/files/2e7d574f1458283c873cb4dd88988d13",
     "attached": {
-      "id": "00ca2b38e0d57080521abfafdf7ec3d7",
+      "id": "b678cb5603721667a1cc3b3a5dbe797e",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 209,
-    "verified_sha256": "a85e6ee003f1d378d3fe3162c8064a9b6f68c0a5b8bf14991589b052e30ef7ad",
-    "source_commit": "43722f46fd2854e1b325d9c1fc16c8ed02bc4193",
-    "hash_scope": "Release PDF verified in memory; Principia imported from that immutable release with matching size"
+    "pages": 212,
+    "verified_sha256": "4e6d0fea52002d4b54dfaf957fecec7b7dfc5b0d9996b269d98af8f57c7c1735",
+    "source_commit": "c46a979d5afbb919a2b9b28f9bb2da90f7b486a7",
+    "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size"
   },
   "canonical_latex_master": "alpoge-rh-working-translation.tex",
   "source_files": [
-    {
-      "path": "alpoge-rh-working-translation.tex",
-      "bytes": 201281,
-      "sha256": "21dbf30cdf28596126043189479c62cdb707fff5a884ad8a34dd1c9612b62bb1",
-      "file_id": "9c8cc33a546414334e2d4da3aade5210",
-      "updated_at": 1795285893326
-    },
     {
       "path": "alpoge-translation/arithmetic.tex",
       "bytes": 319429,
@@ -47,11 +40,18 @@
       "sha256": "ee01a2dbff37c2fe173548fb1993f57df065e59ba487037e6081b43ebab32160",
       "file_id": "b2a369c30823d8ea8d0edb2a807767c1",
       "updated_at": 1795285905216
+    },
+    {
+      "path": "alpoge-rh-working-translation.tex",
+      "bytes": 212408,
+      "sha256": "12ed3e502ce130027406a5d77269d366529199432731b1688c5a6ad4f92766b2",
+      "file_id": "9c8cc33a546414334e2d4da3aade5210",
+      "updated_at": 1795286575889
     }
   ],
   "expanded_source": {
-    "bytes": 983599,
-    "sha256": "58d9c83f57a46490a932b9d9f445d543e9c6e429b1cba6c1262e8cf500611cae"
+    "bytes": 994726,
+    "sha256": "ea67a2eb844e06800a59328774dfba61b7b2d60dd12aedcac5d727044955d5ee"
   },
   "removed_superseded_files": [
     {
@@ -99,42 +99,42 @@
   },
   "paper_stage_completion_unchanged": true,
   "previous_pdf": {
-    "id": "4a1b45566c2ad381d409d24891ab6b48",
+    "id": "2ee1c508abb5f50dfda689e69cc9ae9c",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 1982067,
-    "url": "https://principia-math.com/api/ws/files/4a1b45566c2ad381d409d24891ab6b48",
+    "size": 2034422,
+    "url": "https://principia-math.com/api/ws/files/2ee1c508abb5f50dfda689e69cc9ae9c",
     "attached": {
-      "id": "b2ed97f6a568e468ef9aebd77e073068",
+      "id": "00ca2b38e0d57080521abfafdf7ec3d7",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 202,
-    "verified_sha256": "86c674233a77c36f501ad636ef3fd037619ae2e5a58a39e472c2a3bc4650b8ce",
-    "source_commit": "8adba4c8416b9902abdbea235166141f99cb1bdb",
-    "hash_scope": "GitHub release PDF verified in memory; Principia source_url import returned matching file size",
-    "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-8adba4c8416b9902abdbea235166141f99cb1bdb",
+    "pages": 209,
+    "verified_sha256": "a85e6ee003f1d378d3fe3162c8064a9b6f68c0a5b8bf14991589b052e30ef7ad",
+    "source_commit": "43722f46fd2854e1b325d9c1fc16c8ed02bc4193",
+    "hash_scope": "Release PDF verified in memory; Principia imported from that immutable release with matching size",
+    "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-43722f46fd2854e1b325d9c1fc16c8ed02bc4193",
     "replaced_attachment_removed": true
   },
   "title_credit": "with reductions from Principia contributors",
   "expanded_source_matches_compiled_release": true,
   "source_readback_matches_generated_text": true,
   "document_checks": {
-    "source_commit": "43722f46fd2854e1b325d9c1fc16c8ed02bc4193",
+    "source_commit": "c46a979d5afbb919a2b9b28f9bb2da90f7b486a7",
     "status": "working exposition; character estimates and connected geometric supply unproved",
-    "pages": 209,
+    "pages": 212,
     "supporting_part_start_pages": [
-      50
+      53
     ],
     "title_credit_check": "passed",
     "reference_and_glyph_check": "passed",
     "distributed_and_flattened_text": "identical",
     "words_outside_page": [],
     "box_warnings": [
-      "Underfull \\hbox (badness 10000) in paragraph at lines 9453--9463\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
-      "Underfull \\hbox (badness 1533) in paragraph at lines 9927--9929\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
+      "Underfull \\hbox (badness 10000) in paragraph at lines 9722--9732\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
+      "Underfull \\hbox (badness 1533) in paragraph at lines 10196--10198\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
     ],
-    "pdf_sha256": "a85e6ee003f1d378d3fe3162c8064a9b6f68c0a5b8bf14991589b052e30ef7ad",
-    "tex_sha256": "58d9c83f57a46490a932b9d9f445d543e9c6e429b1cba6c1262e8cf500611cae",
+    "pdf_sha256": "4e6d0fea52002d4b54dfaf957fecec7b7dfc5b0d9996b269d98af8f57c7c1735",
+    "tex_sha256": "ea67a2eb844e06800a59328774dfba61b7b2d60dd12aedcac5d727044955d5ee",
     "contact_sheets": [
       "contact-01.png",
       "contact-02.png",
@@ -174,6 +174,23 @@
       "source_commit": "35d65233980e51bda663ec97c44d5e9b3189680d",
       "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-35d65233980e51bda663ec97c44d5e9b3189680d",
       "replaced_attachment_removed": true
+    },
+    {
+      "id": "4a1b45566c2ad381d409d24891ab6b48",
+      "filename": "alpoge-rh-consolidated-manuscript.pdf",
+      "content_type": "application/pdf",
+      "size": 1982067,
+      "url": "https://principia-math.com/api/ws/files/4a1b45566c2ad381d409d24891ab6b48",
+      "attached": {
+        "id": "b2ed97f6a568e468ef9aebd77e073068",
+        "path": "alpoge-rh-consolidated-manuscript.pdf"
+      },
+      "pages": 202,
+      "verified_sha256": "86c674233a77c36f501ad636ef3fd037619ae2e5a58a39e472c2a3bc4650b8ce",
+      "source_commit": "8adba4c8416b9902abdbea235166141f99cb1bdb",
+      "hash_scope": "GitHub release PDF verified in memory; Principia source_url import returned matching file size",
+      "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-8adba4c8416b9902abdbea235166141f99cb1bdb",
+      "replaced_attachment_removed": true
     }
   ],
   "remaining_inputs": [
@@ -183,8 +200,52 @@
   "new_components": [
     "Global high-twist bound via integral homology with exponent 24, all coefficient primes",
     "Dyadic common-window hypothesis K_2(24) discharged",
-    "Twist-one character bound of any fixed bounded order at 3 and 7"
+    "Twist-one character bound of any fixed bounded order at 3 and 7",
+    "Coefficient-uniform complex arithmetic-group cohomology, ideal-class finite adelic orbits and polynomial congruence-level factor"
   ],
   "new_prose_independently_refereed": false,
-  "new_prose_separately_formalized": false
+  "new_prose_separately_formalized": false,
+  "latest_contributor_check": {
+    "queue": {
+      "total": 175187,
+      "translated": 1768,
+      "reviewed": 1621
+    },
+    "modules": [
+      {
+        "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ThresholdArguments.DenseThresholdCases.EqOneOfRoot",
+        "status": "translated",
+        "translated_by": "Baelson",
+        "translation_version": 1,
+        "source_matches_preserved_baseline": true,
+        "source_sha256": "ee0fcf4ff8700fc1836334792e0afe17039eb2b9ec23b696f80bc4ead268a9fa",
+        "conclusion": "Proves RecSph: a PlainTor local component whose Langlands parameter has level 1 (unramified) is spherical, because its supporting characters are unramified and unlinked, giving a full unramified principal series. Hypotheses' is unused."
+      },
+      {
+        "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ThresholdArguments.DenseThresholdCases.LocK",
+        "status": "translated",
+        "translated_by": "Baelson",
+        "translation_version": 1,
+        "source_matches_preserved_baseline": true,
+        "source_sha256": "a4170a7ddc9ce0c26dd72185c50197ed3ef7962b898032aa1668b723aa0269c1",
+        "conclusion": "Proves LocK: for an ordinary rank-two r over a CM field attached to a polarized π that is plain at w | l, π is spherical at w and its Satake parameters match the Frobenius value of the flag, via local-global compatibility (CompatT)."
+      },
+      {
+        "name": "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ThresholdArguments.DenseThresholdCases.PolarOfLift",
+        "status": "translated",
+        "translated_by": "Baelson",
+        "translation_version": 1,
+        "source_matches_preserved_baseline": true,
+        "source_sha256": "2b8dd0eb049f8a269ab4ec837d26aaed19d348bb37b942e483ead452dd09ceae",
+        "conclusion": "Proves BcSplit: a rank-two V over Q attached to π base-changes to an imaginary quadratic K split at l, keeping irreducibility, polarization and Satake parameters at l, with D_A fixing K."
+      }
+    ],
+    "other_papers_modified": false,
+    "upstream_pr44": {
+      "head": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
+      "state": "open",
+      "merged": false,
+      "independent_combined_verification_not_repeated": true
+    }
+  }
 }
