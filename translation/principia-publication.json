@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-21",
+  "project_id": "d16ab288ed353bc5b10e292ace0ddbc1",
+  "paper_page": "https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper",
+  "status": "Published consolidated working manuscript; mathematical proof remains incomplete",
+  "canonical_pdf": {
+    "id": "c532a07c96ea42d67bf46ff0858324a5",
+    "filename": "alpoge-rh-consolidated-manuscript.pdf",
+    "content_type": "application/pdf",
+    "size": 1904474,
+    "url": "https://principia-math.com/api/ws/files/c532a07c96ea42d67bf46ff0858324a5",
+    "attached": {
+      "id": "ca2fe82ad31a9134df8ec31f7672ef0d",
+      "path": "alpoge-rh-consolidated-manuscript.pdf"
+    },
+    "pages": 194,
+    "verified_sha256": "5f2dc5e7ecfb8a3bc76fc61c76a47f3868323e4a937a30ac8b470cf658db9d63",
+    "source_commit": "35d65233980e51bda663ec97c44d5e9b3189680d"
+  },
+  "canonical_latex_master": "alpoge-rh-working-translation.tex",
+  "source_files": [
+    {
+      "path": "alpoge-translation/arithmetic.tex",
+      "bytes": 319429,
+      "sha256": "4436b182d40f41946a2262522b146dac901c70070bb92e3278dc8924cfe2a98f",
+      "changed": false,
+      "file_id": "c3e3338d13685e0a6803c622713a922b"
+    },
+    {
+      "path": "alpoge-translation/theta-and-geometry.tex",
+      "bytes": 301532,
+      "sha256": "f5f372cb061327282bae716c0db9a473a90288b6bdd108f82e1b301876d2c847",
+      "changed": false,
+      "file_id": "b7608052b93602f39ba6d6627f506a81"
+    },
+    {
+      "path": "alpoge-translation/prime-sums-and-zeros.tex",
+      "bytes": 161153,
+      "sha256": "6acfc2dfaf6ebaa52fc618d9d450640ae7f801a368c9a22148a042e248bdee3f",
+      "changed": true,
+      "file_id": "b2a369c30823d8ea8d0edb2a807767c1"
+    },
+    {
+      "path": "alpoge-rh-working-translation.tex",
+      "bytes": 132240,
+      "sha256": "b841019df2cab5ffb24fdbcc059d576e6debeceee41494ae18d0402912f49da0",
+      "changed": true,
+      "file_id": "9c8cc33a546414334e2d4da3aade5210"
+    }
+  ],
+  "expanded_source": {
+    "bytes": 914210,
+    "sha256": "e28113c7efb76303d2ac91e957b3a6fa65fa3a50f5d358bda36fb826ac5474c3"
+  },
+  "removed_superseded_files": [
+    {
+      "id": "8ca98586b88358808a09789e844f4c76",
+      "path": "alpoge-rh-formal-entry-points.pdf",
+      "created_by": "31904e45f587dfed8d1c9dc82a2436df"
+    },
+    {
+      "id": "51c2ab9db507735b7622b65c6884b44c",
+      "path": "alpoge-rh-working-translation-163pp.pdf",
+      "created_by": "31904e45f587dfed8d1c9dc82a2436df"
+    },
+    {
+      "id": "83f7dd67090be2cbe257693851c543d8",
+      "path": "alpoge-rh-working-translation.pdf",
+      "created_by": "31904e45f587dfed8d1c9dc82a2436df"
+    },
+    {
+      "id": "2a307759fae5e12809c2f3b01dfee2ea",
+      "path": "alpoge-translation/formal-entry-points.tex",
+      "created_by": "31904e45f587dfed8d1c9dc82a2436df"
+    }
+  ],
+  "retained_different_proof_audit": {
+    "id": "9d1c207fe7d641fad408a92c8e155583",
+    "path": "principia-harness/a0564e7e/masullo-zero-count-audit.pdf",
+    "kind": "binary",
+    "area": "paper",
+    "artifact_id": "b561b940f8dd3d3b8f8a2d1d83b359dc",
+    "size": 306591,
+    "created_by": "31904e45f587dfed8d1c9dc82a2436df",
+    "updated_at": 1795211510767,
+    "updated_by": {
+      "username": "ChristianKudeba",
+      "avatar": "866c0999fa602bff123ed00fb0b660a0",
+      "name": "Big C"
+    },
+    "url": "https://principia-math.com/api/ws/files/b561b940f8dd3d3b8f8a2d1d83b359dc"
+  },
+  "other_users_papers_untouched": true,
+  "retained_papers_checked_against_initial_inventory": true,
+  "archive": {
+    "commit": "b5d5f465049e6f9df7af49f9b486164dee5acd60",
+    "path": "translation/archive/principia-before-194-page-consolidation.json"
+  },
+  "paper_stage_completion_unchanged": true
+}

@@ -16,6 +16,6 @@ The new prose arguments have not been independently formalized. The new compilat
 
 Build entry point: [short-route.tex](short-route.tex). The GitHub workflow publishes one PDF, flattened LaTeX, page-rendering contact sheets, a build report and the source manifest in a permanent release named `short-route-COMMIT`.
 
-All new files and compilation outputs are stored on GitHub. Principia uploads remain paused.
+All new files and compilation outputs are stored on GitHub. The [current consolidated manuscript](https://principia-math.com/api/ws/files/c532a07c96ea42d67bf46ff0858324a5) and its single LaTeX project are published on [Principia's papers page](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper). Our superseded Alpöge manuscript uploads have been removed; the separate Masullo audit is retained.
 
 Original proof entry points for the remaining character estimates: `HeightAndVanishing.CountI` reduces the generic estimate to `CorG`; the conditional integer-to-prime-sum bridge is already printed in the supporting arithmetic chapter. `HeightAndVanishing.Counts` specifies the pointwise `ColumnFamilyFiltrationProperties` input and its extra rank hypothesis. These antecedents still need their full applicable constructions and proofs. The dyadic cokernel bounds continue through `AdditiveValuationNorms.ABoundOfDescends` and the class-counting ingredients of `LemmaK`. These are concrete source entry points, not newly discharged obligations.
