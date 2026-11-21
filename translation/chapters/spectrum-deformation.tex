@@ -47,7 +47,7 @@ The space of polynomials of degree at most $nH'$ in the $n^2$
 entries of $X$ is stable under the right substitution $X\mapsto XB$.
 Each monomial has each exponent between zero and $nH'$, giving
 dimension at most $(nH'+1)^{n^2}$. The highest-weight scalar
-calculation in \texttt{Weyl.existsScalar} extracts a nonzero module $P$
+calculation in \srcid{Weyl.existsScalar} extracts a nonzero module $P$
 of dimension at most this bound, with the central quantum determinant
 acting as $\prod_k(u-k+\nu_k)$.
 
@@ -83,7 +83,7 @@ $U_0=K_n(3)$ there are finitely many double cosets
 $\Gamma g_i U_0$. This is the finite-double-coset input, together
 with the finite index of $U_0$ at integral level one. Write
 $\Gamma_i=\Gamma\cap g_iU_0g_i^{-1}$. The arithmetic subgroup
-cohomology theorem \texttt{bddArith} gives a constant $c_i$
+cohomology theorem \srcid{bddArith} gives a constant $c_i$
 such that for each finite-dimensional complex $\Gamma_i$-module $V$,
 \[
           \sum_{j\ge0}\dim H^j(\Gamma_i,V)\le c_i\dim V .
@@ -111,7 +111,7 @@ on the fiber. Summing over the finitely many orbits gives
 The action on functions is
 $(\gamma f)(x)=\xi(\gamma)f(\gamma^{-1}x)$ for the coefficient
 representation $\xi$. This is the cohomology quantity
-\texttt{cohDim} used by the spectrum count.
+\srcid{cohDim} used by the spectrum count.
 
 Reduction modulo $3M$ embeds the quotient by its principal-congruence
 kernel into $\mathrm{GL}_n(\widehat{\mathcal O}_K/
@@ -123,11 +123,11 @@ $\mathrm{cohDim}\le c_2 M^s a$ with
 $c_2=3^s\sum_i c_i$, independent of the level and the coefficients.
 
 Every $\pi\in S$ has the opposite infinitesimal character to $\Xi$.
-The cohomological criterion \texttt{ClozelCohC} gives nonzero relative
+The cohomological criterion \srcid{ClozelCohC} gives nonzero relative
 Lie-algebra cohomology for $\pi\otimes\Xi$. Every fixed vector at
 level $M$ remains fixed at level $3M$ because reduction modulo $M$
 factors through reduction modulo $3M$. The cuspidal cohomology
-injection \texttt{BorelInjC}, applied to the finite pairwise
+injection \srcid{BorelInjC}, applied to the finite pairwise
 nonisomorphic set $S$ and the open compact group $U'$, gives
 $|S|\le\mathrm{cohDim}$ for $a=\dim\Xi$. Combining the inequalities
 proves \eqref{eq:spectrum-count} with
@@ -165,7 +165,7 @@ The two cases cannot overlap because the middle coordinate is an
 invariant line in type II.
 
 Let $B$ be the chosen valuation ring of $\Omega$ above $\ell$.
-The endomorphism and automorphy input \texttt{GdEndAlt} supplies one
+The endomorphism and automorphy input \srcid{GdEndAlt} supplies one
 marking with an integral finiteness conclusion and integral ordinary
 endpoint statements for ranks three and two. The integral-point
 theorem \texttt{exists\_ordPt\_of\_point} says precisely what is
@@ -226,25 +226,26 @@ highest-weight calculation enter the spectrum count. The passage from
 integral ordinary points to automorphy uses the separate endpoint
 theorem, proven in the release through linked ordinary systems,
 descent, and unitary automorphy. The conjugacy argument above proves
-the transfer to the original point. It uses the marked shape and
-open-subgroup irreducibility theorems as inputs. The subsequent
+the transfer to the original point. It uses the marked shape and the open-subgroup irreducibility proved
+in the following section from the ordinary inertia flag and residual
+separator. The subsequent
 rigidity argument applies adjoint Selmer vanishing to type I and
 rank-two adjoint and Kato inputs to type II.
 
 \paragraph{Source map.}
 The definitions of the spectrum and weights are in
-\texttt{AutomorphicForms.IsoOfFrob}. The coefficient construction is
-\texttt{TWeylC}, with the minor polynomial in \texttt{TopPol} and the
-tensor and scalar steps in \texttt{ExistsTens} and \texttt{ExistsScalar}.
-The orbit argument is \texttt{TemperedLocalComponents.CohBoundFree}
-and the final cohomological comparison is \texttt{TCardK}. The
+\srcid{AutomorphicForms.IsoOfFrob}. The coefficient construction is
+\srcid{TWeylC}, with the minor polynomial in \srcid{TopPol} and the
+tensor and scalar steps in \srcid{ExistsTens} and \srcid{ExistsScalar}.
+The orbit argument is \srcid{TemperedLocalComponents.CohBoundFree}
+and the final cohomological comparison is \srcid{TCardK}. The
 rank-three specialization is in
-\texttt{FrobeniusTraceCountBoundOfCmEigensystemCount}.
-The point statements are \texttt{UnitaryThreeGroups.PtShape},
-\texttt{CurveDVRSpecialization.WeightZeroAlgebraLeEntryAlgebra},
-\texttt{MatIrrOpenGd}, \texttt{AutEnd3AltAlt}, and
-\texttt{AutomorphyU3OfEndoscopy}. The precise modular-form
-normalization is in \texttt{AutomorphyDescent.AutNewformW}.
+\srcid{FrobeniusTraceCountBoundOfCmEigensystemCount}.
+The point statements are \srcid{UnitaryThreeGroups.PtShape},
+\srcid{CurveDVRSpecialization.WeightZeroAlgebraLeEntryAlgebra},
+\srcid{MatIrrOpenGd}, \srcid{AutEnd3AltAlt}, and
+\srcid{AutomorphyU3OfEndoscopy}. The precise modular-form
+normalization is in \srcid{AutomorphyDescent.AutNewformW}.
 
 \footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TCardK.lean}{The counting deduction},
 \href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AutomorphicForms/TemperedLocalComponents/CohBoundFree.lean}{the level and cohomology exponents}, and

@@ -1,0 +1,164 @@
+\section{Singular Fourier tests for the archimedean vacuum}
+\label{sec:sw-singular-vacuum}
+
+Suppose \(0\le m<n\). In the definite Siegel--Weil calculation of
+Section~\ref{sec:sw-boundary}, the local vacuum at the special
+parameter has Fourier frequencies of rank at most \(m\). We prove
+this assertion after arbitrary left and right translations and
+after averaging by a compact group. The singularities here concern
+the rank of the Fourier frequency.
+
+Use \(J=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)\)
+and \(G=\{g\in\operatorname{GL}_{2n}(\mathbb C):g^*Jg=J\}\).
+Write \(A_g,B_g,C_g,D_g\) for its four \(n\)-by-\(n\) blocks, and set
+\[
+ U_g=iC_g+D_g,\quad V_g=iA_g+B_g,\quad
+ n(S)=\begin{pmatrix}I&S\\0&I\end{pmatrix},\qquad
+ f(g)=\det(g)^e\det(U_g)^{-m},\qquad e\in\mathbb Z.
+\]
+Here \(f\) is \texttt{fz} at parameter zero, the local parameter
+measured relative to the distinguished global value. Identify
+\(s\in\mathbb R^{n\times n}\) with the Hermitian matrix
+\[
+ S(s)_{jk}=\tfrac12(s_{jk}+s_{kj})+
+                   \tfrac i2(s_{jk}-s_{kj}).
+\]
+This real-linear bijection fixes the coordinate measure \(ds\).
+Call \(\psi\in C_c(\mathbb R^{n\times n},\mathbb C)\) a singular
+test if for each Hermitian \(T\) with \(\det T=0\),
+\[
+       \int \psi(s)\exp(2\pi i\operatorname{tr}(T S(s)))\,ds=0 .
+\]
+Then for each \(y,b\in G\),
+\begin{equation}
+           \int f\bigl(y n(S(s)) b\bigr)\psi(s)\,ds=0.
+ \label{eq:sw-singular-vacuum}
+\end{equation}
+
+\paragraph{A matrix Gaussian with singular frequencies.}
+For a positive definite Hermitian \(P\), a Hermitian \(H\), and
+complex Lebesgue measure in the \(nm\) entries of an
+\(n\)-by-\(m\) matrix \(Z\), one has
+\begin{equation}
+ \det(P-iH)^{-m}
+ =\pi^{-nm}\int_{\mathbb C^{n\times m}}
+   e^{-\operatorname{tr}(Z^*PZ)}e^{i\operatorname{tr}(Z^*HZ)}\,dZ.
+ \label{eq:sw-singular-gaussian}
+\end{equation}
+Indeed, put \(Z=P^{-1/2}W\). The real Jacobian for each column is
+\(\det P^{-1}\). Diagonalize the Hermitian
+\(P^{-1/2}HP^{-1/2}\) by a unitary change preserving both measure
+and the norm. Each eigenvalue \(\lambda\) gives a factor
+\[
+ \int_{\mathbb C} e^{-(1-i\lambda)|z|^2}\,d\Re z\,d\Im z
+       =2\pi\int_0^\infty r e^{-(1-i\lambda)r^2}\,dr
+       =\frac{\pi}{1-i\lambda}
+\]
+in each column. Multiplication of these factors proves the
+formula, including the normalization. All changes and factorizations
+are justified by the absolute Gaussian majorant. For \(m=0\) the
+integral and the determinant power are both one.
+
+Fix a Hermitian \(H_0\). Insert \(H=H_0+S(s)\) in
+\eqref{eq:sw-singular-gaussian} and integrate against \(\psi(s)\).
+The absolute integral is bounded by
+\(\|\psi\|_1\int e^{-\operatorname{tr}(Z^*PZ)}\,dZ<\infty\).
+For fixed \(Z\), the \(S(s)\)-dependent factor becomes
+\(\exp(2\pi i\operatorname{tr}(T S(s)))\) with
+\(T=ZZ^*/(2\pi)\). It is Hermitian and has rank at most \(m<n\).
+The definition of a singular test therefore annihilates the inner
+\(s\)-integral, and Fubini gives
+\begin{equation}
+      \int\psi(s)\det(P-i(H_0+S(s)))^{-m}\,ds=0.
+ \label{eq:sw-singular-hermitian}
+\end{equation}
+In particular the zero frequency is included. Transposing the
+rectangular coordinate array gives the row convention of the
+source, with the same trace pairing and determinant.
+
+\paragraph{Factorization on the open matrix cell.}
+Let \(y,b\in G\) and first assume \(C=C_y\) invertible. Write
+\(D=D_y\), \(U=U_b\), \(V=V_b\). Since
+\(\binom{V}{U}=b\binom{iI}{I}\), preservation of \(J\) gives
+\[
+          U^*V-V^*U=2iI .
+\]
+If \(Uv=0\), evaluating the identity against \(v\) gives
+\(2i\|v\|^2=0\), so \(U\) is invertible. This argument holds for
+every \(b\in G\). Also \(yJy^*=J\), since \(J^{-1}=-J\) and
+\(y^*Jy=J\). Its bottom-right block gives \(CD^*=DC^*\).
+It follows that \(C^{-1}D=(C^{-1}D)^*\).
+
+Put \(L=VU^{-1}\). Multiplying the preceding identity for \(U,V\)
+by \((U^{-1})^*\) and \(U^{-1}\) shows that
+\[
+ L-L^*=2iP,\qquad P=(U^{-1})^*U^{-1}>0,\qquad
+ H_0=\tfrac12(L+L^*)+C^{-1}D=H_0^* .
+\]
+For any Hermitian \(S\), direct block multiplication gives
+\[
+ \begin{split}
+ U_{y n(S)b}
+     &=CV+(D+CS)U\\
+     &=C(L+C^{-1}D+S)U\\
+     &=C\bigl(i(P-i(H_0+S))\bigr)U .
+ \end{split}
+\]
+Thus
+\(\det U_{y n(S)b}=\kappa\det(P-i(H_0+S))\), where
+\(\kappa=i^n\det C\det U\ne0\).
+Since \(\det n(S)=1\),
+\[
+ f(y n(S)b)
+   =(\det y\det b)^e\,\kappa^{-m}\det(P-i(H_0+S))^{-m}.
+\]
+Its integral vanishes by \eqref{eq:sw-singular-hermitian}.
+
+\paragraph{The remaining matrices and the compact average.}
+For arbitrary \(y\in G\), multiply on the right by
+\(\bar n(t)=\left(\begin{smallmatrix}I&0\\tI&I\end{smallmatrix}\right)\)
+with \(t\) real. This belongs to \(G\), and the new lower-left block
+is \(C_y+tD_y\). The polynomial \(p(T)=\det(C_y+TD_y)\) is nonzero,
+since \(p(-i)=(-i)^n\det(iC_y+D_y)\ne0\). Its real roots form a
+finite set. Thus for all sufficiently small nonzero real \(t\)
+the result on the open cell applies to \(y\bar n(t)\).
+The determinants defining \(f\) are everywhere nonzero on \(G\),
+so \((t,s)\mapsto f(y\bar n(t)n(S(s))b)\) is continuous. It is
+bounded on \([-1,1]\times\operatorname{supp}\psi\).
+Dominated convergence as \(t\to0\) proves
+\eqref{eq:sw-singular-vacuum} for the original \(y\).
+
+Let \(K\) be a compact group with a continuous homomorphism
+\(\iota\) onto \(G\cap U(2n)\), let \(\mu\) be its Haar measure,
+and let \(\rho\) be a continuous complex weight on \(K\).
+For \(a,b,x\in G\), the associated averaged test has value
+\[
+ \int_K \rho(k)\left(\int
+       f(x\iota(k)a n(S(s)) b)\,\psi(s)\,ds\right)d\mu(k)=0.
+\]
+Indeed the inner integral vanishes at each \(k\) by
+\eqref{eq:sw-singular-vacuum}, with \(y=x\iota(k)a\).
+The product of \(K\) and the support of \(\psi\) is compact,
+so the double integral is absolutely convergent. This covers
+the allowed weights of the local vacuum projection.
+The argument evaluates the section at its distinguished parameter.
+Derivatives in the parameter, and their use in controlling poles
+of the continued Eisenstein series, require an additional argument.
+
+\paragraph{Source correspondence.}
+The tagged source defines \texttt{IsSingTest} using the displayed
+coordinate pairing in
+\srcid{SiegelWeilProof.HolomorphicContinuation.IsSingTest}.
+Within its \texttt{CayleyCosetSums} directory, the rank bound and
+Gaussian integral appear in \texttt{TraceTransposeMul} and
+\texttt{InnerGen.core2}; the block identities and factorization
+are \texttt{SecondCoordMulInner} and \texttt{Imports.factor}.
+The extension from the open cell is
+\texttt{VanishInv.vanish\_inv} and
+\texttt{EventuallyUnit.vanish\_all}. Its compact-average conclusion
+is \texttt{SingularTestsKillVacuum.lt3}.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/WeilBound/RepresentationTheoryGL/SiegelWeilProof/HolomorphicContinuation/CayleyCosetSums}{Tagged local proof files}.
+The global unitary identity in the anisotropic range is
+S.~Yamana, \emph{The Siegel--Weil formula for unitary groups},
+Pacific J. Math. 264 (2013),
+\href{https://msp.org/pjm/2013/264-1/pjm-v264-n1-p11-p.pdf}{Theorem~2, p.~237}.}

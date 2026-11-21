@@ -89,9 +89,22 @@ the square matrix whose rows are these vectors in an integral Lie
 basis and set \(D=\det U\). The good-model theorem for the theta
 scalar applies to an integral generating theta section in an
 integral Lie basis. The assumptions in the source application
-include \(p_0+q_0\ge1\) and the level predicate
-\srcid{GoodAt} at every rational prime. The primitive scalar is
-then a unit \(\eta\in T^\times\); its comparison with the eigenframe
+include \(p_0+q_0\ge1\). For a level of odd modulus
+\(M\ge3\), its predicate \srcid{GoodAt} at a rational prime \(p\)
+means exactly
+\[
+                    M/p^{v_p(M)}\ge3 .
+\]
+The valuation bound invokes this condition for every rational
+prime. For this odd \(M\) it holds precisely when \(M\) has
+at least two distinct prime divisors: deleting any one prime-power
+factor then retains an odd factor of size at least three. At a
+fixed \(p\) dividing \(M\), the predicate can therefore hold even
+when \(M\) fails to be invertible on the trait. The integral
+torsion projector of Section~\ref{sec:theta-translate-span} separately
+requires invertibility of the order being averaged.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/BirationalGeometry/ToroidalCompactification/TwoWeightEqOneAddRoot.lean}{The definition of a level and its prime-to-\(p\) residue condition}.}
+The primitive scalar is then a unit \(\eta\in T^\times\); its comparison with the eigenframe
 gives
 \[
                             K_4(y)=D^4\eta .
@@ -99,22 +112,202 @@ gives
 In particular, in this equation unitness refers to \(\eta\).
 The eigenframe can have positive colength at ramified primes.
 
-For clarity on the scope of the good-model input, the release
-uses the invertibility of the theta pushforward, its model
-uniformization, the arc property, and the split-fiber theorem. On
-the normal affine chart it starts with a unit on the dense
-generic open. A rational function on a normal noetherian affine
-domain extends if it belongs to all its height-one valuation rings.
-The proof applies this test to both the function and its reciprocal.
-At the boundary the arc comparison supplies bounded complex values
-for both; at the good-reduction tests the good-reduction unit theorem
-does the same algebraically. The local extensions multiply to one
-by density. The resulting chart unit pulls back to the trait, where
-a change between two integral generating frames multiplies it by an
-eighth power of a unit and the inverse fourth power of a determinant
-unit. The arc comparison and good-reduction assertions are separate
-geometric inputs. An arbitrary chart centered at a bad level prime
-does not acquire these hypotheses from the field-valued connection.
+\subsection{Two divisors on a mixed-characteristic arc}
+
+We prove the extension step in the good-model theorem. A model \(Y\)
+in this step has invertible theta pushforward, the degeneration
+and arc properties \srcid{N3} and \srcid{N4}, and split fibers.
+On an affine integral framed chart \(U\), write \(U^\circ\) for its
+intersection with the dense generic moduli open. Let \(f\) be the
+unit on \(U^\circ\) representing the normalized theta scalar.
+We must extend \(f\) and \(f^{-1}\) through \(U\).
+The chart ring \(B\) is a countable noetherian normal domain. The
+countability follows from local finite type over a countable subring
+of the coefficient number field. Since
+\(B=\bigcap_{\operatorname{ht}\mathfrak p=1} B_{\mathfrak p}\)
+in its fraction field, it suffices to test countable DVRs, with
+generic point in \(U^\circ\). Fix such a test \(z:\operatorname{Spec}R
+\to U\), with fraction field \(K\), and let \(v\) denote either \(f\)
+or \(f^{-1}\).
+
+If the whole test lies in the abelian locus, complete \(R\).
+The pulled-back semiabelian family is proper by the good-reduction
+criterion, and the generic polarization and its rigidified cubical
+line give relative ampleness on the model. A primitive chart theta
+and an integral Lie frame now give integral data for the defining
+DVR normalization of the theta rule. Its scalar is a unit in the
+completion, by that normalization. Descent to \(R\) follows directly:
+for \(r\in K^\times\) of nonzero valuation, \(r\) or \(r^{-1}\) lies
+in the maximal ideal of \(R\) and stays a nonunit in a local
+injective extension. Thus a scalar which becomes a unit was already
+a unit. The actual input at this step is the DVR normalization of
+the theta rule on proper polarized families.
+
+Suppose the closed point has bad reduction. Complete \(R\) and use
+\srcid{N3} and split fibers to realize the degeneration data after
+a finite extension of complete DVRs. Write \(A\) for the resulting
+complete DVR and \(\pi\) for its uniformizer. Property \srcid{N4}
+gives a model point over \(D=A[[X]]\) whose specialization at
+\(X=\pi\) agrees with the original point after extension. Its
+restriction to \(D[1/(\pi X)]\) lies in \(U^\circ\), and its
+restriction to \(D[1/X]\) lies in the abelian locus. It lies in
+\(U\) on the whole formal disc: its closed point belongs to \(U\)
+after the indicated specialization, and an open subset of the
+spectrum of a local ring containing the closed point is the whole
+spectrum.
+
+Put \(S=D[1/(\pi X)]\) and let \(v_D\in S\) be the value of \(v\)
+on the punctured chart. There are two independent tests.
+
+\emph{At the prime \((\pi)\).}
+Reduction coefficient by coefficient gives
+\(D/(\pi)\simeq (A/\pi)[[X]]\). Hence \(\pi\) is prime in \(D\),
+and \(X\) is a unit in the DVR \(D_{(\pi)}\).
+For the DVR assertion, a nonzero series is \(\pi^j\) times a
+series with some unit coefficient: take the minimum of the
+valuations of its nonzero coefficients. The second factor becomes
+a unit after localization at \((\pi)\). Every nonzero element of
+the local ring is consequently a unit times a nonnegative power
+of \(\pi\). The good-reduction test applies there, and gives
+\(v_D=s/t\) with \(s,t\in D\) and \(\pi\nmid t\).
+
+\emph{At the prime \((X)\).}
+The original DVR was countable, so its completion has cardinality
+at most the continuum. This remains true after the finite
+extension and passage to the fraction field. Consequently there
+is a field embedding of \(\operatorname{Frac}(A)\) into \(\mathbb C\)
+extending the specified embedding of the coefficient number field.
+For example, embed a transcendence basis in one of \(\mathbb C\)
+over the coefficient field and extend over the algebraic extension.
+This is an abstract field embedding. Applying it to the coefficients
+of the formal series gives a complex arc by the base-change law for
+the degeneration data. In its normal form, let \(M\) be the
+period-frame matrix and \(c\ne0\) the primitive theta scaling.
+The analytic comparison for this arc supplies a constant \(C>0\)
+such that, sufficiently far in the cusp,
+\[
+ C^{-1}\leq |\det M|/|c|^2\leq C,\qquad
+ |\kappa|=(|\det M|/|c|^2)^4 .
+\]
+For the equality, rescale the frame to the theta with standard
+half-integral characteristic and apply the normalized value \(1\)
+there; changing back contributes the displayed fourth power.
+Both \(v\) and its inverse then have norm at most \(C^4\).
+The converging numerator and denominator germs on the arc have
+a meromorphic quotient. If its lowest Laurent term had negative
+degree, its modulus would grow without bound on a radius tending
+to the puncture. Thus the image of \(v_D\) in
+\(\mathbb C((X))\) lies in \(\mathbb C[[X]]\).
+The uniform bound used here is the analytic arc-normal-form theorem.
+
+To combine the tests choose \(n\geq0\) and \(a\in D\) with
+\(v_D=a/(\pi X)^n\). The complex test forces the first \(n\)
+coefficients of \(a\) to vanish, since the embedding of \(A\)
+is injective and sends \(\pi\) to a nonzero constant. Set
+\(a=X^n a_1\). From the other representation of \(v_D\) we have
+\(a_1 t=\pi^n s\). Primality of \(\pi\) and \(\pi\nmid t\)
+give \(\pi^n\mid a_1\) by induction. Hence \(v_D\in D\).
+Evaluating this series at \(X=\pi\) converges in the complete DVR
+\(A\) and yields the image of the original \(v(z_K)\).
+If \(v(z_K)\) had negative valuation in \(R\), its inverse would
+have positive valuation in \(A\), contradicting integrality.
+Thus \(v(z_K)\in R\).
+
+Performing this argument on both \(f\) and \(f^{-1}\) gives two
+regular functions on \(U\). They multiply to one on the dense
+open, hence on \(U\). This proves the asserted chart unit, given
+the geometric hypotheses and the two stated normalizations.
+Changing the integral frame and generating theta rescales by
+the inverse fourth power of a determinant unit and the eighth
+power of a section-scaling unit in the comparison of the two
+data sets. This proof applies on models with the stated
+hypotheses. The field identity for the connection alone gives
+no such divisorial information at a bad level prime.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IntegralOfArcsAndGoodReductionPoints.lean}{Uniformizer specialization and the two tests};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsPowerSeriesOfNoPoleAwayUniformizerX.lean}{cancellation in the two-variable local ring};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IsUnitThetaKeyScalarGoodReductionChart.lean}{the good-reduction test};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/NotPoleOfBounded.lean}{the complex no-pole test}.}
+
+\subsection{The analytic bound along a fixed degeneration arc}
+
+We give the estimate used at the divisor \((X)\) in the previous
+argument. Let \(w\) range over a sufficiently high upper half-plane
+and write \(q=e^{2\pi i w}\). The half-characteristic and a fixed
+adapted symplectic basis give a classical theta function
+\(\vartheta[a,b](\tau(w),hz)\), with a fixed invertible change
+of coordinates \(h\). Its multiple \(c(w)\vartheta[a,b](\tau(w),hz)\)
+represents the primitive chart section. A coefficient bound at
+the origin of \(z\) would fail for an odd characteristic. The
+argument here compares the entire function: the theta function
+is not identically zero, so a scalar relating two such expressions
+is determined at a point with nonzero value.
+
+The integral theta generator on the formal disc and the chosen
+chart generator are two bases of the same invertible direct image.
+Their relative scalar is a unit \(r(X)=\sum r_jX^j\in\mathbb C[[X]]\).
+The analytic comparison of the rigidified theta functions along
+the family identifies \(c(w)=\gamma r(q)\) for a fixed
+\(\gamma\ne0\); the formal series sums to this value for \(w\)
+sufficiently high. Here and below the level, formal arc, chart,
+and the adapted family are fixed. These two geometric inputs are
+the theta-generator comparison and the identification of its
+sum with the fiber scalar. In particular \(r_0\ne0\) is supplied
+by the invertibility just described.
+
+Set \(A_0=|r_0|\). Take a nonzero \(q_0\) where the chart series
+converges and set \(B=\max(1,\sup_j|r_jq_0^j|)\), which is
+finite since its terms tend to zero. Put
+\(t=\min(1/2,A_0/(4B))\). As \(|q|\le t|q_0|\),
+\[
+ |r(q)-r_0|\leq \sum_{j\geq1}Bt^j
+          =\frac{Bt}{1-t}\leq A_0/2 .
+\]
+Consequently \(C_2^{-1}\leq |c(w)|\leq C_2\) with
+\(C_2=\max(3|\gamma| A_0/2,2/(|\gamma| A_0))\) whenever
+\(\operatorname{Im}w>-\log(t|q_0|)/(2\pi)\) and the fiber
+comparison applies.
+
+For the derivative frame, the Lie module over \(\mathbb C[[X]]\)
+has the pulled-back chart basis and the basis furnished by the
+uniformizing family. Write \(P(X)\) for their change-of-basis
+matrix. The reverse change of basis is an inverse over the same
+ring, hence \(\det P(0)\ne0\). The identification of tangent
+vectors with derivatives of the family exponential gives a
+constant invertible matrix \(Z\) and the matrix
+\(W(w)=P(q)Z\) of the chart tangent vectors in exponential
+coordinates. The entries of \(P(q)\) converge on a common small
+disc: for each of the finitely many series the comparison provides
+convergence at one common nonzero \(q_0\), after increasing the
+lower bound on \(\operatorname{Im}w\) if necessary. The geometric
+series argument above, applied entrywise without the requirement
+that each entry have nonzero constant term, gives
+\(P(q)\longrightarrow P(0)\). By the determinant polynomial,
+\(\det P(q)\to\det P(0)\), and
+\[
+ D(w)=|\det W(w)|\ \longrightarrow\
+       d_0=|\det P(0)|\,|\det Z|>0 .
+\]
+After shrinking the disc we can take
+\(C_3=\max(3d_0/2,2/d_0)\), obtaining
+\(C_3^{-1}\leq D(w)\leq C_3\).
+
+In the normalized period frame \(M\), the uniformization gives
+\(\lvert\det M\rvert=K D(w)\), where
+\(K=(2\pi)^g|\det h|>0\) and \(g\) is the dimension.
+Combining the two inequalities yields
+\[
+  C^{-1}\leq \frac{|\det M|}{|c(w)|^2}\leq C,\qquad
+  C=(K+K^{-1})C_3C_2^2 .
+\]
+Indeed the numerator and its reciprocal are bounded by
+\(K C_3\) and \(K^{-1}C_3\), and both \(|c(w)|^{\pm2}\) are
+bounded by \(C_2^2\). The constants here may vary from arc to
+arc. The no-pole test uses only boundedness on each individual
+arc.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ThetaCoefficientBoundedAlongHolomorphicArc.lean}{Unit chart theta and the geometric-series estimate};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ThetaConstantUniformisedChartFibreEqFamilyConsta.lean}{identification with the rigidified fiber scalar};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/LieBasisExpCoordsDetBoundedAlongArc.lean}{the two tangent frames and determinant comparison};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/ExistsNormalAtOfUnif.lean}{the normalized matrix and the combined bound}.}
 
 \subsection{The different controls the colength}
 
