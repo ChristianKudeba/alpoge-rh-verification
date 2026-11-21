@@ -1,0 +1,363 @@
+\section{The ray-family explicit formula and its exceptional zero}
+\label{sec:ray-explicit}
+
+Use the family constructed in Section~\ref{sec:quadratic-ray-family}.
+For a character \(\chi\) write
+\[
+ b_\chi(n)=\sum_g\chi(g)\lambda_g(n),\qquad
+ {\cal L}_\chi(z)=\sum_{n\geq1}b_\chi(n)n^{-z},\qquad
+                \ell(t)=\log(D(|t|+2)).
+\]
+Equation~\eqref{eq:ray-lambda-budget} gives
+\(|b_\chi(n)|\leq2\Lambda(n)\).
+The ideal Euler product, absolutely convergent for \(\Re z>1\), gives
+\[
+ {\cal L}_\chi(z)=-\frac{L'_\chi(z)}{L_\chi(z)}
+       ={\bf1}_{\chi=1}\frac1{z-1}-\frac{F'_\chi(z)}{F_\chi(z)}.
+\]
+To check convergence, the counting estimates give a total of
+\(O(Du)\) ideals of norm at most \(u\).
+The logarithm of the product is also dominated by
+\(2\sum_{p,j}p^{-j\Re z}/j\).
+Its exponential is nonzero, so every zero of \(F_\chi\) in
+\(\Re z>1/2\) has real part at most one.
+
+\subsection{A local formula with uniform constants}
+
+There is an absolute \(C>0\) such that the zeros of \(F_\chi\)
+in the disk
+\[
+             |z-(5/4+it)|\leq3/5
+\]
+have total multiplicity at most \(C\ell(t)\), and, for
+\(|z-(5/4+it)|\leq1/2\) away from the zeros,
+\begin{equation}
+ \label{eq:ray-local-log}
+ \left|\frac{F'_\chi(z)}{F_\chi(z)}
+             -\sum_\rho\frac{m_\rho}{z-\rho}\right|
+                                  \leq C\ell(t).
+\end{equation}
+We prove the assertion for the regularized principal function too.
+On \(\Re z\geq11/20\), the summatory integral used above gives
+\[
+                    |F_\chi(z)|\leq300D(1+|z|)^2.
+\]
+For nontrivial characters use
+\(|I_\chi(z)|\leq10D/(\Re z-1/2)\).
+For the trivial character use
+\(F_1(z)=\rho z+(z-1)zI_1(z)\), \(\rho\leq4D\).
+At the center \(z_0=5/4+it\), the Euler product gives
+\[
+ |L_\chi(z_0)|\geq\zeta(5/4)^{-2},\qquad
+                  |F_\chi(z_0)|\geq\frac14\zeta(5/4)^{-2}.
+\]
+Indeed the absolute value of the logarithm of the Euler product is
+at most \(2\log\zeta(5/4)\); the extra factor in \(F_1\) has norm
+at least \(1/4\).
+The ratio of the upper bound on the disk of radius \(7/10\) to
+this lower bound is \(M_0\) with
+\(\log M_0\leq C_1\ell(t)\), for an absolute \(C_1\).
+
+Here is the disk argument. Jensen's formula bounds the number \(k\)
+of zeros in the disk of radius \(3/5\), with multiplicity, by
+\(\log M_0/\log(7/6)\).
+Boundary zeros can be handled by taking radii increasing to \(7/10\).
+Let \(P\) be the product of the corresponding monic linear factors,
+and set \(g=F_\chi/P\), extending across those zeros.
+On the outer circle, \(|P|\geq(1/10)^k\), while
+\(|P(z_0)|\leq(3/5)^k\). The maximum modulus principle gives
+\[
+                  |g(z)/g(z_0)|\leq M_0\,6^k .
+\]
+The function \(g\) has no zeros in the open disk of radius \(3/5\).
+Its normalized logarithm \(h\) there has \(h(z_0)=0\) and
+\(\Re h\leq A:=\log M_0+k\log6\).
+For \(a>A\), Schwarz's lemma applied to \(h/(2a-h)\) gives
+\[
+                  |h(z)|\leq\frac{2a|z-z_0|}{3/5-|z-z_0|}.
+\]
+On the disk of radius \(11/20\) this is at most \(22a\).
+Cauchy's derivative estimate on a circle of radius \(1/20\)
+about any point in the disk of radius \(1/2\), followed by
+\(a\downarrow A\), gives \(|h'|\leq440A\).
+This proves \eqref{eq:ray-local-log} and the asserted zero count.
+
+Since \(\Re\rho\leq1\), every zero term in
+\eqref{eq:ray-local-log} has nonnegative real part at
+\(s=1+a+it\), \(a>0\). Dropping unused zero terms gives, for
+\(0<a\leq1/2\),
+\begin{equation}
+ \label{eq:ray-real-log-upper}
+ \Re{\cal L}_\chi(1+a+it)
+ \leq{\bf1}_{\chi=1}\frac{a}{a^2+t^2}
+       +C\ell(t)-\sum_{\rho\in S}
+                m_\rho\Re\frac1{1+a+it-\rho},
+\end{equation}
+for any selection \(S\) of the local zeros. Enlarge \(C\), when
+necessary, so that the same constant works throughout.
+
+\subsection{The zero-free strip}
+
+Positivity of the prime weights gives
+\begin{equation}
+ \label{eq:ray-341}
+ 3{\cal L}_1(\sigma)+4\Re{\cal L}_\chi(\sigma+it)
+                        +\Re{\cal L}_{\chi^2}(\sigma+2it)\geq0
+                        \qquad(\sigma>1).
+\end{equation}
+Termwise this is \(3+4\cos u+\cos2u=2(1+\cos u)^2\geq0\).
+For real \(\chi,\psi\) it also gives
+\[
+ {\cal L}_1(\sigma)\geq0,\qquad
+ {\cal L}_1(\sigma)+{\cal L}_\chi(\sigma)\geq0,
+\]
+and
+\[
+ {\cal L}_1(\sigma)+{\cal L}_\chi(\sigma)
+       +{\cal L}_\psi(\sigma)+{\cal L}_{\chi\psi}(\sigma)\geq0.
+\]
+The last two assertions follow respectively from \(1+\chi(g)\geq0\)
+and \((1+\chi(g))(1+\psi(g))\geq0\).
+
+Suppose \(\rho=1-\delta+i\gamma\) is a zero,
+\(0\leq\delta\leq\epsilon\leq1/400\), with
+\(\chi^2\ne1\) or \(\gamma\ne0\).
+We show
+\begin{equation}
+ \label{eq:ray-epsilon}
+                           \epsilon^{-1}\leq300C\ell(\gamma).
+\end{equation}
+First suppose that \(\chi^2\ne1\) or \(|\gamma|\geq30\epsilon\).
+Use \(a=6\epsilon\) in
+\eqref{eq:ray-real-log-upper} and \eqref{eq:ray-341}.
+The selected zero contributes at least \(1/(7\epsilon)\).
+Every possible principal pole at \(\gamma\) or \(2\gamma\) is at
+most \(1/(156\epsilon)\), since
+\[
+          \frac{6\epsilon}{(6\epsilon)^2+\gamma^2}
+                         \leq\frac1{156\epsilon}
+                         \quad(|\gamma|\geq30\epsilon).
+\]
+When \(\chi^2\ne1\), both of those possible pole terms vanish.
+Also \(\ell(0)\leq\ell(\gamma)\) and
+\(\ell(2\gamma)\leq2\ell(\gamma)\).
+Thus
+\[
+ 0\leq
+ \left(\frac12-\frac47+\frac5{156}\right)\epsilon^{-1}
+                                      +9C\ell(\gamma)
+       =-\frac{43}{1092}\epsilon^{-1}+9C\ell(\gamma),
+\]
+which implies \eqref{eq:ray-epsilon}.
+
+In the other case \(\chi\) is real and
+\(0<|\gamma|<30\epsilon\).
+Conjugation gives the distinct second zero \(1-\delta-i\gamma\).
+Both zeros lie in the local disk centered at \(5/4\).
+Use \(a=60\epsilon\).
+If \(\chi=1\), apply \({\cal L}_1(\sigma)\geq0\) directly.
+If \(\chi\ne1\), apply
+\({\cal L}_1(\sigma)+{\cal L}_\chi(\sigma)\geq0\), using the
+empty zero selection for the first term.
+In either case \eqref{eq:ray-real-log-upper} gives
+\[
+ 2\frac{60\epsilon+\delta}{(60\epsilon+\delta)^2+\gamma^2}
+                     \leq\frac1{60\epsilon}+2C\ell(0).
+\]
+The fraction on the left before multiplication by \(2\) is at
+least \(60/(4621\epsilon)\). Subtracting \(1/(60\epsilon)\)
+gives
+\[
+           \frac{2579}{277260}\epsilon^{-1}
+                                      \leq2C\ell(0),
+\]
+which again implies \eqref{eq:ray-epsilon}.
+
+Set \(K=300C\) and \(c_1=(4K+400)^{-1}\).
+If such a zero had
+\(\delta\leq c_1/\ell(\gamma)\), take
+\(\epsilon=\{(2K+200)\ell(\gamma)\}^{-1}\).
+Then \(0<\epsilon\leq1/400\), \(\delta\leq\epsilon\), and
+\eqref{eq:ray-epsilon} would give \(2K+200\leq K\).
+Consequently every zero in
+\(\Re z\geq1-c_1/\ell(\Im z)\) is real and belongs to a real
+character.
+
+We also prove uniqueness and simplicity across that real family.
+Choose
+\[
+                 c_2=\frac1{100(C+1)},\qquad
+                    \sigma=1+\frac{2c_2}{\ell(0)}.
+\]
+A zero \(\beta\geq1-c_2/\ell(0)\), of multiplicity \(m\), contributes
+at least \(m\ell(0)/(3c_2)\) to the zero sum at \(\sigma\).
+If one character had two such zeros, or one multiple zero, choose
+two zeros counting multiplicity.
+Use \({\cal L}_1\geq0\) when that character is trivial, and
+\({\cal L}_1+{\cal L}_\chi\geq0\) otherwise.
+If two different real characters had such zeros, use
+\({\cal L}_1+{\cal L}_\chi\geq0\) when one is trivial, and the
+four-term positive expression when both are nontrivial.
+In the last case \(\chi\psi\ne1\).
+There is one principal pole in each expression. Its size is
+\(\ell(0)/(2c_2)\), and the combined error is at most \(4C\ell(0)\).
+Thus every case would imply
+\[
+             \frac{2}{3c_2}\leq\frac1{2c_2}+4C,
+                         \qquad \frac1{6c_2}\leq4C ,
+\]
+contrary to the choice of \(c_2\).
+There is therefore at most one pair \((\chi,\beta)\) in this
+strip, and its zero is simple.
+
+Fix
+\[
+                    c_0=\min(c_1,c_2,1/20)>0 .
+\]
+Let \(Z_\chi\) contain the real zero with
+\(\beta\geq1-c_0/\ell(0)\) when it exists, and let it be empty
+otherwise.
+It lies in \([3/4,1)\).
+Section~\ref{sec:ray-real-gap} gives
+\(1-\beta\geq(c_*/18000)D^{-46}\), with an absolute \(c_*>0\).
+
+\subsection{Removing the exceptional pole}
+
+Uniformly for
+\[
+       1-\frac{c_0}{2\ell(\Im s)}\leq\Re s\leq3 ,
+\]
+the holomorphic continuation of
+\[
+     A_\chi(s)=-\frac{F'_\chi(s)}{F_\chi(s)}
+                           +\sum_{\beta\in Z_\chi}\frac1{s-\beta}
+\]
+satisfies
+\begin{equation}
+ \label{eq:ray-corrected-log}
+                         |A_\chi(s)|\leq C_2\ell(\Im s)^2 ,
+\end{equation}
+for an absolute \(C_2\), depending on the fixed \(c_0\).
+The apparent singularity at the simple exceptional zero is removable.
+Here are the distance estimates proving the bound.
+When \(\Re s\leq7/4\), use \eqref{eq:ray-local-log}.
+A local zero has \(|\Im\rho-\Im s|\leq3/5\), and
+\[
+       \ell(\Im\rho)\leq\frac43\ell(\Im s).
+\]
+Indeed
+\(|\Im\rho|+2\leq(13/10)(|\Im s|+2)\), and
+\(\log(13/10)\leq\ell(\Im s)/3\) since \(D\geq4\).
+Every local zero other than the exceptional one either has real
+part below \(3/4\), or satisfies
+\[
+        \Re\rho<1-\frac{3c_0}{4\ell(\Im s)}.
+\]
+Its distance from \(s\) is therefore at least
+\(c_0/(4\ell(\Im s))\).
+The local zero count is \(O(\ell(\Im s))\), so their total
+logarithmic derivative contribution is \(O(\ell(\Im s)^2)\).
+If the exceptional zero lies outside the local disk, its distance
+from \(s\) is at least \(1/10\).
+For \(\Re s\geq7/4\), absolute convergence of the Euler series
+bounds \({\cal L}_\chi(s)\) by a constant, and
+\(|s-1|^{-1}\), \(|s-\beta|^{-1}\leq4/3\).
+This proves \eqref{eq:ray-corrected-log} everywhere stated.
+
+\subsection{Perron inversion and the contour shift}
+
+We recall the precise truncation estimate needed here, for arbitrary
+coefficients with \(|b(n)|\leq2\Lambda(n)\).
+For \(u\geq2\), \(2\leq T\leq u\), and \(c=1+1/\log u\),
+\[
+ \left|\sum_{n\leq u}b(n)
+     -\frac1{2\pi i}\int_{c-iT}^{c+iT}
+            \left(\sum_nb(n)n^{-s}\right)\frac{u^s}{s}\,ds\right|
+                    \leq C_3\{u(\log u)^2/T+\log u\}.
+\]
+For clarity, the integer nearest the cutoff requires the last term.
+The truncated step kernel
+\((2\pi i)^{-1}\int_{c-iT}^{c+iT}y^s\,ds/s\) differs from
+\({\bf1}_{y>1}\), for \(y\ne1\), by at most
+\[
+                  C y^c\min(1,(T|\log y|)^{-1}).
+\]
+The reciprocal bound follows by integration by parts in the
+oscillatory tail. The bound by a constant follows by writing its
+real integral in terms of \(\sin(t\log y)\), splitting at
+\(t=|\log y|^{-1}\), and applying the Dirichlet bound thereafter.
+At \(y=1\) the kernel is \(\pi^{-1}\arctan(T/c)\).
+Summing the errors for \(n\leq u/2\) and \(n\geq2u\) uses
+\(\sum(\log n)n^{-c}=O((c-1)^{-2})\).
+In \([u/2,2u]\), remove the at most two integers nearest \(u\),
+whose contribution is \(O(\log u)\).
+The remaining errors are bounded by a harmonic sum times
+\(C(u/T)\log u\). This gives the stated uniform estimate,
+including integral and nonintegral \(u\).
+
+Set \(L=\sqrt{\log u}\) and suppose \(\log D\leq L\).
+Take \(a=c_0/12\), \(T=e^{aL}\), and
+\[
+                  \sigma=1-\frac{c_0}{2\log(D(T+2))}.
+\]
+For all sufficiently large \(u\), \(2\leq T\leq u\), and
+\(\log(D(T+2))\leq3L\).
+The corrected function \(A_\chi\) is holomorphic on and near the
+rectangle from \(\sigma-iT\) to \(c+iT\).
+Shift its Perron integral to the left boundary. Equation
+\eqref{eq:ray-corrected-log} bounds the horizontal contributions
+by \(C uL^2/T\), and the vertical contribution by
+\[
+                C u^\sigma L^2\log(T+2)
+                         \leq C uL^3e^{-c_0L/6}.
+\]
+The integral of \(1/|\sigma+it|\) is \(O(\log(T+2))\);
+also \(u^c=eu\), and \(\sigma>3/4\).
+All these estimates are uniform in the character and modulus.
+
+Finally, for \(3/4\leq b\leq1\) and \(c>b\), elementary inversion
+gives
+\[
+ \frac1{2\pi i}\int_{c-iT}^{c+iT}
+                         \frac{u^s}{s(s-b)}\,ds
+               =\frac{u^b}{b}+O(1+u/T),
+\]
+uniformly in \(b\).
+The full line integral equals \((u^b-1)/b\), by the residues at
+\(b\) and zero. Its two tails are \(O(u^c/T)\), because
+\(|s(s-b)|\geq t^2\).
+Apply this once with \(b=1\) for the principal pole and, when
+present, once with \(b=\beta\) for the exceptional pole.
+Since
+\({\cal L}_\chi=A_\chi+{\bf1}_{\chi=1}/(s-1)
+-\sum_{\beta\in Z_\chi}1/(s-\beta)\),
+Perron inversion and the rectangle estimate imply
+\[
+ \left|\sum_{n\leq u}b_\chi(n)-{\bf1}_{\chi=1}u
+               +\sum_{\beta\in Z_\chi}\frac{u^\beta}{\beta}\right|
+                         \leq C_4u e^{-\eta\sqrt{\log u}}
+\]
+for some absolute \(C_4,\eta>0\).
+For example, after increasing \(C_4\), any fixed
+\(0<\eta<a\) absorbs the powers of \(L\).
+The bounded range where \(T<2\) is covered by increasing the same
+constant, using \(|b_\chi(n)|\leq2\log n\).
+This proves \eqref{eq:level-psi-input} with its required uniformity
+and unique possible exceptional zero.
+
+Together with the preceding two sections this establishes
+\eqref{eq:level-short-norm}. Thus the analytic norm-prime input to
+the simultaneous auxiliary-prime construction has now been derived.
+
+\paragraph{Source map.}
+The local disk formula is
+\srcid{RayClassLFunctionLogDerivLocalFormula}.
+The two zero arguments are \srcid{RayClassLFunctionZeroFreeRegion}
+and \srcid{RayClassLFunctionUniqueSimpleExceptionalZero}.
+The corrected derivative estimate and Perron shift are
+\srcid{LogDerivSubExceptionalLe},
+\srcid{TruncatedPerronOfLeTwoVonMangoldt}, and
+\srcid{RayClassFamilyPsiWithExceptionalZero}.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionZeroFreeRegion.lean}{The zero-free argument};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassLFunctionUniqueSimpleExceptionalZero.lean}{uniqueness and simplicity};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/RayClassFamilyPsiWithExceptionalZero.lean}{the explicit formula}.}
