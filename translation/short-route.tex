@@ -7,7 +7,7 @@
 \setcounter{tocdepth}{1}
 \setlength{\emergencystretch}{2em}
 \allowdisplaybreaks[2]
-\newcommand{\srcid}[1]{\nolinkurl{#1}}
+\DeclareRobustCommand{\srcid}[1]{\ifmmode\text{\nolinkurl{#1}}\else\nolinkurl{#1}\fi}
 \newtheorem{srtheorem}{Theorem}[section]
 \newtheorem{srproposition}[srtheorem]{Proposition}
 \newtheorem{srlemma}[srtheorem]{Lemma}
