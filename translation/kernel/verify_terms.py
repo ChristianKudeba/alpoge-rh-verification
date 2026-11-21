@@ -8,10 +8,12 @@ import json
 import os
 from pathlib import Path
 import sqlite3
+import subprocess
 import tarfile
 import tempfile
 
 from prepare import SOURCE, verify_manifest
+from proof_foundations import appendix, foundations
 from make_endpoints import make_endpoints
 from prose_records import add_volume, annotated_volume, meaning
 from publish import check_report, read_back
@@ -257,9 +259,19 @@ def finish(folder):
         for t in edition["targets"]:
             if conn.execute("SELECT record,kind FROM declarations WHERE name=?", (t["name_index"],)).fetchone() != (t["line"], "thm"):
                 raise ValueError("target theorem missing from decoded declarations: " + t["name"])
+        axioms = list(conn.execute("SELECT name,record,kind FROM declarations WHERE kind='axiom' ORDER BY record"))
         ranges = export_lookup(conn, folder, target, assets)
+    ax = foundations(folder, edition, parts, cores, axioms)
+    source, printed = make_endpoints(folder, edition, parts, cores)
+    tex = source.read_text(encoding="utf-8")
+    if tex.count(r"\end{document}") != 1:
+        raise ValueError("unexpected endpoint document")
+    source.write_text(tex.replace(r"\end{document}", appendix(ax) + r"\end{document}"), encoding="utf-8")
+    env = dict(os.environ, SOURCE_DATE_EPOCH="946684800", FORCE_SOURCE_DATE="1")
+    subprocess.run(["pdflatex", "-no-shell-escape", "-interaction=nonstopmode", "-halt-on-error",
+                    source.name], cwd=folder, env=env, check=True)
     extracts = []
-    for path in make_endpoints(folder, edition, parts, cores):
+    for path in (source, printed):
         put(target, assets, path, tag=AUDIT_TAG)
         digest, size = info(path)
         extracts.append(dict(asset=path.name, sha256=digest, bytes=size))
@@ -267,7 +279,8 @@ def finish(folder):
     write_json(index, dict(version=1, source=SOURCE, reader_sha256=reader_hash, render_commit=RENDER_COMMIT,
                            core_index_sha256=info(folder / "edition-index.json")[0], totals=totals,
                            terms=edition["targets"], ranges=ranges, shards=by_shard, endpoint_extract=extracts,
-                           prose_writer_sha256=prose_hash, prose_volumes=total_volumes, prose_tex_bytes=total_print_bytes))
+                           prose_writer_sha256=prose_hash, prose_volumes=total_volumes, prose_tex_bytes=total_print_bytes,
+                           foundations=[{k: val for k, val in a.items() if k != "tex"} for a in ax]))
     put(target, assets, index, tag=AUDIT_TAG)
     if target["draft"]:
         body = (f"All {totals['records']:,} numbered solution-export records were independently decoded "
@@ -276,6 +289,7 @@ def finish(folder):
                 f"The {total_volumes:,} annotated LaTeX volumes in the prose archives retain each mathematical "
                 "record and give its reading in dependent type theory. The five terminal declarations and their "
                 "immediate type and value records are printed in rh-theorem-records.pdf and .tex. "
+                "The decoded declaration index contains precisely propext, Classical.choice and Quot.sound as axioms. "
                 "This verifies fidelity of the formal typesetting. The prose paper has its own coverage statement.")
         api(f"repos/{REPO}/releases/{target['id']}", "--method", "PATCH", "-F", "draft=false",
             "-f", "tag_name=" + AUDIT_TAG, "-f", "target_commitish=main", "-f", "make_latest=false", "-f", "body=" + body)
