@@ -1,0 +1,419 @@
+\section{Choosing disjoint auxiliary primes on the common window}
+\label{sec:level-prime-selection}
+
+We give the elementary part of the prime selection used by
+Section~\ref{sec:host-field}, retaining its modulus \(N\), prime \(d\),
+rank \(r\), and scale \(x\).
+For \(g\geq2\) and \(r\geq1\) define
+\[
+ {\cal B}_r(g)=\{g\}\cup
+ \bigcup_{j=1}^{r}
+ \{\,\ell\text{ prime}:g^j<\ell^{4v_\ell(g^j-1)}\,\}.
+\]
+These sets are the \srcid{BB} of the source. We first prove the
+count which makes two such sets disjoint.
+
+\subsection{Counting exceptional divisors}
+
+For fixed \(g,j\), at most three primes occur in the \(j\)-th set.
+Every such prime divides the positive integer \(n=g^j-1\).
+If four distinct primes \(\ell_i\) occurred, their powers
+\(\ell_i^{v_{\ell_i}(n)}\) would be pairwise coprime divisors of \(n\),
+so
+\[
+ (g^j)^4<
+ \prod_{i=1}^{4}\ell_i^{4v_{\ell_i}(n)}
+ =\left(\prod_{i=1}^{4}\ell_i^{v_{\ell_i}(n)}\right)^4
+ \leq n^4<(g^j)^4 .
+\]
+This is impossible. Each set is finite because all its elements
+divide \(n\). Consequently
+\begin{equation}
+ \label{eq:level-bb-card}
+       |{\cal B}_r(g)|\leq3r+1 .
+\end{equation}
+
+We also need the bound
+\begin{equation}
+ \label{eq:level-roots}
+ \#\{a\bmod\ell^w:a^j=1\}\leq2j
+       \qquad(w,j\geq1).
+\end{equation}
+Such residues are units. For odd \(\ell\) the unit group modulo
+\(\ell^w\) is cyclic. Here is the usual lifting justification.
+The multiplicative group of the residue field is cyclic: if \(m\)
+is its exponent, the polynomial \(X^m-1\) has at most \(m\) roots,
+while all its elements are roots. In a finite abelian group the
+exponent is the order of an element, by taking commuting elements
+with maximal order in each primary component. Thus \(m\) equals
+the group order. Choose a primitive residue \(a\bmod\ell\).
+One of the \(\ell\) lifts \(a+k\ell\bmod\ell^2\) satisfies
+\[
+          v_\ell((a+k\ell)^{\ell-1}-1)=1 ,
+\]
+because modulo \(\ell^2\) the coefficient of \(k\) is
+\((\ell-1)a^{\ell-2}\ell\), which is nonzero after division by
+\(\ell\). If \(z=1+\ell^b u\), \(\ell\nmid u\), \(b\geq1\),
+the binomial expansion for odd \(\ell\) gives
+\(v_\ell(z^\ell-1)=b+1\). Induction shows that this lift has order
+\((\ell-1)\ell^{w-1}\) modulo \(\ell^w\), proving cyclicity.
+In a cyclic group of order \(m\), the equation \(a^j=1\) has
+\(\gcd(j,m)\leq j\) solutions.
+
+For \(\ell=2\), the moduli \(2\) and \(4\) satisfy
+\eqref{eq:level-roots} directly. When \(w\geq3\), repeated squaring
+gives
+\(v_2(5^{2^a}-1)=a+2\).
+Indeed squaring an integer \(1+2^b u\), with \(b\geq2\) and \(u\)
+odd, increases this valuation by one. Thus \(5\) generates the
+\(2^{w-2}\) units which are \(1\bmod4\). Every odd residue is
+uniquely \(5^a\) or \(-5^a\). Each of the two cosets contains at
+most \(j\) solutions of \(a^j=1\), proving
+\eqref{eq:level-roots} in all cases.
+
+Fix now \(Y\geq2\), a prime \(\ell\), and \(j\geq1\).
+Let \(S\) be any set of integers \(g\in[Y,2Y]\) satisfying
+\(g^j<\ell^{4v_\ell(g^j-1)}\).
+If \(S\) is nonempty, put
+\[
+            w=\min_{g\in S}v_\ell(g^j-1),\qquad Q=\ell^w .
+\]
+The defining inequality implies \(w\geq1\).
+All \(g\in S\) satisfy \(g^j=1\bmod Q\).
+For an element \(g_0\) attaining the minimum,
+\[
+                 Y\leq g_0\leq g_0^j<Q^4 ,
+\]
+so \(Q>Y^{1/4}\). In an interval of length \(Y\), each residue
+class modulo \(Q\) contains at most \(Y/Q+1\) integers.
+Equation~\eqref{eq:level-roots} therefore gives
+\begin{equation}
+ \label{eq:level-exception-fixed}
+                 |S|\leq2j(Y^{3/4}+1).
+\end{equation}
+This is a bound on integers, and hence also on primes.
+
+For any fixed integer \(\ell\), the number of \(g\in[Y,2Y]\) with
+\(\ell\in{\cal B}_r(g)\) is at most
+\[
+ 1+\sum_{j=1}^{r}2j(Y^{3/4}+1)
+                  \leq1+2r^2(Y^{3/4}+1).
+\]
+The first term accounts for \(g=\ell\).
+Combining this with \eqref{eq:level-bb-card}, the number of
+\(g\in[Y,2Y]\) for which
+\({\cal B}_r(g)\cap{\cal B}_r(g_1)\ne\varnothing\) is at most
+\begin{equation}
+ \label{eq:level-excluded}
+       (3r+1)\{1+2r^2(Y^{3/4}+1)\}
+                       \leq20r^3Y^{3/4}.
+\end{equation}
+For the last inequality use \(3r+1\leq4r\) and
+\(1+2r^2(Y^{3/4}+1)\leq5r^2Y^{3/4}\).
+
+It follows that a set \(G\subset[Y,2Y]\) with
+\[
+                  |G|\geq Y^{9/10},
+       \qquad 20r^3<Y^{3/20}
+\]
+contains distinct elements \(g_1,g_2\) with disjoint exceptional
+sets. Choose any \(g_1\in G\). Formula~\eqref{eq:level-excluded}
+excludes strictly fewer than \(|G|\) choices for \(g_2\).
+It excludes \(g_1\) itself since \(g_1\in{\cal B}_r(g_1)\), so
+the two choices are distinct.
+
+\subsection{The analytic prime input and its scale}
+
+For \(d\equiv3\bmod4\) prime, define
+\[
+ \begin{split}
+ \operatorname{NormOne}(d,N,p)\quad\Longleftrightarrow\quad&
+ \exists A,B\in\mathbb Z,\quad A^2+dB^2=4p,\\
+ &N\mid B,\qquad 2N\mid A-2-B .
+ \end{split}
+\]
+The short norm-prime estimate used here asserts that there are
+absolute constants \(A_0,c,c'>0\) such that, for
+\(d\geq100\), \(N\geq3\), \(X\geq1\), and
+\[
+ \log(4dN^2)\leq c\sqrt{\log X},\qquad
+ e^{-c\sqrt{\log X}}\leq h\leq1 ,
+\]
+the number of primes \(p\in(X,X(1+h)]\) satisfying
+\(\operatorname{NormOne}(d,N,p)\) is at least
+\begin{equation}
+ \label{eq:level-short-norm}
+           \frac{c'hX}{(4dN^2)^{A_0}\log X}.
+\end{equation}
+We will use \eqref{eq:level-short-norm} as a stated input until its
+Hecke-family construction and exceptional-zero estimates are
+translated. The implication from these family statements is proved below.
+Its quantitative weakness is sufficient for all
+the following uniform comparisons.
+The exact statement is
+\srcid{NormPrimesImagQuadShortIntervalLowerBoundStatement};
+its subsequent deduction is given in
+\srcid{NormPrimesImagQuadShortIntervalLowerBound}.
+
+Suppose
+\[
+ d\mid N,\qquad
+ \log N\leq3x^{\epsilon/5}(\log x)^2,\qquad \epsilon>0 .
+\]
+For all sufficiently large \(x\), uniformly in \(N,d\) satisfying
+these inequalities and all \(Y\) with \(\log Y\geq8x^\epsilon\),
+the bound \eqref{eq:level-short-norm} with \(h=1\) gives at least
+\(Y^{9/10}\) primes in \((Y,2Y]\).
+We spell out uniformity in \(Y\).
+Put \(t=x^{\epsilon/5}\), \(L=\log Y\), and \(D=4dN^2\).
+For large \(x\),
+\((\log x)^2\leq t\), and, since \(d\leq N\),
+\[
+        \log D\leq\log4+3\log N\leq10t^2,
+                  \qquad L\geq8t^5 .
+\]
+It follows that
+\(\log D/\sqrt L\leq(10/\sqrt8)t^{-1/2}\), so the first
+hypothesis of \eqref{eq:level-short-norm} holds uniformly.
+The remaining size comparison is
+\[
+ \log\frac{c'Y}{D^{A_0}\log Y}
+             -\frac9{10}\log Y
+       =\frac L{10}-A_0\log D-\log L+\log c'\geq0 .
+\]
+The function \(L/10-\log L\) is increasing for \(L\geq10\).
+Its minimum over \(L\geq8t^5\) is therefore attained at \(8t^5\),
+where
+\[
+ \frac45t^5-10A_0t^2-\log(8t^5)+\log c'\longrightarrow+\infty .
+\]
+Thus a threshold depending only on \(\epsilon\) and the absolute
+constants works for all allowed \(N,d,Y\).
+
+Take now
+\[
+             b_x=e^{x^\epsilon},\qquad Y=(k b_x)^8,
+             \qquad k,r\geq1,\quad r\leq x^5 .
+\]
+Then \(\log Y=8(\log k+x^\epsilon)\geq8x^\epsilon\), and
+\[
+       20r^3\leq20x^{15}<e^{x^\epsilon}
+                       \leq(kb_x)^{6/5}=Y^{3/20}
+\]
+for sufficiently large \(x\). The preceding two subsections supply
+two primes \(g_i\in[Y,2Y]\), each satisfying
+\(\operatorname{NormOne}(d,N,g_i)\), with
+\[
+                g_1\ne g_2,\qquad
+                  {\cal B}_r(g_1)\cap{\cal B}_r(g_2)=\varnothing .
+\]
+They also split in the cyclotomic host.
+Indeed write \(B=Nb\) and \(A=2+B+2Na\). Substituting in
+\(A^2+dB^2=4g_i\) and reducing modulo \(4N\) gives
+\(4g_i\equiv4\bmod4N\), hence \(g_i\equiv1\bmod N\).
+
+\subsection{The lower bound from a characterwise explicit formula}
+
+We make the analytic content of \eqref{eq:level-short-norm} more
+precise. The following implication accounts for the exceptional real
+zero and the removal of prime powers. It can be checked with three
+specified inputs about the ray-class family.
+
+Let \(G\) be a finite abelian group of order \(H\), and let \(D\geq4\)
+satisfy \(H\leq D\). Suppose nonnegative weights \(\lambda_g(n)\)
+satisfy
+\[
+             \sum_{g\in G}\lambda_g(n)\leq2\Lambda(n).
+\]
+Write
+\(\Psi_\chi(u)=\sum_{n\leq u}\sum_g\chi(g)\lambda_g(n)\).
+Assume constants \(a,\eta,C,\gamma>0\), with \(\gamma\leq1\),
+have the following uniform properties.
+Across all characters there is at most one exceptional pair
+\((\chi,\beta)\), where \(3/4\leq\beta<1\) and
+\(1-\beta\geq\gamma D^{-a}\).
+For \(u\geq2\), \(\log D\leq\sqrt{\log u}\), assume
+\begin{equation}
+ \label{eq:level-psi-input}
+ \left|\Psi_\chi(u)-{\bf1}_{\chi=1}u+
+               \sum_{\beta\in Z_\chi}\frac{u^\beta}{\beta}\right|
+             \leq Cu e^{-\eta\sqrt{\log u}}.
+\end{equation}
+Here each \(Z_\chi\) is empty except for the possible exceptional
+pair. Finally assume that
+\(\lambda_0(p)\ne0\), for \(p\) prime, implies
+\(\operatorname{NormOne}(d,N,p)\).
+
+Put \(\delta=\gamma D^{-a}\).
+Character orthogonality gives
+\[
+              \sum_\chi\Psi_\chi(u)
+                        =H\sum_{n\leq u}\lambda_0(n).
+\]
+If \(V=X(1+h)\), \(0<h\leq1\), subtraction of
+\eqref{eq:level-psi-input} at \(X\) and \(V\) therefore gives
+\begin{equation}
+ \label{eq:level-mass}
+ H\sum_{X<n\leq V}\lambda_0(n)
+ \geq hX-\sum_{\chi,\beta\in Z_\chi}
+          \frac{V^\beta-X^\beta}{\beta}
+                  -3DCX e^{-\eta\sqrt{\log X}}.
+\end{equation}
+The factor \(3\) bounds the two endpoint errors since \(V\leq2X\).
+
+If an exceptional zero exists and \(\log X\geq1\), then
+\[
+ \frac{V^\beta-X^\beta}{\beta}
+       \leq hX^\beta
+       =hX e^{-(1-\beta)\log X}
+       \leq hX e^{-\delta}
+       \leq hX(1-\delta/2).
+\]
+The first inequality follows from the concavity of
+\(t^\beta\) at \(1\). For the last one, use
+\(e^{-\delta}\leq1/(1+\delta)\leq1-\delta/2\), valid for
+\(0\leq\delta\leq1\). If there is no exceptional zero, the sum
+in \eqref{eq:level-mass} is zero, and the same bound on that sum
+still applies.
+
+Choose \(c>0\) small enough that \(c\leq1\) and
+\((a+2)c<\eta\). By decreasing \(c\) further, all
+\(\log D\leq cL\), \(L=\sqrt{\log X}\), imply
+\[
+       3DCe^{-\eta L}
+                     \leq\frac14 e^{-cL}\gamma D^{-a}.
+\]
+To justify the uniform choice, the ratio of the left side to the
+right side is at most
+\[
+       \frac{12C}{\gamma}
+             e^{-\{\eta-(a+2)c\}L}.
+\]
+Also \(L\geq\log4/c\). Take \(c\) sufficiently small that the last
+display is at most one at this lower endpoint. It is decreasing
+in \(L\). Hence, when \(h\geq e^{-cL}\),
+\eqref{eq:level-mass} implies
+\[
+          \sum_{X<n\leq V}\lambda_0(n)
+                       \geq\frac{\gamma hX}{4D^{a+1}}.
+\]
+
+Let \(P\) count the norm primes in \((X,V]\).
+The prime terms in the last sum are at most \(2\log V\cdot P\).
+The other terms are at most
+\(2\{\psi(V)-\theta(V)\}\).
+An elementary bound sufficient here is
+\[
+ \psi(V)-\theta(V)
+       =\sum_{j=2}^{\lfloor\log V/\log2\rfloor}
+                         \theta(V^{1/j})
+       \leq\frac{\sqrt V(\log V)^2}{\log2}.
+\]
+Indeed there are at most \(\log V/\log2\) terms, and each is at
+most \(\sqrt V\log V\), by counting all integers up to
+\(V^{1/j}\). Since \(V\leq2X\), \(\log V\leq2\log X\) for
+\(X\geq2\), the unwanted contribution is at most
+\(C_1\sqrt X(\log X)^2\) for an absolute \(C_1\).
+Its ratio to \(\gamma hX/(8D^{a+1})\) is bounded by
+\[
+ \frac{8C_1}{\gamma}L^4
+        \exp\{-L^2/2+(a+2)cL\}.
+\]
+Decreasing \(c\) again makes this at most one for all
+\(L\geq\log4/c\), because the negative quadratic term dominates
+the linear term and \(\log L\). Thus at least
+\(\gamma hX/(8D^{a+1})\) of the mass comes from primes.
+Dividing by \(2\log V\leq4\log X\) gives
+\[
+             P\geq
+               \frac{\gamma hX}{32D^{a+1}\log X}.
+\]
+This is \eqref{eq:level-short-norm} with
+\(A_0=a+1\), \(c'=\gamma/32\), and \(D=4dN^2\).
+
+The three analytic inputs are now explicit.
+The ray-class construction must supply the nonnegative weights and
+their norm-prime support. The family explicit formula must give
+\eqref{eq:level-psi-input} with a unique possible exceptional zero.
+The real value at one must give a polynomial lower bound for its
+distance from one. In the release these are
+\srcid{ExistsLFamRayStatement},
+\srcid{RayClassFamilyPsiWithExceptionalZeroStatement}, and
+\srcid{ExistsRayClassLFunctionRealZeroFarFromOneStatement}.
+The last is itself obtained by combining a polynomial lower bound
+for \(|F_\chi(1)|\) with
+\[
+             |F'_\chi(z)|\leq18000D
+                           \qquad(|z-1|\leq1/4).
+\]
+If \(F_\chi(\beta)=0\), integration on \([\beta,1]\) gives
+\(|F_\chi(1)|\leq18000D(1-\beta)\).
+A bound \(c_0D^{-a_0}\leq|F_\chi(1)|\) therefore supplies
+\(1-\beta\geq(c_0/18000)D^{-(a_0+1)}\).
+This identifies the remaining analytic statements without suppressing
+their dependence on \(D\).
+
+\subsection{Three distinct small splitting primes}
+
+For the second input, Linnik's theorem supplies a constant \(A\geq1\)
+such that for every
+integer \(M\geq2\) there is a prime \(p\equiv1\bmod M\) with
+\(p\leq M^A\). Its formal name is \srcid{SmallOne}. For example, Xylouris's
+Theorem~1.1 gives \(p\leq C M^{5.18}\) uniformly for each reduced
+residue class. Replacing the exponent by
+\(A=5.18+\max(0,\log C/\log2)\) absorbs the absolute constant for
+all \(M\geq2\). This supplies the precise version used here.
+\footnote{T.~Xylouris, \emph{On the least prime in an arithmetic
+progression and estimates for the zeros of Dirichlet \(L\)-functions},
+Acta Arithmetica 150 (2011), Theorem~1.1,
+\href{https://doi.org/10.4064/aa150-1-4}{doi:10.4064/aa150-1-4}.}
+For \(N\geq30\), first apply it to \(15N\), then to \(15Np\),
+and finally to \(Npp'\). The resulting primes satisfy
+\[
+ \begin{gathered}
+ p,p'\equiv1\bmod15N,\qquad q_0\equiv1\bmod N,\\
+ p'\equiv1\bmod p,\qquad q_0\equiv1\bmod pp' .
+ \end{gathered}
+\]
+They are pairwise distinct, as a prime cannot be both zero and one
+modulo itself. Since \(15N\leq N^2\),
+\[
+ \begin{split}
+ p&\leq N^{2A},\\
+ p'&\leq (15Np)^A\leq N^{(2A+2)A},\\
+ q_0&\leq (Npp')^A
+             \leq N^{A\{1+2A+(2A+2)A\}}.
+ \end{split}
+\]
+The common exponent
+\[
+                    C_8=A\{1+2A+(2A+2)A\}
+\]
+dominates all three. With \(N\) on the window above,
+\[
+ \log N^{C_8}
+     \leq3C_8x^{\epsilon/5}(\log x)^2<x^\epsilon
+\]
+for all sufficiently large \(x\). Thus \(p,p',q_0<b_x\), whereas
+\(g_i\geq(kb_x)^8\geq b_x\).
+In particular \(p,p'\) differ from both \(g_i\), as required.
+
+Every threshold used here depends on the fixed \(\epsilon\) and the
+absolute analytic constants. They can be combined by taking their
+maximum. Consequently the same choices of \(x,N,d,k,r\) are retained
+throughout the construction. The remaining analytic dependencies are the three ray-class family
+statements isolated above. The small splitting primes follow from the
+stated classical least-prime theorem.
+
+\paragraph{Source map.}
+The definitions of the exceptional sets are in
+\srcid{Formalism.CyclotomicNorms.StatementI}. The counting proofs
+are \srcid{ExceptionalPrimesFiniteCardLe},
+\srcid{CardPowEqOneLeOfIsCyclicUnits}, and
+\srcid{DivLeRpowThreeQuarters}. Their use on the scale is
+\srcid{ShortNorms.normPrimesN} and \srcid{ShortNorms.typePrimesN}.
+The three-prime construction and its simultaneous application are
+\srcid{ShortNorms.ExistsThreePrimesOneModLeRpow} and
+\srcid{ShortNorms.levelData}.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/tree/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/ShortNorms}{The prime-selection modules};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/DivLeRpowThreeQuarters.lean}{the fixed-prime residue count}.}
