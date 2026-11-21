@@ -63,7 +63,7 @@ modules, besides Mathlib. The preceding 1,873-line version reached
 reorganization; its imported mathematical development remains extensive.
 
 The top theorem is
-\(\srcid{Principia.Ordinary.ConductorOneRH.rh}\).
+\srcid{Principia.Ordinary.ConductorOneRH.rh}.
 It is an implication with three explicit inputs.
 The first is the oddness of the class number of every cyclotomic field
 of \(2\)-power conductor; this is proved in
@@ -75,7 +75,7 @@ In the source this is the predicate \srcid{Height}.
 It requires a single natural exponent \(C\) and two fixed auxiliary
 primes, before the host and the twist range are chosen.
 For every sufficiently large principal host \(h\), every
-\(t\geq2\) with \(h.\srcid{Big}(t)\), and its CM field \(E\), it gives
+\(t\geq2\) with \(h.\mathrm{Big}(t)\), and its CM field \(E\), it gives
 \begin{equation}\label{eq:sr-principal-height}
  \sum_{\substack{\ell\in S\\\ell\ \mathrm{odd}}}\log\ell
        \sum_{a=1}^{t-1}s^+_{\ell,E}(a)
@@ -92,9 +92,12 @@ bound, since it controls the complementary conjugation eigenspaces.
 Allowing \(C\) to depend on the individual host would change the assertion.
 
 \paragraph{A construction of connected families.}
-The final theorem also assumes an implication from
-\srcid{HostExW}\((3/2,(\srcid{GChi}\,1).\srcid{req})\) to
-\srcid{FamilyClassConnected}\(((\srcid{GChi}\,1).\srcid{cls}(3/2))\).
+The final theorem also assumes the implication
+\begin{quote}\raggedright
+\srcid{HostExW (3 / 2) (GChi PChar.one).req}
+\(\Longrightarrow\)
+\srcid{FamilyClassConnected ((GChi PChar.one).cls (3 / 2))}.
+\end{quote}
 These are the archive's host-window and connected-family predicates.
 They include geometric witnesses and their uniform estimates.
 A prose deduction using this route must define those witnesses and prove
