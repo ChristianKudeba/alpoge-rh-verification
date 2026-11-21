@@ -1,0 +1,60 @@
+{
+  "verified": "on Principia",
+  "check_id": "1a873d8154de69e45832eaff1f8c9e9c",
+  "mode": "scratch",
+  "result": "closed",
+  "checked_by": "server",
+  "sorries": 0,
+  "axioms": [],
+  "messages": [
+    {
+      "severity": "info",
+      "line": 3794,
+      "column": 0,
+      "text": "'Joint.LengthBudget.bounded_iff_common_multiple' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3795,
+      "column": 0,
+      "text": "'Joint.LengthBudget.local_lengths_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3847,
+      "column": 0,
+      "text": "'Compaction.LengthCertificates.local_lengths_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3957,
+      "column": 0,
+      "text": "'Compaction.WindowCertificates.vvle_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3958,
+      "column": 0,
+      "text": "'Compaction.WindowCertificates.at_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3959,
+      "column": 0,
+      "text": "'Compaction.WindowCertificates.polynomial_budget' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3960,
+      "column": 0,
+      "text": "'Compaction.WindowCertificates.polynomial_windows_suffice' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 3961,
+      "column": 0,
+      "text": "'Compaction.WindowCertificates.all_characters_suffice' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    }
+  ],
+  "note": "scratch checks never close a step"
+}

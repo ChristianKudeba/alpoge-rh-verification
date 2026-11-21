@@ -1,0 +1,101 @@
+{
+  "Joint.TwistCohomologyBound": {
+    "closure": {
+      "modules": 1685,
+      "physical_lines": 249987,
+      "nonblank_lines": 216869,
+      "bytes": 12127722,
+      "import_only_modules": 0
+    },
+    "source_lines": 42,
+    "source_sha256": "a6f2abf68100c179e72573a9d788e4684c462b506a1d235596cffd0d1e5c8b6a",
+    "external": [
+      "Mathlib",
+      "Mathlib.Analysis.LocallyConvex.Separation",
+      "Mathlib.LinearAlgebra.Matrix.Permutation",
+      "Mathlib.LinearAlgebra.PiTensorProduct.Basis",
+      "Mathlib.NumberTheory.Multiplicity",
+      "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+      "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+      "Mathlib.RingTheory.Localization.Module",
+      "Mathlib.RingTheory.Polynomial.Cyclotomic.Basic",
+      "Mathlib.RingTheory.RootsOfUnity.Complex"
+    ]
+  },
+  "ConductorOneRHCombined": {
+    "closure": {
+      "modules": 3863,
+      "physical_lines": 582401,
+      "nonblank_lines": 508665,
+      "bytes": 29147332,
+      "import_only_modules": 1
+    },
+    "source_lines": 1874,
+    "source_sha256": "b794e1bd71add254add092fb010f2c67211870b3b06b5f243b0f26f5bd54a30c",
+    "external": [
+      "Mathlib",
+      "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+      "Mathlib.Algebra.Order.Field.Basic",
+      "Mathlib.Analysis.Complex.BorelCaratheodory",
+      "Mathlib.Analysis.Complex.HasPrimitives",
+      "Mathlib.Analysis.Complex.Liouville",
+      "Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality",
+      "Mathlib.Analysis.InnerProductSpace.Positive",
+      "Mathlib.Analysis.LocallyConvex.Separation",
+      "Mathlib.Analysis.Matrix.Order",
+      "Mathlib.Analysis.Matrix.PosDef",
+      "Mathlib.Analysis.SpecialFunctions.ImproperIntegrals",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.Real.Basic",
+      "Mathlib.FieldTheory.Finite.Basic",
+      "Mathlib.FieldTheory.KummerExtension",
+      "Mathlib.LinearAlgebra.Matrix.Permutation",
+      "Mathlib.LinearAlgebra.PiTensorProduct.Basis",
+      "Mathlib.NumberTheory.Chebyshev",
+      "Mathlib.NumberTheory.LSeries.RiemannZeta",
+      "Mathlib.NumberTheory.Multiplicity",
+      "Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal",
+      "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+      "Mathlib.NumberTheory.Padics.PadicIntegers",
+      "Mathlib.NumberTheory.Padics.ProperSpace",
+      "Mathlib.NumberTheory.PrimesCongruentOne",
+      "Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90",
+      "Mathlib.RingTheory.Ideal.Norm.RelNorm",
+      "Mathlib.RingTheory.Localization.Module",
+      "Mathlib.RingTheory.Polynomial.Cyclotomic.Basic",
+      "Mathlib.RingTheory.RootsOfUnity.Complex",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.NormNum",
+      "Mathlib.Tactic.Ring"
+    ]
+  },
+  "oldLemmaKProducer": {
+    "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GeneratorCountTuples.LemmaKOfPublished",
+    "closure": {
+      "modules": 23694,
+      "physical_lines": 3828671,
+      "nonblank_lines": 3362480,
+      "bytes": 206621884,
+      "import_only_modules": 24
+    }
+  },
+  "fullMainSimulation": {
+    "removed": {
+      "modules": 13,
+      "physical_lines": 660,
+      "nonblank_lines": 606,
+      "bytes": 39000,
+      "import_only_modules": 0
+    },
+    "added": {
+      "modules": 1,
+      "physical_lines": 42,
+      "nonblank_lines": 35,
+      "bytes": 3047,
+      "import_only_modules": 0
+    },
+    "warning": "Import-closure simulation only; signatures differ, so this is not a checked source replacement."
+  }
+}
