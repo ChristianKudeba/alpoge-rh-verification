@@ -5,6 +5,16 @@ Alpöge/Claude claimed proof of RH and Dirichlet GRH in Git history and develops
 a compact candidate in `src/`. **The full proof has not been independently
 verified by this work.**
 
+## Current prose edition
+
+[Read the single 179-page PDF](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-9cd013c786ba170e3984fb2bf9745653c976be31/rh-short-route.pdf) or [its standalone LaTeX](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-9cd013c786ba170e3984fb2bf9745653c976be31/rh-short-route.tex).
+
+**This is an incomplete working exposition, not a standalone unconditional proof of RH.** The new first part follows Anton's shorter ordinary-zeta route and prints proofs of the analytic implication, signed finite-group comparison, and several conductor-one arithmetic and geometric comparisons. The earlier working translations are retained as supporting chapters. The uniform supply of geometric data, pointwise height bound, characterwise minus estimate and quantitative dyadic inputs, and parts of the global theta and integral geometry construction remain unproved in the text.
+
+The [build report](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-9cd013c786ba170e3984fb2bf9745653c976be31/build-report.json) records successful reference/glyph checks, identical text from the distributed and flattened sources, rendering of every page, and no words outside the page. These are document checks. They do not establish mathematical completeness. See [the explicit status](translation/SHORT_ROUTE_STATUS.md) and [source provenance](translation/short-route-sources.json).
+
+The [216,211-volume record edition](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/rh-literal-audit-v1) is a lossless typesetting of the formal export and must not be described as a finished explanatory paper. Its reverse-conversion audit verifies transcription fidelity.
+
 Principia project: [Unpacking the proof of RH](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1).
 The [Machine Verification page](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/forge)
 holds the canonical statement, solution entrypoint, and verification configuration.
