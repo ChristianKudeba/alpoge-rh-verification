@@ -47,10 +47,11 @@ to describe it. In a larger cyclotomic field of conductor divisible by
 \(N\), the subgroup specified by these same three tests is the inverse
 image of \(A\). Restriction of automorphisms is surjective, and Galois
 correspondence identifies its fixed field with \(E\).
-Changing the chosen primitive root changes an exponent description by
-multiplication by a unit and leaves the automorphism's exponent itself
-unchanged. Therefore the fixed subgroup, and hence its fixed field,
-are unchanged. This proves the canonical-field reduction without
+Every other primitive root is \(\zeta_N^b\) for a unit \(b\), and
+\(\sigma(\zeta_N^b)=(\zeta_N^b)^a\) whenever
+\(\sigma(\zeta_N)=\zeta_N^a\).
+Thus changing the chosen root leaves the three tests and the fixed
+subgroup unchanged. This proves the canonical-field reduction without
 retaining any choice of a realization.
 
 \subsection{Strict lengths and a single integer}
@@ -183,8 +184,8 @@ This proves the Weber input used in the contributors' dyadic reduction.
 The same argument applies to the primes 3 and 7 once the first class
 numbers are checked. For \(\mathbb Q(\zeta_3)\), the Minkowski bound is
 \((2/\pi)\sqrt3<2\), so every class has an ideal of norm one.
-For \(\mathbb Q(\zeta_7)\), the degree is six and the discriminant has
-absolute value \(7^5\); its Minkowski bound is
+For \(\mathbb Q(\zeta_7)\), the degree is six and the field discriminant has
+absolute value at most \(7^5\); its Minkowski bound is at most
 \[
  (4/\pi)^3\frac{6!}{6^6}7^{5/2}<5.
 \]
@@ -193,9 +194,11 @@ residue degree six, because those are the orders of 2 and 3 modulo 7.
 Thus no ideal has norm 2, 3 or 4.
 Every ideal class has a representative of norm at most four, so the
 class number is one.
-Here the discriminant is obtained by taking the product of the
-derivatives of \(\Phi_p=(X^p-1)/(X-1)\) at its roots;
-its absolute value is \(p^{p-2}\).
+Here the discriminant of the integral power basis is obtained by
+taking the product of the derivatives of
+\(\Phi_p=(X^p-1)/(X-1)\) at its roots; its absolute value is \(p^{p-2}\).
+The field discriminant divides that of this integral order, which is
+enough for the upper Minkowski bound used above.
 We have proved
 \[
  p\nmid h_{\mathbb Q(\zeta_{p^n})}
