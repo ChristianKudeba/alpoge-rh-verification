@@ -511,7 +511,7 @@ $R$-linear maps
 \]
 such that both composites are multiplication by $f$.
 \item There are an integer $e\ge1$ and a set of generators
-$\mathscr R$ of $I$ such that, for every $a\in\mathscr R$ and $c\ge1$,
+$\mathcal R$ of $I$ such that, for every $a\in\mathcal R$ and $c\ge1$,
 for $\mathcal U$-almost all $N$ there is $b\in\operatorname{Ann}_R M_N$
 with
 \[
@@ -642,7 +642,7 @@ implication proves injectivity. This gives
 The identification for $k=1$ gives the first assertion of
 \eqref{eq:sr-patched-fiber}.
 
-Finally fix $a\in\mathscr R$ and $k,j\ge1$.
+Finally fix $a\in\mathcal R$ and $k,j\ge1$.
 The finite $R$-module $X/\mathfrak m_\Lambda^jX$ has finite length,
 so some power $\mathfrak m_R^c$ kills it.
 The control maps at precision $j$ therefore give, for almost all $N$,
@@ -1246,3 +1246,1125 @@ The exact paired presentation is
 and its Selmer producer is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/SelmerScaling/AlCSmul.lean}
 {\srcid{AlCSmul}}.
+
+\subsection{Finite Cayley--Hamilton quotients with the exact topology}
+\label{sec:sr-finite-CH}
+The finite algebra needed for the paired realization has an elementary
+finite-level and compactness proof. Its residual hypothesis includes
+finiteness of cross-character cocycles, not just distinctness of the
+characters.
+
+For characters \(\alpha,\beta:\Gamma\to k^\times\), let
+\(Z^1(\alpha,\beta)\) be the vector space of locally constant functions
+\(z:\Gamma\to k\) satisfying
+\[
+ z(gh)=\alpha(g)z(h)+z(g)\beta(h).
+\]
+\begin{srlemma}\label{lem:sr-finite-cross-cocycles}
+Let \(k\) be finite of characteristic \(\ell\), let \(\Gamma\) be
+profinite, and suppose
+\(\operatorname{Hom}_{\rm cont}(U,\mathbb F_\ell)\) is finite
+dimensional for every open subgroup \(U\).
+Then \(Z^1(\alpha,\beta)\) is finite dimensional for every pair of
+continuous characters into \(k^\times\).
+This hypothesis holds for the Galois group of a number field
+unramified outside a finite set of places.
+\end{srlemma}
+\begin{proof}
+Put \(U=\ker\alpha\cap\ker\beta\). This is open and normal.
+Restriction of \(z\) to \(U\) is an additive continuous homomorphism.
+The values on a finite set of coset representatives and this restriction
+determine \(z\), by its multiplication identity. They define an injection
+\[
+ Z^1(\alpha,\beta)\hookrightarrow
+ k^{[\Gamma:U]}\oplus\operatorname{Hom}_{\rm cont}(U,k).
+\]
+Expanding \(k\) in an \(\mathbb F_\ell\)-basis identifies the last
+space with
+\(\operatorname{Hom}_{\rm cont}(U,\mathbb F_\ell)
+ \otimes_{\mathbb F_\ell}k\); hence it is finite dimensional.
+
+For the Galois assertion, an open subgroup corresponds to a finite
+extension \(L\), with ramification restricted to a finite set \(S\).
+Enlarge \(S\) to include the places above \(\ell\).
+Restriction to \(L'=L(\mu_\ell)\) is injective on
+\(H^1(G_{L,S},\mathbb F_\ell)\), since \([L':L]\) divides
+\(\ell-1\) and restriction followed by corestriction is multiplication
+by that degree.
+After choosing a primitive \(\ell\)-th root, Kummer theory identifies
+the target with a subgroup of
+\(H^1(\mathcal O_{L'}[1/S'],\mu_\ell)\).
+The Kummer sequence gives
+\[
+ 0\longrightarrow
+ \mathcal O_{L'}[1/S']^\times/
+          (\mathcal O_{L'}[1/S']^\times)^\ell
+ \longrightarrow H^1(\mathcal O_{L'}[1/S'],\mu_\ell)
+ \longrightarrow \operatorname{Cl}(\mathcal O_{L'}[1/S'])[\ell]
+ \longrightarrow0.
+\]
+The unit group is finitely generated and the ideal class group is finite.
+Both outside terms, and therefore the middle term, are finite.
+The degree-one cohomology of a trivial coefficient is the continuous
+homomorphism group in the assertion. The same finiteness holds for
+quotients of this Galois group: an open subgroup pulls back to an open
+Galois subgroup, and its homomorphisms inject by inflation.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-finite-CH}
+Let \(B\) be a complete Noetherian local ring with finite residue
+field \(k\), maximal ideal \(\mathfrak m\), and let \(\Gamma\) be
+profinite. Let \(D\) be a continuous degree-\(n\) determinant,
+\(n\ge1\), whose reduction is the product of distinct continuous
+characters \(\chi_1,\ldots,\chi_n:\Gamma\to k^\times\).
+Suppose
+\(\dim_k Z^1(\chi_i,\chi_j)\le h\) for all \(i\ne j\).
+Set
+\[
+ F=n+\sum_{r=0}^{n-1}(n^2h)^r,\qquad A=B[\Gamma].
+\]
+Let \(\mathcal Z\subset A\) be any extra relations.
+For an open normal subgroup \(U\) and \(j\ge1\), let
+\[
+ I_{j,U}=
+ \bigl(\operatorname{CH}(D),\mathcal Z,\
+             \mathfrak m^j,\ [u]-1\ (u\in U)\bigr)\subset A,
+ \qquad I=\bigcap_{j,U}I_{j,U}.
+\]
+Here \(\operatorname{CH}(D)\) denotes all Cayley--Hamilton relations,
+including their polynomial scalar tests.
+Then \(A/I\) is generated over \(B\) by at most \(F\) group elements.
+For every \(j\) there is an open normal \(U_j\) with
+\[
+                    [u]-1\in\mathfrak m^j(A/I)
+                      \qquad(u\in U_j).
+\]
+Thus the group map into this finite algebra is continuous for its
+\(\mathfrak m\)-adic topology.
+\end{srproposition}
+\begin{proof}
+We first work over \(k\), at a finite quotient of \(\Gamma\).
+We may restrict to \(U\subseteq\bigcap_i\ker\chi_i\), a cofinal system.
+Let
+\[
+ E_U=k[\Gamma/U]/(\operatorname{CH}(\textstyle\prod_i\chi_i)).
+\]
+It is finite dimensional. Distinct characters are linearly independent:
+in a shortest nontrivial linear relation, translate by an element
+where two characters differ and subtract a scalar multiple of the
+original relation; this gives a shorter relation.
+Consequently their evaluation map is onto \(k^n\).
+It factors through \(E_U\), giving \(\pi:E_U\twoheadrightarrow k^n\).
+The residual determinant and its trace factor through this map;
+Cayley--Hamilton relations commute with the chosen finite group quotient.
+
+Put \(J=\ker\pi\). Each \(x\in J\) has characteristic polynomial
+\(T^n\), so is nilpotent. Since \(yx\in J\) for every \(y\),
+\(1-yx\) is a unit; hence \(J\) is contained in the Jacobson radical.
+The quotient \(k^n\) is semisimple, so \(J\) equals that radical.
+It is nilpotent. Lift the \(n\) coordinate idempotents through it
+to orthogonal idempotents \(e_i\) summing to one.
+Idempotent lifting is explicit: a lift \(z\) has error \(z^2-z\)
+in a nilpotent ideal, and iteration of \(3z^2-2z^3\) squares that
+error; proceed successively in the complementary corners.
+
+Each \(e_i\) has determinant rank one, since its residual coordinate
+has rank one. The rank-one corner identity is
+\[
+                         e_i x e_i=\operatorname{tr}(e_ix)e_i.
+ \tag{*}
+\]
+For clarity it does not require \(n!\) invertible.
+The determinant on an idempotent corner is homogeneous of its
+idempotent rank; at rank one it is a linear multiplicative law.
+For \(v=e_ive_i\), apply Cayley--Hamilton over \(k[\epsilon]/\epsilon^2\)
+to \(e_i+\epsilon v\), whose characteristic polynomial is
+\(T^{n-1}(T-1-\epsilon\operatorname{tr}v)\), and take the
+\(\epsilon\)-coefficient after multiplying by \(e_i\).
+This gives (*). If \(x\in J\), its trace and the trace of every
+corner are zero, because the residual determinant factors through
+\(\pi\). In particular \(e_iJe_i=0\).
+
+Expanding a product of \(n\) elements of \(J\) with the idempotents
+gives paths with \(n+1\) vertices among \(n\) indices.
+A repeated vertex contributes a corner \(e_iJe_i=0\).
+Thus \(J^n=0\).
+For \(i\ne j\), put \(W_{ij}=e_i(J/J^2)e_j\).
+The functions
+\[
+                  z_{ij}(g)=e_i[g]e_j\bmod J^2
+\]
+span \(W_{ij}\), since the group elements span \(E_U\).
+Multiplication modulo \(J^2\) gives
+\[
+ z_{ij}(gh)=\chi_i(g)z_{ij}(h)+z_{ij}(g)\chi_j(h).
+\]
+They factor through the finite quotient.
+Every linear functional on \(W_{ij}\) therefore gives an element
+of \(Z^1(\chi_i,\chi_j)\), and spanning makes this dual map injective.
+Hence \(\dim W_{ij}\le h\) and \(\dim J/J^2\le n^2h\).
+Multiplication surjects
+\((J/J^2)^{\otimes r}\to J^r/J^{r+1}\), so
+\[
+                 \dim_k E_U
+       \le n+\sum_{r=1}^{n-1}(n^2h)^r\le F.
+\]
+Additional relations only decrease this bound.
+
+Return to \(B\).
+The module \(A/I_{j,U}\) is finite over \(B/\mathfrak m^j\),
+because it is a quotient of its group algebra on the finite group
+\(\Gamma/U\).
+Its reduction modulo \(\mathfrak m\) is a quotient of the preceding
+residual algebra. Nakayama, or its iteration through the nilpotent
+maximal ideal of \(B/\mathfrak m^j\), shows that it has at most \(F\)
+generators, which can be chosen among the group elements.
+In particular
+\[
+                  [A:I_{j,U}]\le |B/\mathfrak m^j|^F .
+ \tag{**}
+\]
+
+For each fixed \(j\), the intersection
+\(L_j=\bigcap_U I_{j,U}\) is attained at one \(U_j\).
+Indeed choose \(U_j\) for which the finite index is largest.
+Refinement by \(U_j\cap U\) gives a contained ideal whose index
+cannot be larger by (**); equality of finite indices forces equality.
+Thus \(I_{j,U_j}\subseteq I_{j,U}\) for every \(U\).
+In particular \(A/L_1\) is generated by some group elements
+\(s_1,\ldots,s_t\), \(t\le F\).
+
+These same elements generate \(A/L_j\) for every \(j\).
+Their images generate the reduction of \(A/I_{j,U_j}\) modulo
+\(\mathfrak m\), since \(L_1\subseteq I_{1,U_j}\).
+Iteration of the nilpotent maximal ideal again proves the assertion.
+Moreover
+\[
+                  L_j\subseteq L_{j+1}+\mathfrak m^j A .
+ \tag{***}
+\]
+To see this, use
+\(L_j\subseteq I_{j,U_{j+1}}
+ =I_{j+1,U_{j+1}}+\mathfrak m^jA\).
+
+The ring \(B\) is compact: its quotients by the powers of
+\(\mathfrak m\) are finite, and completeness identifies it with their
+inverse limit.
+For \(x\in A\), the nonempty sets
+\[
+ \{(b_i)\in B^t:\ x-\textstyle\sum_i b_is_i\in L_j\}
+\]
+are closed and nested; each condition depends only on \(b_i\)
+modulo \(\mathfrak m^j\).
+Compactness gives coefficients satisfying all conditions.
+Thus \(A/I\), where \(I=\bigcap_j L_j\), is generated by the \(s_i\).
+
+We also have \(L_j/I=\mathfrak m^j(A/I)\).
+The inclusion from right to left is immediate.
+For the other, iterate (***) to get
+\(L_j\subseteq L_k+\mathfrak m^jA\) for \(k\ge j\).
+As the \(s_i\) span modulo \(L_k\), every \(x\in L_j\) has an
+expression modulo \(L_k\) with coefficients in \(\mathfrak m^j\).
+Apply the same nested-set compactness argument inside the compact
+set \((\mathfrak m^j)^t\).
+It gives \(x-\sum b_i s_i\in I\) with all \(b_i\in\mathfrak m^j\),
+as required.
+Finally, \(u\in U_j\) gives \([u]-1\in I_{j,U_j}=L_j\).
+The last identity proves the asserted continuity.
+\end{proof}
+
+The closure in this proposition uses both the coefficient precision
+and open normal subgroups. It is the closure occurring in
+\srcid{CommutativeAlgebraHeight.FLimit} and \srcid{FinE};
+using only the \(\mathfrak m\)-adic closure of the discrete group algebra
+would change the statement.
+For the actual finitely ramified Galois quotient, the cocycle lemma
+supplies a finite \(h\), and the marked residual separation supplies
+distinctness. This proves the finite-quotient input with its stated
+hypotheses. Transport of the determinant, involution and ordinary
+relations through this quotient belongs to the paired realization
+constructed next.
+
+\subsection{The completed paired algebra}
+\label{sec:completed-paired-algebra}
+
+Here is the algebraic construction used in the producer
+\texttt{AutomorphicDetection.S6}.  It applies to any two block sizes; in
+particular no rank-three classification or automorphy lifting theorem
+enters its proof.
+
+\begin{srproposition}[Realization of a completed paired Cayley--Hamilton algebra]
+\label{prop:paired-ch-realization}
+Let $(B,\mathfrak m,F)$ be a complete Noetherian local ring with $2\in
+B^\times$.  Let $E$ be a finite $B$-algebra, equipped with a degree-$n$
+Cayley--Hamilton determinant $D$, its trace $\operatorname{tr}$, and a
+$B$-linear anti-involution $*$ such that
+\[
+ \operatorname{tr}(xy)=\operatorname{tr}(yx),\qquad
+ \operatorname{tr}(x^*)=\operatorname{tr}(x).
+\]
+Fix $1\leq a\leq n$ and a $B$-algebra map
+\[
+ r:E\longrightarrow
+ \operatorname{Mat}_a(F)\oplus\operatorname{Mat}_{n-a}(F)
+ \subseteq\operatorname{Mat}_n(F).
+\]
+Assume that $r$ is surjective onto the indicated block algebra,
+$r(x^*)=r(x)^{\mathsf t}$, and the specialization of the characteristic
+polynomial of $D$ at every $x\in E$ is $\det(T-r(x))$.
+
+There exist a finite commutative $B$-algebra $\mathcal A$, an injective
+map $B\hookrightarrow\mathcal A$, a finite $B$-submodule $N\subset
+\mathcal A$, and an injective $B$-algebra map
+\[
+ \Phi:E\longrightarrow\operatorname{Mat}_n(\mathcal A)
+\]
+with the following properties:
+\begin{enumerate}
+\item $\mathcal A=B\oplus N$ as a $B$-module, and $NN\subseteq\mathfrak m$,
+where $B$ is identified with its image.
+\item The image of $\Phi$ consists exactly of matrices whose entries in
+the two diagonal blocks belong to $B$ and whose entries in the two
+off-diagonal blocks belong to $N$.
+\item $\Phi(x^*)=\Phi(x)^{\mathsf t}$, and the determinant of $\Phi$ is
+$D$ after extension of scalars to $\mathcal A$.
+\item If $\Phi(x)_{ij}-b\in N$, then $r(x)_{ij}=\overline b$.
+If $a=n$, one may take $N=0$.
+\end{enumerate}
+\end{srproposition}
+
+\begin{proof}
+Put $J=\ker r$.  If $x\in J$, its Cayley--Hamilton equation shows that
+$x^n\in\mathfrak mE$.  Consequently the image of $J$ in the
+finite-dimensional $F$-algebra $E/\mathfrak mE$ is a nil ideal.  It is
+contained in the Jacobson radical: for each $u$ in that ideal and every
+$v$ in the algebra, $vu$ is nilpotent, so $1-vu$ is invertible.  The
+Jacobson radical of a finite-dimensional algebra is nilpotent.
+Thus $J^c\subseteq\mathfrak mE$ for some $c$, and $J$ is topologically
+nilpotent in the $\mathfrak m$-adically complete algebra $E$.
+
+Lift the diagonal matrix idempotents of $r(E)$ to pairwise orthogonal,
+self-adjoint idempotents $e_1,\ldots,e_n$ of $E$, with sum $1$.
+For completeness this is an explicit lifting argument.  A diagonal
+idempotent has a self-adjoint lift $z$, obtained by replacing any lift
+by $(z+z^*)/2$.  Repeatedly replace $z$ by $3z^2-2z^3$.
+The new idempotence error belongs to the square of the old error
+ideal.  These self-adjoint polynomials therefore converge to a
+self-adjoint idempotent, because $z^2-z\in J$ and $J$ is topologically
+nilpotent.  Continue inside $(1-e_1)E(1-e_1)$, and then inside the
+successive complementary corners.  These corners are complete and
+stable under $*$.
+
+Each $e_i$ has determinant rank one:
+\[
+                 D(1+Te_i)=1+T.                 \tag{1}
+\]
+Indeed, the determinant restricted to an idempotent is $(1+T)^{b_i}$
+for an integer $0\leq b_i\leq n$; this follows by decomposing the
+multiplicative polynomial law along the orthogonal idempotents
+$e_i,1-e_i$.  Specialization to $F$ gives $1+T$, hence $b_i=1$.
+
+We record the rank-one consequence without assuming that $n!$ is
+invertible:
+\[
+        e_i x e_i=\operatorname{tr}(e_i x)e_i,\qquad
+        \operatorname{tr}(e_i)=1.                \tag{2}
+\]
+The determinant on the corner $e_iEe_i$ obtained from (1) is a
+multiplicative polynomial law of degree one, hence is additive and
+equals the restriction of the trace.  If $u=e_iue_i$ and
+$\epsilon^2=0$, the characteristic polynomial of $e_i+\epsilon u$
+is
+\[
+       T^{n-1}\bigl(T-1-\epsilon\operatorname{tr}(u)\bigr).
+\]
+Apply the Cayley--Hamilton identity and multiply by $e_i$.  The
+coefficient of $\epsilon$ is $u-\operatorname{tr}(u)e_i$, proving
+(2).  The coefficient of $T$ in (1) proves the trace assertion.
+In particular $B\to Be_i$ is injective, by taking traces.
+
+Choose one index $p$ in the first block, and, when $a<n$, one index
+$q$ in the second block.  Write $o(i)=p$ or $q$ according to the
+block of $i$.  Surjectivity of $r$ supplies
+$z_i\in e_{o(i)}Ee_i$ reducing to the elementary matrix $E_{o(i),i}$.
+Equation (2) gives
+\[
+ z_i^*z_i=b_i e_i,\qquad z_i z_i^*=b_i'e_{o(i)}.
+\]
+Cyclicity of the trace and (2) imply $b_i=b_i'$, and reduction gives
+$b_i\equiv1\pmod{\mathfrak m}$.  Hensel's lemma, with $2$ invertible,
+gives $\alpha_i^2=b_i$ and $\alpha_i\equiv1\pmod{\mathfrak m}$.
+Set $x_i=\alpha_i^{-1}z_i$, taking $x_p=e_p$, $x_q=e_q$.  Then
+\[
+ x_i^*x_i=e_i,\quad x_ix_i^*=e_{o(i)},\quad
+ x_i x_j^*=0\ (i\ne j),\quad \sum_i x_i^*x_i=1.  \tag{3}
+\]
+
+Suppose first that $a<n$.  Set $N_0=e_pEe_q$ and
+\[
+               \beta(u,v)=\operatorname{tr}(uv^*)
+               \quad(u,v\in N_0).
+\]
+The anti-involution gives $\beta(u,v)=\beta(v,u)$.
+Applying (2) in the $p$ and $q$ corners gives
+\[
+ uv^*=\beta(u,v)e_p,\quad
+ v^*w=\beta(v,w)e_q,\quad
+ \beta(u,v)w=\beta(v,w)u.                         \tag{4}
+\]
+The last equality is simply associativity of $uv^*w$.
+Define
+\[
+ \mathcal A=B\oplus N_0,\qquad
+ (b,u)(c,v)=(bc+\beta(u,v),\,bv+cu).              \tag{5}
+\]
+Equations (4) prove associativity; symmetry of $\beta$ proves
+commutativity.  Thus (5) is a commutative $B$-algebra with injective
+structural map.  It is finite because $E$ is finite.  Write $N$ for
+$0\oplus N_0$.
+
+For $y\in E$ set $s_{ij}(y)=x_i yx_j^*$.
+If $o(i)=o(j)$, (2) identifies $s_{ij}(y)$ with its scalar trace.
+If $(o(i),o(j))=(p,q)$, retain $s_{ij}(y)\in N_0$.
+If $(o(i),o(j))=(q,p)$, retain $s_{ij}(y)^*\in N_0$.
+These scalars and odd elements are the entries of $\Phi(y)$.
+Equations (3)--(4) prove directly that
+$\Phi(yz)=\Phi(y)\Phi(z)$ and
+$\Phi(y^*)=\Phi(y)^{\mathsf t}$.
+Moreover
+\[
+                  y=\sum_{i,j}x_i^*s_{ij}(y)x_j                \tag{6}
+\]
+proves injectivity.  Conversely (6), using a prescribed element of
+the appropriate scalar or odd corner at each pair $(i,j)$,
+constructs the inverse linear map from the stated matrix pattern.
+This proves the assertion about the image.
+
+The reduction of $N_0$ is zero, because $r(E)$ is block diagonal.
+Hence (4) implies $\beta(N_0,N_0)\subseteq\mathfrak m$.
+This proves $NN\subseteq\mathfrak m$ and the claimed reduction
+formula.  If $a=n$, the same construction uses only $p$, all the
+sandwiches are scalar, and gives $E\simeq\operatorname{Mat}_n(B)$
+with $\mathcal A=B,N=0$.
+
+Finally the determinant agrees with the matrix determinant.  One
+way to check this over arbitrary coefficient rings is formal
+Gaussian elimination of $1+Ty$, using the idempotents $e_i$ and
+the rank-one corners (2).  All diagonal pivots are units in
+$B[[T]]$ and each elimination step is multiplication by $1+u$,
+where $u=e_iue_j$, $i\ne j$.  Its determinant is $1$:
+conjugation by
+$\lambda e_i+\sum_{k\ne i}e_k$ over
+$B[\lambda,\lambda^{-1}]$ shows that $D(1+su)$ is invariant under
+$s\mapsto\lambda s$, so all its positive-degree coefficients
+vanish.  On a diagonal element $\sum d_i e_i$, (1) and
+multiplicativity give $\prod d_i$.  The same elimination applies
+to its matrix image.  Therefore
+$D(1+Ty)=\det(1+T\Phi(y))$; taking coefficients proves the
+assertion.  This argument commutes with every scalar extension,
+so it proves equality of polynomial laws.
+\end{proof}
+
+\begin{srcorollary}[The nonsemisimple support condition]
+\label{cor:paired-nonss}
+In the preceding proposition suppose that $E$ is a quotient of
+$B[\Gamma]$ by the two-sided ideal generated by a set $\mathcal I$.
+If a prime $\mathfrak q\subset B$ admits a field $K$ and a map
+$B\to K$ with kernel $\mathfrak q$ for which
+\[
+       K[\Gamma]/(\mathcal I)
+\]
+is not a semisimple ring, then
+$\operatorname{Ann}_B(N)\subseteq\mathfrak q$.
+\end{srcorollary}
+\begin{proof}
+Otherwise an annihilator of $N$ becomes invertible in $K$, so
+$K\otimes_BN=0$.  Formula (6) then identifies $K\otimes_BE$ with
+$\operatorname{Mat}_a(K)\oplus\operatorname{Mat}_{n-a}(K)$.
+The specified group-algebra quotient is a quotient of this
+semisimple algebra and is therefore semisimple, a contradiction.
+The same proof works if the kernel of $B[\Gamma]\to E$ is only
+contained in the two-sided ideal generated by $\mathcal I$:
+the specified quotient is still a quotient of $K\otimes_BE$.
+\end{proof}
+
+\paragraph{Application to the actual completed algebra.}
+Let $B_0,u,P,f$ be the original paired determinant, ordinary point,
+and point map occurring in \texttt{Pa.OoPt}; put
+$\mathfrak p=\ker f$ and let $B=\widehat{(B_0)_{\mathfrak p}}$.
+The producer does not start by postulating a matrix realization.
+It starts with the closed Cayley--Hamilton quotient
+\[
+ E_0=B_0[\Gamma]\Big/
+ \overline{\bigl(\mathrm{CH}(u.D),\
+                 \mathrm{pairGens}(u),\
+                 \mathrm{qGens}(P)\bigr)}
+\]
+and sets
+\[
+                     E=B\otimes_{B_0}E_0.       \tag{7}
+\]
+Here the closure is the \emph{profinite and adic} closure:
+it is the intersection, over all $j$ and all open normal subgroups
+$V\subseteq\Gamma$, of the two-sided ideals generated by the
+listed relations, $\mathfrak m_{B_0}^{\,j}$, and $[v]-1$ for
+$v\in V$.  This is \texttt{closureIdeal} in \texttt{FLimit};
+it is not merely the adic closure in the discrete group algebra.
+In particular $P.\mathrm{ker}$ is already this closed
+Cayley--Hamilton and auxiliary ideal.
+The finite Cayley--Hamilton quotient producer
+\texttt{CommutativeAlgebraHeight.FinE.finE} supplies a finite
+$B_0$-module $E_0$, a finite $B_0$-submodule containing all group
+elements, and the continuity assertion
+\[
+ \forall j\ \exists V\trianglelefteq_{\rm open}\Gamma\
+ \forall g\in\Gamma,\ v\in V,\quad
+ [gv]-[g]\in\mathfrak m_{B_0}^{\,j}P_0.          \tag{8}
+\]
+Its hypotheses are explicitly: $B_0$ complete Noetherian local
+with finite residue field, continuous determinant, residual
+determinant a product of characters $\chi_i$, each $\ker\chi_i$
+open, the $\chi_i$ pairwise distinct, and, for every $i\ne j$,
+the space
+\[
+ Z^1(\chi_i,\chi_j)=
+ \{z:\Gamma\to\kappa\text{ locally constant}:
+ z(gh)=\chi_i(g)z(h)+z(g)\chi_j(h)\}
+\]
+finite-dimensional over the residue field $\kappa$, of dimension
+at most one common integer $h$.
+This is the full definition of \texttt{MultFree} in
+\texttt{FinDefs}; it includes the cross-cocycle finiteness
+condition, not just distinctness or a character multiplicity bound.
+The original arithmetic datum supplies it via
+\texttt{ClosureConjugation.PairMf.pair\_mf}, using
+\texttt{exists\_multFree\_of\_phiCond\_of\_injective\_chars} and the
+point's \texttt{PhiCond}.  This is the independent finite
+quotient input, not an automorphy lifting statement.
+The anti-involution on (7) is induced by
+\[
+             [g]^*=\epsilon(g)^{\,1-n}[\overline g^{-1}].
+                                                               \tag{9}
+\]
+The paired determinant and ordinary relations are stable under
+(9); the determinant trace is invariant under it.  Specializing
+(7) by the given point gives the representation
+$\rho\circ h$ over $F=\operatorname{Frac}(k[[T]])$.
+
+The residue map $B\to F$ is surjective.  Indeed $f$ maps $B_0$ onto
+$k[[T]]$; after localization at $\ker f$ its image contains
+$k((T))$, and completion preserves the residue field.
+The normal point's span condition says that, after inverting
+$T$, the span of $\rho$ is precisely the two-block algebra.
+Consequently the map $r:E\to\operatorname{Mat}_n(F)$ has exactly
+the image required in Proposition~\ref{prop:paired-ch-realization}.
+For clarity, any even elementary matrix is a power of $T$ times
+a linear combination of group matrices; that power of $T$ is
+invertible in $F$ and its scalar coefficients lift to $B$.
+The normal point's polarization gives
+$r(y^*)=r(y)^{\mathsf t}$.
+The original determinant specializes to $\det\rho$, so its
+characteristic polynomials specialize as required.
+As the residue characteristic is the odd prime $\ell$,
+$2\in B^\times$.  Thus all the hypotheses of the proposition
+are met by the algebra (7).
+
+Putting $v(g)=\Phi([g])$ gives the actual \texttt{URep}.
+It has determinant $u.D$, full span equal to the paired matrix
+pattern, and
+\[
+ v(g)^{\mathsf t}v(\overline g)
+                  =\epsilon(g)^{\,1-n}I_n
+\]
+by (9).  It kills all the defining closed relations because it
+factors through (7).  The direction of the kernel comparison
+needed for nonsemisimple support is as follows.
+The algebra $E_0$ is the quotient by $P.\mathrm{ker}$ itself.
+Right exactness of scalar extension identifies the kernel of
+$B[\Gamma]\twoheadrightarrow B\otimes_{B_0}E_0$ with the
+two-sided ideal generated by the image of $P.\mathrm{ker}$.
+This is the exact \texttt{Hat.ker} assertion supplied by
+\texttt{HatEx}, via its tensor quotient construction
+\texttt{tens}; no further closure after scalar extension is
+being omitted or inserted.
+After a residue field extension the group-algebra quotient
+defining \texttt{NonSS P.ker} is therefore a quotient of the
+scalar extension of $E$, in the direction required by
+Corollary~\ref{cor:paired-nonss}.
+The same observation covers completion: completion is used as
+scalar extension of the already finite algebra $E_0$, and its
+closed ideal was imposed before that extension.  Mapping the finite lattice $P_0$
+through $\Phi$ proves both finite lattice generation and (8) for
+$v$.  These are exactly the finiteness and continuity conditions
+in \texttt{URep}; they are retained for the Laurent coefficient
+tests below.
+
+\paragraph{Source and scope.}
+The explicit construction above expands
+\texttt{ClosureConjugation.OBLt.idem},
+\texttt{ComplOddPart.gr\_E}, \texttt{GrI.gr\_I}, and
+\texttt{UrepOf.urep\_of}.
+The rank-one argument is
+\texttt{CommutativeAlgebraHeight.DCorner.d\_corner}; normalized
+matrix units and the odd pairing are
+\texttt{AlgebraTools.UnitsExist.units\_exist} and
+\texttt{AlgebraTools.InvAlg}.
+The underlying source is frozen at
+\texttt{alpoge-source-7cbf7a0c} in
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification}.
+The paired realization and nonsemisimple support are proved above.
+Proposition~\ref{prop:sr-finite-CH} supplies the finite quotient and
+continuity input with the exact cross-cocycle and topology hypotheses.
+Lemma~\ref{lem:sr-finite-cross-cocycles} proves their finiteness for
+the required finitely ramified Galois quotients.
+
+\subsection{From Laurent Selmer classes to the paired presentation}
+\label{sec:selmer-paired-presentation}
+
+We expand \texttt{SelmerScaling.AlCSmul.pres}.  The presentation
+relations are constructed from a finite test algebra; they are
+not an additional patching hypothesis.
+
+Write $A_0=k[[T]]$, $F=k((T))$, with $\operatorname{char}k=\ell\ne2$.
+Let $B=\widehat{(B_0)_{\ker f}}$, where $B_0$ is the original
+complete coefficient algebra and $f:B_0\twoheadrightarrow A_0$
+is the ordinary point.  Its residue map is $r:B\twoheadrightarrow F$.
+Use the actual algebra and representation of the preceding
+construction:
+\[
+ \mathcal A=B\oplus N,\quad NN\subset\mathfrak m_B,\quad
+ v:\Gamma\longrightarrow\operatorname{GL}_n(\mathcal A),\quad
+ \rho:\Gamma\longrightarrow\operatorname{GL}_n(A_0).
+\]
+The span of $v(\Gamma)$ is the full paired matrix pattern, and
+the reduction of its scalar part is $\rho_F$.
+Let $\mathcal O_0\to B$ be the complete DVR coefficient section
+used in \texttt{Pa.Ctx}.  Its composite with $r$ is onto $F$.
+We retain the exact section conditions: every $a\in A_0$ has a
+lift in both $\mathcal O_0$ and $B_0$ with the same image in $B$;
+the original coefficient ring has such lifts in $\mathcal O_0$;
+and the distinguished ordinary parameter $s$, with $f(s)=T$,
+belongs to the image of $\mathcal O_0$.
+
+Put
+\[
+ I_{\rm od}=(uv:u,v\in N)\subset B,\qquad
+ J=\mathfrak m_{\mathcal O_0}B+\mathfrak m_B^2+I_{\rm od}.
+                                                               \tag{10}
+\]
+Let $\mathcal T$ consist of additive maps $\alpha:B\to F$ such that
+\[
+ \alpha(bb')=r(b)\alpha(b')+r(b')\alpha(b),\qquad
+ \alpha(\mathcal O_0)=0,\qquad \alpha(I_{\rm od})=0,
+\]
+and let $\mathcal L=\operatorname{Hom}_B(N,F)$.
+Projection to $B$ and $N$ in $\mathcal A=B\oplus N$ will be
+denoted by $p_0,p_1$.  Define
+\[
+ \begin{split}
+ z_\alpha(g)&=\alpha\bigl(p_0(v(g))\bigr)\rho_F(g)^{-1},\\
+ z_\mu(g)&=\mu\bigl(p_1(v(g))\bigr)\rho_F(g)^{-1}.
+ \end{split}                                                    \tag{11}
+\]
+Maps are applied entry by entry.
+
+Here and below a Laurent function is \emph{bounded} if some
+power of $T$ times each scalar entry is the image of a
+$T$-adically continuous $A_0$-valued function.  This condition is
+imposed before passing to a Laurent field; continuity for the
+unit ideal $(T)\subset F$ on its own would give no useful condition.
+
+We specify the Selmer spaces.  The even matrix space consists
+of the two diagonal blocks; the odd matrix space consists of
+the two off-diagonal blocks.  For a representation $\sigma$
+and an invariant coefficient space $M$, Selmer cocycles satisfy
+\[
+ z(gh)=z(g)+\sigma(g)z(h)\sigma(g)^{-1},\qquad
+ z(\overline g)=-z(g)^{\mathsf t},
+\]
+vanish on the prescribed unramified inertia groups, and satisfy
+this ordinary local condition: at each distinguished local
+group there is a correcting matrix $Y_v\in M$ such that, in
+the chosen ordinary flag, $z-dY_v$ is upper triangular and its
+diagonal vanishes on the specified local subgroup $\mu_v$.
+Here $dY(g)=\sigma(g)Y\sigma(g)^{-1}-Y$.
+Global coboundaries use $Y\in M$ with $Y^{\mathsf t}=-Y$.
+These are the exact conditions of \texttt{SelZ}, hence of
+\texttt{SelP}, \texttt{SelM}, \texttt{Sel1}, \texttt{Sel2}.
+In particular existence of the local correcting matrices is
+part of the condition.
+
+Fix independent bounded odd Selmer classes represented by
+$\kappa_1,\ldots,\kappa_g$, with chosen local corrections.
+Introduce the finite $F$-algebra
+\[
+ \mathbb D_e
+ =F\oplus\bigoplus_{i=1}^eF\varepsilon_i
+       \oplus\bigoplus_{i=1}^eF\varepsilon_i'
+       \oplus F\eta ,
+ \qquad \varepsilon_i\varepsilon_j'=\delta_{ij}\eta,             \tag{12}
+\]
+all other products among these nilpotent generators being zero.
+Its augmentation ideal has cube zero.
+The first-order representation is
+\[
+       \rho_1=(1+\sum_{j=1}^g\varepsilon_j\kappa_j)\rho_F .
+\]
+Its first coefficient module $W_1$ has even constant entries and
+odd $\varepsilon_j$ entries; its second module $W_2$ has even
+$\varepsilon_j'$ entries and odd $\eta$ entries.
+Both are stable under $\operatorname{Ad}\rho_1$.
+Use the first-order lifted ordinary flags.
+
+The three cohomological inputs are the following exact Laurent
+versions of the source hypotheses.
+\begin{enumerate}
+\item Every family of bounded $W_1$-valued Selmer cocycles
+independent modulo the $W_1$ global coboundaries has cardinality
+at most $D$.
+\item For any $g+1$ tuples of bounded even Selmer cocycles
+$(z_{ij})_{j=1}^g$, there are scalars $c_i$, not all zero, and
+a bounded $W_2$-valued Selmer cocycle whose $\varepsilon_j'$
+coefficient is $\sum_i c_i z_{ij}$ for every $j$.
+\item Every bounded odd Selmer cocycle is a linear combination
+of the $\kappa_j$ modulo an odd global coboundary.
+\end{enumerate}
+These are \texttt{SelmerRankBoundLaurent},
+\texttt{EvenCocyclesLiftLaurent}, and
+\texttt{SelmerSpannedByKappaLaurent}, respectively.
+They are the outputs required of the $K1,K2,K3$ cohomological
+bounds, not a statement about the full adjoint over a CM field.
+
+\begin{srtheorem}[Explicit Selmer presentation]
+\label{thm:selmer-paired-pres}
+With the point, section, local conditions and three inputs just
+stated, there are $D$ elements $X_a\in\mathfrak m_B$, $g$ generators
+$m_1,\ldots,m_g$ of $N$, and $g^2$ coefficient rows
+$c_{ij,a}\in\mathcal O_0$ whose residue rows are independent, such
+that
+\[
+ \mathfrak m_B\subseteq(X_a)+J,\qquad
+ \sum_j\left(\sum_a c_{ij,a}X_a\right)m_j\in JN
+                    \quad(1\leq i\leq g).                     \tag{13}
+\]
+In fact $g^2\leq D$, the first $g^2$ parameters may be indexed
+by $(i,j)$, and $c_{ij,a}=\delta_{a,(i,j)}$.
+Thus the relations can be written $\sum_jX_{ij}m_j\in JN$.
+\end{srtheorem}
+
+\begin{proof}
+We supply the coefficient, local, and linear algebra steps.
+
+\emph{Finite tests really give bounded Selmer classes.}
+A finite-dimensional augmented $F$-algebra $R$ with nilpotent
+augmentation ideal, and a ring map $\theta:\mathcal A\to R$
+fixing $\mathcal O_0$ through its residue map, is called a
+coefficient test if its reduction is $r\circ p_0$.
+Every scalar coordinate of $\theta(v(g))$ is bounded.
+
+Here is the lattice argument, including the section.
+Let $\mathfrak a=\ker(B_0\to A_0)$ and choose ideal generators
+$b_1,\ldots,b_s$.  Their test images are nilpotent.
+The section allows subtraction from any $b\in B_0$ of a lift
+of $f(b)$ without changing its scalar residue.
+Induction on the nilpotence exponent gives
+\[
+ \theta(B_0)\subseteq
+ A_0[\theta(b_1),\ldots,\theta(b_s)],
+\]
+a finite $A_0$-algebra $M_0$.
+Indeed the difference is an $\mathfrak a$-linear combination;
+substituting this expression into its coefficients increases
+the nilpotent order, so the process terminates.
+
+The finite $B_0$-lattice containing all $v(g)$ has finitely many
+matrix-entry generators.  Their test images span a finite
+$M_0$-module.  Intersect the resulting finite $A_0$-module with
+$A_0+\ker(R\to F)$.  All test images of entries of $v(g)$ lie
+there.  Every such element is an element of $A_0$ plus a
+nilpotent, hence integral over $A_0$.
+Adjoining finite module generators of this intersection gives
+a finite $A_0$-algebra $M$ containing $\theta(B_0)$ and these
+entries.  If the augmentation nilpotence exponent is $c$, then
+\[
+       \theta(\mathfrak m_{B_0}^{\,j+c})\subseteq T^jM.          \tag{14}
+\]
+Indeed $\theta(\mathfrak m_{B_0})\subseteq TM+\ker(R\to F)$;
+expand its $(j+c)$-th power.
+Multiplying $M$ by the images of the original lattice generators
+gives a finite $A_0$-module stable under $M$.
+Original lattice continuity and (14) give $T$-adic continuity
+in that finite module.  Every $F$-linear coordinate on $R$
+takes this module into $T^{-b}A_0$ for some $b$, by clearing
+denominators on its generators.  This proves boundedness.
+
+Tests inherit polarization, unramified relations, and the
+ordered local polynomial identity
+\[
+ \prod_{i=1}^n\bigl(u(g_i)-\psi_i(g_i)I_n\bigr)=0
+                       \quad\text{for every tuple }(g_i).      \tag{15}
+\]
+The residue local characters are pairwise distinct.
+We justify why (15) gives the ordinary correcting matrices;
+the same argument handles the second-order tests.
+
+Let $R\to F$ have nilpotent kernel, let $I^2=0$, and let
+$\sigma_0,\sigma_1$ be representations congruent modulo $I$,
+with local characters $\psi_{0i},\psi_{1i}$ congruent modulo $I$.
+Suppose $\sigma_0$ is upper triangular in a flag $w$, the
+residue characters are pairwise distinct, and $\sigma_1$
+satisfies (15).  We may also require the representations and
+scalar characters to lie in an $F$-subalgebra
+$\mathcal E\subseteq\operatorname{Mat}_n(R)$.
+
+Choose $z$ in the $F$-span of the local group algebra on which
+all residue characters have distinct values.
+Distinct multiplicative characters are linearly independent,
+so this is possible over the infinite field $F$.
+Multilinearity extends (15) to group algebra elements.
+For $b=0,1$ the Lagrange expressions
+\[
+ f_{bi}=
+ \prod_{j\ne i}
+ \frac{\sigma_b(z)-\psi_{bj}(z)}
+      {\psi_{bi}(z)-\psi_{bj}(z)}
+\]
+are complete orthogonal idempotents.
+The denominators are units.  The idempotents belong to
+$\mathcal E$: a scalar with nonzero residue has its inverse
+there by a finite nilpotent geometric series.
+Inserting an arbitrary group element in one slot of (15) gives
+\[
+ f_{ba}\sigma_b(g)f_{bb}=0\ (a>b),\qquad
+ f_{bi}\sigma_b(g)f_{bi}=\psi_{bi}(g)f_{bi}.                     \tag{16}
+\]
+To see this sandwich the identity between $f_{ba}$ and $f_{bb}$,
+use $z$ in all other slots, and cancel the unit differences;
+when $a>b$ use a slot between $b$ and $a$.
+The idempotents for $b=0,1$ agree modulo $I$.  Set
+\[
+                     Y=1-\sum_i f_{1i}f_{0i}.
+\]
+Then $Y\in\operatorname{Mat}_n(I)\cap\mathcal E$ and
+$(1+Y)f_{1i}(1-Y)=f_{0i}$.
+The matrix whose $i$-th column is $f_{0i}$ applied to the
+$i$-th standard vector is upper triangular with diagonal $1$
+and simultaneously diagonalizes the $f_{0i}$.
+Thus (16) implies that
+$\sigma_1(g)-(\sigma_0(g)Y-Y\sigma_0(g))$ is upper triangular
+in the original flag, with diagonal $\psi_{1i}(g)$.
+Thus
+\[
+ \sigma_1(g)\sigma_0(g)^{-1}-1
+             -(\sigma_0(g)Y\sigma_0(g)^{-1}-Y)
+\]
+has zero entries below the diagonal and diagonal
+$(\psi_{1i}(g)-\psi_{0i}(g))/\psi_{0i}(g)$.
+That diagonal is zero on the specified local subgroup if both
+characters are $1$ there.  This proves the local assertion,
+keeping the required parity subalgebra $\mathcal E$.
+Differentiating a coefficient test therefore gives precisely
+the bounded even and odd Selmer cocycles in (11).
+
+\emph{The two injectivity assertions.}
+The maps $\alpha\mapsto[z_\alpha]$ and $\mu\mapsto[z_\mu]$
+into even and odd Selmer classes are injective.
+The even assertion uses the actual generators of the ordinary
+point, in addition to the span of $\rho$.
+
+Suppose $z_\alpha=dY$.  The test
+$b+u\mapsto r(b)+\epsilon\alpha(b)$ to $F[\epsilon]/(\epsilon^2)$
+has representation
+$\rho_F+\epsilon(\rho_FY-Y\rho_F)$.
+Conjugation by $1+\epsilon Y$ makes it constant.
+For such a conjugate-constant test, the following generators
+have constant images: determinant coefficients, ordinary
+characters, distinguished auxiliary Frobenius roots $U_{ji}$,
+auxiliary parameters $y_{ji}$, and $s$.
+These are exactly the generators in \texttt{OoPt.gen}.
+
+For determinant coefficients use invariance of characteristic
+polynomials under conjugacy.
+For a local character $\psi_i(g)$, take the $i$-th diagonal
+entry of (15) in the constant ordinary flag.
+Choose the other slots to distinguish the $i$-th residue
+character from their characters.  All other factors are units;
+the remaining factor says that $\psi_i(g)$ equals its residue.
+For $U_{ji}$ use an eigenvector of the constant auxiliary
+Frobenius matrix for its $i$-th, distinct eigenvalue.
+Cancellation of the other factors in the auxiliary
+characteristic polynomial relation shows that $U_{ji}$ is
+constant.  The second auxiliary relation, on the same
+eigenvector, gives $y_{ji}=0$, since the auxiliary inertia
+element has constant image $1$.
+Finally $s$ is fixed by the coefficient section.
+
+The original ring $B_0$ is topologically generated by these
+elements and its coefficient ring.  The two maps agree on
+their polynomial algebra.  Approximation, (14), and Krull
+intersection in a single finite $A_0$-module show agreement on
+all of $B_0$.
+To pass to $B$, the test kills a fixed power of
+$\mathfrak m_B$, and every element of the completion can be
+approximated modulo that power by $b/b'$ with $f(b')\ne0$.
+The test image of $b'$ is a nonzero constant, hence invertible.
+Thus the test is constant on $B$ and $\alpha=0$.
+
+For odd injectivity, if $z_\mu=dY$, multiply by $\rho_F(g)$.
+The resulting identity
+\[
+ \mu(p_1(Z))=r(p_0(Z))Y-Yr(p_0(Z))
+\]
+on $Z=v(g)$ extends by $B$-semilinearity to their full span.
+Apply it to a matrix with an arbitrary $u\in N$ in a single
+off-diagonal position.  The right side is zero, so $\mu(u)=0$.
+We will also use this elementary invariant calculation:
+an even skew-transpose matrix commuting with $\rho_F$ is zero.
+The even block algebra is spanned by $\rho_F$, its centralizer
+on each block is scalar, and a scalar equal to its negative
+is zero since $\ell\ne2$.
+
+\emph{Odd generators dual to the selected classes.}
+By input 3, each $\mu\in\mathcal L$ has a unique vector
+$C(\mu)\in F^g$ such that
+\[
+               z_\mu-\sum_j C_j(\mu)\kappa_j
+                        \text{ is an odd coboundary}.          \tag{17}
+\]
+Uniqueness uses independence of the $\kappa_j$.
+The map $C$ is linear and injective by odd injectivity.
+Finite-dimensional duality
+$\mathcal L=\operatorname{Hom}_F(N/\mathfrak m_BN,F)$ therefore
+gives $m_j\in N$ with $\mu(m_j)=C_j(\mu)$ for every $\mu$.
+The dual of $C$ is onto, so these elements span
+$N/\mathfrak m_BN$.  Nakayama's lemma says that they generate $N$.
+Thus
+\[
+                 z_\mu-\sum_j\mu(m_j)\kappa_j
+                         \text{ is an odd coboundary}.         \tag{18}
+\]
+
+\emph{The second-order test and its relations.}
+Let $\mathcal P$ consist of additive maps $\Psi:N\to F$
+semilinear for $\mathcal O_0\to F$ and vanishing on $JN$.
+For $\Psi\in\mathcal P$ define
+\[
+                     D_u(b)=\Psi(bu)-r(b)\Psi(u).               \tag{19}
+\]
+For each $u\in N$, $D_u\in\mathcal T$.
+Indeed write $b=o+x$, $b'=o'+x'$ with $o,o'$ in the coefficient
+section and $x,x'\in\mathfrak m_B$; the error in the Leibniz
+identity is $\Psi(xx'u)=0$.
+The coefficient and odd-product conditions follow directly.
+The map $u\mapsto D_u$ is $B$-semilinear.
+Choose a basis $\alpha_1,\ldots,\alpha_e$ of $\mathcal T$ and
+expand
+\[
+ D_u(b)=\sum_k\alpha_k(b)\mu_k(u),\qquad\mu_k\in\mathcal L.
+                                                               \tag{20}
+\]
+In (12) define
+\[
+ \theta(b+u)=r(b)+\sum_k\mu_k(u)\varepsilon_k
+                  +\sum_k\alpha_k(b)\varepsilon_k'
+                  +\Psi(u)\eta.                               \tag{21}
+\]
+This is a ring homomorphism.
+The even--even identity is the Leibniz rule.
+The odd--odd product has zero image because $r$ and all
+$\alpha_k$ kill $I_{\rm od}$ and
+$\varepsilon_i\varepsilon_j=0$.
+The mixed product is exactly (19)--(20), its second-order term
+being $\sum_k\alpha_k(b)\mu_k(u)\eta$.
+The map fixes the coefficient section, so it is a coefficient
+test.
+
+Its $\varepsilon_k$ cocycles are $z_{\mu_k}$ and its
+$\varepsilon_k'$ cocycles are $z_{\alpha_k}$.
+By (18), conjugate the test representation by
+$1+\sum_k\varepsilon_kY_k$ with odd skew-transpose $Y_k$, so
+that its $\varepsilon_k$ cocycles become exactly
+$\sum_jc_{kj}\kappa_j$, where $c_{kj}=\mu_k(m_j)$.
+This changes none of its $\varepsilon_k'$ coefficients.
+Replace the $\varepsilon$ coefficients by $\kappa_j$ and
+the $\varepsilon'$ coefficients by
+$\sum_kc_{kj}z_{\alpha_k}$, retaining its constant and
+$\eta$ coefficients.
+This operation respects multiplication: old $\varepsilon$
+coordinates are $c$ times new ones, while new $\varepsilon'$
+coordinates are $c^{\mathsf t}$ times old ones.
+Thus the cross pairing in (12) is unchanged.
+The new $\varepsilon$ coordinates satisfy their first-order
+representation identities, so this also checks the retained
+$\varepsilon$ coordinates in every product.
+Polarization and (15) are preserved by the same computation,
+and all coordinates remain bounded.
+
+Let $u$ be the resulting representation and $\rho_1$ its
+first-order truncation.  The ideal generated by
+$\varepsilon_j'$ and $\eta$ has square zero.
+Consequently
+\[
+                            u\rho_1^{-1}-1                    \tag{22}
+\]
+is a $W_2$-valued cocycle.
+Subtracting the identities for $u$ and $\rho_1$ proves its
+polarization and unramified conditions.
+The local argument following (15), in the parity subalgebra
+with even $\varepsilon'$ and odd $\eta$ entries, provides
+the ordinary correcting matrices.
+It is therefore a bounded second-order Selmer cocycle.
+Its $\varepsilon_j'$ coefficients are
+\[
+ z_{\alpha_j^\Psi},\quad
+ \alpha_j^\Psi=\sum_kc_{kj}\alpha_k,\quad
+ \alpha_j^\Psi(b)=\Psi(bm_j)-r(b)\Psi(m_j).                       \tag{23}
+\]
+This is the exact lifting assertion of \texttt{Claim2}.
+
+\emph{The first-order dimension calculation.}
+Put $T_0=\mathcal T$.  Let $U\subseteq T_0^g$ consist of tuples
+$(\alpha_j)$ for which $(z_{\alpha_j})$ is the
+$\varepsilon'$ coefficient tuple of a bounded second-order
+Selmer cocycle.  It is a subspace by linearity.
+Input 2 gives
+\[
+                          \operatorname{codim}U\leq g.         \tag{24}
+\]
+We also need
+\[
+ W=\{\alpha\in T_0:
+ (0,\ldots,\alpha,\ldots,0)\in U\text{ in every slot}\},
+ \qquad                      \dim_F W+g^2\leq D.               \tag{25}
+\]
+
+Here is the coefficient calculation behind (25).
+If the placement of an even cocycle $z$ in each single slot
+lifts to a second-order cocycle $\Xi_j$, form
+\[
+                         y=z+\sum_j\varepsilon_j\eta(\Xi_j).
+                                                               \tag{26}
+\]
+Then $\varepsilon_j'y=\Xi_j$.
+The constant coefficient and these $g$ products detect every
+entry of $W_1$.  Its cocycle, polarization and unramified
+identities therefore follow from those of $z$ and the $\Xi_j$.
+
+For its local condition choose corrections $Y$ for $z$ and
+$Y_j$ for $\Xi_j$.  The discrepancies
+$Q_{ji}=\varepsilon_i'(Y_j)-\delta_{ij}Y$ are even matrices
+whose coboundaries are upper triangular in the original flag.
+Such a discrepancy is itself upper triangular.
+To verify this, start with the largest row and smallest column
+below the diagonal.  The corresponding entry of
+$\rho Q-Q\rho$ is $(\psi_r-\psi_s)Q_{rs}$; all other terms
+involve entries farther below the diagonal already known to
+be zero.  Some group element distinguishes $\psi_r,\psi_s$,
+so $Q_{rs}=0$.  Induction proves the assertion.
+
+Conjugate $\sum_i\varepsilon_i'Q_{ji}$ by the first-order
+local flag correction and subtract it from $Y_j$.
+This changes the corrected local cocycle only by an upper
+triangular matrix with zero diagonal, and makes its
+$\varepsilon_i'$ coefficient $\delta_{ij}Y$.
+Detection by the constant coefficient and all
+$\varepsilon_j'$ products now assembles these corrected $Y_j$
+and $Y$ into a $W_1$ local correction for (26).
+Formula (26) also proves boundedness.  Hence it is a
+first-order Selmer cocycle with constant coefficient $z$.
+
+For independent $\alpha_1,\ldots,\alpha_e$ in $W$, apply (26)
+to obtain first-order lifts $y_i$ of $z_{\alpha_i}$.
+Adjoin the $g^2$ cocycles $\varepsilon_j\kappa_i$.
+These $e+g^2$ classes are independent modulo first-order
+coboundaries.
+Indeed the constant coefficient of a relation says that
+a combination of the $z_{\alpha_i}$ is an even coboundary.
+Even injectivity and independence force its coefficients to
+vanish.  The constant coefficient of the correcting
+coboundary matrix then commutes with $\rho_F$ and is even
+skew-transpose, hence zero.  Its $\varepsilon_j$ coefficients
+now give relations among the independent $\kappa_i$; their
+coefficients all vanish.
+Input 1 gives $e+g^2\leq D$, proving (25).
+
+\emph{Linear algebra and the actual relations.}
+There is a cotangent identification
+\[
+           \mathcal T\simeq
+              \operatorname{Hom}_F(\mathfrak m_B/J,F).         \tag{27}
+\]
+Indeed $B/J$ is an extension of $F$ by its square-zero maximal
+ideal.  The coefficient section supplies a copy of $F$.
+A derivation is its linear functional on that ideal, and every
+such functional extends to a derivation zero on this copy.
+The space is finite because $B$ is Noetherian.
+Evaluation therefore identifies $\mathfrak m_B/J$ with $T_0^*$.
+
+Choose $g$ functionals $\Phi_i$ spanning $U^\perp$, padding by
+zeros using (24), and put
+$\phi_{ij}(\alpha)=\Phi_i(e_j\alpha)$.
+Their span $S\subseteq T_0^*$ has annihilator $W$.
+A complement of $S$ in $T_0^*$ thus has dimension
+$\dim W\leq D-g^2$ by (25).
+Take the $D$ functionals consisting of the $g^2$
+$\phi_{ij}$ and a basis of that complement, padded with zeros.
+They span the dual and satisfy
+\[
+            \sum_j\phi_{ij}(\alpha_j)=0\quad((\alpha_j)\in U).
+                                                               \tag{28}
+\]
+Lift them by (27) to $X_{ij}$ and the remaining $X_a$ in
+$\mathfrak m_B$.  Their spanning property gives
+$\mathfrak m_B\subseteq(X_a)+J$.
+The coefficient rows selecting the $(i,j)$ positions are
+independent standard basis rows over the residue field of
+$\mathcal O_0$.
+
+It remains to show (13), rather than merely its tangent
+analogue.  For every $\Psi\in\mathcal P$, (23) gives
+$(\alpha_j^\Psi)\in U$.  Since $r(X_{ij})=0$, (23) and (28)
+give
+\[
+ \Psi\left(\sum_jX_{ij}m_j\right)
+     =\sum_j\alpha_j^\Psi(X_{ij})
+     =\sum_j\phi_{ij}(\alpha_j^\Psi)=0.                         \tag{29}
+\]
+All $\mathcal O_0$-semilinear functionals on $N/JN$ occur in
+$\mathcal P$ and separate that quotient.
+Indeed it is a finite module over the finite-dimensional
+$F$-algebra $B/J$, where the coefficient copy of $F$ acts
+through $\mathcal O_0/\mathfrak m_{\mathcal O_0}$.
+Thus (29) implies $\sum_jX_{ij}m_j\in JN$.
+This proves every assertion.
+\end{proof}
+
+\paragraph{Exact producer match.}
+The finite lattice argument is \texttt{TrLatRange.trLat}
+and \texttt{TrBndDen.trBnd}.
+The local correction is \texttt{LocLemma.locLemma}, used in
+\texttt{DefUSel} and \texttt{DefULift}.
+Even injectivity is \texttt{ConjConst.alInj}; odd injectivity
+is \texttt{LaInj.laInj}.
+Equation (18) is \texttt{DualEx.dualEx}.
+Equations (19)--(23) expand \texttt{PhDecDApply.phDec},
+\texttt{TestEx.testEx}, \texttt{DefUTest}, \texttt{DefUConj},
+\texttt{DefUPush}, and \texttt{Claim2.claim2}.
+Equations (25)--(26) expand
+\texttt{FirstOrderMatrixMemSquareZero.lift1} and
+\texttt{FirstOrderLiftConstantPart.claim1}.
+Finally (24)--(29) are the linear algebra of
+\texttt{LinAlg.linAlg}, \texttt{TpDual.tpDual}, and
+\texttt{AlCSmul.pres}.
+The source permits general independent coefficient rows;
+we have chosen standard basis rows.
+All these modules are under
+\texttt{Development.AutomorphicArithmetic.AutomorphicVarieties.%
+PatchingModules.SelmerScaling} at the frozen source tag
+\texttt{alpoge-source-7cbf7a0c}.
+This proves the conversion from the three exact Laurent
+cohomological inputs to the presentation.
+Their production for a particular arithmetic point is the
+separate \texttt{CohLim}/$K1,K2,K3$ step; they do not follow
+merely by invoking characteristic-zero automorphic adjoint
+vanishing.

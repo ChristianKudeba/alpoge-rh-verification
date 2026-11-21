@@ -631,7 +631,12 @@
       "Integral twisted traces, exact rank inequalities, s^3 B^2 norm loss and bounded simultaneous determinant selection",
       "Quadratic lattice transference, small algebraic integers and at most2 degree(K)*rank integral short generators",
       "Primitive-frame finite-place regularizer, degree and operator norm, finite coinvariant cancellation",
-      "Adelic theta-square coefficient formula, Schwartz bounds and covariance completing the fixed-pair full-rank decay calculation under its stated Weil-model and standard reduction hypotheses"
+      "Adelic theta-square coefficient formula, Schwartz bounds and covariance completing the fixed-pair full-rank decay calculation under its stated Weil-model and standard reduction hypotheses",
+      "Finite CH quotient with at most n+sum(r=0..n-1)(n²h)^r group generators; complete proof of exact profinite/adic closure and continuity; cross-cocycle finiteness via Kummer for finitely ramified Galois quotients",
+      "Faithful paired CH realization and nonsemisimple support, including completion quotient direction",
+      "Selmer-to-presentation conversion from exact K1/K2/K3 Laurent inputs, with finite coefficient tests, local flag correction, cotangent injectivity and second-order linear algebra",
+      "Rank4 trace-fiber and reducible tangent estimates, collision bound and component propagation conditional on stated common-space/tower/modular ideal inputs",
+      "Uniform lattice Gram0.65 gap, Neumann inverse and finite theta-span implication from explicit global kernel and slab hypotheses"
     ],
     "open_inputs": [
       "Actual finite-level automorphic control, residual core/charts, Selmer-to-presentation construction and automorphic seed/propagation for rank3 and Gaussian marked rings",
@@ -652,7 +657,12 @@
       "descent": "3ae172cb6a9e37d3aa22da6927b7a17f979ebc2d",
       "metric": "c029611ba7584e9f12f0b26f895dc25dceeccc48",
       "regularizer": "0c9a084d30576f7b942a87bb96380e21e310997e",
-      "theta_coefficients": "11af74429ccea41c0adf619c45f7308a425fc048"
+      "theta_coefficients": "11af74429ccea41c0adf619c45f7308a425fc048",
+      "finiteCH": "ce7d27ca4207f9f616e4c00e4da1c7cfc6dd766d",
+      "pairedCH": "49a04c0e88e774508d4d09fda9f32b1c95a4aa08",
+      "selmerPresentation": "015c1f01a205c39390626d2b2d3cec7fec3c4aca",
+      "rank4Core": "65dbf9bf7b1d017047619f433d7e8228a228c42b",
+      "gram": "a3a1f28c91fd34491932ea1381473404165db2b0"
     },
     "published_rigidity": {
       "url": "https://arxiv.org/pdf/2207.04925",

@@ -1,0 +1,519 @@
+\section{The Case II rank-four support calculation}
+\label{sec:sr-rank-four-support}
+The specialization in Section~\ref{sec:sr-character-integers} eliminates
+the other rank-four cases. We give the remaining core calculation
+from its stated tower, common-space and modular-support inputs.
+The existence of the linked automorphic seed and the finite-level
+automorphic modules remains explicit.
+
+\subsection{The rank-four characteristic-\(\ell\) support calculation}
+\label{subsec:sr-rank-four-core}
+This subsection supplies the rank-four inputs to the common-space
+completion and component-propagation lemmas. It is restricted to the
+actual Case II tower and requires no Case III construction.
+
+Write \(F\) for its totally real abelian field,
+\(d=[F:\mathbb Q]\), \(s=\#\{v\mid\ell\}\), and
+\(\delta=[F_v:\mathbb Q_\ell]\), so \(s\delta=d\).
+Let \(\Lambda\) be a finite coefficient DVR with residue field \(k\)
+of odd characteristic \(\ell\).
+The prescribed residual characters are \(\chi_0,\ldots,\chi_3\),
+with \(\chi_i\chi_{3-i}=\nu\), pairwise distinct at \(g_0\).
+Representations have fixed multiplier \(\nu\), are diagonal at
+\(g_0\), satisfy the prescribed global ramification condition,
+and have ordinary flags represented in the lower open cell by
+lower unipotent symplectic matrices \(n_v\).
+Their ordinary characters are trivial on the maximal
+\(\ell\)-power torsion subgroup of the local abelianization.
+The tower makes the residual representation trivial on inertia
+at \(\ell\); its multiplier is trivial there in characteristic
+\(\ell\).
+
+Let \(B\subset A\) be the common space: \(B\) is complete,
+\(A\) is of finite type over \(B\), the universal matrix and flag
+entries generate \(A\) over \(B\), and \(B\) contains all
+characteristic-polynomial coefficients and ordinary diagonal
+characters \(\kappa_{v,i}\).
+The completion \(R\) at a residual point represents the normalized
+deformation problem. The common-space construction and its completion/dimension transport
+are retained as hypotheses: the field-transcendence bounds below must
+give the indicated complete-local dimension bounds. Their verification
+for the actual common space is part of its construction, and is not
+inferred just from the existence of a universal formal ring.
+
+The property of a modular ideal \(J\subset B\) needed below is
+\begin{equation}\label{eq:sr-pm-finite}
+ \mathfrak m_B^e\subset J+\mathfrak m_\Lambda B+
+ (\kappa_{v,i}(t)-1:v\mid\ell,\ 0\le i\le3,\ t\in I_v)
+ \quad\text{for some }e.
+\end{equation}
+We also require its actual curve propagation property:
+if \(A\to k'[[T]]\), with \(k'\) finite, is centered over
+\(\mathfrak m_B\), kills \(J\), has absolutely irreducible
+generic representation, and has pairwise distinct ordinary
+characters on
+\(U_v=I_v\cap\ker\epsilon_\ell\cap\ker\bar r\),
+then every prime of \(B\) through which this curve factors
+contains \(J\). These are properties of an actual ideal; no
+existence of such an ideal is asserted in this subsection.
+
+\begin{srlemma}[Rank-four trace fiber]\label{lem:sr-four-trace-fiber}
+At an absolutely irreducible field-valued point, the matrix and
+flag entries are algebraic over the image field of \(B\) and
+at most \(2+4s\) additional elements. Consequently, for every
+irreducible generic prime \(\mathfrak q\) of the representing
+completion,
+\[
+ \dim R/\mathfrak q\le
+       \dim B/\mathfrak q_B+2+4s.
+\]
+\end{srlemma}
+\begin{proof}
+Pass to an algebraic closure of the point field and put
+\(r(g_0)=\operatorname{diag}(d_0,d_1,d_2,d_3)\).
+These distinct eigenvalues are algebraic over the image of \(B\).
+Let \(E\) be an algebraically closed intermediate field containing
+them, all traces, and all multiplier values.
+
+The four identities
+\[
+ \operatorname{tr}(r(g_0)^m r(h))
+       =\sum_i d_i^m r(h)_{ii}\qquad(0\le m\le3)
+\]
+and Vandermonde inversion put every diagonal entry in \(E\).
+Apply the same inversion to the \(00\) entry of
+\(r(u)r(g_0)^m r(w)\), and then twice to the \(00\) entry of
+\(r(u)r(g_0)^m r(g)r(g_0)^n r(w)\). They give
+\begin{equation}\label{eq:sr-four-triples}
+ r(u)_{0i}r(w)_{i0}\in E,\qquad
+ r(u)_{0i}r(g)_{ij}r(w)_{j0}\in E .
+\end{equation}
+The matrix-algebra spanning theorem supplies
+\(a_i=r(u_i)_{0i}\ne0\) and \(b_i=r(w_i)_{i0}\ne0\).
+Adjoin only \(a_1,a_2\); \(a_0\) is already in \(E\).
+
+Our adjoint convention is
+\(X^\#_{ij}=\sigma_i\sigma_jX_{3-j,3-i}\),
+\(\sigma=(1,1,-1,-1)\).
+The symplectic relation gives
+\(-r(g)_{02}=\nu(g)r(g^{-1})_{13}\).
+Thus \(c=r(u_2^{-1})_{13}=-a_2/\nu(u_2)\) is nonzero in \(E\).
+Now \(a_1cb_3\in E\) gives \(b_3\in E\);
+\(a_3b_3\in E\) gives \(a_3\in E\).
+Then \(a_ib_i\in E\) gives every \(b_i\), and the triple
+products give every entry of \(r(g)\).
+
+Every lower unipotent symplectic flag matrix is
+\[
+ \begin{pmatrix}
+ 1&0&0&0\\ A&1&0&0\\ B&D&1&0\\
+ C&B-DA&-A&1
+ \end{pmatrix}.
+\]
+Four additional coordinates per place therefore suffice.
+Coordinate generation and the common-space dimension-transport
+lemma prove the result.
+\end{proof}
+
+\begin{srlemma}[Reducible tangent bound]
+\label{lem:sr-four-reducible-tangent}
+Suppose the tower cohomology bounds give
+\[
+ s\le C,\quad \dim Z_w\le C\ (w=0,\psi,-\psi),\quad
+ \dim Z_w\le d+C\ (w\text{ odd}),\quad
+ \dim S_w\le C\ (w\text{ a root}),
+\]
+where \(Z_w\) denotes the globally allowed normalized cocycles
+and \(S_w\subset Z_w\) the subspace locally a coboundary.
+At a good residual point every proper reducible support quotient
+has tangent dimension at most \(d+20C\) and dimension at most
+\(d+20C+1\).
+\end{srlemma}
+\begin{proof}
+Put
+\[
+ \lambda=(1,0,1,0),\quad\mu=(1,1,0,0),\quad
+ w_{ij}=(\lambda_i-\lambda_j,\mu_i-\mu_j),
+\]
+and \(\alpha=(1,0),\beta=(-1,1),\psi=(0,1),\theta=(1,1)\).
+The odd roots are \(\pm\alpha,\pm\beta,\pm\theta\).
+A support \(S\) means \(r(g)_{ij}=0\) when
+\(i\ne j,w_{ij}\notin S\).
+The nine maximal proper supports and the pivots needed below are
+\[
+\begin{array}{c|l|c|c}
+&S&\text{split}&\text{partially split}\\\hline
+1&\{\beta,-\beta,-\alpha,-\theta,-\psi\}&12&12\\
+2&\{\beta,-\beta,\alpha,\theta,\psi\}&-&-\\
+3&\{\theta,-\theta,\psi,\beta,-\alpha\}&-&12\\
+4&\{\theta,-\theta,-\psi,-\beta,\alpha\}&-&-\\
+5&\{\alpha,-\alpha,-\theta,-\psi,-\beta\}&01&01\\
+6&\{\alpha,-\alpha,\theta,\psi,\beta\}&-&01\\
+7&\{\psi,-\psi,\beta,-\alpha,-\theta\}&12&12\\
+8&\{\psi,-\psi,-\beta,\alpha,\theta\}&-&-\\
+9&\{\beta,-\beta,\theta,-\theta\}&-&03
+\end{array}
+\]
+This list covers reducibility because an invariant subspace for
+the regular diagonal \(r(g_0)\) is a coordinate subspace.
+There are four line stabilizers, four coordinate Lagrangian
+plane stabilizers, and one pair of complementary nondegenerate
+coordinate planes; three-dimensional subspaces are handled by
+their symplectic perpendicular lines.
+
+The split alternative applies when
+\[
+ (-\psi\in S\text{ and }(\beta\in S\text{ or }-\alpha\in S))
+ \quad\text{or}\quad\{-\alpha,-\beta\}\subset S.
+\]
+The partially split alternative applies when
+\(-\alpha\in S\) or \(\{\beta,-\theta\}\subset S\).
+Goodness of the residual point guarantees one of these
+alternatives, and in the second it gives the partially split
+shape described next. Thus rows \(2,4,8\) cannot occur in the
+corresponding alternative.
+
+At a split point \(r=D=\operatorname{diag}(\chi_i)\), \(n_v=1\).
+For a tangent vector \((z,(Y_v))\), each \(z_{ij}\) belongs to
+\(Z_{w_{ij}}\). The linearized ordinary condition makes every
+lower entry locally a coboundary, and off-support entries vanish.
+Among the independent upper odd entries \(01,03,12\), each
+applicable row allows only the displayed pivot. Killing it
+therefore makes all independent odd entries strict.
+
+At a partially split point \(r=D\) and
+\(n_v=1+b_vX_-\), where \(b_v\ne0\) and
+\(X_-=E_{20}+E_{31}\).
+The residual flag equation, in its \(20\) entry, gives
+\(\chi_0|_{G_v}=\chi_2|_{G_v}\).
+Thus roots with the same first coordinate induce the same local
+character. Direct multiplication in \(\mathfrak{sp}_4\) gives
+\[
+ Z_{10}=-b_vZ_{12},\quad Z_{30}=-b_v^2Z_{12},\quad
+ Z_{21}=2b_vZ_{01}+b_v^2Z_{03}
+\]
+whenever \(n_v^\#Zn_v\) is upper triangular.
+Apply this to
+\(Z=z(s)+D(s)Y_vD(s)^{-1}-Y_v\), and pass modulo local
+coboundaries. We obtain
+\[
+ [z_{12}]=0\Longleftrightarrow[z_{10}]=0
+            \Longleftrightarrow[z_{30}]=0,\qquad
+ [z_{21}]=2b_v[z_{01}]+b_v^2[z_{03}].
+\]
+Both \(2b_v\) and \(b_v^2\) are invertible.
+In each indicated row, its pivot together with off-support
+zeros therefore kills all six independent odd classes.
+This proves the finite table rather than assuming it.
+
+The pivot image has dimension at most \(d+C\).
+On its kernel the ten independent symplectic entries
+\(i\le3-j\) are strict odd cocycles or even/zero cocycles,
+of total dimension at most \(10C\).
+The six lower entries of \(n_v^\#Y_vn_v\) per place have
+dimension at most \(6s\le6C\).
+These coordinates jointly determine the vector, since symplectic
+symmetry recovers the remaining global entries and the transformed
+local matrices are strictly lower triangular.
+Thus its dimension is at most \(d+17C\le d+20C\).
+
+The reduction to the two simple points uses an elementary finite
+weight filtration. The residual shape is either supported in
+\(\{\beta,-\alpha,-\theta,-\psi\}\), with local flag support
+\(\{-\alpha,-\psi,-\theta\}\), or in
+\(\{-\alpha,-\beta,-\psi,-\theta\}\).
+Use diagonal conjugation weights \((0,2,1,3)\) in the first
+case, and \((0,1,2,3)\) in the second.
+The limits are \(D,1\).
+For the partially split shape the global support is
+\(\{\beta,-\alpha,-\theta\}\), the same local flag support
+has \(n_{v,20}\ne0\), and \((0,1,0,1)\) gives
+\(D,1+n_{v,20}X_-\).
+Filter tangent matrices by their entry weights \(m_i-m_j\).
+Taking the lowest nonzero homogeneous part preserves every
+linearized cocycle, support, symplectic and flag equation:
+all structure matrices have nonnegative degree and the limits
+are their degree-zero parts.
+The associated graded embeds, degree by degree, into the tangent
+space of the stated limit. There are finitely many weights,
+and the degree images are independent, proving the dimension
+inequality without a smoothness assertion.
+
+Finally a derivation of the representing support quotient
+injects into this matrix tangent space. If its derivatives on
+all universal representation and flag entries vanish, its two
+maps to \(k[\varepsilon]/\varepsilon^2\) give the same universal
+deformation and hence coincide.
+Nakayama then generates the maximal ideal by a uniformizer and
+at most \(d+20C\) further elements, proving the dimension bound.
+\end{proof}
+
+\begin{srlemma}[Ordinary-character collision]\label{lem:sr-four-collision}
+Assume \eqref{eq:sr-pm-finite}.
+Let \(\mathfrak q\subset B\) be a prime containing
+\(J+\mathfrak m_\Lambda B\). If
+\(\kappa_{v,i}=\kappa_{v,j}\) on \(U_v\) modulo \(\mathfrak q\),
+for some \(i\ne j\), then
+\[
+ \dim B/\mathfrak q+\delta\le2d+1.
+\]
+\end{srlemma}
+\begin{proof}
+In a local domain of characteristic \(\ell\),
+\(1+\mathfrak m\) has no nontrivial finite-order elements.
+For \(\ell\)-power order use
+\((x-1)^{\ell^r}=x^{\ell^r}-1\).
+For prime-to-\(\ell\) order \(n\), the geometric sum is a
+unit because its residue is \(n\); then separate these factors
+for general finite order.
+
+Local class field theory now gives \(\delta\) pinning elements
+of \(I_u\) at each \(u\mid\ell\): a continuous
+\(G_u\to1+\mathfrak m\) character trivial at those elements is
+trivial on \(I_u\).
+Indeed the torsion-free pro-\(\ell\) quotient of the local unit
+group is \(\mathbb Z_\ell^\delta\), and its finite torsion is
+killed by the preceding observation.
+Also choose \(t_0\in I_v\) such that
+\(\{t_0\}\cup(I_v\cap\ker\epsilon_\ell)\) pins such characters
+on \(I_v\).
+The cyclotomic image is a closed subgroup of
+\(1+\ell\mathbb Z_\ell\), hence procyclic.
+The extra kernel of \(\bar r\) in \(U_v\) makes no difference,
+since the tower kills the residual inertia action.
+
+Choose \(a\) with \(\{a,3-a,i,3-i\}=\{0,1,2,3\}\) and either
+\(a=j\) or \(j=3-i\). In \(B/\mathfrak q\) impose
+\[
+ \begin{array}{ll}
+ \kappa_{u,a}(t)-1&
+    \text{at all \(\delta\) pins for all \(u\)},\\
+ \kappa_{u,i}(t)-1&
+    \text{at those pins for all \(u\ne v\)},\\
+ \kappa_{v,i}(t_0)-\kappa_{v,j}(t_0).&
+ \end{array}
+\]
+There are \(d+(d-\delta)+1=2d-\delta+1\) parameters,
+all in the maximal ideal.
+In every prime quotient containing them,
+\(\kappa_{u,a}|_{I_u}=1\) for all \(u\), and
+\(\kappa_{u,i}|_{I_u}=1\) for \(u\ne v\).
+The original collision and the last parameter give equality on
+all of \(I_v\).
+If \(a=j\), this kills \(\kappa_{v,i}\);
+if \(j=3-i\), the pairing
+\(\kappa_{v,i}\kappa_{v,3-i}=1\) gives
+\(\kappa_{v,i}^2=1\), which again kills it.
+Pairing kills the remaining characters on all inertia.
+Equation \eqref{eq:sr-pm-finite} forces this prime to be maximal.
+Thus the parameter ideal has maximal radical.
+The parameter dimension theorem gives
+\(\dim B/\mathfrak q\le2d-\delta+1\).
+\end{proof}
+
+\begin{srlemma}[Normalized presentation]\label{lem:sr-four-presentation}
+Let \(h^0,h^2\) be the degree zero and degree two dimensions of
+the ordinary global-to-local adjoint cone, and \(h^1_c\) its
+degree one dimension. The arithmetic cone estimate
+\[
+ h^2+h^0+6d\le h^1_c+4d
+\]
+gives a presentation
+\[
+ R=\Lambda[[x_1,\ldots,x_m]]/(f_1,\ldots,f_n),
+ \qquad n+2+2d\le m+2s.
+\]
+\end{srlemma}
+\begin{proof}
+The fixed-similitude adjoint \(\mathfrak{sp}_4(k)\) has dimension
+\(10\); an ordinary symplectic Borel has dimension \(6\);
+the diagonal symplectic torus has dimension \(2\).
+
+Temporarily omit the local \(\ell\)-power torsion condition.
+For a small extension with square-zero kernel, choose lifts of
+the representation and flags.
+Their multiplication and flag defects form respectively a
+global \(2\)-cochain and local \(1\)-cochains modulo the Borel.
+Associativity is exactly the cone \(2\)-cocycle identity.
+Changing lifts changes the defects by its coboundary.
+Conversely a coboundary corrects both defects by its global
+\(1\)-cochain and local \(0\)-cochains.
+All corrections lie in \(\mathfrak{sp}_4\), maintaining the
+multiplier; \(2\) is invertible.
+Thus cone \(H^2\) is an obstruction space.
+The minimal-relator argument gives at most \(h^2\) relations:
+minimal relators map injectively to their universal lifting
+obstructions, since a zero obstruction corrects the universal
+lift and removes the proposed relation.
+
+The normalized tangent dimension is at least \(h^1_c+2-h^0\).
+To check the count, represent ordinary degree one classes by
+global cocycles and local corrections chosen in the lower
+complement of each Borel.
+The global conjugation parameters have dimension \(10\), with
+kernel of dimension at most \(h^0\).
+Normalizing at \(g_0\) imposes at most \(10-2=8\) conditions.
+The resulting dimension inequality is
+\(h^1_c+2\le\dim T+h^0\).
+Dual numbers identify \(T\) with the tangent space of the
+representing ring.
+
+Restore the local torsion condition. A generator of the
+\(\ell\)-power torsion in each local abelianization suffices.
+Its multiplier is \(1\): the cyclotomic image has no
+\(\ell\)-power torsion for odd \(\ell\), and the remaining
+finite multiplier has order prime to \(\ell\), including the
+finite \(2\)-power character in this packet.
+Only the first two of the four paired ordinary characters need
+to be set equal to \(1\). This adds \(2s\) equations.
+Therefore
+\[
+ n\le h^2+2s,\qquad m\ge h^1_c+2-h^0,
+\]
+and the cone estimate gives \(m-n\ge2d+2-2s\).
+
+For this cone estimate the local Borel dimension is \(6\),
+and the complex-conjugation fixed adjoint dimension is \(4\):
+an anti-symplectic involution has two isotropic eigenspaces of
+dimension \(2\), and its fixed symplectic Lie algebra is
+\(\mathfrak{gl}_2\).
+The required absence of a cyclotomic quotient is checked on the
+residual adjoint root characters. The actual tower supplies,
+for each such character, an element where it differs from the
+mod-\(\ell\) cyclotomic character; the zero character is also
+separated by complex conjugation. This is exactly the
+noncyclotomic condition in the tower construction, rather than
+an inference from pairwise distinct values alone.
+Thus the arithmetic cone estimate applies to this adjoint.
+\end{proof}
+
+\begin{srproposition}[Rank-four component propagation]
+\label{prop:sr-four-core}
+Assume the common-space construction, the tower cohomology
+bounds, \eqref{eq:sr-pm-finite}, and the actual modular curve
+propagation property stated above.
+If \(d\ge30(C+1)^2\), then at a good residual point, one
+component containing \(JA\) implies that every component
+through that point contains \(JA\).
+\end{srproposition}
+\begin{proof}
+Put \(N_0=2d+1-2s\).
+As \(s\le C\), \(s\delta=d\), and \(d\ge30(C+1)^2\),
+\[
+ \delta\ge30(C+1),\quad
+ d+20C+1<N_0,\quad
+ 2d+1+2+4s<N_0+\delta.
+\]
+For the last inequality it suffices that \(2+6s<\delta\).
+
+Lemma~\ref{lem:sr-four-presentation} and the complete-local
+component-chain lemma join minimal components by a chain whose
+neighbors meet in dimension at least \(N_0+1\).
+Lemma~\ref{lem:sr-four-reducible-tangent} makes every reducible
+bad set have dimension less than \(N_0\).
+Outside these sets, a bad prime where \(J\), the uniformizer,
+and an ordinary collision vanish satisfies
+\[
+ \dim R/\mathfrak q\le
+ \dim B/\mathfrak q_B+2+4s
+ \le2d+1-\delta+2+4s<N_0
+\]
+by the trace-fiber and collision lemmas.
+
+Suppose \(J\) vanishes on the first of two neighbors.
+The rank-independent prime-avoidance and curve lemma, applied
+to their intersection and the finite collection of these bad
+ideals, gives a characteristic-\(\ell\) curve with finite
+residue field. It kills \(J\), has irreducible generic
+representation, and has pairwise distinct ordinary characters
+on each \(U_v\).
+The modular curve property implies that \(J\) is contained in
+the contraction of the second component, since that prime
+also lies under the curve kernel.
+Thus \(J\) vanishes on the second component.
+Induction along the chain proves the assertion in the
+completion; faithfully flat transport gives it in \(A\).
+\end{proof}
+
+\begin{srlemma}[Characteristic-\(\ell\) consequence]
+\label{lem:sr-four-characteristic-ell}
+Suppose an actual principal Case II point factors through such
+a modular ideal and has characteristic \(\ell\).
+Its characteristic polynomial at every \(g\in G_{\mathbb Q}\)
+is then the product of the four prescribed residual characters.
+It is neither absolutely irreducible of rank \(4\) nor a block
+extension with an irreducible rank-\(2\) constituent.
+\end{srlemma}
+\begin{proof}
+Use the stable valuation lattice and the factorization on \(G_F\).
+The prescribed ordinary characters become \(1\) on inertia:
+the cyclotomic factor reduces to its mod-\(\ell\) value killed
+by the tower, and the other finite characters are unramified.
+Equation \eqref{eq:sr-pm-finite} therefore kills every element
+of \(\mathfrak m_B\), because the target is a domain.
+On \(G_F\), all characteristic-polynomial coefficients are the
+given finite-field residual constants.
+
+For \(g\in G_{\mathbb Q}\), some positive power \(g^M\) lies in
+\(G_F\).
+The eigenvalues of \(r(g)^M\), and therefore of \(r(g)\), are
+algebraic over \(\mathbb F_\ell\).
+Extend the valuation to an algebraic closure of the fraction
+field. It is trivial on the algebraic closure of
+\(\mathbb F_\ell\), on which reduction is injective.
+Thus the characteristic-polynomial coefficients of \(r(g)\)
+are constants, and their reduction identifies them with the
+given residual polynomial.
+Characteristic-polynomial Brauer--Nesbitt identifies its
+semisimplification with the four diagonal characters and gives
+both exclusions. Complete characteristic polynomials are used,
+so this argument also applies when \(\ell=3\).
+\end{proof}
+
+\paragraph{Scope and actual remaining producers.}
+For the principal packet with \(a\ge2\), the required coefficient
+prime is prime to \(N\): in the resonant branch
+\(\ell\le2a+1<q,d\), and in the \(3,7\) branch \(q,d>7\).
+Thus \(\chi_P=\psi\), and the nontrivial datum is Case II.
+The actual host uses the real dyadic cyclotomic subfield;
+its dyadic characters are even and its finite character orders
+are powers of \(2\).
+That makes the prime-to-\(\ell\) finite-character condition in
+the tower automatic. The sufficiently large cyclotomic layer
+is still necessary for \(d\ge30(C+1)^2\).
+
+The preceding lemmas reconstruct the independent rank-four
+characteristic-\(\ell\) core.
+The actual Case II endpoint additionally requires the
+construction of its linked automorphic rank-four seed and the
+construction of its modular ideal with finite-weight, curve,
+seed, purity, and automorphy properties.
+After those constructions, one chooses a tame Case II tower,
+passes to the sufficiently high layer, propagates from the
+seed along the residual links, and factors the actual point
+through the modular ideal.
+The characteristic-\(\ell\) lemma supplies the contradiction;
+the actual purity and automorphy properties apply to
+characteristic-zero points. The usual deformation endpoint
+then gives finite weight zero, no full upper block, and
+automorphy at every irreducible point.
+No Case III seed or Case III promotion is needed.
+
+% Source alignment, frozen at alpoge-source-7cbf7a0c:
+% WeakShimuraTheory/FibreTraces/FibTTrace.lean (fibTorus);
+% WeakShimuraTheory/CompactIntegralFields/FibLow.lean (fib);
+% WeakShimuraTheory/RedIdeal.lean (redTypes, Bounds, Good, Res);
+% WeakShimuraTheory/RedTanFlow.lean (tan_lowest, tan_flow);
+% WeakShimuraTheory/CompactIntegralFields/RedTan.lean (redTan);
+% WeakShimuraTheory/CompactIntegralFields/HomOfDer.lean (red);
+% WeakShimuraTheory/RedDim.lean (redDim);
+% WeakShimuraTheory/CompactIntegralFields/ImportsAlt.lean (nn);
+% WeakShimuraTheory/AdjointCoefficients/AbsPres.lean;
+% WeakShimuraTheory/AdjointCoefficients/MuQuot.lean;
+% WeakShimuraTheory/CompactIntegralFields/IncLoc.lean (x1);
+% WeakShimuraTheory/CompactIntegralFields/ChCore.lean (ch);
+% ModularityArgument/ThresholdArguments/DenseThresholdCases/
+% Gsp4PromodularityCaseTwo.lean
+%   (proMod_of_pmEx_of_ctx2_of_kPair_of_star);
+% PotentialModularityTower.lean;
+% ModularityRankFourOfPromodularity.lean.

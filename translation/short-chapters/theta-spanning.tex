@@ -1,0 +1,321 @@
+\section{The lattice Gram operator in the theta spanning construction}
+\label{sec:sr-theta-gram}
+
+We isolate the quantitative part of the theta spanning argument and
+its precise global kernel input.  The strict diagonal dominance below
+is a consequence of a lattice count and finite Heisenberg
+orthogonality; it is uniform in the field, the level, and the genus.
+
+Let \(V_\mathbb Q\) have dimension \(\rho\) and a nondegenerate
+alternating rational form \(B\).  For a full lattice \(L\), put
+\(L^\#=\{v:B(v,L)\subset\mathbb Z\}\), and call \(L\) selfdual if
+\(L^\#=L\).  For two selfdual lattices set
+\[
+ m(L,L')=[L:L\cap L'].
+\]
+The same index is obtained with \(L,L'\) interchanged, since
+selfdual lattices have the same covolume.
+
+\begin{srlemma}[Counting selfdual lattices]
+\label{lem:sr-selfdual-count}
+Fix a selfdual \(L\).  For every \(m\ge1\), there are at most
+\(m^{2\rho}\) selfdual lattices \(L'\) with \(m(L,L')=m\).
+The index equals one precisely when \(L'=L\).
+\end{srlemma}
+
+\begin{proof}
+A free abelian group of rank \(\rho\) has at most \(m^\rho\)
+subgroups of index \(m\).  For clarity, the Hermite normal form
+count \(a_\rho(m)\) satisfies
+\[
+ a_\rho(m)=\sum_{d\mid m}d^{\rho-1}a_{\rho-1}(m/d).
+\]
+The formula follows by fixing the last diagonal pivot in triangular
+normal form and its residue entries.  Induction and the bound
+\(\#\{d:d\mid m\}\le m\) give
+\(a_\rho(m)\le m^{\rho-1}\#\{d:d\mid m\}\le m^\rho\).
+
+For \(L'\) as in the statement let \(J=L\cap L'\).
+There are at most \(m^\rho\) possibilities for \(J\).
+Both \(L\) and \(L'\) lie in \(J^\#\).
+Duality reverses inclusion and preserves the index of an inclusion,
+as follows by taking a basis and its \(B\)-dual basis.
+Therefore
+\([J^\#:L]=[L:J]=m\) and
+\([J^\#:L']=[L':J]=m\).
+For a fixed \(J\), the lattice \(L'\) is among the subgroups of index
+\(m\) of the free group \(J^\#\), of which there are at most
+\(m^\rho\).  Multiplication proves the bound.
+If \(m=1\), then \(L\subset L'\); duality gives \(L'\subset L\).
+\end{proof}
+
+Here is the vacuum calculation producing the exponent \(n/2\).
+In the finite Schr\"odinger representation associated with
+\(J^\#/J\), the two complementary maximal isotropic groups
+\(L/J\) and \(L'/J\) each have order \(m=m(L,L')\).
+Their pairing is perfect: an element orthogonal to \(L'/J\)
+lifts to \((L')^\#=L'\), and its intersection with \(L/J\) is zero.
+In the realization by functions on \(L'/J\), one group acts by
+translations and the other by its \(m\) distinct characters.
+A unit eigenvector for the character group is a delta function;
+a unit eigenvector for the translation group has all coordinates
+of modulus \(m^{-1/2}\).
+Consequently normalized vacua \(v_L,v_{L'}\), with the compatible
+semicharacters, satisfy
+\[
+ |\langle v_L,v_{L'}\rangle|=m^{-1/2}.
+\]
+If their semicharacters disagree on \(J\), the inner product is
+zero instead: acting by an element of \(J\) gives two different
+eigenvalues.  Thus the inequality with \(m^{-1/2}\) always holds.
+For \(n\) tensor copies it gives \(m^{-n/2}\).
+This argument includes the semicharacter phases; omitting them
+would fail at the even part of the Heisenberg extension.
+
+In the level construction a test vector is a sum of \(b=|J_{\rm lev}|\)
+translated normalized vacua.  Its labels run through one prescribed
+finite level orbit, with unit-modulus character coefficients.
+A pairing between two different labels vanishes: a common
+Heisenberg eigenoperator distinguishes their residue classes.
+For matching labels the same translation acts on both vacua and
+preserves their inner product.  Therefore the test vectors
+\(\Phi_{L,\Lambda}\), for every positive definite auxiliary
+unimodular lattice \(\Lambda\), obey
+\begin{equation}\label{eq:sr-test-gram}
+ \langle\Phi_{L,\Lambda},\Phi_{L,\Lambda}\rangle=b,\qquad
+ |\langle\Phi_{L,\Lambda},\Phi_{L',\Lambda}\rangle|
+       \le b\,m(L,L')^{-n/2}.
+\end{equation}
+The equality of label sets and the distinguishing eigenoperator
+are necessary compatibility conditions on the finite level
+construction.  In the prescribed construction they are obtained
+by the same residue representatives in both test vectors; the
+coprimality of the two CM level ideals identifies equality of
+their character pairings with equality of their residue classes.
+This is the finite pairing calculation, rather than a choice of
+independent normalizations for each \(L,\Lambda\).
+
+\begin{srproposition}[A uniform diagonal gap]
+\label{prop:sr-gram-gap}
+Let \(\mathcal L\) be any set of selfdual lattices in \(V_\mathbb Q\),
+let \(\mathcal C\) be a finite nonempty set of auxiliary lattice
+classes with positive mass weights \(w_\Lambda\), and suppose
+\eqref{eq:sr-test-gram} holds for one common \(b>0\).
+If \(n\ge4\rho+4\), define
+\[
+ C(L,L')=\sum_{\Lambda\in\mathcal C}
+       w_\Lambda\langle\Phi_{L,\Lambda},\Phi_{L',\Lambda}\rangle,
+ \qquad a=b\sum_\Lambda w_\Lambda.
+\]
+Then \(a>0\), \(C(L,L)=a\), and
+\begin{equation}\label{eq:sr-gram-row-gap}
+ \sum_{\substack{L'\in\mathcal L\\L'\ne L}}|C(L,L')|
+       \le0.65a.
+\end{equation}
+\end{srproposition}
+
+\begin{proof}
+The diagonal assertion follows from \eqref{eq:sr-test-gram}.
+For the remaining sum, group the lattices by \(m(L,L')\).
+Lemma~\ref{lem:sr-selfdual-count} gives
+\[
+ \sum_{L'\ne L}m(L,L')^{-n/2}
+ \le\sum_{m=2}^\infty m^{2\rho-n/2}
+ \le\sum_{m=2}^\infty m^{-2}<0.65.
+\]
+The last numerical inequality needs no special value of the zeta
+function: the sum from \(2\) through \(10\), plus
+\(\int_{10}^\infty t^{-2}\,dt\), is less than \(13/20\).
+Apply the triangle inequality to the finite positive mass average.
+These estimates also prove absolute convergence of every row.
+\end{proof}
+
+\begin{srproposition}[The actual inverse operator]
+\label{prop:sr-gram-neumann}
+Let \(\mathcal B\) be the Banach space of bounded families
+\(F(L,x)\) with the fixed holomorphic weight on the common frame
+domain.  Equip it with the supremum of the invariant pointwise
+norms.  Let \(C\) satisfy
+\eqref{eq:sr-gram-row-gap} and act in the lattice variable:
+\[
+ (\mathcal CF)(L,x)=\sum_{L'}C(L,L')F(L',x).
+\]
+Then \(\mathcal C\) is invertible and
+\begin{equation}\label{eq:sr-gram-inverse}
+ F'=\mathcal C^{-1}F
+ =a^{-1}\sum_{k=0}^\infty(-R)^kF,\qquad
+ R=a^{-1}\mathcal C-1,\qquad
+ \|F'\|\le\frac{\|F\|}{0.35a}.
+\end{equation}
+The inverse preserves holomorphy, weight, and the simultaneous
+automorphy law whenever the original test vectors have that law.
+\end{srproposition}
+
+\begin{proof}
+The absolutely convergent row estimate gives \(\|R\|\le0.65\).
+The geometric series converges in operator norm and multiplication
+by \(1+R\) telescopes to the identity, giving
+\eqref{eq:sr-gram-inverse}.
+Normal convergence on compact subsets preserves holomorphy;
+the weight relation is linear and passes through each row sum
+and the uniform limit.
+
+More explicitly, let a group \(\Delta\) act on the lattices and
+frames and let \(\mu(\gamma,L)\) be the common unitary multiplier.
+The test-vector identity
+\(\omega(\gamma)\Phi_{L,\Lambda}
+ =\mu(\gamma,L)\Phi_{\gamma L,\Lambda}\)
+gives
+\[
+ C(\gamma L,\gamma L')\mu(\gamma,L)
+        \overline{\mu(\gamma,L')}=C(L,L').
+\]
+If
+\(F(\gamma L,\gamma x)=\mu(\gamma,L)^{-1}F(L,x)\),
+reindexing the absolutely convergent row shows that
+\(\mathcal CF\) has the same law.  Thus every partial sum and
+its limit in \eqref{eq:sr-gram-inverse} has that law.
+\end{proof}
+
+We state the exact analytic input which turns this inverse into
+theta spanning.  This identifies the required version of the
+doubled Siegel--Weil identity and the frame slab, without replacing
+either by a theorem name.
+Choose an orthonormal basis \(P_1,\ldots,P_t\) of the nonzero
+harmonic highest-weight space with its Fock inner product.
+Columnwise unitary action preserves that inner product, so
+\[
+ \sum_jP_j(uz)\overline{P_j(uw)}
+       =\sum_jP_j(z)\overline{P_j(w)}.
+\]
+Let \(K(x,y)\) be the result of applying the associated paired
+polynomial derivatives to the doubled Gaussian kernel.
+Let
+\(T_{\Lambda,j}(L,x)=\Theta_{\Phi_{L,\Lambda},P_j}(x)\).
+For the common finite data the required kernel identity is
+\begin{equation}\label{eq:sr-doubled-kernel-input}
+ \kappa\sum_{\gamma\in\Delta}
+    C(L,\gamma L')\overline{\mu(\gamma,L')}K(x,\gamma y)
+  =\sum_{\Lambda\in\mathcal C}w_\Lambda
+       \sum_{j=1}^t
+       T_{\Lambda,j}(L,x)
+       \overline{T_{\Lambda,j}(L',y)},\qquad \kappa\ne0.
+\end{equation}
+Both the order of \(x,\gamma y\) and the conjugate multiplier are
+part of the normalization.
+
+Here the slab is the open set of frames
+\[
+ S_\delta=\{y:\ |\operatorname{Gram}_\tau(y)_{ab}
+                  -\operatorname{diag}(1_p,-1_q)_{ab}|<\delta
+                       \text{ for all }\tau,a,b\}.
+\]
+For sufficiently small fixed \(\delta>0\), the additional
+archimedean assertions needed are
+\begin{equation}\label{eq:sr-slab-reproduction-input}
+ \int_{S_\delta}K(x,y)H(y)\,dy=\rho_0H(x),
+ \qquad \rho_0>0,
+\end{equation}
+for every bounded holomorphic section \(H\) of the fixed weight,
+and absolute integrability of \(K(x,\cdot)\) on this slab.
+The invariant pointwise norm controls the ordinary absolute value
+on the slab by one constant for the fixed weight.  In particular
+\[
+ \sum_{L'}\int_{S_\delta}
+       |C(L,L')K(x,y)F'(L',y)|\,dy<\infty
+\]
+follows from the row bound and that slab bound.
+
+\begin{srproposition}[Finite theta spanning from the normalized kernel]
+\label{prop:sr-gram-theta-span}
+Suppose the fixed level data satisfy
+\eqref{eq:sr-test-gram},
+\eqref{eq:sr-doubled-kernel-input} and
+\eqref{eq:sr-slab-reproduction-input}, with the indicated absolute
+convergence.  Suppose diagonal action of \(\Delta\) on
+\(\mathcal L\times S_\delta\) has a measurable fundamental domain,
+up to null sets, and preserves product counting and frame
+Lebesgue measure.  Then every bounded holomorphic automorphic
+family \(F\) of this weight is a finite linear combination, with
+coefficients independent of \(L,x\), of the functions
+\(T_{\Lambda,j}(L,x)\).
+\end{srproposition}
+
+\begin{proof}
+Take \(F'=\mathcal C^{-1}F\).
+Reproduction and absolute convergence give
+\[
+ \sum_{L'}\int_{S_\delta}
+       C(L,L')K(x,y)F'(L',y)\,dy=\rho_0F(L,x).
+\]
+Unfold this integral over the measurable fundamental domain for
+the diagonal action.
+The automorphy law for \(F'\) contributes
+\(\overline{\mu(\gamma,L')}\), exactly the factor in
+\eqref{eq:sr-doubled-kernel-input}.
+Using that identity, the result is an integral of a finite sum
+\[
+ \kappa^{-1}\sum_{\Lambda,j}
+   w_\Lambda\,T_{\Lambda,j}(L,x)
+       \overline{T_{\Lambda,j}(L',y)}F'(L',y)
+\]
+over that fundamental domain.  Its value therefore lies in the
+finite-dimensional span of the functions
+\(T_{\Lambda,j}(L,x)\).
+
+One need not assume in this last step that every displayed
+coefficient integral is individually absolutely convergent.
+Here is the requisite finite-dimensional argument.
+If an integrable function of \(z\), for every parameter \(a\), is
+of the form \(\sum_{j=1}^N e_j(a)t_j(z)\), choose a basis
+\(e_{j_1},\ldots,e_{j_s}\) of the finite span of the \(e_j\)'s and
+rewrite the sum in that basis.  There are \(s\) sample parameters
+\(a_1,\ldots,a_s\) for which the evaluation matrix of this basis
+is invertible.  Otherwise all evaluation functionals would span a
+proper subspace of the dual and some nonzero basis combination
+would vanish at every parameter.
+The rewritten coefficient functions are consequently fixed
+linear combinations of the \(s\) integrable functions at those
+sample parameters.  They are integrable, and integration gives
+a fixed linear combination of the basis \(e_{j_i}\)'s.
+Apply this to \(a=(L,x)\) and the unfolded integrand.
+Since \(\rho_0\kappa\ne0\), division proves the result.
+\end{proof}
+
+In applying this proposition, the normalized definite
+Siegel--Weil formula of
+Section~\ref{sec:sw-boundary} is used in the range \(n>4r\).
+Its auxiliary Hermitian space is positive definite, so the
+unitary theta quotient is compact at infinity and the genus mass
+weights are positive.
+The comparison must use the same auxiliary lattice class,
+finite test function, doubled rational frame, and self-dual
+Fourier measure as in \(T_{\Lambda,j}\).
+In the Eisenstein expansion, maximal isotropic subspaces that
+are graphs of unitary elements contribute the left side of
+\eqref{eq:sr-doubled-kernel-input}.
+The level support removes the graphs outside \(\Delta\).
+The other maximal isotropic subspaces contain a nonzero rational
+isotropic direction; their contributions vanish when the specified
+finite test vectors have a nonzero-degree Heisenberg relation in
+that direction.
+Summing paired derivatives over the orthonormal \(P_j\)'s commutes
+with the compact auxiliary unitary average by the displayed
+Fock invariance, and the definite theta side becomes the finite
+right side of \eqref{eq:sr-doubled-kernel-input}.
+This explains both the Gram coefficient and the multiplier and
+shows why independent local normalizations would be insufficient.
+
+The graph-term computation, the non-graph vanishing, admissibility
+of the doubled test family for that definite formula, and the slab
+integrability and reproduction are the precise remaining analytic
+verifications in this application of the proposition.  In particular
+the abstract proposition is not asserted to construct those inputs.
+In the frozen source their producers are respectively
+\texttt{EisensteinSeriesTermUnitaryGraph},
+\texttt{ThetaTestFunctionNoCoinvariantsIsotropic},
+\texttt{AdmissibleDoubledHermitianThetaFamily},
+\texttt{GaussianKernelIntegrableOnThinSlab}, and
+\texttt{SetIntegralCompOfStable}.
+The finite lattice count, numerical gap, inverse operator, and
+finite-dimensional unfolding implication have been proved above.
