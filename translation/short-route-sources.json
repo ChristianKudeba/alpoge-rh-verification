@@ -209,7 +209,9 @@
     "Uniform global high-twist cohomology bound, including at 2, with exponent 24, via published K-theory and Hurewicz comparisons plus a full integral torsion and geometric orbit calculation",
     "K_2(24), hence the dyadic common-window bound with C_K=24, eta=epsilon/48 and J=2^26*(19248/epsilon)^24",
     "Bounded-order twist-one polynomial character bound at 3 and 7 with B_R=(6R+1)*(12R)^24",
-    "Coefficient-uniform complex cohomology of arithmetic groups, finite adelic orbit count and polynomial congruence-level bound, with the lattice and module arguments printed"
+    "Coefficient-uniform complex cohomology of arithmetic groups, finite adelic orbit count and polynomial congruence-level bound, with the lattice and module arguments printed",
+    "Finiteness of all principal rational character Selmer groups and a common K_{2a}(O_E) integer controlling all coefficient-prime supports",
+    "Explicit pointwise character bound for every odd coefficient prime and positive twist, retaining the order in the exponent"
   ],
   "latest_combined_source": {
     "path": "verification/LogCubeRH.lean",
@@ -412,7 +414,7 @@
   ],
   "latest_notes": {
     "queue_snapshot": {
-      "translated": 1721,
+      "translated": 1884,
       "reviewed": 1621,
       "total": 175187
     },
@@ -522,6 +524,17 @@
       "sha256": "d93ac4cb5a0978184c4345f0400fc1da23fa7446ed652b4a5cdbe30b1ce1841a",
       "reviewed": "opening conditional statement and corresponding integral K-theory route at pages 110-115; selected comparison, not full-paper independent review",
       "modified": false
+    },
+    {
+      "path": "reorganized_incomplete_proof_725p.pdf",
+      "file_id": "35690707aa148a0ac755fb19327c7dea",
+      "artifact_id": "1ef7d144fa8b6175858552f76ae0c0d5",
+      "owner": "Yuankun123",
+      "bytes": 7722396,
+      "pages": 725,
+      "sha256": "fcd1c66be32d3d5c0c22c963c6b919cb6c7bb5fd84e16334138aa72a3afc6de3",
+      "reviewed": "Opening theorem; selected high-twist and character sections, and selected later patching/support passages. No claim of a full independent review.",
+      "modified": false
     }
   ],
   "latest_lean_review": {
@@ -571,5 +584,26 @@
       ],
       "proof_scope": "finite-dimensional oriented normal-cone nerve, finite-stabilizer averaging, transfer/Shapiro, projective lattice classification and finite congruence quotient"
     }
+  },
+  "character_finiteness": {
+    "chapter": "translation/short-chapters/plus-reduction.tex",
+    "common_integer": "card K_{2a}(O_E)",
+    "inequality": "sum_{psi in X_a} v_{ell,a}(psi) <= v_ell(card K_{2a}(O_E))",
+    "uniform_polynomial_size_not_proved": true,
+    "argument": [
+      "Quillen finite generation and Borel even rank",
+      "Odd-prime Quillen-Lichtenbaum comparison for all number fields",
+      "Strict Poitou-Tate pairing",
+      "Prime-to-ell restriction and orthogonal character projectors",
+      "Normalized length under finite free scalar extension"
+    ]
+  },
+  "literal_translation_scope": {
+    "record_rendering_complete": true,
+    "record_annotations": "dependent-type operations, generated mechanically per record",
+    "mathematical_prose_translation_complete": false,
+    "reading_guide": "translation/kernel/reading.md",
+    "generator": "translation/kernel/prose_records.py",
+    "scope_checked_at_commit": "f26c24148d4ac31a9e40fd91a97779bbb8ea20fd"
   }
 }

@@ -8,7 +8,7 @@ The same finite-dimensional normal-cone nerve now also proves the coefficient-un
 
 This supplies K_2(24) and discharges the hypothesis of the dyadic common-window theorem. The dyadic generator, cokernel, fixed-center, exceptional-set, discriminant and local-cohomology calculations remain part of the same proof. The exact local cohomology formula is s_2(L_m,a)+m+2+v_2(a), whenever finite.
 
-The new global estimate also proves a polynomial twist-one bound for principal characters of fixed bounded order at 3 and 7. The exponent is chosen before the host. The full two rational-character estimates still require bounds uniform in unbounded character order and in all required twists.
+The new global estimate also proves a polynomial twist-one bound for principal characters of fixed bounded order at 3 and 7. The exponent is chosen before the host. The new common-integer argument proves finiteness of every principal rational character Selmer group and bounds the sum over arbitrary coefficient-prime sets by log #K_{2a}(O_E). It also confines their prime support to the divisors of that finite integer. An explicit pointwise estimate retaining character order, coefficient prime and twist in its exponent is now printed. The full two rational-character estimates still require uniform polynomial bounds; those exponents must be chosen before unbounded character orders, hosts and twists.
 
 The remaining major tasks are the two character estimates (or a valid weaker cubic-logarithmic plus-height bound) and the connected geometric construction or signed-data supply, with its required uniform theta, ramified matching, metric and integral-model estimates. The supporting longer-route chapters retain their explicit automorphy, deformation and compatibility conditions. The new global cohomology bound is not a substitute for those sharper growing-conductor estimates.
 
@@ -20,6 +20,4 @@ The new prose proofs have not been separately formalized or independently refere
 
 Build entry point: [short-route.tex](short-route.tex). Artifacts are saved remotely on GitHub and Principia; the workflow publishes the PDF, standalone LaTeX, source manifest, build report and page contact sheets.
 
-Current edition: [212-page PDF](https://principia-math.com/api/ws/files/2e7d574f1458283c873cb4dd88988d13) and [immutable source/build release](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-c46a979d5afbb919a2b9b28f9bb2da90f7b486a7). The four-file Principia source expands byte for byte to the compiled source (SHA-256 `ea67a2eb844e06800a59328774dfba61b7b2d60dd12aedcac5d727044955d5ee`).
-
-The final queue check reports 1,768 translated and 1,621 reviewed modules. EqOneOfRoot, LocK and PolarOfLift were inspected with their Lean sources; their Lean matches the preserved baseline and their translations were not yet reviewed. They clarify local implications and retain their explicit global compatibility assumptions.
+The literal edition is a lossless typesetting of the formal records with generated dependent-type annotations. Its completion does not mean that every mathematical argument has already been translated into explanatory prose. The source review now maps the exact rank-three, rank-four and geometric producer chains and distinguishes this coverage issue from a gap in the original formal proof.

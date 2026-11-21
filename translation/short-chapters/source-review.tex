@@ -289,6 +289,105 @@ estimates needed for the present families.
 Likewise a published-hypothesis entry states an input; it is not an
 independent proof of the input.
 
+\subsection{What the literal edition does and does not supply}
+\label{sec:sr-literal-selection}
+The
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/rh-literal-audit-v1}{literal record edition}
+is a lossless rendering of the exported formal terms.
+Its
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/f26c24148d4ac31a9e40fd91a97779bbb8ea20fd/translation/kernel/prose_records.py}{record-reading generator}
+adds explanations of the dependent-type operations.
+For example, an application record is explained by applying its
+function expression to its argument expression.
+The
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/f26c24148d4ac31a9e40fd91a97779bbb8ea20fd/translation/kernel/reading.md}{reading guide}
+explains how to follow expression and declaration references.
+The reverse audit checks fidelity to the formal export.
+This is a different check from the independent kernel verification
+reported by
+\href{https://math.mit.edu/~drew/grh/}{Sutherland}.
+
+If the formal proof is accepted, its arguments can in principle be
+recovered by selecting the relevant declarations and following their
+definitions and proof dependencies.
+The record annotations do not already constitute a conventional
+arithmetic-geometric exposition.
+Selecting a top-level theorem without its supporting declarations
+leaves imported results unexplained.
+Selecting every supporting record gives a formal document; obtaining
+the present mathematical narrative also requires identifying the
+objects, normalizations, local conditions and uniform constants
+that those records encode.
+The phrase \emph{complete direct translation} applies to the record
+rendering, not to a completed standalone mathematical exposition.
+
+The following source calls identify the remaining branches precisely.
+They record what must be unpacked, rather than adding hypotheses
+to the original formal theorem.
+\begin{enumerate}
+\item For the generic character bound,
+the theorem \srcid{propGK\_of\_numberU3U\_of\_oneCharU}
+in module \srcid{FPropGKU} combines the common automorphic list with
+\srcid{OneCharU\_s}.
+The latter is produced in \srcid{FOneCharU} from the cohomology
+and graded-model inputs, Kato's rank-two input, both point-rigidity
+inputs, admissibility, and
+\srcid{AutomorphyUnramifiedCoefficientsAlt}.
+The actual marking and endpoint source is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/DnEndsTop.lean}{module \srcid{DnEndsTop}, theorem \srcid{ends0\_alt}}:
+it produces \srcid{GdEndAlt} and \srcid{ThmS6Core\_s} from
+\srcid{HypothesesH'}.
+The endpoint is therefore present in the formal dependency chain.
+Its component-propagation, seed and local-compatibility proofs
+must be supplied in prose before using it here.
+
+\item For the nontrivial exceptional and resonant characters,
+the source
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean}{\srcid{WindowBoundOfLiteratureLevel}}
+uses \srcid{countII\_and\_countIII\_of\_printsH\_of\_sp4In}
+for the rank-four branch, and
+\srcid{count\_v\_of\_printed\_bound\_k\_reduced\_unitary\_lift}
+with \srcid{ThmS6Core\_s} for the Gaussian twist-one branch.
+These are stronger than the bounded-order corollary proved above.
+The rank-four finiteness and no-block statements, automorphic
+realization of the points, and the rigidity comparisons cannot be
+replaced by the names of these assembly theorems.
+Proposition~\ref{prop:sr-common-K-integer} now supplies finiteness
+of the rational character groups themselves; the uniform
+polynomial estimates still require the quantitative producers.
+
+\item For the geometric branch,
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean}{\srcid{TopPlug}}
+uses a nonempty \srcid{HypsAlt} package.
+The package contains compatible geometric choices and uniform
+comparisons.
+The source
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean}{\srcid{SiegelEisensteinSecondTermHypotheses}}
+constructs it from the third-place and local theta inputs,
+\srcid{ThetaIntegralsAgree}, \srcid{LocalMatching},
+\srcid{CovolumeBoundOfX}, and the specified local Langlands data.
+The mathematical construction must realize these inputs on the
+same fields, levels, models and selection windows.
+The previously printed local identities and inequalities do not
+alone provide that simultaneous realization.
+\end{enumerate}
+
+The contributor's newer
+\href{https://principia-math.com/api/ws/files/1ef7d144fa8b6175858552f76ae0c0d5}{725-page reorganized draft}
+replaces that contributor's earlier 755- and 777-page uploads.
+Its opening theorem remains conditional.
+Its Sections 7.1--7.6 retain the automorphic realization and rigidity
+inputs in these character-counting branches.
+Selected later patching and support passages explain further
+implications from their local and arithmetic inputs.
+Those passages are useful source material, but the present review
+does not claim that all their dependencies have been independently
+translated and checked.
+The latest queue snapshot examined here reports 1,884 translated
+and 1,621 reviewed modules out of 175,187.
+These are community prose-translation counts, not the coverage
+count of the literal record edition.
+
 \subsection{The resulting proof ledger}
 The odd prime-to-degree minus bound is now an internal consequence:
 the strict characterwise descent, its derivative system and local
@@ -315,6 +414,13 @@ The analytic endpoint and signed finite comparison have complete
 printed proofs. The new rational vanishing arguments and the assembly
 from the two character estimates are printed in
 Section~\ref{sec:sr-two-counts}.
+
+Proposition~\ref{prop:sr-common-K-integer} now proves finiteness and
+one common integer controlling all coefficient-prime supports for a
+fixed host and twist. Proposition~\ref{prop:sr-character-order-bound}
+gives the explicit bound retaining the character order.
+The remaining character problem is the required uniform quantitative
+bound, rather than finiteness of each individual group.
 
 To obtain an unconditional standalone proof by this route, the
 following work remains.
