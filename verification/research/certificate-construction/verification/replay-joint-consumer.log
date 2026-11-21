@@ -1,0 +1,2 @@
+Replaying 133735 declarations for [Compaction.JointWindowWithoutMinus.vwin_of_joint] into an empty kernel environment
+REPLAY PASSED; axioms: [Classical.choice, Quot.sound, propext]

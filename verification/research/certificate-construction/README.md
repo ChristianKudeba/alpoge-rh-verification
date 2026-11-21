@@ -108,13 +108,14 @@ report only `propext`, `Classical.choice`, and `Quot.sound`. See
 [aggregate-native.log](verification/aggregate-native.log) and
 [source-manifest.json](source-manifest.json).
 
-Two large endpoints received additional explicit proof-term replay into an
+Three large endpoints received additional explicit proof-term replay into an
 empty kernel environment using the official `Lean.Environment.replay` API:
 
 | Endpoint | Declarations replayed | Result |
 | --- | ---: | --- |
 | Closed odd-minus certificate | 133,455 | Passed; standard three axioms |
 | Weber theorem | 98,821 | Passed; standard three axioms |
+| JointWin → VWin closing argument | 133,735 | Passed; standard three axioms |
 
 The [replay driver](verification/ReplayCertificate.lean) rejects unsafe/partial
 dependencies and additional axioms, reconstructs the dependency environment,

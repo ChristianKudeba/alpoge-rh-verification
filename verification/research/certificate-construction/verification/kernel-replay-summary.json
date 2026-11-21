@@ -59,6 +59,25 @@
       "verifier_snapshot": "ReplayCertificate.lean",
       "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
       "verifier_snapshot_note": "Current verifier including explicit target AST equality checks and negative-control mode"
+    },
+    {
+      "label": "joint-consumer",
+      "module": "Compaction.JointWindowWithoutMinus",
+      "target": "Compaction.JointWindowWithoutMinus.vwin_of_joint",
+      "declarations_replayed": 133735,
+      "result": "passed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "source_file": "research/Compaction/JointWindowWithoutMinus.lean",
+      "source_sha256": "5f1cdac8d87a6361c0ed49e6f5fc76ea69081c877c39ffd640fae3f373c46698",
+      "log_file": "replay-joint-consumer.log",
+      "log_sha256": "c042b5fe72e40ed2362d4ba1e8755e53fc71bda7d78319646d94c40a272fd47b",
+      "verifier_snapshot": "ReplayCertificate.lean",
+      "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
+      "verifier_snapshot_note": "Current verifier including target type/proof AST equality and explicit negative-control mode"
     }
   ],
   "negative_control": {
@@ -72,5 +91,5 @@
     "No claim that -t0 alone replays imports",
     "Inputs are SHA256-verified original project caches and pinned official Mathlib caches; source-file rebuild is a separate validation route"
   ],
-  "joint_consumer_replay": "running; see replay-joint-consumer.log"
+  "joint_consumer_replay": "passed"
 }
