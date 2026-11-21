@@ -30,7 +30,11 @@ the signed finite-group comparison, the explicit conductor-one field and
 degree bounds, cyclotomic class-number regularity at 2, 3 and 7, strict
 descent at 3 and 7, a uniform dyadic generator bound in the cyclotomic
 limit, its finite-twist cokernel description and descent back to the CM
-field, and the numerical interval and length-budget comparisons.
+field, the uniform matrix and cokernel estimates, a fixed set of at most
+24 exceptional twists, an explicit fixed-layer discriminant bound, and
+the numerical interval and length-budget comparisons. The dyadic
+common-window estimate is proved conditional on one specialized
+high-twist cohomology bound.
 The odd prime-to-degree minus bound is assembled from the full descent
 printed in the supporting chapters. We prove trivial rational-character
 vanishing at the exceptional and resonant primes and assemble the plus
@@ -39,9 +43,9 @@ distribution identity, a spectral uniqueness criterion, and direct
 logarithmic-integrability and positive-definite lattice-theta comparisons.
 The existing longer-route translations are included as supporting chapters.
 The two remaining character estimates, the uniform supply assertion,
-its plus-height input, the uniform
-finite-twist dyadic size estimates, the high-twist cohomological size
-bound, and parts of the global theta and integral geometric construction
+its plus-height input, the high-twist cohomological size bound needed
+at the exceptional dyadic twists, and parts of the global theta and
+integral geometric construction
 are not proved in this edition.
 This document is therefore a working exposition with proved implications,
 not a completed unconditional proof of the Riemann hypothesis.
@@ -56,6 +60,7 @@ not a completed unconditional proof of the Riemann hypothesis.
 \input{short-chapters/comparison}
 \input{short-chapters/finite}
 \input{short-chapters/arithmetic}
+\input{short-chapters/dyadic-bounds}
 \input{short-chapters/plus-reduction}
 \input{short-chapters/geometry}
 \input{short-chapters/source-review}
@@ -154,8 +159,12 @@ Bernoulli integer calculation. Proposition~\ref{prop:sr-dyadic-generators}
 proves the separate 24-generator statement for the unramified cyclotomic
 module. Proposition~\ref{prop:sr-dyadic-descent} and
 \eqref{eq:sr-dyadic-return} give its finite-twist transport and the
-return to the CM field; uniform cokernel size estimates remain to
-be supplied. On the rank-three side,
+return to the CM field. Section~\ref{sec:sr-dyadic-bounds}
+proves the cokernel growth, the fixed 24-element exceptional set and
+the discriminant bound. Theorem~\ref{thm:sr-dyadic-window} proves the
+uniform common-window estimate conditional on \(K_2(C_K)\).
+The class-counting proof of this one high-twist input remains to be
+translated. On the rank-three side,
 Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
 derive the trace product and the full graded intersection inequality.
 Sections~\ref{sec:kato-rigidity} and~\ref{sec:type-one-rigidity} derive

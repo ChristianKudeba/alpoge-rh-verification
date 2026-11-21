@@ -111,12 +111,16 @@ jobs:
           log=(root / "rh-short-route.log").read_text(errors="replace")
           warnings=re.findall(r"(?:Overfull|Underfull) \\[hv]box[^\n]*(?:\n[^\n]*)?",log)
           text=Path(os.environ["RUNNER_TEMP"],"short-standalone.txt").read_text()
+          front=re.sub(r"\s+"," ",text.split("\f",1)[0])
+          credit="with reductions from Principia contributors"
+          assert credit in front, "Requested credit line is absent from the title page"
+          assert "with reductions from Anton" not in front, "Old credit remains on title page"
           part_two=[]
           for i,page in enumerate(text.split("\f"),1):
               if re.search(r"Part\s+II\b",page) and "Supporting translations" in page:
                   part_two.append(i)
           report={"source_commit":os.environ["GITHUB_SHA"],"status":"working exposition; uniform geometric supply unproved",
-                  "pages":len(pages),"supporting_part_start_pages":part_two,
+                  "pages":len(pages),"supporting_part_start_pages":part_two,"title_credit_check":"passed",
                   "reference_and_glyph_check":"passed","distributed_and_flattened_text":"identical",
                   "words_outside_page":escaped,"box_warnings":warnings,
                   "pdf_sha256":hashlib.sha256((root/"rh-short-route.pdf").read_bytes()).hexdigest(),

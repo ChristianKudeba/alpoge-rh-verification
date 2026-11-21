@@ -1,15 +1,14 @@
 {
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "incomplete: plus-height, finite-twist quantitative estimates and uniform geometric construction remain",
+  "status": "incomplete: two rational-character estimates, specialized high-twist cohomology bound K_2 and uniform geometric construction remain",
   "prior_manuscript_commit": "8f24eadc552967b963390bdf83f085f6838f4c12",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
     "Uniform signed-data supply on arbitrarily late fourth-power windows",
-    "Uniform plus bound (polynomial via the two stated character estimates, or the weaker cubic-logarithmic envelope)",
-    "Uniform dyadic cokernel order bounds and quantitative high-twist size estimates",
-    "Fixed exceptional-set construction with the needed uniformity",
+    "Two rational-character estimates implying polynomial plus-height, or a valid weaker cubic-logarithmic bound",
+    "Specialized high-twist cohomology bound K_2(C_K); matrix growth, fixed centers and exceptional-set construction are proved in prose",
     "Relevant global theta, ramified matching, cusp/metric and integral-model constructions"
   ],
   "principia_sources": [
@@ -195,13 +194,17 @@
   "proved_in_this_revision": [
     "PB(E) assembled from internally printed characterwise descent, cyclotomic derivatives, Frobenius selection and Bernoulli integer product",
     "Uniform 24-generator bound for the unramified dyadic module and its split quotient; explicit bidual identifications with Tower.XX and Tower.XP, hence the generator input Tower.IsTower",
-    "Full finite-twist cokernel identification by continuous cocycles, and restriction to the canonical CM field with kernel length at most one; uniform cokernel orders not bounded",
+    "Full finite-twist cokernel identification by continuous cocycles, and restriction to the canonical CM field with kernel length at most one; uniform finite-twist estimates now proved outside a fixed exceptional set",
     "Centered prime-distribution identity with all half-line boundary terms",
     "Global zeta zero growth bound and uniqueness of a vertical discrete spectral distribution",
     "Counterexample to arbitrary Mellin-transform O(log T) unit-box zero counts and the decreasing-kernel projection check",
     "Rational trivial-character vanishing at 3 and 7 for every positive twist and at every resonant prime ell-1 dividing 2a; elementary quadratic class-number and cyclotomic descent proofs",
     "Full plus-height assembly from two stated rational-character estimates with exponent A+3B+5, and exceptional-pair exponent 2B+2; both input estimates remain unproved here",
-    "Absorption of the weaker cubic-logarithmic height envelope in the same windows"
+    "Absorption of the weaker cubic-logarithmic height envelope in the same windows",
+    "Uniform dyadic free-lift congruence A^128 = 1 modulo 8 and cokernel growth c_m(a) <= c_7(a)+24(m-7)_+",
+    "Matrix-logarithm center bound with at most 24 fixed centers and exceptional twists on a whole horizon",
+    "Fixed-layer discriminant |disc L_7| <= 2^8192 (qd)^512",
+    "Full dyadic common-window estimate conditional on specialized high-twist cohomology bound K_2(C_K), which remains unproved"
   ],
   "latest_combined_source": {
     "path": "verification/LogCubeRH.lean",
@@ -318,7 +321,7 @@
         "Descends",
         "ABound implication"
       ],
-      "scope": "finite-twist transport is proved by cocycles in this edition; the quantitative A-bound remains open in prose"
+      "scope": "finite-twist transport, free-lift growth and center bound independently proved in prose; exceptional-twist high cohomology bound K_2 remains"
     }
   ],
   "combined_source_snapshots": [
@@ -403,10 +406,49 @@
     }
   ],
   "latest_notes": {
-    "updated_at": 1795248439145,
-    "reported_at": "2026-11-21 03:00 America/Toronto",
-    "translated": 1112,
-    "reviewed": 1042,
+    "updated_at": 1795251139277,
+    "reported_at": "2026-11-21 03:15 America/Toronto",
+    "translated": 1155,
+    "reviewed": 1071,
     "total": 175187
+  },
+  "new_dyadic_provenance": [
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.AdditiveValuationNorms.ExistsCentresLevel",
+      "ref": "alpoge-source-7cbf7a0c",
+      "scope": "source comparison; independent prose argument printed"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.AdditiveValuationNorms.XUnip",
+      "ref": "alpoge-source-7cbf7a0c",
+      "scope": "source comparison; independent prose argument printed"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.AdditiveValuationNorms.ShaLeV",
+      "ref": "alpoge-source-7cbf7a0c",
+      "scope": "source comparison; independent prose argument printed"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.GaloisCohomologyLength.Formula",
+      "ref": "alpoge-source-7cbf7a0c",
+      "scope": "source comparison; independent prose argument printed"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SFinal",
+      "ref": "alpoge-source-7cbf7a0c",
+      "scope": "dependency inspected; high-twist theorem not claimed proved"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.LemmaKOfSteps",
+      "ref": "alpoge-source-7cbf7a0c",
+      "scope": "dependency inspected; high-twist theorem not claimed proved"
+    }
+  ],
+  "paper_consolidation": {
+    "one_current_rh_manuscript": true,
+    "path": "alpoge-rh-consolidated-manuscript.pdf",
+    "historical_sources": "translation/archive/principia-before-194-page-consolidation.json",
+    "separate_audit": "masullo-zero-count-audit.pdf",
+    "other_contributors_unchanged": true
   }
 }

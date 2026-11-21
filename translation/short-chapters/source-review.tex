@@ -7,10 +7,18 @@ The review is of the files available on 21 November 2026.
 Version identifiers and verified byte hashes are recorded in the
 accompanying \srcid{short-route-sources.json}.
 
-\subsection{The five PDFs on the papers page}
+\subsection{The paper consolidation and historical review}
 The
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper}{project papers page}
-currently contains the following five PDFs.
+has one current RH working manuscript from this account.
+The earlier entry-point paper and the two earlier versions of the
+translation were consolidated into this manuscript and their separate
+attachments removed. Their source snapshots and metadata are preserved in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/main/translation/archive/principia-before-194-page-consolidation.json}{the historical archive}.
+Our separate Masullo audit remains a separate paper because it addresses
+a different proof attempt. Other contributors' papers were left unchanged.
+Before this consolidation the following five PDFs were identified and
+reviewed; the older artifact links below are historical references.
 \begin{description}
 \item[Formal entry points.]
 \href{https://principia-math.com/api/ws/files/402cfc03e76bc4f9eafd0eb930a80a20}{\srcid{alpoge-rh-formal-entry-points.pdf}}
@@ -187,8 +195,8 @@ The community's generated
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=fd6fc09854184b61bca8dd800a4859b5}{\srcid{rh-unpacked.tex}}
 earlier snapshot reports 1,067 translated modules and 1,001 reviewed modules
 out of 175,187. We inspected relevant geometric and cohomological
-entries in that snapshot. Subsequent project notes at 3:00 AM report
-1,112 translated modules and 1,042 reviewed modules.
+entries in that snapshot. Subsequent project notes at 3:15 AM report
+1,155 translated modules and 1,071 reviewed modules.
 For example
 \srcid{CuspidalModerateGrowthRapidDecay} separates the height used in
 derivative growth from the quotient height used in its conclusion.
@@ -210,6 +218,12 @@ Proposition~\ref{prop:sr-PB} form one chain.
 The dyadic class-number base, the uniform 24-generator bound of
 Proposition~\ref{prop:sr-dyadic-generators}, the elementary field degree,
 the finite interval selection and numerical absorption are also proved here.
+Section~\ref{sec:sr-dyadic-bounds} now proves a uniform free-lift
+congruence, cokernel growth from depth seven, the matrix-logarithm
+center bound, the 24-element exceptional set fixed on a whole horizon,
+and the fixed-depth discriminant estimate. The dyadic common-window
+theorem is an internal deduction from \(K_2(C_K)\), not a proof of
+that remaining high-twist input.
 The analytic endpoint and signed finite comparison have complete
 printed proofs. The new rational vanishing arguments and the assembly
 from the two character estimates are printed in
@@ -226,14 +240,14 @@ Definition~\ref{def:sr-character-inputs} suffice for the polynomial
 version, by Proposition~\ref{prop:sr-two-counts}. The height/deformation and automorphic counting
 comparisons in Part II must be supplied with the construction and
 compatibility inputs they currently assume.
-\item Bound uniformly the dyadic cokernels identified in
-Proposition~\ref{prop:sr-dyadic-descent} and
-\eqref{eq:sr-dyadic-return}, and prove the high-twist size bounds and
-fixed finite exceptional-set construction. The module comparison and
-finite-twist transport are printed in
-Sections~\ref{sec:sr-dyadic-dual}--\ref{sec:sr-dyadic-descent};
-a bound on generators does not bound the orders of the resulting
-finite groups.
+\item Prove \(K_2(C_K)\) of Definition~\ref{def:sr-K2} with one
+constant uniform in the principal pair and the twist.
+The growth, center, exceptional-set and discriminant arguments of
+Section~\ref{sec:sr-dyadic-bounds} then give the full dyadic
+common-window bound by Theorem~\ref{thm:sr-dyadic-window}.
+The remaining content is the quantitative high-twist
+class-counting theorem, rather than the construction of the exceptional
+set or its interval selection.
 \item Construct the connected geometric families, or directly the
 signed data of Definition~\ref{def:sr-supply}, on the required common
 windows. This includes the relevant global theta identity, ramified

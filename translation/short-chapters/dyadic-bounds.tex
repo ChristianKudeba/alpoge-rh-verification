@@ -1,0 +1,417 @@
+\section{Dyadic cokernel bounds and a common exceptional window}
+\label{sec:sr-dyadic-bounds}
+The generator and descent results of
+Sections~\ref{sec:sr-dyadic-generators}--\ref{sec:sr-dyadic-descent}
+permit a quantitative argument with fixed constants.
+We prove that argument here. Its last step is conditional on a
+single high-twist cohomology bound, stated explicitly in
+Definition~\ref{def:sr-K2}; that bound is not proved by the
+linear algebra below.
+
+Fix the principal primes \(q,d\), the field
+\(L=\mathbb Q(i,\sqrt{-q},\sqrt{-d})\), its cyclotomic extension
+\(L_\infty\), and the split unramified module \(M=X_2\).
+We have a continuous surjection \(\mathbb Z_2^{24}\to M\).
+The generator \(5\) of the cyclotomic group induces the continuous
+automorphism \(\tau\) of \(M\).
+For \(a\geq1,m\geq0\), write
+\[
+ c_m(a)=\operatorname{length}_{\mathbb Z_2}
+           \bigl(M/((5^a\tau)^{2^m}-1)M\bigr).
+\]
+Lengths may be infinite until finiteness has been established.
+Proposition~\ref{prop:sr-dyadic-descent} identifies this with
+\(s_{2,L_m}(a)\), and \eqref{eq:sr-dyadic-return} bounds
+\(s_{2,E_h}(a)\) by \(1+c_h(a)\).
+In this section the fixed depth is \(j_0=7\).
+It is distinct from the exponent \(J\) controlling the analytic window.
+
+\subsection{A free lift and its uniform congruence}
+Put \(r=\dim_{\mathbb F_2}(M/2M)\leq24\).
+Lifts of an \(\mathbb F_2\)-basis generate \(M\) over
+\(\mathbb Z_2\). Indeed their closed span is the compact image of
+\(\mathbb Z_2^r\); the quotient \(Q\) satisfies \(Q=2Q\).
+Then \(Q=2^nQ\) for every \(n\), while
+\(\bigcap_n2^nQ=0\) by the finite-quotient argument in
+Lemma~\ref{lem:sr-dyadic-bidual}. Thus \(Q=0\).
+If \(r=0\), \(M=0\) and the assertions below are immediate.
+Assume henceforth \(r>0\), and choose a surjection
+\(\pi:\mathbb Z_2^r\to M\) lifting such a basis.
+
+Choose a matrix \(A\in M_r(\mathbb Z_2)\) such that
+\(\pi A=\tau\pi\), by lifting the images of the basis vectors.
+Modulo two, \(\pi\) is an isomorphism, so \(\overline A\)
+is the automorphism induced by \(\tau\).
+This finite action is an image of the pro-\(2\) group
+\(\Gamma\simeq\mathbb Z_2\), and consequently has \(2\)-power order.
+In characteristic two it is unipotent:
+\((\overline A-1)^{2^b}=0\) for some \(b\);
+its minimal polynomial divides \((T-1)^r\).
+Thus \((\overline A-1)^r=0\).
+Since \(r\leq24<32\), we have
+\(\overline A^{32}=1\).
+Also \(\det\overline A\ne0\), so \(A\in\mathrm{GL}_r(\mathbb Z_2)\).
+
+Write \(A^{32}=1+2B\).
+Squaring gives \(A^{64}=1+4(B+B^2)\), and squaring again gives
+\begin{equation}\label{eq:sr-A128}
+                   A^{128}\equiv1\pmod8.
+\end{equation}
+Applying \(\pi\) proves the same image congruence for \(\tau\):
+\((\tau^{128}-1)M\subseteq8M\).
+For \(T_a=5^a\tau\) it follows that
+\begin{equation}\label{eq:sr-twist128}
+                  (T_a^{128}-1)M\subseteq8M ,
+\end{equation}
+because \(5^{128a}-1\) is divisible by eight.
+The lift is used to prove these congruences; division by two in
+an endomorphism of the possibly torsion module \(M\) has not been
+assumed.
+
+\subsection{Growth from the fixed layer}
+\begin{srproposition}\label{prop:sr-coker-growth}
+For every \(a\geq1,m\geq0\),
+\[
+ c_m(a)\leq c_7(a)+24(m-7)_+ .
+\]
+If \(c_7(a)\) is finite, every \(c_m(a)\) is finite.
+\end{srproposition}
+\begin{proof}
+For \(m<7\), the factorization of \(T_a^{128}-1\) by
+\(T_a^{2^m}-1\) shows that the latter cokernel is a quotient
+of the former. Hence \(c_m(a)\leq c_7(a)\).
+
+For \(m=7+k\), put \(V=T_a^{128}\) and
+\(S_k=1+V+\cdots+V^{2^k-1}\).
+Then \(T_a^{2^m}-1=(V-1)S_k\).
+For \(k=0\), \(S_k=1\).
+For \(k\geq1\), let \(N=V-1\); by
+\eqref{eq:sr-twist128}, \(N^jM\subseteq2^{3j}M\).
+The finite binomial identity gives
+\[
+ S_k=\sum_{j=0}^{2^k-1}{2^k\choose j+1}N^j .
+\]
+For \(j\geq1\),
+\[
+ v_2\binom{2^k}{j+1}\geq k-v_2(j+1),\qquad
+                       v_2(j+1)\leq j .
+\]
+The first inequality follows from
+\(\binom{2^k}{j+1}=\frac{2^k}{j+1}\binom{2^k-1}{j}\);
+the second follows from \(j+1\leq2^j\).
+Every nonconstant term consequently maps \(M\) into
+\(2^{k+1}M\). Thus
+\((S_k-2^k)M\subseteq2^{k+1}M\).
+
+The compact quotient \(Q=M/S_kM\) satisfies
+\(2^kQ\subseteq2^{k+1}Q\).
+The reverse inclusion is automatic, so iteration and
+\(\bigcap_n2^nQ=0\) give \(2^kQ=0\).
+Since \(Q\) has at most 24 generators, it is a quotient of
+\((\mathbb Z/2^k)^{24}\), and its length is at most \(24k\).
+
+Finally, for any two endomorphisms \(B,C\) of a module, there is an
+exact sequence
+\[
+ 0\longrightarrow B(M)/BC(M)
+ \longrightarrow M/BC(M)\longrightarrow M/B(M)\longrightarrow0,
+\]
+and \(B(M)/BC(M)\) is a quotient of \(M/C(M)\).
+Apply this with \(B=V-1,C=S_k\).
+Length additivity yields \(c_m(a)\leq c_7(a)+24k\),
+including in extended lengths, and proves the finiteness assertion.
+\end{proof}
+
+\subsection{At most 24 centers govern all the other twists}
+Use \(v_2(2)=1\) on finite extensions of \(\mathbb Q_2\).
+For a matrix with entries in \(8\mathbb Z_2\), its logarithm and
+exponential converge, and the usual inverse identities hold.
+Here are the estimates needed to use these functions.
+For \(v_2(z)\geq2\),
+\[
+ v_2(\exp z-1)=v_2(z).
+\]
+Indeed \((\exp z-1)/z=1+\sum_{n\geq2}z^{n-1}/n!\);
+every other term has valuation at least
+\(2(n-1)-v_2(n!)\geq n-1\geq1\).
+The identical valuation estimates prove convergence for matrices
+in the maximum-entry norm.
+The formal identities for logarithm and exponential can then be
+substituted, because all the relevant power series and their
+products converge in this complete matrix algebra.
+In particular \(\exp(\log U)=U\) for \(U\equiv1\pmod8\),
+and exponentials of commuting matrices multiply.
+Also \(v_2(\log5)=2\), since the first term of
+\(\log(1+4)\) is four and every subsequent term is divisible by eight.
+
+Take \(U=A^{128}\) and the matrix
+\[
+              S=-\frac{\log U}{128\log5}\in M_r(\mathbb Q_2).
+\]
+Choose a finite extension \(K/\mathbb Q_2\) splitting its
+characteristic polynomial, and list the eigenvalues
+\(s_1,\ldots,s_r\in K\) with multiplicity.
+They depend on \(q,d\) and the one chosen lift \(A\), not on the
+twist \(a\), the layer \(m\), or a subsequent window.
+
+\begin{srproposition}\label{prop:sr-centers}
+If \(B\geq0\) is an integer and
+\(|a-s_i|_2\geq2^{-B}\) for every \(i\), then
+\begin{equation}\label{eq:sr-center-bound}
+                  c_m(a)\leq24(\max(m,7)+2+B)
+                         \qquad(m\geq0).
+\end{equation}
+In particular these cokernels are finite.
+\end{srproposition}
+\begin{proof}
+First let \(m\geq7\).
+On the free module, the relevant endomorphism is
+\[
+ (5^aA)^{2^m}-1
+ =\exp\left(2^{m-7}(128a\log5+\log U)\right)-1 .
+\]
+The matrix in parentheses has entries divisible by eight.
+Its eigenvalues, after triangularization over \(K\), are
+\(2^m\log5\,(a-s_i)\), and have valuation at least three.
+One can check this last assertion without making an isometric
+change of basis: a matrix divisible by eight has characteristic
+roots divisible by eight, because the characteristic roots of
+an integral matrix are integral.
+The scalar exponential estimate therefore gives
+\[
+ v_2\det((5^aA)^{2^m}-1)
+       =\sum_{i=1}^r\bigl(m+2+v_2(a-s_i)\bigr)
+       \leq r(m+2+B).
+\]
+The assumed lower distances make every eigenfactor nonzero.
+Over the discrete valuation ring \(\mathbb Z_2\), row and column
+elimination at an entry of least valuation diagonalizes a matrix
+of nonzero determinant.
+Its cokernel is finite and has length the valuation of that
+determinant: the diagonal factors \(2^{b_i}\) contribute
+\(\sum b_i=v_2\det\).
+The surjection \(\pi\) induces a surjection from this free
+cokernel onto the cokernel defining \(c_m(a)\).
+This proves the required bound for \(m\geq7\).
+For \(m<7\), use the quotient comparison with \(c_7(a)\)
+from the preceding proposition.
+\end{proof}
+
+Fix an integer horizon \(Z\geq1\), and put
+\(B_Z=\lfloor\log_2 Z\rfloor\).
+Define
+\begin{equation}\label{eq:sr-exception-set}
+ \mathcal E_Z=
+ \bigcup_{i=1}^r\{a\in\mathbb Z:1\leq a\leq Z,\
+                              |a-s_i|_2<2^{-B_Z}\}.
+\end{equation}
+Each set in the union has at most one member.
+If distinct \(a,b\in[1,Z]\) belonged to it, ultrametricity would give
+\(|a-b|_2<2^{-B_Z}\).
+But \(0<|a-b|<2^{B_Z+1}\) as ordinary integers, so
+\(v_2(a-b)\leq B_Z\), a contradiction.
+Thus \(|\mathcal E_Z|\leq r\leq24\), and
+\begin{equation}\label{eq:sr-outside-exception}
+ c_m(a)\leq24(\max(m,7)+2+B_Z)
+       \quad(1\leq a\leq Z,\ a\notin\mathcal E_Z).
+\end{equation}
+The set is chosen once for the whole horizon.
+No new exceptional set is chosen when the real scale varies.
+
+\subsection{The fixed-depth discriminant}
+At depth seven,
+\[
+ L_7=\mathbb Q(\zeta_{512},\sqrt{-q},\sqrt{-d}),\qquad
+                         [L_7:\mathbb Q]=1024.
+\]
+The quadratic radicals are independent over
+\(\mathbb Q(\zeta_{512})\) by their odd valuations at \(q,d\).
+For later use we prove the explicit bound
+\begin{equation}\label{eq:sr-L7-discriminant}
+            |\operatorname{disc}L_7|
+                     \leq2^{8192}(qd)^{512}.
+\end{equation}
+The power basis for \(\zeta_{512}\) has discriminant of absolute
+value \(2^{2048}\): its polynomial is \(X^{256}+1\), and the
+product of the derivatives \(256\zeta^{255}\) at all roots has
+absolute value \(256^{256}\).
+The quadratic integral bases for the other two fields have
+discriminants \(-q,-d\).
+Products of these three bases form an integral basis of a full-rank
+order in \(L_7\), since the three fields are linearly disjoint.
+The trace matrix is the tensor product of the three trace matrices.
+Its determinant is
+\[
+       (2^{2048})^4 q^{512}d^{512}
+                          =2^{8192}(qd)^{512}.
+\]
+For an integral full-rank order of index \(I\) in the maximal
+order, the discriminants differ by \(I^2\), by the determinant
+of the basis change.
+Dropping this index proves \eqref{eq:sr-L7-discriminant}.
+In particular, if \(x\geq1\) and \(\log(qd)\leq x^{\epsilon/4}\),
+\begin{equation}\label{eq:sr-L7-logdisc}
+ \log(2|\operatorname{disc}L_7|)
+ \leq (8193\log2+512)x^{\epsilon/4}.
+\end{equation}
+
+\subsection{The one high-twist input still required}
+Let \(S_2(F)\) be the primes above two in a number field \(F\).
+Write
+\[
+ \mathcal H_2(F,a)=
+ H^2(G_{F,S_2(F)},\mathbb Z_2(a+1)).
+\]
+We use continuous cohomology for the compact coefficient module;
+equivalently one uses the inverse finite-coefficient system with
+its continuous transition maps.
+The classical Poitou--Tate duality background gives, for totally
+imaginary \(F\), the pairing
+\[
+ T_{2,a}(F)\ \times\
+ \ker\left(\mathcal H_2(F,a)\longrightarrow
+       \prod_{v\mid2}H^2(F_v,\mathbb Z_2(a+1))\right)
+                      \longrightarrow\mathbb Q_2/\mathbb Z_2 .
+\]
+It is a perfect Pontryagin pairing.
+This is the same global and local Tate duality input used in
+Section~\ref{sec:minus-characterwise}, with mutually dual
+coefficients of twists \(-a\) and \(a+1\).
+There are no real-place corrections for these fields.
+The finite-coefficient pairings pass to the stated limits:
+the finite-level groups are finite, hence their inverse systems
+satisfy the Mittag--Leffler condition; direct limits are exact,
+and only finitely many local places occur.
+Consequently finiteness of \(\mathcal H_2(F,a)\) gives
+\begin{equation}\label{eq:sr-Sha-H2}
+ s_{2,F}(a)\log2\leq\log\#\mathcal H_2(F,a).
+\end{equation}
+This inequality uses the inclusion of the displayed kernel into
+\(\mathcal H_2(F,a)\), not an equality with the whole \(H^2\).
+
+\begin{srdefinition}[The specialized high-twist bound]
+\label{def:sr-K2}
+The assertion \(K_2(C_K)\), for a fixed real \(C_K\geq1\), says
+that for every principal pair \(q,d\) and every integer \(a\geq1\),
+the group \(\mathcal H_2(L_7,a)\) is finite and
+\begin{equation}\label{eq:sr-K2}
+ \log\#\mathcal H_2(L_7,a)
+ \leq
+ \exp\bigl((2048a)^{C_K}
+                \log(2|\operatorname{disc}L_7|)\bigr).
+\end{equation}
+\end{srdefinition}
+The archive's general Lemma \(K\) implies this assertion by the
+degree calculation above and \(\mu_4\subset L_7\).
+Its class-counting and geometric proof has not been replaced by
+a standalone proof here. Thus \(K_2(C_K)\) remains an explicit
+input to the next theorem.
+
+\subsection{The dyadic estimate on the same common windows}
+\begin{srtheorem}\label{thm:sr-dyadic-window}
+Assume \(K_2(C_K)\).
+Fix \(C_t=401\), \(0<\epsilon<1/52\), and put
+\[
+ \eta=\frac{\epsilon}{2C_K},\qquad
+ J=2^{26}(2C_KC_t/\epsilon)^{24}.
+\]
+For sufficiently large \(X\), uniformly in the principal pair
+\(q,d\) satisfying
+\(\log(qd)\leq X^{\epsilon/(4J)}\), there is \(Y\) with
+\[
+ X^{1/J}\leq Y,\qquad Y^2\leq X
+\]
+such that for every \(Y\leq x\leq Y^2\), every natural \(h=h(x)\)
+with
+\[
+ x^{2+8\epsilon}\leq2^h\leq2x^{2+8\epsilon},
+                  \qquad t=\lfloor x^{401}\rfloor,
+\]
+all \(s_{2,E_h}(a)\), \(1\leq a<t\), are finite and
+\begin{equation}\label{eq:sr-full-dyadic-window}
+                \sum_{a=1}^{t-1}s_{2,E_h}(a)
+                          \leq\exp(x^{4\epsilon/5}).
+\end{equation}
+The threshold depends on \(C_K,\epsilon\), not on \(X,q,d\)
+or the subsequent choices of \(x,h\).
+An admissible depth always exists: take
+\(h=\lceil(2+8\epsilon)\log_2x\rceil\).
+\end{srtheorem}
+\begin{proof}
+For the fixed pair choose the one module, lift and list of centers
+above. Take \(Z=\lfloor X^{401}\rfloor\) and form
+\(\mathcal E_Z\) from \eqref{eq:sr-exception-set}.
+Apply the finite-exception interval selection proved in
+\eqref{eq:sr-logavoid}--\eqref{eq:sr-J}, with \(s=2\),
+\(R=24\) and this \(\eta\).
+Its exponent is \(J/2\); therefore its stronger lower bound
+\(Y\geq X^{2/J}\) implies the required \(Y\geq X^{1/J}\).
+On the resulting interval,
+\[
+ a\in\mathcal E_Z,\quad a\leq x^{401}
+                         \quad\Longrightarrow\quad a\leq x^\eta .
+\]
+This one exceptional set is used for the entire interval.
+
+For every \(x\) there, \(x\leq X\), so \(t\leq Z\).
+Also
+\[
+ \log(qd)\leq x^{\epsilon/4},\quad
+ B_Z\leq401\log_2 X\leq401J\log_2 x,\quad
+ h\leq1+(2+8\epsilon)\log_2 x.
+\]
+For a twist \(a\notin\mathcal E_Z\), combine
+\eqref{eq:sr-outside-exception} with
+\eqref{eq:sr-dyadic-return}.
+Summing over fewer than \(x^{401}\) such twists contributes at most
+\[
+                     C_1 x^{401}(1+\log x),
+\]
+where \(C_1\) depends only on \(\epsilon,C_K\) through \(J\).
+
+For an exceptional twist in the range, \(a\leq x^\eta\).
+By \eqref{eq:sr-K2} and~\eqref{eq:sr-L7-logdisc},
+\[
+ \log\#\mathcal H_2(L_7,a)
+ \leq\exp(D_0x^{3\epsilon/4}),\qquad
+ D_0=2048^{C_K}(8193\log2+512).
+\]
+Indeed \(a^{C_K}\leq x^{\epsilon/2}\).
+Once \(x^{\epsilon/40}\geq D_0\), this is at most
+\(\exp(x^{31\epsilon/40})\).
+Equations~\eqref{eq:sr-Sha-H2} and
+\eqref{eq:sr-dyadic-coker}, followed by
+Proposition~\ref{prop:sr-coker-growth} and
+\eqref{eq:sr-dyadic-return}, now give
+\[
+ s_{2,E_h}(a)
+ \leq1+\frac{\exp(x^{31\epsilon/40})}{\log2}
+                          +24(h-7)_+ .
+\]
+There are at most 24 exceptional twists.
+All these lengths are finite by \(K_2(C_K)\).
+
+The total is therefore at most
+\[
+ C_1x^{401}(1+\log x)
+ +24+\frac{24}{\log2}\exp(x^{31\epsilon/40})
+                              +576h .
+\]
+Dividing this expression by \(\exp(x^{4\epsilon/5})\) gives a
+quantity tending to zero:
+the logarithm of the polynomial terms is \(O(\log x)\), and
+\(31\epsilon/40<4\epsilon/5\).
+Thus \eqref{eq:sr-full-dyadic-window} holds for all sufficiently
+large \(x\), uniformly in the pair.
+Increasing the lower threshold for \(X\) ensures that every
+\(x\geq X^{1/J}\) meets all those thresholds.
+This proves the theorem and all its quantifiers.
+\end{proof}
+
+This proves the dyadic tower growth, finite-center estimate,
+24-element exceptional-set construction, discriminant comparison
+and common-window deduction.
+The high-twist bound \(K_2(C_K)\) is still required.
+The uniform plus estimates and the geometric supply assertion
+are separate inputs; none follows from the dyadic calculation.
+
