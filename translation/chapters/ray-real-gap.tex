@@ -1,0 +1,254 @@
+\section{A polynomial lower bound for real ray-class values}
+\label{sec:ray-real-gap}
+
+The real exceptional zero in
+Section~\ref{sec:level-prime-selection} requires a polynomial separation
+from one. We prove the quantitative implication from the ray-family
+counting and theta identities. All constants below are independent of
+the class group and its modulus.
+
+Let \(G\) be a finite abelian group of order \(H\), let \(D\geq4\),
+\(H\leq D\), and let \(a_g(n)\geq0\) satisfy
+\[
+ \begin{gathered}
+ a_g(0)=0,\qquad a_0(1)=1,\qquad a_g(1)=0\quad(g\ne0),\\
+ D^{-1}\leq\kappa\leq4,\qquad
+ \left|\sum_{n\leq u}a_g(n)-\kappa u\right|
+                                  \leq10\sqrt u\quad(u\geq1),\\
+ \left|\sum_{n\geq1}a_g(n)e^{-tn}-\frac{\kappa}{t}\right|
+                                   \leq D^{10}t\quad(0<t\leq1).
+ \end{gathered}
+\]
+For every real character \(\chi:G\to\{1,-1\}\), put
+\(a_\chi(n)=\sum_g\chi(g)a_g(n)\).
+We require the positivity furnished by the ray-family Euler product,
+in its precise coefficient form
+\begin{equation}
+ \label{eq:ray-convolution-positive}
+          \sum_{mn=k}a_1(m)a_\chi(n)\geq0\qquad(k\geq1).
+\end{equation}
+The subscript \(1\) denotes the trivial character. These are exactly
+the counting, theta, and real-convolution properties used from
+\srcid{LFam}. This section proves their analytic consequence. Their
+construction from ideals of the quadratic field is a separate input.
+
+\subsection{Continuation and uniform bounds near one}
+
+Nonnegativity and the counting bound give, for \(n\geq1\),
+\[
+       a_g(n)\leq\kappa n+10\sqrt n\leq14n,
+                         \qquad |a_\chi(n)|\leq14Dn.
+\]
+Let \(\rho=\kappa H\), and write
+\[
+ A_\chi(u)=\sum_{n\leq u}a_\chi(n),\qquad
+ R_\chi(u)=A_\chi(u)-{\bf1}_{\chi=1}\rho u .
+\]
+Orthogonality gives \(|R_\chi(u)|\leq10D\sqrt u\).
+Consequently
+\[
+        I_\chi(z)=\int_1^\infty R_\chi(u)u^{-z-1}\,du
+\]
+is holomorphic for \(\Re z>1/2\), with
+\[
+ |I_\chi(z)|\leq\frac{10D}{\Re z-1/2},\qquad
+ |I'_\chi(z)|\leq\frac{10D}{(\Re z-1/2)^2}.
+\]
+Both assertions follow by domination on every closed subregion of
+that half-plane. Differentiation inserts \(-\log u\), and
+\(\int_1^\infty u^{-a-1}\log u\,du=a^{-2}\) for \(a>0\).
+
+For \(\Re z>1\), summation by parts gives
+\[
+       L_\chi(z)
+          ={\bf1}_{\chi=1}\frac{\rho z}{z-1}
+                              +zI_\chi(z).
+\]
+Thus the regularized function used in the source is
+\[
+ F_\chi(z)=
+ \begin{cases}
+   \rho z+(z-1)zI_\chi(z),&\chi=1,\\
+   zI_\chi(z),&\chi\ne1.
+ \end{cases}
+\]
+It is holomorphic for \(\Re z>1/2\), and \(F_1(1)=\rho\).
+
+For \(|z-1|\leq1/4\), we have
+\(\Re z\geq3/4\), \(|z|\leq5/4\),
+\(|I_\chi(z)|\leq40D\), and \(|I'_\chi(z)|\leq160D\).
+If \(\chi\ne1\), differentiation gives
+\[
+                   |F'_\chi(z)|\leq40D+(5/4)160D=240D.
+\]
+For the trivial character, use
+\[
+ F'_1(z)=\rho+(2z-1)I_1(z)+(z-1)zI'_1(z).
+\]
+Since \(\rho\leq4D\), its norm is at most
+\(4D+(3/2)40D+(5/16)160D=114D\).
+In particular the weaker uniform bound used by the formal argument holds:
+\begin{equation}
+ \label{eq:ray-derivative-bound}
+                 |F'_\chi(z)|\leq18000D
+                             \qquad(|z-1|\leq1/4).
+\end{equation}
+
+\subsection{The smoothed positive kernel}
+
+For \(y>0\) define
+\[
+            W(y)=\int_0^\infty e^{-y/w-w}\,\frac{dw}{w}.
+\]
+It is positive and decreasing in \(y\).
+The elementary inequality
+\(e^{-y/w}\leq6w^3/y^3\) gives
+\[
+           0<W(y)\leq\frac6{y^3}
+                       \int_0^\infty w^2e^{-w}\,dw
+                     =\frac{12}{y^3}.
+\]
+In particular \(w_0=W(1)>0\) is an absolute finite constant.
+
+Take a nontrivial real character \(\chi\), and set
+\[
+       P(t)=\sum_{n\geq1}a_1(n)e^{-tn},\qquad
+       Q(t)=\sum_{n\geq1}a_\chi(n)e^{-tn}.
+\]
+For \(0<t\leq1\), summing the theta bounds and using character
+orthogonality gives
+\[
+       |P(t)-\rho/t|\leq D^{11}t,\qquad
+                          |Q(t)|\leq D^{11}t.
+\]
+For \(t\geq1\), the coefficient bound gives
+\[
+ |P(t)|,\ |Q(t)|
+       \leq14D\sum_{n\geq1}ne^{-nt}
+       =14D\frac{e^{-t}}{(1-e^{-t})^2}.
+\]
+There is therefore an absolute constant \(C\geq1\), for instance
+\(C=100\), for which, with \(E=CD^{11}\),
+\begin{equation}
+ \label{eq:ray-theta-kernel-bounds}
+ \begin{split}
+       |P(t)-\rho/t|&\leq E\min(t,t^{-1}),\\
+                    |Q(t)|&\leq E\min(t,t^{-1}),\\
+       |Q(t)|&\leq CD e^{-t/2}\quad(t\geq1).
+ \end{split}
+\end{equation}
+For the first two inequalities on \(t\geq1\), multiply the
+preceding exponential estimate by \(t\) and use \(te^{-t}\leq1\),
+together with \(\rho\leq4D\).
+These bounds prove that \(Q\) is integrable at zero and infinity.
+
+For \(v>0\), expansion under the integral gives
+\begin{equation}
+ \label{eq:ray-kernel-product}
+ J(v):=\int_0^\infty P(v/w)Q(w)\,\frac{dw}{w}
+           =\sum_{m,n\geq1}a_1(m)a_\chi(n)W(vmn).
+\end{equation}
+Indeed the substitution \(u=nw\) transforms
+\(\int e^{-vm/w-nw}\,dw/w\) to \(W(vmn)\).
+Every exchange is justified absolutely by
+\[
+ \sum_{m,n\geq1}|a_1(m)a_\chi(n)|W(vmn)
+       \leq\frac{12(14D)^2}{v^3}
+                              \sum_{m,n\geq1}\frac1{m^2n^2}<\infty .
+\]
+Grouping by \(mn=k\) and applying
+\eqref{eq:ray-convolution-positive} yields
+\[
+                         J(v)\geq W(v),
+\]
+because the coefficient at \(k=1\) is one.
+
+Let
+\[
+       \omega(w)=\frac{\min(w,w^{-1})}{w\sqrt w},\qquad
+       K=\int_0^\infty\omega(w)\,dw=\frac83 .
+\]
+Write \(P(v/w)=\rho w/v+R_v(w)\).
+The inequality \(\min(u,u^{-1})\leq\sqrt u\), for \(u>0\),
+and \eqref{eq:ray-theta-kernel-bounds} give
+\[
+       \left|\frac{R_v(w)Q(w)}w\right|
+                         \leq E^2\sqrt v\,\omega(w).
+\]
+The right side is integrable. Thus, putting
+\(L=\int_0^\infty Q(w)\,dw\), we obtain
+\begin{equation}
+ \label{eq:ray-upper-kernel}
+                  J(v)\leq\frac{\rho L}{v}+E^2\sqrt v K .
+\end{equation}
+This also gives an independent integrable majorant for the
+decomposition of the integral.
+
+Set
+\[
+ \delta=\min\left(1,\frac{w_0}{2(C^2K+1)}\right),\qquad
+                         s=\delta D^{-22},\qquad v=s^2 .
+\]
+Then \(0<v\leq1\), so \(W(v)\geq w_0\), and
+\[
+            E^2\sqrt v K=C^2D^{22}sK=C^2\delta K\leq w_0/2 .
+\]
+Combining the lower and upper estimates for \(J(v)\) gives
+\[
+                \frac{w_0}{2}\leq\frac{\rho L}{s^2},
+                    \qquad
+                L\geq\frac{w_0\delta^2}{8D^{45}},
+\]
+where the second inequality uses \(0<\rho\leq4D\).
+
+\subsection{Identifying the value at one}
+
+For \(\Re z>2\), absolute convergence and the gamma integral give
+\[
+       \int_0^\infty Q(t)t^{z-1}\,dt
+                   =\Gamma(z)L_\chi(z).
+\]
+The coefficient bound \(14Dn\) justifies the exchange of sum and
+integral in that region. The small-\(t\) bound \(Q(t)=O(D^{11}t)\)
+and the exponential bound at infinity show that the left side is
+holomorphic for \(\Re z>-1\), by domination on compact subsets.
+The gamma function is holomorphic and nonzero for \(\Re z>0\).
+The identity theorem, applied in \(\Re z>1/2\), therefore identifies
+this integral divided by \(\Gamma(z)\) with the continuation
+\(F_\chi(z)\) there. At \(z=1\), since \(\Gamma(1)=1\), it gives
+\[
+                           F_\chi(1)=L.
+\]
+For the trivial character \(F_1(1)=\rho\geq D^{-1}\).
+Consequently the positive absolute constant
+\[
+                  c_0=\min(1,w_0\delta^2/8)
+\]
+satisfies, for every real character including the trivial one,
+\begin{equation}
+ \label{eq:ray-real-value}
+                         |F_\chi(1)|\geq c_0D^{-45}.
+\end{equation}
+If \(3/4\leq\beta<1\) and \(F_\chi(\beta)=0\), integrate
+\(F'_\chi\) along the segment from \(\beta\) to \(1\) and use
+\eqref{eq:ray-derivative-bound}. Then
+\[
+       c_0D^{-45}\leq|F_\chi(1)|
+                         \leq18000D(1-\beta),
+ \qquad
+             1-\beta\geq\frac{c_0}{18000}D^{-46}.
+\]
+This supplies the required polynomial gap with an explicit
+admissible exponent. The ray-family counting, theta and convolution
+identities and the uniform characterwise explicit formula remain the
+inputs for the norm-prime count. The lower bound at one and the
+deduction of the real-zero gap have been proved here.
+
+\paragraph{Source map.}
+The exponential estimates correspond to
+\srcid{ExpSumBounds}; the kernel and its positive convolution to
+\srcid{NormRayClassFamilyFOneGeOfRealCharacter}; and the last integration
+to \srcid{ExistsRayClassLFunctionRealZeroFarFromOne}.
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Definitions/GlobalTwisting/LamIdealOfNotPrimePow.lean}{The ray-family hypotheses};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/NormRayClassFamilyFOneGeOfRealCharacter.lean}{the positive-kernel proof};
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRayClassLFunctionRealZeroFarFromOne.lean}{the real-zero gap}.}

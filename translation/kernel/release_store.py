@@ -20,7 +20,14 @@ def gh(*args, **opts):
 
 
 def api(route, *args):
-    return json.loads(gh("api", *args, route, capture_output=True).stdout)
+    attempts = 1 if "--method" in args or "-X" in args else 5
+    for attempt in range(attempts):
+        try:
+            return json.loads(gh("api", *args, route, capture_output=True).stdout)
+        except (subprocess.CalledProcessError, json.JSONDecodeError):
+            if attempt + 1 == attempts:
+                raise
+            time.sleep(2 ** attempt)
 
 
 def paginate(route):
@@ -28,6 +35,12 @@ def paginate(route):
 
 
 def release(create=False, *, tag=TAG, target=None, title=None, body=None):
+    pinned = {"rh-literal-kernel-v1": 453307898, "rh-literal-audit-v1": 453326245}
+    if tag in pinned:
+        result = api(f"repos/{REPO}/releases/{pinned[tag]}")
+        if result["tag_name"] != tag or result["author"]["login"] != "github-actions[bot]":
+            raise RuntimeError("unexpected edition release identity")
+        return result
     route = f"repos/{REPO}/releases"
     matches = [r for r in paginate(route + "?per_page=100") if r["tag_name"] == tag]
     if len(matches) == 1:
