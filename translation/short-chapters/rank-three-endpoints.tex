@@ -1,0 +1,1029 @@
+\section{The finite rank-three host and exact automorphic endpoints}
+\label{sec:sr-rank-three-host-endpoints}
+
+\subsection{Constant characteristic polynomials and the Gaussian finite part}
+\label{subsec:sr-constant-character-finite-part}
+We make explicit the last algebraic step from
+\(\mathrm{FinEnd}\) to a finite weight-zero algebra.
+All groups below are the actual finitely ramified arithmetic
+quotients, so Lemma~\ref{lem:sr-finite-cross-cocycles}
+and Proposition~\ref{prop:sr-finite-CH} apply.
+The latter proposition and the integral determinant identity
+(H9) are valid in characteristic \(3\).
+
+\begin{srlemma}\label{lem:sr-constant-character-triangular}
+Let \(k\) be a finite field of odd characteristic,
+\(A\) a local domain containing \(k\), and
+\(r:\Gamma\to\mathrm{GL}_3(A)\rtimes\{\pm1\}\)
+an actual normalized rank-three unitary point.
+Write \(H=\ker\eta\).
+Suppose its reduction is the torus tuple
+\((\chi,1,\chi^{-1})\), with \(\chi(g_1)^2\ne1\).
+Suppose on an open subgroup of \(H\) its matrix
+characteristic polynomials equal those of that tuple.
+Then the matrices on \(H\) are all upper triangular
+or all lower triangular in the marked basis, and every
+diagonal entry equals its prescribed constant character.
+\end{srlemma}
+\begin{proof}
+For each \(g\in H\), some positive power \(g^s\)
+belongs to the given open subgroup.
+An eigenvalue \(\alpha\) of \(r(g)\) has \(\alpha^s\)
+algebraic over \(k\), so \(\alpha\) is algebraic over \(k\).
+Thus every characteristic coefficient of \(r(g)\)
+is algebraic over \(k\).
+An element of \(A\) algebraic over the finite field \(k\)
+belongs to a finite subfield of \(A\).
+Reduction is injective on that subfield.
+Its prescribed residual value consequently determines it
+exactly.
+It follows that
+\[
+ \operatorname{char}_{r(g)}(T)
+                   =(T-\chi(g))(T-1)(T-\chi(g)^{-1})
+                                \quad(g\in H).
+ \tag{CF1}
+\]
+
+Here is the exact triangularity argument in the marked basis.
+Let \(c\) be the normalized conjugation, so its matrix
+part is \(1\), and put \(g^*=cg^{-1}c\).
+The unitary law gives
+\[
+ r(g^*)=J_3r(g)^{\mathsf t}J_3^{-1}\qquad(g\in H).
+\]
+The marked normalization kills the two adjacent entries
+of \(r(g_1)-r(g_1^*)\).
+The other two off-diagonal entries cancel automatically
+under this transpose reflection.
+Hence
+\[
+             r(g_1)-r(g_1^*)=\operatorname{diag}(\zeta,0,-\zeta),
+ \tag{CF2}
+\]
+where \(\zeta\) reduces to
+\(\chi(g_1)-\chi(g_1)^{-1}\) and is a unit.
+The three diagonal values in (CF2) are distinct,
+since \(2\ne0\).
+
+We first exclude irreducibility over \(\operatorname{Frac}A\).
+By (H9), the characteristic polynomials on group words
+determine the full determinant on the group algebra
+without division by \(3!\).
+Equation (CF1) therefore factors this representation
+through the constant-character Cayley--Hamilton algebra
+of Proposition~\ref{prop:sr-finite-CH}, after scalar extension.
+Indeed continuity modulo every power of the maximal
+ideal gives a finite quotient representation at each
+precision; its determinant kills the defining
+Cayley--Hamilton relations, and separatedness then makes
+the original representation kill their closed ideal.
+Thus passage to the fraction field does not silently
+discard the completed-algebra condition.
+Its nilpotent radical has quotient \(k^3\), as in that
+proposition's proof.
+Every irreducible representation of this algebra is
+one-dimensional: the radical annihilates a simple module,
+and the three coordinate idempotents of \(k^3\) split it.
+Thus the rank-three representation is reducible.
+
+Any invariant subspace is invariant under (CF2).
+Its spectral projectors, obtained by Lagrange interpolation
+at \(\zeta,0,-\zeta\), show that it is spanned by
+a nonempty proper subset of the three coordinate vectors.
+If every matrix entry \(ij\) vanishes on \(H\), so does
+entry \(2-j,2-i\), by the unitary reflection.
+There are six coordinate subsets to check.
+The subsets \(\{0\},\{0,1\}\) force upper triangularity;
+\(\{2\},\{1,2\}\) force lower triangularity.
+The subsets \(\{1\},\{0,2\}\) force a block decomposition
+of the middle line and the outer two coordinates.
+
+In this last case the middle entry is an eigenvalue,
+hence algebraic over \(k\); its residual value is \(1\),
+so it equals \(1\).
+The outer block has characteristic polynomial
+\((T-\chi(g))(T-\chi(g)^{-1})\) for every \(g\).
+Apply the rank-two instance of the same
+Cayley--Hamilton argument.
+The outer representation is reducible.
+Its invariant line is a coordinate line because
+the restriction of (CF2) is
+\(\operatorname{diag}(\zeta,-\zeta)\).
+One of the two corner entries consequently vanishes
+on every \(g\), and the whole rank-three representation
+is upper or lower triangular.
+Injection into \(\operatorname{Frac}A\) transports
+these zero entries back to \(A\).
+
+Each diagonal entry in a triangular matrix is an
+eigenvalue, so the finite-field argument following
+(CF1) fixes it to its prescribed residual character.
+Finally the matrix part of \(r(gc)\) equals that of
+\(r(g)\); thus the same diagonal assertion holds
+outside \(H\) as well.
+\end{proof}
+
+\begin{srlemma}\label{lem:sr-graded-finite-part-criterion}
+Let \(\mathcal O\) be a complete coefficient DVR with
+finite residue field and uniformizer \(\varpi\).
+Let \(R\) be the actual complete Noetherian local
+homogeneously presented algebra, with finitely many
+homogeneous generators \(z_i\in\mathfrak m_R\),
+of integer weights.
+Let \(B=R_0\) be its completed weight-zero algebra.
+Suppose every local specialization \(R\to A\), with
+\(A\) a complete characteristic-residue-prime DVR
+with finite residue field, kills every zero-weight
+generator and kills either all positive-weight or
+all negative-weight generators.
+Then \(B\) is finite over \(\mathcal O\).
+\end{srlemma}
+\begin{proof}
+The zero-weight monoid of exponent vectors has finitely
+many generators.
+For example intersect the nonnegative rational cone
+with the integral kernel of the weight homomorphism;
+triangulating its rational polyhedral cones and taking
+the finitely many lattice points in their bounded
+fundamental parallelepipeds proves this assertion.
+Consequently \(B\) is a complete Noetherian local
+\(\mathcal O\)-algebra with maximal ideal generated by
+\(\varpi\) and finitely many nonconstant balanced
+monomials \(b_1,\ldots,b_t\) in the \(z_i\).
+The continuous weight-zero projection is
+\(\mathcal O\)-linear, and gives
+\[
+                       (\varpi R)\cap B=\varpi B.
+ \tag{CF3}
+\]
+
+We claim \(b_j\in\sqrt{\varpi R}\).
+Otherwise choose a prime \(P\supset(\varpi)\) avoiding
+\(b_j\).
+In the complete local domain \(R/P\), its image is
+nonzero and belongs to the maximal ideal.
+There is a one-dimensional domain quotient preserving
+that nonzero image.
+Here is a direct curve-selection argument.
+If the dimension exceeds one, choose an element of
+the maximal ideal outside the finitely many height-one
+minimal primes above that image.
+A minimal prime above the chosen element has height
+one by the principal ideal theorem and avoids the
+image; quotient by it.
+Dimension decreases, and iteration ends in dimension one.
+The normalization of this one-dimensional complete local
+domain is finite, local and a complete DVR, with finite
+residue field.
+Thus there is a local map \(R\to A\) of the kind in
+the hypothesis with \(b_j\) nonzero.
+
+A nonconstant zero-weight monomial either contains a
+zero-weight variable, or contains variables of both
+signs.
+Every such monomial maps to zero under the hypothesis,
+a contradiction.
+This proves the claim.
+Use (CF3) on a power of \(b_j\) to get
+\(b_j\in\sqrt{\varpi B}\).
+Since these finitely many monomials and \(\varpi\)
+generate the maximal ideal,
+\(\mathfrak m_B^s\subset\varpi B\) for some \(s\).
+Hence \(B/\varpi B\) is finite over the residue field.
+The \(\varpi\)-adic and maximal-ideal topologies are
+equivalent by this containment.
+Completeness and the usual successive lifting of a
+basis of \(B/\varpi B\) show that finitely many elements
+generate \(B\) over \(\mathcal O\).
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-host-finite-part-from-finend}
+For the actual marked rank-three host algebra,
+\(\mathrm{FinEnd}\) implies finiteness of its weight-zero
+part over the coefficient DVR.
+\end{srproposition}
+\begin{proof}
+Its adapted homogeneous generators are matrix entries
+of \(r-r_{\mathrm{tor}}\); their weights are the
+differences of \(1,0,-1\).
+They all belong to the maximal ideal by residual
+normalization.
+A characteristic-\(\ell\) DVR specialization gives the
+ordinary point to which \(\mathrm{FinEnd}\) applies.
+That condition fixes its characteristic polynomials
+on an open subgroup of \(\ker\eta\).
+Lemma~\ref{lem:sr-constant-character-triangular} makes
+it upper or lower triangular with the prescribed
+constant diagonal.
+The zero-weight generator images are therefore zero;
+in one triangular case all positive-weight images
+vanish, and in the other all negative-weight images
+vanish.
+Lemma~\ref{lem:sr-graded-finite-part-criterion}
+gives the required finite weight-zero part.
+\end{proof}
+
+The exact frozen-source chain is
+\srcid{CurveDVRSpecialization/ConstOfChar.lean},
+\srcid{UnitaryThreeDeformations/UniversalDiagonalOfTriangularPoints.lean},
+and
+\srcid{CurveDVRSpecialization/FinCrit.lean}.
+The preceding proofs give their needed arithmetic specialization.
+The intermediate \srcid{DiagEq} theorem fixes diagonals for
+general triangular ordinary points using the frame's class-one
+condition; here characteristic-\(\ell\) finiteness needs only
+the stronger constant-character argument (CF1).
+No unspecified triangularity or diagonal-finiteness assertion
+is retained in the implication from (G10) to the finite
+Gaussian host algebra.
+
+
+\subsection{The actual Gaussian seeds and their common support}
+\label{subsec:sr-gaussian-producer}
+We give the arithmetic specialization needed for the
+large-conductor Gaussian branch, including coefficient
+prime \(3\).
+The shared sharp/flat propagation theorem has a precise
+remaining role at the end of this subsection;
+automorphy is not assumed as a Gaussian literature input.
+
+Fix \(K=\mathbb Q(i)\), \(\eta=\eta_K\),
+\(\ell\in\{3,7\}\), twist \(1\), and an actual principal
+character \(\psi\) in the large-conductor branch.
+Thus \(\ell\nmid N\), \(4\mid N\),
+\(\psi(-1)=-1\), and its dyadic component \(\psi_2\)
+is even and primitive of conductor \(2^c\).
+Put \(\Psi=\epsilon_\ell\psi\).
+The bounds in Lemma~\ref{lem:sr-dyadic-three-seven}
+give \(c\ge14\) at \(3\), \(c\ge18\) at \(7\), and
+\[
+           \operatorname{ord}\psi(3)=2^{c-2},\qquad
+           \operatorname{ord}\psi(7)=2^{c-3}.
+ \tag{G1}
+\]
+In particular these orders exceed \(8\).
+All finite character values have order prime to \(\ell\).
+
+\subsubsection{A scalar prime and the real quadratic base}
+Choose a dyadic unit \(b\equiv1\pmod4\) with
+\(\psi_2(b)=-1\).
+Such a unit exists because \(\psi_2\) is faithful on
+the cyclic \(1+4\)-quotient.
+Set the odd-prime residues equal to \(1\).
+The Chinese remainder theorem and Dirichlet's theorem
+give a fresh prime \(p_0\) with
+\[
+         p_0\equiv b\pmod{2^c},\quad
+         p_0\equiv1\pmod{qd},\quad
+         p_0\equiv-1\pmod\ell .
+\]
+The harmless larger dyadic level in \(N\) can be included
+by lifting the chosen residue.
+Hence
+\[
+       \eta(p_0)=1,\quad
+       \bar\psi(p_0)=-1,\quad
+       \bar\Psi(p_0)=1,\quad
+       \bar\epsilon_\ell(p_0)=-1 .
+ \tag{G2}
+\]
+Thus \(p_0\) splits in \(K\).
+Both residual tuples
+\((\bar\Psi,\bar\Psi^{-1})\) and
+\((\bar\Psi,1,\bar\Psi^{-1})\) are scalar there.
+We may avoid any given finite set.
+
+Choose a fresh positive prime \(D\equiv7\pmod8\).
+At each odd level prime \(p\), including \(\ell\),
+require
+\[
+                   (D/p)=\eta(p),
+\]
+and also require \((D/p_0)=1\).
+These conditions specify nonzero residues modulo the
+distinct primes, so another reduced arithmetic progression
+and Dirichlet's theorem produce such a \(D\).
+Put
+\[
+                       F_0^+=\mathbb Q(\sqrt D).
+\]
+At \(2\), its completion is \(\mathbb Q_2(i)\);
+at every odd level prime its quadratic local character
+equals that of \(K/\mathbb Q\).
+Thus every level prime splits in
+\(F_0^+K/F_0^+\).
+Moreover
+\[
+ \operatorname{disc}(F_0^+K)
+        =(-4)(4D)(-D)=16D^2
+                     =\operatorname{disc}(F_0^+)^2 .
+\]
+The relative discriminant formula shows that this CM
+quadratic extension is unramified at every finite place.
+This real quadratic field is the exact index-two
+\(\mathrm{H}_0\) of the source's
+\srcid{FrobeniusSplitPrimeDatum}.
+The extra ramification at \(D\), outside the level,
+supplies that datum's fresh ramified prime.
+The prime \(p_0\) splits in \(F_0^+K\).
+At \(\ell\), the completion of \(F_0^+\) is the
+unramified quadratic extension, since \(\ell\) is
+inert in \(K\).
+
+Choose a fresh prime
+\(w\equiv1\pmod{\ell N}\) and a character \(\vartheta\)
+of exact order \(\ell\), conductor \(w\).
+It is even and congruent to \(1\) modulo the coefficient
+maximal ideal.
+Let \(F_\vartheta/\mathbb Q\) be its real cyclic
+degree-\(\ell\) field.
+For the depth \(r\) required by the common frame put
+\[
+ F_r^+=F_0^+F_\vartheta
+        \mathbb Q(\zeta_{\ell^{r+1}})^{\mu_{\ell-1}},
+                  \qquad L_r=F_r^+K .
+ \tag{G3}
+\]
+The CM extension remains finite-unramified and split
+at all level primes.
+Its real degree is even.
+The new residue degrees at \(p_0\) are powers of the
+odd prime \(\ell\), so (G2) survives on its decomposition
+groups over \(F_r^+\).
+This supplies the actual scalar-place condition for
+both ranks and their scalar twists.
+
+\subsubsection{The exact local conditions of the Gaussian frame}
+There is no need to require
+\(\bar\Psi^2\ne1\) on \(\ell\)-adic inertia.
+That assertion would fail at \(\ell=3\).
+The source's local separation condition concerns the
+whole decomposition group, and it holds here.
+
+Let \(f\) be a rational local uniformizer lift with
+\(\epsilon_\ell(f)=1\).
+Since \(K/\mathbb Q\) is inert at \(\ell\), \(f^2\)
+fixes \(K\), and
+\[
+                 \bar\Psi(f^2)^2=\bar\psi(\ell)^4\ne1 .
+ \tag{G4}
+\]
+Over a field in (G3) the unramified local degree is
+\(2\ell^u\) for some \(u\ge0\);
+the cyclotomic extra ramification has \(\ell\)-power degree.
+Thus (G1) still gives (G4) on every actual local
+decomposition group.
+More explicitly, for \(j=\pm1,\pm2\), both
+\(\bar\Psi^j\) and
+\(\bar\Psi^j\bar\epsilon_\ell^{-1}\)
+are nontrivial there.
+Evaluate on \(f^{2\ell^u}\):
+the cyclotomic value is \(1\) and the nontriviality
+is detected by \(\bar\psi(\ell)^{2j\ell^u}\).
+These are the full-local-group invariant vanishings
+used in local Tate duality and the Euler formula.
+
+The mod-\(\ell\) cyclotomic inertia image is still full:
+the initial real base is unramified at \(\ell\) and
+the later ramification has \(\ell\)-power index,
+whereas its order is \(\ell-1\).
+This is exactly the source's \(\mathrm{UFacts.mu}\).
+The local fields contain no \(\mu_\ell\).
+Their pro-\(\ell\) unit groups therefore have the
+free ranks used in the ordinary module construction.
+The character \(\bar\Psi\) is trivial on this pro-\(\ell\)
+inertial part.
+
+The other Gaussian frame separation has an explicit
+global witness.
+Take the dyadic residue \(-1\), odd-prime residues \(1\),
+and residue \(1\pmod\ell\).
+Evenness of \(\psi_2\) gives an element with
+\[
+              \bar\epsilon_\ell=1,\qquad
+              \bar\Psi=1,\qquad \eta=-1 .
+ \tag{G5}
+\]
+Thus
+\(\ker\bar\epsilon_\ell\cap\ker\bar\Psi
+ \not\subset\ker\eta\), the exact \(\mathrm{Gen.g4}\).
+Equation (G4) supplies \(\mathrm{Gen.g5}\).
+All finite inertial values away from \(\ell\) have
+\(2\)-power order, so their Teichm\"uller lift is
+unchanged and the source's character \(\mathrm{H}_b\)
+may be the whole group.
+
+Apply the shared arithmetic-frame construction with this
+fixed real quadratic base and these witnesses.
+Its Ferrero--Washington class-rank bound is chosen
+before the cyclotomic depth; its local invariant
+conditions are the full-decomposition-group assertions
+just checked.
+For the two strict classes
+\(\bar\Psi^{-a'}\eta\), \(a'=1,2\), nontriviality over
+\(F_r^+\) follows from (G4), including when inertia is
+trivial at \(3\).
+Consequently the restriction on \(H^1\) is injective
+by inflation--restriction.
+The local Euler/Poitou--Tate proof and the class-rank
+bounds are unchanged.
+Choose the depth only afterwards, as in that shared proof.
+The marked element is chosen using (G4), in the local
+decomposition group.
+It is not required to belong to inertia.
+These observations match the source's
+\(\mathrm{Frame.Ok}\), \(\mathrm{Frame.Big}\) and
+\(\mathrm{GalLink}\) conditions at \(3\) as well as \(7\).
+
+\subsubsection{Two actual cuspidal seeds}
+Use \(\chi'=\psi\), \(j=1\), and the same
+\(\eta,\vartheta,w,L_r\) for both ranks.
+These satisfy the source's
+\srcid{FieldPairCharacterTripleConditions}:
+\(\eta\) cuts out \(K\), its conductor divides \(N\),
+\(\chi'(-1)=-1\), the prime \(w\) splits both finite
+characters, and \(\vartheta|_{G_{L_r}}=1\).
+The local witness (G4) is its nontrivial-square condition.
+Also \(\chi'\ne\eta\) and its order is prime to \(\ell\),
+by the large dyadic conductor.
+
+Take \(m\equiv1\pmod{\ell-1}\) as large as needed.
+For rank three, apply the constructed Eisenstein seed
+to the primitive character underlying
+\[
+                         \varphi_3=\psi\eta
+\]
+and the auxiliary \(\vartheta\), at weight \(m+1\).
+This even character is nontrivial: a conductor at least
+\(2^{14}\) cannot be canceled by the quadratic
+conductor-four factor.
+Let \(\rho_3\) be the resulting two-dimensional
+ordinary cuspidal Galois representation.
+Set
+\[
+                            r_3=\operatorname{ad}^0\rho_3
+                                                    |_{G_{L_r}} .
+\]
+Its residual tuple, ordinary inertial exponents and
+finite inertia are exactly
+\[
+ \begin{array}{c|c|c}
+ \hbox{residual tuple}&\hbox{cyclotomic exponents}&
+                                     \hbox{finite inertia tuple}\\ \hline
+ (\bar\Psi,1,\bar\Psi^{-1})&(m,0,-m)&(\psi,1,\psi^{-1}) .
+ \end{array}
+ \tag{G6}
+\]
+The scalar automorphic normalization is
+\(k_3=\epsilon_\ell^{-1}\).
+
+For rank two use instead
+\(\varphi_2=\psi^2\eta\), an odd, hence nontrivial,
+character, and classical weight \(2m+1\).
+Let \(\rho_2\) be its ordinary cuspidal representation
+and put
+\[
+                   \sigma_2=\rho_2\epsilon_\ell^{-m}\psi^{-1}.
+\]
+The determinant and ordered residual characters are
+\[
+ \det\sigma_2=\eta\vartheta,\qquad
+ \bar\sigma_2^{\,\mathrm{ss}}
+       =(\bar\epsilon_\ell^m\bar\psi\eta)
+                     \oplus(\bar\epsilon_\ell^{-m}\bar\psi^{-1}).
+ \tag{G7}
+\]
+Its restriction \(r_2=\sigma_2|_{G_{L_r}}\) therefore
+has determinant one, residual tuple
+\((\bar\Psi,\bar\Psi^{-1})\), ordinary exponents
+\((m,-m)\), and finite inertia
+\((\psi,\psi^{-1})\), with the indicated ordering.
+These are the exact rank-two seed data,
+not just a matching adjoint trace.
+
+Both classical levels are their primitive character
+conductors times \(w\), and divide \(Nw\).
+Their minimal-level local calculation gives \(N=0\)
+and the specified rank-one inertial summands.
+At \(w\), restriction to \(L_r\) kills
+\(\vartheta\), so both seeds become unramified there.
+Thus \(w\) does not enlarge their tame packet on \(L_r\).
+At \(\ell\) they are crystalline ordinary, with the
+unit-root congruence supplied by the Eisenstein seed.
+The coefficient-\(3\) construction is
+Section~\ref{subsec:sr-eisenstein-three}; no
+\(\ell\ge5\) assumption is retained.
+
+The strong-open irreducibility proof in the constructed
+seed applies to both \(\rho_i\).
+For \(\rho_3\), the ratio of the residual characters
+on a local element above \(\ell\) has nontrivial square
+by (G1)--(G4).
+For \(\rho_2\), its square is detected by
+\(\psi(\ell)^8\ne1\).
+Thus neither residual ratio can be quadratic.
+A quadratic self-twist is excluded, and the distinct
+Hodge numbers exclude finite projective image.
+Consequently both two-dimensional representations and
+the rank-three adjoint remain irreducible on every
+open subgroup.
+This proof is valid in coefficient characteristic
+\(3\), since only characteristic zero and preservation
+of quadratic characters modulo an odd prime are used.
+
+\subsubsection{An explicit Gaussian rank-two scalar character}
+There is a particularly concrete \(k_2\) in this case.
+Let \(E:y^2=x^3-x\).
+Its CM endomorphism \(i\) is defined over \(K\);
+after splitting coefficients its Tate representation on
+\(G_K\) is a sum of characters \(\lambda,\lambda^c\).
+The Weil pairing gives
+\[
+                              \lambda\lambda^c=\epsilon_\ell .
+\]
+The character \(\lambda\) is the usual Gaussian
+algebraic Hecke character: a prime-to-\(2\) ideal has
+a unique generator congruent to \(1\) modulo
+\((1+i)^3\), and this generator gives its ideal
+character, with the reciprocity orientation fixed above.
+This explicit description is recorded, for example, in
+\href{https://www.college-de-france.fr/media/professeurs-honoraires/UPL6386850193290496047_cours_Taiwan_avril__10juin_2011__5.pdf}
+{Serre, \emph{Lectures on \(N_X(p)\)}, Section 2.2.2}.
+It shows that the finite conductor is supported at \(2\)
+and its finite inertial values lie in \(\mu_4\).
+Choose the CM embedding for which \(\lambda\) has
+cyclotomic exponents \((1,0)\), and set
+\[
+                                  k_2=\lambda^{-1}|_{G_{L_r}} .
+ \tag{G8}
+\]
+It is algebraic, has exponents \((-1,0)\), and
+\(k_2k_2^c=\epsilon_\ell^{-1}\).
+
+This character also satisfies the source's transfer
+condition, which cannot be replaced just by that norm
+identity.
+For \(t\in G_{\mathbb Q}\setminus G_K\), the matrix of
+\(t\) on the two CM lines is off-diagonal.
+Its determinant is \(\epsilon_\ell(t)\).
+Its square on either line is therefore
+\(-\epsilon_\ell(t)\); hence
+\[
+              \lambda(t^2)=-\epsilon_\ell(t),\qquad
+              \lambda^{-1}(t^2)=-\epsilon_\ell(t)^{-1}.
+ \tag{G9}
+\]
+This is exactly \(\mathrm{IsTwist.ver}\).
+Finite inertia away from \(\ell\) is killed by the
+prime-to-\(\ell\) integer \(4\).
+Good reduction of \(E\) at \(3,7\) makes its rank-one
+characters crystalline there.
+All fields of coefficients are finite.
+Thus (G8) supplies every character requirement in
+the actual rank-two seed normalization.
+
+The trace-zero trace form gives the symmetric
+conjugate pairing of \(r_3\).
+For rank two, write \(J\) for the alternating
+two-by-two form and use \(J\sigma_2(c)\).
+Since \(\det\sigma_2(c)=-1\) and \(c^2=1\),
+this matrix is symmetric and gives a conjugate pairing
+of \(r_2\) with multiplier one.
+Twisting by (G8) changes that multiplier to
+\(\epsilon_\ell^{-1}\), the rank-two conjugate-self-dual
+Galois normalization.
+Similarly \(r_3\epsilon_\ell^{-1}\) has multiplier
+\(\epsilon_\ell^{-2}\), the rank-three normalization.
+
+Cyclic base change of the two classical cusp forms
+to \(L_r\) is cuspidal by strong-open irreducibility.
+Their algebraic twists remain cuspidal and regular.
+The Gelbart--Jacquet adjoint lift gives the cuspidal
+rank-three realization of (G6), with normalization
+\(r_3\epsilon_\ell^{-1}\).
+The actual local principal-series parameters have
+\(N=0\).
+The ordinary eigenvalues are those determined by
+the unit and uniformizer equations (H5)--(H6), in
+ranks two and three respectively.
+The generic unitary window, or the adjoint root bound
+proved in the constructed seed, supplies the
+unlinked local condition.
+This verifies the full automorphic-and-local seed
+conditions \(\mathrm{IsSeedAlt}\).
+
+\subsubsection{Insertion in the same two function modules}
+The definite groups \(U(2)\) and \(U(3)\) may both be
+taken from the positive definite identity hermitian forms.
+At every finite place the CM extension is unramified,
+and units are local norms; these forms are quasi-split
+there.
+Their real signatures are definite, and the even
+real degree in (G3) gives the required existence parity.
+They are actual pure inner forms.
+
+Apply the stable cuspidal seed insertion argument of
+Lemma~\ref{lem:sr-stable-three-seed-insertion} in ranks
+three and two.
+Only the rank of the local type and Jacquet equations
+changes.
+KMSW is used only for its proved generic-parameter
+pure-inner case.
+At tame places the coefficient lattice is
+\(\bigotimes\sigma^{\mathrm{crys}}(\tau)^\vee\).
+At \(\ell\) the ordered ordinary Jacquet vector has
+exactly the \(\theta^{-1}\) coefficient character and
+the normalized unit \(U_j\)-values in (H5)--(H6).
+The finite integral vector, its residual localization
+and classical control therefore occur in the same
+ordinary modules and universal determinant quotients
+used for the two runs.
+The actual Hecke kernels vanish at these actual seeds.
+This supplies the Gaussian \(\mathrm{seedPtOf}\)
+hypotheses in both ranks.
+
+The coefficient interpolation, ordinary projector,
+projectivity, coefficient change, old/new maps and
+nilpotence calculation of the common construction
+are rank independent.
+They divide neither by \(3\) nor by \(3!\);
+the rank-three nilpotence exponent is \(3!=6\).
+The normalized inertia types and ordinary characters
+here have just been identified.
+Accordingly the only shared support input still needed
+at this interface is the completed sharp/flat
+rank-two/rank-three propagation theorem, with its
+actual arithmetic frame bound and its two strict
+classes.
+It is the theorem implemented by
+\(\mathrm{PrLinkedEnd}\to\mathrm{AbsMain}
+ \to\mathrm{PropagationTheoremGL3}\), using the
+rank-two sharp/flat run.
+Once that shared construction has been completed,
+it gives, on this very frame,
+\[
+ \mathrm{FinPt}(\Phi,3),\qquad
+ \mathrm{AutPt}(\Phi,3,\epsilon_\ell^{-1}),\qquad
+ \mathrm{AutPt}(\Phi,2,k_2).
+ \tag{G10}
+\]
+The two actual distinguished auxiliary places remove
+each other's omitted-place qualification.
+This is the precise use of the common theorem;
+(G10) is not inferred merely from an Eisenstein
+congruence or a regular algebraic realization of the seed.
+
+\subsubsection{From the shared output to the Gaussian host endpoint}
+We record the final implication so that, after (G10),
+no further Gaussian automorphy premise remains.
+The quotient map in \(\mathrm{GalLink}\) is by the
+closed normal closure of the inertia elements on which
+\(\eta\) and \(\bar\Psi\) are both trivial.
+An actual marked Gaussian point therefore restricts
+to the exact ordinary rank-three representation
+of \(\Phi\), with inertial tuple
+\((\Psi,1,\Psi^{-1})\).
+The source's \(\mathrm{exists\_nrep3}\) is this
+restriction and ordinary flag, with its stable lattice;
+it does not posit a new representation.
+
+First use \(\mathrm{FinPt}(\Phi,3)\) in (G10) to obtain
+\(\mathrm{FinEnd}\) on the open group \(G_{L_r}\).
+Characteristic-\(\ell\) fixed-inertia points then have
+the residual characteristic polynomials there.
+Lemma~\ref{lem:sr-constant-character-triangular}
+gives upper or lower triangularity in the actual marked
+basis and fixes each diagonal to its constant character.
+The balanced-monomial argument in
+Lemma~\ref{lem:sr-graded-finite-part-criterion},
+applied exactly in
+Proposition~\ref{prop:sr-host-finite-part-from-finend},
+therefore makes the weight-zero universal part finite
+over the coefficient ring.
+These proofs reconstruct the needed
+\srcid{ConstOfChar}--\srcid{UniversalDiagonalOfTriangularPoints}--%
+\srcid{FinCrit} chain and are valid in characteristic three.
+It is exactly the required specialization of the
+finiteness clause of \(\mathrm{ThmS6Core\_s}\).
+Every resulting characteristic-zero universal point
+therefore admits the finite integral DVR model and
+normalization used by the ordinary-point argument.
+This finiteness is obtained before applying the
+strong-open assertion to such a point.
+
+For a type-I characteristic-zero host point,
+Section~\ref{sec:spectrum-open-irreducibility} proves
+irreducibility on every open subgroup of \(G_K\).
+Thus its restriction to \(G_{L_r}\) is irreducible.
+The rank-three assertion in (G10) gives actual
+regular algebraic cuspidal automorphy of
+\[
+                             \widehat\rho|_{G_{L_r}},
+                         \qquad \widehat\rho=\rho\epsilon_\ell^{-1}.
+\]
+Use exact cyclic descent
+(Lemma~\ref{lem:sr-cyclic-exact-descent}) along
+the abelian CM extension \(L_r/K\).
+The finite character correction in that lemma is
+included, so the descended representation is attached
+exactly to \(\widehat\rho\).
+
+The semidirect unitary law and the normalized conjugation
+matrix give
+\[
+              \rho(g)^{\mathsf t}J_3\rho(cgc^{-1})=J_3
+                           \quad(g\in G_K).
+\]
+Thus \(\widehat\rho\) has the exact conjugate pairing
+with multiplier \(\epsilon_\ell^{-2}\).
+Chebotarev and strong multiplicity one give genuine
+conjugate self-duality of its rank-three automorphic
+realization.
+Full local--global compatibility therefore applies.
+Its ordinary, finite-inertia, and full local group
+conditions give the actual local window predicate,
+as in Proposition~\ref{prop:sr-actual-wit};
+the scalar normalization cancels from every ratio.
+At \(\ell=3,7\) one may also use directly
+Lemma~\ref{lem:sr-gaussian-local-ratios} and the
+full comparison: there is no cyclotomic edge,
+monodromy is zero, and the fixed inertial type is
+unramified in Weil--Deligne normalization.
+This yields the asserted crystalline condition.
+No comparison of semisimplified Weil characters alone
+is used to identify monodromy.
+
+The type-I points have the automorphy just descended,
+and their strong-open irreducibility was proved
+independently in the cited ordinary-point argument.
+Proposition~\ref{prop:sr-cyclotomic-restriction} supplies
+the infinite-cyclotomic-kernel condition.
+Together these give all three clauses of
+\(\mathrm{BPrime\_s}\) at the actual Gaussian host,
+once the explicitly stated common support input (G10)
+is supplied.
+
+This locates the remaining common dependency exactly.
+The Gaussian prime-\(3\) seed, its character normalization,
+its actual module insertion, the finite-unramified
+real quadratic base, local frame witnesses and the
+descent/local-comparison implication have been proved
+here. Completion of the shared sharp/flat propagation
+construction supplies (G10); none of the predicates
+\(\mathrm{BPrime\_s.aut}\) or
+\(\mathrm{ThmS6Core\_s}\) is used as a substitute for it.
+
+% Frozen source:
+% DnEndsTop.ends0_alt -> DnEnds.ends_u_alt -> SymTop.linkedEnd_alt
+% -> LinkedEndE.linked_endomorphism_dense -> TwoRuns.twoRuns_alt.
+% Seed2Alt: SdStmt, BirthTop, BirthEG, IsSeed.
+% Host interface: DnHost, AutEnd3Alt, SymmetricCubeTheoremOfEndomorphisms.
+% Actual local conditions: FrobeniusSmoothVectors/
+% FrobeniusSplitPrimeDatum.Gen.g4,g5 and UFacts.mu,f3.
+
+
+\subsection{The actual generic rank-three endpoint after propagation}
+\label{subsec:sr-generic-three-endpoint}
+We spell out the endpoint over the fixed field
+\(K=\mathbb Q(\sqrt{-3})\).
+Let \(a\ge1\), let \(\ell\) and \(\psi\) satisfy the
+good-data hypotheses of Section~\ref{sec:single-character},
+and put \(\Psi=\epsilon_\ell^a\psi\).
+Let \(R\) be the actual marked rank-three point, let
+\(\rho=R|_{G_K}\), and put
+\(\widehat\rho=\rho\epsilon_\ell^{-1}\).
+Assume the common sharp/flat construction has supplied,
+on the actual frame and actual ordinary function modules,
+\[
+ \mathrm{FinPt}(\Phi,3),\qquad
+ \mathrm{AutPt}(\Phi,3,\epsilon_\ell^{-1}).
+ \tag{GE1}
+\]
+These are conclusions of the propagation construction,
+rather than hypotheses about an unrelated automorphic
+representation.
+
+\begin{srproposition}\label{prop:sr-generic-three-exact-endpoint}
+Under (GE1), the weight-zero part of the marked host
+algebra is finite over the coefficient DVR.
+Every type-I characteristic-zero point gives an actual
+regular algebraic conjugate self-dual cuspidal representation
+over \(K\) attached exactly to \(\widehat\rho\).
+It satisfies the full local predicate \(\mathrm{WitA}\).
+Moreover \(\widehat\rho\) is irreducible on
+\(G_{K(\mu_{\ell^\infty})}\).
+\end{srproposition}
+\begin{proof}
+The map from \(G_{\mathbb Q}\) to the frame group is the
+actual Galois link.
+Its restriction carries the marked point, its ordinary
+flag and its finite inertia characters to the normalized
+rank-three frame point.
+Thus the first assertion of (GE1) fixes the characteristic
+polynomials on the open subgroup \(G_L\subset G_K\).
+For characteristic-\(\ell\) points,
+Proposition~\ref{prop:sr-host-finite-part-from-finend}
+proves the required finite weight-zero algebra.
+Its proof uses the actual marked generators, so applies
+to the generic host as well as the Gaussian host.
+The integral normalization of an ordinary characteristic-zero
+point can now be made as in
+Section~\ref{sec:spectrum-deformation}.
+
+For a type-I point the residual inertia separator is
+\[
+ \exists u\in I_\ell:\quad \overline\Psi(u)^2\ne1.
+ \tag{GE2}
+\]
+Indeed the good-data condition \(\psi_\ell^2=1\)
+gives
+\[
+ \overline\Psi|_{I_\ell}
+      =\overline\epsilon_\ell^{\,a+b},
+       \qquad b\in\{0,(\ell-1)/2\},
+ \quad
+ \overline\Psi^{\,2}|_{I_\ell}
+      =\overline\epsilon_\ell^{\,2a}.
+\]
+This is the local quadratic character calculation in the
+actual principal packet.
+The good-data condition \(\ell-1\nmid2a\) therefore
+gives (GE2), including when \(\ell\mid N\).
+Also \(I_\ell\subset G_K\), since \(\ell\ne3\).
+Section~\ref{sec:spectrum-open-irreducibility},
+with exactly this separator and the ordinary flag,
+proves irreducibility on every open subgroup of \(G_K\).
+In particular \(\widehat\rho|_{G_L}\) is irreducible.
+The second assertion of (GE1) therefore gives actual
+regular algebraic cuspidal automorphy of
+\(\widehat\rho|_{G_L}\).
+The twist in (GE1) is already \(\epsilon_\ell^{-1}\):
+the geometric-Frobenius convention gives
+\[
+ r_{\ell,\iota}(\operatorname{Ad}\pi_f)
+       =\operatorname{ad}^0(r_{\ell,\iota}(\pi_f))
+                                      \epsilon_\ell^{-1},
+\]
+which is the normalization of the rank-three seed.
+
+The extension \(L/K\) is finite abelian and CM.
+Apply Lemma~\ref{lem:sr-cyclic-exact-descent}
+successively along its cyclic composition series.
+The invariant representation at a descent step is the
+restriction of the original \(\widehat\rho\), and its
+restriction to \(G_L\) remains irreducible.
+Consequently the lemma includes its finite-character
+correction and gives a cusp representation attached
+exactly to \(\widehat\rho\), with no undetermined
+finite twist left at the endpoint.
+
+The normalized semidirect-product law gives
+\[
+ \rho(cgc^{-1})=J_3\rho(g)^{-\mathsf t}J_3^{-1}.
+\]
+Since \(\epsilon_\ell(cgc^{-1})=\epsilon_\ell(g)\),
+\[
+ \widehat\rho(cgc^{-1})
+       =\epsilon_\ell(g)^{-2}
+                   J_3\widehat\rho(g)^{-\mathsf t}J_3^{-1}.
+ \tag{GE3}
+\]
+The exponent is \(1-3=-2\), exactly the prescribed
+rank-three Galois normalization.
+The pairing is symmetric and its real multiplier is
+\(\epsilon_\ell^{-2}\).
+Chebotarev and strong multiplicity one therefore make
+the descended regular algebraic cusp representation
+genuinely conjugate self-dual.
+Full local--global compatibility applies to that
+actual polarized representation, including monodromy
+at places above \(\ell\).
+
+Here are the local clauses; they use no comparison of
+semisimplified Weil characters to identify monodromy.
+Away from \(\ell\), the actual ramification condition
+kills inertia intersected with the kernel of the fixed
+residual torus tuple and the quadratic sign.
+This kernel contains the global commutator subgroup.
+The resulting inertia image is finite abelian and its
+isotypic subspaces are decomposition-stable.
+Thus its Frobenius-semisimplified Weil representation
+is a sum of characters and has \(N=0\).
+At a place above \(\ell\), the ordinary flag has parallel
+cyclotomic exponents
+\[
+                         (a-1,-1,-a-1)
+ \tag{GE4}
+\]
+after the scalar twist.
+The de Rham assertion comes from the actual automorphic
+realization.
+If the flag satisfies
+\(\kappa_i\ne\kappa_j\epsilon_\ell\) for all \(i,j\),
+Lemma~\ref{lem:sr-parallel-wd-characters} implies \(N=0\).
+
+A single real norm twist makes the global cusp representation
+unitary. At every place with this rank-one parameter
+and \(N=0\), its generic unitary local representation
+has all its inducing characters in the strict window
+\[
+                  q_v^{\,t-1/2}<|\xi(\varpi_v)|
+                                         <q_v^{\,t+1/2}
+ \tag{GE5}
+\]
+for the same real \(t\).
+This is the character-parameter instance of the
+unitary classification used in
+Proposition~\ref{prop:sr-actual-wit}.
+An equality
+\((\kappa_i/\kappa_j)^m=\epsilon_\ell^m\)
+would give a Frobenius absolute-value ratio \(q_v\)
+in one order, contrary to (GE5).
+Thus \(\mathrm{Unl1}\) implies \(\mathrm{PotUnl}\),
+and the same \(t\) gives the window at every place
+away from \(\ell\), and at every \(\ell\)-adic place
+satisfying \(\mathrm{PotUnl}\).
+Any other attached cusp representation has the same
+unramified Hecke factors and equals this one by strong
+multiplicity one.
+This proves every quantifier in \(\mathrm{WitA}\),
+without assuming \(\mathrm{Unl1}\) at a place where
+it has not been established.
+
+Finally the open-subgroup irreducibility already proved,
+and Proposition~\ref{prop:sr-cyclotomic-restriction},
+give irreducibility on \(G_{K(\mu_{\ell^\infty})}\).
+The scalar inverse-cyclotomic twist changes no invariant
+subspace.
+\end{proof}
+
+\paragraph{The separate original-level clause.}
+The preceding proposition gives the actual
+\(\mathrm{AutEnd3Alt}\) and \(\mathrm{IsAutCsdA}\)
+endpoint, including its complete local window.
+For \(a\ge2\), the differences of the three exponents
+in (GE4) have absolute values \(a,a,2a\), none equal
+to one. Thus \(\mathrm{Unl1}\) is automatic, and
+(GE5) applies at every \(\ell\)-adic place.
+For \(a=1\), this Hodge-number argument cannot be used:
+nearest differences are one.
+
+The source's stronger counting class
+\(\mathrm{Adm3U_s}\) also requires
+\[
+ \mathrm{Th.Unl}\bigl(\ell,N,(a,0,-a),\rho\bigr).
+ \tag{GE6}
+\]
+In the archive this is supplied by
+\(\mathrm{UnlEndLogNorm}\).
+An alternative sufficient producer in the present
+argument is the actual local component assertion
+\[
+ \begin{gathered}
+ I_Y\subset I_{\mathrm{cr}}\subset I_t,\qquad
+ I_t\subset\ker x
+ \quad\Longrightarrow\\[-2mm]
+ \rho_x|_{\ker\eta\cap\ker\tau}
+                         \text{ is crystalline}.
+ \end{gathered}
+ \tag{GE7}
+\]
+Here \(I_Y\) is the ordinary ideal saturated by
+\(\ell\,dd_0dd_1\), \(I_{\mathrm{cr}}=\sqrt{I_Y}\),
+and \(I_t\) is the selected component through the torus
+point, all in the actual local universal ring.
+Once (GE7), including the factorization of every
+selected global point through \(I_t\), is proved,
+its crystalline monodromy is zero.
+Full local--global compatibility then yields (GE5)
+without assuming \(\mathrm{Unl1}\).
+That strict window prohibits
+\(\kappa_i=\kappa_j\epsilon_\ell\) itself, proving
+(GE6) also when \(a=1\).
+The specified finite inertial type gives the original
+local level.
+When \(\ell\nmid N\), that type is trivial,
+so the attached representation is crystalline and its
+local automorphic component is unramified.
+When \(\ell\mid N\), one retains the prescribed
+finite type \((\psi_\ell,1,\psi_\ell^{-1})\):
+the representation is crystalline after restriction to
+\(\ker\eta\cap\ker\tau\), hence potentially crystalline
+over the original local field, and its finite conductor
+is accounted for by the existing \(\ell\)-part of \(N\).
+No unramifiedness assertion is made in that case.
+This is precisely what prevents an unwanted factor
+of the varying coefficient prime from entering the
+common integer's fixed spectrum.
+
+Neither ordinarity alone nor the name
+\(I_{\mathrm{cr}}\) proves (GE7).
+The theorem
+\srcid{CrystallineOrdinaryIdeals/RtPoints.lean}
+uses the separate normal-form result
+\srcid{ideal\_cuts\_crystalline\_locus};
+its proof and the actual selected-chart factorization
+are the remaining local producers for this alternative.
+They are kept distinct here from the support output
+(GE1).

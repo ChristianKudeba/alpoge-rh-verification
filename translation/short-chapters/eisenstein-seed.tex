@@ -1,0 +1,1531 @@
+\section{A constructed ordinary Eisenstein seed}
+\label{sec:constructed-eisenstein-seed}
+
+We construct the classical seed used by the rank-three branch.
+The construction below produces actual cuspidal eigenforms.
+Its last paragraph distinguishes this existence statement from
+placing the seed in the required localized unitary support.
+
+Let \(\ell\ge5\), fix an embedding of the algebraic coefficient
+fields into \(\overline{\mathbb Q}_\ell\), and write
+\(\mathfrak m_\ell\) for the ideal of elements of positive
+\(\ell\)-adic valuation.
+Take a primitive nontrivial Dirichlet character \(\varphi\)
+of conductor \(M>1\), with \(\ell\nmid M\).
+Choose a prime \(w\nmid M\) and a nontrivial character
+\(\theta\) of conductor \(w\) such that
+\[
+       w\equiv1\pmod\ell,\qquad
+       \varphi(w)=1,\qquad \theta^\ell=1 .
+ \tag{ES1}
+\]
+Set \(R=Mw\) and \(\chi=\varphi\theta\), interpreted at level
+\(R\) by the Chinese remainder theorem.
+It is primitive: the two conductors are coprime and each
+factor has its stated conductor.
+In particular \(\ell\nmid R\).
+
+We shall prove that, for every sufficiently large \(k\) with
+\(\chi(-1)=(-1)^k\), there is a normalized cuspidal eigenform
+\(f\) of weight \(k\), level \(R\), and character \(\chi\), with
+\[
+          a_p(f)\equiv1+\chi(p)p^{k-1}\pmod{\mathfrak m_\ell}
+                       \quad\hbox{for every prime }p .
+ \tag{ES2}
+\]
+This includes \(p\mid R\) and \(p=\ell\).
+The latter congruence makes \(f\) ordinary.
+
+\subsection{Integral forms with a prescribed constant term}
+For \(r\ge1\), let \(P_r\in\mathbb Z[X]\) be defined by
+\[
+ P_1=X,\qquad
+ P_{r+1}=X((1-X)P'_r+rP_r),\qquad
+                    L_r(x)=\frac{P_r(x)}{(1-x)^r}.
+\]
+For \(|x|<1\), this is
+\(\sum_{n\ge1}n^{r-1}x^n\); differentiation proves the recursion.
+In particular
+\[
+ L_3(x)=\frac{x(1+x)}{(1-x)^3},\qquad
+ L_5(x)=L_3(x)\left(1+12\frac{x}{(1-x)^2}\right).
+ \tag{ES3}
+\]
+If \(x\ne1\) has finite order prime to \(\ell\), then
+\(1-x\) is an \(\ell\)-adic unit.
+For example, reduction preserves all roots of unity of
+prime-to-\(\ell\) order: the geometric-sum identity shows
+that two such roots with equal residue are equal.
+Thus every \(L_r(x)\) is integral.
+If also \(x^2\ne1\), then \(L_3(x)\) is a unit.
+
+We record a separation calculation for these constant terms.
+If \(x,y\) are \(R\)-th roots, both primitive, and
+\(y\ne x,x^{-1}\), put
+\[
+                    u=\frac{x}{(1-x)^2},\qquad
+                    v=\frac{y}{(1-y)^2}.
+\]
+Both are units, and
+\[
+ u-v=\frac{x(1-y/x)(1-xy)}{(1-x)^2(1-y)^2}
+\]
+is a unit as well.
+Let \(A=L_3(x)^2\), \(B=L_3(y)^2\).
+If \(A-B\) is a unit it already separates \(x,y\).
+Otherwise (ES3) gives
+\[
+ L_3(x)L_5(x)-L_3(y)L_5(y)
+       =12A(u-v)+(A-B)(1+12v).
+\]
+Its first term is a unit and its second term lies in
+\(\mathfrak m_\ell\), since \(\ell\ge5\).
+Their sum is a unit.
+Consequently one of the constant-term functions
+\(L_3^2\), \(L_3L_5\), of weights \(6,8\), separates any
+two primitive roots not equal up to inversion.
+This is the generic-prime specialization of the source's
+weight-\(4,6,8\) calculation.
+
+Here are the actual modular forms to which we apply it.
+For \(a\in(\mathbb Z/R)^\times\) and \(r\ge3\), set
+\[
+ {\cal E}_{r,a}(z)=
+ \frac{R^r}{(-2\pi i)^r/(r-1)!}
+       \sum_{\substack{(c,d)\in\mathbb Z^2\\
+                 c\equiv0\ (R),\ d\equiv a\ (R)}}
+                                    (cz+d)^{-r}.
+ \tag{ES4}
+\]
+The sum is absolutely and locally uniformly convergent.
+Changing the summation variables proves its
+\(\Gamma_1(R)\)-modularity, and for
+\(\gamma\in\Gamma_0(R)\),
+\[
+             {\cal E}_{r,a}|_r\gamma
+                           ={\cal E}_{r,a\gamma_{22}}.
+ \tag{ES5}
+\]
+The same convergence estimate after a cusp change proves
+holomorphy at all cusps.
+If \(R\nmid\gamma_{21}\), the constant term of
+\({\cal E}_{r,a}|_r\gamma\) is zero.
+Indeed a constant term would require a lattice vector whose
+transformed first coordinate is zero; the two congruences in
+(ES4), with \(a\) a unit, would then force
+\(R\mid\gamma_{21}\).
+Equivalently these forms vanish at every cusp not equivalent
+to infinity under \(\Gamma_0(R)\).
+
+Writing \(\zeta=e^{2\pi i/R}\), the elementary Lipschitz
+expansion of the inner sum gives
+\[
+ \begin{split}
+ a_0({\cal E}_{r,a})&=L_r(\zeta^a),\\
+ a_n({\cal E}_{r,a})&=
+   \sum_{d\mid n}d^{r-1}
+       \bigl(\zeta^{ad}+(-1)^r\zeta^{-ad}\bigr),\qquad n\ge1 .
+ \end{split}
+ \tag{ES6}
+\]
+One obtains this by summing first over the second lattice
+coordinate, expanding the resulting geometric series for
+positive first coordinate, and pairing negative first
+coordinates with positive ones.
+Absolute convergence for \(r>2\) justifies these operations.
+These formulas prove integrality of every Fourier coefficient.
+They also prove stability under every automorphism of
+\(\mathbb C\): such an automorphism replaces \(\zeta\) by
+\(\zeta^s\), and hence replaces the family by
+\({\cal E}_{r,sa}\).
+No invariance of the transcendental normalizing factor in
+(ES4) is asserted; (ES6) is the coefficient calculation
+which proves the required conjugation statement.
+
+For every \(d\in(\mathbb Z/R)^\times\setminus\{1,-1\}\), use
+the separation calculation to choose
+\[
+ H_a={\cal E}_{3,a}^2\quad\hbox{or}\quad
+ H_a={\cal E}_{3,a}{\cal E}_{5,a}
+\]
+whose constant terms at \(a=1,d\) differ by a unit.
+Let \(r_d=6\) or \(8\), accordingly.
+There is an integral level-one form \(J_{r_d}\) with constant
+term one: take \(E_6\) or \(E_4^2\).
+The family
+\[
+                 H_a-a_0(H_d)J_{r_d}
+ \tag{ES7}
+\]
+has constant term zero at \(a=d\) and a unit at \(a=1\).
+It is integral and has the family transformation law (ES5).
+Take the product of (ES7) over all \(d\ne\pm1\).
+It is an even-weight family, of some weight \(m_0\), whose
+constant term is zero except possibly at \(a=\pm1\),
+and is a unit at \(a=1\).
+All its coefficients lie in a fixed cyclotomic number field.
+One may take \(m_0\le8(\phi(R)-2)\).
+
+To reach every sufficiently large weight, use
+\({\cal E}_{3,a}\), whose constant at \(a=1\) is a unit.
+For odd \(j\ge10\), multiply it by an integral level-one
+form of weight \(j-3\) and constant one.
+For even \(j\ge10\), use \({\cal E}_{3,a}^2\) and a level-one
+form of weight \(j-6\).
+Such level-one forms exist in every nonnegative even weight
+other than \(2\), as products of \(E_4,E_6\).
+Multiplying by the previous product gives, for every
+\(k\ge m_0+10\), an integral weight-\(k\) family \(F_a\)
+which vanishes at the other cusps, satisfies (ES5), and has
+\[
+  u=a_0(F_1)\in\mathcal O_\ell^\times,\qquad
+  a_0(F_a)=0\quad(a\ne\pm1),\qquad
+                   a_0(F_{-1})=(-1)^ku .
+\]
+For any character \(\chi\) with the weight parity, take
+\[
+             G_\chi=\frac1{2u}
+               \sum_{a\in(\mathbb Z/R)^\times}\chi(a^{-1})F_a .
+ \tag{ES8}
+\]
+The transformation law makes its character \(\chi\).
+It is integral, has constant term one, and vanishes at all
+the other cusps.
+Only the unit \(2u\) was divided out.
+In particular this projection remains integral even if
+\(\ell\mid\phi(R)\).
+The coefficient formulas and the construction give modular
+conjugates of \(G_\chi\) for every automorphism of
+\(\mathbb C\).
+
+\subsection{The small Eisenstein constant, proved by distribution}
+The character projection of (ES4), divided by its Gauss sum,
+gives a form \(E_\chi\) of weight \(k\), character \(\chi\),
+vanishing at the other cusps, with
+\[
+ \begin{split}
+ a_n(E_\chi)&=\sum_{d\mid n}\chi(d)d^{k-1}\quad(n\ge1),\\
+ 2\tau(\chi^{-1})a_0(E_\chi)
+        &=\sum_{a\bmod R}\chi^{-1}(a)L_k(\zeta^a),
+            \qquad \tau(\chi^{-1})=\sum_{a\bmod R}
+                                      \chi^{-1}(a)\zeta^a .
+ \end{split}
+ \tag{ES9}
+\]
+The usual Gauss identity
+\(\tau(\chi)\tau(\chi^{-1})\chi(-1)=R\) shows that both
+Gauss sums are \(\ell\)-adic units, since \(\ell\nmid R\).
+This identity follows by applying the finite Fourier
+transform twice to the primitive character.
+All the nonconstant coefficients in (ES9) are integral.
+
+We prove \(c=a_0(E_\chi)\in\mathfrak m_\ell\) directly.
+For \(x^w\ne1\), the geometric-series expansion and then
+differentiation give
+\[
+             \sum_{j=0}^{w-1}L_k(x\zeta_w^j)
+                                       =w^kL_k(x^w).
+ \tag{ES10}
+\]
+Both sides are rational functions, so equality initially
+proved for \(|x|<1\) proves it wherever their denominators
+are nonzero.
+Let
+\[
+          T_\varphi=\sum_{b\bmod M}
+                         \varphi^{-1}(b)L_k(\zeta^{wb}).
+\]
+This is integral, since all nonzero contributing roots have
+order dividing \(M\), prime to \(\ell\).
+Split the sum on the right of (ES9) into multiples of \(w\)
+and their complement, and use (ES10) on the full sum with
+the \(\theta\)-factor omitted.
+Because \(\varphi(w)=1\), the result is the exact identity
+\[
+ \begin{split}
+ \sum_{a\bmod R}\chi^{-1}(a)L_k(\zeta^a)
+  =\sum_{\substack{0\le n<R\\w\nmid n}}
+        (\theta^{-1}(n)-1)\varphi^{-1}(n)L_k(\zeta^n)\\
+                 +(w^k-1)T_\varphi .
+ \end{split}
+ \tag{ES11}
+\]
+The terms with zero character value contribute zero and may
+be omitted before evaluating any rational function at \(1\).
+Every \(\ell\)-th root of unity is congruent to \(1\) modulo
+\(\mathfrak m_\ell\), and \(w^k\equiv1\pmod\ell\).
+Each term of (ES11) therefore lies in
+\(\mathfrak m_\ell\).
+Since \(2\tau(\chi^{-1})\) is a unit, (ES9) proves
+\[
+                               c\in\mathfrak m_\ell .
+ \tag{ES12}
+\]
+
+Consequently
+\[
+                             h=E_\chi-cG_\chi
+\]
+is a cusp form: it vanishes at the other cusps, and its
+constant term at infinity is zero.
+The character law transports this vanishing to the remaining
+cusps equivalent to infinity under \(\Gamma_0(R)\).
+Its coefficients are integral and
+\[
+ a_n(h)\equiv\sum_{d\mid n}\chi(d)d^{k-1}
+                    \pmod{\mathfrak m_\ell}\quad(n\ge1),
+                   \qquad a_1(h)\equiv1 .
+ \tag{ES13}
+\]
+Thus its residual form is nonzero.
+
+\subsection{Lifting the simultaneous eigenvalues}
+The divisor-sum identity at every prime, including those
+dividing \(R\), is
+\[
+ \sigma_\chi(pn)+\chi(p)p^{k-1}
+       {\boldsymbol1}_{p\mid n}\sigma_\chi(n/p)
+        =(1+\chi(p)p^{k-1})\sigma_\chi(n).
+\]
+It follows either by splitting the divisors according to
+their \(p\)-valuation or by their geometric-series factor.
+Applying it to (ES13) makes \(h\) a simultaneous residual
+eigenvector for all the prime Hecke operators, with the
+eigenvalues in (ES2).
+
+Here is the integral eigenvalue lifting argument.
+Choose one finite coefficient field containing every
+coefficient in the explicit construction of \(h\), and let
+\(\mathcal O\) be its \(\ell\)-adic integer ring.
+Let \(V\) be the span over its fraction field of all Hecke
+translates of \(h\).
+It is finite dimensional.
+Indeed all these translates have coefficients in that one
+field, and linear independence of finitely many such
+\(q\)-series is detected by finitely many coefficients.
+Their rank over the coefficient field equals their rank
+over \(\mathbb C\); the complex cusp-form space is finite
+dimensional.
+The lattice of elements of \(V\) with all coefficients
+in \(\mathcal O\) embeds in \(\mathcal O^B\) using a finite
+injective list of coefficient evaluations.
+It is therefore finite and free.
+It spans \(V\), since the integral Hecke translates of \(h\)
+span \(V\).
+The Hecke operators preserve it by their coefficient formula.
+
+Their image \(\mathbb T\) in its endomorphism ring is a
+finite, torsion-free, commutative \(\mathcal O\)-algebra.
+The nonzero residual eigenvector (ES13) gives a maximal
+ideal \(\mathfrak n\) and the specified residual eigenvalues.
+Choose a minimal prime of \(\mathbb T\) below \(\mathfrak n\).
+It does not contain the uniformizer, since the latter is a
+non-zero-divisor in \(\mathbb T\).
+The resulting generic character takes values in a finite
+extension of the coefficient field and has a place reducing
+to \(\mathfrak n\).
+It occurs on \(V\): the faithful finite module has support
+all of \(\operatorname{Spec}\mathbb T\), and the socle of
+the corresponding local Artinian generic algebra gives a
+common eigenvector.
+This is the elementary Deligne--Serre lifting argument.
+
+For a nonzero common eigenvector the first coefficient is
+nonzero.
+Otherwise the Hecke recurrence and induction on \(n\), using
+a prime divisor of \(n\), make every positive coefficient
+zero; cuspidality makes the zeroth coefficient zero as well.
+Normalize that first coefficient to one.
+The resulting eigenform satisfies (ES2).
+Since \(\chi\) has conductor exactly \(R\), it cannot be
+old from a proper divisor of \(R\): the central character
+of such an old constituent would have smaller conductor.
+Thus the form is a newform of the stated primitive level.
+This completes the construction of the ordinary cuspidal
+Eisenstein congruence.
+
+\subsection{Its Galois representation and its rank-three adjoint}
+We specify the classical inputs at this point, so that their
+fields and hypotheses are visible.
+For a normalized holomorphic newform of weight \(k\ge3\)
+over \(\mathbb Q\), Deligne's construction supplies its
+continuous absolutely irreducible representation \(\rho_f\),
+with
+\[
+ \operatorname{tr}\rho_f(\operatorname{Frob}_p)=a_p(f),
+ \qquad
+ \det\rho_f=\varepsilon^{k-1}\chi .
+ \tag{ES14}
+\]
+Here we use arithmetic Frobenius and its corresponding
+standard dual convention; replacing every representation
+by the dual gives the inverse-Frobenius convention used
+elsewhere in the source.
+Its Hodge--Tate weights in the convention
+\(\mathrm{HT}(\varepsilon)=1\) are \(0,k-1\).
+The prime \(\ell\) does not divide its level, and (ES2)
+makes \(a_\ell(f)\) a unit.
+The ordinary local theorem therefore gives an upper
+triangular restriction at \(\ell\), whose unramified
+quotient takes Frobenius to the unit root of
+\[
+                    X^2-a_\ell(f)X+\chi(\ell)\ell^{k-1}.
+\]
+At primes different from \(\ell\), local--global compatibility
+identifies its Weil--Deligne representation with that of
+the newform.
+These are applications to a classical newform over
+\(\mathbb Q\), of weight at least three, prime-to-\(\ell\)
+level, and ordinary unit root; no Hilbert even-degree or
+residual irreducibility hypothesis is inserted.
+
+Equations (ES2) and (ES14), followed by density of Frobenius
+and character independence in dimension two, give
+\[
+                  \bar\rho_f^{\,\mathrm{ss}}
+                        =1\oplus\overline{\varepsilon^{k-1}
+                                                      \varphi}.
+ \tag{ES15}
+\]
+The \(\theta\)-factor disappears modulo
+\(\mathfrak m_\ell\).
+At every \(p\mid R\), primitive conductor forces the local
+representation to be a principal series with one
+unramified character and the ramified character prescribed
+by \(\chi\).
+Indeed the conductor of the central character already
+equals the entire newform conductor; a special or
+supercuspidal constituent would have larger representation
+conductor than central-character conductor.
+Thus its inertia type is exactly \(1\oplus\chi|_{I_p}\)
+and its monodromy operator is zero.
+
+Put \(m=k-1\), and suppose, as in the principal seed data,
+\[
+                  \overline{\varepsilon^m\varphi}^{\,2}\ne1
+                         \quad\hbox{on }G_{\mathbb Q}.
+ \tag{ES16}
+\]
+Then \(\rho_f\) remains absolutely irreducible on every
+open subgroup.
+Here is a proof avoiding any image-size assertion.
+If its restriction to an open normal subgroup were
+reducible, prime-dimensional Clifford theory gives either
+a scalar restriction or two lines interchanged transitively.
+A scalar restriction would make its projective image finite.
+On an open local subgroup at \(\ell\) its two Hodge--Tate
+weights would then coincide, contrary to \(0,m\), \(m>0\).
+Two interchanged lines give a quadratic self-twist
+\(\alpha\ne1\).
+Reducing that twist in (ES15), in odd characteristic, gives
+\[
+        \{1,\bar\Phi\}=\{\bar\alpha,\bar\alpha\bar\Phi\},
+                         \qquad \Phi=\varepsilon^m\varphi.
+\]
+Since the nontrivial quadratic character stays nontrivial
+modulo \(\ell\), these multisets force
+\(\bar\alpha=\bar\Phi\) and \(\bar\Phi^2=1\), contradicting
+(ES16).
+
+In characteristic zero this also makes
+\(\operatorname{ad}^0\rho_f\) irreducible on every open
+subgroup.
+The connected Zariski closure of \(\rho_f\) is reductive:
+its unipotent radical has nonzero fixed vectors, and
+normality and irreducibility make it act trivially.
+It acts irreducibly in dimension two and cannot be a torus.
+Its nonzero semisimple derived Lie algebra is therefore
+\(\mathfrak{sl}_2\); the connected group contains
+\(\mathrm{SL}_2\).
+The adjoint action on its three-dimensional simple Lie
+algebra is irreducible.
+Every open subgroup has the same connected Zariski closure,
+which proves the assertion.
+
+Now let \(L/\mathbb Q\) be the finite abelian CM extension
+in the seed packet, with
+\[
+          \eta|_{G_L}=\theta|_{G_L}=1,\qquad
+                         \varphi=\chi'\eta .
+\]
+For a prescribed residue weight \(j\), choose
+\[
+                         m\equiv j\pmod{\ell-1}
+\]
+as large as desired and \(k=m+1\) above the constructed
+threshold.
+The seed parity is
+\(\varphi(-1)=(-1)^{j+1}\), so it gives the required
+weight parity.
+On \(G_L\), (ES15) and the adjoint formula give the exact
+rank-three residual semisimplification
+\[
+ \overline{\operatorname{ad}^0\rho_f|_{G_L}}^{\,\mathrm{ss}}
+       =\bar\Psi\oplus1\oplus\bar\Psi^{-1},
+                          \qquad \Psi=\varepsilon^j\chi' .
+ \tag{ES17}
+\]
+The ordinary flag has Hodge--Tate weights \(m,0,-m\).
+Its ordered characters are the ratio of the two ordinary
+characters of \(\rho_f\), the trivial character, and the
+inverse ratio.
+Their reductions are exactly the ordered tuple in (ES17).
+
+The trace form on trace-zero two-by-two matrices is
+nondegenerate, symmetric, and invariant under conjugation.
+For a complex conjugation \(c\), multiply its Gram matrix
+by \(\operatorname{ad}^0\rho_f(c)\).
+The result is symmetric, since \(c^2=1\), and gives
+\[
+       r(g)^{\mathsf t}P\,r(cgc^{-1})=P,
+                  \qquad r=\operatorname{ad}^0\rho_f|_{G_L}.
+ \tag{ES18}
+\]
+Thus \(r\varepsilon^{-1}\) has the standard unitary
+multiplier \(\varepsilon^{-2}\).
+Away from \(\ell\) its finite inertia type is
+\(\chi'\oplus1\oplus\chi'^{-1}\); the \(\eta,\theta\)
+factors disappear on \(G_L\).
+In particular it is unramified away from the ramification
+set allowed in the seed packet.
+All these assertions concern the actual adjoint
+representation, rather than a determinant with the same
+generic roots.
+
+\subsection{The automorphic transfer and local root bounds}
+There is a direct classical realization of this seed.
+Iterate cyclic base change for \(\mathrm{GL}_2\) along a
+prime-degree tower for the abelian extension \(L/\mathbb Q\).
+The base change is cuspidal: a noncuspidal step would be
+the dihedral/self-twist case, making the attached
+two-dimensional representation reducible on a finite-index
+subgroup, already excluded above.
+At each step the unramified parameters match restriction,
+so the Galois realization is \(\rho_f|_{G_L}\).
+It has no nontrivial self-twist, by the same open-subgroup
+irreducibility.
+The adjoint lift of Gelbart--Jacquet, Theorem~9.3, therefore
+gives a cuspidal \(\mathrm{GL}_3(\mathbb A_L)\)-representation
+with the local adjoint parameters.
+It realizes \(r\), and after the indicated algebraic scalar
+normalization realizes \(r\varepsilon^{-1}\).
+The weights are regular, since \(m>0\), and (ES18) gives
+the required conjugate self-duality.
+
+The same theorem supplies the unlinked local property of this
+seed without a new Selmer hypothesis.
+At a finite place, unitarize the \(\mathrm{GL}_2\)-representation.
+For a complementary principal-series component its two
+Weil eigenvalue absolute values have ratio \(q^{2t}\).
+Gelbart--Jacquet, Theorem~9.3(4), gives \(|t|<1/4\).
+For a tempered component take \(t=0\).
+The primitive-level ramified components above are principal
+series with ramified ratio; their unitarity makes both
+inducing characters unitary, so they too have \(t=0\).
+For the adjoint representation, the three absolute values
+are consequently
+\[
+                              q^{2t},\quad1,\quad q^{-2t}.
+\]
+The absolute value of a ratio between any two is strictly
+between \(q^{-1}\) and \(q\).
+After local base change of residue degree \(f\), the exponents
+and the logarithm of the residue norm both multiply by \(f\),
+so the same strict inequality holds with the new norm.
+Finite inertial character factors have absolute value one.
+Thus no two adjoint Frobenius roots have ratio equal to the
+local residue norm or its inverse.
+The monodromy is zero at the finite ramified places under
+consideration.
+This proves the actual unlinked condition for this seed;
+it is a property of the constructed local parameters,
+rather than a condition imposed on an arbitrary deformation.
+
+The classical sources just used are Deligne,
+\emph{Formes modulaires et repr\'esentations \(\ell\)-adiques},
+Bourbaki~355, for the two-dimensional realization;
+the ordinary local theorem in Wiles,
+\emph{On ordinary \(\lambda\)-adic representations associated
+to modular forms}, \emph{Invent.\ Math.}~94 (1988), 529--573;
+Carayol, \emph{Sur les repr\'esentations \(\ell\)-adiques
+associ\'ees aux formes modulaires de Hilbert}, Theorem~A,
+whose base field here is \(\mathbb Q\), of odd degree;
+Langlands, \emph{Base Change for \(\mathrm{GL}(2)\)},
+Chapter~2, for the cyclic transfers;
+and Gelbart--Jacquet, \emph{A relation between automorphic
+representations of \(\mathrm{GL}(2)\) and \(\mathrm{GL}(3)\)},
+Theorem~9.3, for the adjoint lift.
+Primary copies are respectively
+\url{https://archive.numdam.org/item/SB_1968-1969__11__139_0/},
+\url{https://doi.org/10.1007/BF01394275},
+\url{https://archive.numdam.org/articles/10.24033/asens.1512/},
+\url{https://publications.ias.edu/sites/default/files/base-change-for-gl2_rpl.pdf},
+and
+\url{https://www.numdam.org/articles/10.24033/asens.1355/}.
+The specific ordinary matrix statement, including the
+unit-root quotient, is matched with the duality convention
+in Lemma~\ref{lem:sr-stable-three-seed-insertion}.
+
+The constructive part is the actual
+\srcid{UnlinkedHeckeRoots.PropEC.propEC} producer.
+Its ingredients at the frozen tag are
+\srcid{IdeleGenerators.HolomorphicIrreducibility.EisSlash},
+\srcid{EisVan}, \srcid{EisCoef},
+\srcid{EulerianNumeratorThree.lkSep},
+\srcid{LevelOne.levelOne}, and \srcid{ConstSmall.constSmall};
+the conjugation-preserving version is
+\srcid{UnlinkedHeckeRoots.UnitFamC.unitFamC},
+\srcid{UnitFormC.unitFormC}, and \srcid{EigLiftC.eigLiftC}.
+They are under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}.
+The subsequent source calls are
+\srcid{ThresholdArguments.DenseThresholdCases.WEGCore},
+\srcid{TPropEGW}, \srcid{TSeedInW}, and
+\srcid{AdjointLiftFromEisensteinSeedOfHyps}.
+
+What has been produced is an actual ordinary classical
+eigenform and an actual strongly irreducible polarized
+rank-three automorphic adjoint with the required residual
+and finite inertia packet, at arbitrarily large compatible
+weights.
+The field construction below chooses the definite unitary
+pure inner form and retains the scalar Frobenius on the
+selected tower. Lemma~\ref{lem:sr-stable-three-seed-insertion}
+then supplies its ordinary local vector and localization
+in the same Hecke module and determinant ring. That
+insertion uses the actual characteristic-zero seed and
+its local types, as well as its residual determinant.
+
+
+\subsection{The Eisenstein seed at coefficient prime \(3\)}
+\label{subsec:sr-eisenstein-three}
+The constructed Eisenstein seed also works at \(\ell=3\)
+on the actual prime-to-\(3\) level.
+Only the constant-term separation calculation changes;
+the absolutely convergent Eisenstein series have weight
+at least three throughout.
+
+Use the notation of
+Section~\ref{sec:constructed-eisenstein-seed}.
+For \(x\ne1\), put \(u=x/(1-x)^2\).
+The Eulerian recurrence gives
+\[
+        L_4(x)=\frac{x(1+4x+x^2)}{(1-x)^4}
+                                     =u+6u^2 .
+ \tag{E3.1}
+\]
+If \(x,y\) are primitive roots of order \(R\), \(3\nmid R\),
+and \(y\ne x,x^{-1}\), the same factorization as before gives
+\[
+ u-v=\frac{x(1-y/x)(1-xy)}
+                         {(1-x)^2(1-y)^2}
+                      \in\mathcal O_3^\times .
+\]
+All denominators and numerator factors are units, since
+reduction preserves roots of unity of order prime to \(3\).
+Consequently
+\[
+          L_4(x)-L_4(y)
+               =(u-v)\bigl(1+6(u+v)\bigr)
+                          \in\mathcal O_3^\times .
+ \tag{E3.2}
+\]
+The second factor is congruent to \(1\) modulo \(3\).
+
+Thus, for each \(d\ne\pm1\), replace the weight-\(6\)
+or weight-\(8\) separating family in (ES7) by
+\[
+                H_a={\cal E}_{4,a},\qquad
+                H_a-L_4(\zeta^d)E_4 .
+ \tag{E3.3}
+\]
+The forms \({\cal E}_{4,a}\) are exactly the absolutely
+convergent series (ES4); their constant terms and
+coefficients are given by (ES6).
+The integral level-one form \(E_4\) has constant term one.
+Equation (E3.2) gives the required zero at \(a=d\)
+and unit at \(a=1\).
+The product has weight
+\(m_0=4(\phi(R)-2)\).
+
+Here \(R=Mw\), with \(M>1\) and a fresh prime
+\(w\equiv1\pmod3\), so primitive \(R\)-th roots are not
+\(1\) or \(-1\).
+Their \(L_3\)-values are units.
+Multiply this product by \({\cal E}_{3,a}\) in odd
+remaining weight and by \({\cal E}_{3,a}^2\) in even
+remaining weight, followed by a suitable product of
+\(E_4,E_6\).
+As in the original argument this reaches every
+\(k\ge m_0+10\), with the chosen parity.
+These final \({\cal E}_{3,a}\)-factors give vanishing
+at every cusp not equivalent to infinity under
+\(\Gamma_0(R)\).
+The projection divides only by the unit \(2u\).
+It therefore gives the integral \(G_\chi\) with
+constant term one and the prescribed character.
+
+The distribution identity (ES10)--(ES11) applies unchanged
+to an auxiliary character \(\theta\) of exact order \(3\).
+Its values are congruent to \(1\) modulo the maximal ideal;
+also \(w^k-1\) is divisible by \(3\).
+The Gauss sum is a unit because \(3\nmid R\).
+Thus the Eisenstein constant is in the maximal ideal,
+and \(E_\chi-cG_\chi\) is the same nonzero residual
+cuspidal eigenform.
+The finite integral Hecke-algebra lifting argument,
+the primitive-level newform argument, Deligne realization
+and ordinary local theorem impose no restriction
+\(\ell\ge5\).
+All of them now apply at \(3\).
+In particular the all-odd-prime Eisenstein seed, its
+rank-two normalization and its rank-three adjoint seed
+are constructed at the prime required by the Gaussian
+branch.
+There is no weight-two regularization or inverted
+factor \(3\) in this extension.
+
+
+\section{The seed packet at every generic coefficient prime}
+\label{sec:seed-all-generic-primes}
+
+The prime-to-\(\ell\) hypothesis in the classical
+Eisenstein construction concerns its finite character
+conductor, not the original host conductor.
+We make the necessary adjustment explicitly.
+This also constructs a common CM field in which the
+distinguished scalar Frobenius retains its required
+cyclotomic value.
+
+Let \(N=2^{h+2}qd\) be the principal host conductor, with
+\(q,d>7\), and let \(\psi\) be a host character of parity
+\(\psi(-1)=(-1)^a\).
+Fix
+\[
+       \ell\notin\{2,3,7\},\qquad
+                         \ell-1\nmid2a .
+ \tag{SP1}
+\]
+Every odd-primary conductor component of a host character
+is quadratic: the odd ramification comes from the two
+quadratic radicals.
+Consequently
+\[
+        \psi=\psi^{(\ell)}\widetilde\omega_\ell^{\,b},
+       \qquad b\in\{0,(\ell-1)/2\},
+ \tag{SP2}
+\]
+where \(\widetilde\omega_\ell\) is the global finite
+Teichm\"uller character obtained from the cyclotomic character,
+and \(\psi^{(\ell)}\) has conductor prime to \(\ell\).
+For \(\ell\nmid N\), take \(b=0\).
+For \(\ell=q\) or \(d\), the nonzero choice of \(b\) is
+exactly the possible quadratic component of conductor \(\ell\).
+
+Choose \(j\) with
+\[
+                       j\equiv a+b\pmod{\ell-1},
+ \qquad
+              \chi'=\psi^{(\ell)},\quad
+              K=\mathbb Q(\sqrt{-3}),\quad\eta=\chi_K .
+ \tag{SP3}
+\]
+Then
+\[
+ \chi'(-1)=(-1)^j,\qquad
+  2j\equiv2a\pmod{\ell-1},\qquad
+       \bar\varepsilon^{\,j}\bar\chi'
+                       =\bar\varepsilon^{\,a}\bar\psi .
+ \tag{SP4}
+\]
+The finite character
+\(\varphi=\chi'\eta\) has conductor \(M>1\) prime to
+\(\ell\).
+It is nontrivial because \(\eta\) is ramified at \(3\),
+whereas the sufficiently large principal host has no
+ramification at \(3\).
+This verifies the nontriviality assumption of the classical
+seed construction, including the cases \(\ell=q,d\).
+
+Let \(N_\ell\) be a prime-to-\(\ell\) common conductor of
+\(\chi'\) and \(\eta\), for example
+\(3N/\ell^{v_\ell(N)}\).
+Choose a fresh prime
+\[
+                       w\equiv1\pmod{\ell N_\ell},
+ \tag{SP5}
+\]
+and a nontrivial order-\(\ell\) Dirichlet character
+\(\theta\) modulo \(w\).
+Such a character exists because \(\ell\mid w-1\).
+It has conductor \(w\), is even, and cuts out a totally
+real cyclic field \(F_\theta/\mathbb Q\) of degree \(\ell\).
+Equation (SP5) gives
+\(\chi'(w)=\eta(w)=\varphi(w)=1\).
+Thus all conductor, split-at-\(w\), parity, and nontriviality
+requirements of the classical Eisenstein construction hold.
+Its weights may be taken
+\[
+                           m\equiv j\pmod{\ell-1},
+                         \qquad k=m+1
+ \tag{SP6}
+\]
+arbitrarily large.
+
+\subsection{The full local packet after the adjustment}
+The representation constructed at weight \(m\) has global
+residual character
+\(\bar\varepsilon^{\,m}\bar\chi'\bar\eta\).
+On the CM field containing \(K\) and \(F_\theta\), its
+rank-three adjoint therefore has residual tuple
+\[
+        \bar\varepsilon^{\,a}\bar\psi,\quad1,\quad
+                      (\bar\varepsilon^{\,a}\bar\psi)^{-1},
+ \tag{SP7}
+\]
+by (SP4).
+This is an equality of global residual characters.
+
+The finite inertia types away from \(\ell\) agree
+\emph{before reduction}.
+Indeed \(\widetilde\omega_\ell\) is unramified at every
+finite prime different from \(\ell\).
+Consequently \(\psi|_{I_p}=\chi'|_{I_p}\) there, while
+\(\eta,\theta\) vanish after the indicated field restriction.
+The adjoint's type
+\(\chi'\oplus1\oplus\chi'^{-1}\) is exactly the original
+host finite type at those places.
+
+At a place above \(\ell\), local class field theory identifies
+the torsion of the local abelianization with the torsion
+in the local multiplicative group.
+The cyclotomic character on it takes values in
+\(\mathbb Z_\ell^\times\).
+It kills its \(\ell\)-primary torsion, because
+\(\mathbb Z_\ell^\times\) has no nontrivial finite
+\(\ell\)-power subgroup for odd \(\ell\).
+The finite host characters have \(2\)-power order and
+therefore kill the same \(\ell\)-primary torsion.
+This is precisely the subgroup denoted
+\srcid{GFrame.mu} in the source.
+
+On the remaining finite torsion, the cyclotomic values are
+Teichm\"uller units, so
+\[
+           \varepsilon^m
+              =\varepsilon^a\widetilde\omega_\ell^{\,b}
+ \tag{SP8}
+\]
+there, by (SP6).
+The ordinary unit-root quotient of the seed is unramified
+and kills these unit torsion elements.
+Thus the ordered ordinary characters of its adjoint have
+exactly the same finite-torsion restrictions as the original
+packet.
+Their principal-unit powers vary with the arithmetic
+weight \(m\), as allowed in the common ordinary weight
+algebra.
+No equality between the distinct principal-unit powers
+\(\varepsilon^m\) and \(\varepsilon^a\) is being claimed.
+Equations (SP7)--(SP8), the fixed away-\(\ell\) types, and
+the common polarization put the seed in the same prescribed
+ordinary torsion component.
+Applying the same fixed algebraic scalar normalization to
+both packets preserves all these equalities.
+
+\subsection{A finite-unramified CM tower with a scalar prime}
+Choose a fresh prime \(p_0\), different from \(w\), with
+\[
+                 p_0\equiv-1\pmod{\ell N},\qquad
+                              p_0\equiv1\pmod3 .
+ \tag{SP9}
+\]
+The congruences are compatible because \(3\nmid\ell N\).
+Dirichlet's theorem provides arbitrarily large such primes.
+It splits in \(K\).
+At this prime,
+\[
+ \bar\varepsilon(\operatorname{Frob}_{p_0})=-1,\qquad
+ \bigl(\bar\varepsilon^{\,a}\bar\psi\bigr)
+                      (\operatorname{Frob}_{p_0})=1.
+ \tag{SP10}
+\]
+The second equation is the host parity:
+\((-1)^a\psi(-1)=1\).
+Thus all three residual adjoint eigencharacters coincide
+at this initial Frobenius.
+
+Let \(\mathcal P\) be any prescribed finite set of rational
+primes at which the eventual CM extension must split
+over its real part; include \(2,3,\ell\), and all primes
+of the intended tame level.
+The following construction also permits arbitrary prescribed
+lower bounds for its real degree.
+
+Choose a fresh positive prime \(D\) satisfying
+\[
+ \begin{gathered}
+ D\equiv1\pmod4,\qquad D\equiv2\pmod3,\qquad
+                      \left(\frac{3D}{p_0}\right)=1,\\
+ \left(\frac Dp\right)=\left(\frac{-1}p\right)
+ \quad\left(p\in\mathcal P,\ p\ge5,\
+                     \left(\frac{-3}p\right)=-1\right).
+ \end{gathered}
+ \tag{SP11}
+\]
+It avoids \(\mathcal P\cup\{p_0,w\}\).
+Each displayed Legendre condition is a nonempty choice of
+unit residue classes at its respective odd prime.
+There is no extra condition at \(p_0\) in the second line:
+it splits in \(K\).
+The Chinese remainder theorem and then Dirichlet's theorem
+give a positive prime \(D\) in one of these simultaneous
+unit classes.
+
+Put
+\[
+            F_0^+=\mathbb Q(\sqrt{3D}),\qquad
+                     L_0=F_0^+K.
+\]
+The third quadratic subfield of \(L_0\) is
+\(\mathbb Q(\sqrt{-D})\).
+Since \(D\equiv1\pmod4\), their discriminants are
+\[
+       -3,\qquad 12D,\qquad-4D .
+\]
+The discriminant formula for a biquadratic field gives
+\[
+        \operatorname{disc}(L_0)=144D^2
+                          =\operatorname{disc}(F_0^+)^2 .
+ \tag{SP12}
+\]
+The relative discriminant ideal therefore has norm one.
+Thus \(L_0/F_0^+\) is unramified at \emph{every finite place}.
+
+For \(p\in\mathcal P,\ p\ge5\), if \(p\) splits in \(K\),
+then every place of \(F_0^+\) above it splits in \(L_0\).
+If \(p\) is inert in \(K\), (SP11) gives
+\[
+                 \left(\frac{3D}p\right)
+                    =\left(\frac{-3}p\right)=-1 .
+\]
+The two local quadratic fields \(K_p\) and \(F_{0,p}^+\)
+are then the same unramified quadratic extension of
+\(\mathbb Q_p\).
+Their compositum splits over \(F_{0,p}^+\), so again the
+CM extension splits at the desired place.
+At \(3\), the ratio of the two quadratic radicands is
+\((3D)/(-3)=-D\).
+It is a square in \(\mathbb Q_3^\times\), since
+\(D\equiv2\pmod3\).
+Thus \(F_{0,3}^+=K_3\) and the CM extension splits there.
+
+To arrange splitting at \(2\), choose another fresh positive
+prime \(B\) with
+\[
+                      B\equiv5\pmod8,\qquad
+                           \left(\frac B{p_0}\right)=1 .
+ \tag{SP13}
+\]
+Again CRT and Dirichlet provide it, outside every already
+specified finite set.
+The field \(\mathbb Q_2(\sqrt B)\) is the unramified
+quadratic extension of \(\mathbb Q_2\).
+The real field \(F_0^+\) is ramified quadratic at \(2\),
+since \(3D\equiv3\pmod4\).
+The relative extension in (SP12) is unramified there,
+and is killed by adjoining this unramified quadratic
+field.  If it was already split there, splitting is
+preserved.
+Hence, after adjoining the real field \(\mathbb Q(\sqrt B)\),
+the CM extension is split at \(2\) as well.
+All previously obtained splitting conditions are preserved
+by base change.
+
+For each depth \(r\ge0\), let \(C_r\) be the unique
+cyclic degree-\(\ell^r\) subfield of
+\(\mathbb Q(\zeta_{\ell^{r+1}})\).
+It is the field fixed by the Teichm\"uller subgroup of
+order \(\ell-1\).
+In particular \(C_r\) is totally real and totally ramified
+at \(\ell\).
+Its conductor is an \(\ell\)-power, whereas the conductors
+of the preceding real fields are prime to \(\ell\).
+This is the cyclotomic depth choice required for the
+uniform class-group argument below.
+Take
+\[
+ \begin{split}
+ F^+&=F_0^+\mathbb Q(\sqrt B)F_\theta C_r,\\
+                         L&=F^+K .
+ \end{split}
+ \tag{SP14}
+\]
+The fixed real biquadratic field has degree four.
+The order-\(\ell\) field \(F_\theta\), of conductor \(w\),
+is disjoint from the \(\ell\)-power conductor field \(C_r\):
+their intersection would be an extension of \(\mathbb Q\)
+unramified at every finite prime.
+It is also disjoint from the biquadratic field.
+Consequently
+\[
+                 [F^+:\mathbb Q]=4\ell^{r+1},
+                        \qquad [L:F^+]=2 .
+ \tag{SP15}
+\]
+The real degree is even.
+At \(\ell\) the fixed real fields are unramified and
+\(C_r\) is totally ramified of degree \(\ell^r\).
+Every ordinary local degree is therefore at least
+\(\ell^r\).
+The global and all ordinary local degrees can exceed
+any prescribed bound.
+The uniform arithmetic bound for the three Selmer
+dimensions denoted \(C_0\) is proved separately, before
+this depth is chosen.
+The fields are abelian over \(\mathbb Q\), \(L\) is CM,
+and \(F^+\) is its maximal real subfield.
+Also \(\eta|_{G_L}=\theta|_{G_L}=1\).
+
+The finite-unramified property (SP12) survives every real
+base change: an unramified local extension remains
+unramified or split after finite base change.
+It follows that \(L/F^+\) is unramified at every finite
+place and split at every prime in \(\mathcal P\).
+Thus it satisfies the exact \srcid{UnrSplit} condition.
+The fixed fields in (SP14) have conductor prime to
+\(\ell\); adjoining \(C_r\) gives ramification index
+\(\ell^r\) at \(\ell\).
+It follows that \(L\) is locally disjoint from the
+tamely ramified extension
+\(\mathbb Q_\ell(\mu_\ell)/\mathbb Q_\ell\),
+whose degree is \(\ell-1\).
+The image of \(\bar\varepsilon\) on inertia over \(L\)
+is therefore still all of \(\mathbb F_\ell^\times\).
+In particular no completion of \(L\) at \(\ell\)
+contains \(\mu_\ell\) or nontrivial \(\ell\)-power roots
+of unity.
+Absolute unramifiedness at \(\ell\) is not needed.
+Equations (SP1) and (SP4) show that
+\[
+               (\bar\varepsilon^{\,j}\bar\chi')^2
+                                      \ne1\quad\hbox{on }G_L .
+ \tag{SP16}
+\]
+This verifies the actual square-separation field condition,
+not just the corresponding condition over \(\mathbb Q\).
+
+Finally \(p_0\) splits in both real quadratic factors in
+(SP14), by (SP11) and (SP13), and splits in \(K\).
+It is unramified in \(F_\theta C_r\).
+All the remaining residue degrees divide
+\(\ell^{r+1}\), hence are odd.
+For every \(u\mid p_0\) in \(L\), with residue degree \(f_u\),
+restriction of unramified Frobenius gives
+\[
+ \bar\varepsilon(\operatorname{Frob}_u)
+                       =(-1)^{f_u}=-1,\qquad
+ (\bar\varepsilon^{\,a}\bar\psi)(\operatorname{Frob}_u)=1.
+ \tag{SP17}
+\]
+Thus the scalar residual Frobenius and nontrivial
+cyclotomic value survive the \emph{actual selected tower}.
+The same conclusion holds for the adjusted character in
+(SP4).
+Any residual lattice need only have this scalar
+characteristic polynomial; it need not have a scalar
+matrix.  The matrix-minus-scalar is nilpotent after
+reduction, which is exactly the local input used in the
+separate \(N4\) matrix argument.
+It also supplies the element with nontrivial
+\(\bar\varepsilon\) required by first-Selmer trace detection.
+
+\subsection{The definite rank-three group}
+There is now no separate existence or parity problem for
+the required definite unitary pure inner form.
+Use the hermitian form
+\[
+                             h=1_3
+\]
+on \(L^3\).
+It is positive definite at every real place of \(F^+\).
+At a finite split place its unitary group is
+\(\mathrm{GL}_3(F_v^+)\).
+At a finite nonsplit place \(L_v/F_v^+\) is unramified.
+Norms of units are surjective there, so \(-1\) is a norm.
+The hermitian forms \(1_3\) and
+\(\operatorname{diag}(1,-1,1)\) have the same determinant
+class and hence are isometric over that local field.
+The latter contains a hyperbolic plane.
+Thus \(U(h)\) is quasi-split at every finite place.
+Both forms are global hermitian forms over the same
+quadratic extension, so their comparison defines a
+pure inner twist, rather than merely an abstract inner
+form.
+The even degree in (SP15) is consistent with the global
+product condition; it has been produced by the field
+construction itself.
+
+The constructed adjoint seed has a simple cuspidal
+conjugate self-dual rank-three parameter.
+With this group, the prescribed split finite local
+members, the spherical members at the nonsplit finite
+places, and the compact cohomological members at infinity
+are the relevant local choices.
+The separate unitary packet/vector realization must place
+those choices in the ordinary module at its fixed type
+and weight specialization.
+The field construction and torsion matching above supply
+its actual arithmetic hypotheses.
+
+\paragraph{Correspondence and exact scope.}
+The prime-to-\(\ell\) finite-character requirement is
+\srcid{FieldPairCharacterTripleConditions.aux.cop} together
+with \srcid{chi\_split} in
+\srcid{IdeleGenerators.SlopeTestRemainingChoices}.
+The local torsion subgroup is
+\srcid{WeilGroupCharacters.UniversalOrdinaryDeterminantRing.GFrame.mu}.
+The finite-unramified and split-at-level requirements are
+\srcid{ModularityArgument.SymmetricPowerTransfer.UnrSplit}.
+All these paths are under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}
+at \srcid{alpoge-source-7cbf7a0c}.
+
+This proves the packet adjustment at every coefficient
+prime in (SP1), including \(\ell\mid N\), and gives explicit
+common fields satisfying the seed's character, square,
+finite-unramified, splitting, degree, and distinguished
+Frobenius requirements.
+It proves these assertions for the tower (SP14).
+An independently chosen CM tower is not entitled to
+(SP17) without an analogous residue-degree check.
+
+
+\subsection{Inserting a stable cuspidal seed in the ordinary module}
+\label{subsec:sr-stable-seed-insertion}
+The local lattice and ordinary normalizations in
+Section~\ref{subsec:sr-case-two-hecke} apply in arbitrary fixed rank.
+Here is the precise specialization needed for the rank-three seed.
+It uses the same finite function module at every auxiliary level.
+
+\begin{srlemma}\label{lem:sr-stable-three-seed-insertion}
+Let \(L/F\) be the actual CM tower, with \(F\) totally real,
+\(L/F\) unramified at finite places and split at all places in
+the prescribed finite set \(S\), including those above \(\ell\)
+and the distinguished auxiliary place \(v_0\).
+Suppose the definite hermitian group \(U(3)\) is a pure inner
+form of its quasi-split unitary group and is quasi-split at
+every finite place.
+Let \(\Pi\) be a regular algebraic conjugate-self-dual
+cuspidal representation of \(\mathrm{GL}_3(\mathbb A_L)\)
+with the following actual local data:
+\[
+ \begin{gathered}
+ r_{\ell,\iota}(\Pi)=r_0,\qquad
+ r_0\bmod\mathfrak m\simeq
+                  \bar\chi_0\oplus\bar\chi_1\oplus\bar\chi_2,\\
+ \mathrm{WD}(r_0|_{G_{L_w}})^{F\text{-ss}}
+       =\bigoplus_{i=0}^2 \lambda_{wi},\quad N=0
+                    \quad(w\nmid\ell),\\
+ \lambda_{wi}|_I=[\bar\chi_i]|_I
+        \quad\hbox{at the prescribed split tame places},\\
+ r_0|_{G_{L_w}}\ \hbox{ordinary with the prescribed ordered
+ rank-one characters }\psi_{wi}
+                    \quad(w\mid\ell).
+ \end{gathered}
+ \tag{S1}
+\]
+Assume at \(\ell\) that the local factor of \(\Pi\) is a
+principal series with the ordinary refinement specified by
+these characters. At nonsplit finite places outside \(S\),
+assume it is unramified.
+Assume also that \(\Pi\) is unramified at \(v_0\).
+Then its seed point is supported by the residual ordinary
+function module with these tame types and these weight
+and ordinary eigenvalues.
+In particular the kernel \(J_0\) of the actual ordinary
+Hecke quotient vanishes at that point.
+\end{srlemma}
+\begin{proof}
+Use
+\href{https://arxiv.org/pdf/1409.3731v3}
+{Kaletha--M\'inguez--Shin--White, Theorem 1.7.1}
+only in the proved generic-parameter, pure-inner-twist
+scope specified immediately after its statement.
+The simple cuspidal parameter of \(\Pi\) has trivial global
+component group modulo the center.
+Its compact cohomological archimedean members therefore
+occur with the prescribed split local members and
+spherical members at every nonsplit finite place.
+The hypotheses on the actual hermitian group supply
+the pure-inner and global existence conditions.
+This gives an actual automorphic representation \(\pi\)
+of the chosen definite unitary group, with base change \(\Pi\).
+
+At a split tame place use the coefficient representation
+\[
+                   \sigma^{\mathrm{crys}}(\tau_w)^\vee,
+       \qquad \tau_w=\bigoplus_{i=0}^2[\bar\chi_i]|_I .
+ \tag{S2}
+\]
+The local type criterion
+\href{https://math.uchicago.edu/~emerton/pdffiles/bonn-lectures-survey-article.pdf}
+{Emerton--Gee, Theorem 9.2.4}
+and (S1) give
+\(\operatorname{Hom}(\sigma^{\mathrm{crys}}(\tau_w),\Pi_w)
+\ne0\).
+The dual in (S2) is exactly the coefficient convention for
+the function module. Choose its stable finite-free integral
+lattice as in (H3).
+
+At \(w\mid\ell\), the chosen principal-series refinement
+has a one-dimensional Jacquet eigenspace.
+After taking a sufficiently deep ordinary level, a
+nonzero vector on this eigenspace is represented by a
+local vector of the principal series.
+This follows directly from the induced-function model:
+on the open Bruhat cell prescribe its value at the identity,
+extend by the inducing character and a sufficiently small
+right compact open subgroup, and sum over the finite
+unipotent quotient for the ordinary projector.
+The normalized Jacquet action gives
+\[
+ \begin{aligned}
+ \psi_{wi}(g)\epsilon_\ell(g)^i\,
+                      \theta(e_{wi}(y))&=1
+                  &&(\operatorname{Art}_w(g)=y\in\mathcal O_{L_w}^\times),\\
+ U_{wj}&=\prod_{i=0}^j
+                \psi_{wi}(g_w)\epsilon_\ell(g_w)^i
+                  &&(\operatorname{Art}_w(g_w)=\varpi_w).
+ \end{aligned}
+ \tag{S3}
+\]
+These are (H5)--(H6) in rank three, so both the function
+coefficient character \(\theta^{-1}\) and the operator
+normalization agree with the common ordinary module.
+The right-hand sides in the second line are units:
+the \(\psi_{wi}\) are actual continuous Galois characters,
+and the chosen local reciprocity lift has cyclotomic
+value a unit.
+The normalized ordinary projector thus acts as the
+identity on the refined line.
+
+Choose spherical vectors at the other unramified places.
+At the distinguished auxiliary place use a spherical vector
+inside the prescribed smaller level.
+Tensor these with the local vectors above and the
+cohomological archimedean factor.
+The resulting automorphic vector is a nonzero classical
+ordinary vector in precisely the finite function space used
+to construct the common module.
+All its coefficients, finite type matrices and eigenvalues
+are defined over a finite coefficient extension.
+There are finitely many double cosets.
+Clear their finitely many denominators and scale to obtain
+a primitive integral vector.
+This operation retains every Hecke eigenvalue and
+ordinary eigenvalue in (S3).
+
+The spherical residual polynomial and (S3) are the
+specified residual Hecke system.
+The residual direct-summand projector therefore acts as
+the identity on this vector. It survives in that
+localized ordinary module.
+The rank-independent coefficient-change and classical-control
+isomorphisms identify its classical specialization with the
+corresponding specialization of the same module over
+\(\Lambda\).
+Thus its Hecke eigensystem factors through the actual
+closed Hecke algebra in \(\operatorname{End}_\Lambda(M)\).
+The universal ordinary determinant maps to this algebra
+with kernel \(J_0\). Evaluation at the constructed vector
+annihilates \(J_0\), as claimed.
+\end{proof}
+
+For the rank-three adjoint seed, the preceding hypotheses are
+checked on the actual seed, rather than imposed on an
+arbitrary ordinary deformation.
+Its construction over \(\mathbb Q\), cyclic CM base change
+and Gelbart--Jacquet lift give the stable cuspidal \(\Pi\).
+The local Galois representation after the inverse-cyclotomic
+normalization is the actual \(r_0\) in (S1).
+The local \(\ell\)-factor is unramified; its ordered Satake
+parameters are those of the three crystalline ordinary
+characters.
+Their Jacquet refinement has the unit eigenvalues (S3).
+The strict local adjoint root-ratio bound excludes linked
+inducing characters, so this is an irreducible principal
+series. The stated seed inertia at tame places gives (S2)
+with \(N=0\).
+The field construction gives a definite pure inner
+\(U(3)\) quasi-split at finite places.
+Consequently Lemma~\ref{lem:sr-stable-three-seed-insertion}
+inserts this seed in the common module; no additional
+existence statement for a modular ideal is used.
+
+% Rank-independent part of THidaU, TTypeEx, TThetaEx,
+% UnitaryHeckeData and ExistsHeckeIdeal, specialized to the
+% stable rank-three cuspidal seed. The characteristic-zero
+% eigenvector and residual support are in the SAME module.
+
+
+\subsection{The actual rank-two companion seed on the same packet}
+\label{subsec:generic-rank-two-companion}
+
+The rank-three propagation uses the rank-two space
+for the paired outer block.
+Its initial point can be constructed on the same
+fields and with the same auxiliary order-\(\ell\)
+character as the rank-three seed.
+We give that construction explicitly.
+
+Retain
+\(\Psi=\bar\varepsilon^j\bar\chi'
+ =\bar\varepsilon^a\bar\psi\),
+\(\eta=\chi_{\mathbb Q(\sqrt{-3})}\),
+and \(\ell\notin\{2,3,7\}\).
+Run the proved Eisenstein construction with
+\[
+                    \varphi_2=(\chi')^2\eta,
+                         \qquad k_2=2m+1,\quad
+                            m\equiv j\pmod{\ell-1}.           \tag{RS1}
+\]
+The finite character \(\varphi_2\) is primitive at
+its own conductor, nontrivial, and of conductor
+prime to \(\ell\).
+Nontriviality is supplied by its factor at three.
+It is odd, as required for the odd weight \(k_2\).
+The same fresh \(w\) satisfies
+\(\varphi_2(w)=1\), and the same \(\theta\)
+has order \(\ell\), conductor \(w\), and trivial
+restriction to \(G_L\).
+Thus there are ordinary newforms \(f_2\) at all
+sufficiently large weights (RS1).
+Their actual Galois representations satisfy
+\[
+ \det\rho_{f_2}=\varepsilon^{2m}(\chi')^2\eta\theta,
+ \qquad
+ \bar\rho_{f_2}^{\rm ss}
+                =1\oplus\bar\varepsilon^{2m}(\bar\chi')^2\eta .
+                                                               \tag{RS2}
+\]
+At \(\ell\) they are crystalline ordinary of
+weights \(2m,0\), with rank-one unramified
+quotient; away from \(\ell\) their inertia type
+is \(1\oplus(\chi')^2\eta\theta\), with \(N=0\).
+
+These representations are irreducible on every
+open subgroup, even in a case where
+\(\Psi^4=1\).
+Indeed failure of strong irreducibility in
+dimension two gives either finite projective
+image or a nontrivial quadratic self-twist
+\(\alpha\).
+Finite projective image contradicts the two
+distinct Hodge--Tate weights on an open local
+subgroup.
+In the self-twist case, reduction of (RS2)
+gives
+\[
+ \{1,\bar\Phi_2\}
+          =\{\bar\alpha,\bar\alpha\bar\Phi_2\},
+       \qquad\bar\Phi_2=\Psi^2\eta .
+\]
+Since \(\alpha\) is nontrivial quadratic in
+odd characteristic, this forces
+\(\bar\alpha=\bar\Phi_2\).
+
+An isomorphism of the local ordinary
+representation with its \(\alpha\)-twist
+preserves its unique higher-weight stable line.
+Uniqueness follows because any map from a
+rank-one character of Hodge--Tate weight \(2m\)
+to the rank-one weight-zero quotient is zero.
+It consequently identifies the weight-zero
+quotient with its \(\alpha\)-twist, which
+forces \(\alpha|_{G_{\mathbb Q_\ell}}=1\).
+But the restriction of
+\(\bar\Phi_2=\Psi^2\eta\) to a place above
+\(\ell\) of the selected real base is nontrivial:
+\(\eta\) is trivial on that local group and
+\(\Psi^2\ne1\) there.
+This is a contradiction.
+This argument uses the actual full local
+non-equality and does not assume that
+\(\Psi^4\ne1\) globally.
+
+On \(G_L\), put
+\[
+             s_2=\rho_{f_2}\varepsilon^{-m}(\chi')^{-1}.
+                                                               \tag{RS3}
+\]
+Its determinant is one.
+Its residual ordered tuple is
+\((\Psi,\Psi^{-1})\), its ordinary weights
+are \(m,-m\), and its away-\(\ell\) inertia
+type is \((\chi',(\chi')^{-1})\).
+The \(\eta,\theta\) factors disappear on \(G_L\).
+These are the same outer characters, in the
+same order, as for the rank-three adjoint seed.
+
+The pairing is symmetric conjugate self-dual,
+rather than only an alternating self-dual
+pairing.
+Let \(A_2\) be the standard alternating
+matrix on the two-dimensional space and use
+the rational representation in (RS3)
+before restriction.
+For a complex conjugation \(c\),
+\(\det s_2(c)=-1\) and \(s_2(c)^2=1\).
+Hence
+\[
+                      P_2=A_2s_2(c),\qquad P_2^t=P_2 ,
+\]
+and, on \(G_L\),
+\[
+                    s_2(g)^tP_2s_2(cgc^{-1})=P_2 .
+                                                               \tag{RS4}
+\]
+Both equations follow from
+\(s_2(c)^tA_2s_2(c)=-A_2\) and
+\(s_2(g)^tA_2s_2(g)=A_2\).
+This supplies the exact paired rank-two
+polarization.
+
+For standard unitary normalization use a
+fixed concrete CM character.
+The elliptic curve
+\[
+                               E:\ y^2=x^3+1
+\]
+has CM by \(\mathbb Z[\zeta_3]\), with all
+endomorphisms defined over
+\(K=\mathbb Q(\sqrt{-3})\).
+Over a finite coefficient extension its
+Tate module restricted to \(G_K\) splits
+into the characters \(\lambda,\lambda^c\).
+The Weil pairing gives
+\(\lambda\lambda^c=\varepsilon\).
+Take
+\[
+                              \kappa=\lambda^{-1}|_{G_L}.
+                                                               \tag{RS5}
+\]
+Then
+\(\kappa\kappa^c=\varepsilon^{-1}\),
+so \(s_2\kappa\) has the standard rank-two
+unitary multiplier.
+The displayed integral equation of \(E\)
+has discriminant \(-432\), so all its
+bad finite primes lie above \(2,3\),
+already included in the level packet.
+At the generic coefficient primes here it
+has good reduction, and its characters are
+crystalline.
+Its finite inertia characters away from
+\(\ell\) are killed by \(6\).
+To see this directly, pass locally to a finite
+extension over which \(E\) has good reduction.
+The finite inertia action on the good special
+fibre commutes with the specialized
+\(\mathbb Z[\zeta_3]\)-action, since these
+endomorphisms are defined over \(K\).
+In the endomorphism algebra its centralizer is
+\(K\); intersecting with integral automorphisms
+gives \(\mathcal O_K^\times=\mu_6\).
+This proves the assertion also at \(2,3\),
+where the full good-fibre automorphism group
+can be larger.
+Since \(\ell\ge5\), this is prime-to-\(\ell\)
+inertia.
+These characters are retained in the common
+residual and tame coefficient packet for the
+scalar twist (RS5).
+Thus (RS5) does not add an uncontrolled
+finite ramification set.
+
+The transfer identity in \srcid{IsTwist.ver}
+also holds with its exact sign.
+For \(t\in G_{\mathbb Q}\setminus G_K\), the
+Tate representation interchanges the two CM
+lines, so in their basis it has matrix
+\(\left(\begin{smallmatrix}0&u\\v&0\end{smallmatrix}\right)\).
+Its determinant is \(\varepsilon(t)=-uv\).
+The square acts on either line by \(uv\);
+hence
+\[
+        \lambda(t^2)=-\varepsilon(t),\qquad
+        \kappa(t^2)=-\varepsilon(t)^{-1}.                     \tag{RS6}
+\]
+After restriction this is the same identity
+for the selected CM packet and every allowed
+element of its nontrivial real coset.
+
+
+Strong irreducibility makes cyclic base
+change of \(f_2\) to \(L\) cuspidal.
+Classical CM theory identifies \(\lambda\)
+with its algebraic Hecke character.
+Twisting that base change by the algebraic
+characters in (RS3)--(RS5) therefore gives
+an actual regular algebraic conjugate
+self-dual cuspidal rank-two representation
+with Galois realization \(s_2\kappa\).
+
+Its local inducing characters are unlinked.
+For the unramified complementary components,
+the same Gelbart--Jacquet bound
+\(|t|<1/4\) used in the rank-three seed
+bounds the ratio of the two roots by
+\(q^{2|t|}<q\).
+At a ramified primitive-level component the
+ramified ratio and unitarity give \(t=0\).
+Residue-degree base change preserves the
+strict ratio inequality.
+The scalar twists (RS3)--(RS5) cancel
+from every ratio.
+
+Finally \(h=I_2\) is the actual definite
+hermitian form over \(L/F^+\).
+It is positive at every real place.
+At a nonsplit finite place the CM
+extension is unramified, and \(-1\)
+is a norm of a unit; thus \(I_2\)
+is isometric there to the hyperbolic
+hermitian plane.
+At split places its group is
+\(\mathrm{GL}_2\).
+The even degree of \(F^+\) is supplied
+by the field construction.
+This is the required pure inner
+unitary group.
+The rank-independent stable-parameter
+descent and local ordinary-vector
+construction, with the exact
+\(\theta,U_j\) normalizations already
+proved for the common module, insert
+(RS3)--(RS5) in its rank-two localized
+ordinary factor.
+The residual tuple and finite types
+are exactly its prescribed tuple,
+including the scalar \(\kappa\).
+Thus the actual rank-two Hecke ideal
+vanishes at this seed, at arbitrarily
+large compatible \(m\).
+
+This is the rank-two initial-point
+producer called \srcid{Seed2Alt}.
+Its classical constituent is the same
+\srcid{BirthEG.propEGP\_of\_printsH}
+construction, with finite character
+\((\chi')^2\eta\).
+The symmetric pairing and scalar
+normalization above are the data used
+by
+\srcid{CurveDVRSpecialization.SeedPtOf}
+and \srcid{PrLinkedEnd}.
+The construction supplies a stable
+rank-two seed; it does not replace
+the paired rank-three support
+argument by individually polarized
+residual constituents.

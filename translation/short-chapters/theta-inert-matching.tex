@@ -1,0 +1,362 @@
+\section{Constructing the inert comparison in every parity}
+\label{sec:sr-inert-matching-construction}
+
+We construct the finite matching maps at an inert place outside
+the prescribed ramification set. The ranks of the two Hermitian
+spaces need not be even. This distinction matters: results stated
+only for even Hermitian rank do not supply this clause of the packet.
+
+Write \(k=F_v\), \(L=E_w\), and let \(\overline{\phantom{x}}\)
+denote the nontrivial automorphism of the unramified quadratic
+extension \(L/k\). Put
+\[
+ d=a+a'=2n,\qquad a>a'\ge1,
+ \qquad K_H=U(\Lambda_H),\quad K=U(\Lambda_W),
+\]
+where \(H\) is either \(V\) or \(V'\), and \(\Lambda_H,\Lambda_W\)
+are the actual localizations of the prescribed lattices.
+The additive character is the prescribed \(\psi_v\).
+Haar measure on each compact group in this section has total mass one.
+
+\subsection{Why the actual local data are unramified}
+The base hypotheses at an inert place give odd residue characteristic,
+residue cardinality greater than three, and
+\[
+ \{x\in k:\psi_v(x\mathcal O_k)=1\}=\mathcal O_k.
+\]
+For the standard global character the group on the left is
+\(\mathfrak D_{k/\mathbb Q_p}^{-1}\). This follows directly by
+localizing the trace-dual definition of the codifferent, or by
+writing the character as the standard character of \(\mathbb Q_p\)
+composed with the trace. Consequently the different exponent of
+\(F/\mathbb Q\) at \(v\) is zero. The tower formula for differents
+and the unramifiedness of \(E/F\) give
+\(\mathfrak D_{L/\mathbb Q_p}=\mathcal O_L\).
+This checks a potentially relevant normalization: the source's
+skew lattice is initially defined using the absolute trace dual.
+Here that dual is the ordinary \(\mathcal O_L\)-dual.
+It is therefore a genuinely unimodular skew-Hermitian lattice,
+just as the two Hermitian lattices are unimodular.
+
+Choose a trace-zero unit \(\delta\in\mathcal O_L^\times\).
+Multiplying a skew-Hermitian form by \(\delta^{-1}\) makes it
+Hermitian and changes none of these duality assertions.
+Such a unit exists by lifting an element of the residue field
+whose conjugate differs from itself; subtract its conjugate.
+The norm map on units is surjective. One way to verify this is
+to use the surjectivity of the norm between the two finite
+residue fields and then lift successively: the first-order norm
+of \(1+\varpi^r x\) is \(1+\varpi^r\operatorname{Tr}(x)\).
+The residue trace is onto, so each correction can be made.
+
+Reduction modulo \(\varpi\), followed by Hensel lifting, now
+splits a hyperbolic plane off every even unimodular Hermitian
+lattice. To give the lifting step explicitly, start with a primitive
+isotropic residue vector, lift it, choose a partner whose pairing
+is a unit, and adjust along that partner to make its norm zero.
+The equation has a unit derivative because two is a unit.
+Normalize the pairing and replace the partner by an isotropic
+partner by subtracting half its norm times the first vector.
+The orthogonal complement is again unimodular.
+Induction gives a hyperbolic basis of \(\Lambda_W\), since its
+rank \(2n\) is even. In particular \(U(W)\) is the split-rank
+unitary group \(U(n,n)(k)\), with its specified hyperspecial subgroup
+\(K\). For either parity of \(a\) and \(a'\), the same argument
+gives the usual unimodular local Hermitian models of \(V,V'\).
+
+Let \(\alpha_v,\beta_v\) be the two local splitting characters.
+They are unramified and their restrictions to \(k^\times\)
+are respectively \(\eta^{a'}\) and \(\eta^a\), where \(\eta\)
+is the unramified quadratic character of \(k^\times\).
+The common uniformizer of \(k\) and \(L\) therefore satisfies
+\[
+ \alpha_v(\varpi)=(-1)^{a'}=(-1)^a=\beta_v(\varpi).
+\]
+Their values on units are one, so
+\begin{equation}\label{eq:sr-inert-character-equality}
+ \alpha_v=\beta_v=\chi,\qquad \chi^2=1,\qquad
+                 \alpha_v/\beta_v=1.
+\end{equation}
+Thus the first member of each dual pair has trivial auxiliary
+character, and the second member has the same unramified splitting
+character \(\chi\). This verifies the splitting data, including
+the case of odd \(a,a'\).
+
+\subsection{Transport to the ordinary local model}
+Use a hyperbolic polarization \(W=Y\oplus Y^\vee\) with
+\(\Lambda_W=\Lambda_Y\oplus\Lambda_{Y^\vee}\).
+For \(H=V,V'\), put
+\[
+ \mathcal S_H=\mathcal S(H\otimes_LY^\vee)
+              \simeq\mathcal S(H^n),\qquad
+                     e_H=1_{\Lambda_H^n}.
+\]
+All additive measures are self-dual for \(\psi_v\).
+Because the tensor lattice is selfdual, its volume is one
+in dual coordinates; the Fourier transform carries \(e_H\)
+to the corresponding dual indicator.
+Integral unipotents fix \(e_H\), since their quadratic phases
+are integral and two is a unit. Integral Levi matrices fix it
+by the determinant formula; their splitting-character factor is one.
+The Fourier generators fix it as well, by the preceding selfdual
+Fourier identity and the conductor-zero, odd-residue normalization.
+These are the lattice-model generators of both hyperspecial groups,
+so \(e_H\) is fixed by \(K_H\times K\).
+
+This model is the actual model in different coordinates, not an
+additional choice of an unrelated Weil representation.
+Indeed a lattice frame of \(\Lambda_H,\Lambda_W\) identifies their
+tensor lattice with integral matrices and identifies the symplectic
+pairing with the trace pairing just used. The Stone--von Neumann
+intertwiner transports the prescribed Heisenberg operators to
+ordinary Schr\"odinger translations and modulations.
+The phase in the prescribed vacuum condition is one here:
+the tensor-lattice pairings and the integral element \(\theta\)
+occurring in that condition are integral, and two is a unit.
+Its lattice-fixed line is one-dimensional: modulation by the
+integral lattice forces support in its annihilator, and integral
+translations then force a constant on that lattice.
+Rescale the intertwiner to send the prescribed nonzero vacuum
+exactly to \(e_H\). This also handles any original normalization
+of that vacuum.
+
+Egorov covariance implies that the transported Weil operators
+differ from the ordinary ones by a character of
+\(U(H)\times U(W)\). The first member preserves the whole
+Schr\"odinger polarization \(H\otimes_LY^\vee\).
+The specified Siegel rule on this polarization fixes its action
+for every \(g\in U(H)\): it is pullback, since its determinant
+has norm one and its auxiliary character is one.
+On the second member the same rule fixes the scalar discrepancy
+on the Siegel parabolic \(P\), including its Levi.
+A character trivial on \(P\) is trivial on its opposite as well,
+because characters are conjugation invariant.
+The two opposite parabolics generate \(U(W)\):
+their root groups generate the special unitary subgroup, and
+the determinant subgroup is already represented by the Levi
+(the latter assertion is Hilbert's theorem 90).
+Thus the scalar discrepancy is one. This argument includes
+\(U(1,1)\); for a compact rank-one first member its entire action
+was already fixed by the polarization rule.
+The source and ordinary actions, their compact stabilizers
+and their vacua have all been identified simultaneously.
+
+Evaluation at zero now supplies a nonzero first-member-invariant
+linear functional
+\[
+       e_H^0(\phi)=\phi(0),\qquad e_H^0(e_H)=1.
+\]
+The invariance uses \eqref{eq:sr-inert-character-equality}:
+the first member acts by pullback with no remaining character.
+Let \(P\) be the Siegel parabolic of \(U(W)\), stabilizing \(Y\).
+For a Levi element with action \(t\in\mathrm{GL}_n(L)\) on \(Y\),
+the prescribed Siegel rule gives
+\begin{equation}\label{eq:sr-inert-parabolic-functional}
+ e_H^0\bigl(\omega_H(p)\phi\bigr)
+   =\chi(\det t)|\det t|_L^{\dim_L H/2}\,e_H^0(\phi).
+\end{equation}
+The unipotent radical has scalar one in this formula.
+
+\subsection{The two complementary spherical functions coincide}
+Set \(r_a(p)=\chi(\det t)|\det t|_L^{a/2}\) and
+\(r_{a'}(p)=\chi(\det t)|\det t|_L^{a'/2}\).
+The modular character of \(P\) is
+\[
+                   \delta_P(p)=|\det t|_L^n.
+\]
+For example the unipotent radical is the additive space of
+Hermitian \(n\)-by-\(n\) matrices; conjugation by \(t\)
+has \(k\)-determinant of absolute value
+\(|\det t|_L^n\), as is seen first for diagonal \(t\)
+and then by multiplicativity. Hence
+\begin{equation}\label{eq:sr-inert-complementary-character}
+                          r_a r_{a'}=\delta_P.
+\end{equation}
+
+Define
+\[
+ f_a(h)=e_V^0(\omega_V(h)e_V),\qquad
+ f_{a'}(h)=e_{V'}^0(\omega_{V'}(h)e_{V'}).
+\]
+They are right \(K\)-invariant, equal to one on \(K\), and
+satisfy \(f_a(ph)=r_a(p)f_a(h)\), with the analogous rule
+for \(a'\). The Iwasawa decomposition \(U(W)=PK\)
+therefore determines each function uniquely.
+Let \(I_a,I_{a'}\) be the smooth induced spaces with these
+transformation rules. The compact-picture bilinear pairing
+\[
+                    B(F,F')=\int_K F(k)F'(k)\,dk
+\]
+is invariant under simultaneous right translation.
+To check the assertion, decompose \(kh=p(k,h)k_h\).
+The change of variable on \((P\cap K)\backslash K\)
+has density \(\delta_P(p(k,h))^{-1}\).
+The product of the two transformation factors is
+\(\delta_P(p(k,h))\) by
+\eqref{eq:sr-inert-complementary-character}, and cancels it.
+The inner integration over \(P\cap K\) has probability mass one.
+This proves the assertion directly, also at reducible induction
+parameters.
+
+Normalize the compact averages of the evaluation functionals by
+\[
+ \ell_a(\phi)=\int_K e_V^0(\omega_V(k)\phi)\,dk,\qquad
+ \ell_{a'}(\phi')=\int_K e_{V'}^0(\omega_{V'}(k)\phi')\,dk.
+\]
+Each integral is a finite average for every smooth vector.
+Both functionals annihilate the first-member augmentation,
+are \(K\)-invariant, and take the value one on their vacua.
+Their spherical coefficients are
+\[
+ \Omega_a(h)=\ell_a(\omega_V(h)e_V)
+              =B(R(h)f_a,f_{a'}),\qquad
+ \Omega_{a'}(h)=B(f_a,R(h)f_{a'}).
+\]
+The invariant pairing proves
+\(\Omega_a(h)=\Omega_{a'}(h^{-1})\).
+
+For completeness the last inverse may be removed using the
+specified hyperspecial group, without changing that group.
+Integral hyperbolic elimination gives
+\[
+ h=k_1\operatorname{diag}
+   (\varpi^{\lambda_1},\ldots,\varpi^{\lambda_n},
+    \varpi^{-\lambda_1},\ldots,\varpi^{-\lambda_n})k_2,
+ \quad k_1,k_2\in K.
+\]
+One obtains this by diagonalizing the relative position of
+the two selfdual lattices \(\Lambda_W,h\Lambda_W\):
+their elementary divisors occur in opposite pairs.
+At each step a primitive extremal vector and a dual partner
+are carried to a hyperbolic pair by integral isometries,
+and the orthogonal complement gives the next step.
+The integral Weyl element exchanging the two vectors of
+every hyperbolic pair conjugates the displayed diagonal
+to its inverse. Thus \(h^{-1}\in KhK\).
+The two coefficients are bi-\(K\)-invariant, and consequently
+\begin{equation}\label{eq:sr-inert-common-spherical-function}
+                    \Omega_a(h)=\Omega_{a'}(h)=:\Omega(h),
+                       \qquad\Omega(1)=1.
+\end{equation}
+
+\subsection{Constructing an actual irreducible common image}
+We use two precise published local facts. For unramified quadratic
+unitary dual pairs with selfdual lattices in odd residue
+characteristic, the joint hyperspecial fixed space is generated
+from the lattice vacuum by either spherical Hecke algebra;
+an irreducible spherical quotient receives a nonzero vacuum
+and has a one-dimensional hyperspecial fixed line.
+These are Howe's theorems as stated in Harris,
+\emph{Cohomological automorphic forms on unitary groups, II},
+Appendix~2.A, Theorems~2.A.1--2.A.2.
+\footnote{\url{https://webusers.imj-prg.fr/~michael.harris/periodrelations.pdf}}
+For a nonzero big theta lift of an irreducible admissible
+representation, finite length and Howe duality give a nonzero
+irreducible quotient. We use Gan--Takeda,
+\emph{A proof of the Howe duality conjecture},
+Theorem~1.2 and its introductory finite-length assertion.
+\footnote{\url{https://arxiv.org/abs/1407.1995}}
+Their field, lattice, residue, character and splitting hypotheses
+were checked above; no even-rank restriction is being added.
+
+Here is the exact quotient argument needed from those facts.
+Let
+\[
+ Q_a=\mathcal S_V/
+    \langle\omega_V(g,1)\phi-\phi:g\in U(V),\ \phi\in\mathcal S_V\rangle .
+\]
+Evaluation at zero proves \(Q_a\ne0\).
+Moreover
+\begin{equation}\label{eq:sr-inert-coinvariant-fixed-line}
+                            Q_a^K=\mathbb C[e_V].
+\end{equation}
+Indeed compact averaging is exact on smooth complex
+representations. A \(K\)-fixed vector of \(Q_a\) therefore
+has a \(K\)-fixed lift; average this lift over \(K_V\) as well.
+The second averaging does not change its image, because the
+whole first member acts trivially on \(Q_a\).
+The resulting joint fixed vector is a Hecke translate of
+\(e_V\) under the first spherical Hecke algebra.
+On first-member coinvariants a Hecke function acts by
+its integral, so its image is a scalar multiple of \([e_V]\).
+This proves \eqref{eq:sr-inert-coinvariant-fixed-line}.
+
+Let \(q_a:Q_a\twoheadrightarrow\pi_a\) be the nonzero
+irreducible theta quotient. Its vacuum is nonzero by the cited
+unramified theorem. Equation
+\eqref{eq:sr-inert-coinvariant-fixed-line} and exactness of
+\(K\)-averaging give \((\ker q_a)^K=0\).
+The \(K\)-invariant functional \(\ell_a\) annihilates this
+kernel: on a kernel vector its value is unchanged by
+\(K\)-averaging, and that average is zero.
+Thus \(\ell_a\) descends to a nonzero functional on \(\pi_a\).
+The coefficient map
+\[
+ C_a(\phi)(h)=\ell_a(\omega_V(h)\phi)
+\]
+therefore factors through \(\pi_a\). Its induced map is
+nonzero, since \(C_a(e_V)(1)=1\), so is injective by
+irreducibility. Its image is an irreducible representation
+and is generated by \(C_a(e_V)=\Omega\), since every nonzero
+vector in an irreducible representation is cyclic.
+The same reasoning applies to \(a'\).
+
+It follows from \eqref{eq:sr-inert-common-spherical-function}
+that both coefficient maps have the same actual image
+\[
+            \Pi_v=
+              \operatorname{span}_{\mathbb C}
+                 \{h\longmapsto\Omega(hh_0):h_0\in U(W)\}.
+\]
+Set \(p_v=C_a\) and \(p'_v=C_{a'}\), with codomain \(\Pi_v\).
+They are surjective and annihilate their respective
+first-member augmentations. For every \(h_0\in U(W)\),
+\[
+ C_a(\omega_V(h_0)\phi)(h)=C_a(\phi)(hh_0),
+\]
+and the same equality holds for \(C_{a'}\).
+Thus they induce the same second-member action, not merely
+isomorphic abstract spaces. Their vacuum images are the
+same nonzero function \(\Omega\). Finally every equivariant
+endomorphism of \(\Pi_v\) is scalar: it preserves the
+one-dimensional \(K\)-fixed line, so acts by a scalar on
+\(\Omega\), and hence on all its translates.
+
+Transport \(p_v,p'_v\) back by the vacuum-normalized local
+intertwiners above. This constructs exactly the inert
+finite matching datum for the prescribed models, including
+surjectivity, augmentation, common action, irreducibility,
+scalar endomorphisms, and equality of the actual vacua.
+
+The positive-rank statement covers every application here:
+the packet inequalities give \(a'\ge2\) and \(n\ge1\).
+If a zero Hermitian rank is included in an auxiliary formulation,
+its Schwartz space is \(\mathbb C\), its Weil action and
+normalized vacuum coefficient are trivial, and its common
+image is the constant functions. The same compact pairing
+with \(r_0=1\) gives the constant coefficient on its
+complementary positive-rank side. If all ranks are zero
+both maps are the identity of \(\mathbb C\).
+No \(\mathrm{GL}_0\) stabilizer or positive-rank Howe assertion
+is used for those trivial spaces.
+
+\subsection{Scope and simultaneous choices}
+Together with the split-unramified and ramified constructions,
+this proves the finite matching clause at every finite place
+of a fixed actual triple. At a place outside the ramification
+set, normalize by the prescribed vacuum, as above.
+At a ramified place use the fixed full-rank local normalization
+already constructed. The resulting local maps may all be
+chosen at once; each codomain is the specified common
+function image, so no incompatible choice of quotient
+isomorphisms is needed. Their tensor normalization is fixed
+before choosing polynomial vectors or integral theta tests.
+This assertion does not impose a uniform norm estimate on
+these maps as the global triple varies.
+
+The archimedean common Fock quotient, the global nonzero
+comparison constant and the two codimension-two recursion
+identities still have to be supplied to conclude the full
+global matching and theta-integral assertions. The construction
+above closes the inert finite clause itself; it does not
+replace any of those remaining global assertions.

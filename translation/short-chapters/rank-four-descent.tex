@@ -1,0 +1,1148 @@
+\section{The actual rank-four tower and automorphic endpoint}
+\label{sec:sr-rank-four-actual-endpoint}
+
+\subsection{The character witnesses on the principal Case II tower}
+\label{subsec:sr-case-two-tower-witnesses}
+We align the three tower conditions used above with their
+actual principal-packet producers.
+Here \(\ell\) is odd, \(\ell\nmid N\), and the nontrivial
+principal character \(\psi\) has \(2\)-power order and
+\(\psi(-1)=(-1)^a\).
+Write \(\omega\) for the Teichm\"uller cyclotomic character,
+\(\xi\) for the chosen primitive odd auxiliary character
+of conductor \(2^n\), and
+\[
+            \bar\Psi=\bar\omega^{\,a}\bar\psi .
+ \tag{T1}
+\]
+The actual residual diagonal, before the possible
+ordinary permutation, is
+\[
+                  (\bar\xi\bar\Psi,\bar\Psi,\bar\xi,1).
+ \tag{T2}
+\]
+Reduction is injective on all \(2\)-power character values.
+
+Choose an exponent \(s\) with \(\psi^{2^s}=1\), as in
+the source's \(\mathrm{psi\_exp}\), and let \(2^c\)
+be the conductor of its dyadic component.
+The actual choice \(n=\mathrm{nII}(\ell,\psi)\)
+satisfies the two numerical lower bounds
+\[
+       2^n\ge\ell^2 2^{s+2},
+                   \qquad 2^n\ge2^{c+6}.
+ \tag{T3}
+\]
+These are precisely the two inequalities extracted from
+that definition in
+\srcid{ExistsDecompositionElementAtLXiPowFourNeOne.lean}
+and
+\srcid{ExistsInertiaElementAtTwoXiPowFourNeOne.lean}.
+In \(\mathrm{psi\_exp}\) the annihilator is written
+\(2^s u\) with \(u\) odd; since our packet has \(2\)-power
+order, \(\psi^{2^s}=1\) follows.
+No \(\ell\)-primary part of \(\psi\) needs to be killed
+in this specialization.
+
+\begin{srlemma}\label{lem:sr-primitive-dyadic-frobenius}
+Let \(\xi\) be primitive of conductor \(2^n\), \(n\ge3\).
+For an odd integer \(z>1\), if
+\(\xi(z)^{2^b u}=1\) with \(u\) odd, then
+\[
+                              2^n<z^2 2^b .
+ \tag{T4}
+\]
+\end{srlemma}
+\begin{proof}
+The character is faithful on
+\((1+4\mathbb Z_2)/(1+2^n\mathbb Z_2)\).
+Its value has \(2\)-power order, so the odd exponent
+\(u\) can be removed.
+For \(b=0\), squaring gives
+\(z^2\equiv1\pmod{2^n}\), hence
+\(2^n\le z^2-1<z^2\).
+For \(b\ge1\), faithfulness gives
+\(z^{2^b}\equiv1\pmod{2^n}\).
+The elementary lifting-the-exponent identity yields
+\[
+ v_2(z^{2^b}-1)=v_2(z^2-1)+b-1.
+\]
+Consequently
+\(2^n\le2^{b-1}(z^2-1)<2^b z^2\).
+\end{proof}
+
+At \(\ell\), choose the local reciprocity lift
+\(\sigma_\ell\) of a uniformizer with
+\(\epsilon_\ell(\sigma_\ell)=1\).
+The two finite characters are unramified there, and
+their values are \(\psi(\ell),\xi(\ell)\).
+Then
+\[
+       g_\ell=\sigma_\ell^{2^s}\in D_\ell,\qquad
+       \omega(g_\ell)=1,\qquad\psi(g_\ell)=1,\qquad
+                              \bar\xi(g_\ell)^4\ne1 .
+ \tag{T5}
+\]
+The last assertion follows from (T3)--(T4), with \(z=\ell\)
+and \(b=s+2\).
+At \(2\), choose an inertia element whose cyclotomic
+projection modulo \(2^n\) is \(3\).
+Raise it to \(2^c\), obtaining an element \(u\) with
+\[
+       u\in I_2,\quad \omega(u)=1,\quad\psi(u)=1,\quad
+                                   \bar\xi(u)^4\ne1 .
+ \tag{T6}
+\]
+The dyadic part of \(\psi\) is killed, and its other
+components are unramified at \(2\).
+If the final assertion failed, (T4) with \(z=3\) would
+give \(2^n<9\cdot2^{c+2}\), contradicting
+\(2^n\ge16\cdot2^{c+2}\).
+These arguments also work after an odd
+\(\ell\)-power is inserted in the exponents.
+They are the actual local witnesses used by the source.
+
+\subsubsection{The finite abelian base field}
+Choose three distinct fresh odd primes, outside the
+original ramification set \(S\), and quadratic characters
+\(\phi,\eta,\eta'\), respectively ramified only at those
+primes, with
+\[
+ \phi(-1)=1,\qquad \eta(-1)=\eta'(-1)=-1 ,
+\]
+all split at \(S\), and with \(\eta,\eta'\) also split
+at the earlier chosen fresh primes.
+Such characters are obtained by choosing their prime
+conductors in arithmetic progressions.
+For the even character choose the conductor prime
+\(1\bmod8\); for an odd one choose it \(7\bmod8\).
+At each prescribed odd prime require the signed conductor
+to be a square modulo that prime.
+The Chinese remainder theorem gives a reduced progression
+and Dirichlet's theorem supplies a fresh prime in it.
+The quadratic characters then have exactly the asserted
+ramification and splitting.
+
+Put
+\[
+ H_0=\{g:\bar\Psi(g)=\phi(g),\
+                   \eta(g)=\eta'(g)\},\quad
+ F_0=\overline{\mathbb Q}^{\,H_0},\quad
+ K=\overline{\mathbb Q}^{\,\ker\eta},\quad L_0=F_0K .
+ \tag{T7}
+\]
+All characters in (T7) are finite and continuous.
+Their common kernel contains the commutator, so \(F_0\)
+is finite abelian.
+Complex conjugation belongs to \(H_0\), by
+\(\bar\Psi(c)=1\), \(\phi(c)=1\), and
+\(\eta(c)=\eta'(c)=-1\).
+Thus \(F_0\) is totally real; \(K\) is imaginary quadratic.
+Moreover \(H_0\subset\ker(\eta\eta')\), and
+\(\eta\eta'\) is a nontrivial real quadratic character
+(the two conductors are distinct).
+Hence \([F_0:\mathbb Q]\) is even.
+
+The CM extension \(L_0/F_0\) is unramified at every
+finite place.
+Away from the conductor of \(\eta\), its inertia is
+already killed by \(\eta\).
+At that conductor, \(\eta'\) is unramified, and the
+condition \(\eta=\eta'\) on \(H_0\) kills the remaining
+inertia.
+Every prime in \(S\) splits in \(L_0/F_0\), since
+\(\eta\) is trivial on its rational decomposition group.
+At \(\ell\), \(\xi\) is unramified and the relation
+\(\bar\Psi=\phi\) on \(H_0\) makes \(\bar\Psi\)
+trivial on inertia, since the fresh \(\phi\) is
+unramified there.
+Thus (T2) is trivial on inertia over \(F_0\).
+The extension \(F_0/\mathbb Q\) is tame at \(\ell\):
+its inertia factors through the Teichm\"uller character,
+whose order divides \(\ell-1\).
+
+Multiplication by inertia at the three fresh conductor
+primes changes \(\phi,\eta,\eta'\) independently while
+leaving \(\xi,\Psi,\omega,\psi\) unchanged.
+Indeed the latter characters are unramified at those
+primes, and each of the other two auxiliary quadratic
+characters is unramified at the prime used for a change.
+This gives the explicit adjustment operation
+\(\mathrm{adj2}\) in the source.
+
+The element \(u\) of (T6) already lies in \(G_{L_0}\):
+all three fresh quadratic characters are unramified
+at \(2\), and \(\bar\Psi(u)=1\).
+Apply the adjustment operation to complex conjugation,
+setting \(\phi=1,\eta=\eta'=1\).
+It gives an element \(v\in G_{L_0}\) with
+\[
+       \bar\Psi(v)=1,\qquad\bar\xi(v)=-1,\qquad
+                                      \bar\omega(v)=-1 .
+ \tag{T8}
+\]
+Since \(\psi\) is nontrivial of \(2\)-power order,
+its image contains \(-1\).
+The conductor of \(\psi\) is prime to \(\ell\);
+Chinese remaindering in the cyclotomic quotient
+therefore supplies an element with
+\(\bar\psi=-1,\bar\omega=1\), and hence
+\(\bar\Psi=-1\).
+Adjust it to \(\phi=-1,\eta=\eta'=1\).
+It lies in \(G_{L_0}\).
+If its \(\bar\xi\)-value has square \(1\), multiply
+it by \(u\).
+Thus there is \(t\in G_{L_0}\) with
+\[
+       \bar\Psi(t)=-1,\qquad\bar\xi(t)^2\ne1,\qquad
+                                      \bar\omega(t)=1 .
+ \tag{T9}
+\]
+
+The witnesses \(u,v,t\) give all the character-separation
+conditions used in the preceding subsections.
+Every root ratio is
+\(\bar\xi^x\bar\Psi^y\), with
+\[
+ (x,y)\in\{(\pm1,0),(0,\pm1),(\pm1,\pm1)\}.
+\]
+If \(x\ne0\), its value at \(u\) is nontrivial.
+If \(x=0\), its value at \(t\) is \(-1\).
+Hence every root character is nontrivial on \(G_{L_0}\);
+this is \(\mathrm{Ok.g3}\).
+These same witnesses belong to \(\ker\bar\omega\), so
+the root characters remain nontrivial on that kernel.
+
+More strongly,
+\(\bar\omega\) is not in the subgroup generated by
+all root ratios.
+If
+\(\bar\omega=\bar\xi^x\bar\Psi^y\) on \(G_{L_0}\),
+evaluation at \(u\) makes \(x\) even, because
+\(\bar\xi(u)\) has \(2\)-power order greater than four.
+Evaluation at \(v\) then gives \(1=-1\), a contradiction.
+This is \(\mathrm{Ok.g2}\) and supplies the premise of
+Proposition~\ref{prop:sr-four-actual-scalar-place}.
+
+The element \(t\) also has four distinct values in (T2):
+they are
+\(-\bar\xi(t),-1,\bar\xi(t),1\).
+It can therefore be chosen as the frame's distinguished
+regular element.
+Finally, a character trivial on \(\ker\bar\omega\)
+and permuting the four residual characters must be
+trivial.
+Compare its product with the character \(1\) in (T2);
+it is a ratio of two of those characters.
+Every nontrivial such ratio is nontrivial on
+\(\ker\bar\omega\), as proved using \(u,t\).
+This proves in particular the quadratic self-twist
+exclusion \(\mathrm{Ok.g3'}\).
+
+\subsubsection{The \(\ell\)-adic local witness and higher layers}
+All three auxiliary quadratic characters split at \(\ell\).
+The element \(g_\ell\) of (T5) therefore belongs to
+\(G_{F_0}\), and to \(G_{L_0}\), while retaining its
+rational local decomposition group.
+Its values give
+\[
+          \bar\omega(g_\ell)=1,\qquad
+          \bar\Psi(g_\ell)=1,\qquad
+                                  \bar\xi(g_\ell)\ne1 .
+ \tag{T10}
+\]
+These are exactly the second alternative of (D11),
+hence the actual \(\mathrm{LocL}\) producer.
+They are stronger than just a generic residual
+non-equality of two characters.
+
+For the larger dimension required by the support
+calculation, adjoin successive finite layers of the real
+cyclotomic \(\mathbb Z_\ell\)-extension.
+Write \(F_m\) for the resulting real fields and
+\(L_m=F_mK\).
+The degrees \([F_m:\mathbb Q]\) grow without bound;
+the extensions \(F_m/F_0\) have \(\ell\)-power degree.
+Their finite unramified CM property and their splitting
+at \(S\) follow by base change from \(L_0/F_0\).
+The degree remains even.
+
+In any such layer an element of \(G_{F_0}\) has an
+odd \(\ell\)-power lying in \(G_{F_m}\).
+Apply a common such power to \(u,v,t\).
+Their \(\bar\xi,\bar\Psi\)-values have \(2\)-power order,
+so all the displayed distinctions, signs and
+root-separation arguments survive.
+Thus \(\mathrm{g2}\), \(\mathrm{g3}\),
+\(\mathrm{g3'}\), and the regular frame element survive
+on every selected higher layer.
+For the local witness, either take the same power of
+\(g_\ell\), or note that its cyclotomic value is \(1\),
+so it already fixes the cyclotomic layers.
+Equation (T10) survives.
+The source's odd-power transport and
+\(\mathrm{leFit}\) implement exactly these facts.
+
+This supplies the actual tower hypotheses used by
+the scalar-place producer, selected-tower irreducibility
+and the ordinary local nonlinking calculation.
+All these witnesses come from the principal packet and
+the explicitly chosen auxiliary dyadic character.
+No Case III tower is used.
+
+% Exact frozen-source correspondence:
+% FrobeniusFields/ExistsDecompositionElementAtLXiPowFourNeOne,
+% ExistsInertiaElementAtTwoXiPowFourNeOne, Adj2, Elts2,
+% CharacterSubgroupOpenEvenIndexTamePower, Ok2B;
+% CompactIntegralFields/ExistsTameTowerOkTwo;
+% UpperTriangularPlaces/BigOm and NormalValuationBounds/NeOfPair.
+% The ell-primary character Kap is trivial for this 2-power
+% principal packet; the source permits it for larger packets.
+
+
+\subsection{Producing the rank-four auxiliary scalar place}
+\label{subsec:sr-four-scalar-place}
+The auxiliary local vanishing condition used in the Selmer
+calculation has an actual place producer.
+It uses the full root-character condition of the selected
+tower, rather than a guessed congruence for a rational prime.
+
+\begin{srlemma}\label{lem:sr-finite-character-separation}
+Let \(k\) be a finite field, \(\Gamma\) a group, and
+\(\chi_0,\ldots,\chi_3,\omega:\Gamma\to k^\times\)
+characters with
+\(\chi_0\chi_3=\chi_1\chi_2\).
+Suppose
+\[
+       \omega\ne(\chi_0/\chi_1)^u(\chi_0/\chi_2)^v
+                            \quad\hbox{for every }u,v\in\mathbb Z .
+ \tag{A1}
+\]
+Then there exists \(g\in\Gamma\) such that
+\[
+                     \chi_0(g)=\cdots=\chi_3(g),
+                            \qquad\omega(g)\ne1.
+ \tag{A2}
+\]
+\end{srlemma}
+\begin{proof}
+Replace \(\Gamma\) by its finite image under these five
+characters, a finite abelian group \(A\) of exponent
+dividing \(\#k^\times\).
+Its character pairing with
+\(A^\vee=\operatorname{Hom}(A,k^\times)\) is perfect.
+Indeed the decomposition of \(A\) into cyclic factors
+and the roots of unity in the cyclic group \(k^\times\)
+prove this on each factor.
+For a subgroup \(S\subset A^\vee\), the same decomposition
+or the order formula for annihilators gives
+\[
+                       \operatorname{Ann}
+                         (\operatorname{Ann}(S))=S.
+\]
+Let \(S\) be generated by all \(\chi_i/\chi_j\).
+The paired relation expresses all of them as powers of
+\(\chi_0/\chi_1\) and \(\chi_0/\chi_2\).
+Hypothesis (A1) says \(\omega\notin S\).
+Double annihilation therefore gives an element of
+\(\operatorname{Ann}(S)\) not killed by \(\omega\).
+It is exactly (A2).
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-four-actual-scalar-place}
+Let \(L/F\) be the CM extension of an actual Case II
+tower, and restrict its residual diagonal characters
+\(\bar\chi_i\) and cyclotomic character
+\(\bar\epsilon_\ell\) to \(G_L\).
+The tower condition
+\[
+ \bar\epsilon_\ell\ne
+       (\bar\chi_0/\bar\chi_1)^u
+       (\bar\chi_0/\bar\chi_2)^v
+                   \quad\hbox{on }G_L
+                         \quad(u,v\in\mathbb Z)
+ \tag{A3}
+\]
+produces a finite place \(v_0\) of \(F\), split in \(L\),
+outside any specified finite set, such that
+the residual characters are unramified there and
+\[
+ \bar\chi_0|_{D_{v_0}}=\cdots=\bar\chi_3|_{D_{v_0}},
+              \qquad
+            \bar\epsilon_\ell|_{D_{v_0}}\ne1 .
+ \tag{A4}
+\]
+Here the decomposition group is identified with that
+of either chosen split place of \(L\).
+Multiplying all four characters by the residual scalar
+link character preserves (A4).
+\end{srproposition}
+\begin{proof}
+The paired relation holds for the actual residual tuple.
+Apply Lemma~\ref{lem:sr-finite-character-separation}
+on \(G_L\) with \(\omega=\bar\epsilon_\ell\);
+obtain \(g_0\) as in (A2).
+All characters have open kernel.
+
+Choose a finite Galois extension \(J/F\) containing \(L\)
+on which these characters become trivial.
+They are restrictions of the given rational characters,
+so their common kernel is normal in \(G_F\).
+The image of \(g_0\) in \(\operatorname{Gal}(J/F)\)
+fixes \(L\).
+Chebotarev supplies infinitely many places of \(F\),
+unramified in \(J\), with this Frobenius conjugacy class.
+Choose one outside the prescribed finite set.
+It splits in \(L/F\), because its Frobenius fixes \(L\).
+All the characters in question are unramified there.
+
+Their values on a Frobenius lift are those at \(g_0\);
+conjugation does not change a character.
+Their values on the entire local decomposition group
+are powers of these values, since unramified characters
+factor through the procyclic unramified quotient.
+The four values are equal on \(g_0\), hence on this
+whole decomposition group.
+The cyclotomic value at that Frobenius is nontrivial.
+This proves (A4).
+An arbitrary finite avoidance set allows the two links'
+distinguished auxiliary places to be different.
+A common scalar multiplication changes none of the
+ratios or the cyclotomic assertion, proving the last claim.
+\end{proof}
+
+Condition (A3) is exactly \(\mathrm{Tower.Ok.g2}\), after
+identifying the two root coordinates with the root weights.
+The frozen source implements the finite-duality argument
+in \srcid{WeakShimuraTheory/UnipotentIdempotents/GExRtZero.lean},
+theorem \(\mathrm{Lk.gEx}\), and the actual place selection
+in \srcid{EqOfKer.lean}, theorem \(\mathrm{Lk.setEx}\).
+The version with an additional finite avoidance condition
+is \(\mathrm{setAv}\) in
+\srcid{Foundations/GaloisRepresentations/PlainTorsionPairs/LinkTwo.lean}.
+The residual tuple in the Hida datum is the scalar link
+twist of this tuple.
+Thus \(\mathrm{Lk.v0ok}\) supplies exactly
+\(\mathrm{r.V0ok}\), not merely a genericity statement
+about residual characters.
+The local vanishing transfer in
+\(\mathrm{P1.n4V0}\) can therefore be applied with its
+actual scalar-place premise.
+No condition on a Frobenius at another local place
+is substituted for (A4).
+
+
+\subsection{Irreducibility on the actual CM tower}
+\label{subsec:sr-actual-tower-irreducibility}
+The irreducibility premise at the start of
+Section~\ref{subsec:sr-case-two-descent} is produced by
+the actual residual tuple.
+The following argument also explains why no arbitrary
+finite restriction is being assumed irreducible.
+
+\begin{srlemma}\label{lem:sr-residual-distinct-abelian-restriction}
+Let \(G\) be a group and \(H\) a normal subgroup of finite
+index with \(G/H\) abelian.
+Let \(V\) be an irreducible representation over an
+algebraically closed field of characteristic zero,
+with a stable lattice over a DVR.
+Suppose the residual semisimplification is
+\(\bigoplus_{i=1}^n\bar\chi_i\), where
+the characters \(\bar\chi_i|_H\) are pairwise distinct.
+Then \(V|_H\) is irreducible.
+\end{srlemma}
+\begin{proof}
+The restriction \(V|_H\) is semisimple.
+Choose a nonzero simple \(H\)-submodule of minimal
+positive dimension.
+Its \(G\)-translates are simple because \(H\) is normal;
+their sum is all of \(V\) by irreducibility.
+Successively adding these simple submodules gives a
+semisimple module, proving the claim.
+
+If \(V|_H\) were reducible,
+\(\operatorname{End}_H(V)\) would have dimension greater
+than one.
+Conjugation by \(G\) acts on this algebra through the
+finite abelian group \(G/H\).
+In characteristic zero this action is a sum of characters,
+and its invariant subspace is
+\(\operatorname{End}_G(V)\), of dimension one by Schur.
+There is therefore a nonzero eigenvector \(A\) for a
+nontrivial character \(\eta\) of \(G/H\):
+\[
+                    \rho(g)A\rho(g)^{-1}=\eta(g)A .
+\]
+This is an intertwiner between two irreducible
+\(G\)-representations, hence is invertible.
+Choose \(g\) with \(\eta(g)\ne1\).
+Since \(\eta|_H=1\), taking traces gives
+\[
+                      \operatorname{tr}\rho(gh)=0
+                                     \quad(h\in H).
+\]
+Reduce this exact equality using the stable lattice.
+The residual semisimplification has the same traces,
+so
+\[
+              \sum_i\bar\chi_i(g)\bar\chi_i(h)=0
+                                      \quad(h\in H).
+ \tag{I1}
+\]
+Distinct multiplicative characters of a group are
+linearly independent over their coefficient field.
+For reference, in a shortest nonzero relation, translate
+the argument by an element separating two characters
+and subtract a scalar multiple of the original relation.
+The remaining nonzero relation is shorter, a contradiction.
+Apply this to \(\bar\chi_i|_H\) in (I1).
+It gives \(\bar\chi_i(g)=0\) for every \(i\), impossible
+for characters valued in a field's multiplicative group.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-case-two-tower-irreducible}
+Every irreducible actual characteristic-zero rational
+point of the Case II problem remains irreducible on
+the CM field \(L\) of the selected tower.
+\end{srproposition}
+\begin{proof}
+The compositum \(L=FK\) is abelian over \(\mathbb Q\):
+\(F/\mathbb Q\) is abelian and \(K/\mathbb Q\) quadratic.
+Thus \(H=G_L\) is normal of finite index with abelian
+quotient.
+
+The stable lattice in the actual point has residual
+semisimplification
+\(\bigoplus_{i=0}^3\bar\chi_i\).
+The tower's root-separation condition is
+\[
+       \forall w\in\{\hbox{symplectic roots}\}\quad
+       \exists g\in G_L:\quad \bar r_w(g)\ne1 .
+ \tag{I2}
+\]
+For \(i\ne j\), the paired relation
+\(\bar\chi_0\bar\chi_3=\bar\chi_1\bar\chi_2\)
+expresses \(\bar\chi_i/\bar\chi_j\) as
+\(\bar r_{w(i,j)}\) for a symplectic root.
+Equation (I2) therefore says exactly that their
+restrictions to \(G_L\) are pairwise distinct.
+The possible relabeling of the ordinary tuple is a
+permutation and changes none of these conclusions.
+Apply Lemma~\ref{lem:sr-residual-distinct-abelian-restriction}.
+
+If the supported representative is a conjugate of the
+original lattice representation, first apply the lemma
+to the original representation and then conjugate.
+Irreducibility is unchanged.
+Hence the exact premise of
+Proposition~\ref{prop:sr-all-quadratic-automorphy}
+has been supplied for every actual irreducible rational
+point, and that proposition's conclusion gives
+\(\mathrm{IsAutQA}\) for all of them.
+\end{proof}
+
+% Frozen source:
+% DenseThresholdCases/MapRepComp.lean,
+% private irr_sub, dist_L, irr_L, and theorem aut_n_alt.
+% (I2) is exactly Tower.Ok.g3; the finite-abelian quotient
+% is proved there by comm_L.
+
+
+\subsection{Removing the link character and descending the actual point}
+\label{subsec:sr-case-two-descent}
+We finish the automorphic endpoint of the Case II support
+argument. Keep the actual tower and Hecke quotients of
+Section~\ref{subsec:sr-case-two-hecke}.
+Let
+\[
+ r:G_{\mathbb Q}\longrightarrow
+                   \mathrm{GSp}_4(\overline{\mathbb Q}_\ell)
+ \quad\hbox{with multiplier }\theta
+ \tag{D1}
+\]
+be the original regular arithmetic point.
+Proposition~\ref{prop:sr-case-two-tower-irreducible} supplies
+\(r|_{G_L}\) irreducible for the actual selected tower.
+This is the precise hypothesis
+in the source's \(\mathrm{pmAutO}\) and
+\(\mathrm{pmDown}\).
+It is not inferred by restricting an arbitrary irreducible
+representation to an arbitrary finite extension.
+The preceding support argument gives a regular algebraic
+cuspidal representation attached to
+\[
+                         r|_{G_L}\otimes\kappa .
+ \tag{D2}
+\]
+The two links, their common scalar character, and strong
+multiplicity one give the asserted local factors away from
+either distinguished auxiliary place, as proved there.
+
+\begin{srlemma}\label{lem:sr-link-character-algebraic}
+The actual link character \(\kappa\) is the \(\ell\)-adic
+avatar of an algebraic Hecke character of \(L\).
+Consequently (D2) can be untwisted to a regular algebraic
+cuspidal representation attached exactly to \(r|_{G_L}\).
+\end{srlemma}
+\begin{proof}
+Write the original twist as \(a=2q+b\), \(b\in\{0,1\}\).
+The actual character construction gives
+\[
+ \kappa=\kappa_0\gamma^{-(a+4)}\beta^b,\qquad
+ \gamma^2\omega=\epsilon_\ell,\qquad \omega^{\ell-1}=1,
+ \qquad \kappa_0^m=1
+ \tag{D3}
+\]
+for some positive \(m\).
+At each place above \(\ell\) there are an integer \(j\)
+and a positive integer \(k\) such that
+\[
+                 (\beta^2\epsilon_\ell^{-(2j+1)})^k=1
+                          \quad\hbox{on inertia}.
+\]
+Put \(A_v=bj-q-2\), an integer. Direct multiplication
+in this commutative character group gives
+\[
+              (\kappa\epsilon_\ell^{-A_v})
+                          ^{\,2km(\ell-1)}=1
+                           \quad\hbox{on }I_v .
+ \tag{D4}
+\]
+For example, the cyclotomic exponent contributed by (D3)
+is \(-(2q+b+4)/2+b(2j+1)/2=bj-q-2\);
+multiplying by \(2km(\ell-1)\) eliminates all finite factors.
+Equation (D4), rather than a choice of a half-cyclotomic
+character, proves the assertion about integral local
+weights.
+The finite coefficient and continuity properties of the
+actual character imply that the finite-order quotient in
+(D4) has open kernel.
+Thus \(\kappa\) is locally algebraic on units at every
+place above \(\ell\), with integral, parallel exponent \(A_v\).
+Its construction makes it unramified outside a finite set.
+
+For completeness this local statement globalizes by
+idele class reciprocity.
+Let \(P_\ell\) be the algebraic product of the embeddings
+of \(L\) into \(\overline{\mathbb Q}_\ell\) with these
+integer exponents, using the sign determined by the chosen
+reciprocity convention. Let \(P_\infty\) be the same product
+of complex embeddings, transported by \(\iota\).
+On finite ideles divide \(\kappa\circ\operatorname{Art}_L\)
+by \(P_\ell\), and at infinity multiply by \(P_\infty\).
+This defines
+\[
+ \chi(s_f,s_\infty)=
+ \iota\!\left(
+   \frac{\kappa(\operatorname{Art}_L(s_f))}
+                    {P_\ell(s_\ell)}\right)
+                         P_\infty(s_\infty).
+ \tag{D5}
+\]
+The finite factor is locally constant: this is (D4) above
+\(\ell\); away from \(\ell\) a continuous rank-one
+\(\ell\)-adic character has finite image on local units
+at all ramified places.
+For \(\alpha\in L^\times\), global reciprocity kills
+the principal finite idele after its connected complex
+infinite component is included, and
+\(P_\infty(\alpha)=\iota(P_\ell(\alpha))\).
+Hence (D5) is trivial on \(L^\times\).
+It is an algebraic Hecke character and its \(\ell\)-adic
+avatar is precisely \(\kappa\).
+
+Twisting the actual representation in (D2) by
+\(\chi^{-1}\circ\det\) preserves cuspidality and regular
+algebraicity and removes \(\kappa\) from its attached
+Galois representation.
+This gives the representation asserted in the lemma.
+\end{proof}
+
+We next spell out the elementary Galois correction in
+solvable descent. It ensures exact attachment, including
+the finite character which a bare descent statement may
+leave unspecified.
+
+\begin{srlemma}\label{lem:sr-cyclic-exact-descent}
+Let \(M/K\) be a cyclic extension of prime degree between
+CM fields, and let \(r_K:G_K\to
+\mathrm{GL}_n(\overline{\mathbb Q}_\ell)\) be continuous,
+with \(r_K|_{G_M}\) irreducible.
+If \(r_K|_{G_M}\) is attached to a regular algebraic
+cuspidal representation \(\Pi_M\), then \(r_K\) is attached
+exactly to a regular algebraic cuspidal representation
+\(\Pi_K\).
+Conversely, regular algebraic cuspidal automorphy of
+\(r_K\) implies such automorphy of its restriction, under
+the same irreducibility hypothesis.
+\end{srlemma}
+\begin{proof}
+For descent, \(\Pi_M\) is invariant under
+\(\operatorname{Gal}(M/K)\).
+Indeed its conjugate has the same unramified Frobenius
+polynomials, since \(r_K\) extends the attached
+representation; Chebotarev and strong multiplicity one
+give the invariance.
+The cyclic base-change and descent theorem of
+Arthur--Clozel therefore gives a cuspidal descent
+\(\Pi_K^0\).
+At infinity every local extension is \(\mathbb C/\mathbb C\),
+so its infinitesimal characters are the same algebraic
+regular ones. Thus \(\Pi_K^0\) is regular algebraic.
+
+To identify the Galois representation of this descent,
+use
+\href{https://virtualmath1.stanford.edu/~rltaylor/rigcoh.pdf}
+{Harris--Lan--Taylor--Thorne, Theorem A}.
+Its hypotheses are precisely a CM field, a regular
+algebraic cuspidal general-linear representation and
+an arbitrary coefficient prime.
+In particular no polarization of the uncorrected
+descent is needed.
+It supplies the continuous semisimple representation
+\(s=r_{\ell,\iota}(\Pi_K^0)\).
+Unramified base change and Chebotarev give
+\(s|_{G_M}\simeq r_K|_{G_M}\).
+
+Conjugate \(s\) so that these restrictions agree.
+For \(g\in G_K\), the operator \(s(g)r_K(g)^{-1}\)
+commutes with their common irreducible \(G_M\)-action:
+this follows by applying both extensions to \(ghg^{-1}\),
+\(h\in G_M\).
+Schur's lemma makes this operator a scalar \(\delta(g)\).
+Multiplication shows that \(\delta\) is a character,
+trivial on \(G_M\); it therefore has finite order and
+factors through \(\operatorname{Gal}(M/K)\).
+Use global class field theory to twist
+\(\Pi_K^0\) by the inverse finite Hecke character.
+The resulting \(\Pi_K\) is attached exactly to \(r_K\).
+A finite twist preserves regular algebraicity and
+cuspidality.
+
+For ascent, cyclic base change of \(\Pi_K\) exists.
+If it were not cuspidal, the cyclic cuspidality criterion
+would give a nontrivial character \(\eta\) of
+\(\operatorname{Gal}(M/K)\) with
+\(\Pi_K\simeq\Pi_K\otimes\eta\).
+Chebotarev would give \(r_K\simeq r_K\otimes\eta_\ell\).
+An intertwiner for this self-twist commutes with \(G_M\),
+hence is scalar by irreducibility on \(G_M\);
+the intertwining identity would then force \(\eta=1\).
+This contradiction proves cuspidality of the base change.
+Its regular algebraicity is preserved at infinity,
+and Chebotarev identifies the attached representation
+with \(r_K|_{G_M}\).
+\end{proof}
+
+Only the following published base-change input is used here:
+the cyclic prime-degree base-change/descent theorem and its
+cuspidality criterion, in Arthur--Clozel,
+\emph{Simple algebras, base change, and the advanced theory
+of the trace formula}, Chapter 3.
+Iterating the lemma along a subnormal series with
+cyclic prime quotients proves the same exact descent
+for a solvable Galois CM extension.
+In our tower all intermediate fields containing \(K\)
+are CM: the totally real field is abelian over
+\(\mathbb Q\), and complex conjugation is central in
+\(\operatorname{Gal}(L/\mathbb Q)\).
+
+\begin{srproposition}\label{prop:sr-all-quadratic-automorphy}
+The actual point (D1)--(D2) is regular algebraic cuspidal
+automorphic over every imaginary quadratic field \(K'\)
+for which \(r|_{G_{K'}}\) is irreducible.
+\end{srproposition}
+\begin{proof}
+Apply Lemma~\ref{lem:sr-link-character-algebraic}
+and solvable exact descent from \(L\) to its chosen
+imaginary quadratic field \(K\).
+The irreducibility on \(G_L\) implies irreducibility
+on all larger Galois groups along this descent.
+This gives an actual regular algebraic cuspidal
+representation attached to \(r|_{G_K}\).
+
+Fix \(K'\) with \(r|_{G_{K'}}\) irreducible.
+By Lemma~\ref{lem:sr-quadratic-self-twists}, an irreducible
+rank-four representation of \(G_K\) can become reducible
+on at most \(16\) distinct quadratic extensions of \(K\).
+As \(K''\ne K\) ranges over imaginary quadratic fields,
+the extensions \(KK''/K\) are distinct.
+Indeed a biquadratic field with two imaginary quadratic
+subfields has a real third quadratic subfield.
+Apply the same argument over \(K'\).
+Among any fixed \(35\) distinct imaginary quadratic fields
+there is therefore a field \(K''\), distinct from \(K,K'\),
+for which
+\[
+                r|_{G_{KK''}},\qquad r|_{G_{K'K''}}
+                         \quad\hbox{are irreducible}.
+ \tag{D6}
+\]
+There are at most \(16+16+2=34\) excluded fields.
+Cyclic ascent from \(K\) to \(KK''\), exact descent to
+\(K''\), ascent to \(K'K''\), and exact descent to \(K'\)
+now prove the assertion.
+At every use of Lemma~\ref{lem:sr-cyclic-exact-descent},
+the needed restriction is one of (D6).
+In particular this argument never assumes that
+\(r|_{G_{LK'}}\) is irreducible.
+\end{proof}
+
+\subsubsection{The actual polarization and full local comparison}
+Let \(\Pi_{K'}\) be a representation obtained above.
+The symplectic relation in (D1) and the fact that \(r\)
+is defined on \(G_{\mathbb Q}\) give
+\[
+              (r|_{G_{K'}})^c
+                    \simeq(r|_{G_{K'}})^\vee\theta .
+\]
+With the Galois normalization
+\(\operatorname{rec}(\Pi|\det|^{(1-n)/2})\),
+one has
+\[
+ r_{\ell,\iota}(\Pi^\vee)
+       =r_{\ell,\iota}(\Pi)^\vee\epsilon_\ell^{1-n}.
+\]
+The polarizing Hecke character of \(\mathbb Q\) is therefore
+the algebraic character with avatar
+\(\theta\epsilon_\ell^{n-1}\), here
+\(\theta\epsilon_\ell^3\).
+The actual multiplier is locally algebraic and odd.
+Thus its product with \(\epsilon_\ell^3\) has value \(1\)
+at complex conjugation, the required rank-four parity.
+Chebotarev and strong multiplicity one give the
+corresponding automorphic polarization of \(\Pi_{K'}\).
+
+We use full Frobenius-semisimplified local--global
+compatibility for this regular algebraic essentially
+conjugate-self-dual cuspidal representation.
+This combined published scope is explicitly recorded in the
+introduction to
+\href{https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf}
+{Barnet--Lamb--Gee--Geraghty--Taylor, p.~507}.
+Away from \(\ell\) it is the polarized realization theorem
+there; at \(\ell\) its unrestricted monodromy comparison is
+\href{https://arxiv.org/pdf/1202.4683}
+{Caraiani, Theorem 1.1}, together with that polarized
+normalization.
+The latter theorem has no Iwahori or Shin-regular
+hypothesis in its statement.
+The comparison identifies \(N\), not only the
+semisimplified Weil representation.
+The attached \(r|_{G_{K'}}\) is de Rham above \(\ell\)
+with the specified Hodge numbers.
+These realization and comparison theorems apply to the
+already automorphic point at every odd coefficient prime,
+including rank four at \(\ell=3\);
+the lower bounds on coefficient primes in automorphy
+lifting theorems are not hypotheses here.
+
+\subsubsection{The local window predicate}
+We verify the complete local assertion called
+\(\mathrm{WitA}\) in the source.
+It has two clauses.
+First, at \(v\mid\ell\), an ordinary flag with characters
+\(\kappa_i\) satisfying
+\[
+                         \kappa_i\ne\kappa_j\epsilon_\ell
+                                \quad\hbox{for all }i,j
+ \tag{D7}
+\]
+can be replaced by a flag for which
+\[
+                    \kappa_i^m\ne
+                      (\kappa_j\epsilon_\ell)^m
+                       \quad(i,j,\ m\ge1).
+ \tag{D8}
+\]
+These are \(\mathrm{Unl1}\) and
+\(\mathrm{PotUnl}\), respectively.
+Second, for every regular algebraic cusp representation
+attached to \(r|_{G_{K'}}\), there is a single real number \(t\)
+such that, at every \(v\nmid\ell\) and at every \(v\mid\ell\)
+satisfying (D8), its cuspidal support consists of rank-one
+characters \(\xi\) with
+\[
+                 q_v^{\,t-1/2}<|\xi(\varpi_v)|
+                                  <q_v^{\,t+1/2}.
+ \tag{D9}
+\]
+The source denotes this local assertion by
+\(\mathrm{WinAt}(\Pi,t,v)\).
+The normalizing scalar in Galois--automorphic comparison
+shifts \(t\) and never changes a ratio.
+
+\begin{srlemma}\label{lem:sr-parallel-wd-characters}
+Let \(k/\mathbb Q_\ell\) be finite.
+Among continuous de Rham characters of \(G_k\)
+whose cyclotomic exponents are parallel integers,
+the rank-one Weil--Deligne character determines the
+Galois character.
+Consequently, if a de Rham representation with such
+rank-one ordinary graded characters satisfies (D7),
+then its Weil--Deligne monodromy is zero.
+\end{srlemma}
+\begin{proof}
+Write such a character as
+\(\alpha=\epsilon_\ell^h\eta u\), with \(h\in\mathbb Z\),
+\(\eta\) finite order and \(u\) unramified.
+This follows from local reciprocity after dividing out
+the parallel algebraic character on an open subgroup
+of units.
+The unramified value of \(u\) is an \(\ell\)-adic unit,
+since \(\alpha\), \(\epsilon_\ell\), and \(\eta\)
+are continuous characters of the compact group \(G_k\).
+
+At a geometric Weil Frobenius, the valuation of
+\(\mathrm{WD}(\alpha)\) is \(h\) times the nonzero
+valuation of \(\mathrm{WD}(\epsilon_\ell)\).
+The finite-order factor and the value of \(u\)
+have valuation zero.
+Thus the Weil--Deligne character first recovers \(h\).
+After dividing out that power of \(\epsilon_\ell\),
+it recovers the finite inertia and the unramified
+value by local reciprocity.
+This proves the first assertion.
+
+The Weil--Deligne functor is exact on potentially
+semistable representations.
+For the ordinary flag its semisimplified Weil
+representation therefore has the rank-one characters
+\(\lambda_i=\mathrm{WD}(\kappa_i)\).
+If \(N\ne0\), the Weil equivariance of monodromy
+gives two of these characters with
+\(\lambda_i=\lambda_j\mathrm{WD}(\epsilon_\ell)\),
+after interchanging \(i,j\) if required by the
+Frobenius convention.
+The first assertion gives
+\(\kappa_i=\kappa_j\epsilon_\ell\).
+This contradicts (D7).
+\end{proof}
+
+The restriction to parallel exponents is essential to this
+short proof and is satisfied here.
+The rational ordinary point has cyclotomic exponents
+\((a+1,a,1,0)\) on an open inertial subgroup.
+Every restriction to a finite local field has the same
+parallel exponents.
+The ordinary flag over the real tower descends to
+\(G_{\mathbb Q_\ell}\) as follows.
+Pass to an open normal inertial subgroup where all finite
+characters disappear.
+Choose an element on which the cyclotomic character has
+infinite order; it has the four distinct eigenvalues
+\(\epsilon_\ell(g)^{a+1},
+  \epsilon_\ell(g)^a,\epsilon_\ell(g),1\).
+The ordered flag is the unique flag made from the
+successive eigenspaces in this order.
+Every local conjugate flag has the same ordered
+characters on that subgroup, so equals it.
+Hence the rational decomposition group preserves this
+flag. Its graded characters have the stated parallel
+exponents.
+Restriction supplies such a flag at every place of every
+imaginary quadratic field.
+
+Away from \(\ell\), the actual point has finite abelian
+inertia extending to decomposition characters.
+Here is the precise ramification argument.
+Use the fixed torus residual representation
+\[
+ \bar r_{\rm tor}
+       =\operatorname{diag}(\bar\chi_0,\ldots,\bar\chi_3)
+       =D.\mathrm{rbar},\qquad
+                       H=G_F\cap\ker\bar r_{\rm tor}.
+ \tag{D10}
+\]
+This is literally a diagonal representation.
+In the original framed rational problem
+\(\mathrm{KPair.red}\) gives entrywise reduction to
+\(D.\mathrm{r0}=\operatorname{diag}(D.\mathrm{ps})\);
+it is stronger than prescribing a semisimplification.
+After the lattice changes used in the residual chain,
+the paired ramification set \(\mathrm{fr.N}\) still uses
+this same fixed \(D.\mathrm{rbar}\), rather than the
+possibly nonsplit residual representation at a chain point.
+Thus \(H\) is open and contains the commutator of
+\(G_{\mathbb Q}\): \(F/\mathbb Q\) is abelian and
+\(\bar r_{\rm tor}\) is diagonal in global characters.
+The actual paired ramification condition kills
+\(I_p\cap H\) for every \(p\ne\ell\).
+Conjugation of the characteristic-zero point preserves
+this killing assertion.
+Thus \(r(I_p)\) is a finite abelian group, and conjugation
+by a decomposition element is trivial on its quotient
+through \(G_{\mathbb Q}/H\).
+Each inertial isotypic subspace is decomposition-stable.
+Diagonalizing a Frobenius on each such subspace shows
+that the Frobenius-semisimplified Weil representation is
+a sum of characters extending the inertial characters.
+Finite inertia gives \(N=0\).
+These statements remain true on every finite local
+restriction.
+
+\begin{srproposition}\label{prop:sr-actual-wit}
+For every \(K'\) in Proposition~\ref{prop:sr-all-quadratic-automorphy},
+the actual representation \(r|_{G_{K'}}\) satisfies
+\(\mathrm{WitA}\).
+Thus the endpoint is exactly the source predicate
+\(\mathrm{IsAutQA}\), including its local assertion.
+\end{srproposition}
+\begin{proof}
+A cuspidal automorphic representation of a general-linear
+group becomes unitary after a single real norm twist.
+The same twist works at all finite places.
+Every local component of a cuspidal representation is
+generic. The
+\href{https://www.numdam.org/item/ASENS_1986_4_19_3_335_0/}
+{generic unitary classification of Tadi\'c}
+has the following consequence.
+If its Weil--Deligne parameter is a sum of characters
+and has \(N=0\), it is a principal series with inducing
+characters in the strict window (D9).
+Indeed its unitary building blocks are tempered
+characters and complementary pairs with exponents
+\(s,-s\), \(0<s<1/2\).
+A discrete-series block of length greater than one
+would have nonzero monodromy and is excluded.
+Undoing the one global norm twist gives the one
+number \(t\) in (D9).
+
+At \(v\nmid\ell\), the finite abelian inertia calculation
+after (D10) and full local--global compatibility give
+exactly this character parameter with \(N=0\).
+Hence (D9) holds there.
+
+At \(v\mid\ell\), assume (D7).
+There exists a flag with parallel graded exponents,
+as just proved.
+Its graded character multiset is the intrinsic multiset
+of Jordan--H\"older characters of the local representation.
+Any other full invariant flag gives the same multiset.
+Thus (D7), if it holds for a flag, holds also for the
+parallel flag.
+The representation is de Rham by its actual polarized
+automorphic realization, so
+Lemma~\ref{lem:sr-parallel-wd-characters}
+gives \(N=0\).
+Its semisimplified Weil parameter is a sum of characters,
+by exactness along the ordinary flag.
+Full compatibility and the generic unitary classification
+therefore give (D9).
+
+Suppose now that (D8) fails.
+Then for some \(i,j,m\ge1\),
+\((\kappa_i/\kappa_j)^m=\epsilon_\ell^m\).
+The Weil characters would have complex Frobenius
+absolute-value ratio \(q_v\) or \(q_v^{-1}\);
+the finite-order ambiguity has absolute value one.
+Under local--global compatibility the common rank
+normalizing scalar cancels, so the inducing characters
+in (D9) would have ratio \(q_v\) in one order.
+Their strict window makes that ratio strictly less
+than \(q_v\), a contradiction.
+The same parallel flag satisfies (D8).
+This proves \(\mathrm{Unl1}\Rightarrow\mathrm{PotUnl}\).
+
+Conversely (D8) implies (D7) by taking \(m=1\);
+the preceding argument supplies (D9) at every such
+place. This is exactly the second clause of
+\(\mathrm{WitA}\).
+Any other regular algebraic cusp representation
+attached to this Galois representation equals
+\(\Pi_{K'}\) by Chebotarev and strong multiplicity one,
+so the asserted quantifier over all attached
+representations introduces no extra hypothesis.
+Together with
+Proposition~\ref{prop:sr-all-quadratic-automorphy}
+this proves \(\mathrm{IsAutQA}\).
+\end{proof}
+
+\subsubsection{The ordinary nonlinking condition at the selected tower}
+We also record why the actual selected tower gives (D7)
+before invoking the preceding implication.
+This is the source's direct \(\mathrm{unlF}\) calculation;
+it verifies a local hypothesis rather than assuming it
+from generic residual characters.
+The tower has the following alternative at every
+\(\ell\)-adic place:
+\[
+ \begin{array}{ll}
+ \text{either}&
+ \exists g\in I_F:\ \bar\omega(g)\ne1,
+                         \quad\bar r|_{I_F}=1,\\
+ \text{or}&
+ \exists g\in D_F:\quad
+      \bar\omega(g)=1,\quad\bar\Psi(g)=1,\quad
+                                     \bar\xi(g)\ne1 .
+ \end{array}
+ \tag{D11}
+\]
+Here \(\bar\omega=\bar\epsilon_\ell\),
+\(\bar\Psi\) is the actual root character, and on
+\(\ker\bar\Psi\) the residual diagonal is
+\[
+                      (\bar\xi,1,\bar\xi,1).
+ \tag{D12}
+\]
+These are precisely the local tower condition
+\(\mathrm{LocL}\) and the identities in
+\(\mathrm{barFacts}\).
+
+If \(\kappa_i=\kappa_j\epsilon_\ell\), restrict to an
+open inertial subgroup where their finite factors
+disappear.
+The infinite cyclotomic image gives
+\(h_i=h_j+1\).
+For \((h_0,h_1,h_2,h_3)=(a+1,a,1,0)\), \(a\ge2\),
+the only possibilities are
+\((i,j)=(0,1),(2,3)\), or \((1,2)\), the last only
+when \(a=2\).
+Reduce the same character equality modulo the
+coefficient maximal ideal.
+In the first case of (D11) its two residual sides
+are \(1\) and \(\bar\omega(g)\), a contradiction.
+In the second case, (D12) has unequal \(i,j\)
+entries for every listed pair, while
+\(\bar\omega(g)=1\), again a contradiction.
+Thus (D7) holds on the selected real tower.
+The CM extension is split at these places, so the
+same local decomposition groups give (D7) over \(L\).
+
+Apply the local argument in
+Proposition~\ref{prop:sr-actual-wit} to the actual
+automorphic point over \(L\), undoing its algebraic
+scalar link twist, whose ratios cancel.
+It gives (D8) on \(G_{L_w}\).
+An equality prohibited by (D8) on the rational
+decomposition group would restrict to such an equality
+on this finite-index subgroup.
+Therefore (D8) holds already for the rational ordinary
+flag and after every finite local restriction.
+Indeed if the ratio became finite order on a
+finite-index subgroup, a further positive power would
+be trivial on the whole local group.
+The actual point is consequently potentially crystalline
+at \(\ell\), and has the required unlinked principal
+series factors after each imaginary quadratic restriction.
+This conclusion is obtained from actual automorphy,
+the checked tower condition and full comparison.
+
+The local--global comparison at a distinguished auxiliary
+place uses the other link, as explained after (H16).
+Thus no auxiliary prime or neat level is retained in this
+endpoint.
+This completes the actual Case II match from the common
+ordinary module and its transported support to the full
+automorphic-and-local predicate used by the counting
+argument.
+
+% Exact frozen-source counterparts:
+% WeakShimuraTheory/UnipotentIdempotents/KapCyc;
+% DenseThresholdCases/AuKap, TAlgOfCyc, TwistInvarianceAutomorphic;
+% BaseChangeUnits/SolCOfSolDescent, VWOfOne, TAcross;
+% DenseThresholdCases/PmAutO, DnPmDown;
+% UpperTriangularPlaces/PtLawsOf and
+% NormalValuationBounds/NeOfPair, CommLeRbar;
+% AutomorphyLifting/WeakOfAtt and IsAutCsdA.
+% The selected-tower irreducibility premise is explicit in (D1).

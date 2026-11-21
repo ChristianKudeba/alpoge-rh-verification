@@ -1,13 +1,15 @@
 {
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "incomplete: generic and nontrivial exceptional uniform character producers and compatible connected geometric supply remain; new support, tangent, descent, lattice and regularization deductions printed",
-  "prior_manuscript_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+  "status": "Incomplete standalone exposition: actual seeds, arithmetic frame, flat charts, sharp ideal, rank-four descent, finite theta matching, Coinv and Decay printed; shared support/original-level local producers, uniform character counts and global geometric inputs remain.",
+  "prior_manuscript_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
-    "Two rational-character estimates uniform in unbounded character order and every required twist, or a valid weaker cubic-logarithmic plus-height bound",
-    "Connected geometric families or signed-data supply on the common windows, including the specified global theta, ramified matching, metric and integral-model constructions"
+    "Actual completed-support/classical Galois coefficient comparison and selected generic twist-one crystalline component, then both uniform character estimates with fixed exponents",
+    "Archimedean common Fock quotient, global nonzero comparison scalar, existence of descended cone/evaluation maps and both uniform rank-two recursions",
+    "General-fibre saturation, slope, integral-point commensurability, tied short-section/root-tower and covolume estimates",
+    "One compatible eventual arithmetic/theta/lattice/numerical family on the same required windows"
   ],
   "principia_sources": [
     {
@@ -729,5 +731,108 @@
       "checked_in_frozen_source": true,
       "conclusion": "Degenerate geometric shell retains nontrivial actual lattices/metrics/numerical data. FamilyClassConnected is compatible eventual ChainTied window data, not classical moduli connectedness. ThetaIntegralsAgree, LocalMatching, CovolumeBoundOfX remain independent."
     }
-  }
+  },
+  "community_translation_snapshot": {
+    "file_id": "fd6fc09854184b61bca8dd800a4859b5",
+    "updated_at": 1795299776877,
+    "translated_modules": 2062,
+    "reviewed_modules": 1647,
+    "total_modules": 175187,
+    "review": "New aggregator and re-export translations do not supply the remaining standalone theta or covolume constructions."
+  },
+  "current_revision_proof_blobs": [
+    {
+      "name": "eisenstein-seed",
+      "blob_sha": "85a6bcfe54aec35d5ff6a30ebfbf01e67dfb1cad"
+    },
+    {
+      "name": "eisenstein-coefficient-three",
+      "blob_sha": "8f0c1b7f2a8a796d7fc2725f7b5f1f16c770a914"
+    },
+    {
+      "name": "generic-CM-cyclotomic-packet",
+      "blob_sha": "014a87956ebe5903f93951364a4e4eb3d2cc28a7"
+    },
+    {
+      "name": "stable-seed-same-module",
+      "blob_sha": "b86b84c332d25e05299dc1428eb74db9d4bb44b3"
+    },
+    {
+      "name": "uniform-arithmetic-frame",
+      "blob_sha": "1da50c2cb6263bae9fc7a7154ad4c64745f24c34"
+    },
+    {
+      "name": "case-two-principal-tower",
+      "blob_sha": "4c9e317df9431a8eada6feabdd4edfaf499d399e"
+    },
+    {
+      "name": "case-two-scalar-place",
+      "blob_sha": "f8f1d90ff56f4d38bfd56481af524b1482341e7f"
+    },
+    {
+      "name": "selected-tower-irreducibility",
+      "blob_sha": "d113965af8602eb9b9e2a09f034eb1dc39c8ebf7"
+    },
+    {
+      "name": "case-two-actual-descent",
+      "blob_sha": "69fb958a4689e4c9065398c16f9f252891d873a2"
+    },
+    {
+      "name": "large-ordinary-theta-convergence",
+      "blob_sha": "1642c1125815309be50c85e97ef47361bb4c6413"
+    },
+    {
+      "name": "entry-space-flat-charts",
+      "blob_sha": "c5b779cdca09460e399ea50101a2974fffbd5ebe"
+    },
+    {
+      "name": "selected-curves-and-sharp",
+      "blob_sha": "9f1b28136a2544d7dbeef5cd944439e8699f3960"
+    },
+    {
+      "name": "rank-two-companion-seed",
+      "blob_sha": "738940b4f0f91422a7caef976257b9507379d168"
+    },
+    {
+      "name": "constant-character-finite-part",
+      "blob_sha": "2a16e8698fbf4a22dedc9fdb71208e0a96d063a4"
+    },
+    {
+      "name": "gaussian-actual-seed-and-endpoint",
+      "blob_sha": "b3aeb90a76fe2a0e5c895cf7eed87cfbb99f4974"
+    },
+    {
+      "name": "generic-rank-three-endpoint",
+      "blob_sha": "a0698301416dcf5a6ae476ddb82aa6e145bb5038"
+    },
+    {
+      "name": "ramified-finite-matching",
+      "blob_sha": "b8fc140d1fc754fd25db9f29fa3e7d99f11dc0fd"
+    },
+    {
+      "name": "unramified-split-matching",
+      "blob_sha": "efe1d91a87b98cc92368bf346ee63d7f1b152365"
+    },
+    {
+      "name": "ramified-codimension-two-uniqueness",
+      "blob_sha": "9a5427e5ceac2f70aa674c414bfa8faed64e2060"
+    },
+    {
+      "name": "exact-good-place-coinvariants",
+      "blob_sha": "9c7b7d8ec32465c0fffb0283a79c10bbb346d256"
+    },
+    {
+      "name": "inert-all-parity-matching",
+      "blob_sha": "b18f315a56836da670dc7d3994fb9a7059130a84"
+    },
+    {
+      "name": "root-small-side-convergence",
+      "blob_sha": "d44783c598f2cf06487529a9859a4ab72255d578"
+    },
+    {
+      "name": "root-exact-bar-cutoff-and-height-decay",
+      "blob_sha": "b4021079494cac25f5f876fa197d244aa387ade4"
+    }
+  ],
+  "current_revision_review": "All added proof chunks reviewed by root against their stated hypotheses; root Decay proof reviewed by connected_geometry. Document checks remain separate from mathematical verification."
 }

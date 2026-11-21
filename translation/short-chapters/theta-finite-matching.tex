@@ -1,0 +1,1130 @@
+\section{Construction of the ramified split matching maps}
+\label{sec:sr-ramified-matching-construction}
+
+We now construct the finite matching maps at every place of \(T\).
+This proves the ramified part of local matching, including its
+normalization on arbitrary Schwartz--Bruhat functions.  It does not
+supply the archimedean matching quotient, the inert quotient, or the
+global comparison of integrals.
+
+Let \(k=F_v\), let \(\mathcal O\) be its valuation ring, and put
+\(q=\#(\mathcal O/\varpi)\), \(K_r=\mathrm{GL}_r(\mathcal O)\).
+Suppose \(a'<a\), put \(d=a+a'\), and let \(\alpha,\beta\) be
+smooth unitary characters of \(k^\times\).  Write
+\(\nu=\alpha/\beta\) and assume \(\nu|_{\mathcal O^\times}\ne1\).
+The Haar measure on each \(\mathrm{GL}_r(k)\) gives \(K_r\)
+mass one.  Set \(X_0=[1_a\ 0]\), \(Y_0=[0\ 1_{a'}]\).
+The two split Weil actions, in the designated linear and opposite
+linear coordinates, are
+\begin{align}
+ A(g,h)\phi(X)
+ &=\nu(\det g)^{-1}\beta(\det h)
+       |\det g|^{-d/2}|\det h|^{-a/2}
+                    \phi(g^{-1}Xh^{-t}),\label{eq:sr-ram-action-A}\\
+ B(g',h)\phi'(Y)
+ &=\nu(\det g')\alpha(\det h)
+       |\det g'|^{d/2}|\det h|^{a'/2}
+                    \phi'({}^tg'Yh).\label{eq:sr-ram-action-B}
+\end{align}
+The transpose in the second formula is part of the convention.
+
+\paragraph{Finite support of the ramified Cartan sum.}
+For \(r\ge1\), a smooth compactly supported function
+\(f:M_r(k)\to\mathbb C\), and \(z\in\mathbb C\), define
+\[
+ Z_r(f,\nu,z)=
+ \sum_{n_1\ge\cdots\ge n_r}
+ \int_{K_r\operatorname{diag}(\varpi^{n_i})K_r}
+              f(g)\nu(\det g)|\det g|^z\,dg .
+\]
+This sum has only finitely many nonzero summands.  To prove it,
+choose integers \(c,e\) such that \(f=0\) outside
+\(\varpi^{-c}M_r(\mathcal O)\), and \(f\) is invariant under
+translation by \(\varpi^eM_r(\mathcal O)\).  If \(n_r<-c\),
+the corresponding shell does not meet the support: its operator
+norm is \(q^{-n_r}\), since multiplication on either side by
+\(K_r\) preserves that norm.  Choose
+\(u\in\mathcal O^\times\) with \(\nu(u)\ne1\).  On the shell
+with diagonal representative \(t_n\), integrate first over
+\(k_1,k_2\in K_r\).  The pushforward of their product probability
+measure to \(K_rt_nK_r\) is its invariant probability measure.
+Replace \(k_1\) by
+\(k_1\operatorname{diag}(u,1,\ldots,1)\).  If \(n_1\ge e\),
+the argument \(k_1t_nk_2\) changes by an element of
+\(\varpi^eM_r(\mathcal O)\), whereas its character factor is
+multiplied by \(\nu(u)\).  Thus this shell integral is zero.
+Consequently all nonzero shells satisfy
+\[
+                       -c\le n_r\le n_1<e.
+\]
+This argument is independent of \(z\).  Each remaining term is
+a constant times \(q^{-z\sum_i n_i}\), so \(Z_r\) is an entire
+function of \(z\), in fact a Laurent polynomial in \(q^{-z}\).
+It also proves linearity directly: take common \(c,e\) for a
+finite collection of test functions.
+
+For \(\Re z>r-1\), this sum is the ordinary absolutely convergent
+integral over \(\mathrm{GL}_r(k)\).  Indeed additive matrix measure
+and multiplicative Haar measure differ by a positive constant
+times \(|\det g|^{-r}\).  Successive integral column elimination
+on \(M_r(\mathcal O)\) reduces convergence to geometric series
+with ratios \(q^{-(\Re z-i)}\), \(0\le i<r\).
+A compact support is contained in a scalar dilate of this set.
+This proves the assertion without a continuation theorem.
+Changes of variables in that half-plane therefore continue to
+every \(z\), because both sides are finite Laurent sums.
+
+The same construction applies to \(f(g)=\phi(gX)\) when \(X\)
+is any full-row-rank rectangular matrix: choose a right inverse
+to \(X\).  It bounds \(g\) on the support, and a sufficiently
+small matrix translation of \(g\) changes \(gX\) inside a
+translation subgroup for \(\phi\).  In particular every occurrence
+of \(Z_a\) below has the finite-support property just proved.
+
+\paragraph{The two maps and their exact common target.}
+Define
+\begin{align}
+ P_A\phi(h)
+ &=\beta(\det h)|\det h|^{-a/2}
+       Z_a\bigl(g\mapsto\phi(gX_0h^{-t}),\nu,d/2\bigr),
+       \label{eq:sr-ram-PA}\\
+ P_B\phi'(h)
+ &=\alpha(\det h)|\det h|^{a'/2}
+       \int_{\mathrm{GL}_{a'}(k)}
+          \phi'(gY_0h)\nu(\det g)|\det g|^{d/2}\,dg .
+       \label{eq:sr-ram-PB}
+\end{align}
+The second integral is absolutely convergent since
+\(d/2>a'-1\).  Both maps are linear.
+
+Let \(P\) be the upper block parabolic of type \((a,a')\).
+The common target is the smooth normalized induced representation
+\[
+ \Pi_v=\operatorname{Ind}_{P}^{\mathrm{GL}_d(k)}
+           \bigl((\alpha\circ\det)\boxtimes(\beta\circ\det)\bigr).
+\]
+Thus its functions obey, for
+\(p=\left(\begin{smallmatrix}A&C\\0&D\end{smallmatrix}\right)\),
+\begin{equation}
+ F(ph)=\alpha(\det A)\beta(\det D)
+       |\det A|^{a'/2}|\det D|^{-a/2}F(h).
+ \label{eq:sr-ram-induction-law}
+\end{equation}
+The exponents are exactly \(\delta_P^{1/2}\).
+
+Here is a verification for both transforms.  One has
+\(X_0p^{-t}=A^{-t}X_0\) and \(Y_0p=DY_0\).
+In the first integral change \(g\) to \(gA^t\);
+its character and determinant factor contribute
+\(\nu(\det A)|\det A|^{d/2}\).
+Together with the outside factor this is
+\[
+ \beta(\det A\det D)|\det A\det D|^{-a/2}
+        \nu(\det A)|\det A|^{d/2},
+\]
+which is the factor in \eqref{eq:sr-ram-induction-law}.
+For \(P_B\), change \(g\) to \(gD^{-1}\); the resulting factor is
+\[
+ \alpha(\det A\det D)|\det A\det D|^{a'/2}
+        \nu(\det D)^{-1}|\det D|^{-d/2},
+\]
+the same expression.  The first change of variables is justified
+initially for large \(\Re z\), with \(d/2\) replaced by \(z\),
+and then by the finite Laurent identity above.
+
+A Schwartz function is fixed by some compact open subgroup
+under right matrix multiplication.  Shrink the subgroup to kill
+the smooth outside character.  The transforms are consequently
+fixed by an open subgroup under right translation, as required
+in the smooth induction.  Direct substitution in
+\eqref{eq:sr-ram-action-A}--\eqref{eq:sr-ram-action-B} gives
+\begin{align}
+ P_A(A(g,1)\phi)&=P_A\phi,&
+ P_B(B(g',1)\phi')&=P_B\phi',\label{eq:sr-ram-first-invariance}\\
+ P_A(A(1,h_1)\phi)(h)&=P_A\phi(hh_1),&
+ P_B(B(1,h_1)\phi')(h)&=P_B\phi'(hh_1).
+ \label{eq:sr-ram-second-equivariance}
+\end{align}
+For the first two equalities use respectively the substitutions
+\(g_{\rm int}\mapsto gg_{\rm int}\) and
+\(g_{\rm int}\mapsto{}^tg'^{-1}g_{\rm int}\).
+Their determinant factors cancel the displayed first-group
+factors in the actions.  For the latter two equalities use the
+representation laws; the first and second actions commute.
+
+Each map is nonzero.  For \(P_A\), choose a principal congruence
+subgroup \(K_a(e)\) on which \(\nu\circ\det\) is trivial, and
+take \(\phi\) to be the characteristic function of
+\[
+       [\,K_a(e)\quad \varpi^eM_{a,a'}(\mathcal O)\,].
+\]
+At \(h=1\) its pullback under \(g\mapsto gX_0\) is precisely
+\({\bf1}_{K_a(e)}\), so its transform is
+\(\operatorname{vol}(K_a(e))>0\).  This involves only the unit
+shell.  The identical construction around \(Y_0\), with the
+last square block in \(K_{a'}(e)\), proves \(P_B\ne0\).
+If \(a'=0\), replace this last argument by the function \(1\)
+on the zero-dimensional matrix space; its transform is the
+one-dimensional character \(\alpha\circ\det\).
+The applications have \(a'\ge1\).
+
+The one published representation theorem needed at this point
+is Bernstein's irreducibility of normalized induction from a
+unitary irreducible representation of a Levi subgroup of
+\(\mathrm{GL}_d(k)\); see
+\href{https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/Bernstein-P-invar-SLN.pdf}
+{Bernstein, \emph{\(P\)-invariant distributions}, Corollary in
+\(\S0.2\), proved in \(\S8.2\)}.
+It applies because both inducing representations are the
+one-dimensional unitary representations \(\alpha\circ\det\)
+and \(\beta\circ\det\).  The induction here is precisely the
+normalized one, by \eqref{eq:sr-ram-induction-law}.
+No restriction to cuspidal inducing data is being imposed.
+Each nonzero invariant image in \(\Pi_v\) is therefore all of
+\(\Pi_v\).  Thus \(P_A\) and \(P_B\) are surjective.
+
+\paragraph{Transport to the specified Weil coordinates.}
+We record the coordinate argument to specify the model involved.
+At a split place,
+\(E\otimes_F k=k\oplus k\), with conjugation interchanging the
+summands.  Use the designated split lattice bases \(b,c\).
+The two complementary tensor summands are Lagrangian; their
+symplectic pairing is the matrix trace pairing, with the minus
+sign dictated by the skew-Hermitian form.  In linear coordinates
+the translation variable is
+\[
+ b^{-1}u_1c^{-t};
+\]
+in opposite coordinates it is
+\[
+                 -{}^tb\,J_Xu_0\,{}^tJ_Wc .
+\]
+The second formula is also the dual of the first for the
+specified symplectic form.  Hence their translations and
+modulations give the usual Schr\"odinger representation.
+A linear change of coordinates followed, where necessary, by
+Fourier transform in one Lagrangian gives isomorphisms
+\[
+ \iota:\mathcal S_v(V\otimes W)\longrightarrow
+                         \mathcal S(M_{a,d}(k)),\qquad
+ \iota':\mathcal S_v(V'\otimes W)\longrightarrow
+                         \mathcal S(M_{a',d}(k)).
+\]
+These operations preserve Schwartz--Bruhat functions.
+
+There is a unique lattice-vacuum line in each of these
+realizations.  In the matrix model, invariance under integral
+translations makes a vector constant on integral cosets;
+invariance under integral modulations forces its support to
+the annihilator lattice.  When \(\psi_v\) is unramified this is
+the integral matrix lattice.  Thus the vacuum is a nonzero
+multiple of its indicator.  Scale \(\iota,\iota'\) so that
+both multiples equal \(1\).  This is compatible with every
+Heisenberg operator.  In a non-self-dual additive convention,
+the annihilator lattice must first be scaled by the inverse
+different; the places of \(T\) in the present application are
+unramified for \(\psi_v\), so that correction is absent.
+
+The restrictions of the splitting characters to the diagonal
+\(k^\times\) are trivial at a split place.  Thus their two
+components are inverse characters.  For the large pair,
+\((\beta/\alpha)(t\circ\sigma)=\nu(t)\) and
+\(\beta(t\circ\sigma)=\beta(t)^{-1}\); for the small pair,
+\((\alpha/\beta)(t)=\nu(t)\).  The dual-pair actions in these
+coordinates preserve the respective Lagrangians.  Egorov's relation makes their operators scalar
+multiples of the indicated linear substitutions.  The scalar is
+fixed by their action at the origin, namely the Siegel rule with
+the specified splitting characters.  For the large pair
+\((\beta,\beta/\alpha)\) it gives precisely
+\eqref{eq:sr-ram-action-A}; for the small pair
+\((\alpha,\alpha/\beta)\) it gives
+\eqref{eq:sr-ram-action-B}.  One can check the scalar at any
+translated origin as well: translating an arbitrary test vector
+reduces the whole equality to its value at zero.  Thus no
+additional unit-modulus character can be inserted in these formulas.
+The use of the same basis \(c\) for \(W\) ensures that the
+second-group variable \(h\) in both formulas is the same
+element of \(\mathrm{GL}_d(k)\).  The map from \(U(W)(k)\)
+to this general linear group is onto, since its other split
+component is uniquely determined by the first and the
+skew-Hermitian form.
+
+Define the actual quotient maps by
+\[
+                         p_v=P_A\iota,\qquad
+                         p'_v=P_B\iota'.
+\]
+They are surjective onto the same nonzero irreducible
+\(\Pi_v\).  Equation \eqref{eq:sr-ram-first-invariance} shows
+that they annihilate the respective first-group difference
+spaces.  Equation \eqref{eq:sr-ram-second-equivariance} gives
+exact compatibility under the common second group.
+Their matching criterion is pointwise equality
+\[
+              p_v\phi=p'_v\phi'
+        \quad\Longleftrightarrow\quad
+              P_A(\iota\phi)=P_B(\iota'\phi')
+                    \quad\hbox{on }\mathrm{GL}_d(k).
+\]
+This is the exact criterion required at a place of \(T\).
+Vacuum matching is required only outside \(T\).
+The construction is placewise and applies to every allowed
+character pair; it makes no choice of a character-dependent
+global comparison constant.
+
+\paragraph{Scope for the two rank recursions.}
+The preceding construction supplies the ramified finite maps
+themselves.  The standard matched vectors and their local cone
+evaluations in Section~\ref{sec:ramified-whittaker} consequently
+use these very quotient maps.  To infer the cone comparison for
+every matched vector one still needs the codimension-two
+multiplicity-one statement, together with existence and
+equivariance of the descended cone and evaluation operators.
+Bernstein irreducibility of \(\Pi_v\) alone does not prove that
+branching statement.  Likewise this construction by itself does
+not compare the two global theta integrals.  Those are separate
+remaining steps in \srcid{ThetaIntegralsAgree}.
+
+
+\section{Construction at unramified split places}
+\label{sec:sr-unramified-split-matching}
+
+We construct the matching maps at every split place outside \(T\).
+This includes the possible poles of the unnormalized large-side
+matrix integral; evaluation there means the finite normalized
+Laurent polynomial constructed below.
+
+Let \(k,\mathcal O,q,\varpi,a,a',d=a+a'\) be as in
+Section~\ref{sec:sr-ramified-matching-construction}, with
+\(a'<a\).  This time \(\alpha,\beta\), and hence
+\(\nu=\alpha/\beta\), are unramified unitary characters.
+All multiplicative Haar measures give
+\(K_r=\mathrm{GL}_r(\mathcal O)\) mass one.
+For a Schwartz--Bruhat function \(f\) on \(M_r(k)\), initially put
+\[
+ Z_r(f,s)=\int_{\mathrm{GL}_r(k)}
+                 f(g)\nu(\det g)|\det g|^s\,dg,
+                    \qquad \Re s>r-1 .
+\]
+Write
+\[
+ T=\nu(\varpi)q^{-s},\qquad
+ D_r(T)=\prod_{i=0}^{r-1}(1-q^iT),\qquad
+ c_r=\prod_{j=1}^r(1-q^{-j}).
+\]
+We prove that
+\begin{equation}
+                       D_r(T)Z_r(f,s)
+                 \quad\hbox{is in }\mathbb C[T,T^{-1}],
+ \label{eq:sr-unr-Laurent}
+\end{equation}
+and that for \(f={\bf1}_{M_r(\mathcal O)}\) this Laurent
+polynomial is \(1\).
+
+\paragraph{The integral of the standard lattice.}
+Give additive matrix space measure with integral matrices of
+mass one.  Then \(dg=c_r^{-1}|\det g|^{-r}\,dX\).
+Let
+\[
+ I_r(t)=\int_{M_r(\mathcal O)}
+                         \nu(\det X)|\det X|^t\,dX
+\]
+on its convergence half-plane; the rank-deficient matrices
+have additive measure zero.  In the first column write
+\(v=\varpi^j u\), \(u\) primitive, \(j\ge0\).
+The corresponding column measure is
+\((1-q^{-r})q^{-rj}\).  An element of \(K_r\) sends each
+primitive \(u\) to the first basis vector; its determinant is
+a unit, so neither character nor absolute-value weights
+change.  The remaining determinant is that of an
+\((r-1)\)-by-\((r-1)\) integral matrix.  Integration in the
+unused first-row coordinates contributes \(1\).
+Consequently
+\[
+ I_r(t)=\frac{1-q^{-r}}
+               {1-\nu(\varpi)q^{-(t+r)}}I_{r-1}(t),
+                          \qquad I_0(t)=1.
+\]
+Thus
+\[
+ I_r(t)=\prod_{j=1}^r
+            \frac{1-q^{-j}}{1-\nu(\varpi)q^{-(t+j)}}.
+\]
+Putting \(t=s-r\) proves
+\[
+         Z_r({\bf1}_{M_r(\mathcal O)},s)=D_r(T)^{-1}.
+\]
+It proves absolute convergence for \(\Re s>r-1\) at the same
+time.
+
+\paragraph{The polynomial numerator for every test function.}
+Here are the details needed to extend the preceding formula
+to arbitrary \(f\), rather than merely spherical functions.
+After a scalar dilation suppose its support is in
+\(M_r(\mathcal O)\), and choose \(e\) such that \(f\) is
+constant modulo \(\varpi^eM_r(\mathcal O)\).
+We induct on \(r\).
+Partition matrices by their residue modulo \(\varpi\).
+On a residue class of positive rank \(k\), choose a unit
+\(k\)-by-\(k\) pivot block \(A\), after integral row and column
+permutations.  The block substitution
+\[
+ \begin{pmatrix}A&B\\ C&D\end{pmatrix}
+       \longmapsto (A,B,C,S),\qquad S=D-CA^{-1}B,
+\]
+has additive Jacobian \(1\) and determinant
+\(\det A\det S\).  The matrix \(A\) is integral invertible,
+so its determinant contributes neither character nor norm.
+The blocks \(A,B,C\) range over compact sets.
+A finite compact-open partition, using the translation level
+of \(f\), reduces their integrals to finite linear combinations
+of determinant integrals in size \(r-k\), with the same
+additive exponent \(t=s-r\).
+Their multiplicative parameter is \(s-k\).
+By induction their denominator divides
+\[
+          \prod_{i=k}^{r-1}(1-q^iT),
+\]
+which divides \(D_r(T)\).
+The constants from the additive measures are independent of
+\(s\).
+
+The sole zero-residue class is \(X\in\varpi M_r(\mathcal O)\).
+Substitute \(X=\varpi X_1\); its scaling factor is \(T^r\).
+Repeat the preceding residue partition on this branch.
+After at most \(e\) such zero branches, \(f\) is constant
+on the remaining central box, and its integral is a scalar
+multiple of a dilate of the standard-lattice integral.
+This proves \eqref{eq:sr-unr-Laurent}.  The initial scalar
+dilation contributes only a Laurent monomial in \(T\).
+All operations preserve linearity in \(f\).
+
+It follows that \(Z_r(f,s)\) has the specified rational
+continuation and that its normalized value is defined at
+every \(s\), even where \(D_r(T)=0\).  No division by a
+vanishing value is used in evaluating the normalized map.
+
+\paragraph{The source's finite convolution.}
+Expand the convergent Cartan integral as a Laurent series
+in an auxiliary variable \(X\), keeping \(s_0=d/2\) fixed:
+\[
+ \sum_{m\in\mathbb Z}z_mX^m,\qquad
+ z_m=\!\!\sum_{\substack{n_1\ge\cdots\ge n_r\\
+                         \sum_i n_i=m}}\!
+       \int_{K_r\operatorname{diag}(\varpi^{n_i})K_r}
+           f(g)\nu(\det g)|\det g|^{s_0}\,dg.
+\]
+Each inner sum is finite: compact support bounds every
+\(n_i\) below, and the sum of the \(n_i\)'s is fixed.
+There are only finitely many negative powers in the outer
+series.  Multiplying by
+\[
+ D_{r,s_0}(X)=
+       \prod_{i=0}^{r-1}
+          (1-\nu(\varpi)q^{\,i-s_0}X)
+\]
+gives a Laurent polynomial by
+\eqref{eq:sr-unr-Laurent}.  Its coefficient of \(X^m\) is
+\[
+        \sum_{j=0}^r [X^j]D_{r,s_0}(X)\,z_{m-j}.
+\]
+Only finitely many of these coefficients are nonzero, and
+their sum is its value at \(X=1\).  This is exactly the
+finite-support convolution called \(\mathrm{zetaUnr}\)
+in the source; its polynomial is \(\mathrm{invL}\).
+This calculation identifies that definition with the
+normalized rational continuation on every Schwartz function.
+
+\paragraph{The common quotient and the spherical vectors.}
+Use the actions \(A,B\) and the designated split coordinates
+of the preceding section.  At \(s_0=d/2\) put
+\begin{align}
+ P_A^{\rm unr}\phi(h)
+ &=\beta(\det h)|\det h|^{-a/2}
+   \left[
+     D_a(\nu(\varpi)q^{-s})\,
+     Z_a(g\mapsto\phi(gX_0h^{-t}),s)
+   \right]_{s=s_0},\label{eq:sr-unr-PA}\\
+ P_B^{\rm unr}\phi'(h)
+ &=D_{a'}(\nu(\varpi)q^{-s_0})\,
+     \alpha(\det h)|\det h|^{a'/2}
+       \int_{\mathrm{GL}_{a'}(k)}
+       \phi'(gY_0h)\nu(\det g)|\det g|^{s_0}\,dg .
+       \label{eq:sr-unr-PB}
+\end{align}
+The small integral converges ordinarily because
+\(s_0>a'-1\).
+Moreover its normalizing factor is nonzero:
+for \(0\le i<a'\),
+\[
+             |\nu(\varpi)q^{\,i-s_0}|<1.
+\]
+The large normalized expression is evaluated as a Laurent
+polynomial, as proved above.
+
+Both maps take values in
+\[
+ \Pi_v=\operatorname{Ind}_{P_{a,a'}}^{\mathrm{GL}_d(k)}
+          \bigl((\alpha\circ\det)\boxtimes(\beta\circ\det)\bigr)
+\]
+with exactly the normalized parabolic law
+\eqref{eq:sr-ram-induction-law}.  To verify this, do the same
+changes of variables as in the preceding section on a
+convergence half-plane, multiply by \(D_r\), and use equality
+of rational functions before specializing to \(s_0\).
+The identical argument proves first-group invariance and
+second-group equivariance.  Smoothness follows from an open
+right stabilizer of the input function, as before.
+
+The common target at \(s_0\) must not be confused with a
+fixed induction for all parameters.  Before specialization,
+the unnormalized large map has parabolic multiplier
+\[
+ \alpha(\det A)\beta(\det D)
+ |\det A|^{a'/2}|\det D|^{-a/2}
+                         |\det A|^{\,s-s_0}.
+\]
+For the first-group action it satisfies
+\[
+ P_{A,s}(A(g,1)\phi)
+                    =|\det g|^{\,s-s_0}P_{A,s}\phi .
+\]
+These identities follow on the convergence half-plane by the
+changes of variables already given; multiply by \(D_a\)
+and continue the rational identities.  The normalized
+expressions are Laurent polynomials, and the extra scalar
+factors are holomorphic and equal to \(1\) at \(s_0\).
+Specialization therefore gives the asserted fixed induction
+law and first-group invariance, including at a zero of
+\(D_a\).  The second-group equivariance has no extra
+parameter factor.
+
+The two integral-matrix indicators have value \(1\) at
+\(h=1\) under the respective maps, by the standard-lattice
+calculation.  They are right \(K_d\)-invariant.  Their images
+are equal as functions on all of \(\mathrm{GL}_d(k)\):
+Iwasawa decomposition \(G=P_{a,a'}K_d\) and the fixed
+parabolic transformation law determine a right-spherical
+function from its value at \(1\).  One elementary proof of
+this Iwasawa decomposition chooses an integral basis of the
+saturated submodule obtained by intersecting the relevant
+\(k\)-subspace with \(\mathcal O^d\), then extends it to an
+integral basis of \(\mathcal O^d\); the resulting change of
+basis lies in \(K_d\) and makes the matrix upper block
+triangular.  The common vacuum image is nonzero.
+
+Bernstein's unitary induction theorem applies to this same
+\(\Pi_v\), so its two nonzero invariant images are all of
+\(\Pi_v\).  Transporting the maps by \(\iota,\iota'\) therefore
+gives a common nonzero irreducible quotient of the two
+specified local Schwartz spaces, with first-group differences
+annihilated, matching preserved by the common second group,
+and equal nonzero images of the vacuum vectors.
+These are all the finite matching requirements at a split
+place outside \(T\).
+
+Together with
+Section~\ref{sec:sr-ramified-matching-construction}, this
+constructs the finite maps at every split place.  The
+construction makes no assertion about the inert places or
+the archimedean quotient.  Exact kernel-equals-differences
+statements at the additional good places, needed by the
+global coinvariant argument, are also separate from the
+surjectivity and compatibility proved here.
+
+
+\paragraph{Zero-rank convention and actual range.}
+For \(r=0\), set \(\mathrm{GL}_0(k)=\{1\}\), give it mass
+one, set \(D_0=1\), and take the zero-dimensional matrix
+Schwartz space to be \(\mathbb C\).
+If \(a'=0<a\), the target is the one-dimensional
+representation \(\alpha\circ\det\).
+The small map is \(c\mapsto(h\mapsto\alpha(\det h)c)\).
+The large normalized map has the same covariance under
+the whole group \(P_{a,0}=\mathrm{GL}_a(k)\), and sends its
+standard lattice vector to this function with \(c=1\).
+All assertions follow with these conventions.
+In the actual source's admissible triples,
+\(2(p+q)+1<a'\), so \(a'\ge2\); the positive-rank proof
+above covers every application.
+
+
+\section{Ramified multiplicity one in codimension two}
+\label{sec:sr-ramified-branching}
+
+The irreducibility used to construct the maps in
+Section~\ref{sec:sr-ramified-matching-construction} also supplies
+the branching statement needed in the local rank recursions.
+We prove that statement in matrix coordinates, retaining the
+unit diagonal conditions that are essential to its application.
+
+Let \(k\) be a finite extension of \(\mathbb Q_p\),
+let \(d=m+2\), and suppose \(n\le m\).
+Write a matrix of size \(n\)-by-\(d\) as
+\[
+                         Y=[\,M\mid x\mid y\,].
+\]
+Let \(\nu:k^\times\to\mathbb C^\times\) be smooth unitary and
+ramified.  Fix \(l\in\mathcal O^\times\) with \(\nu(l)\ne1\).
+Let \(P_0\) be the group of matrices
+\[
+ h=\begin{pmatrix}
+       1_m&0&b\\ c&u&e\\0&0&v
+    \end{pmatrix},
+ \qquad u,v\in\mathcal O^\times .
+ \tag{\(*\)}
+\]
+Here \(c\) is a row of length \(m\), \(b\) a column, and
+\(e\in k\).  Its action on the three blocks is
+\[
+  [M,x,y]h=[\,M+xc,\ ux,\ Mb+ex+vy\,].
+\]
+For a complex vector space \(W\), call a linear map
+\(L:\mathcal S(M_{n,d}(k))\to W\) admissible if
+\begin{align}
+ L\!\left(\nu(\det a)|\det a|^{d/2}
+               \Phi({}^taY)\right)&=L(\Phi)
+                       &&(a\in\mathrm{GL}_n(k)),\label{eq:sr-br-left}\\
+                         L(\Phi(Yh))&=L(\Phi)
+                       &&(h\in P_0).\label{eq:sr-br-right}
+\end{align}
+These are exactly the two invariances of the source's
+\(\mathrm{Inv}\) condition.
+
+Suppose \(W\) is a nonzero countable-dimensional irreducible
+module for \(\mathrm{GL}_m(k)\), with action \(\rho\).
+Suppose two admissible maps \(L,L'\) satisfy
+\begin{equation}
+ L(\Phi([Mg,x,y]))=\rho(g)L(\Phi),\qquad
+ L'(\Phi([Mg,x,y]))=\rho(g)L'(\Phi)
+                      \quad(g\in\mathrm{GL}_m(k)).
+ \label{eq:sr-br-middle}
+\end{equation}
+If \(L\ne0\), then there is \(c\in\mathbb C\) with \(L'=cL\).
+
+If \(n=0\), the matrix Schwartz space is \(\mathbb C\).
+A nonzero equivariant \(L\) makes its image a nonzero
+\(\rho\)-invariant trivial line in \(W\), so irreducibility
+forces \(W\) to be that line.  Then every other equivariant
+map is proportional to \(L\).
+For the remainder of the proof suppose \(1\le n\le m\).
+
+\paragraph{The local distribution tools.}
+We use the localization principle and Frobenius descent for
+Schwartz distributions on locally compact totally disconnected
+spaces, in
+\href{https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/Bernstein-P-invar-SLN.pdf}
+{Bernstein, \emph{\(P\)-invariant distributions}, \(\S1.4\)--\(\S1.5\)}.
+The precise consequence needed is the following.
+In a constant-rank matrix chart, let an invariant map to a
+Grassmannian record a kernel, and suppose its fibers are
+homogeneous spaces for the acting matrix group.
+An equivariant distribution on a fiber vanishes if its
+stabilizer contains an element on which the equivariance
+character differs from the required modular character.
+If every fiber has such an element, localization gives
+vanishing on the whole chart.  Rank filtrations and the exact
+sequence for an open subset and its closed complement then
+give the same conclusion for a finite union of these strata.
+
+We check the modular issue explicitly below.  All stabilizer
+elements used there are semisimple with eigenvalues powers of
+the unit \(l\).  Their adjoint eigenvalues on the corresponding
+stabilizer Lie algebra have absolute value \(1\); hence their
+modular character is \(1\).  The ambient general linear
+groups are unimodular.  The group \(P_0\) is a unipotent group
+extended by \((\mathcal O^\times)^2\), whose determinant action
+on its unipotent radical has absolute value \(1\), and is
+also unimodular.  Thus no modular factor cancels \(\nu(l)\).
+
+For completeness these principles apply to algebraic linear
+maps into \(W\).  Compose a map with any linear functional
+on \(W\).  On \(\mathcal S(k^N)\), every algebraic functional
+is a Schwartz distribution: this space is the inductive limit
+of the finite-dimensional spaces of functions supported in a
+fixed compact open box and constant modulo a fixed smaller
+box.  The same holds for the locally closed matrix strata.
+After proving a scalar vanishing statement, separation by the
+algebraic dual of \(W\) proves its vector-valued version.
+
+\paragraph{Removal of deficient total rank.}
+On matrices of rank \(r<n\), the map \(Y\mapsto\ker Y\) takes
+values in \(\operatorname{Gr}_{d-r}(k^d)\); its fibers are the
+orbits of left \(\mathrm{GL}_n(k)\).  A nonzero \(n\)-by-\(r\)
+minor gives local sections by Gaussian elimination, so this
+is precisely a homogeneous-space family of the preceding type.
+At a matrix \(Y_0\) of rank \(r<n\), choose a nonzero row
+\(c\) with \(cY_0=0\), and a column \(z\) with \(cz=1\).
+The projection \(P=zc\) is idempotent and
+\[
+                a_0=1+(l^{-1}-1)P
+\]
+fixes \(Y_0\) by left multiplication, has determinant \(l^{-1}\),
+and has unit eigenvalues.  Equation \eqref{eq:sr-br-left}, with
+\({}^ta=a_0\), supplies the nontrivial multiplier \(\nu(l)\).
+Frobenius descent and localization therefore show that the
+twisted coinvariants on each deficient-rank stratum are zero.
+Induct over the finite rank filtration.  Consequently every
+Schwartz function is congruent, modulo the first-group
+differences in \eqref{eq:sr-br-left}, to a function compactly
+supported on the open full-row-rank locus \(U\).
+An admissible \(L\) is determined by its restriction to
+\(\mathcal S(U)\).
+
+\paragraph{The first exceptional column.}
+On the open set \(x\ne0\), the \(\mathrm{GL}_n(k)\times P_0\)
+orbits can be described explicitly.
+Reduce modulo the line \(kx\) and put
+\[
+ r=\operatorname{rank}(\bar M),\qquad
+ K=\ker(\bar M:k^m\to k^n/kx).
+\]
+One further invariant records whether \(y\) lies in
+\(\operatorname{im}M+kx\).
+For fixed \(r\) and this last binary value, \(K\) ranges over
+a Grassmannian and is a complete orbit invariant.
+To verify this, first send \(x\) to the first basis vector.
+The row \(c\) in \((*)\) removes the first row of \(M\);
+left changes of basis on the remaining rows identify matrices
+with the same kernel \(K\).  The column \(b\) and entry \(e\)
+remove the component of \(y\) in \(\operatorname{im}M+kx\).
+A nonzero remaining component can be sent to a fixed last
+basis vector by a change of basis on the complement.
+On each pivot chart these choices are rational continuous
+functions of the nonzero minors.  Thus the invariant map
+has homogeneous fibers and the required local sections.
+
+Here is a stabilizer element with nontrivial multiplier at
+any such \(Y_0\).  Choose a row \(c_0\) with \(c_0x_0=1\).
+Let
+\[
+ P=x_0c_0,\quad
+ Q=e_x(c_0Y_0),\quad
+ a_0=1+(l^{-1}-1)P,\quad h_0=1+(l-1)Q,
+\]
+where \(e_x\) is the column of the exceptional \(x\)-position.
+Both \(P,Q\) are idempotent and \(PY_0=Y_0Q\).
+It follows that \(a_0Y_0h_0=Y_0\).
+The matrix \(h_0\) belongs to \(P_0\): only its \(x\)-row
+differs from the identity, its \(x\)-diagonal entry is \(l\),
+and its \(y\)-diagonal entry is \(1\).
+Its right multiplier is \(1\), while the left multiplier is
+\(\nu(l)\), as before.  The modular characters are \(1\).
+Localization proves that \(L\) annihilates all functions
+supported on \(x\ne0\), and the same is true of \(L'\).
+
+In particular, on \(U\) these maps descend through restriction
+to the closed subset \(Z=\{x=0\}\cap U\).  This uses the exact
+Schwartz sequence
+\[
+ 0\longrightarrow\mathcal S(U\setminus Z)
+ \longrightarrow\mathcal S(U)\longrightarrow\mathcal S(Z)
+ \longrightarrow0 .
+\]
+In this nonarchimedean situation there are no transverse
+derivatives of a distribution supported on \(Z\).
+
+\paragraph{The remaining exceptional rank.}
+Inside \(Z\), full rank of \(Y=[M,0,y]\) forces either
+\(\operatorname{rank}M=n\), or
+\(\operatorname{rank}M=n-1\) and \(y\notin\operatorname{im}M\).
+The latter is the only exceptional stratum.
+Its orbits are again the fibers of \(M\mapsto\ker M\).
+At one of its points choose \(c_0M_0=0,\ c_0y_0=1\).
+Now put
+\[
+       P=y_0c_0,\quad
+       a_0=1+(l^{-1}-1)P,\quad
+       h_0=\operatorname{diag}(1_m,1,l).
+\]
+Again \(a_0Y_0h_0=Y_0\), \(h_0\in P_0\), and the multiplier
+is \(\nu(l)\ne1\), with trivial modular factors.
+Gaussian pivot charts and localization prove that the
+coinvariants of this exceptional stratum are zero.
+It follows that an admissible map is already determined by
+its restriction to
+\[
+                 Z_0=\{\,x=0,\ \operatorname{rank}M=n\,\}.
+\]
+Precisely, if the induced map on \(\mathcal S(Z_0)\) is zero,
+it factors through the exceptional stratum and hence is zero
+on \(\mathcal S(Z)\), then on \(\mathcal S(U)\), and finally
+on the whole matrix Schwartz space.
+
+\paragraph{Integration in the last column.}
+On \(Z_0\), the shear with column \(b\) sends \(y\) to \(y+Mb\).
+Since \(M\) is onto, these are all translations in \(y\).
+Their coinvariant map is integration in \(y\):
+\[
+                f(M,y)\longmapsto\int_{k^n}f(M,y)\,dy .
+\]
+Here additive Haar measure gives \(\mathcal O^n\) mass one.
+To check this with varying \(M\), work on a chart where an
+\(n\)-by-\(n\) minor \(M_S\) is invertible and use the fiber
+coordinate \(z=M_S^{-1}y\).  The shears supported in columns
+\(S\) are ordinary translations \(z\mapsto z+t\).
+For compactly supported locally constant functions their
+coinvariants are Haar integration: subdivide into cosets of
+one common compact open subgroup; the zero-sum coefficients
+are finite sums of differences of translates.
+The Jacobian \(|\det M_S|\) converts integration in \(z\) to
+integration in \(y\).  A finite compact-open partition of the
+base support joins these chart arguments.
+
+Let
+\(\mathcal S_{\rm full}(M_{n,m}(k))\) denote Schwartz functions
+compactly supported on the full-row-rank locus.
+Choose indicators \(\eta_x,\eta_y\) of \(\mathcal O^n\).
+The restriction of \(L\) is therefore encoded by the linear map
+\[
+ T_L(\psi)
+       =L\bigl(\psi(M)\eta_x(x)\eta_y(y)\bigr),
+       \qquad \psi\in\mathcal S_{\rm full}(M_{n,m}(k)).
+\]
+It is independent of the chosen test functions with
+\(\eta_x(0)=1\) and \(\int\eta_y=1\).  The previous paragraphs
+prove that \(L\mapsto T_L\) is injective.
+
+Equation \eqref{eq:sr-br-left} induces on this lower space
+the first-group invariance
+\begin{equation}
+ T_L\!\left(\nu(\det a)|\det a|^{m/2}
+                           \psi({}^taM)\right)=T_L(\psi).
+ \label{eq:sr-br-lower-action}
+\end{equation}
+Indeed \(d/2=(m/2)+1\); changing \(y\) to \({}^ta y\)
+in its Haar integral contributes \(|\det a|^{-1}\).
+The value at \(x=0\) contributes no determinant.
+Equation \eqref{eq:sr-br-middle} gives
+\(T_L(\psi(Mg))=\rho(g)T_L(\psi)\), and likewise for \(L'\).
+
+\paragraph{The lower irreducible quotient and scalarity.}
+The full-rank matrix space is a principal
+\(\mathrm{GL}_n(k)\)-bundle over its Grassmannian of kernels.
+Integration along its fibers with weight
+\(\nu(\det a)|\det a|^{m/2}\) identifies the quotient in
+\eqref{eq:sr-br-lower-action} with
+\[
+ Q=|\det|^{-n/2}\otimes
+       \operatorname{Ind}_{P_{m-n,n}}^{\mathrm{GL}_m(k)}
+                    (1\boxtimes(\nu^{-1}\circ\det)).
+ \label{eq:sr-br-Q}
+\]
+The representation on \(Q\) here is pure right pullback.
+To check the convention, the integral
+\[
+ |\det h|^{n/2}\!
+ \int_{\mathrm{GL}_n(k)}
+       \psi\bigl(a[0\ 1_n]h\bigr)\nu(\det a)|\det a|^{m/2}\,da
+\]
+has upper-parabolic covariance
+\(|\det A|^{n/2}\nu(\det D)^{-1}|\det D|^{-(m-n)/2}\).
+Its right action differs from pure pullback by
+\(|\det h|^{n/2}\), giving the twist in \eqref{eq:sr-br-Q}.
+The integral is compactly supported in its fiber for each
+full-rank Schwartz function, so no convergence continuation is
+needed here.  On a local trivialization of the frame bundle,
+fiber integration has kernel generated by the first-group
+differences and is onto: take a compact open fiber bump of
+weighted integral \(1\).  A finite partition over the compact
+Grassmannian proves the quotient identification.
+
+Both inducing representations in \eqref{eq:sr-br-Q} are
+one-dimensional unitary representations.  Bernstein's
+irreducibility theorem, with the same normalization as in the
+preceding section, makes \(Q\) irreducible; its scalar
+\(|\det|^{-n/2}\) twist preserves irreducibility.
+When \(m=n\), the parabolic has a zero block and the same
+statement is the one-dimensional character directly.
+
+The nonzero map \(T_L:Q\to W\) is an isomorphism: its kernel
+and image are invariant, and both modules are irreducible.
+Thus \(T_{L'}T_L^{-1}\) is an endomorphism of \(W\) commuting
+with \(\rho\).  Such an endomorphism is scalar.
+Here is the countable-dimensional form of Schur's argument.
+If \(D\) is a nonscalar commuting endomorphism, every
+\(D-\lambda\), \(\lambda\in\mathbb C\), is invertible by
+irreducibility.  No nonzero polynomial in \(D\) annihilates
+a nonzero vector; factoring that polynomial into linear
+factors proves this assertion.  Hence for a fixed \(w\ne0\)
+the vectors \((D-\lambda)^{-1}w\), \(\lambda\in\mathbb C\),
+are linearly independent: a finite relation, multiplied by
+the product of its distinct \(D-\lambda\)'s, would give a
+nonzero polynomial annihilating \(w\).
+This contradicts countable dimension.
+Therefore \(T_{L'}=cT_L\), and injectivity of
+\(L\mapsto T_L\) proves \(L'=cL\).
+
+\paragraph{Application to the specified local rank steps.}
+At a ramified split place the characters on the relevant
+opposite model are \(\nu_v\) or \(\nu_v^{-1}\); both are
+ramified.  The adapted frame
+\(C=[\,\iota\mid H.x\mid H.y\,]\) is invertible and has Gram
+matrix \(J_{W_1}\oplus
+\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)\).
+Use it to order the complementary two columns as \(x,y\).
+For \(h\in P_0\) with diagonal entries \(u,v\) on these
+columns, its Levi part is represented by a local split
+idele \(z\) with components \((u,v^{-1})\).
+Its norm is \(1\), and the base-character restriction gives
+\[
+                \chi_X(z)=\chi_{X,t}(uv)
+                          =\chi_{X,t}(\det h).
+\]
+The source's rank-step equivariance has factor
+\(\chi_X(z)|z|^r\), whereas the opposite linear Weil
+operator has factor
+\(\chi_{X,t}(\det h)|\det h|^{n/2}\).
+They agree, so cancellation leaves exactly the pure
+right invariance \eqref{eq:sr-br-right}.
+The first-group difference condition gives
+\eqref{eq:sr-br-left}.
+
+The common lower quotient is \(W=\Pi_{1,v}\).
+Let \(\tau\) be its second-group action and identify
+\(U(W_1)(k)\) with \(\mathrm{GL}_m(k)\) by the same adapted
+frame.  Put
+\[
+ \rho(g)=
+   \bigl(\chi_{X,t}(\det g)|\det g|^{n/2}\bigr)^{-1}
+                      \tau(g).
+\]
+This scalar determinant twist is a representation and
+preserves irreducibility.  The same cancellation, with the
+middle block \(g\), is precisely
+\eqref{eq:sr-br-middle}.  It is irreducible by the finite
+matching hypotheses and countable-dimensional because it is
+a quotient of the local Schwartz space.  That Schwartz space
+has a countable basis obtained from compact open boxes and
+their cosets.  The rank inequalities in the two steps give
+\(n\le d_1=m\), as required above.
+
+Thus two nonzero descended cone and evaluation maps of this
+specified type are proportional.  Evaluation on the standard
+matched vectors computed in
+Section~\ref{sec:ramified-whittaker} fixes the proportionality
+constant to \(\epsilon_v(-\delta)\) in the beta step, and to
+\(\epsilon_v(1-\delta)\) in the alpha step.
+This proves the ramified multiplicity-one input used for that
+extension from the standard vectors.  Existence of the
+descended operators and the global constant-term argument
+are not consequences of multiplicity one and remain separate
+requirements in the full rank recursion.
+
+
+\section{Good split places and the exact coinvariant condition}
+\label{sec:sr-good-split-coinvariants}
+
+The finite matching constructions imply the stronger kernel
+statement needed at the source's good places.  We give both
+ingredients: nontriviality of the local character, and the
+identification of the full Schwartz coinvariant quotient.
+This proves the \(\mathrm{Coinv}\) component of
+\srcid{ThetaIntegralsAgree}, with its original quantifiers
+over any compatible matching maps.
+
+\paragraph{Why the local character is nontrivial.}
+Let \(E/\mathbb Q\) be Galois and CM, with CM type \(\Sigma\).
+Let \(\nu\) be a unitary Hecke character whose infinity type is
+\[
+        \nu_\infty(z)=
+          \prod_{\tau\in\Sigma}
+             \left(\frac{\tau z}{|\tau z|}\right)^{\kappa_\tau},
+                       \qquad \kappa_\tau>0.
+\]
+Suppose \(\nu\) is unramified away from a finite set \(T\).
+Let a rational prime \(p\) split completely in \(E\), and
+let \(P\mid p\) be outside \(T\).  Then the local
+character at \(P\) is nontrivial.
+
+Indeed assume that the character at \(P\) is trivial.
+Choose \(h>0\) with \(P^h=(\pi)\), \(\pi\in\mathcal O_E\);
+the ideal class group is finite.  At every other finite
+prime \(\pi\) is a unit.  Its character value is \(1\) outside
+\(T\); at the finitely many primes of \(T\), its values are
+roots of unity.  For the latter assertion, the continuous
+character of the compact local unit group has finite image:
+it is a compact totally disconnected subgroup of
+\(\mathbb C^\times\), hence finite.  Choose \(M>0\) killing
+all these values.  The finite-idele value at \(\pi^M\) is
+therefore \(1\), and the Hecke relation implies
+\[
+        \prod_{\tau\in\Sigma}
+          \left(\frac{\tau\pi}{|\tau\pi|}\right)^{M\kappa_\tau}
+                          =1.
+\]
+Squaring and using
+\(|\tau\pi|^2=\tau\pi\,\overline{\tau\pi}\) gives
+\begin{equation}
+ \prod_{\tau\in\Sigma}(\tau\pi)^{M\kappa_\tau}
+     =\prod_{\tau\in\Sigma}(\overline{\tau\pi})^{M\kappa_\tau}.
+ \label{eq:sr-good-character-contradiction}
+\end{equation}
+
+Fix \(\tau_0\in\Sigma\).  Since \(E/\mathbb Q\) is Galois,
+write \(\tau=\tau_0g_\tau\), \(g_\tau\in\operatorname{Gal}(E/\mathbb Q)\),
+with \(g_{\tau_0}=1\), and let \(c\) be complex conjugation.
+Pull \eqref{eq:sr-good-character-contradiction} back to \(E\)
+and take its \(P\)-adic valuation.  The left side has a
+strictly positive contribution from \(g_{\tau_0}=1\).
+The right side has none: a factor could have positive
+valuation only if \(g_\tau c\) fixed \(P\).  A completely split
+prime has trivial decomposition group, so this would force
+\(g_\tau=c\), that is \(\tau=\bar\tau_0\), which is not in the
+CM type \(\Sigma\).  This contradiction proves the assertion.
+The same argument applies to every \(P\mid p\) outside \(T\).
+
+In the present packet \(\nu=\alpha/\beta\) and
+\(\kappa_\tau=m_\alpha(\tau)-m_\beta(\tau)>d>0\).
+The source's \(\mathrm{Good}\) condition says that \(v\notin T\)
+and its underlying rational prime splits completely in \(E\).
+Thus every designated local component \(\nu_t\), for either
+embedding \(t:E\to F_v\), is nontrivial.  Such a place splits
+in \(E/F\), since complete splitting gives local degree one
+in every intermediate field.
+
+\paragraph{The full-rank quotient.}
+Let \(k\) be nonarchimedean of characteristic zero, let
+\(1\le n\le d\), and let \(\nu\ne1\) be smooth unitary.
+Consider either of the two matrix actions
+\[
+ \nu(\det g)^{-1}|\det g|^{-d/2}\phi(g^{-1}X),
+ \qquad
+ \nu(\det g)|\det g|^{d/2}\phi({}^tgX).
+\]
+The additional character and determinant factor for the
+second group does not change the first-group differences.
+Let \(\mathcal R\) be the span of those differences, and
+\(\mathcal S_{\rm full}\) the functions compactly supported
+on full-row-rank matrices.
+
+Every class in \(\mathcal S(M_{n,d}(k))/\mathcal R\)
+has a representative in \(\mathcal S_{\rm full}\).
+To see this, filter the closed deficient-rank locus by rank.
+On its rank-\(r\) stratum, the kernel map to
+\(\operatorname{Gr}_{d-r}(k^d)\) has homogeneous fibers under
+\(\mathrm{GL}_n(k)\); Gaussian pivot charts give local
+sections.  The stabilizer of
+\(\left(\begin{smallmatrix}1_r&0\\0&0\end{smallmatrix}\right)\)
+contains
+\[
+                \begin{pmatrix}1_r&B\\0&D\end{pmatrix},
+              \qquad D\in\mathrm{GL}_{n-r}(k).
+\]
+Its determinant ranges over all of \(k^\times\).
+The modular character is a positive real power of
+\(|\det D|\), as is the modulus in either displayed action.
+For equivariant distributions on this homogeneous space to
+exist, their character restricted to this stabilizer must
+equal that positive modular character.
+This is impossible: choose \(D\) with
+\(\nu(\det D)\ne1\).  A nontrivial unit-modulus number cannot
+be a positive real number.  Frobenius descent and Bernstein
+localization, with the kernel map just specified, give zero
+coinvariants on each deficient-rank stratum.
+The exact Schwartz sequences for the rank filtration show
+that the quotient of the whole Schwartz space by
+\(\mathcal S_{\rm full}\) has zero coinvariants.
+Right exactness of coinvariants proves the claimed
+surjectivity from \(\mathcal S_{\rm full}\).
+
+The full-row-rank frame bundle over the Grassmannian has
+free left \(\mathrm{GL}_n(k)\)-fibers.
+Fiber integration with the displayed character and norm
+weight identifies its coinvariants with a normalized
+parabolic induction of two unitary determinant characters,
+up to a scalar determinant twist for the right action.
+The verification is the same fiber-bump and finite
+partition argument as for
+\eqref{eq:sr-br-Q}.  For the two complementary matrix models
+with \(n=a\) or \(a'\), it is the common induction
+\[
+ \operatorname{Ind}_{P_{a,a'}}^{\mathrm{GL}_d(k)}
+          ((\alpha\circ\det)\boxtimes(\beta\circ\det))
+\]
+in the action convention of their matching maps.
+It is irreducible by Bernstein's unitary induction theorem.
+
+Consequently the natural surjection from the full-rank
+coinvariant quotient onto the whole Schwartz coinvariant
+quotient is either zero or an isomorphism.  It is nonzero.
+At a ramified split place the explicit full-rank bump in
+Section~\ref{sec:sr-ramified-matching-construction} has
+nonzero transform.  At an unramified split place with
+\(\nu\ne1\), the same bump works for the normalized maps:
+the large-side normalizing factor does not vanish, because
+a zero of
+\(\prod_{i<a}(1-\nu(\varpi)q^{\,i-d/2})\)
+would require \(i=d/2\) and \(\nu(\varpi)=1\).
+An unramified nontrivial character has
+\(\nu(\varpi)\ne1\).  The small-side factor is always
+nonzero by \(a'<d/2\).
+Thus the whole coinvariant quotient is itself this nonzero
+irreducible representation.
+
+This argument uses right exactness only.  It does not
+assume that coinvariants preserve injections.
+
+\paragraph{Any matching map has the exact kernel.}
+Now let \(p\) be any of the source's finite matching maps:
+it is onto a nonzero irreducible \(\Pi\) and annihilates
+\(\mathcal R\).
+The induced map
+\[
+       \mathcal S(M_{n,d}(k))/\mathcal R\longrightarrow\Pi
+\]
+is a nonzero surjection between irreducible modules, hence
+an isomorphism.  Therefore, on Schwartz functions,
+\[
+                       p\phi=0\quad\Longleftrightarrow\quad
+                                      \phi\in\mathcal R.
+\]
+Moreover \(\mathcal S_{\rm full}\) surjects under \(p\),
+because it already surjects onto the whole coinvariant
+quotient.  Both assertions survive the linear and opposite
+Weil coordinate isomorphisms.
+
+If \(\ell\) is any linear functional on the ambient
+function space that annihilates \(\mathcal R\), its
+restriction to Schwartz functions factors uniquely through
+\(p\).  Define \(\ell_0(p\phi)=\ell(\phi)\); the kernel
+identity proves well-definedness and surjectivity of \(p\)
+gives its entire domain.  This is exactly the functional
+factorization demanded in \(\mathrm{Coinv}\), rather than
+a statement about merely continuous functionals.
+
+Apply this argument at a good \(v\) using either embedding
+\(t:E\to F_v\).  The corresponding opposite linear
+realization sends the source's
+\(\mathcal S^\circ_{\mathrm{loc}}(t)\) to the full-row-rank
+Schwartz space.  Since the local character is nontrivial
+for each \(t\), its image under \(p'_v\) is all of \(\Pi_v\).
+Changing the split embedding may change that full-rank
+subspace, but the surjectivity argument applies separately
+to each one and uses the same already chosen quotient map.
+
+\paragraph{Stability of the global small subspace.}
+At the distinguished split place \(v_1\), the opposite linear
+Weil action consists of invertible left and right matrix
+substitutions times a scalar, as in
+\eqref{eq:sr-ram-action-B}.  Such substitutions preserve
+matrix rank.  The local full-rank subspace is therefore
+stable under both members of the dual pair.
+At all other finite places the local actions preserve
+Schwartz--Bruhat functions; at almost all places the
+adelic group element is integral and fixes the vacuum.
+At infinity the Weil action preserves Schwartz functions.
+The restricted tensor product action consequently carries
+each defining finite sum of pure tensors for
+\(\mathcal S^\circ\) to another such finite sum, with its
+\(v_1\)-factor still in the same full-rank subspace.
+Thus \(\omega'(\gamma)\mathcal S^\circ
+\subseteq\mathcal S^\circ\) for every adelic pair \(\gamma\).
+
+Combining the exact kernels, the full-rank surjections for
+every split embedding, the factorization of every
+annihilating functional, and this global stability proves
+all clauses of \(\mathrm{Coinv}\).
+It does not supply the nonzero global theta integral or the
+two character-uniform rank-step constants in
+\srcid{ThetaIntegralsAgree}.

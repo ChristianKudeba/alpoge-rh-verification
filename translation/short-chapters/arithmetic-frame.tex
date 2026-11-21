@@ -1,0 +1,477 @@
+\section{The arithmetic frame with a bound chosen before depth}
+\label{sec:arithmetic-frame-uniform-depth}
+
+The constant in the curve argument is chosen before the
+cyclotomic depth.  Finiteness of cohomology at one varying
+number field would not justify this order.
+We prove the required uniformity and the two strict
+classes on the same fields as the seed.
+
+Fix an odd prime \(\ell\), a finite field \(k\) of
+characteristic \(\ell\), an imaginary quadratic character
+\(\eta\), and a continuous finite-order character
+\(\Psi:G_{\mathbb Q}\to k^\times\) with \(\Psi(c)=1\).
+Its order is prime to \(\ell\).
+In the principal application
+\(\eta=\chi_{\mathbb Q(\sqrt{-3})}\) and
+\(\Psi=\bar\varepsilon^a\bar\psi
+      =\bar\varepsilon^j\bar\chi'\).
+The fixed totally real abelian field \(F_b\) has
+conductor prime to \(\ell\).
+For the principal generic packet it is the
+biquadratic field constructed in
+Section~\ref{sec:seed-all-generic-primes}.
+The argument also applies to a fixed real quadratic
+base after the local conditions below have been checked.
+It has the following checked properties:
+\begin{enumerate}
+\item \(F_bK/F_b\), where \(K=\mathbb Q^{\ker\eta}\),
+is unramified at every finite place and split at the
+prescribed level primes, including \(\ell\).
+\item At \(\ell\), \(F_b/\mathbb Q\) is unramified,
+\(\Psi|_{I_\ell}=\bar\varepsilon^j\), and at every
+place \(v\mid\ell\) of \(F_b\) the character
+\(\Psi^2|_{G_{F_{b,v}}}\) is nontrivial.
+The generic packet has the stronger property
+\(2j\not\equiv0\pmod{\ell-1}\), which verifies this
+condition on inertia itself.
+For an exceptional coefficient prime the stated
+condition may instead be verified on the full
+decomposition group.
+\item There is a prime \(p_0\), split in \(F_bK\), with
+\(\Psi(\operatorname{Frob}_{p_0})=1\) and
+\(\bar\varepsilon(\operatorname{Frob}_{p_0})=-1\).
+\end{enumerate}
+All finite ramification of \(\eta,\Psi\) is included in
+a fixed integer \(M\), divisible by \(2\ell\).
+
+Choose the fresh prime \(w\) used for the Eisenstein
+seed, with \(w\equiv1\pmod{\ell}\) and with
+\(\eta,\Psi,\bar\varepsilon\) trivial on its decomposition
+group.  Let \(F_\theta/\mathbb Q\) be its cyclic
+degree-\(\ell\) field.
+Put
+\[
+ \begin{gathered}
+ C_r=\mathbb Q(\zeta_{\ell^{r+1}})^{\mu_{\ell-1}},
+ \qquad F_r^+=F_bF_\theta C_r,\qquad L_r=F_r^+K,\\
+ E_0=F_bF_\theta K\,\mathbb Q^{\ker\Psi}\,
+                                  \mathbb Q(\mu_\ell),
+ \qquad E_r=E_0C_r.
+ \end{gathered}                                             \tag{AF1}
+\]
+The finite abelian field \(E_0\) is fixed before \(r\).
+The degrees of \(E_r/F_r^+\) and \(E_r/L_r\) are prime to
+\(\ell\).
+
+\subsection{One class-group bound throughout the cyclotomic tower}
+\begin{srlemma}\label{lem:frame-class-rank-uniform}
+There is \(C_0\ge0\), depending on the fixed field \(E_0\)
+and on \(\ell\), such that
+\[
+       \dim_{\mathbb F_\ell}
+             \operatorname{Cl}(E_r)/\ell\operatorname{Cl}(E_r)
+                                      \le C_0
+                         \qquad(r\ge0).                       \tag{AF2}
+\]
+No bound on the numerical size of \(C_0\) is needed here.
+\end{srlemma}
+\begin{proof}
+We use the classical cyclotomic Iwasawa module and the
+\href{https://doi.org/10.2307/1971116}
+{Ferrero--Washington theorem} in its actual scope:
+the base field \(E_0\) is a finite abelian extension of
+\(\mathbb Q\), and the tower is its cyclotomic
+\(\mathbb Z_\ell\)-extension.
+Write
+\[
+ A_r=\operatorname{Cl}(E_r)[\ell^\infty],
+       \qquad X=\varprojlim_r A_r
+\]
+with transition maps given by norms.
+The Iwasawa module theorem makes \(X\) a finitely
+generated torsion \(\mathbb Z_\ell[[T]]\)-module.
+Ferrero--Washington gives \(\mu(X)=0\).
+The structure theorem therefore makes \(X\) a finite
+\(\mathbb Z_\ell\)-module in the sense of finite generation.
+Indeed the elementary modules
+\(\mathbb Z_\ell[[T]]/(f(T)^e)\), with \(f\) distinguished,
+are finite free over \(\mathbb Z_\ell\), and the finite
+kernels and cokernels in the structure theorem preserve
+finite generation.
+
+For completeness, projections to finite class groups
+are surjective after discarding finitely many initial
+layers.
+In a cyclotomic tower all primes above \(\ell\) are
+totally ramified beyond a fixed layer.
+Thus no nontrivial subextension of \(E_t/E_r\), for
+\(t\ge r\) beyond that layer, is unramified.
+Its intersection with the Hilbert class field of \(E_r\)
+is \(E_r\).
+Given any ideal class of \(E_r\), Chebotarev supplies a
+prime in that class which splits in \(E_t/E_r\).
+A prime above it has that class as its norm.
+The norm on class groups is consequently surjective,
+and so is the norm on their \(\ell\)-primary parts.
+Compactness of the finite inverse system now gives
+\(X\twoheadrightarrow A_r\).
+Hence
+\(\dim_{\mathbb F_\ell}A_r/\ell A_r
+ \le\dim_{\mathbb F_\ell}X/\ell X\)
+for all those layers.
+Enlarge this bound to cover the finitely many initial
+layers.  This proves (AF2).
+\end{proof}
+
+This is the actual argument of
+\srcid{FrobeniusSmoothVectors.RankLeOfCardLe.lev\_rk}
+and \srcid{b0}.
+The source fixes
+\[
+ V=H_0\cap H_{\rm th}(w)\cap H_b\cap
+                         \ker\eta\cap\ker\Psi\cap\ker\bar\varepsilon
+\]
+and uses the exact equality
+\[
+ U_r\cap\ker\eta\cap\ker\Psi\cap\ker\bar\varepsilon
+              =V\cap\ker(\varepsilon\bmod\ell^{r+1}).           \tag{AF3}
+\]
+The fixed field of \(V\) is the fixed abelian base in
+that proof.  Formula (AF1) permits an additional fixed
+real abelian factor; the same proof applies verbatim.
+A tower of unrelated fresh odd conductors would not
+give (AF2) from Ferrero--Washington.
+
+\subsection{The three cohomology bounds defining the frame}
+Let \(\Gamma_r\) be the quotient of \(G_{F_r^+}\) by the
+closed normal subgroup generated, away from \(\ell\), by
+the inertia elements on which both \(\eta\) and \(\Psi\)
+are trivial.
+Let \(\delta\) denote its induced quadratic character,
+\(\Gamma_{r,0}=\ker\delta\), and use the actual local
+decomposition groups above \(\ell\) as local maps.
+For the CM subgroup use both members of each conjugate
+pair of places.
+
+For a representation \(W\) and stable local subspaces
+\(b_v\), denote by \(H_C^i(W,b)\) the mapping-cone
+cohomology of
+\[
+ C^\bullet(\Gamma_r,W)\longrightarrow
+          \prod_{v\mid\ell}C^\bullet(G_{F_{r,v}^+},W/b_v),
+\]
+with the cone shifted so that its degree-one elements
+are cocycles \(z\) together with local correcting
+vectors \(Y_v\), modulo global coboundaries.
+When \(b_v=0\) it is the strict local condition.
+
+\begin{srlemma}\label{lem:frame-three-bounds}
+After enlarging the same \(C_0\) if necessary,
+simultaneously for every depth \(r\),
+\[
+ \begin{split}
+ \dim_kH_C^1(\Gamma_r,k(\Psi^{-2}\delta),0)&\le C_0,\\
+ \dim_kH_C^1(\Gamma_{r,0},k(\Psi^{-1}),0)&\le C_0,\\
+ \dim_kH^1(\Gamma_r,k)&\le1+C_0 .
+ \end{split}                                                 \tag{AF4}
+\]
+These are precisely \srcid{Frame.Ok.b1p},
+\srcid{b1}, and \srcid{h1}.
+\end{srlemma}
+\begin{proof}
+At every ordinary local group, \(\Psi^2\ne1\).
+Indeed this was checked over \(F_b\), and the subsequent
+local extensions have \(\ell\)-power degree; restriction
+through them cannot decrease the nontrivial image of a
+character of order prime to \(\ell\).
+The local invariant spaces in the first two lines are
+therefore zero.
+Consequently forgetting the local correcting vectors
+injects their mapping-cone \(H^1\) into global \(H^1\):
+two local primitives of a global boundary differ by a
+local invariant, which is zero.
+
+Restrict further to \(G_{E_r}\).
+The intermediate quotient has order prime to \(\ell\),
+so averaging kills the kernel in inflation--restriction.
+Both coefficient characters are now trivial.
+The quotient defining \(\Gamma_r\) kills inertia away
+from \(\ell\) once \(\eta,\Psi\) are trivial, and the
+strict condition kills inertia above \(\ell\).
+Thus the restrictions are everywhere-unramified
+homomorphisms \(G_{E_r}\to k\).
+Class field theory identifies them with subspaces of
+\(\operatorname{Hom}(\operatorname{Cl}(E_r),k)\).
+Its dimension over \(k\) is the
+\(\mathbb F_\ell\)-dimension in (AF2).
+This proves the first two bounds.
+
+For the third line, restriction injects into
+\(H^1(G_{E_r,S_\ell},k)\).
+Kummer theory, followed by the finite prime-to-\(\ell\)
+quotient invariants, identifies its possible image
+with the cyclotomic-character part of
+\[
+             E_r^\times/(E_r^\times)^\ell
+\]
+which is unramified away from \(\ell\).
+There is the exact Kummer sequence with terms
+\[
+ \mathcal O_{E_r}[1/\ell]^\times/
+                       (\mathcal O_{E_r}[1/\ell]^\times)^\ell,
+ \qquad
+ \operatorname{Cl}(\mathcal O_{E_r}[1/\ell])[\ell].
+                                                               \tag{AF5}
+\]
+The class-group term has dimension at most \(C_0\).
+
+The cyclotomic part of the valuation module at
+\(\ell\) is zero.
+Indeed the tame cyclotomic inertia is nontrivial at
+each such place over \(F_r^+\); it fixes that place
+but acts nontrivially through \(\bar\varepsilon\).
+The coefficient of an eigenvector at that place must
+therefore vanish.
+Hence the relevant \(S_\ell\)-unit part in (AF5)
+comes from ordinary units.
+
+The field \(E_r\) is CM.
+For any unit \(u\), the unit \(u/\overline u\) has
+absolute value one at every archimedean embedding;
+it is a root of unity.
+Since two is invertible modulo \(\ell\), the
+minus part of units modulo \(\ell\) comes from
+roots of unity.
+The character \(\bar\varepsilon\) is odd, and the
+\(\ell\)-primary roots of unity form a cyclic group.
+Its contribution has dimension at most one.
+This proves the final bound in (AF4).
+\end{proof}
+
+\subsection{The two actual nonzero strict classes}
+The two nontriviality fields of the frame do not require
+assuming the existence of an unexplained deformation.
+They are forced by one additional ramified place.
+
+\begin{srlemma}\label{lem:frame-strict-classes}
+For \(a'=1,2\), put \(\kappa_{a'}=\Psi^{-a'}\eta\).
+The quotient \(\Gamma_r\) has
+\[
+                H_C^1(\Gamma_r,k(\kappa_{a'}),0)\ne0
+                                  \qquad(r\ge0).              \tag{AF6}
+\]
+\end{srlemma}
+\begin{proof}
+The character \(\kappa_{a'}\) is odd.
+It is nontrivial on every full local decomposition
+group at \(\ell\), by the displayed \(\Psi^2\ne1\)
+condition and splitting of the CM extension there.
+Nontriviality on inertia is not required.
+It differs from \(\bar\varepsilon\): at the selected
+scalar prime \(p_0\) it has value one, whereas
+\(\bar\varepsilon\) has value minus one.
+
+Over \(\mathbb Q\), take the finite ramification set
+consisting of \(\ell,w\), and the primes ramifying in
+\(\kappa_{a'}\).
+Use zero local conditions at \(\ell\) and at the
+ramified primes, and the full local \(H^1\) at \(w\).
+The Selmer dimension formula from finite
+Poitou--Tate duality gives
+\[
+ \dim_k H^1_{\mathcal L}(\mathbb Q,k(\kappa_{a'}))
+ -\dim_k H^1_{\mathcal L^\perp}
+           (\mathbb Q,k(\kappa_{a'}^{-1}\bar\varepsilon))
+                                                        =1 . \tag{AF7}
+\]
+Here are all correction terms.
+Both global invariant spaces are zero because
+\(\kappa_{a'}\ne1,\bar\varepsilon\).
+The archimedean invariant space is zero because
+\(\kappa_{a'}\) is odd.
+At \(\ell\), and at the primes ramifying in
+\(\kappa_{a'}\), local invariants are zero.
+At \(w\), both \(\kappa_{a'}\) and
+\(\bar\varepsilon\) are trivial; local duality and the
+local Euler formula give \(h^1=2\), \(h^0=1\).
+Thus \(w\) contributes exactly one.
+At unramified primes outside the set, the unramified
+condition has dimension \(h^0\) and contributes zero.
+These are exactly the terms in (AF7).
+In particular there is a nonzero Selmer class \(z\).
+
+The class stays nonzero on \(G_{F_r^+}\).
+The extension \(F_r^+/\mathbb Q\) is Galois, and
+\(\kappa_{a'}\) is nontrivial on a full ordinary local
+decomposition group over \(F_r^+\), as just proved.
+Its invariant space over \(G_{F_r^+}\) is therefore zero.
+Inflation--restriction therefore makes restriction
+on \(H^1\) injective.
+
+At \(w\), the character is trivial, and a cocycle
+restricts on inertia to a homomorphism into the
+additive group of \(k\).
+Wild inertia has pro-\(w\) image and is killed.
+The remaining \(\ell\)-part of tame inertia is
+\(\mathbb Z_\ell(1)\).
+The degree-\(\ell\) field \(F_\theta\) is totally
+ramified at \(w\); inertia after restriction to it
+maps into \(\ell\mathbb Z_\ell(1)\).
+Our homomorphism is zero there.
+At every other finite prime different from \(\ell\),
+a local boundary vanishes on inertia whenever its
+coefficient character is one; at primes outside
+the ramification set the class is unramified.
+Thus \(z\) vanishes on exactly the inertia elements
+normally killed in defining \(\Gamma_r\).
+Products, conjugates and continuity give vanishing
+on their closed normal closure.
+The class descends to \(\Gamma_r\).
+It is locally a boundary at every place above
+\(\ell\), so it supplies (AF6), including its actual
+local correcting vectors.
+No nonzero target character group, large Selmer
+length, or desired character estimate was assumed
+in this construction.
+\end{proof}
+
+\subsection{Completing the frame and then choosing depth}
+We record the remaining arithmetic assertions, to
+make the use of \srcid{Frame.Ok} explicit.
+
+The group \(\Gamma_r\) is profinite.
+Its quadratic character \(\delta\) has open kernel,
+complex conjugation is an involution with
+\(\delta(c)=-1\), and the induced characters
+\(\Psi,\varepsilon\) are continuous.
+There are \(d=[F_r^+:\mathbb Q]\) archimedean places,
+and the sum of the ordinary local degrees is \(d\).
+The marked element \(g_0\) with \(\Psi(g_0)^2\ne1\)
+may be selected in a full ordinary local decomposition
+group at \(\ell\).  In the generic packet it may be
+selected in inertia.
+
+Every residue degree at \(p_0\) in \(F_r^+K\) is odd:
+the fixed real quadratic factors split there, and
+the remaining extensions have \(\ell\)-power degree.
+Thus a local Frobenius \(s_0\in\ker\delta\) has
+\[
+                         \Psi(s_0)=1,\qquad
+                  \bar\varepsilon(s_0)=-1 .                  \tag{AF8}
+\]
+It proves all three nonvanishing requirements
+\(\bar\varepsilon\ne1\),
+\(\bar\varepsilon\Psi^{\pm1}\ne1\), and
+\(\bar\varepsilon\Psi^{\pm2}\delta\ne1\).
+It also excludes
+\(\bar\varepsilon=\Psi^b\) on \(\ker\delta\)
+for every integer \(b\).
+Local square separation holds at every ordinary place
+by the full-decomposition condition above and its
+preservation under the \(\ell\)-power layers.
+On the inertia kernel of \(\varepsilon\), \(\Psi=1\).
+
+A completion of \(F_r^+\) at \(\ell\) contains no
+\(\mu_\ell\): its ramification index is an
+\(\ell\)-power.
+Its pro-\(\ell\) unit group is therefore a free
+\(\mathbb Z_\ell\)-module of rank \(d_v\).
+Choose a basis adapted to the cyclotomic norm,
+whose kernel has rank \(d_v-1\).
+All basis elements lie in the kernel of \(\Psi\),
+and all but one lie in the kernel of \(\varepsilon\).
+Any continuous character into a finite abelian
+\(\ell\)-group vanishing on this basis vanishes on
+inertia.
+This is the exact \srcid{Frame.Ok.gen} assertion.
+A pro-\(\ell\) character of \(\ker\delta\) unramified
+at every ordinary place is unramified at all finite
+places: the other allowed inertia quotients have
+order prime to \(\ell\).
+It factors through the finite class group of \(L_r\).
+Its exponent supplies \srcid{Frame.Ok.cl}.
+
+The finite-cohomology condition \(\Phi_\ell\) follows
+from the ordinary arithmetic finiteness theorem on
+every open subgroup: its finite representations
+are unramified outside a finite set, and restriction
+to a finite splitting field reduces degree-one
+finiteness to the unit and class-group calculation.
+This is a finiteness assertion, not a uniform
+bound in \(r\).
+
+Finally the Euler--Poitou--Tate comparison for the
+same global quotient and these local maps gives,
+for a finite \(k'\)-representation \(W\) and stable
+local subspaces \(b_v\), with
+\(\operatorname{Hom}_{\Gamma_r}
+       (W,k'(\bar\varepsilon))=0\),
+\[
+ h_C^2(W,b)+h_C^0(W,b)+\sum_v d_v\dim b_v
+       \le h_C^1(W,b)+\sum_{u\mid\infty}\dim W^{c_u}.            \tag{AF9}
+\]
+This is the precise \srcid{Frame.Ok.ec} statement.
+It uses the standard finite global and local duality
+already proved in the cohomology part of the manuscript.
+The local unramified conditions away from \(\ell\)
+have Euler contribution zero.
+The last possible cone degree is the global dual
+invariant term, which vanishes by the displayed
+\(\operatorname{Hom}\) hypothesis.
+Thus the degree-two cone is finite and its Euler
+formula gives (AF9).
+For the normalized residual matrix representations
+used below, the dual invariant hypothesis is checked
+by triangular entries: the diagonal differences are
+\(0,\pm1,\pm2\); (AF8) excludes the first two sorts,
+and complex conjugation gives the required
+\(\delta\)-factor on the opposite-corner
+\(\pm2\) entries.
+This is the matrix proof
+\srcid{FrobeniusSmoothVectors.PrDual.pr\_dual}.
+
+Equations (AF4), (AF6), and the preceding assertions
+verify every field of \srcid{Frame.Ok}\((C_0)\).
+Only now choose \(r\) with
+\[
+                        \ell^r>3C_0+7 .                       \tag{AF10}
+\]
+Since every \(d_v\ge\ell^r\) and \(d\ge d_v\),
+\[
+                         d>3C_0+7,\qquad d_v>5 .
+\]
+These are exactly \srcid{Frame.Big}\((C_0)\).
+Any additional prescribed global or local depth
+bound may be imposed by further increasing \(r\);
+the same \(C_0\) still applies.
+
+\paragraph{Exact source correspondence and scope.}
+The actual producers are
+\srcid{RankLeOfCardLe.b0},
+\srcid{FrameEx.ok\_link},
+\srcid{FrameEx.frame\_ex},
+\srcid{Strict.st\_char}, \srcid{Strict.strict},
+and
+\srcid{FrobeniusGaloisFieldFourCompatibility}.
+They are under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties.%
+FrobeniusSmoothVectors}
+at the frozen tag \srcid{alpoge-source-7cbf7a0c}.
+The three comparison bounds are assembled by
+\srcid{GaloisCochains.B1p},
+\srcid{B1}, and \srcid{H1}.
+The additional fixed real abelian factors in (AF1)
+do not require a new Iwasawa theorem:
+their compositum is absorbed into \(E_0\) before
+the cyclotomic depth is chosen.
+
+This proves the actual arithmetic frame used by
+the curve and sharp-ideal arguments on the
+principal nonresonant packet, and on any exceptional
+packet for which the same displayed fixed-base and
+full-decomposition conditions have been verified.
+It supplies auxiliary existence and depth; it
+does not assert a polynomial numerical bound for
+\(C_0\), nor use such a bound in the final
+host-uniform character estimate.

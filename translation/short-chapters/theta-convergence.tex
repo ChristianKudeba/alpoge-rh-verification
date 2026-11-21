@@ -1,0 +1,625 @@
+\section{Ordinary convergence on the large theta side}
+\label{sec:sr-large-theta-convergence}
+
+We prove the ordinary-convergence clause of
+\(\srcid{ThetaIntegralsAgree.Decay}\).
+Let \(E/F\), \(V\), \(W\), the additive character, splitting
+characters and rational Schr\"odinger realization be those
+of the theta packet.
+Write
+\[
+       [F:\mathbb Q]=f,\qquad
+       \dim_E V=a,\qquad \dim_E W=d=a+a'.
+\]
+The Hermitian signatures of \(V\) are
+\((a-p,p)\), with the same \(p\) at every real place.
+Let \(r\) be its Witt index over \(F\).
+Then \(r\le p\).
+The following argument proves convergence whenever
+\begin{equation}\label{eq:sr-large-weil-range}
+                         d<2(a-r).
+\end{equation}
+In the source,
+\[
+     (a-a')/2>2(p+q)+1
+\]
+implies \(a-a'>2p\ge2r\), hence
+\eqref{eq:sr-large-weil-range}.
+
+Fix an adelic Schwartz function \(\Phi\) in the actual
+Weil model.  For every \(h\in U(W)(\mathbb A_F)\) we claim
+\[
+ \int_{U(V)(F)\backslash U(V)(\mathbb A_F)}
+                 |\Theta_V(\Phi;g,h)|\,dg<\infty .
+\]
+The claim uses ordinary integration; no finite-place
+regularizer is inserted.
+
+\subsection{A mixed model and its lattice bound}
+
+Choose a rational Witt decomposition
+\[
+                       V=U\oplus V_0\oplus U^*,
+                      \qquad\dim_EU=r .
+\]
+In the mixed Schr\"odinger model for \(V\otimes_EW\),
+the variables belonging to \(U\oplus U^*\) form
+\(W(\mathbb A_E)^r\); the remaining variables are
+those of a rational Schr\"odinger model for \(V_0\otimes_EW\).
+Write their infinite coordinates as
+\[
+                  (u_1,\dots,u_r,\xi).
+\]
+Each \(u_i\) has real dimension \(2fd\).
+The change from the initially specified rational model
+uses rational linear transformations and partial Fourier
+transforms.
+It preserves the theta functional by rational reindexing
+and Poisson summation with selfdual measures.
+It preserves the Schwartz class as well.
+The normalization of the Weil action fixes its scalar,
+so that this is a statement about the specified theta
+kernel.
+
+Let \(A\) be the split torus acting by \(e^{t_i}\) on
+the \(i\)-th line of \(U\) and by \(e^{-t_i}\) on the
+paired line of \(U^*\), with the same real scalar at
+each real place of \(F\).
+The unitary Schr\"odinger action is
+\begin{equation}\label{eq:sr-large-cartan-action}
+ \omega(a_{\mathbf t})\phi(u_1,\ldots,u_r,\xi)
+   =e^{-fd\sum_i t_i}
+       \phi(e^{-t_1}u_1,\ldots,e^{-t_r}u_r,\xi).
+\end{equation}
+Indeed the real determinant on one \(u_i\)-block is
+\(e^{2fd t_i}\), and unitarity supplies its inverse
+square root.
+The determinant character of the hyperbolic torus is
+one.  Thus no splitting-character modulus changes
+this exponent.
+
+We record the elementary estimate used to sum these
+functions over rational points.
+If \(L\) is a fixed full lattice in a real space of
+dimension \(D\), and \(M>D\), then
+\begin{equation}\label{eq:sr-large-shifted-lattice}
+       \sum_{z\in L}(1+\|e^{-t}(z+b)\|)^{-M}
+                  \le C_{L,M}e^{Dt}
+          \quad(t\ge0,\ b\in\mathbb R^D).
+\end{equation}
+The number of points in a translated ball of radius
+\(R\) is bounded by \(C_L(1+R)^D\), uniformly in its
+center: place disjoint balls of a fixed radius around
+them and compare volumes.
+Divide the sum into dyadic annuli of radii
+\(e^t2^j\).  Their contributions are bounded by
+\(C_Le^{Dt}2^{j(D-M)}\), a convergent geometric series.
+The same estimate with \(t=0\) is uniform in \(b\).
+
+Let \(N\) be the unipotent radical of a rational minimal
+parabolic compatible with the chosen Witt flag.
+Its mixed-model action has the form
+\[
+ (\omega(n)\phi)(u,\xi)
+     =\psi(Q_n(u,\xi))\,
+                   \phi(B_nu,\xi+L_nu),
+\]
+with unit-modulus character factor and a block unitriangular
+\(B_n\).
+The block order may be chosen so that its \(i\)-th coordinate
+is \(u_i\) plus a linear expression in later coordinates.
+This formula follows directly from the three types of
+unipotent matrices: changes within \(U\) give \(B_n\),
+maps between \(V_0\) and the hyperbolic pairs give
+Heisenberg translations and modulations in \(\xi\),
+and the central Hermitian block gives the quadratic
+character.
+Only the linear translation part of each Heisenberg
+operator affects absolute values.
+
+If \(n\) ranges over a compact subset of \(N_\infty\),
+and the remaining right-hand factors range over compact
+sets, all Schwartz seminorms needed below have common
+bounds.
+For the ordinary Weil representation this follows from
+the continuity of linear substitutions and partial
+Fourier transforms on the Schwartz space; compact sets
+are covered by finitely many such coordinate charts.
+At finite places a fixed compactly supported
+Schwartz--Bruhat factor restricts rational points to
+one fixed fractional lattice and has bounded absolute
+value.
+Enlarge that lattice to a product lattice in the
+displayed rational coordinates.
+
+Apply a product Schwartz bound, then sum first over
+\(\xi\).
+The \(t=0\) case of
+\eqref{eq:sr-large-shifted-lattice} is uniform in its
+shift \(L_nu\).
+Sum next over \(u_1\), then \(u_2\), and so forth.
+The triangular form makes each translation a fixed
+shift while that block is being summed.
+Equation \eqref{eq:sr-large-shifted-lattice} contributes
+\(e^{2fd t_i}\) from the \(i\)-th block.
+Together with the prefactor in
+\eqref{eq:sr-large-cartan-action}, this proves
+\begin{equation}\label{eq:sr-large-theta-bound}
+             |\Theta_V(\Phi;n a_{\mathbf t}m k,1)|
+                 \le C_\Phi e^{fd\sum_i t_i}
+\end{equation}
+on each such set, for \(t_i\ge0\).
+This summation argument includes the zero rational
+vector and all singular orbits.
+
+\subsection{Integration on reduction sets}
+
+We use the usual arithmetic reduction theorem in the
+form of finitely many adelic classes and finitely many
+Siegel sets for their arithmetic groups.
+For a compatible minimal parabolic these sets have
+compact unipotent and right-hand factors and split
+coordinates
+\[
+                    t_1\ge t_2\ge\cdots\ge t_r\ge0 ,
+\]
+after harmless fixed shifts of the origin.
+The anisotropic Levi factor has compact arithmetic
+quotient.  The norm-one part of its restriction-of-scalars
+torus is compact modulo units.
+Thus the split coordinates may be taken as the common
+\(F\)-scalings used in
+\eqref{eq:sr-large-cartan-action}.
+No estimate uniform in the field or the reduction
+sets is asserted here; ordinary convergence requires
+none.
+
+For precision, the positive relative root spaces of
+\(U(V)\) are
+\[
+ \begin{array}{c|c}
+        e_i-e_j,\ e_i+e_j\ (i<j)&2\\
+        2e_i&1\\
+        e_i&2(a-2r).
+ \end{array}
+\]
+The second column gives their dimensions over \(F\).
+They can be read off from the off-diagonal
+\(E\)-entries, the one-dimensional skew-Hermitian diagonal
+entry, and the \(V_0\)-row entries in a Witt matrix.
+Summing their weights gives
+\[
+                  2\rho(\mathbf t)
+                      =2\sum_{i=1}^r(a-2i+1)t_i .
+\]
+Restriction of scalars multiplies this by \(f\).
+Consequently Haar measure on the reduction set is
+bounded by a constant times
+\[
+             e^{-2f\sum_i(a-2i+1)t_i}
+                           \,dt_1\cdots dt_r
+\]
+times the finite measures of its compact factors.
+
+Multiply this density by
+\eqref{eq:sr-large-theta-bound}.
+Put \(t_{r+1}=0\) and \(s_j=t_j-t_{j+1}\ge0\).
+The exponent becomes
+\[
+ \begin{split}
+ f\sum_{i=1}^r\{d-2(a-2i+1)\}t_i
+        &=f\sum_{j=1}^r
+             j(d-2a+2j)s_j .
+ \end{split}
+\]
+Every coefficient is strictly negative by
+\eqref{eq:sr-large-weil-range}.
+The integral is bounded by the product
+\[
+                 C_\Phi\prod_{j=1}^r
+                    \frac1{fj(2a-d-2j)}<\infty .
+\]
+When \(r=0\), the arithmetic quotient is compact and
+the continuous theta function is integrable directly.
+This proves convergence on all reduction sets and hence
+on the quotient.
+
+Finally fix any \(h\).
+The vector \(\omega(1,h)\Phi\) is Schwartz, so the same
+argument applies to it.
+The two unitary-group actions commute, and its theta
+function at \(g\) is the original kernel at \((g,h)\).
+Automorphy under \(U(V)(F)\) follows from rational
+reindexing and Poisson summation; the splitting
+characters are Hecke characters, hence are trivial on
+rational determinants.
+Integrability is therefore independent of the
+fundamental domain.
+Any Haar measure differs by a positive scalar, which
+does not affect finiteness.
+We have proved exactly
+\[
+          \forall\Phi\in\mathcal S,\qquad
+               \srcid{Model.Conv}(M,\omega,\Phi).
+\]
+
+This proves the large-side ordinary-convergence
+assertion of the packet. The next subsections identify
+the prescribed split bar test with the global rank cutoff
+and establish the small-side clauses separately.
+
+
+
+\subsection{Matching the specified bar test and the global coefficient cutoff}
+\label{subsec:sr-exact-bar-cutoff}
+
+We verify that the local test used above is precisely the
+source's \(\mathrm{SoLoc}\), including its existential
+choice of split intertwiner. Let \(v_1\) be the designated
+split finite place, \(k=F_{v_1}\), and \(t:E\to k\) its
+chosen embedding. Write
+\[
+ P=J_V(t),\qquad Q=J_W(t),\qquad
+             \operatorname{coB}(z)=-Pz_{t\sigma}Q^{\mathsf t}.
+\]
+Both \(P,Q\) are invertible. Thus
+\(\operatorname{rank}\operatorname{coB}(z)
+ =\operatorname{rank}z_{t\sigma}\).
+The local condition supplies a Schwartz bijection
+\(\iota\) satisfying the split bar-model intertwining
+laws, with both auxiliary scalar normalizations equal
+to one, and such that \(\iota\phi\) vanishes off the
+full-row-rank locus. No special choice of this
+\(\iota\) will be made.
+
+Put \(T=\operatorname{supp}(\iota\phi)\).
+It is compact and full rank. Since \(2\ne0\) in \(k\),
+\(2T\) is full rank as well. Choose a compact open
+additive subgroup \(\Lambda\) of \(M_{n,d}(k)\) with
+\(2T+\Lambda\) full rank, and let \(K\) be its annihilator
+under \((Y,U)\mapsto\psi_v(\operatorname{tr}(YU^{\mathsf t}))\).
+One may shrink \(\Lambda\) so that \(T\) meets only
+finitely many of its cosets; compactness in the
+discrete quotient gives this finiteness for every
+compact open \(\Lambda\).
+Nondegeneracy of the trace pairing and local Fourier
+duality give \(K^\perp=\Lambda\).
+The explicit scaled-integral-lattice construction in
+Section~\ref{sec:theta-decay-proof} gives the same
+annihilator if the additive character has nontrivial
+conductor.
+
+Partition \(\iota\phi\) by these cosets and pull the
+pieces back by \(\iota^{-1}\). They are Schwartz and
+sum to \(\phi\), since \(\iota\) is a linear bijection
+on Schwartz functions. Fix a piece with image supported
+in \(Y_0+\Lambda\). For \(U\in K\), the defining
+bar-model multiplication law says that its local
+Schr\"odinger translate by the split vector
+\(w_U=\operatorname{spM}(-U,0)\) is
+\[
+       S(M.\operatorname{co}(w_U))\phi
+          =\psi_v(\operatorname{tr}(Y_0U^{\mathsf t}))\phi.
+\]
+This is the \(\mathrm{IsLinBar.mult}\) law itself;
+it does not require \(\iota\) to be an isometry.
+
+The symplectic pairing in the specified rational model is
+\[
+ \langle z,w_U\rangle
+                 =\operatorname{tr}(\operatorname{coB}(z)U^{\mathsf t}).
+\]
+For the reflected coefficient \(c_\Phi\), the elementary
+Schr\"odinger commutator calculation therefore gives
+\[
+ c_\Phi(M.\operatorname{co}(z))
+   =\psi_v\!\left(
+        \operatorname{tr}((2Y_0-\operatorname{coB}(z))U^{\mathsf t})
+             \right)c_\Phi(M.\operatorname{co}(z)).
+\]
+If \(z_{t\sigma}\) has rank less than \(n\), then
+\(\operatorname{coB}(z)\notin2Y_0+\Lambda\).
+An element \(U\in K\) makes the displayed scalar
+different from one. The coefficient is consequently
+zero. This proves the cutoff for each piece and every
+choice of the other tensor factors, including the
+archimedean Schwartz factor.
+
+Here is why the cutoff transfers to the global rational
+sum. The model's rational symplectic-coordinate map is
+an injective \(F\)-linear map from \(M_{n,d}(E)\) into
+\(F^{nd}\oplus F^{nd}\). Both spaces have dimension
+\(2nd\) over \(F\), so it is a bijection.
+The coefficient sum can therefore be indexed by
+\(x\in M_{n,d}(E)\). For every \(g,h\), a matrix
+\(x\) of deficient \(E\)-rank stays deficient after
+extension by \(t\sigma\) and the invertible left and
+right actions. The preceding local coefficient is
+zero at \(g^{-1}x(h^{-1})^{\mathsf t}\).
+The reflected theta sum equals the original theta sum:
+reflection is the central \((-1,1)\) Weil operator
+up to a unit scalar, and rational reindexing sends
+\(x\) to \(-x\). The coefficient identity thus bounds
+an absolute square. These are exactly the parity and
+square identities proved in
+Subsection~\ref{subsec:sr-theta-coefficient-proof}.
+Taking square roots, adding the finitely many piece
+bounds, and enlarging their compact supports proves
+\eqref{eq:theta-lattice-majorant} with rational full
+row rank for every element of the specified
+\(\mathcal S^\circ\).
+This matches the source's \(\mathrm{soCut}\) and
+\(\mathrm{sqSo}\) constructions without imposing
+a more restrictive local test.
+
+\subsection{The rational-translate height bound}
+\label{subsec:sr-rational-torus-height}
+We also spell out the height assertion used when the
+second variable is allowed to vary. Its rational
+translate is essential. It cannot be inferred from
+submultiplicativity after simply discarding the
+rational translating matrix.
+
+In a fixed rational Witt basis put
+\(a_{\mathbf v}\) diagonal with weights
+\(v_1,\ldots,v_y,-v_1,\ldots,-v_y,0,\ldots,0\)
+at all infinite places and identity at finite places.
+Write \(V=\sum_jv_j\), with
+\(v_1\ge\cdots\ge v_y\ge0\).
+For the multiplicative adelic matrix height
+\[
+ H_0(b)=\prod_w
+        \max(1,\|b_w\|_w,\|b_w^{-1}\|_w)^{n_w},
+\]
+use the sup matrix norm at finite places and the
+Euclidean operator norm at infinity; \(n_w\) is the
+local degree in the product formula. At all but
+finitely many places the local factor is one.
+For every \(\delta\in\mathrm{GL}_d(E)\), if \(y>0\),
+\begin{equation}\label{eq:sr-height-rational-diagonal}
+                   H_0(\delta a_{\mathbf v})
+                                      \ge e^{D v_1},
+                      \qquad D=[E:\mathbb Q].
+\end{equation}
+Indeed choose a nonzero entry \(\alpha\) in the row
+of \(\delta^{-1}\) corresponding to weight \(-v_1\).
+In \((\delta a_{\mathbf v})^{-1}
+ =a_{\mathbf v}^{-1}\delta^{-1}\), that entry is
+\(e^{v_1}\alpha\) at every infinite place and \(\alpha\)
+at every finite place. Each matrix-norm factor is at
+least the absolute value of this entry. Multiplication
+over all places and the product formula for
+\(\alpha\ne0\) give \eqref{eq:sr-height-rational-diagonal}.
+A fixed rational basis change contributes only a
+fixed multiplicative constant, by submultiplicativity
+applied on both sides.
+
+The matrix height \(H\) in the Weil model and \(H_0\)
+are polynomially comparable, with constants depending
+on the fixed arithmetic model. To verify this directly,
+expand the \(E\)-matrix entries in a fixed \(F\)-basis
+and compare their component norms with the finitely
+many embedding norms at each place.
+Finite-dimensional norm comparison gives local
+constants in each direction; outside the finitely
+many places where this basis, its inverse or the
+different is not integral, those constants are one.
+Taking their product gives a finite global constant.
+Replacing component maxima by their local-degree
+products changes the comparison by at most a fixed
+integer power. Apply the same calculation to inverse
+matrices. Thus \(H_0\le C H^b\) for fixed \(C,b\),
+and conversely after changing them.
+Since \(V\le yv_1\), \eqref{eq:sr-height-rational-diagonal}
+gives fixed \(C_1,b_1\) such that
+\[
+      e^V\le C_1 H(\delta a_{\mathbf v})^{b_1}
+                                  \quad\hbox{for every rational }\delta.
+\]
+For \(y=0\) this holds with \(e^V=1\).
+The upper bound \(H(a_{\mathbf v})\le C_2e^{b_2V}\)
+follows from its finitely many eigenweights and the
+same fixed-basis comparisons.
+
+Now write a reduced second variable as
+\(\gamma h=a_{\mathbf v}\kappa\), with \(\kappa\)
+in the fixed compact reduction set.
+Use the preceding lower bound with
+\(\delta=\gamma^{-1}\).
+Since \(\gamma^{-1}a_{\mathbf v}=h\kappa^{-1}\),
+compact boundedness, inversion invariance and
+submultiplicativity give
+\begin{equation}\label{eq:sr-height-second-variable}
+             e^V\le C_3H(h)^{b_1}.
+\end{equation}
+This supplies the exact height step in the
+two-chamber proof of
+\eqref{eq:theta-full-decay}, including all its
+rational translates.
+
+
+
+\subsection{Full-rank tests on the small theta side}
+\label{subsec:sr-small-theta-ordinary-convergence}
+
+The full-rank test condition also gives ordinary absolute
+convergence when the first space is the smaller member.
+For this assertion the second adelic variable is fixed;
+a height estimate uniform in that variable is unnecessary.
+
+Let \(V\) have \(E\)-dimension \(n\), let \(W\) have
+\(E\)-dimension \(d\ge n\), and use the actual rational
+Weil model and the full-rank subspace \(\mathcal S^\circ\)
+at its distinguished split finite place. For every
+\(\Phi\in\mathcal S^\circ\) and every fixed
+\(h\in U(W)(\mathbb A_F)\),
+\begin{equation}\label{eq:sr-small-theta-absolute}
+ \int_{U(V)(F)\backslash U(V)(\mathbb A_F)}
+             |\Theta(\Phi;g,h)|\,dg<\infty .
+\end{equation}
+No dimension inequality beyond \(n\le d\) is needed.
+
+Here are the details of the cusp estimate. The coefficient
+identity and compact-coset separation in
+Subsection~\ref{subsec:sr-theta-coefficient-proof} give, for
+each exponent \(L\), the full-row-rank majorant
+\[
+ |\Theta_{f\otimes\phi}(g,1)|^2
+ \le p_{\phi,L}(f)^2
+       \sum_{\substack{x\in M_{n,d}(E)\\ \operatorname{rank}x=n}}
+       {\bf1}_{C_f}((g^{-1}x)_f)
+                 (1+|g^{-1}x|_\infty)^{-L}.
+\]
+Its continuous seminorm and finite compact support are
+chosen before \(f\) and \(g\). In particular the rank
+condition concerns the coefficient matrix, after taking
+the absolute square; it is not an assertion that the
+original theta summation variable has full row rank.
+
+Put \(D=[E:\mathbb Q]\), and let \(r\) be the rational
+Witt index of \(V\). Reduction theory gives finitely
+many rational Witt frames and representatives
+\[
+       \gamma g=a_{\mathbf u}\kappa,\qquad
+       u_1\ge\cdots\ge u_r\ge0,\qquad \kappa\in\Omega ,
+\]
+with \(\Omega\) compact. The archimedean eigenweights
+in such a frame are \(u_1,\ldots,u_r\),
+\(-u_1,\ldots,-u_r\), and \(n-2r\) zeros;
+the torus is the identity at every finite place.
+Rational invariance reindexes the matrix sum.
+The inverse matrices of \(\kappa\) have uniformly
+bounded archimedean operator norms, and their finite
+components enlarge \(C_f\) to one fixed compact set.
+A fixed rational change to the Witt basis therefore
+leaves only matrices
+\(\xi\in M_{n,d}(m^{-1}\mathcal O_E)\)
+for one integer \(m\ge1\). Up to fixed positive
+constants their infinite norm is
+\[
+ s_{\mathbf u}(\xi)=
+       \sum_{v,i,j}e^{-\lambda_i(\mathbf u)}
+                                    |\tau_v(\xi_{ij})|.
+\]
+All constants in this paragraph can be taken
+simultaneously over the finite frame list.
+
+For \(L_0=(D+1)nd\), the one-coordinate lattice packing
+argument gives
+\begin{equation}\label{eq:sr-small-all-lattice}
+ \sum_{\xi\in M_{n,d}(m^{-1}\mathcal O_E)}
+                   (1+s_{\mathbf u}(\xi))^{-L_0}
+                    \le C\exp\!\left(Dd\sum_i u_i\right).
+\end{equation}
+To see the exponent directly, use
+\[
+ (1+\sum_{i,j}A_{ij})^{-L_0}
+            \le\prod_{i,j}(1+A_{ij})^{-(D+1)}
+\]
+with \(A_{ij}=e^{-\lambda_i}\sum_v|\tau_v(\xi_{ij})|\),
+and enlarge to independent integral-ideal lattice entries.
+Packing in real dimension \(D\) bounds each factor sum
+by \(C_m e^{D\max(0,\lambda_i)}\).
+There are \(d\) entries per row and the positive
+eigenweights sum to \(\sum_i u_i\), giving
+\eqref{eq:sr-small-all-lattice}.
+
+If \(r>0\), every full-row-rank \(\xi\) has a nonzero
+entry \(\alpha\) in its row with weight \(-u_1\).
+The algebraic integer \(m\alpha\ne0\) has absolute norm
+at least one. Consequently
+\(\max_v|\tau_v(\alpha)|\ge m^{-1}\), and
+\[
+              1+s_{\mathbf u}(\xi)\ge m^{-1}e^{u_1}.
+\]
+Write \(U=\sum_i u_i\le r u_1\).
+For every integer \(q\ge0\), take
+\(M=Ddr+2qr\). Multiplying the preceding estimate to
+the power \(M\), and then using
+\eqref{eq:sr-small-all-lattice}, gives
+\[
+ \begin{split}
+ \sum_{\operatorname{rank}\xi=n}
+       (1+s_{\mathbf u}(\xi))^{-(L_0+M)}
+ &\le m^M C e^{DdU-Mu_1}\\
+ &\le m^M C e^{-2qU}.
+ \end{split}
+\]
+The square majorant therefore proves
+\[
+           |\Theta_{f\otimes\phi}(g,1)|
+                        \le C_{\phi,q}p_{\phi,q}(f)e^{-qU}
+\]
+on each reduction set. The finite constants can be
+absorbed into a continuous seminorm. When \(r=0\),
+the same conclusion with \(U=0\) follows from the
+unrestricted lattice bound on the compact reduction set.
+
+In particular \(q=0\) bounds the theta function uniformly
+in \(g\). The rational unitary quotient has finite
+Haar volume, so this bound proves its absolute
+integrability. More generally, the upper torus height
+bound gives \(H_Q(g)\le A e^{bU}\). Taking \(q\ge bR\)
+gives rapid decay against \(H_Q(g)^R\), for every
+integer \(R\ge0\), with the second variable still fixed.
+
+Finally the two Weil actions commute. The action of
+\((1,h)\) preserves \(\mathcal S^\circ\), by the
+split-matrix rank stability proved in
+Section~\ref{sec:sr-good-split-coinvariants}.
+Replace \(\Phi\) by \(\omega(1,h)\Phi\) in the preceding
+argument. Its archimedean action is continuous on
+Schwartz space, and its finite action produces a finite
+sum of the allowed pure tensors. This proves
+\eqref{eq:sr-small-theta-absolute} for every fixed \(h\)
+and every \(\Phi\in\mathcal S^\circ\).
+The same bound is uniform for \(h\) in a compact set:
+the Schwartz seminorms have bounded operator constants
+there and the finite factors have common compact support
+and a common local constancy level.
+
+This establishes ordinary convergence on the small side
+with its actual full-rank test condition.
+The bounds here allow constants depending on the fixed
+arithmetic model and on \(h\); they do not assert
+a uniform metric or covolume estimate over the varying
+family, nor the global equality of the two integrals.
+
+\subsection{The complete ordinary-convergence and decay clause}
+\label{subsec:sr-theta-decay-closed}
+For every actual triple in the packet,
+the large-side ordinary convergence proved above,
+the just-matched full-rank coefficient cutoff, and
+the two-chamber argument of
+Section~\ref{sec:theta-decay-proof} give the following.
+For every small-side \(\Phi'\in\mathcal S^\circ\)
+and every integer \(R\ge0\), there are \(C\ge0,k\ge0\)
+such that
+\[
+       |\Theta'(\Phi';g,h)|H_Q(g)^R\le C H(h)^k
+                                      \quad\hbox{for all }g,h .
+\]
+The exponent in that chamber proof is chosen before
+the finite test factor; all seminorms remain continuous.
+Finite sums of pure tensors are handled by the
+triangle inequality and by replacing their exponents
+with the maximum, since \(H(h)\ge1\).
+At \(R=0\), integration over the finite-volume first
+quotient gives
+\[
+ \int |\Theta'(\Phi';g,h)|\,dg\le C' H(h)^k,\qquad
+                  |I'(\Phi';h)|\le C'H(h)^k .
+\]
+The integrand is continuous, hence measurable.
+These inequalities prove ordinary absolute convergence
+and exactly the moderate-growth assertion for \(I'\).
+They use its specified Haar measure; a fixed positive
+normalizing scalar only changes \(C'\).
+
+Together with the unrestricted large-side convergence,
+these are all clauses of the source's \(\mathrm{Decay}\)
+predicate. They hold for the actual bar-test subspace,
+rather than a substitute subspace. They do not
+establish \(\mathrm{OneConst}\), the two rank recursions,
+or the covolume/metric bound; those assertions have
+different quantifiers and content.

@@ -1,41 +1,44 @@
 \section*{Scope, sources and verification status}
 \addcontentsline{toc}{section}{Scope, sources and verification status}
 This is a consolidated working exposition, not a completed unconditional
-proof of RH. Its first part proves the prime-only analytic criterion,
-the signed finite-group reduction, the elementary conductor-one
-arithmetic packet, the odd prime-to-degree minus estimate, a uniform
-dyadic generator bound, its matrix and cokernel consequences, and
-geometric and lattice comparisons. The global high-twist theorem is proved in
-Section~\ref{sec:sr-global-cohomology}, with its geometric and
-integral-torsion steps printed. This supplies \(K_2(24)\) and
-discharges the hypothesis of the dyadic common-window estimate.
-Section~\ref{sec:sr-character-finiteness} proves finiteness and a common
-finite-integer bound for all the rational character groups at a fixed
-host and twist. The small-conductor twist-one branch at three and seven is now proved
-in Proposition~\ref{prop:sr-small-conductor-exceptional}.
-Sections~\ref{sec:sr-character-integers}--\ref{sec:sr-support-propagation}
-give the fixed-prime absorptions, restriction, local tangent and support
-arguments. The full uniform polynomial character estimates still require
-the automorphic and presentation producers stated there.
-It also proves the distributional comparison with a spectral route in
-Section~\ref{sec:sr-shared-distribution}.
+proof of RH. The prime-only analytic ending and signed finite comparison
+are printed first. The elementary arithmetic packet, minus and dyadic
+bounds, global high-twist bound and common-integer finiteness arguments
+are proved next. The two sharper uniform character estimates remain
+the arithmetic targets of Definition~\ref{def:sr-character-inputs}.
+
+The deformation argument now includes actual classical ordinary seeds,
+their same-module unitary insertion, the cyclotomic arithmetic frame,
+its uniform class-rank and strict-cohomology bounds, and the actual entry
+space with flat charts, selected curves and sharp ideal.
+The rank-four tower witnesses and exact descent are proved in
+Section~\ref{sec:sr-rank-four-actual-endpoint}.
+Section~\ref{sec:sr-rank-three-host-endpoints} gives finite host algebras
+and exact automorphic endpoints from the stated common support output.
+The remaining support specialization and local original-level component
+proofs are kept explicit. No uniform character estimate is inferred
+from a seed alone.
+
+The geometric chapters construct all finite local matching maps,
+including inert places in either rank parity, and prove the exact
+good-place coinvariant condition.
+Subsection~\ref{subsec:sr-theta-decay-closed} proves both ordinary
+convergence and the small-side rapid-decay and moderate-growth clauses
+with the specified bar-model test.
+The canonical cusp-weight mean has constant four and the quadratic
+CM period is evaluated. These results do not yet supply the
+archimedean common quotient, nonzero global matching scalar, uniform
+rank recursions, or the general integral-model and metric bound on
+the required family.
+
 The term \emph{connected} in the formal family predicate means one
 compatible eventual window witness, as explained in
-Section~\ref{sec:sr-latest-community-check}; it does not introduce
-a classical connected-moduli hypothesis.
-The missing uniform construction is stated with its complete local
-inequalities and quantifier order in
+Section~\ref{sec:sr-latest-community-check}.
+The required local inequalities and quantifier order are retained in
 Definition~\ref{def:sr-supply}.
-The second part preserves the earlier working translations of the longer
-arithmetic-geometric route. Their stated hypotheses and final ledger
-remain in force; their inclusion does not discharge the first part's
-construction requirement.
-Sections~\ref{sec:sr-compatible-descent}--\ref{sec:sr-finite-regularizer}
-give integral descent maps, short generators and the simultaneous
-finite-place theta regularizer. Subsection~\ref{subsec:sr-theta-coefficient-proof}
-supplies the coefficient formula and its Schwartz majorant for the
-fixed-pair convergence calculation. These do not establish the uniform
-geometric realization across the required family.
+The second part preserves the earlier translations of the longer route.
+Their explicit hypotheses remain in force, with the newer first-part
+proofs discharging only the clauses identified in the closing ledger.
 
 The shorter route follows Anton's Principia files
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=d59903a6498c7db021b728233ee6bdc2}{\srcid{FourthSamplesRH}},
@@ -98,3 +101,55 @@ The
 and
 \href{https://math.mit.edu/~drew/grh/}{independent formal verification report}
 are separate evidence from the mathematical arguments printed here.
+
+
+\subsection*{The logical route through the paper}
+The analytic target is Theorem~\ref{thm:sr-prime}: a
+fourth-power prime-sampling estimate implies the Riemann
+hypothesis for ordinary zeta. Theorem~\ref{thm:sr-window}
+permits that estimate to be supplied on the admissible
+windows. The signed finite comparison in
+Theorem~\ref{thm:sr-supply} reduces it to the arithmetic
+and geometric witnesses in Definition~\ref{def:sr-supply}.
+These are the two substantive branches of the argument.
+
+On the arithmetic branch, the minus and dyadic parts are
+already bounded. The plus part is reduced, with its prime
+weights and quantifiers intact, to
+Definition~\ref{def:sr-character-inputs}. A single exponent
+must bound the sum over every finite generic prime set;
+a second exponent must bound each nontrivial exceptional
+or resonant character. Both exponents precede the varying
+host, character order and twist.
+Finiteness for one host is useful but does not establish
+these uniform estimates.
+
+The deformation chapters build the mechanism for those
+estimates: actual ordinary seeds, an arithmetic frame,
+curve and link presentations, transport in one ordinary
+module, and automorphic descent. The class-group constant
+in Section~\ref{sec:arithmetic-frame-uniform-depth} is
+chosen before cyclotomic depth. It need not itself be
+polynomial in the host. Its role is to make the auxiliary
+frame sufficiently deep; the final numerical character
+count must be made after descent, with its stated uniform
+conductor and weight bounds.
+
+On the geometric branch, one must choose compatible data
+on the same windows, prove the global theta comparison
+and its rank recursions, and control the integral lattices
+and metrics of those data. The local maps, convergence
+estimates and fixed-model identities in the theta chapters
+are components of this construction. They do not separately
+choose the compatible family or prove the uniform
+covolume bound. Here \emph{connected} refers to the
+source's compatible eventual window witness, as explained
+in Section~\ref{sec:sr-latest-community-check}.
+
+The closing ledger in Section~\ref{sec:sr-source-review}
+records the exact frontier in these two branches.
+Until both supply obligations there have been discharged,
+the final RH conclusion remains conditional in this prose
+edition. Part II preserves the earlier longer-route
+translations with their hypotheses and makes their
+supporting arguments available to the first part.
