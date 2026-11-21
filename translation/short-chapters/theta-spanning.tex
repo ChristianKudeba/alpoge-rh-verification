@@ -161,17 +161,17 @@ the weight relation is linear and passes through each row sum
 and the uniform limit.
 
 More explicitly, let a group \(\Delta\) act on the lattices and
-frames and let \(\mu(\gamma,L)\) be the common unitary multiplier.
+frames and let \(\widetilde\mu(\gamma,L)\) be the common unitary multiplier.
 The test-vector identity
 \(\omega(\gamma)\Phi_{L,\Lambda}
- =\mu(\gamma,L)\Phi_{\gamma L,\Lambda}\)
+ =\widetilde\mu(\gamma,L)\Phi_{\gamma L,\Lambda}\)
 gives
 \[
- C(\gamma L,\gamma L')\mu(\gamma,L)
-        \overline{\mu(\gamma,L')}=C(L,L').
+ C(\gamma L,\gamma L')\widetilde\mu(\gamma,L)
+        \overline{\widetilde\mu(\gamma,L')}=C(L,L').
 \]
 If
-\(F(\gamma L,\gamma x)=\mu(\gamma,L)^{-1}F(L,x)\),
+\(F(\gamma L,\gamma x)=\widetilde\mu(\gamma,L)^{-1}F(L,x)\),
 reindexing the absolutely convergent row shows that
 \(\mathcal CF\) has the same law.  Thus every partial sum and
 its limit in \eqref{eq:sr-gram-inverse} has that law.
@@ -195,7 +195,7 @@ Let
 For the common finite data the required kernel identity is
 \begin{equation}\label{eq:sr-doubled-kernel-input}
  \kappa\sum_{\gamma\in\Delta}
-    C(L,\gamma L')\overline{\mu(\gamma,L')}K(x,\gamma y)
+    C(L,\gamma L')\overline{\widetilde\mu(\gamma,L')}K(x,\gamma y)
   =\sum_{\Lambda\in\mathcal C}w_\Lambda
        \sum_{j=1}^t
        T_{\Lambda,j}(L,x)
@@ -251,7 +251,7 @@ Reproduction and absolute convergence give
 Unfold this integral over the measurable fundamental domain for
 the diagonal action.
 The automorphy law for \(F'\) contributes
-\(\overline{\mu(\gamma,L')}\), exactly the factor in
+\(\overline{\widetilde\mu(\gamma,L')}\), exactly the factor in
 \eqref{eq:sr-doubled-kernel-input}.
 Using that identity, the result is an integral of a finite sum
 \[
@@ -306,16 +306,24 @@ right side of \eqref{eq:sr-doubled-kernel-input}.
 This explains both the Gram coefficient and the multiplier and
 shows why independent local normalizations would be insufficient.
 
-The graph-term computation, the non-graph vanishing, admissibility
-of the doubled test family for that definite formula, and the slab
-integrability and reproduction are the precise remaining analytic
-verifications in this application of the proposition.  In particular
+Sections~\ref{sec:sr-level-phase-proof} and~\ref{sec:sr-frame-slab-kernel}
+supply the common finite test-vector norms and phases, the outside-level
+support, the nonzero-degree isotropic relations, and the explicit
+archimedean slab integrability and reproduction.
+The multiplier in this section is their actual test-vector multiplier
+\(\widetilde\mu\), which includes the fixed level character.
+Subsection~\ref{subsec:sr-invariant-heat-jets} supplies the invariant
+jet implication from the scalar identity.
+The graph-term computation, passage of the isotropic annihilator
+through the nongraph terms, the admissibility of the doubled test
+family and identification of its Gaussian kernel remain to be
+verified in this application.  In particular
 the abstract proposition is not asserted to construct those inputs.
 In the frozen source their producers are respectively
-\texttt{EisensteinSeriesTermUnitaryGraph},
-\texttt{ThetaTestFunctionNoCoinvariantsIsotropic},
-\texttt{AdmissibleDoubledHermitianThetaFamily},
-\texttt{GaussianKernelIntegrableOnThinSlab}, and
-\texttt{SetIntegralCompOfStable}.
+\srcid{EisensteinSeriesTermUnitaryGraph},
+\srcid{ThetaTestFunctionNoCoinvariantsIsotropic},
+\srcid{AdmissibleDoubledHermitianThetaFamily},
+\srcid{GaussianKernelIntegrableOnThinSlab}, and
+\srcid{SetIntegralCompOfStable}.
 The finite lattice count, numerical gap, inverse operator, and
 finite-dimensional unfolding implication have been proved above.

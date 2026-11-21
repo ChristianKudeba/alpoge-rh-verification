@@ -128,6 +128,9 @@ jobs:
                   "contact_sheets":[p.name for p in sorted((root/"qa").glob("contact-*.png"))]}
           (root/"build-report.json").write_text(json.dumps(report,indent=2)+"\n")
           print(json.dumps({k:v for k,v in report.items() if k not in ("box_warnings","contact_sheets")},indent=2))
+          assert not escaped, "Text escapes page boundaries: " + repr(escaped)
+          overfull=[w for w in warnings if w.startswith("Overfull")]
+          assert not overfull, "Overfull typesetting boxes: " + repr(overfull)
           PY
       - name: Preserve the paper, source and inspection sheets
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

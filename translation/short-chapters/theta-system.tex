@@ -1,0 +1,886 @@
+\section{Common level labels and their Heisenberg phases}
+\label{sec:sr-level-phase-proof}
+
+We verify the finite test-vector norm and overlap in
+\eqref{eq:sr-test-gram} using the actual shifted level lattices.
+The same calculation supplies one multiplier for all auxiliary
+positive definite lattices.
+
+Let \(L_0\) be the fixed polarized \(\mathcal O_E\)-lattice of
+rank \(r\), selfdual for its rational alternating trace form
+\(B\).  Thus \(B(av,z)=B(v,\overline a z)\).
+Let \(\mathfrak a\) be the finite level ideal, with
+\[
+ (\mathfrak a,\overline{\mathfrak a})=1,\qquad
+ (\mathfrak a,2)=1,\qquad M\in\mathfrak a,\quad M\ne0.
+\]
+Choose \(w\in\mathcal O_E\) with \(w+\overline w=1\).
+All Heisenberg operators and all vacua below use this one \(w\).
+Put \(\mathfrak j=\mathfrak a\overline{\mathfrak a}^{-1}\).
+The lattices \(L\) under consideration are selfdual and agree
+with \(L_0\) after localization at every prime dividing
+\(\mathfrak a\overline{\mathfrak a}\).
+This is equivalent to having a common denominator, prime to
+those ideals, carrying each lattice into the other.
+
+The auxiliary lattices all lie in one fixed Hermitian space,
+and this is essential for the projections below.  More explicitly,
+fix
+\[
+ V_+=E^n,\qquad
+ h_+(v,v')=\sum_{i=1}^n v_i\overline{v'_i},\qquad
+ \Lambda_0=\mathcal O_E^n.
+\]
+Assume \(n\) is even.  Every \(\Lambda\) below is an
+\(\mathcal O_E\)-submodule of this \(V_+\), selfdual for this
+one \(h_+\), and standard at the primes of \(M\).
+The form is positive definite at each complex embedding.
+The lattice \(\Lambda_0\) is selfdual: pairing with the coordinate
+vectors shows that its Hermitian dual has all coordinates in
+\(\mathcal O_E\), and the reverse inclusion follows by summing
+products of integral coordinates.  No individual Hermitian form
+is assigned to \(\Lambda\).
+
+Put \(V=E^r\), with its fixed polarized trace form \(B\).
+There is one rational symplectic space
+\[
+ \mathbb W=V_+\otimes_E V
+        \simeq \operatorname{Mat}_{n,r}(E),\qquad
+ B_n(Y,Z)=\sum_{i=1}^n B(Y_i,Z_i).
+\]
+On pure tensors its pairing is
+\(B_n(v\otimes u,v'\otimes u')
+  =B(h_+(v,v')u,u')\), by the adjointness of multiplication
+by \(E\).  Thus the perfect tensor pairings used below are
+restrictions of this same \(B_n\).
+Choose a rational polarization of \(\mathbb W\) once, for example
+by choosing a symplectic integral basis of \(L_0\), and take
+\[
+ {\cal H}=L^2(\mathbb A_f^{ng}),\qquad
+ {\cal S}={\cal S}(\mathbb A_f^{ng}),\qquad
+                   2g=\dim_{\mathbb Q}V.
+\]
+Use the standard rational additive character and its selfdual
+Haar measure.  In the rational-function notation of the source,
+\({\cal S}\) is the space of rational Schwartz--Bruhat functions
+on \(\operatorname{Mat}_{n,g}(\mathbb Q)\): restriction gives the
+identification, because \(\mathbb Q^{ng}\) is dense in
+\(\mathbb A_f^{ng}\).  A common support denominator and an open
+period subgroup make the inverse extension well defined; its
+finite residue average is the same \(L^2\) inner product.
+All vacua, projections and translated vectors in this section
+are vectors in this one \({\cal H}\).
+
+The group \(U(V,B)\) acts on \(\mathbb W\) on each of the \(n\)
+rows, preserving \(B_n\).  We use one genuine unitary Weil
+action \(W\) of this group on \({\cal S}\), with the covariance
+convention
+\[
+ W_\gamma S(Y)W_\gamma^{-1}=S(Y\gamma^t).
+\]
+Here genuine means \(W_{\gamma'\gamma}=W_{\gamma'}W_\gamma\).
+This action is fixed before the lattices are varied.
+The standard metaplectic Schr\"odinger representation supplies
+it: the action on \(n\) rows is the \(n\)-fold tensor power of
+the action for \(V\); the two lifts of a symplectic map differ
+by \(-1\), acting by \((-1)^n=1\) on that tensor power.
+It therefore descends to the symplectic group when \(n\) is
+even.  Fourier transform with selfdual measure, quadratic
+characters of modulus one and normalized linear changes of
+variables give its unitary operators and preserve \({\cal S}\).
+This is the standard metaplectic background, with the additive
+character, measure and parity now specified; see Weil,
+\emph{Sur certains groupes d'op\'erateurs unitaires},
+Acta Math.\ 111 (1964), 143--211,
+\url{https://doi.org/10.1007/BF02391012}.
+
+The theta-normalized action in the source is characterized by
+\[
+ \operatorname{thA}(W_\gamma\phi;\gamma x,z)
+                         =\operatorname{thA}(\phi;x,z).
+\]
+The usual Poisson theta transformation fixes this scalar
+normalization.  Its uniqueness, and hence its genuine group law,
+can also be checked directly.  At one frame \(x\), the invertible
+period-coordinate change and the nonvanishing Gaussian factor
+reduce equality of these entire functions of \(z\) to equality of
+\[
+ \sum_{a\in\mathbb Q^{ng}}
+       \phi(a)\exp\{\pi i\,\operatorname{tr}(a\tau a^t)
+                              +2\pi i\,\operatorname{tr}(az^t)\},
+ \qquad \operatorname{Im}\tau>0 .
+\]
+Put the two test functions over one support denominator.
+Absolute Gaussian convergence permits Fourier coefficient
+extraction on a real period torus; the coefficient at \(a\) is
+its displayed nonzero Gaussian times \(\phi(a)\).
+Thus equality gives equality of the test functions.
+Applying the theta transformation twice proves the group law
+by this uniqueness, without choosing phases separately for
+different lattices.  In the frozen archive the precise producer
+is \srcid{WeilActionPreservesThetaAndInnerProduct.wG\_laws};
+its inputs are the fixed symplectic basis and evenness of \(n\),
+and its conclusions include unitarity, linearity, the group law
+and the above Heisenberg covariance.
+
+With this fixed ambient model, set
+\[
+ A_{\Lambda,L}=\Lambda\otimes_{\mathcal O_E}\mathfrak jL,\quad
+ H_{\Lambda,L}=\Lambda\otimes_{\mathcal O_E}
+                         2\overline{\mathfrak a}L,\quad
+ K_{\Lambda,L}=\Lambda\otimes_{\mathcal O_E}
+                         2\overline{\mathfrak a}\mathfrak aL.
+\]
+The first lattice is selfdual.
+Indeed tensoring the perfect Hermitian pairing on \(\Lambda\)
+with the perfect alternating pairing on \(L\) is perfect;
+and the twist by \(\mathfrak j\) preserves selfduality because
+\(\mathfrak j\overline{\mathfrak j}=1\).
+These statements can be checked over every local DVR and then
+intersected inside the rational space.
+
+Fix the Schr\"odinger operators with convention
+\[
+ S(u)S(v)=e^{-\pi iB_n(u,v)}S(u+v),\qquad
+ S(u)S(v)=e^{-2\pi iB_n(u,v)}S(v)S(u).
+\]
+For a rational vector \(\delta\), set
+\begin{equation}\label{eq:sr-common-eigenoperator}
+ \epsilon_w(\delta)=e^{\pi iB_n(\delta,w\delta)},\qquad
+ U_\delta=\epsilon_w(\delta)S(\delta).
+\end{equation}
+On any integral \(\mathcal O_E\)-stable lattice \(A\), these
+operators form an additive representation.
+In fact the quotient of \(U_uU_v\) by \(U_{u+v}\) is
+\[
+ \exp\{-\pi i[
+ B_n(u,wv)+B_n(v,wu)+B_n(u,v)]\}
+       =\exp\{-2\pi iB_n(u,wv)\}=1.
+\]
+Here adjointness and \(w+\overline w=1\) give the equality,
+and integrality gives the final value.
+
+There is a one-dimensional vacuum line fixed by all
+\(U_\delta\), \(\delta\in A\), for every selfdual \(A\).
+For completeness, choose a symplectic integral basis of one
+selfdual lattice and its Schr\"odinger realization.
+The standard compact-open indicator, translated and multiplied
+by half-integral characters to account for the signs
+\(\epsilon_w\) on this basis, gives its vacuum.
+For a second commensurable selfdual lattice, reduce to the
+finite Heisenberg quotient of their intersection.
+In the model of functions on a finite maximal isotropic group,
+translations and the distinct dual characters have each joint
+eigenline of dimension one.
+They give the corresponding vacuum and show uniqueness.
+The construction uses finite sums of rational Heisenberg
+translations, so the vacuum remains Schwartz--Bruhat.
+
+The phases can be chosen compatibly with the prescribed genuine
+unitary Weil action.  First choose unit vacua \(v_{0,L}\) for
+\(A_{0,L}=\mathcal O_E^n\otimes\mathfrak jL\), once for each \(L\).
+For a level-group element \(\gamma\), write
+\[
+ W_\gamma v_{0,L}=\mu(\gamma,L)v_{0,\gamma L}.
+\]
+The lines have just been proved one-dimensional, so the scalar
+exists, has modulus one, and satisfies the cocycle relation
+forced by the same genuine action \(W\).
+For an arbitrary auxiliary \(\Lambda\), let \(P_{\Lambda,L}\)
+be the orthogonal projector onto the
+\(A_{\Lambda,L}\)-vacuum line, obtained by averaging
+\(U_\delta\) over its finite orbit on \(v_{0,L}\), and set
+\[
+ v_{\Lambda,L}=
+  \frac{P_{\Lambda,L}v_{0,L}}
+       {\|P_{\Lambda,L}v_{0,L}\|}.
+\]
+The projection is nonzero: the finite Heisenberg calculation
+of Lemma~\ref{lem:sr-selfdual-count}'s subsequent vacuum argument
+gives overlap of modulus the inverse square root of the
+relative index, since the semicharacters agree on the
+intersection.
+Weil covariance intertwines the two projectors.
+Unitarity preserves their positive normalization denominators,
+and hence
+\begin{equation}\label{eq:sr-common-vacuum-multiplier}
+ W_\gamma v_{\Lambda,L}
+       =\mu(\gamma,L)v_{\Lambda,\gamma L}.
+\end{equation}
+In particular the multiplier is the same for every \(\Lambda\);
+it is not chosen independently for each auxiliary theta vector.
+
+Choose \(r\) vectors \(\beta_1,\ldots,\beta_r\in L_0\)
+spanning \(L_0/\mathfrak aL_0\).
+They form a basis over \(\mathcal O_E/\mathfrak a\):
+local freeness gives cardinality
+\(\operatorname N(\mathfrak a)^r\), so the surjection from the
+free module of that same cardinality is bijective.
+Let
+\(J_{\rm lev}\subset\operatorname{GL}_r(\mathcal O_E/\mathfrak a)\)
+be the prescribed finite subgroup, with character
+\(\lambda:J_{\rm lev}\to\mathbb C^\times\).
+Its values have modulus one, since \(J_{\rm lev}\) is finite.
+For \(k\in J_{\rm lev}\), prescribe the residue of a row tuple by
+\[
+ \bar y_i(k)=\sum_j k_{ji}\bar\beta_j\quad(1\le i\le r),
+ \qquad \bar y_i(k)=0\quad(r<i\le n).
+\]
+These are distinct labels, indexed exactly by \(J_{\rm lev}\).
+
+There is a canonical residue isomorphism
+\begin{equation}\label{eq:sr-level-quotient}
+ H_{\Lambda,L}/K_{\Lambda,L}
+              \simeq (L_0/\mathfrak aL_0)^n.
+\end{equation}
+To prove it, localize at a prime \(\mathfrak p\mid\mathfrak a\).
+The elements \(2\) and
+\(\overline{\mathfrak a}\) are units there,
+\(\Lambda\) is standard there because \(M\in\mathfrak a\),
+and \(L_{\mathfrak p}=(L_0)_{\mathfrak p}\).
+Thus the localized quotient is precisely the usual reduction
+of \(L_0^n\) modulo \(\mathfrak a\).
+At primes outside \(\mathfrak a\) the quotient is zero.
+The local identifications combine by the Chinese remainder
+theorem, proving \eqref{eq:sr-level-quotient}.
+
+Choose any representatives \(y_k\in H_{\Lambda,L}\) of the
+prescribed labels and define the actual test vector
+\begin{equation}\label{eq:sr-actual-level-test}
+ \Phi_{\Lambda,L}
+    =\sum_{k\in J_{\rm lev}}\lambda(k)S(y_k)v_{\Lambda,L}.
+\end{equation}
+This definition is independent of the representatives, with no
+missing root-of-unity factor.
+Indeed for \(h\in K_{\Lambda,L}\), one has
+\(h\in A_{\Lambda,L}\), because the ideal ratio is
+\(2\overline{\mathfrak a}^{\,2}\subset\mathcal O_E\).
+Also \(y_k,h\in2(\Lambda\otimes L)\).
+This untwisted tensor lattice is integral and stable under \(w\),
+so
+\[
+ B_n(y_k,h)\in4\mathbb Z,\qquad
+ B_n(h,wh)\in4\mathbb Z .
+\]
+Thus \(\epsilon_w(h)=1\), \(S(h)v_{\Lambda,L}=v_{\Lambda,L}\),
+and the Heisenberg product law gives
+\(S(y_k+h)v_{\Lambda,L}=S(y_k)v_{\Lambda,L}\).
+The explicit factor \(2\) in the two quotient lattices is what
+makes this representative change exact, including at two.
+
+We can now use common representatives for two lattices \(L,L'\).
+Their modules \(H_{\Lambda,L}\) and \(H_{\Lambda,L'}\) have the
+same localization at primes of \(\mathfrak a\).
+Their intersection therefore still surjects onto
+\((L_0/\mathfrak aL_0)^n\), by the same local argument and CRT.
+Choose \(y_k\) in this intersection.
+The just-proved independence means that these simultaneous
+representatives compute both test vectors in
+\eqref{eq:sr-actual-level-test}.
+
+\begin{srproposition}[The common operator separates distinct labels]
+\label{prop:sr-level-label-orthogonality}
+With those representatives,
+\[
+ \langle S(y_k)v_{\Lambda,L},
+              S(y_{k'})v_{\Lambda,L'}\rangle=0
+                      \qquad(k\ne k').
+\]
+\end{srproposition}
+
+\begin{proof}
+Put \(A=A_{\Lambda,L}\), \(A'=A_{\Lambda,L'}\).
+For every \(\delta\in A\cap A'\), the very same operator
+\(U_\delta\) from \eqref{eq:sr-common-eigenoperator} acts on the
+two vectors with eigenvalues
+\[
+ e^{-2\pi iB_n(\delta,y_k)},\qquad
+ e^{-2\pi iB_n(\delta,y_{k'})},
+\]
+respectively.  This follows directly by commuting \(S(\delta)\)
+past \(S(y)\); the common factor \(\epsilon_w(\delta)\)
+cancels against its eigenvalue on each vacuum.
+If their inner product were nonzero, unitarity would force
+these eigenvalues to agree.  Thus
+\[
+ B_n(\delta,y_k-y_{k'})\in\mathbb Z
+                           \quad(\delta\in A\cap A').
+\]
+Consequently
+\[
+ y_k-y_{k'}\in(A\cap A')^\#=A^\#+(A')^\#=A+A'.
+\]
+The dual-intersection identity can be verified without a
+duality convention: the exact sequence
+\(0\to A\cap A'\to A\oplus A'\to A+A'\to0\)
+splits as abelian groups since \(A+A'\) is free.
+An integral functional on \(A\cap A'\) therefore extends to
+one on \(A\oplus A'\), giving the asserted sum of the duals.
+
+At \(\mathfrak p\mid\mathfrak a\), both \(A\) and \(A'\)
+localize to
+\(\mathfrak a_{\mathfrak p}(L_0)_{\mathfrak p}^{\,n}\):
+the conjugate ideal is a unit there, and the auxiliary lattice
+is standard there.
+Thus \(y_k-y_{k'}\) has zero residue in
+\((L_0/\mathfrak aL_0)^n\).
+By \eqref{eq:sr-level-quotient} the two labels coincide.
+The \(\beta_j\)'s are a residue basis, so \(k=k'\), a
+contradiction.
+\end{proof}
+
+\begin{srproposition}[Exact level Gram normalization]
+\label{prop:sr-exact-level-gram}
+For the single construction above, with
+\(b=|J_{\rm lev}|\),
+\[
+ \langle\Phi_{\Lambda,L},\Phi_{\Lambda,L'}\rangle
+         =b\,\langle v_{\Lambda,L},v_{\Lambda,L'}\rangle.
+\]
+In particular
+\[
+ \|\Phi_{\Lambda,L}\|^2=b,\qquad
+ |\langle\Phi_{\Lambda,L},\Phi_{\Lambda,L'}\rangle|
+      \le b\,m(L,L')^{-n/2}.
+\]
+These are \eqref{eq:sr-test-gram}, now with the level phases fixed.
+\end{srproposition}
+
+\begin{proof}
+Expand the two finite sums using their common representatives.
+Proposition~\ref{prop:sr-level-label-orthogonality} removes all
+terms with different labels.
+For equal labels, the common \(S(y_k)\) is unitary and
+\(|\lambda(k)|=1\), so the summand is exactly
+\(\langle v_{\Lambda,L},v_{\Lambda,L'}\rangle\).
+
+To compute the index in the vacuum overlap, note that
+\(\Lambda\) is projective of rank \(n\), and the twist
+\(\mathfrak j\) is an invertible module.
+Local bases therefore give
+\[
+ A_{\Lambda,L}\cap A_{\Lambda,L'}
+       =\Lambda\otimes\mathfrak j(L\cap L'),\qquad
+ [A_{\Lambda,L}:A_{\Lambda,L}\cap A_{\Lambda,L'}]
+       =[L:L\cap L']^n.
+\]
+For the index assertion, decompose each finite local quotient
+into cyclic modules over its local DVR; tensoring a rank-\(n\)
+free module makes \(n\) copies, and tensoring an invertible
+ideal preserves its length.  Multiplication of the local
+cardinalities proves the formula.
+The normalized finite Heisenberg overlap is the inverse
+square root of this index, as proved in
+Section~\ref{sec:sr-theta-gram}.
+This gives the stated bound and the diagonal norm.
+\end{proof}
+
+The multiplier on the actual level test vectors includes the fixed
+level character.  If the residue action of \(\gamma\) on the
+\(\beta\)-basis is \(k_\gamma\in J_{\rm lev}\), applying
+\(\gamma\) sends the label \(k\) to \(k_\gamma k\).
+Reindexing the finite sum, with the representative-independence
+already proved, gives the exact formula
+\[
+ W_\gamma\Phi_{\Lambda,L}
+   =\widetilde\mu(\gamma,L)\Phi_{\Lambda,\gamma L},
+ \qquad
+ \widetilde\mu(\gamma,L)
+       =\mu(\gamma,L)\lambda(k_\gamma)^{-1}.
+\]
+Thus it is \(\widetilde\mu\) that enters the lattice Gram
+automorphy identity and the inverse law for holomorphic families.
+It remains independent of \(\Lambda\), and has modulus one.
+This fixes the possible level-character normalization shift.
+
+All choices in this section are made in the fixed standard
+Hermitian space \(V_+\), the fixed rational symplectic space
+\(\mathbb W\) and its single Schr\"odinger Hilbert space, from
+one trace form, one semicharacter \(w\), one genuine Weil action,
+the fixed level character, and common residue representatives.
+The projection construction proves
+\eqref{eq:sr-common-vacuum-multiplier} with a multiplier
+independent of the auxiliary lattice.
+It does not construct the arithmetic polarized lattice or its
+integral model; those remain part of the family construction.
+In the frozen source the displayed phase calculation is
+\srcid{ThetaTestFunctionNormAndOverlapBound.pair_int};
+the local residue implication is \srcid{cong_of_pair};
+and the final diagonal sum is \srcid{phi_norm_overlap}.
+
+
+The fixed-model assertion here agrees literally with the source
+types.  In \srcid{FirstCoordinateAdmissible}, \srcid{Lt E n}
+is a submodule of \(E^n\), and \srcid{Vset E n M} uses
+\srcid{herm 1} for every auxiliary lattice.
+In \srcid{ThShort}, \srcid{GenLat} has only the submodule
+field \srcid{La}, and \srcid{GenLat.Unimod} uses the same
+coordinate Hermitian pairing.  In \srcid{IsSystem},
+\srcid{TF n g} is fixed independently of \(\Lambda\).
+These are lattice variations inside a fixed space, so no
+unproved isometric identification between varying rational
+Hermitian forms is being used in \(P_{\Lambda,L}v_{0,L}\).
+The arithmetic polarized model and the compatibility of the
+global doubled theta kernel with its integral geometric
+realization remain separate requirements.
+
+\subsection{Zero overlap outside the prescribed level group}
+\label{subsec:sr-level-support}
+
+Continue in the single fixed Hermitian and Schr\"odinger model
+of Section~\ref{sec:sr-level-phase-proof}.
+Define the level group \(\Delta\) to consist of those rational
+unitary maps \(\gamma\) which preserve \(L_0\) locally at the
+primes of \(\mathfrak a\) and act on
+\(L_0/\mathfrak aL_0\), in the \(\beta\)-basis, by a matrix
+\(k_\gamma\in J_{\rm lev}\).
+This is a subgroup: preservation and the residue matrices
+are stable under multiplication and inverse.
+Equivalently it is the subgroup generated by the rational
+unitary maps satisfying this condition.
+The latter is the source's definition \srcid{Level.grp}:
+its \srcid{Cong} relation is equality in these local residue
+modules, since a denominator prime to \(\mathfrak a\) is
+invertible there.  Conversely, local residue equality can be
+multiplied by a common denominator prime to
+\(\mathfrak a\), giving exactly that \srcid{Cong} relation.
+
+\begin{srproposition}\label{prop:sr-level-outside-zero}
+For every rational unitary \(\gamma\notin\Delta\), every two
+allowed \(L,L'\), and every allowed \(\Lambda\),
+\[
+       \langle\Phi_{\Lambda,L},
+                        W_\gamma\Phi_{\Lambda,L'}\rangle=0 .
+\]
+\end{srproposition}
+
+\begin{proof}
+Suppose the inner product is nonzero.
+Expand the two finite labelled sums and use Weil covariance.
+Some pair of labels \(k,k'\) therefore satisfies
+\[
+ \langle S(y_k)v_{\Lambda,L},
+              S(\gamma y'_{k'})W_\gamma v_{\Lambda,L'}\rangle
+                                                        \ne0 .
+\]
+We regard rows of a tuple as column vectors when applying
+\(\gamma\).
+Put \(A=A_{\Lambda,L}\) and \(A'=\gamma A_{\Lambda,L'}\).
+Both are selfdual lattices for the same \(B_n\).
+The vector \(W_\gamma v_{\Lambda,L'}\) is fixed by
+\(U_\delta\), \(\delta\in A'\): covariance gives this, and
+\[
+ B_n(\gamma z,w\gamma z)=B_n(z,wz)
+\]
+since \(\gamma\) is \(E\)-linear and unitary.
+Consequently the common operators \(U_\delta\),
+\(\delta\in A\cap A'\), have equal eigenvalues on the two
+vectors with nonzero inner product.
+Exactly as in
+Proposition~\ref{prop:sr-level-label-orthogonality}, this yields
+\begin{equation}\label{eq:sr-level-overlap-difference}
+              y_k-\gamma y'_{k'}\in A+A'.
+\end{equation}
+
+Fix a prime \(\mathfrak q\mid\mathfrak a\), and put
+\(e=v_{\mathfrak q}(\mathfrak a)>0\).
+At this prime, \(\Lambda\) is standard,
+\(L=L'=L_0\), and
+\(\mathfrak j=\mathfrak a\overline{\mathfrak a}^{-1}\)
+is \(\mathfrak q^e\) times a unit.
+Choose a local basis of \(L_0\), and let \(U,U'\) be the
+\(r\)-by-\(r\) matrices whose columns are the first \(r\)
+rows of \(y_k,y'_{k'}\), in this basis.
+These columns are integral and give bases modulo
+\(\mathfrak q^e\), because their labels come from invertible
+\(k,k'\) and the residue basis \(\beta\).
+Their determinants are therefore units, so
+\(U,U'\in\operatorname{GL}_r(\mathcal O_{E,\mathfrak q})\).
+
+Equation~\eqref{eq:sr-level-overlap-difference} gives integral
+matrices \(R,S\) with
+\[
+                 U-\gamma U'=\pi^e R+\pi^e\gamma S ,
+\]
+where \(\pi\) is any local uniformizer; the unit in the
+fractional ideal has been absorbed in \(R,S\).
+Thus
+\[
+       \gamma=(U-\pi^eR)(U'+\pi^eS)^{-1}.
+\]
+Both factors on the right are invertible integral matrices:
+they reduce to \(U,U'\), respectively, modulo the maximal
+ideal.  Hence \(\gamma\) preserves \(L_0\) at this prime and
+has an integral inverse there.
+We did not assume local integrality of \(\gamma\).
+
+We may now reduce the same difference equation modulo
+\(\mathfrak q^e\).
+It gives \(U=\gamma U'\) in that quotient.
+Using the \(\beta\)-basis and the definition of the two
+labels, this says
+\[
+                  \gamma\beta k'=\beta k .
+\]
+This holds at every prime dividing \(\mathfrak a\).
+The Chinese remainder theorem therefore gives one matrix
+\[
+                   k_\gamma=k(k')^{-1}\in J_{\rm lev}
+\]
+for the action of \(\gamma\) on
+\(L_0/\mathfrak aL_0\).
+Clearing denominators prime to \(\mathfrak a\) expresses the
+same assertion as the source's \srcid{Level.Red}.
+Thus \(\gamma\) is one of the generators defining \(\Delta\),
+a contradiction.
+\end{proof}
+
+This proves the support condition \srcid{IsSystem.supp}.
+Together with
+Propositions~\ref{prop:sr-exact-level-gram}
+and~\ref{prop:sr-level-isotropic-relation}, the common vacuum
+multiplier, lattice-counting estimate and Neumann inverse,
+the finite test-vector system now has explicit norm,
+off-diagonal, automorphy, outside-level and isotropic
+translation proofs in the same model.
+The global doubled theta identity and the arithmetic
+realization of that system still have to be matched to it.
+
+\subsection{A nonzero-degree relation along every isotropic line}
+\label{subsec:sr-level-isotropic-relation}
+
+Use the fixed ambient model and the level test functions of
+Section~\ref{sec:sr-level-phase-proof}.  Assume the level ideal is
+proper.  Its conjugate is then proper as well.
+
+\begin{srlemma}\label{lem:sr-level-line-detection}
+Let \(0\ne\xi\in E^r\), and let \(y\) be any row tuple whose
+first \(r\) rows span \(L_0/\mathfrak aL_0\).
+For every allowed \(L,\Lambda\), there is a vector \(v\in E^n\)
+such that
+\[
+ \delta=v\otimes\xi\in A_{\Lambda,L},\qquad
+                         B_n(\delta,y)\notin\mathbb Z .
+\]
+Here the row tuple \(y\) can be any representative of a
+nonzero level label.
+\end{srlemma}
+
+\begin{proof}
+Put \(N=(E\xi)\cap\mathfrak jL\), an
+\(\mathcal O_E\)-lattice of rank one on the line \(E\xi\).
+It suffices to find \(\delta\in\Lambda\otimes N\) with the
+stated nonintegral pairing, since every tensor in this module
+has all its rows on \(E\xi\).
+Localizing the intersection is legitimate: after bounding
+denominators it is the kernel of a map of finitely generated
+modules, and localization is exact.
+
+Choose a prime \(\mathfrak q\mid\mathfrak a\), write
+\(e=v_{\mathfrak q}(\mathfrak a)>0\), and put
+\(\mathfrak p=\overline{\mathfrak q}\).
+Coprimality of \(\mathfrak a,\overline{\mathfrak a}\)
+gives \(\mathfrak p\ne\mathfrak q\), with
+\[
+ \mathfrak j_{\mathfrak p}
+       =\mathfrak p^{-e}\mathcal O_{E,\mathfrak p},
+ \qquad L_{\mathfrak p}=(L_0)_{\mathfrak p},\qquad
+ \Lambda_{\mathfrak p}=\mathcal O_{E,\mathfrak p}^n .
+\]
+The last assertion holds at every prime over the underlying
+rational prime \(\ell\): this prime divides \(M\), and
+\(\Lambda\) is standard at \(M\).
+Use completions in the rest of this local argument.
+
+The saturated rank-one module
+\(E_{\mathfrak p}\xi\cap(L_0)_{\mathfrak p}\)
+has a primitive generator \(u\).
+Indeed a generator lying in
+\(\mathfrak p(L_0)_{\mathfrak p}\) could be divided by a
+uniformizer and would not generate the intersection.
+Consequently
+\[
+       N_{\mathfrak p}
+            =\mathfrak p^{-e}\mathcal O_{E,\mathfrak p}u
+                      \not\subset (L_0)_{\mathfrak p}.
+\]
+The trace pairing at \(\ell\) pairs the
+\(\mathfrak p\)-component only with the
+\(\mathfrak q\)-component.  This follows from
+\(B(az,z')=B(z,\overline a z')\), applied to the idempotents
+of \(E\otimes\mathbb Q_\ell\).
+Selfduality of \(L_0\) says exactly that these two local
+components are integral duals.  This formulation includes the
+local different already present in the trace form.
+
+Suppose every \(a\in N_{\mathfrak p}\) paired integrally with
+each row \(y_i\), \(1\le i\le r\), at \(\mathfrak q\).
+The same holds after multiplying each row by any local
+integer, since the adjoint scalar preserves \(N_{\mathfrak p}\).
+The rows span
+\((L_0)_{\mathfrak q}/\mathfrak q^e(L_0)_{\mathfrak q}\).
+They therefore express every \(z\in(L_0)_{\mathfrak q}\) as
+a sum of such integer multiples plus an element of
+\(\mathfrak q^e(L_0)_{\mathfrak q}\).
+The remainder also pairs integrally with \(N_{\mathfrak p}\),
+because
+\(\mathfrak p^eN_{\mathfrak p}
+ \subset(L_0)_{\mathfrak p}\).
+It would follow that all of \(N_{\mathfrak p}\) pairs
+integrally with \((L_0)_{\mathfrak q}\).
+The local duality just established would give
+\(N_{\mathfrak p}\subset(L_0)_{\mathfrak p}\), a contradiction.
+Thus some row and some \(a\in N_{\mathfrak p}\) have
+nonintegral \(\mathbb Q_\ell\)-pairing.
+
+Place \(a\) in that row and zero in the other rows and prime
+components of the \(\ell\)-adic completion of
+\(\Lambda\otimes N\).
+Global lattice points are dense in this completion: choose a
+\(\mathbb Z\)-basis of the lattice and use the density of
+\(\mathbb Z\) in \(\mathbb Z_\ell\) in each coordinate.
+Approximate this local tensor closely enough that its pairing
+with the fixed rational tuple \(y\) changes by an element of
+\(\mathbb Z_\ell\).
+The resulting global tensor \(\delta\) still has nonintegral
+\(\ell\)-adic pairing, so \(B_n(\delta,y)\notin\mathbb Z\).
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-level-isotropic-relation}
+If in addition \(\xi\) is isotropic for the polarized
+Hermitian form on \(E^r\), then there are a finite set
+\(S\subset E^n\) and complex numbers \(a_v\) with
+\[
+ \sum_{v\in S}a_v\ne0,\qquad
+ \sum_{v\in S}a_v S(v\otimes\xi)\Phi_{\Lambda,L}=0 .
+\]
+All these are translations in the same Schr\"odinger model.
+\end{srproposition}
+
+\begin{proof}
+Let
+\[
+ {\cal B}_\xi=\{v\in E^n:v\otimes\xi\in A_{\Lambda,L}\}.
+\]
+The Hermitian isotropy gives
+\(B(a\xi,b\xi)=0\) for every \(a,b\in E\).
+It follows that \(S(v\otimes\xi)\), \(v\in{\cal B}_\xi\),
+form an ordinary additive representation, with no Heisenberg
+cocycle.  Also
+\(\epsilon_w(v\otimes\xi)=1\), so these operators fix the
+vacuum \(v_{\Lambda,L}\).
+
+For a level representative \(y_k\), commuting a translation
+past \(S(y_k)\) gives
+\[
+ S(v\otimes\xi)S(y_k)v_{\Lambda,L}
+   =\chi_k(v)S(y_k)v_{\Lambda,L},\qquad
+ \chi_k(v)=\exp\{-2\pi iB_n(v\otimes\xi,y_k)\}.
+\]
+This is a character of the additive group
+\({\cal B}_\xi\).
+Lemma~\ref{lem:sr-level-line-detection} supplies
+\(v_k\in{\cal B}_\xi\) with \(\chi_k(v_k)\ne1\)
+for each of the finitely many labels.
+In the complex group algebra of \({\cal B}_\xi\) take
+\[
+ Z_\xi=\prod_{k\in J_{\rm lev}}
+                   ([v_k]-\chi_k(v_k)[0]).
+\]
+Evaluation under \(\chi_k\) kills this product, by its
+\(k\)-th factor.  Thus its translation action kills every
+\(S(y_k)v_{\Lambda,L}\), and hence their weighted sum
+\(\Phi_{\Lambda,L}\).
+Its augmentation is
+\[
+       \prod_{k\in J_{\rm lev}}(1-\chi_k(v_k))\ne0 .
+\]
+Writing out the finite product as
+\(Z_\xi=\sum_{v\in S}a_v[v]\) proves the assertion.
+\end{proof}
+
+This proves the finite test-function relation called
+\srcid{IsSystem.cusp}, including the required nonzero
+coefficient sum.  Passing this relation through an absolutely
+convergent invariant integral makes that integral zero.
+Using it to eliminate every nongraph term in a doubled
+Eisenstein expansion still requires that expansion, its
+identification of the corresponding isotropic stabilizer,
+and the convergence or regularization justified for that
+term.  Those analytic identifications are not consequences
+of the finite group-algebra calculation alone.
+
+\subsection{Invariant heat jets from the scalar Siegel--Weil identity}
+\label{subsec:sr-invariant-heat-jets}
+
+The scalar identity at zero elliptic variable does not, by
+itself, give a Jacobi identity at arbitrary elliptic variable.
+The following algebraic and analytic argument explains the
+invariant differentiations actually needed for the theta
+kernel.
+
+Let \(T\) be a finite set, \(n\ge r\), and for each
+\(\tau\in T\) write
+\[
+ U_\tau\in\operatorname{Mat}_{n,r}(\mathbb C),\qquad
+ V_\tau\in\operatorname{Mat}_{r,n}(\mathbb C).
+\]
+Use the action
+\(U_\tau\mapsto g_\tau U_\tau\),
+\(V_\tau\mapsto V_\tau g_\tau^{-1}\), and put
+\(s_{\tau,ab}=\sum_k(U_\tau)_{ka}(V_\tau)_{bk}\).
+
+\begin{srlemma}\label{lem:sr-invariants-pairings}
+Every complex polynomial invariant under all
+\(g_\tau\in U(n)\) is a polynomial in the
+\(s_{\tau,ab}\).
+\end{srlemma}
+
+\begin{proof}
+Invariance under the unitary group implies invariance under
+\(\operatorname{GL}_n(\mathbb C)\).
+Indeed differentiating the invariant polynomial identity
+along \(\exp(tK)\), for every skew-Hermitian \(K\), gives
+zero infinitesimal action.
+The complex span of these \(K\)'s is the full matrix algebra:
+every matrix is the sum of a skew-Hermitian matrix and
+\(i\) times a skew-Hermitian matrix.
+The same infinitesimal identity therefore holds for every
+complex matrix.  It gives invariance along its exponential.
+Every invertible complex matrix has a logarithm, by putting
+it in Jordan form and using the finite logarithm series on
+each nilpotent part, so the full general linear group acts
+invariantly.
+
+For one \(\tau\), put
+\(U_0=\binom{I_r}{0}\).
+On the open set where \(U\) has rank \(r\), a general linear
+change of rows carries \(U\) to \(U_0\).
+Write the corresponding \(V\) as \([C,D]\), so \(C=VU\).
+On the further open set where \(C\) is invertible, the
+stabilizer of \(U_0\) contains
+\[
+       g=\begin{pmatrix}I_r&A\\0&I_{n-r}\end{pmatrix},
+                   \qquad A=C^{-1}D.
+\]
+Right multiplication by \(g^{-1}\) sends \([C,D]\) to
+\([C,0]\).  Thus an invariant polynomial \(F\) equals
+\(F(U_0,[VU,0])\) on this open set.
+The last expression is a polynomial in \(VU\).
+The open set is nonempty and Zariski dense, so the polynomial
+identity holds everywhere.
+For \(n=r\) the same proof omits the empty lower block.
+Apply this independently at each \(\tau\); the resulting
+polynomial is obtained by fixing all \(U_\tau=U_0\) and
+putting \(V_\tau=[C_\tau,0]\).
+\end{proof}
+
+For elliptic coordinates \(u_{\tau,ka},v_{\tau,bk}\), define
+the constant-coefficient contraction operators
+\[
+ {\cal D}_{\tau,ab}
+       =\sum_{k=1}^n
+          \frac{\partial^2}
+           {\partial u_{\tau,ka}\,\partial v_{\tau,bk}} .
+\]
+Let \(Z\) vary in an open complex matrix domain \(\Omega\).
+Suppose \(D(Z,u,v)\) is holomorphic on
+\(\Omega\times\mathbb C^{2|T|nr}\) and satisfies
+\begin{equation}\label{eq:sr-exact-heat}
+ {\cal D}_{\tau,ab}D
+         =2\pi i\,\frac{\partial D}{\partial Z_{\tau,ab}},
+                 \qquad D(Z,0,0)=0 .
+\end{equation}
+The coordinate order in \(Z_{\tau,ab}\) is fixed by this
+display.  For a theta exponential
+\[
+ \exp\!\left(2\pi i\sum_k
+       [\,x_kZ\overline{x_k}^{\,t}+x_ku_k+
+                                      v_k\overline{x_k}^{\,t}\,]\right),
+\]
+direct differentiation gives precisely this heat equation,
+with the corresponding row and column convention.
+
+\begin{srproposition}\label{prop:sr-heat-invariant-zero}
+For every invariant polynomial \(Q\) in the differential
+symbols,
+\[
+                 Q(\partial_u,\partial_v)
+                                    D(Z,0,0)=0 .
+\]
+\end{srproposition}
+
+\begin{proof}
+Lemma~\ref{lem:sr-invariants-pairings} writes
+\(Q=p(s_{\tau,ab})\).
+Substituting the commuting derivatives gives
+\(Q(\partial_u,\partial_v)=p({\cal D}_{\tau,ab})\).
+All the derivatives commute on holomorphic functions.
+Repeated use of \eqref{eq:sr-exact-heat} therefore yields
+\[
+ p({\cal D}_{\tau,ab})D(Z,0,0)
+   =p(2\pi i\,\partial_{Z_{\tau,ab}})D(Z,0,0)=0.
+\]
+The last equality follows by differentiating the identically
+zero holomorphic function \(Z\mapsto D(Z,0,0)\).
+\end{proof}
+
+A Gaussian multiplier can be absorbed without changing this
+conclusion.  Let
+\[
+ G(u,v)=c\exp\!\left(\sum_{\tau,k,a,b}
+                     A_{\tau,ab}u_{\tau,ka}v_{\tau,bk}\right).
+\]
+It is invariant under the row action above.
+For a polynomial differential operator \(Q\), Leibniz's rule
+gives a unique polynomial \(p_G\) such that
+\begin{equation}\label{eq:sr-absorb-gaussian}
+   Q(\partial)(G F)(0)=p_G(\partial)F(0)
+\end{equation}
+for all holomorphic \(F\).
+For example it is specified explicitly by
+\[
+              p_G(\xi)
+                  =\left.Q(\partial_x)
+                       \bigl(G(x)e^{\langle x,\xi\rangle}\bigr)
+                                                     \right|_{x=0}.
+\]
+The right side is polynomial in \(\xi\).
+Coefficient comparison on monomials, or direct Leibniz
+expansion, proves \eqref{eq:sr-absorb-gaussian} for every
+holomorphic \(F\); only finitely many derivatives occur.
+If \(Q\) and \(G\) are invariant, the chain rule in this
+exponential formula shows that \(p_G\) is invariant under
+the dual row action.
+Applying Proposition~\ref{prop:sr-heat-invariant-zero} to
+\(p_G\) proves
+\[
+                   Q(\partial)(G D)(Z,0,0)=0 .
+\]
+
+The same argument permits fixed linear column substitutions.
+More precisely, if the two sets of differentiating
+directions intertwine the row action, their pullback of an
+invariant bidifferential is invariant.
+Right multiplication by the fixed matrices in the doubled
+coordinates commutes with the left row action; the dual
+variables carry the inverse action.
+For a family \(P_j\) satisfying the common invariant-sum
+identity, the pulled-back operator
+\(\sum_jP_j(\partial_z)\overline{P_j}(\partial_w)\)
+therefore has the required invariance.
+The Gaussian factor is of the displayed row-contraction
+form, so it can be absorbed as above.
+This proves the invariant-jet implication used in the
+doubled frame-kernel construction, once its stated column
+coordinates are used in the same order.
+
+In particular, to compare the class-averaged differentiated
+theta series with differentiated Eisenstein series, it is
+enough to prove the scalar identity at \((u,v)=(0,0)\),
+the exact heat equation, local holomorphy, and normal
+convergence permitting the stated differentiations.
+One need not assert a stronger Jacobi identity.
+This proposition proves that implication; it does not
+supply the scalar Siegel--Weil identity or its
+class-averaging normalization.

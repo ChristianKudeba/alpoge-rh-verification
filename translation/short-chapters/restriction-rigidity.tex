@@ -319,10 +319,10 @@ again by block-matrix equations, so this subspace is
 \end{proof}
 
 The criterion (C) is exactly the residual exclusion in
-\(\mathrm{TNiceFour.nice0four\_alt}\), called
+\srcid{TNiceFour.nice0four_alt}, called
 \(\mathrm{P1.condC}\) at the linked point.
 The latter is proved in
-\(\mathrm{WeakShimuraTheory.ProjectiveLineFlags.CondC}\).
+\srcid{WeakShimuraTheory.ProjectiveLineFlags.CondC}.
 The four characters in the actual linked packet are pairwise distinct
 by the tower's separation condition at its distinguished element.
 Thus the source's inclusion condition on the four characters is
@@ -485,7 +485,7 @@ For the formal point problem, the ordered flags and their residual
 labels are the ones specified by the local deformation conditions.
 One first descends the point and its dual-number lift to a finite
 coefficient field, as in the source's
-\(\mathrm{TbTriDiag.tb\_desc}\).
+\srcid{TbTriDiag.tb_desc}.
 The preceding proof then supplies the local content of
 \(\mathrm{TbTriDiag.tanBK}\), including the adjacent-ratio check.
 It does not infer the Bloch--Kato condition solely from ordinary
@@ -614,16 +614,265 @@ the correctly descended polarized adjoint.
 They do not prove the quantitative exceptional estimate without
 the actual rank-four finite/no-block/automorphic-point producer.
 That source producer is
-\(\mathrm{Sp4In0.sp4In0\_alt}\), through
-\(\mathrm{CuFinal.main4\_alt}\) and
-\(\mathrm{ModularityRankFourOfPromodularity}\).
+\srcid{Sp4In0.sp4In0_alt}, through
+\srcid{CuFinal.main4_alt} and
+\srcid{ModularityRankFourOfPromodularity}.
 Its Case II input is
-\(\mathrm{Gsp4PromodularityCaseTwo.proMod\_of\_pmEx\_of\_ctx2\_of\_kPair\_of\_star}\),
+\srcid{Gsp4PromodularityCaseTwo.proMod_of_pmEx_of_ctx2_of_kPair_of_star},
 which constructs the deep residue chain and propagates the modular
 support from an automorphic seed.
 For the present principal packet, no Case III count is needed.
 The Gaussian twist-one branch still needs the marked universal-ring
 and type-I automorphy statement \(\mathrm{ThmS6Core\_s}\), supplied
-in the formal dependency chain by \(\mathrm{DnEndsTop.ends0\_alt}\).
+in the formal dependency chain by \srcid{DnEndsTop.ends0_alt}.
 All paths in this paragraph are in the frozen tag
-\texttt{alpoge-source-7cbf7a0c}.
+\srcid{alpoge-source-7cbf7a0c}.
+
+\subsection{Gaussian rigidity at \(3\) and \(7\) from the dyadic packet}
+\label{subsec:sr-gaussian-local}
+The principal packet gives a direct local calculation in the
+large-conductor Gaussian branch. It replaces the free-ratio
+input there by the actual residual eigenvalues.
+
+\begin{srlemma}[Dyadic values at the two exceptional primes]
+\label{lem:sr-dyadic-three-seven}
+Let \(\psi_2\) be an even primitive character of conductor
+\(2^c\), \(c\ge4\), and suppose the other components of
+\(\psi\) are quadratic and unramified at \(\ell=3,7\).
+In the large-conductor branch
+\[
+ 2^c\ge R_1(\ell),\qquad
+ R_1(3)=9216,\quad R_1(7)=200704,
+\]
+one has \(c\ge14\) for \(\ell=3\), and \(c\ge18\) for
+\(\ell=7\). Moreover
+\[
+ \operatorname{ord}\psi(3)=2^{c-2},\qquad
+ \operatorname{ord}\psi(7)=2^{c-3}
+\]
+in the corresponding branch. In particular
+\(\psi(\ell)^4\ne1\), both before and after reduction in any
+finite coefficient DVR of residue characteristic \(\ell\).
+\end{srlemma}
+\begin{proof}
+An even primitive character of conductor \(2^c\) is faithful
+on the cyclic group
+\((1+4\mathbb Z_2)/(1+2^c\mathbb Z_2)\), of order \(2^{c-2}\).
+For an element \(u\in1+4\mathbb Z_2\) with
+\(v_2(u-1)=s<c\), its order modulo \(2^c\) is \(2^{c-s}\).
+For example this follows from
+\(v_2(u^{2^m}-1)=s+m\).
+Now \(-3\) has \(s=2\), and \(-7\) has \(s=3\);
+evenness identifies their character values with those of
+\(3,7\).
+Multiplication by the quadratic odd-prime components does
+not change these orders, which exceed \(2\).
+The two thresholds give the asserted lower bounds for \(c\)
+by comparison with consecutive powers of \(2\).
+Reduction is injective on roots of unity of order prime to
+\(\ell\), proving the final assertion.
+\end{proof}
+
+\begin{srlemma}[The Gaussian local ordinary ratio test]
+\label{lem:sr-gaussian-local-ratios}
+Let \(K=\mathbb Q(i)\), let \(\ell=3\) or \(7\), and let
+\(r\) be an actual characteristic-zero point of the principal
+Gaussian rank-three problem with twist \(1\) and the large
+dyadic conductor of Lemma~\ref{lem:sr-dyadic-three-seven}.
+Let \(\rho\) be its restriction to \(G_K\).
+The three ordinary diagonal characters of \(\rho\) at the
+place above \(\ell\) are pairwise distinct, and no upper
+ratio with weight difference \(1\) is cyclotomic.
+Every fixed-inertial-weight ordinary first-order deformation
+at this point satisfies the local Bloch--Kato condition.
+\end{srlemma}
+\begin{proof}
+Because \(\ell\nmid N\), \(\psi\) is unramified at \(\ell\).
+The source torus is
+\[
+ \operatorname{tor}(z)=\operatorname{diag}(z,1,z^{-1}),
+ \qquad \Psi=\epsilon_\ell\psi .
+\]
+The actual ordinary flag at the unique Gaussian place has
+inertial diagonal characters
+\(\epsilon_\ell,1,\epsilon_\ell^{-1}\), with a possible
+reversal of ordering according to the upper-triangular
+convention. This statement includes the actual flag supplied
+by the host local condition; it is not inferred from its
+characteristic polynomial alone.
+
+Choose an arithmetic Frobenius lift \(f\) in \(G_{\mathbb Q_\ell}\)
+with \(\epsilon_\ell(f)=1\).
+Such a lift exists because the cyclotomic extension of
+\(\mathbb Q_\ell\) is totally ramified: adjust any Frobenius
+lift by an inertia element.
+Both exceptional primes are \(3\) modulo \(4\), so they are
+inert in \(K\).
+Consequently \(s=f^2\) belongs to \(G_{K_\ell}\), is its
+arithmetic Frobenius lift, and still has
+\(\epsilon_\ell(s)=1\).
+
+In the stable lattice defining this actual point, the
+prescribed residual torus has characteristic polynomial at
+\(s\)
+\[
+ (X-\bar\psi(\ell)^2)(X-1)
+                     (X-\bar\psi(\ell)^{-2}).
+\]
+Indeed the semidirect involution fixes the displayed torus,
+and \(\Psi(s)=\psi(\ell)^2\).
+The three roots are distinct because
+\(\bar\psi(\ell)^4\ne1\).
+Thus the characteristic polynomial of \(\rho(s)\) has unit
+discriminant; in particular its three ordinary eigenvalues
+are distinct.
+
+This is a residual test. The full unramified ordinary
+characters may vary with the point, and are not being
+identified with the fixed character \(\psi\).
+If two ordinary characters were equal, or if their ratio
+were \(\epsilon_\ell\), their values at \(s\) would coincide
+because \(\epsilon_\ell(s)=1\).
+This would contradict the separable residual characteristic
+polynomial. The argument is independent of a permutation
+of the residual eigenvalue labels and of the chosen
+ordinary flag basis.
+
+Now consider a first-order ordinary deformation with its
+inertial diagonal characters fixed.
+Its weight differences are \(1,1,2\).
+The adjacent cyclotomic exceptional cases have just been
+excluded; the difference-two case cannot be cyclotomic
+already on inertia.
+Apply the positive-ordinary-extension lemma over the
+unramified quadratic local field \(K_\ell/\mathbb Q_\ell\).
+The first-order representation is crystalline, and its
+adjoint cocycle belongs to local \(H^1_f\).
+For the adjoint descended to \(\mathbb Q_\ell\), this
+condition descends by finite-index averaging:
+restriction on \(H^1\), also after tensoring with
+\(B_{\rm cris}\), is injective in characteristic zero.
+\end{proof}
+
+\begin{srproposition}[Actual Gaussian first-order rigidity]
+\label{prop:sr-gaussian-rigidity}
+Suppose the common endpoint supplies finite weight zero
+and the following actual properties of each characteristic-zero
+type-I Gaussian point: its restriction \(\rho\) to \(G_K\)
+is irreducible on every open subgroup, and
+\(\widehat\rho=\rho\epsilon_\ell^{-1}\) is attached to a
+regular algebraic cuspidal conjugate-self-dual representation
+over \(K\), with its prescribed polarization.
+Then every allowed fixed-inertial-weight first-order
+deformation of that point is a coboundary.
+For the principal large-conductor branch at \(3,7\), this
+rigidity requires no separate logarithmic-norm unlinkedness
+or free-ratio hypothesis.
+\end{srproposition}
+\begin{proof}
+The point is defined over a finite coefficient field,
+as required by its characteristic-zero-point realization.
+The strong-open irreducibility property and
+Proposition~\ref{prop:sr-cyclotomic-restriction} give
+\(\widehat\rho|_{G_{K(\mu_{\ell^\infty})}}\) irreducible.
+A scalar twist leaves invariant subspaces unchanged.
+
+We identify the adjoint used by the deformation problem.
+In the normalized semidirect product its complex
+conjugation has matrix part \(1\) and sign \(-1\).
+Write
+\[
+ J_3=\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}.
+\]
+The involution on matrices is
+\(A\mapsto J_3 A^{-t}J_3\), so its derivative is
+\(X\mapsto-J_3X^tJ_3\).
+On \(G_K\) the action is \(X\mapsto\rho(g)X\rho(g)^{-1}\).
+These are exactly the actions of the polarized adjoint
+descended to \(G_{\mathbb Q}\).
+Twisting by \(\epsilon_\ell^{-1}\) leaves this adjoint
+unchanged.
+On \(G_K\), its symmetric pairing character is
+\(\epsilon_\ell^{-2}\).
+For the extension to the polarized group over
+\(G_{\mathbb Q}\), the odd multiplier is
+\(\eta_K\epsilon_\ell^{-2}\), whose restriction to \(G_K\)
+is the same. This is
+\(\delta_{K/\mathbb Q}^{\,3}\epsilon_\ell^{\,1-3}\)
+in Thorne's normalization.
+Thus its odd polarization is the one in the actual
+automorphic realization, up to the harmless scalar multiple
+of \(J_3\). A change of point basis gives the corresponding
+conjugate adjoint and does not affect the argument.
+
+An allowed first-order deformation gives a cocycle in this
+descended adjoint.
+At \(\ell\), Lemma~\ref{lem:sr-gaussian-local-ratios}
+proves the Bloch--Kato condition.
+Away from \(\ell\), the strict deformation relations make
+it a coboundary on the finite-index inertia subgroup where
+the prescribed finite characters are trivial.
+Averaging over the remaining finite quotient gives the
+same assertion on full inertia.
+At places outside the chosen ramification set both
+representations factor through the unramified quotient.
+Hence the cocycle lies in
+\[
+ H^1_f(\mathbb Q,\operatorname{ad}_{\rm pol}\widehat\rho).
+\]
+
+Thorne's Theorem 6.1 now applies to the actual regular
+algebraic cuspidal representation over \(K\), its actual
+polarization, and its proven cyclotomic irreducibility.
+It kills precisely this descended adjoint group over
+\(\mathbb Q=K^+\), so the cocycle is a coboundary.
+No full adjoint vanishing over the imaginary quadratic
+field is used.
+
+The stated strong-open and automorphic properties must come
+from the common endpoint; type I alone is not substituted
+for them. In the frozen source these are the
+\(\mathrm{BPrime\_s.opens}\) and
+\(\mathrm{BPrime\_s.aut}\) properties.
+The former also supplies \(\mathrm{BPrime\_s.cyc}\) by the
+strong-open restriction lemma, completing the exact packet
+needed by the Gaussian counting argument.
+\end{proof}
+
+\paragraph{Uniform size of the two Gaussian branches.}
+If \(2^c<R_1(3)\), then \(c\le13\) and the full principal
+character order is at most \(2^{11}\).
+If \(2^c<R_1(7)\), then \(c\le17\) and the order is at most
+\(2^{15}\). The already proved fixed-order estimate with
+\(R=2^{15}\) therefore handles both small branches with one
+fixed exponent.
+
+In the large branches the local rigidity above is uniform
+in \(c\) and in the full character order.
+For the fixed-prime trace comparison one can take \(p=11\):
+it is inert in \(K\), differs from \(3,7\), and is prime to
+the principal level once \(q,d>11\).
+Its Gaussian prime has norm \(121\).
+The counting family must include both marked embeddings;
+a count of rational isomorphism classes alone does not
+bound the normalized coefficient length.
+With the marked count constant \(C_G\) and polynomial
+level exponent \(A_G\), the comparison gives
+\[
+ (\log\ell)v_{\ell,1}(\psi)
+ \le4C_G\varphi(N)(2N)^{A_G}\log11
+ \le(\ell N)^{A_G+1+b_G},
+\]
+where the single natural \(b_G\) is chosen so that
+\(4C_G2^{A_G}\log11\le3^{b_G}\).
+All constants are chosen before \(N,c,\psi\) and its
+coefficient field.
+
+% Frozen-source correspondence:
+% ModularityArgument/ThresholdArguments/DenseThresholdCases/
+% ThmS6CoreS.lean (BPrime_s), HostNumberS.lean, EHostRigidU.lean,
+% CountVOf.lean, DnHost.lean, SymmetricCubeTheoremOfEndomorphisms.lean;
+% UnitaryThreeGroups/ConjTor.lean (sgnAct_tor);
+% UnitaryThreeGroups/BoxDefs.lean (baseLift_map_residue);
+% UnitaryThreeGroups/PtIneL.lean (actual ordinary flag);
+% UnitaryThreeDeformations/RigEig.lean, RigSub.lean, RigLoc.lean.

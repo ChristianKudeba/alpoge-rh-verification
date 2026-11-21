@@ -1,0 +1,1789 @@
+\section{Ordinary modules and integral auxiliary control}
+\label{sec:sr-ordinary-control}
+We construct the ordinary function modules, their coefficient change and
+classical specialization maps, and their integral old/new operators.
+These supply the module-theoretic part of common support patching.
+The attached Galois representations, their local compatibility, the
+arithmetic Selmer bounds and the seed remain separate requirements.
+The same constructions apply to ranks three and four.
+
+
+\subsection{Construction of the ordinary modules and their finite-level control}
+\label{sec:ordinary-module-construction}
+
+This subsection constructs the finite-projective modules used by the
+auxiliary-level argument.  It does not take \srcid{LevelAlt} or
+\srcid{LevMod} as a premise.  The arithmetic setting is the definite
+unitary setting of \srcid{HidaSetting}: \(L\) is a CM field,
+\(G/L^+\) is the unitary group of the standard positive definite
+Hermitian form of rank \(n\geq1\), and all places used for the ordinary
+operators and for varying the auxiliary level are split places.
+At the distinguished fixed auxiliary place the level is contained in
+the first principal congruence subgroup at an odd rational prime \(p\),
+with \(p\ne\ell\) and \(p\) unramified in \(L\).  These are exactly the
+smallness conditions used below.  The construction is valid in every
+rank; in the generic application \(n=3\).
+
+Let \(A\) be a complete Noetherian local coefficient algebra with finite
+residue field and maximal ideal \(\mathfrak m\).  Let \(A^m\) be the
+coefficient lattice, with the integral tame action denoted by \(\tau\).
+Write \(G_{\mathrm a}\) for the factors away from \(\ell\), \(G_\ell\)
+for the product of the split factors above \(\ell\), and
+\(\Gamma=G(L^+)\) for the rational subgroup.  On \(G_\ell\) fix the
+Iwahori data
+\[
+ I(c)=N\,T\,N^-_c,\qquad c\geq0,
+\]
+with their usual opposite-unipotent filtration \(N^-_c\), diagonal
+congruence subgroups \(T_c\), and a strictly positive central element
+\(z\) in the positive diagonal monoid.  Products and factorizations here
+are interpreted in the Iwahori decomposition; in particular
+\(I(c)\subset I(0)\), \([I(0):I(c)]<\infty\), and multiplication by \(z\)
+contracts the opposite-unipotent filtration by at least one step.
+The character \(\theta:T\to A^\times\) is continuous in the precise
+sense
+\[
+ \forall k\ \exists c\quad
+ \theta(t)-1\in\mathfrak m^k\quad(t\in T_c).
+ \tag{OC1}
+\]
+The universal weight characters occurring in the application have this
+property.
+
+For a tame compact open subgroup \(U\), let \(S(U)\) be the \(A\)-module
+of functions
+\[
+ f:G_{\mathrm a}\times G_\ell\longrightarrow A^m
+\]
+which are left \(\Gamma\)-invariant, satisfy the tame
+\(\tau\)-equivariance, are right \(N\)-invariant and right \(T\)-equivariant
+with character \(\theta^{-1}\), and are uniformly continuous along
+\(N^-_c\) modulo every \(\mathfrak m^k\).
+The inverse in \(\theta^{-1}\) is the convention in the function model.
+Put
+\[
+ V_k=\{f\in S(U):f(g)\in(\mathfrak m^k)^m\ \hbox{for every }g\},
+ \qquad T_z=U_z.
+\]
+Here \(U_z\) is the integral double-coset sum, with the normalization of
+the source Iwahori data.  It preserves \(S(U)\) and every \(V_k\).
+Define the ordinary module by
+\[
+ O(U)=
+ \{f\in S(U):\ \forall k\ \exists r\geq1,\
+                 T_z^r f-f\in V_k\}.
+ \tag{OC2}
+\]
+
+\begin{srlemma}[Smallness of the actual arithmetic levels]
+\label{lem:ordinary-neat-level}
+For every collection of compact open subgroups at the varying
+auxiliary places, the tame level in the preceding construction is
+neat in the following explicit sense:
+\[
+ \gamma g(u,b)=g,\quad
+ \gamma\in\Gamma,\ u\in U,\ b\in I(0)
+ \quad\Longrightarrow\quad u=b=1.
+ \tag{OC3}
+\]
+Consequently arbitrary values in \(A^m\) can be prescribed on distinct
+double cosets for \(\Gamma\backslash
+(G_{\mathrm a}\times G_\ell)/(U\times I(c))\).
+\end{srlemma}
+
+\begin{proof}
+Represent \(\gamma\) by a matrix \(M\in\mathrm{GL}_n(L)\).
+At every archimedean embedding the matrices \(M^r\) are unitary.
+At the varying auxiliary places, compactness implies that some positive
+power of the local matrix belongs to a conjugate of
+\(\mathrm{GL}_n(\mathcal O_{L,w})\): its orbit on the discrete set of
+lattices is finite.  Taking a common multiple for the finitely many
+varying places, and using the defining integral levels at the remaining
+places, we find a positive integer \(a\) such that \(M^a\) is locally
+conjugate to an integral invertible matrix at a selected place above
+each finite place of \(L^+\).
+
+Thus the coefficients of the characteristic polynomial of \(M^a\)
+are integral at those selected places, as are their conjugates:
+unitarity gives \(\overline{M^a}{}^t=(M^a)^{-1}\), and the latter is
+also locally conjugate to an integral invertible matrix.
+For a coefficient \(x\), both
+\(x+\overline x\) and \(x\overline x\) belong to \(\mathcal O_{L^+}\);
+the equation
+\(X^2-(x+\overline x)X+x\overline x=0\) proves that \(x\) is integral
+over \(\mathbb Z\).  Cayley--Hamilton now puts all powers of \(M^a\)
+in a finitely generated \(\mathcal O_L\)-module of matrices.
+After one fixed denominator is cleared, every entry of every power
+is an algebraic integer bounded at all archimedean embeddings.
+The Minkowski lattice has only finitely many such elements.
+The set of powers of \(M^a\), and hence of \(M\), is finite.
+
+At the distinguished auxiliary place the matrix is conjugate to a
+finite-order element of \(1+pM_n(\mathcal O_{L,w})\).
+This subgroup is torsion free when \(p\) is odd and unramified.
+Indeed, if \(1+C\ne1\) and the minimum valuation of its entries is
+\(r\geq1\), raising to a power prime to \(p\) retains that minimum,
+whereas raising to the \(p\)-th power gives minimum \(r+1\).
+For the latter assertion the first term \(pC\) has minimum \(r+1\);
+all remaining binomial terms have larger minimum, since \(p\geq3\).
+No positive power can therefore equal \(1\).
+It follows that \(M=1\); the stabilizer identity then gives \(u=b=1\).
+
+The finite double-coset assertion needed here follows from the definite
+unitary finite-adelic orbit argument already proved in the arithmetic
+finiteness subsection.  Passing from \(I(0)\) to \(I(c)\) preserves
+finiteness because its index is finite.  In view of (OC3), the values on
+the resulting double-coset representatives have no stabilizer
+compatibility condition.
+\end{proof}
+
+\begin{srlemma}[Ordinary projector and finite freeness]
+\label{lem:ordinary-projector-free}
+For every arithmetic level above there is an \(A\)-linear projection
+\[
+ e_U:S(U)\longrightarrow O(U),\qquad
+ e_U f=\lim_{r\to\infty}T_z^{\,r!}f
+ \tag{OC4}
+\]
+in the valuewise \(\mathfrak m\)-adic filtration.  The module \(O(U)\)
+is finite free over \(A\), and
+\[
+ O(U)\cap V_k=\mathfrak m^kO(U).
+ \tag{OC5}
+\]
+Every positive diagonal \(U\)-operator is invertible on \(O(U)\).
+All assertions hold uniformly for arbitrary compact open choices at
+the finitely many varying auxiliary places; the finite free rank may
+depend on the level.
+\end{srlemma}
+
+\begin{proof}
+We give the finite approximation and algebra arguments, since this
+avoids importing an unspecified ordinary control theorem.
+
+Fix \(k\), choose \(c\) as in (OC1), and choose representatives
+\(x_1,\ldots,x_b\) for the finite double-coset set with \(I(c)\).
+Evaluation gives
+\[
+ E_k:S(U)\longrightarrow A^{bm}.
+\]
+There is an \(A\)-linear interpolation
+\(s_k:A^{bm}\to S(U)\) with \(E_ks_k=1\), and its values are
+\(N^-_c\)-invariant modulo \(\mathfrak m^k\).
+Here is the explicit construction.  For \(b\in I(0)\), let \(t(b)\)
+be the diagonal factor in \(b=y\,t(b)\,x\), with
+\(y\in N^-_0\), \(x\in N\).  Its uniqueness gives
+\[
+ t(sb)=s\,t(b),\quad t(bs)=t(b)s,\quad t(bx)=t(b).
+\]
+The Iwahori interchange relation further gives
+\(t(by)=t(b)s\) for some \(s\in T_c\) whenever \(y\in N^-_c\).
+For prescribed vectors \(v_i\), set
+\[
+ s_k(v)\bigl(\gamma x_i(u,b)\bigr)
+       =\theta(t(b))^{-1}\tau(u^{-1})v_i,
+       \qquad b\in I(c).
+ \tag{OC6}
+\]
+Neatness makes this well-defined; the identities for \(t(b)\) give
+the required equivariances.  The final identity, together with
+\(\theta(s)\equiv1\pmod{\mathfrak m^k}\), proves the asserted
+\(N^-_c\)-invariance.  Choosing a deeper congruence for any higher
+precision proves that \(s_k(v)\) belongs to \(S(U)\), rather than
+merely defining a function at precision \(k\).
+
+The elementary \(U_z\) contraction is
+\[
+ \begin{split}
+ v\ \hbox{fixed by }N,T_c,N^-_{d+1},\quad d\geq c
+ \quad\Longrightarrow\quad
+ U_zv\ \hbox{fixed by }N,T_c,N^-_d .
+ \end{split}
+ \tag{OC7}
+\]
+It follows by writing the double-coset sum and moving an element of
+\(N^-_d\) through its representatives; the Iwahori interchange places
+the error in \(T_cN^-_{d+1}\).
+Apply (OC7) modulo \(\mathfrak m^k\).  For a given \(f\), uniform
+continuity supplies an initial opposite-unipotent depth, and (OC1)
+makes \(T_c\) act trivially.  Thus, for all sufficiently large \(a\),
+\(T_z^af\) is \(N^-_c\)-invariant modulo \(\mathfrak m^k\).
+The difference
+\[
+ T_z^af-s_kE_k(T_z^af)
+ \tag{OC8}
+\]
+has zero values at the representatives and is invariant modulo
+\(\mathfrak m^k\) under the full level.  Hence (OC8) belongs to \(V_k\).
+Also \(E_k(V_j)\subset(\mathfrak m^j)^{bm}\).
+
+The finite set \((A/\mathfrak m^k)^{bm}\) implies that two sufficiently
+late evaluations \(E_k(T_z^af)\) coincide modulo \(\mathfrak m^k\).
+Equation (OC8) then makes the \(T_z\)-orbit eventually periodic
+modulo \(V_k\).  Since \(T_zV_k\subset V_k\), all subsequent iterates
+have the same period.  Consequently \(T_z^{r!}f\) is Cauchy modulo
+every \(V_k\).
+The valuewise limit belongs to \(S(U)\): left and right equivariance
+pass to limits, and at each fixed precision a sufficiently late
+approximating function supplies the required continuity depth.
+Separatedness and linearity give the map \(e_U\) in (OC4).
+Its image is exactly (OC2), it fixes that image, and it preserves
+every \(V_k\).
+
+We next prove finite freeness, without assuming it while constructing
+the projector.  Applying \(e_U\) to (OC8), and using ordinary
+recurrence, gives for every \(k\) finite maps \(E_k,s_k\) with
+\[
+ f-e_Us_kE_kf\in V_k\qquad(f\in O(U)).
+ \tag{OC9}
+\]
+For precision \(1\), write
+\(\sigma=e_Us_1:A^b\to O(U)\) and
+\(E=E_1|_{O(U)}\), enlarging \(b\) to include coefficient coordinates.
+If \(f\in O(U)\cap V_j\), use (OC9) at precision \(j+1\).
+Its coefficients lie in \(\mathfrak m^j\).
+Apply (OC9) at precision \(1\) to each of the finitely many ordinary
+vectors \(e_Us_{j+1}(e_i)\), multiply the errors by those coefficients,
+and sum.  This gives
+\[
+ \exists a\in(\mathfrak m^j)^b,\qquad
+ f-\sigma a\in V_{j+1}.
+ \tag{OC10}
+\]
+Iteration starting at \(j=0\), followed by completeness of the finite
+module \(A^b\), proves that \(\sigma\) is surjective.
+Starting at a general \(j\) proves
+\(O(U)\cap V_j\subset\mathfrak m^jO(U)\); the reverse inclusion follows
+directly from values.  This proves (OC5).
+
+Now \(C=\sigma E\) is an endomorphism of the finite \(A\)-module
+\(O(U)\) congruent to the identity modulo \(\mathfrak mO(U)\).
+Nakayama makes \(C\) surjective, and a surjective endomorphism of a
+finite module over a Noetherian ring is bijective.
+Thus \(EC^{-1}\) is a section of \(\sigma\), so \(O(U)\) is finite
+projective over the local ring \(A\), hence finite free.
+
+Finally, ordinary recurrence modulo \(V_1=\mathfrak mO(U)\) says that
+\(T_z\) is surjective modulo \(\mathfrak m\), so the same argument makes
+\(T_z\) invertible on \(O(U)\).
+For any positive diagonal \(a\), choose \(r\) so that \(z^ra^{-1}\)
+is positive.  The positive \(U\)-operators commute and multiply
+according to the positive monoid.  Since their product
+\(U_{z^ra^{-1}}U_a=U_z^r\) is invertible, \(U_a\) is invertible.
+\end{proof}
+
+\begin{srlemma}[Auxiliary group-ring projectivity and exact norm control]
+\label{lem:ordinary-aux-projective}
+Let \(V\triangleleft U\) have finite index and set \(\Delta=U/V\).
+Then \(O(V)\) is finite projective over \(A[\Delta]\).  Moreover the
+unnormalized norm
+\[
+ \operatorname{Nm}_{U/V}=\sum_{\delta\in\Delta}\delta
+\]
+has image \(O(U)\), and
+\[
+ \ker\bigl(\operatorname{Nm}_{U/V}:O(V)\to O(U)\bigr)
+       =\sum_{\delta\in\Delta}(\delta-1)O(V).
+ \tag{OC11}
+\]
+In particular \(O(V)_\Delta\simeq O(U)\).
+No invertibility of \(|\Delta|\) in \(A\) is required.
+\end{srlemma}
+
+\begin{proof}
+Choose one representative \(R(g)\) for each double coset at level
+\(U\times I(0)\).  In
+\(g=\gamma R(g)(u,b)\), neatness makes the \(U\)-coordinate \(u\)
+unique.  Let \(\chi(g)\) be \(1\) when \(u\in V\), and \(0\) otherwise.
+Then \(\chi\) is left \(\Gamma\)-invariant and right
+\(V\times I(0)\)-invariant, and
+\[
+ \sum_{\delta\in\Delta}\chi(g\delta)=1.
+ \tag{OC12}
+\]
+Indeed precisely one right coset sends the \(U\)-coordinate to \(V\).
+Multiplication by \(\chi\) maps \(O(V)\) into \(S(V)\), since \(\chi\)
+is \(I(0)\)-invariant.  Put
+\(\Phi=e_V\circ M_\chi\in\operatorname{End}_A(O(V))\).
+The ordinary projector commutes with the away translations: this
+holds for each \(U_z^{r!}\), hence for their separated limits.
+Taking \(e_V\) of the partition identity (OC12) yields
+\[
+ \sum_{\delta\in\Delta}\delta\Phi\delta^{-1}=1.
+ \tag{OC13}
+\]
+Since \(O(V)\) is finite free over \(A\), the equivariant surjection
+\[
+ A[\Delta]\otimes_AO(V)\longrightarrow O(V),\qquad
+ \delta\otimes v\longmapsto\delta v
+\]
+has the \(A[\Delta]\)-linear section
+\[
+ v\longmapsto
+ \sum_{\delta\in\Delta}\delta\otimes\Phi(\delta^{-1}v).
+\]
+Linearity follows by reindexing and the composite is the identity by
+(OC13).  This proves finite projectivity.
+
+The fixed submodule \(O(V)^\Delta\) is exactly \(O(U)\), by the
+function definitions and the level-independent recurrence (OC2).
+For \(v\) fixed, (OC13) gives
+\(\operatorname{Nm}(\Phi(v))=v\), proving norm surjectivity.
+If \(\operatorname{Nm}(v)=0\), then
+\[
+ \sum_\delta\Phi(\delta^{-1}v)=\Phi(\operatorname{Nm}(v))=0
+\]
+and (OC13) gives
+\[
+ v=\sum_\delta
+       \bigl(\delta\Phi(\delta^{-1}v)-\Phi(\delta^{-1}v)\bigr).
+\]
+This proves the nontrivial inclusion in (OC11); the reverse inclusion
+is the norm identity.
+\end{proof}
+
+\paragraph{Hecke localization and the actual smooth auxiliary module.}
+Use only the tame Hecke operators away from the varying auxiliary
+places, together with the ordinary operators at \(\ell\).
+They commute on \(O(U)\); their image
+\(\mathbb T_U\subset\operatorname{End}_A(O(U))\) is a finite commutative
+\(A\)-algebra.  Completeness of \(A\) decomposes \(\mathbb T_U\) into
+its local factors.  The factor selected by the prescribed residual
+Hecke character is a central-idempotent summand
+\[
+ M(U)=\epsilon_UO(U).
+ \tag{OC14}
+\]
+It is finite free over \(A\).  At level \(V\triangleleft U\), the
+projector \(\epsilon_V\) commutes with the \(\Delta\)-action, because
+every selected Hecke operator does.  Thus \(M(V)\) is a projective
+\(A[\Delta]\)-summand of \(O(V)\).
+
+For clarity about invariants, view all \(M(K)\), for compact open
+\(K\) in the product of the varying local groups, in the single
+function space, and put
+\[
+ \mathcal M=\bigcup_KM(K).
+ \tag{OC15}
+\]
+This union is directed and translation-stable, so it is an actual
+smooth auxiliary representation.  It satisfies
+\(\mathcal M^K=M(K)\).
+Here the only point beyond the function invariance is compatibility
+of the localized summand with intersection.  If \(Y\subset Y'\) are
+the corresponding finite ordinary modules, then Artin--Rees gives a
+constant \(c\) with
+\(Y\cap\mathfrak m^{r+c}Y'\subset\mathfrak m^rY\).
+Consequently the simultaneous generalized residual-eigenvalue
+condition, expressed at every \(\mathfrak m\)-adic precision, cuts out
+the same submodule of \(Y\) whether tested in \(Y\) or \(Y'\).
+Intersecting two levels and using this observation proves the claimed
+fixed-vector equality.
+The quotient \(K/K'\) acting on \(M(K')\) is the actual auxiliary
+quotient: the local embedding used to form the tame level has
+preimage \(K'\) inside \(K\).  Lemma
+\ref{lem:ordinary-aux-projective} and the commuting central idempotent
+therefore prove that \(\mathcal M^{K'}\) is projective over
+\(A[K/K']\).
+
+These constructions supply finite freeness, group-ring projectivity,
+the smooth module, and the norm/augmentation control in the
+finite-level input.  They do not by themselves prove that the chosen
+localized factor is nonzero, that its Hecke determinant is realized
+by a Galois representation, or that every classical specialization
+has the prescribed local-global compatibility.  Those are separate
+automorphic arithmetic inputs.  In particular this construction must
+not be used to declare the automorphic seed proved.
+
+\paragraph{Exact source locations.}
+The preceding construction follows the proofs, rather than just the
+output interfaces, in the frozen source
+\srcid{alpoge-source-7cbf7a0c}, under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}.
+The arithmetic smallness proof is
+\srcid{HeckeAlgebras.OrdinaryHeckeCharacters.NtExpand.neatU}.
+The interpolation and contraction proofs are
+\srcid{BuildingsResidueChars.ExistsLinearSectionAutomorphicFunctionsOfFree},
+\srcid{ExistsIwahoriTorusProjection},
+\srcid{ExistsSectionAutomorphicSpaceWithPrescribedValue}, and
+\srcid{UOperatorPowEventuallyInvariantModPow}.
+The algebra proof of (OC4)--(OC5) is
+\srcid{HeckeAlgebras.OrdinaryHeckeCharacters.OrdFree.ordAbs},
+\srcid{ordStruct}, and \srcid{ordFree}; (OC12)--(OC13) and
+group-ring projectivity are proved in
+\srcid{OrdProj.ordProj\_chi}, \srcid{ordProj\_phi},
+\srcid{ordProj\_higman}, and \srcid{ordProj}.
+Hecke localization is \srcid{HiComm.hiComm}; the fixed-level
+comparison and localized projectivity are the explicit
+\srcid{pb\_locInf} and \srcid{pb\_main} arguments in
+\srcid{PiBasic}, culminating in \srcid{piBasic}.
+All these file paths are below
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties}.
+
+
+\subsection{Base change and classical specialization of the constructed ordinary modules}
+\label{sec:ordinary-classical-control}
+
+We continue with the function modules of
+\ref{sec:ordinary-module-construction}.  This subsection proves the
+ordinary base-change and classical control statements used to obtain
+separating specializations.  It does not assume an ordinary
+automorphy-lifting theorem.
+
+\begin{srlemma}[Ordinary base change]
+\label{lem:ordinary-base-change}
+Let \(A\to A'\) be a local homomorphism of complete Noetherian local
+rings with finite residue fields.  Base-change the tame coefficient
+action and the torus character.  At each of the neat finite levels,
+coefficient change induces an isomorphism
+\[
+ A'\otimes_A O_A(U)\ \xrightarrow{\ \sim\ }\ O_{A'}(U).
+ \tag{CC1}
+\]
+This assertion does not require \(A'\) to be flat over \(A\).
+\end{srlemma}
+
+\begin{proof}
+Coefficient change carries value filtration \(V_k\) into \(V'_k\).
+It intertwines every \(U_z\)-power and hence the factorial ordinary
+projectors.  In particular it defines a map \(j:O_A(U)\to O_{A'}(U)\).
+
+Choose one finite interpolation system at precision \(1\), with
+evaluation functionals \(E_p\), interpolation sections \(s_p\), and
+\(w_p=e_As_p\).  The proof of (OC9), using this fixed interpolation
+system, gives
+\[
+ f-\sum_pE_p(f)w_p\in\mathfrak m_AO_A(U).
+ \tag{CC2}
+\]
+The same sections, changed to \(A'\), give
+\[
+ f'-\sum_pE'_p(f')j(w_p)\in\mathfrak m_{A'}O_{A'}(U).
+ \tag{CC3}
+\]
+To justify using precisely the same system, both characters are
+trivial modulo their maximal ideals on the chosen \(T_c\).
+For an ordinary \(f'\), a sufficiently large factorial power is
+congruent to \(f'\) modulo \(V'_1\) and is \(N^-_c\)-invariant there,
+by (OC7).  Its interpolation has the same representative values.
+Subtract, apply that factorial power to the finite interpolation
+sections, and use \(e_As_p=w_p\) modulo \(V_1\).
+This proves (CC3) with the displayed \(j(w_p)\), rather than with an
+independently chosen generating family.
+
+Let \(C(f)=\sum_pE_p(f)w_p\).  By (CC2), Nakayama and the Noetherian
+endomorphism lemma make \(C\) an automorphism of \(O_A(U)\).
+Let
+\[
+ L:A'\otimes_AO_A(U)\to O_{A'}(U),\qquad
+ R(f')=\sum_pE'_p(f')\otimes w_p.
+\]
+Evaluation is compatible with \(j\), so
+\(RL=1\otimes C\).
+The latter is invertible, proving injectivity of \(L\).
+Equation (CC3) and Nakayama prove surjectivity of \(L\), since
+\(O_{A'}(U)\) is finite over \(A'\).
+\end{proof}
+
+\paragraph{The elementary algebraic weight data.}
+Let \(\mathcal O\) be a sufficiently large finite coefficient DVR
+and let \(\Omega\) be an algebraically closed characteristic-zero
+field containing its fraction field.
+An algebraic dominant weight at the split \(\ell\)-adic places gives
+a finite-dimensional representation \(\xi\) with a lowest-weight
+coordinate numbered \(0\), diagonal character \(\chi\), and an
+integral weight lattice.  Enlarge \(\mathcal O\) to contain the
+finitely many coefficient-field embeddings used to define it.
+The properties needed below are the following concrete properties
+of this weight lattice:
+\[
+ \begin{array}{ll}
+ \text{(i)}&
+  e_0^\vee\xi(n)=e_0^\vee\quad(n\in N),\qquad
+  e_0^\vee\xi(t)=\chi(t)e_0^\vee\quad(t\in T);\\[2mm]
+ \text{(ii)}&
+  \xi(N)\ \hbox{is integral},\qquad
+  \chi(a)^{-1}\xi(a)\ \hbox{is integral for }a\hbox{ positive};\\[2mm]
+ \text{(iii)}&
+  \chi(z)^{-1}\xi(z)\ \hbox{has every column except column }0
+                     \hbox{ in }\mathfrak m_{\mathcal O};\\[2mm]
+ \text{(iv)}&
+  \xi(y)\equiv1\pmod{\mathfrak m_{\mathcal O}^k}
+   \quad(y\in N^-_c,\ c\hbox{ sufficiently large for }k).
+ \end{array}
+ \tag{CC4}
+\]
+One may construct the lattice using the integral Schur modules for
+the successive differences of the highest weight, tensoring with
+a determinant power.  The matrix coefficients of unipotents are
+integral polynomials, which proves (i), (ii), and (iv).
+In a weight basis the normalized action of the strictly positive
+\(z\) is \(1\) at the extremal coordinate and has positive valuation
+at every other weight; its extremal weight has multiplicity one.
+This proves (iii).
+These observations work for arbitrary \(\ell\); no
+Fontaine--Laffaille range is used in this representation-theoretic
+control argument.
+
+Suppose now that the specialized weight character has the form
+\[
+ \theta(t)=\phi(t)\chi(t),\qquad \phi|_{T_c}=1
+ \tag{CC5}
+\]
+for a finite-depth character \(\phi:T\to\mathcal O^\times\).
+Choose \(c\) sufficiently deep for its finite part and the integral
+weight representation.
+Let \(C(U,c,\phi)\) be the classical algebraic function space:
+its functions \(F\) transform on the left by \(\xi\) at the
+\(\ell\)-adic component of \(\Gamma\), satisfy the tame coefficient
+transformation, and have right Iwahori character \(\phi^{-1}\)
+at depth \(c\).
+For these functions set
+\[
+ qF(g)=\xi(g_\ell)^{-1}F(g),\qquad
+ \operatorname{ctrl}(F)(g)=(qF(g))_0 .
+ \tag{CC6}
+\]
+The coefficient index from the tame lattice is carried along in
+this formula.  The classical ordinary operator is
+\[
+ U_z^{\mathrm{cl}}=
+   \chi(z)^{-1}\sum_{n\in N/(N\cap zNz^{-1})}[nz].
+ \tag{CC7}
+\]
+The row identities in (CC4)(i) give, by evaluating the finite sum,
+\[
+ \operatorname{ctrl}(U_a^{\mathrm{cl}}F)
+        =U_a\,\operatorname{ctrl}(F)
+ \tag{CC8}
+\]
+for every positive \(a\).  The control map also intertwines away
+translations and finite away-Hecke sums.
+
+Evaluation of all coordinates of \(qF\) at representatives for
+\(\Gamma\backslash(G_{\mathrm a}\times G_\ell)/(U\times I(c))\)
+identifies \(C(U,c,\phi)\) with a finite-dimensional coordinate
+space over \(\Omega\).
+Indeed equivariance recovers the function from these coordinates;
+arbitrary coordinates give a function because the level is neat.
+The integral coordinate lattice \(L_c\) consists exactly of those
+functions for which every coordinate of \(qF(g)\) belongs to
+\(\mathcal O\) for every \(g\).
+The integral Iwahori action shows the equivalence with integrality
+at the chosen representatives.
+Consequently \(L_c\) is finite free and is preserved by (CC7).
+
+\begin{srproposition}[Classical ordinary control]
+\label{prop:classical-ordinary-control}
+Let \(C(U,c,\phi)^{\mathrm{ord}}\) be the sum of generalized
+eigenspaces of \(U_z^{\mathrm{cl}}\) whose eigenvalue is an integral
+unit.  Then \(\operatorname{ctrl}\) is injective on this space and
+\[
+ \operatorname{ctrl}\bigl(C(U,c,\phi)^{\mathrm{ord}}\bigr)
+  =\Omega\cdot O_{\mathcal O}(U)
+ \tag{CC9}
+\]
+inside the common scalar-valued function space.
+If \(A\to\mathcal O\to\Omega\) is an arithmetic specialization,
+(CC1) and (CC9) therefore give a specialization map from the
+constructed \(A\)-ordinary module to classical ordinary forms.
+The images of any \(A\)-basis are linearly independent over
+\(\Omega\).
+The map commutes with all selected Hecke operators and all away
+translations, including the auxiliary local group actions.
+\end{srproposition}
+
+\begin{proof}
+The ordinary part of the finite integral lattice \(L_c\) is the
+image of \(\lim_r(U_z^{\mathrm{cl}})^{r!}\).
+This follows from the same finite-quotient periodicity proof as
+(OC4), now on a finite free module.
+After extension to \(\Omega\), its span is exactly the direct sum
+of the generalized eigenspaces with integral-unit eigenvalue:
+the complementary eigenvalues have positive valuation, and the
+factorial projector is \(0\) there and \(1\) on the unit part.
+
+The contraction controlling the kernel is particularly simple.
+If every coordinate of \(qF\) belongs to \(\mathfrak m^j\), while
+its coordinate \(0\) belongs to \(\mathfrak m^{j+1}\), then
+\[
+ q(U_z^{\mathrm{cl}}F)\ \hbox{has all coordinates in }
+                   \mathfrak m^{j+1}.
+ \tag{CC10}
+\]
+For an individual summand of (CC7), its untwisted value is
+\[
+ \xi(n)\bigl(\chi(z)^{-1}\xi(z)\bigr)
+                 qF(g(nz)).
+\]
+Columns different from \(0\) contribute
+\(\mathfrak m\mathfrak m^j\), by (CC4)(iii).
+Column \(0\) contributes \(\mathfrak m^{j+1}\) by hypothesis.
+The integral matrix \(\xi(n)\) and the finite sum preserve the
+ideal, proving (CC10).
+
+If \(F\) belongs to the integral ordinary lattice and
+\(\operatorname{ctrl}(F)=0\), (CC10), ordinary recurrence modulo
+every \(\mathfrak m^kL_c\), and stability of these lattices show
+inductively that \(F\in\mathfrak m^jL_c\) for every \(j\).
+Separatedness gives \(F=0\).
+The same proves injectivity after scalar extension: for finitely
+many integral independent functions, independence is preserved
+when the fraction field is extended to \(\Omega\).
+To verify this last elementary fact, clear denominators first over
+\(\operatorname{Frac}\mathcal O\), then expand the finitely many
+extension-field coefficients in a basis of their span over that
+fraction field and compare coefficients in the function identity.
+It follows that the control map is injective on the whole classical
+ordinary space.
+
+For an integral ordinary classical \(F\), the function
+\(f=\operatorname{ctrl}(F)\) has integral values.
+It satisfies the scalar equivariances with \(\theta\) by
+(CC4)(i) and (CC5).
+It is uniformly continuous along the opposite unipotent:
+\(\xi(y)\equiv1\pmod{\mathfrak m^k}\) at sufficiently deep level,
+by (CC4)(iv).
+Equation (CC8) transfers ordinary recurrence to \(f\).
+Thus the control image is contained in \(\Omega\cdot O_{\mathcal O}(U)\).
+
+We prove the reverse inclusion by an explicit approximation.
+Take \(f\in O_{\mathcal O}(U)\).
+Choose \(c'\geq c\) so deep that both \(f\) and \(\xi\) are
+\(N^-_{c'}\)-invariant modulo \(\mathfrak m\).
+At the finite representatives at depth \(c'\), prescribe the
+coordinates
+\[
+ qF(x)_0=f(x),\qquad qF(x)_i=0\quad(i\ne0).
+\]
+Neat interpolation gives an integral classical form at that depth.
+Its scalar control differs from \(f\) by valuewise
+\(\mathfrak m\), since the two controls have the same
+representative values and the same congruence invariance.
+
+A sufficiently large positive power of \(U_z^{\mathrm{cl}}\)
+moves this form from depth \(c'\) to depth \(c\).
+This is the same one-step Iwahori interchange as (OC7):
+the opposite-unipotent depth drops by one at each application;
+the finite character is already trivial on \(T_c\).
+Choose the power also divisible by a recurrence period for \(f\)
+modulo \(\mathfrak m\).
+By (CC8), its scalar control still agrees with \(f\) modulo
+\(\mathfrak m\).
+Apply the classical factorial ordinary projector at depth \(c\).
+The resulting ordinary classical form has control congruent to
+\(f\), because (CC8) identifies its control limit with the scalar
+ordinary projector, which preserves \(V_1\) and fixes \(f\).
+
+Let
+\[
+ L=\bigl(\operatorname{ctrl}
+       (C(U,c,\phi)^{\mathrm{ord}})\bigr)
+               \cap O_{\mathcal O}(U).
+\]
+This is an \(\mathcal O\)-submodule of a finite
+\(\mathcal O\)-module.  The preceding approximation proves
+\(L+\mathfrak m O_{\mathcal O}(U)=O_{\mathcal O}(U)\);
+here valuewise \(\mathfrak m\) is
+\(\mathfrak mO_{\mathcal O}(U)\) by (OC5).
+Nakayama gives \(L=O_{\mathcal O}(U)\), proving (CC9).
+
+Finally apply (CC1).
+A basis of \(O_A(U)\) becomes an \(\mathcal O\)-basis of
+\(O_{\mathcal O}(U)\).
+As integral scalar-valued functions these basis vectors remain
+independent over \(\Omega\), by the coefficient comparison just
+used.  Their unique inverse-control images are therefore
+independent classical forms.
+All constructions commute with the indicated Hecke operators:
+coefficient change and control do so by their pointwise formulas,
+and the ordinary projectors do so by their factorial limits.
+The same formulas commute with away translations, which proves
+the asserted auxiliary equivariance.
+\end{proof}
+
+\paragraph{Automatic continuity of arithmetic coefficient maps.}
+The use of a local specialization in (CC1) is justified
+intrinsically.  Let \(T\) be a complete Noetherian local
+\(\mathcal O\)-algebra with the same finite residue field and let
+\(x:T\to\overline{\mathbb Q}_\ell\) be an
+\(\mathcal O\)-algebra map.
+For \(a\in\mathfrak m_T\) one has \(|x(a)|_\ell<1\).
+Otherwise \(x(a)^{-1}\) is integral over \(\mathbb Z_\ell\);
+reversing its monic integral equation gives a polynomial
+\(1+c_1X+\cdots+c_rX^r\) vanishing at \(x(a)\), with
+\(c_i\in\mathbb Z_\ell\).
+Its value at \(a\) is a unit of \(T\), a contradiction.
+Writing an arbitrary element as its \(\mathcal O\)-residue
+representative plus an element of \(\mathfrak m_T\) gives
+\(|x(t)|_\ell\leq1\) for every \(t\).
+For finitely many generators of \(\mathfrak m_T\), take the maximum
+of their norms to obtain \(b<1\); then
+\[
+ |x(\mathfrak m_T^j)|_\ell\leq b^j.
+\]
+Thus \(x\) is continuous.  Choose finitely many topological
+generators \(t_1,\ldots,t_s\) of \(T\) over \(\mathcal O\); these
+exist by completeness, finite generation of \(\mathfrak m_T\), and
+surjectivity on the residue field.  The finitely many algebraic
+elements \(x(t_i)\), together with the coefficient field, belong to
+one finite extension \(K/\mathbb Q_\ell\).
+Every element of \(T\) is an adic limit of polynomials in the
+\(t_i\); continuity and completeness of \(K\) imply
+\(x(T)\subset\mathcal O_K\).
+The map \(T\to\mathcal O_K\) is local, since maximal-ideal elements
+have norm less than one.
+This gives the finite coefficient DVR required in (CC1).
+The residue-preserving complete local coefficient rings in the
+application therefore have exactly the continuity and coefficient
+field containment needed for ordinary specialization; continuity is
+not silently imposed on an arbitrary field-valued algebra map.
+
+\paragraph{Remaining arithmetic input and exact sources.}
+This proves the module-theoretic classical specialization and
+basis independence.  To pass from classical forms to attached
+Galois representations, one still uses the definite-unitary
+automorphic decomposition, its attached semisimple Galois
+representations, and local-global compatibility.  To separate
+Hecke-algebra elements by these specializations one additionally
+uses density of the algebraic weight characters in the specified
+weight algebra.  Neither the Galois-realization assertion nor
+weight density is being inferred solely from the control
+isomorphism.
+
+The exact frozen source is under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties},
+tag \srcid{alpoge-source-7cbf7a0c}.
+Base change is the finite evaluation argument
+\srcid{HeckeAlgebras.OrdinaryHeckeCharacters.OrdBCMapOrd.ordBC\_abs},
+\srcid{ordBC\_key}, and \srcid{ordBC}.
+Control is
+\srcid{CtrlOrd.ctrlOrd\_inj}, \srcid{ctrlOrd\_approx},
+and \srcid{ctrlOrd}; the elementary lattice calculation (CC10) is
+\srcid{BuildingsResidueChars.UpOperatorMapsLatticeOfControlValues}.
+The other explicit construction helpers are
+\srcid{ExistsIntegralFormLiftingControlMap},
+\srcid{ExistsAutomorphicFormWithPrescribedIwahoriValues},
+and \srcid{ExistsFreeLatticeSpanningOrdinaryPart}.
+The coefficient-change independence lemma is
+\srcid{HeckeAlgebras.OrdinaryHeckeCharacters.FnIndep.fnIndep}.
+The simultaneous specialization and all Hecke/auxiliary
+equivariances are assembled by the actual proof
+\srcid{HeckeAlgebras.HeckeFixedLevelSpaces.FreeMap.absSpec},
+then by \srcid{OrdinaryHeckeCharacters.SpecIntIff.spec}.
+The continuity calculation is the proof
+\srcid{DenseThresholdCases.TCoreDet.cd\_norm\_lt},
+\srcid{cd\_pow}, and \srcid{cd\_cont}.
+All files are below
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties}.
+
+
+\subsection{Explicit old/new maps from the integral Iwahori algebra}
+\label{sec:explicit-old-new}
+
+We construct the two maps required in the auxiliary control argument.
+They are defined by finite sums of Hecke operators.  In particular the
+construction never divides by the index of an Iwahori subgroup in a
+maximal compact subgroup.  The only arithmetic coefficient comparison
+used in this subsection is displayed in (ON8) below.
+
+\paragraph{The integral calculation at one split place.}
+Let \(k\) be a nonarchimedean local field, with residue cardinality
+\(Q\), \(K=\mathrm{GL}_n(\mathcal O_k)\), and standard Iwahori \(I\).
+Let \(Q\) be a unit in the coefficient ring.
+Write \(X_i\), for \(0\leq i<n\), for the commuting Bernstein operators
+with the normalization
+\[
+ X_i=Q^i\,\Theta(\operatorname{diag}_i(\varpi)).
+ \tag{ON1}
+\]
+Thus, if \(t_r=\operatorname{diag}(\varpi,\ldots,\varpi,1,\ldots,1)\)
+has \(r\) entries \(\varpi\), then
+\[
+ X_i[I t_i I]=Q^i[I t_{i+1}I].
+\]
+The positive diagonal Hecke operators are units when \(Q\) is a unit.
+One can see this in the affine Iwahori algebra: the simple operators
+satisfy
+\(T_s^2=(Q-1)T_s+Q\), hence
+\(T_s^{-1}=Q^{-1}(T_s-(Q-1))\), and translations are products of these
+operators and length-zero units.  The commuting positive diagonal
+action consequently extends to the torus action \(\Theta\) in (ON1).
+This proves existence of the torus action used here directly from
+double-coset operators.
+
+Put, in the polynomial ring \(\mathcal P=\mathbb Z[Q,Q^{-1}]
+[X_0,\ldots,X_{n-1}]\),
+\[
+ D(X)=\prod_{i<j}(X_j-X_i),\qquad
+ N_Q(X)=\prod_{i<j}(X_j-QX_i),\qquad
+ \partial(f)=
+ \frac{\sum_{w\in S_n}\operatorname{sgn}(w)\,w(f)}{D(X)}.
+ \tag{ON2}
+\]
+The numerator is divisible by \(D\) over this integral polynomial
+ring: it vanishes after each substitution \(X_i=X_j\), so the distinct
+prime linear factors divide it.  In particular no factorial is
+inverted in \(\partial\).  Its values are symmetric polynomials and
+\(\partial(sf)=s\partial(f)\) for symmetric \(s\).
+
+Let \(E=[K:I]\) denote the trace operator from Iwahori-fixed to
+\(K\)-fixed vectors, considered as an endomorphism of the
+Iwahori-fixed module.  This notation denotes the double-coset sum,
+not scalar multiplication by the integer \([K:I]\) on arbitrary
+vectors.  In the Iwahori algebra \(E=\sum_{w\in S_n}T_w\).
+Its integral identities are
+\[
+ \begin{split}
+ Es(X)&=s(X)E &&(s\ \hbox{symmetric}),\\
+ E f(X)E&=\partial(N_Qf)(X)\,E .
+ \end{split}
+ \tag{ON3}
+\]
+Here and below a polynomial on the right means its Bernstein action.
+
+For completeness, these identities can be verified in the universal
+Bernstein algebra.  Its generators satisfy the finite Hecke
+quadratic and braid relations, and, for adjacent \(i,j=i+1\),
+\[
+ \begin{split}
+ T_iX_i&=X_jT_i+(Q-1)X_i,\\
+ T_iX_j&=X_iT_i-(Q-1)X_i,\qquad
+ T_iX_a=X_aT_i\quad(a\ne i,j).
+ \end{split}
+ \tag{ON4}
+\]
+These are the rank-one double-coset calculation with
+\(I\operatorname{diag}(\varpi,1)I\); operators at other coordinates
+commute.  To check the universal identities without making a
+specialization injective, use the fraction field of \(\mathcal P\)
+and the crossed product by \(S_n\).  There
+\[
+ T_i=
+ \frac{(1-Q)X_i}{X_j-X_i}
+   +\frac{QX_j-X_i}{X_j-X_i}\,[s_i].
+ \tag{ON5}
+\]
+These operators satisfy (ON4), the quadratic relation, and the braid
+relation, by the two-variable and three-variable expansions,
+respectively.  Straightening (ON4) spans the universal algebra by
+\(\mathcal P T_w\).  In (ON5), the coefficient of \([w]\) in \(T_w\)
+is a nonzero product over the inversions of \(w\); all remaining
+terms have smaller Bruhat length.  Thus these spanning elements are
+independent and the crossed-product calculation is faithful.
+
+The equality \(T_iE=QE\) implies that if \(A_w\) is the coefficient of
+\([w]\) in \(E\), then \(A_{s_iw}=s_i(A_w)\).
+The coefficient at the longest permutation is obtained solely from
+its longest reduced word, and is
+\(w_0(N_Q/D)\).  Hence
+\[
+ E=\sum_w w(N_Q/D)[w],\qquad
+ E(f)=\partial(N_Qf).
+ \tag{ON6}
+\]
+It follows that \(E\) commutes with symmetric polynomials and that
+\(E f E=\partial(N_Qf)E\), since \(E\) has symmetric image.
+The result is an identity in the integral universal algebra, by
+faithfulness; (ON5) is only a verification device.
+Specializing \(Q\) and applying the actual Iwahori action proves
+(ON3) over the original coefficient ring.
+
+Here is an explicit finite divided-difference dual family.
+Let \(\mathcal R=\{(i,j):0\leq i<j<n\}\).
+For each subset \(H\subset\mathcal R\), put
+\[
+ a_H=\prod_{(i,j)\in H}X_j,\qquad
+ c_H=\prod_{(i,j)\in\mathcal R\setminus H}(-X_i).
+\]
+Then
+\[
+ \sum_H a_H\,w(c_H)=
+ \prod_{i<j}(X_j-X_{w(i)})
+ =\begin{cases}D,&w=1,\\0,&w\ne1.\end{cases}
+\]
+For \(w\ne1\), choose \(i\) with \(i<w(i)\); the factor indexed by
+\((i,w(i))\) is zero.  Expanding the antisymmetrizer therefore gives
+\[
+ \sum_Ha_H\partial(c_Hf)=f,\qquad
+ \sum_Hc_H\partial(a_Hf)=f,\qquad
+ \sum_H a_H(X)E c_H(X)=N_Q(X).
+ \tag{ON7}
+\]
+The second equality follows by applying a permutation to the dual
+identity for its inverse, which interchanges the two families.
+For the last equality, insert (ON6); only the identity permutation
+survives in its crossed-product expansion.
+These formulas prove the precise integral identity used in the
+old/new construction.
+
+\paragraph{The global modules and the coefficient comparison.}
+Let \(\mathcal Q=\{w_1,\ldots,w_q\}\) be the distinct split auxiliary
+places, away from \(\ell\) and from the fixed ramification set.
+Use the smooth module \(\mathcal M\) constructed in
+\ref{sec:ordinary-module-construction}; at these places write
+\[
+ V=\mathcal M^{\prod_j I_j},\qquad
+ M=\mathcal M^{\prod_j K_j}.
+\]
+The spherical module is identified with the fixed base module by the
+actual maximal-level comparison.  More generally its coefficients
+are related by the ring map \(\beta:R\to B\); the inclusion
+\(\iota:M\to V\) is additive and satisfies
+\(\iota(\beta(r)m)=r\iota(m)\).
+Let
+\[
+ P_j(T)\in B[T]
+\]
+be monic of degree \(n\).
+The comparison with the base Galois determinant is exactly the
+following spherical coefficient identity:
+\[
+ e_k(U_{j,0},\ldots,U_{j,n-1})\iota(m)
+   =\iota\bigl((-1)^k[P_j]_{n-k}\,m\bigr),
+ \quad 0\leq k\leq n.
+ \tag{ON8}
+\]
+The normalization of \(U_{j,i}\) is (ON1).
+In the application
+\[
+ P_j(T)=D_{\mathrm{base}}(T-[\mathrm{Frob}_{w_j}]),
+\]
+with the inverse-Frobenius convention of the original
+\srcid{Pair}; (ON8) uses that same convention.
+
+We spell out the proof of (ON8) from the arithmetic realization
+input, so that it is not an additional lifting assumption.
+The actual classical specializations separate vectors of
+\(\mathcal M\).  Under such a specialization the auxiliary action
+is an isotypic sum of an irreducible smooth complex local
+representation \(\sigma_j\).  A nonzero image of a spherical vector
+forces \(\sigma_j^{K_j}\ne0\).
+The normalized Bernstein eigenvalues \(\alpha_i\) of this spherical
+representation satisfy
+\[
+ \operatorname{charpoly}(\rho(\mathrm{Frob}_{w_j}))
+       =\prod_i(T-\alpha_i)
+\]
+by the unramified local-global comparison with the attached Galois
+representation.  The symmetric Bernstein operator \(e_k\) acts on
+the spherical line by \(e_k(\alpha)\); Vieta's formula identifies
+this with the specialized right hand side of (ON8).
+If the specialized spherical vector is zero both sides are zero.
+Separation by all these specializations proves (ON8) integrally.
+The argument needs precisely the separating arithmetic
+specializations, attached determinant, and this unramified
+coefficient comparison; it does not need a theorem lifting
+individually polarized residual constituents.
+
+Let \(E_j:V\to V\) be the unnormalized local Iwahori-to-spherical
+trace, and put \(E=\prod_jE_j\).
+The operators at distinct places commute and \(E(V)\subset M\).
+Write \(\operatorname{tr}:V\to M\) for this product trace under the
+base identification, so \(\iota\operatorname{tr}=E\).
+The module \(\mathcal M\) has no nonzero integer torsion: for example
+this follows from its separating complex specializations, or from
+its finite free weight-algebra fixed levels.
+For \(v\in V\) spherical at \(w_j\), the sandwich identity in (ON3)
+gives
+\[
+ E_j f(U_j)v=\partial(N_{Q_j}f)(U_j)v.
+ \tag{ON9}
+\]
+Indeed \(E_jv=[K_j:I_j]v\); first multiply the proposed identity by
+this positive integer and use (ON3), then cancel the integer using
+torsion freeness.  Thus no assertion that \([K_j:I_j]\) is a unit
+is hidden in (ON9).
+The product trace is \(\beta\)-semilinear, and, by (ON8) and
+symmetric commutation, it intertwines every symmetric polynomial
+with its image in the coefficients of \(P_j\).
+
+\begin{srproposition}[The two concrete maps]
+\label{prop:concrete-two-maps}
+Let
+\[
+ S=B[u_{j,i}:j,i]\big/
+ \left(\hbox{coefficients of }
+          \prod_i(T-u_{j,i})-P_j(T)\ \hbox{for every }j\right)
+\]
+be the simultaneous ordered splitting algebra, and let
+\(\overline f\) denote coefficient change by \(\beta\) followed by
+the quotient map to \(S\).
+There are additive maps, intertwining the polynomial actions,
+\[
+ \Phi:S\otimes_BM\longrightarrow V,\qquad
+ \Psi:V\longrightarrow S\otimes_BM,
+\]
+such that, for
+\[
+ N_{\mathcal Q}(u)=
+     \prod_{j=1}^q\prod_{i<i'}(u_{j,i'}-Q_ju_{j,i}),
+\]
+\[
+ \Phi\Psi=N_{\mathcal Q}(U),\qquad
+ \Psi\Phi=\overline{N_{\mathcal Q}}.
+ \tag{ON10}
+\]
+They may be chosen so that the two composites are instead
+multiplication by
+\[
+ f_{\mathcal Q}(u)=
+ \prod_j\prod_i\prod_{i'\ne i}
+       (u_{j,i}-u_{j,i'})(u_{j,i}-Q_ju_{j,i'}).
+ \tag{ON11}
+\]
+These are the two maps appearing in the finite-level ordinary
+control relation.
+\end{srproposition}
+
+\begin{proof}
+Define \(\Phi\) first on polynomials by
+\[
+ \Phi\!\left(\overline{\sum_\nu b_\nu u^\nu}\otimes m\right)
+       =\sum_\nu U^\nu\iota(b_\nu m).
+ \tag{ON12}
+\]
+The coefficient relations defining \(S\) kill this expression by
+(ON8) and Vieta's formula.  Thus (ON12) descends to the quotient
+and the tensor product.  It satisfies
+\(\Phi(1\otimes m)=\iota(m)\) and
+\(\Phi(\overline h\,z)=h(U)\Phi(z)\).
+This definition is meaningful even when \(\beta\) is not surjective.
+
+For a tuple \(\mathbf H=(H_1,\ldots,H_q)\) of subsets of
+\(\mathcal R\), put
+\[
+ A_{\mathbf H}=\prod_j a_{H_j}(u_j),\qquad
+ C_{\mathbf H}=\prod_j c_{H_j}(u_j).
+\]
+The reverse map is the finite sum
+\[
+ \Psi(v)=
+ \sum_{\mathbf H}
+    \overline{A_{\mathbf H}}\otimes
+       \operatorname{tr}\bigl(C_{\mathbf H}(U)v\bigr).
+ \tag{ON13}
+\]
+We verify its polynomial equivariance, since this is essential for
+the second composite.  In
+\(\mathcal P\otimes_{\mathcal P^{S_n}}\mathcal P\), (ON7) gives
+\[
+ \sum_Ha_H\otimes c_Hx=\sum_Hxa_H\otimes c_H .
+ \tag{ON14}
+\]
+Indeed expand \(c_Hx\) by the second formula of (ON7), transfer
+the symmetric coefficient
+\(\partial(a_Kc_Hx)\) across the tensor sign, and use the first
+formula of (ON7) to sum over \(H\).
+After taking the product of (ON14) over the auxiliary places,
+symmetric balance is precisely the symmetric intertwining property
+of \(\operatorname{tr}\) and (ON8).
+Consequently
+\(\Psi(h(U)v)=\overline h\,\Psi(v)\).
+
+Applying (ON12) to (ON13) and using
+\(\iota\operatorname{tr}=\prod_jE_j\) gives
+\[
+ \Phi\Psi
+ =\sum_{\mathbf H}A_{\mathbf H}(U)
+            \left(\prod_jE_j\right)C_{\mathbf H}(U)
+ =\prod_jN_{Q_j}(U_j),
+\]
+where (ON7) and commutation between distinct places give the final
+equality.
+For a spherical vector, repeated use of (ON9) yields
+\[
+ \operatorname{tr}\bigl(C_{\mathbf H}(U)\iota(m)\bigr)
+  =\left(\prod_j
+        \partial(N_{Q_j}c_{H_j})\right)(u)\,m.
+\]
+The factor on the right is symmetric at every place and hence is a
+well-defined \(B\)-coefficient under (ON8).
+The first equality of (ON7), applied to \(f=N_{Q_j}\), now gives
+\[
+ \Psi(\iota(m))=\overline{N_{\mathcal Q}}(1\otimes m).
+\]
+Since \(S\otimes_BM\) is generated from these elements by the
+polynomial action, polynomial equivariance proves the second
+identity in (ON10).
+
+Finally \(N_{\mathcal Q}\) divides \(f_{\mathcal Q}\) over the integral
+polynomial ring: each factor \(u_{j,i'}-Q_ju_{j,i}\), \(i<i'\),
+occurs among the ordered factors in (ON11).
+Write \(f_{\mathcal Q}=N_{\mathcal Q}c\).
+Keep \(\Phi\) and replace \(\Psi\) by \(\Psi\circ c(U)\).
+Equivariance and (ON10) make both composites multiplication by
+\(f_{\mathcal Q}\), as claimed.
+\end{proof}
+
+\paragraph{What this proves and what still comes from arithmetic.}
+The maps (ON12)--(ON13) are now constructed, with exactly the
+discriminant used by the auxiliary support argument.  Together with
+the finite-projective modules and norm control constructed in the
+preceding subsection, and the uniform auxiliary nilpotence proof,
+this supplies the module-theoretic finite-level control mechanism.
+It does not supply an automorphic seed or construct attached Galois
+representations from nothing.
+The only remaining arithmetic realization premise in this particular
+old/new step is the explicitly described classical separation and
+coefficient comparison producing (ON8).
+In particular the presence of a two-map interface in the formal
+source is not being substituted for its proof.
+
+\paragraph{Exact source locations.}
+Use the frozen tag \srcid{alpoge-source-7cbf7a0c}, under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}.
+Definitions of the splitting algebra and of the exact two-map
+conclusion are
+\srcid{AlgebraTools.MSplitDefs} and
+\srcid{PatchingModules.NilpotentLevelLowering.LevelModule.TwoMaps}.
+The actual normalized local Bernstein operators, their faithfulness,
+the trace identities, and the divided-difference formulas are
+\srcid{AlgebraTools.IwBernHk.bernHk},
+\srcid{IwBernFaith.bernFaith},
+\srcid{HkSandwich.hkSandwich},
+\srcid{HkSum.hkSum},
+\srcid{HkDualEx.hkDualEx}, and
+\srcid{HkDualExp.hkDualExp}.
+The passage from actual local group actions to these identities,
+including cancellation of the positive integer index, is the proof
+\srcid{PatchingModules.NilpotentLevelLowering.HkHypOf.locA} and
+\srcid{hkHypOf}.
+The maps and their two composites are constructed in
+\srcid{MultiPhi.multiPhi}, \srcid{MultiPsi.multiPsi},
+\srcid{MultiTwo.multiTwo}, and \srcid{TwoMul.twoMul}.
+Their spherical inclusion and product trace in the global application
+are written explicitly in
+\srcid{ModularityArgument.ThresholdArguments.DenseThresholdCases.LevTwoOf.two\_gen}.
+The arithmetic coefficient comparison (ON8) is the proof
+\srcid{DenseThresholdCases.SymOfVieta.symOf\_alt}:
+its specialization comparison is \srcid{symOf\_sym}, its coefficient
+calculation is \srcid{symOf\_vieta}, and nonzero spherical specialization
+is \srcid{symOf\_sph}.
+All files are below
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties}.
+
+\subsection{The uniform auxiliary exponent and the finite-level module}
+\label{sec:uniform-aux-exponent}
+
+The integer exponent used before patching can be chosen to be
+$n!$.  In rank three it is therefore $6$, chosen before the
+host, the coefficient prime, the auxiliary level, and the
+number of auxiliary places.
+
+\begin{srlemma}[A polynomial vanishing on the torus support]
+\label{lem:torus-uniform-nil}
+Let a commutative group $T$ act by invertible commuting operators
+on a complex vector space $W$ of dimension at most $d$.
+Let $t_1,\ldots,t_r\in T$ and $F\in\mathbb C[X_1,\ldots,X_r]$.
+If
+\[
+            F(\chi(t_1),\ldots,\chi(t_r))=0
+\]
+for every character $\chi$ occurring in a simultaneous
+generalized-character space of $W$, then
+$F(t_1,\ldots,t_r)^d=0$ on $W$.
+The same exponent works on any direct sum of copies of this
+$T$-module.
+\end{srlemma}
+\begin{proof}
+A commuting family over an algebraically closed field has a
+common eigenvector.  Apply this observation successively to
+quotients to obtain a complete invariant flag.
+The diagonal functions on $T$ are multiplicative characters,
+since every group element is invertible.
+The hypothesis says that the polynomial in the operators has
+zero diagonal in this flag.  It is strictly upper triangular,
+so its $d$-th power is zero.
+On a direct sum the same identity holds on each summand.
+\end{proof}
+
+We state explicitly the local representation-theoretic input
+used to take $d=n!$.
+For a nonarchimedean local field $K$, a subgroup
+$C\subseteq\kappa_K^\times$, and an irreducible smooth complex
+representation $\sigma$ of $\operatorname{GL}_n(K)$, the space
+$\sigma^{\operatorname{Iw}_C}$ is finite dimensional and
+\[
+                   \dim_\mathbb C
+                      \sigma^{\operatorname{Iw}_C}\leq n!.
+                                                               \tag{35}
+\]
+This is the exact bound \srcid{AlgebraTools.IwJqLine.jqLine},
+using the printed geometric lemma and Bernstein--Zelevinsky
+finiteness hypotheses.
+Its mechanism is worth recording.
+The canonical map from these invariants to the Borel Jacquet
+module is injective: a vector in its kernel is killed by a
+sufficiently positive Hecke operator, whereas the torus action
+extending the positive Hecke action makes that operator
+invertible.  A nonzero simultaneous torus weight, together
+with Frobenius reciprocity, embeds $\sigma$ in a principal
+series.  The Borel Jacquet module of this principal series has
+a filtration with one one-dimensional quotient for each of
+the $n!$ Bruhat cells, by the geometric lemma.
+Exactness of the Jacquet functor in characteristic zero bounds
+the Jacquet module of $\sigma$ by $n!$.
+The injective canonical map gives (35).
+If the invariant space is zero, (35) is immediate.
+Thus this input has no dependence on the residue cardinality
+or on $C$.
+
+For an isotypic sum of copies of $\sigma$, invariants under the
+compact group $\operatorname{Iw}_C$ are spanned by images of
+$\sigma^{\operatorname{Iw}_C}$ under intertwining maps.
+Indeed any finite expression can be averaged over this compact
+group; smoothness reduces this averaging to a finite sum.
+The torus action commutes with these intertwining maps.
+Lemma~\ref{lem:torus-uniform-nil} and (35) therefore give the
+same exponent $n!$ on an isotypic sum, regardless of its
+multiplicity.  Restriction to invariants at other places
+does not increase the required exponent.
+This is the actual uniform-exponent argument in
+\srcid{NilpotentLevelLowering.NilKill}.
+
+\paragraph{The two auxiliary polynomial relations.}
+At one auxiliary place write $Q$ for the residue cardinality
+and $P,T$ for Frobenius and tame inertia matrices.
+The characteristic-zero local data supplies a semisimplification
+by characters $c_i$, and
+\[
+ P^{-1}TP=T^Q,\qquad
+ \det(X-R(g))=\prod_i(X-c_i(g)).
+\]
+On the locus
+\[
+         \alpha_i=c_i(\mathrm{Frob}),\quad
+         \alpha_i\ne\alpha_j,\quad
+         \alpha_i\ne Q\alpha_j\quad(i\ne j),                    \tag{36}
+\]
+the following matrix identities hold:
+\[
+ \prod_i(P-\alpha_i)=0,\qquad
+ \prod_{k\ne i}(P-\alpha_k)
+                    (T-c_i(\tau))=0.                          \tag{37}
+\]
+Here the second product may be written in any order.
+
+We include the matrix argument.
+The character relation gives $c_i(\tau)^{Q-1}=1$; hence
+$T^{Q-1}$ is unipotent.
+Set $N=\log(T^{Q-1})$, using its finite nilpotent logarithm.
+Then $P^{-1}NP=QN$.
+The eigenvalues of $\operatorname{Ad}(P^{-1})$ are the ratios
+$\alpha_j/\alpha_i$.  Condition (36), and $Q\ne1$, exclude $Q$,
+so $N=0$.  Thus $T^{Q-1}=1$, and the tame relation gives $PT=TP$.
+The eigenspaces of $P$ are one dimensional.
+The character identities for the traces of $P^rT$,
+$0\leq r<n$, and the invertible Vandermonde matrix in the
+distinct $\alpha_i$, show that $T$ acts on the $i$-th
+eigenspace by $c_i(\tau)$.  This proves (37).
+This is the content of the finite matrix argument
+\srcid{LocData.rel\_of\_chars}, also used by
+\srcid{TLocDataT.locDataT\_alt} with the printed local--global
+compatibility statement.
+
+For all auxiliary places introduce commuting Hecke variables
+$U_{ji}$ and $Y_{ji}$ and put
+\[
+ f_N=\prod_j\prod_i\prod_{i'\ne i}
+            (U_{ji}-U_{ji'})(U_{ji}-Q_{Nj}U_{ji'}).
+                                                               \tag{38}
+\]
+Let $r$ be either trace of a group element times the first
+polynomial in (37), or trace of a group element times
+\[
+       \prod_{k\ne i}(P-U_{jk})(T-1-Y_{ji}).                    \tag{39}
+\]
+At every supported complex character of the relevant local
+torus, the polynomial $f_Nr$ vanishes.
+If $f_N$ vanishes this is immediate; otherwise its factors
+give (36) and (37) gives the assertion.
+The torus-support lemma proves
+\[
+                       (f_Nr)^{\,n!}M_N=0.                   \tag{40}
+\]
+All additional factors in (38), at the other auxiliary places,
+commute with the operator at this place, so they do not
+multiply the exponent by the number of places.
+
+The passage back to the integral ordinary module uses the
+actual separating family of classical automorphic
+specializations: an element is zero if all its classical
+images are zero.  Each specialization sends the auxiliary
+operators to the normalized torus operators
+\[
+       U_{ji}\longmapsto Q_{Nj}^{\,i}\Theta_j(\varpi_i),
+       \qquad 1+Y_{ji}\longmapsto\Theta_j(\delta_i).
+\]
+Their polynomial evaluations intertwine the integral and
+complex actions.  Applying the already uniform identity
+at every specialization and then separation proves (40)
+integrally, with the same exponent $n!$.
+This is \srcid{LevRelOf.relOf\_alt} and
+\srcid{LocOkLevelModuleOfThetaData.level\_relation\_one\_two}.
+In particular the exponent is fixed before $N$, before the
+chosen relation, and before the element of $M_N$.
+
+\begin{srlemma}[Projective norm and the augmentation variables]
+\label{lem:projective-norm-control}
+Let $(\Lambda,\mathfrak m)$ be a complete Noetherian local
+ring with residue characteristic $\ell$ and
+$\ell\in\mathfrak m$.  Let $\Delta$ be a finite $\ell$-group
+and $M$ a finite projective $\Lambda[\Delta]$-module.
+The norm
+\[
+       \mathcal N:M\longrightarrow M^\Delta,\qquad
+                         x\longmapsto\sum_{\delta\in\Delta}\delta x
+\]
+is onto, with kernel the augmentation submodule
+$\sum_{\delta\in\Delta}(\delta-1)M$.
+If $\Delta$ is abelian, $\Lambda[\Delta]$ is local and
+$M$ is finite free over it.
+\end{srlemma}
+\begin{proof}
+For the regular module $\Lambda[\Delta]$, the invariant
+elements are exactly the scalar multiples of
+$\sum_\delta\delta$.  Its norm is multiplication of this
+element by the augmentation.  Its kernel is therefore the
+augmentation ideal, which is generated by $\delta-1$.
+The same assertions hold on finite free modules.
+A projective module is a direct summand of such a module;
+norm, invariants, and augmentation submodules respect this
+decomposition, proving the norm assertion.
+For abelian $\Delta$, the reduction
+$(\Lambda/\mathfrak m)[\Delta]$ is local:
+its augmentation ideal is nilpotent and its quotient is the
+residue field.  Thus the finite complete $\Lambda$-algebra
+$\Lambda[\Delta]$ is local, with maximal ideal generated by
+$\mathfrak m$ and $\delta-1$.
+A finite projective module over a local ring is free.
+\end{proof}
+
+This proves the trace/control assertion at the auxiliary
+level without dividing by $\#\Delta$, which is usually not a
+unit.  For a chosen generating family $\delta_p$ one can use
+only the operators $\delta_p-1$ in the kernel formula:
+$\delta\delta'-1=\delta(\delta'-1)+(\delta-1)$.
+
+\begin{srlemma}[Fixed truncations of the auxiliary group ring]
+\label{lem:aux-trunc-free}
+Let
+\[
+ \Delta_N=\prod_{j,i}\mathbb Z/\ell^{a_{Nj}}\mathbb Z,
+                     \qquad a_{Nj}\geq N.
+\]
+Put $S=\Lambda[[Y_{ji}]]$, and let $M_N$ be finite projective
+over $\Lambda[\Delta_N]$.  Identify $1+Y_{ji}$ with the
+corresponding group generator.  Then for every fixed $k,c$,
+and all sufficiently large $N$,
+\[
+ M_N/(Y^k+\mathfrak m^c)M_N
+       \text{ is finite free over }
+                      S/(Y^k+\mathfrak m^c).
+                                                               \tag{41}
+\]
+Its rank may depend on $N$.
+\end{srlemma}
+\begin{proof}
+There is an isomorphism
+\[
+ \Lambda[\Delta_N]\simeq
+ S/\bigl((1+Y_{ji})^{\ell^{a_{Nj}}}-1\bigr)_{j,i}.
+\]
+The polynomials are monic and distinguished, so successive
+power-series division proves the isomorphism as well as
+finiteness and completeness.
+For $1\leq r<k$,
+\[
+ v_\ell\binom{\ell^a}{r}\geq a-v_\ell(r),
+\]
+because $r\binom{\ell^a}{r}=\ell^a
+\binom{\ell^a-1}{r-1}$.
+Thus if $N\geq c+\max_{1\leq r<k}v_\ell(r)$, every displayed
+relation belongs to $Y^k+\mathfrak m^c$.
+Terms of degree at least $k$ already belong to $Y^k$.
+The preceding lemma makes $M_N$ free over its group ring;
+taking the specified quotient proves (41).
+\end{proof}
+
+\paragraph{Matching the common-module hypotheses.}
+The module in (41) is the module entering the common
+ultraproduct construction.  At $Y=0$, the projective norm
+lemma gives its lower-level invariant module.
+The two old/new-level maps, after the auxiliary root-splitting
+algebra is introduced, have both composites equal to the
+single discriminator $f_N$.  On the fixed base module these
+maps use the same annihilator ideal $J$; their scalar
+extensions do not introduce a new automorphic support ideal.
+The two maps and their discriminator are the
+\srcid{TwoMaps} input of \srcid{OpToTW.opCore}, assembled by
+\srcid{LevTwoOf.twoOf\_alt}.
+
+The source construction then takes the simultaneous
+topologically nilpotent summand for $U_{ji}-u_{ji}$ and
+$Y_{ji}$.  The complementary idempotent decomposition
+commutes with all Hecke operators.  It preserves the
+projective norm calculation and the identities (40).
+Passing to the root-splitting algebra and completing sends
+$Y$ to zero on the base module, and the two control maps
+remain linear for this common specialization.
+These are the operations \srcid{nilPart},
+\srcid{freePart}, \srcid{quotPart}, and \srcid{spPart}
+inside \srcid{NilpotentLevelLowering.OpToTW}.
+
+For the fixed limit auxiliary elements, their finite-level
+trace relations converge to the relations defining the
+common ideal $I$.
+Also $Q_{Nj}\equiv1\pmod{\ell^N}$, so (38) converges to the
+fixed discriminant $f$.
+Consequently (40), with the fixed exponent $e=n!$, says
+exactly: for every generator $r$ of $I$ and every precision
+$c$, for all sufficiently large $N$, $(fr)^e$ is congruent
+modulo $\mathfrak m_R^c$ to an element annihilating $M_N$.
+This is the uniform approximate annihilator condition of
+the common patched-module theorem.
+
+The exact assembly in \srcid{THasAutOf} therefore chooses
+\srcid{TWMaps} with exponent \srcid{n.factorial}.
+For rank three, $e=6$ throughout.  The free truncations
+(41), the norm/control statement, and the uniform exponent
+(40) have all been proved here.
+The ordinary function-module construction, projectivity and old/new
+maps are supplied earlier in Section~\ref{sec:sr-ordinary-control}.
+For the actual arithmetic specialization one must still construct
+the attached Galois determinant and verify its classical separation,
+local--global compatibility, and the same universal ring and limit
+data. These requirements are not consequences of the existence of
+an abstract deformation ring.
+
+\subsection{The cohomological passage to the Taylor--Wiles limit}
+\label{sec:coh-at-tw-limit}
+
+This section proves the limit conversion \srcid{CohLim}.
+It is separate from the arithmetic estimates producing the
+finite-level hypotheses \srcid{B1} and \srcid{B2}.
+
+Keep $A_0=k[[T]]$, $F=k((T))$, $q=\#k$, the paired point $\rho$,
+and the chosen odd classes $\kappa_1,\ldots,\kappa_g$ on the
+\emph{original} group $\Gamma_0$.
+Their original-group generating property is an explicit premise:
+for every integral odd Selmer cocycle $z_0$ on $\Gamma_0$ there
+are $s\geq0$ and $a_j\in A_0$ such that
+$T^sz_0-\sum_j a_j\kappa_j$ is an integral odd coboundary.
+This is exactly \srcid{Kap.gen}; independence is
+\srcid{Kap.indep}.  It is not a spanning assumption on
+$\Gamma_\infty$, which is what the proof establishes.
+For $m\geq1$ write $A_m=A_0/T^m$.
+Use the even, odd, first-order and second-order Selmer conditions
+specified above, including their local correcting matrices.
+Let $\Gamma_N\to\Gamma_0$ be the auxiliary groups and
+$\Gamma_\infty\to\Gamma_0$ the group denoted by
+$\Lambda.G$ in \srcid{Lim}.
+The limit data include the following facts; these are the
+specific convergence properties used in the proof.
+\begin{enumerate}
+\item A topologically finitely generated profinite group $P$
+has continuous surjections $\pi_N:P\to\Gamma_N$ and
+$\pi_\infty:P\to\Gamma_\infty$.
+They preserve the sign characters and a chosen complex
+conjugation.  The index-two sign kernel $P^+$ is therefore
+also topologically finitely generated.
+\item For every open normal $V\subseteq P$, eventually along
+the chosen nonprincipal ultrafilter,
+\[
+       (\ker\pi_N)V=(\ker\pi_\infty)V.
+                                                               \tag{30}
+\]
+The maps $f_N:P\to\Gamma_0$ and $f_\infty:P\to\Gamma_0$
+obtained by composition agree modulo every fixed finite
+quotient of $\Gamma_0$, eventually and uniformly on $P$.
+\item The local maps, the prescribed unramified local maps,
+and the auxiliary elements $\phi_{Nj},\tau_{Nj}$ converge
+in the same finite-quotient sense on $P$.
+More precisely their values have lifts to $P$ which agree
+modulo every prescribed open normal $V$ eventually,
+uniformly over the local group.  This is the relation
+\srcid{Close} and the assertions
+$\Lambda.\mathrm{phi\_lim}$,
+$\Lambda.\mathrm{phiu\_lim}$,
+$\Lambda.\mathrm{ph\_lim}$,
+$\Lambda.\mathrm{ta\_lim}$.
+\item After the \srcid{ProL} quotient, each
+$\ker(\Gamma_N\to\Gamma_0)$ is contained in the closed normal
+subgroup generated by the $\tau_{Nj}$.
+At the limit
+\[
+ h_\infty(\tau_j)=1,\quad h_\infty(\phi_j)=s_j,\quad
+                         \phi_j\tau_j=\tau_j\phi_j.             \tag{31}
+\]
+The matrix $\rho(s_j)$ has $n$ distinct eigenvalues in $F$.
+\end{enumerate}
+All these are statements about the existing limit object.
+For example (30) is $\Lambda.\mathrm{ker\_lim}$, and (31)
+is $\Lambda.\mathrm{p\_ta}$,
+$\Lambda.\mathrm{p\_ph}$ and $\Lambda.\mathrm{comm}$.
+
+The exact finite-level inputs, with constants chosen before $m,N$,
+are these:
+\[
+ \begin{split}
+ \#\operatorname{Sel}_{1,N}(A_m)
+ &\leq
+ \#\operatorname{Bd}_{1,N}(A_m)\,q^{\,mD+C_1},\\
+ &\hspace{5mm}\operatorname{Sel}_{1,N}(A_m)\text{ is finite},
+ \end{split}                                                    \tag{32}
+\]
+eventually in $N$ for every fixed $m$; and, for every $g+1$
+tuples of even Selmer cocycles $z_{ij}$ over $A_m$,
+\[
+ \begin{gathered}
+ \exists\,c_1,\ldots,c_{g+1}\in A_0
+       \text{ with at least one }c_i\in A_0^\times,\quad
+ \exists\,\Xi\in\operatorname{Sel}_{2,N}(A_m),\\
+       \varepsilon_j'(\Xi)=T^{C_2}\sum_i c_i z_{ij}
+                             \quad(1\leq j\leq g).
+ \end{gathered}                                                   \tag{33}
+\]
+For each fixed $m$, (33) holds for all such tuples at all
+sufficiently large $N$.
+These are \srcid{TWGrp.B1} and \srcid{TWGrp.B2}.
+The uniform exponent $C_2$ and the primitive coefficient vector
+in (33) are essential.
+
+\begin{srproposition}[The three limit bounds]
+\label{prop:tw-limit-coh}
+Under these hypotheses the integral first-order Selmer rank
+is at most $D$; every $g+1$ tuples of integral even cocycles
+have a nonzero $A_0$-linear combination lifting to an integral
+second-order cocycle; and every integral odd Selmer cocycle
+on $\Gamma_\infty$ is an $A_0$-linear combination of the
+$\kappa_j$ modulo a coboundary after multiplication by some
+power of $T$.
+These are exactly $K1(h_\infty,\kappa,D)$,
+$K2(h_\infty,\kappa)$ and $K3(h_\infty,\kappa)$.
+They imply the three Laurent hypotheses of
+Theorem~\ref{thm:selmer-paired-pres}.
+\end{srproposition}
+
+\begin{proof}
+\emph{Finite coefficient Selmer spaces transfer to the limit.}
+For a fixed finite coefficient module and a fixed continuous
+action, the continuous cocycles on a topologically finitely
+generated profinite group form a finite set.
+Indeed a cocycle is determined by its values on finitely many
+topological generators: its values on the abstract subgroup
+they generate follow from the cocycle identity, and continuity
+gives the rest.
+Equivalently use the homomorphism into the finite semidirect
+product of the module and its action group.
+
+A locally constant function $c:P^+\to Z$ factors through a
+surjection $\pi:P^+\to H$ precisely when $\ker\pi$ lies in its
+right stabilizer
+\[
+             \operatorname{Stab}(c)
+             =\{u:c(xu)=c(x)\ \forall x\}.
+\]
+This stabilizer is open, since $P^+$ is compact.
+Its normal core, viewed in $P$, is open normal.
+Thus (30) says that $c$ factors through $\pi_N$ precisely
+when it factors through $\pi_\infty$, eventually.
+There are only finitely many cocycles on $P^+$ for the chosen
+finite action, so one may impose this assertion for all of
+them at once.
+The actions themselves agree for large $N$ by the finite
+quotient convergence of $f_N$.
+The local convergence property in item 3 makes the descended
+functions agree on all specified local and unramified groups.
+The same correcting matrix therefore verifies the ordinary
+condition on both groups.
+Polarization is preserved by the fixed conjugation.
+Consequently the finite coefficient Selmer sets on
+$\Gamma_N$ and $\Gamma_\infty$ are identified by their pullbacks
+to $P^+$, for sufficiently large $N$.
+The coboundary sets are identified as well.
+This proves (32)--(33) on $\Gamma_\infty$, with the same
+constants $C_1,C_2$.
+
+\emph{A fixed loss of precision for independent classes.}
+Let $z_1,\ldots,z_e$ be integral first-order cocycles independent
+over $A_0$ modulo integral first-order coboundaries.
+There is $C\geq0$ such that
+\[
+ \sum_i a_i z_i\text{ is a coboundary modulo }T^m
+       \quad\Longrightarrow\quad
+                         a_i\in T^{m-C}A_0\quad(m\geq C).       \tag{34}
+\]
+Here is a finite-module proof of this assertion.
+Let $V$ be the finite free $A_0$-module of allowed
+skew-transpose first-order correcting matrices.
+On $M=A_0^e\oplus V$ consider the linear operators
+\[
+        L_\gamma(a,Y)=\sum_i a_i z_i(\gamma)-dY(\gamma).
+\]
+Their span in the finite module
+$\operatorname{Hom}_{A_0}(M,\operatorname{Mat}_n(\mathbb D_g(A_0)))$
+is finitely generated.  Choose finite generators and assemble
+them into one linear map $L:M\to M'$ with $M'$ finite free.
+The common kernel is the kernel of all $L_\gamma$.
+Independence of the classes says that each coordinate
+functional $a\mapsto a_i$ vanishes on this kernel.
+Smith normal form over the DVR $A_0$ supplies $C$ with
+\[
+       L(x)\in T^mM'
+                 \ \Longrightarrow\
+       x\in\ker L+T^{m-C}M.
+\]
+A coboundary matrix modulo $T^m$ lifts to $V$:
+lift its upper-triangular entries and reflect them with the
+required minus sign, preserving the first-order parity.
+Applying the last implication to this lift proves (34).
+This is the \srcid{CoefficientsBoundedOfSelmerBoundary}
+argument, expressed over a DVR instead of its more general
+Artin--Rees formulation.
+
+Choose representatives in $A_0$ for $A_0/T^{m-C}$.
+Their $e$-tuples give distinct classes modulo the first-order
+coboundaries by (34).  Hence
+\[
+        q^{(m-C)e}
+       \leq
+       \frac{\#\operatorname{Sel}_{1,\infty}(A_m)}
+            {\#\operatorname{Bd}_{1,\infty}(A_m)}
+       \leq q^{\,mD+C_1}.
+\]
+Letting the integer $m$ grow proves $e\leq D$.  This is $K1$.
+
+\emph{Second-order lifting survives with its local conditions.}
+For integral tuples $z_{ij}$, (33) gives primitive coefficient
+vectors $c_m$ and second-order Selmer cocycles $\Xi_m$ modulo
+$T^m$.  The ring $A_0$ is compact.
+Moreover the set of second-order Selmer cocycles modulo
+$T^j$ is finite for every fixed $j$, by the finite-cocycle
+argument above and finite generation of $\Gamma_\infty$.
+
+Take an ultralimit of $c_m$ and of all the reductions
+$\Xi_m\bmod T^j$.  The latter reductions stabilize as whole
+functions, not merely pointwise, because they belong to a
+finite set of continuous cocycles.
+They are compatible and define an integral continuous
+cocycle $\Xi$.
+Its coefficient, cocycle, polarization and unramified identities
+hold at every precision and hence integrally.
+
+The local correcting matrices also survive.
+At each local place, lift the correcting matrices for
+$\Xi_m$ arbitrarily to the finite free $A_0$-module of all
+matrices and take their ultralimit in this compact module.
+Parity and the equations for zero lower entries and the
+specified zero diagonal entries are closed conditions.
+Thus the limit is an allowed correcting matrix for $\Xi$.
+This proves the ordinary condition without discarding it
+when passing to the limit.
+
+Pass to an ultrafilter set on which one fixed coordinate of
+$c_m$ is a unit; one exists because there are only $g+1$ coordinates.
+The limiting vector $c$ still has a unit coordinate.
+The defining equations become
+\[
+                    \varepsilon_j'(\Xi)
+                        =T^{C_2}\sum_i c_i z_{ij}.
+\]
+The vector $T^{C_2}c$ is nonzero since $A_0$ is a domain.
+This proves $K2$.
+
+\emph{The kernel is generated by the auxiliary inertia.}
+Let $K$ be the closed normal subgroup of $\Gamma_\infty$
+generated by all $\tau_j$.
+We claim $\ker h_\infty\subseteq K$.
+It suffices to test a finite quotient
+$Q=\Gamma_\infty/W$ with $K\subseteq W$ open normal.
+Let $V=\pi_\infty^{-1}(W)$.
+Equation (30) makes $\ker\pi_N\subseteq V$ eventually, giving
+$\Gamma_N\to Q$ through the common cover.
+The convergence of the $\tau_{Nj}$ makes their images in $Q$
+trivial.
+Item 4 therefore makes this homomorphism descend to a
+homomorphism $\theta_N:\Gamma_0\to Q$.
+
+There are only finitely many continuous homomorphisms
+$\Gamma_0\to Q$, because $\Gamma_0$ is a quotient of the
+topologically finitely generated group $P$.
+Take the intersection $U$ of their kernels.
+Finite quotient convergence of $f_N$ to $f_\infty$ makes them
+agree modulo $U$ eventually, so
+$\theta_Nf_N=\theta_Nf_\infty$.
+But the first of these is precisely
+$P\to\Gamma_\infty\to Q$.
+For $x\in\ker h_\infty$, choose a lift in $P$; its image under
+$f_\infty$ is $1$, and therefore its image in $Q$ is $1$.
+This proves the claim.  It is the substance of
+\srcid{KerOo.ker\_oo}.
+
+\emph{Odd classes descend.}
+Let $z$ be an integral odd Selmer cocycle on $\Gamma_\infty$.
+The cocycle identities for $\phi_j\tau_j=\tau_j\phi_j$, and
+$h_\infty(\tau_j)=1$, imply
+\[
+                       \rho(s_j)z(\tau_j)
+                                  =z(\tau_j)\rho(s_j).
+\]
+The matrix $\rho(s_j)$ is even and has distinct eigenvalues
+over $F$, while $z(\tau_j)$ is odd.
+The centralizer of a matrix with distinct eigenvalues is
+commutative.  Its even block idempotent commutes with
+$\rho(s_j)$, hence also with $z(\tau_j)$.
+An odd matrix commuting with this block idempotent is zero.
+Thus $z(\tau_j)=0$.
+
+The subgroup on which both $h_\infty$ and $z$ vanish is closed
+and normal.  Normality follows from the cocycle identity;
+its stability under complex conjugation follows from
+$z(\overline g)=-z(g)^{\mathsf t}$.
+The kernel-generation claim therefore shows that $z$ vanishes
+on $\ker h_\infty$, and $z$ descends to $\Gamma_0$.
+Its continuity and all Selmer conditions descend:
+the group map is a continuous quotient, the local maps
+commute with it, and the same local correcting matrices apply.
+The generating property of the original $\kappa_j$ now gives
+$T^s z-\sum_j a_j\kappa_j$ a coboundary for some $s\geq0$ and
+$a_j\in A_0$.  This proves $K3$.
+
+Finally these integral conclusions imply the three Laurent
+inputs.  For a finite family of bounded Laurent cocycles,
+clear one common power of $T$ in the functions and in their
+local correcting matrices; the distinguished local set is
+finite in the arithmetic application.
+This gives integral Selmer cocycles.
+Apply $K1$ to an independent integral family, $K2$ to the
+scaled even tuples, and $K3$ to a scaled odd cocycle.
+After inverting $T$, their conclusions are exactly the
+Laurent rank bound, nonzero second-order combination, and
+spanning by $\kappa_j$.
+No dimension or local condition is changed by this scalar
+normalization.
+\end{proof}
+
+\paragraph{Sources and the remaining arithmetic input.}
+Finite coefficient transfer is
+\srcid{LcOfAdic.t1}, with
+\srcid{EventuallyFactorThroughTowerIffLimit} and
+\srcid{EventuallyFactorizationCompatibleWithLocalMaps}.
+The first-order argument is
+\srcid{FirstCohomologyBoundOfBoundaryBound}.
+The second-order argument is
+\srcid{SecondCohomologyBoundOfBoundaryBound},
+\srcid{SelmerSecondExistsUltrafilterLimit}, and
+\srcid{SelmerSecondClosedUnderLimits}.
+Odd descent is \srcid{KoszulThreeOfDet}, \srcid{OdComm},
+\srcid{CocKer}, and \srcid{KerOo}.
+The assembly is \srcid{AutomorphicDetection.CohLim.cohLim}.
+The modules are under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties.%
+PatchingModules} at the frozen source tag.
+Thus $K1,K2,K3$ require no additional theorem once the actual
+limit object, \srcid{ProL}, distinct auxiliary eigenvalues,
+and the uniform finite-level bounds (32)--(33) have been
+produced.  Their arithmetic production is not asserted by
+the present limit argument.

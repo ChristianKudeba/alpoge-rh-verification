@@ -1,0 +1,640 @@
+\section{An explicit frame-slab kernel}
+\label{sec:sr-frame-slab-kernel}
+
+We prove the archimedean integrability and reproduction used in
+\eqref{eq:sr-slab-reproduction-input} for an explicit kernel.
+This removes a separate analytic reproduction assumption once the
+doubled Gaussian has been identified with this kernel in the chosen
+highest-weight coordinates.
+
+Put \(r=p+q\), \(J=\operatorname{diag}(1_p,-1_q)\), and
+\[
+ \mathcal D=\{Y\in\operatorname{GL}_r(\mathbb C):
+             (Y^*JY)_{[1,p],[1,p]}>0\},\qquad U=U(p,q).
+\]
+Write \(\Delta_k(Y)\) for the leading \(k\)-minor,
+\(\Delta_0=1\).  Let \(\lambda=(\lambda_1,\ldots,\lambda_r)\)
+be integral, nonincreasing separately on the two blocks, with
+\begin{equation}\label{eq:sr-classical-weight-gap}
+ \lambda_i+n\le\lambda_j
+           \quad(1\le i\le p<j\le r).
+\end{equation}
+These are the classical frame weights: the first block lies below
+the second block.  They are not the algebraic weight array before
+the dictionary to classical frames.
+
+Define
+\[
+ m_\lambda(Y)=
+    \det(Y)^{\lambda_r}
+       \prod_{k=1}^{r-1}
+          \Delta_k(Y)^{\lambda_k-\lambda_{k+1}},\qquad
+ K_\lambda(Y,Z)=m_\lambda(JZ^*JY).
+\]
+Only the \(p\)-th minor can have a negative exponent in the
+product; that minor is nonzero on \(\mathcal D\).
+Indeed the first \(p\) columns of \(Y\) form a maximal positive
+subspace, and projection to the first \(p\) coordinates is
+injective on any such subspace.  Determinants are also nonzero.
+Thus \(m_\lambda\) is holomorphic on \(\mathcal D\).
+
+The same assertion for the cross matrix in \(K_\lambda\) follows
+by writing the two positive \(p\)-planes as graphs
+\((I,A)^t,(I,B)^t\) with \(\|A\|,\|B\|<1\).
+Their cross pairing has the invertible factor
+\(I-B^*A\), since \(\|B^*A\|<1\).
+Consequently \(K_\lambda\) is holomorphic in \(Y\) and
+antiholomorphic in \(Z\).
+For an invertible upper triangular matrix \(b\), put
+\(\chi_\lambda(b)=\prod_i b_{ii}^{\lambda_i}\).
+Leading minors give, directly,
+\begin{align}
+ K_\lambda(Yb,Z)&=\chi_\lambda(b)K_\lambda(Y,Z),\label{eq:sr-kernel-weight}\\
+ K_\lambda(Y,Zb)&=\overline{\chi_\lambda(b)}K_\lambda(Y,Z),\nonumber\\
+ K_\lambda(uY,uZ)&=K_\lambda(Y,Z)\quad(u\in U),\nonumber\\
+ K_\lambda(Z,Y)&=\overline{K_\lambda(Y,Z)},\qquad
+ K_\lambda(I,I)=1.\nonumber
+\end{align}
+For the second weight identity, \(Jb^*J\) is lower triangular,
+so its leading \(k\)-minor multiplies that of the cross matrix
+by \(\prod_{i\le k}\overline{b_{ii}}\).
+For symmetry use
+\(JY^*JZ=J(JZ^*JY)^*J\); the two diagonal \(J\)'s cancel in
+each leading minor.
+
+\begin{srlemma}[Lowest weight uniqueness]
+\label{lem:sr-frame-lowest-unique}
+Suppose \(F\) is holomorphic on \(\mathcal D\), has the right
+upper-triangular character \(\chi_\lambda\), and for every
+diagonal unitary \(t\) satisfies
+\(F(tY)=\chi_\lambda(t)F(Y)\).
+Then \(F(Y)=F(I)m_\lambda(Y)\) on \(\mathcal D\).
+\end{srlemma}
+
+\begin{proof}
+Both \(m_\lambda\) and \(F\) have these two transformation laws.
+Their difference \(G=F-F(I)m_\lambda\) vanishes at \(I\).
+
+First take an invertible lower triangular \(Y\in\mathcal D\) and
+let \(D(z)=\operatorname{diag}(1,z,\ldots,z^{r-1})\).
+The matrix
+\(Y(z)=D(z)YD(z)^{-1}\), initially for \(z\ne0\), extends
+polynomially to \(z=0\), since its entries below the diagonal
+are \(z^{i-j}Y_{ij}\).  Its value at zero is the diagonal of \(Y\).
+For \(0<|z|\le1\) it stays in \(\mathcal D\):
+before the invertible right diagonal change, the positive
+coordinates are scaled by at least \(|z|^{p-1}\), and the
+negative coordinates by at most \(|z|^p\).
+This preserves strict positivity of the first \(p\)-plane.
+At \(z=0\) the diagonal matrix is also in \(\mathcal D\).
+On \(|z|=1\), the two transformation laws cancel to give
+\(G(Y(z))=G(Y)\).
+The holomorphic function of the disk therefore has this constant
+boundary value and is constant, by the maximum principle.
+At zero its value is
+\(\chi_\lambda(\operatorname{diag}Y)G(I)=0\).
+Hence \(G(Y)=0\) on these lower triangular matrices.
+
+On the open cell where every leading minor is nonzero,
+Gaussian elimination writes a matrix as a lower triangular
+matrix times an upper triangular matrix, so the right
+transformation law proves \(G=0\) there.
+That cell is dense in \(\mathcal D\):
+replace \(Y\) by \(Y+sI\), avoiding the finite root set of each
+of its monic leading-minor polynomials in \(s\).
+Continuity proves \(G=0\) everywhere.
+\end{proof}
+
+\begin{srlemma}[The unitary minor bound]
+\label{lem:sr-unitary-minors}
+For \(u\in U(p,q)\),
+\[
+ 1\le|\Delta_p(u)|,\qquad |\det u|=1,\qquad
+ |\Delta_k(u)|\le|\Delta_p(u)|\quad(0\le k\le r).
+\]
+Consequently
+\begin{equation}\label{eq:sr-frame-kernel-decay}
+ |m_\lambda(u)|\le|\Delta_p(u)|^{-n}.
+\end{equation}
+If \(p=0\) or \(q=0\), interpret the last bound as \(1\).
+\end{srlemma}
+
+\begin{proof}
+In block form \(u=\left(\begin{smallmatrix}A&B\\ C&D\end{smallmatrix}\right)\),
+the relation \(u^*Ju=J\) gives \(A^*A-C^*C=I\).
+Thus all singular values of \(A\) are at least one.
+The determinant identity gives \(|\det u|=1\).
+
+For the remaining minor inequality let \(R_p\) have the first
+\(p\) rows of \(u\) and the last \(q\) rows of \(I\);
+let \(R'_p\) have the first \(p\) rows of \(I\) and the last
+\(q\) rows of \(u\).
+The unitary relation gives
+\((R'_p)^*R'_p=R_p^*R_p\), so \(V=R'_pR_p^{-1}\) is unitary.
+Let \(R_k\) similarly use the first \(k\) rows of \(u\) and
+the remaining rows of \(I\).
+Every row of \(R_kR_p^{-1}\) is a row of either \(I\) or \(V\),
+and therefore has norm one.
+Hadamard's determinant inequality gives
+\[
+ |\Delta_k(u)/\Delta_p(u)|
+       =|\det(R_kR_p^{-1})|\le1.
+\]
+In \(m_\lambda(u)\), every exponent
+\(\lambda_k-\lambda_{k+1}\) except that at \(k=p\)
+is nonnegative; bound its minor by \(|\Delta_p(u)|\).
+The \(p\)-th factor is already a power of that minor, while
+the full determinant has modulus one.
+The resulting exponent is
+\(\lambda_1-\lambda_r\le-n\), by
+\eqref{eq:sr-classical-weight-gap}.
+This proves \eqref{eq:sr-frame-kernel-decay}.
+The definite cases use the same argument with all leading minors
+bounded by one and the full determinant of modulus one.
+\end{proof}
+
+Let
+\[
+ S_\delta=\{Y:\ |(Y^*JY-J)_{ab}|<\delta\quad(1\le a,b\le r)\}.
+\]
+For sufficiently small \(\delta>0\), this open set lies in
+\(\mathcal D\) and contains \(I\).
+Indefinite Gram--Schmidt writes every member uniquely as
+\(Y=ub\), where \(u\in U(p,q)\), \(b\) is upper triangular
+with positive real diagonal, and \(b^*Jb=Y^*JY\).
+All these \(b\)'s lie in a compact neighborhood of \(I\).
+To see the uniform bound, the successive pivots in the
+indefinite Cholesky recursion are near \(+1\) for the first block
+and \(-1\) for the second; they remain bounded away from zero.
+Every division and positive square root in the recursion is
+therefore bounded on the closure of a sufficiently small
+neighborhood of \(J\).
+
+Ambient Lebesgue measure in these coordinates is
+\(j(b)\,du\,db\), with \(j\) smooth and bounded on this compact
+set of \(b\)'s.  This follows either from the change-of-variables
+Jacobian or from its local principal-bundle coordinates.
+There is no \(u\)-dependent factor: left multiplication by
+\(u\) preserves ambient Lebesgue measure, since
+\(|\det_\mathbb C u|^{2r}=1\), and preserves Haar measure \(du\).
+
+\begin{srproposition}[Slab integrability]
+\label{prop:sr-frame-slab-integrable}
+If \(n\ge2r\), then for sufficiently small \(\delta>0\),
+\(K_\lambda(X,\cdot)\) is bounded and absolutely integrable
+on \(S_\delta\), for every \(X\in\mathcal D\).
+\end{srproposition}
+
+\begin{proof}
+First take \(X=I\).  The weight relation, the compact bound on
+\(b\), and Lemma~\ref{lem:sr-unitary-minors} reduce the integral to
+\(\int_U|\Delta_p(u)|^{-n}\,du\).
+Use the Cartan integration formula with
+\(\ell=\min(p,q)\), \(t_1\ge\cdots\ge t_\ell\ge0\).
+The positive-block determinant has modulus
+\(\prod_i\cosh t_i\), and, up to a fixed constant, the radial
+Jacobian is
+\[
+ \prod_{i<j}\sinh^2(t_i-t_j)\sinh^2(t_i+t_j)
+ \prod_i\sinh^{2|p-q|}(t_i)\sinh(2t_i).
+\]
+Here is the Jacobian calculation.  Ordinary singular-value
+decomposition of the off-diagonal block, followed by
+\(A^*A-C^*C=I\) and its companion identities, puts \(u\), up
+to left and right multiplication by \(U(p)\times U(q)\), into
+\(\ell\) hyperbolic planes
+\(\left(\begin{smallmatrix}\cosh t_i&\sinh t_i\\
+\sinh t_i&\cosh t_i\end{smallmatrix}\right)\), with identity
+on the unused coordinates.
+On the regular part, differentiate this compact--diagonal--compact
+map and divide out the compact centralizer.
+For each pair of opposite restricted root spaces the two
+compact directions are sent to their difference under
+\(\exp(\operatorname{ad}H)\); its nonconstant determinant factor
+is \(\sinh(\alpha(H))\) in each real root direction.
+Matrix units coupling two hyperbolic planes give
+\(e_i-e_j,e_i+e_j\), each with real multiplicity \(2\);
+coupling a plane to an unused coordinate gives \(e_i\)
+with multiplicity \(2|p-q|\); and the remaining imaginary
+direction within a plane gives \(2e_i\) with multiplicity \(1\).
+Their product is exactly the displayed Jacobian, up to a
+positive constant.  The compact factors have finite volume.
+The singular walls have lower dimension and contribute measure
+zero; restricting to the ordered chamber only changes the
+constant by the finite Weyl multiplicity.
+Bounding \(\sinh t\le e^t\) and
+\(\cosh t\ge e^t/2\), its integrand is at most a constant times
+\[
+ \exp\left[-\sum_{i=1}^{\ell}
+                   (n-2r+4i-2)t_i\right]
+ \le \exp\left[-2\sum_i t_i\right].
+\]
+The integral converges.  The same bounds and
+\(|\Delta_p(u)|\ge1\) prove boundedness.
+When \(\ell=0\), \(U\) is compact and the assertion is immediate.
+
+For arbitrary \(X\), indefinite Gram--Schmidt gives
+\(X=u_0b_0\).  Kernel invariance and its first weight relation
+reduce \(K_\lambda(X,Y)\) to a constant times
+\(K_\lambda(I,u_0^{-1}Y)\).
+The slab and Lebesgue measure are invariant under \(u_0\).
+This proves both conclusions.
+\end{proof}
+
+\begin{srproposition}[Slab reproduction]
+\label{prop:sr-frame-slab-reproducing}
+Under the same conditions there is \(\rho_\lambda>0\) such that
+for every holomorphic \(F\) on \(\mathcal D\) with right
+character \(\chi_\lambda\) and
+\(\sup_{u\in U}|F(u)|<\infty\),
+\begin{equation}\label{eq:sr-explicit-slab-reproduction}
+ \int_{S_\delta}K_\lambda(X,Y)F(Y)\,dY
+                 =\rho_\lambda F(X)\qquad(X\in\mathcal D).
+\end{equation}
+\end{srproposition}
+
+\begin{proof}
+The factorization \(Y=ub\) and compactness of the possible \(b\)'s
+make \(F\) bounded on the slab.
+All following integrals are therefore absolutely convergent.
+
+Let \(T\subset U\) be the diagonal compact torus with probability
+Haar measure and set
+\[
+ G(Y)=\int_T\chi_\lambda(t)^{-1}F(tY)\,dt .
+\]
+Compact averaging preserves holomorphy and the right character.
+It gives the left torus character in
+Lemma~\ref{lem:sr-frame-lowest-unique}, and \(G(I)=F(I)\).
+Thus \(G(Y)=F(I)m_\lambda(Y)=F(I)K_\lambda(Y,I)\).
+
+Kernel invariance and its weight at the base point show
+\(K_\lambda(I,tY)=\chi_\lambda(t)^{-1}K_\lambda(I,Y)\).
+Changing variables in the slab, which \(T\) preserves, consequently
+gives
+\[
+ \int_{S_\delta}K_\lambda(I,Y)G(Y)\,dY
+       =\int_{S_\delta}K_\lambda(I,Y)F(Y)\,dY .
+\]
+Using the formula for \(G\) proves reproduction at \(I\), with
+\[
+ \rho_\lambda=\int_{S_\delta}|K_\lambda(I,Y)|^2\,dY .
+\]
+This is finite by boundedness and integrability of the kernel.
+It is positive because the slab is open, contains \(I\), and the
+continuous kernel equals one at \((I,I)\).
+For \(X=ub\), change variables by \(u\), then use the first
+weight identity to reduce to the identity at \(I\) for
+\(Y\mapsto F(uY)\).  This proves
+\eqref{eq:sr-explicit-slab-reproduction}.
+\end{proof}
+
+Products over the archimedean embeddings have the same proof:
+take the product of the domains, tori, slabs and kernels.
+Their reproduction constant is the positive product of the
+individual \(\rho_\lambda\)'s.
+
+This also gives a short and exact test for the doubled Gaussian
+normalization.  If the paired-derivative kernel \(K_{\rm Gau}\)
+is holomorphic/antiholomorphic, unitary invariant, and has the
+two characters in \eqref{eq:sr-kernel-weight}, then
+Lemma~\ref{lem:sr-frame-lowest-unique} gives
+\[
+ K_{\rm Gau}(Y,I)=K_{\rm Gau}(I,I)m_\lambda(Y).
+\]
+Writing the second frame as \(ub\) proves
+\(K_{\rm Gau}=K_{\rm Gau}(I,I)K_\lambda\) everywhere.
+In orthonormal Gaussian coordinates its diagonal is computed
+by
+\[
+ P(\partial_z)\overline P(\partial_w)
+          \exp\!\left(\sum_j c_jz_jw_j\right)\big|_{z=w=0}
+      =\sum_\alpha\alpha!c^\alpha|P_\alpha|^2,
+      \qquad c_j>0 .
+\]
+For a nonzero orthonormal harmonic family this is strictly
+positive.  Hence the normalized paired Gaussian has a positive
+scalar multiple of the explicit kernel, and reproduction has
+that same positive scalar multiplier.
+For the actual theta model, the three stated structural
+identities and the sign of the Gaussian coordinates must be
+verified in its fixed frame and differential dictionary.
+The argument above proves all the ensuing slab convergence,
+positivity and reproduction, with no further global
+automorphic input.
+
+\section{A common theta denominator at all finite places}
+\label{sec:sr-theta-common-denominator}
+
+The denominator in the short theta spanning construction can be chosen
+before its auxiliary lattice, Fourier label, harmonic polynomial, or
+section.  We give its exact formula and the three valuation arguments.
+The argument explicitly records the local geometric calculus it uses;
+establishing that calculus for the chosen integral models remains part
+of their construction.
+
+Let \(E\) be the fixed Galois CM host, put
+\[
+ f=[E:\mathbb Q]/2,\quad r=p+q,\quad
+ \Delta=|\operatorname{disc}E|,\quad
+ d_P=\sum_{\tau,i}a_{\tau,i},\quad
+ \kappa=d_P+frn/2,
+\]
+and let \(M\ge3\) be the fixed odd level.
+Here \(n\) is even, and \(P\) ranges over the prescribed integral
+harmonic polynomials of row degrees \(a_{\tau,i}\); every nonzero
+such \(P\) is homogeneous of total degree \(d_P\).
+The finite Fourier-label group has order
+\[
+ Q_M=M^{frn}.
+\]
+Take the actual Fourier datum of a level class \(x_0\):
+its coefficients are
+\(w_{x_0}(q)=\zeta_M^{\langle x_0,q\rangle}\).
+They satisfy \(w_{x_0}(q)^M=1\), so they are algebraic integers
+at every finite place, including places dividing \(M\).
+
+The single integer used below is
+\begin{equation}\label{eq:sr-common-theta-denominator}
+ Z=Q_M\,\Delta^{d_P}M^{d_P}
+   =M^{frn+d_P}\Delta^{d_P},\qquad N_a=Z^2.
+\end{equation}
+Its independence from the theta vector is essential.
+
+Let \(\Lambda_a\) be an auxiliary positive definite unimodular
+Hermitian lattice and
+\(\Lambda_n=\Lambda_a\cap\mathcal O_E^n\).
+For each embedding \(\tau:E\hookrightarrow K\), let
+\(\det_\tau\Lambda_a,\det_\tau\Lambda_n\) be the determinant
+fractional ideals in the common coefficient field \(K\).
+For the fixed signature multiplicities \(r_\tau\), write
+\(\mathcal T(J)=\prod_\tau\tau(J)^{r_\tau}\).
+The scalar \(s\in K\) is chosen with the exact balancing condition
+\begin{equation}\label{eq:sr-reflex-scalar-balance}
+ (s)\mathcal T(\det\Lambda_n)
+          \subset\mathcal T(\det\Lambda_a).
+\end{equation}
+This is an ideal condition; it is not replaced by an archimedean
+norm estimate.
+
+We use the following local reading of the algebraic theta section
+\(Y_{\Lambda,P,x_0}\).
+At a divisorial integral chart, after a finite extension of complete
+DVRs, it is
+\begin{equation}\label{eq:sr-theta-local-reading}
+ Y_{\Lambda,P,x_0}
+    =Q_M^{-1}\sum_{q}w_{x_0}(q)H_q,\qquad
+ H_q=I_\Lambda^{-1}N^{-d_P}
+       \sum_{z\in\mathcal Z_\Lambda}
+                {\cal D}_P(F_{z,q}).
+\end{equation}
+Here \(N\) is an odd auxiliary denominator with \(M\mid N\),
+\(I_\Lambda\) is the prescribed lattice index,
+\(\mathcal Z_\Lambda\) is its isotropic torsion group, and the
+\(F_{z,q}\) are the normalized symmetric translates of the
+normalized multiplication pullback of the same primitive theta
+section.  The differential \({\cal D}_P\) is that of the fixed
+canonical connection and frame.
+The theta scalar multiplying the source's short rule is included
+in \(Y\); it is not an extra unit inserted after taking valuations.
+Formula \eqref{eq:sr-theta-local-reading} is an equality in the
+fraction field, valid with the same field embedding as \(s,P\).
+
+Normalize a chart valuation as \(v=v_T/e\).
+Under a finite extension of ramification index \(t\), use
+\(v_{T'}/(te)\).  Its restriction is exactly \(v_T/e\).
+Thus an inequality established after the extension descends
+without a new loss.
+The required connection bound, for every integral local germ of
+the indicated weight and every line power, has loss
+\begin{equation}\label{eq:sr-chart-ramification-loss}
+ \rho(v)=\frac{d_P}{2}
+   \sum_{\ell\mid\operatorname{cond}(E)}
+       v(\ell)\frac{\operatorname{ord}_\ell\Delta}{[E:\mathbb Q]}
+ \le d_P\,v(\Delta).
+\end{equation}
+All terms are nonnegative, and
+\(v(\Delta)=\sum_\ell\operatorname{ord}_\ell(\Delta)v(\ell)\);
+this proves the last inequality.
+The more precise half-degree loss on the left is the one in the
+ramified CM connection estimate.
+
+We first explain two elementary pieces of the local argument.
+For a homogeneous harmonic \(P\), normalized pullback along a CM
+endomorphism \(\beta\) obeys
+\begin{equation}\label{eq:sr-normalized-harmonic-pullback}
+ {\cal D}_P([\beta]^*_{\rm norm}h)
+        =\operatorname{Nm}_a(\beta)\,{\cal D}_P(h),
+ \quad
+ \operatorname{Nm}_a(\beta)
+   =\prod_{\tau,i}\tau(\beta)^{a_{\tau,i}},
+ \quad
+ \operatorname{Nm}_a(m)=m^{d_P}.
+\end{equation}
+The formula uses the actual normalized pullback, its canonical
+connection, and its induced integral tangent directions.
+It follows by applying the differential chain rule in each
+eigendirection: every letter in row \((\tau,i)\) gains
+\(\tau(\beta)\), and every monomial has the same row degrees.
+This also shows multiplicativity of \(\operatorname{Nm}_a\).
+
+Suppose \(N=\beta\alpha n'\) in \(\mathcal O_E\), with \(n'\)
+a unit at the chart.  If the translated section at level \(N^2\)
+is the normalized \(\beta\)-pullback of a regular reached section
+\(h\), then \eqref{eq:sr-normalized-harmonic-pullback} gives
+\[
+ \frac{\operatorname{Nm}_a(\alpha)}{N^{d_P}}
+             {\cal D}_P(F)
+     =(n')^{-d_P}{\cal D}_P(h).
+\]
+Regularity puts the germ of \(h\) in the integral power-series
+ring.  The canonical connection estimate
+\eqref{eq:sr-chart-ramification-loss} therefore gives valuation
+at least \(-\rho(v)\); the factor \(n'\) has valuation zero.
+The equality expressing the mixed symmetric translate as that
+normalized pullback, and regularity of the reached section,
+are the geometric assertions needed at this point.
+
+There is also an exact cancellation of primary torsion.
+Write \(\mathcal Z_\Lambda=A_\ell\times A^{(\ell)}\).
+When \(\Lambda_a\) is standard at \(\ell\), every element of
+\(A_\ell\) is killed by \(N\), and
+\[
+ |A_\ell|=\ell^{\operatorname{ord}_\ell I_\Lambda},
+ \qquad I_\Lambda=|A_\ell|I^{(\ell)},\qquad
+ \ell\nmid I^{(\ell)}.
+\]
+The normalized multiplication pullback \([N]^*_{\rm norm}\theta\)
+is fixed by its normalized symmetric \(N\)-torsion translations.
+Translations of coprime orders commute: their commutator is a
+Weil-pairing value of order dividing both orders, hence equals
+one.  Their product is the normalized translate of their product
+point, by uniqueness of the symmetric normalization at odd level.
+It follows that \(F_{a,a',q}\) is independent of \(a\in A_\ell\)
+once \(a'\) is fixed.
+This is exact equality of sections, including their phases.
+Thus
+\begin{equation}\label{eq:sr-primary-index-cancellation}
+ I_\Lambda^{-1}\sum_{a,a'}{\cal D}_P(F_{a,a',q})
+       =(I^{(\ell)})^{-1}\sum_{a'}{\cal D}_P(F_{0,a',q}).
+\end{equation}
+The notation \srcid{sqN} in the frozen source only identifies
+the equal exponents \((N:\mathbb Z)^2\) and \(N^2:\mathbb N\).
+No squaring of a section is used to obtain this cancellation.
+
+Here are the three cases for the local reading.
+They use the same connection, the same normalized translations,
+and the same scalar condition \eqref{eq:sr-reflex-scalar-balance}.
+
+\paragraph{Case \(\ell\nmid M\).}
+The level translates have prime-to-\(\ell\) order.
+The adapted lattice isogeny separates the \(\ell\)-primary
+isotropic sum and its prime-to-\(\ell\) part.
+The normalized isogeny trace cancels the
+\(\ell\)-primary part of \(I_\Lambda\).
+For the remaining integral harmonic germ its determinant factor
+is
+\(\prod_\tau\tau(\det A_\ell)^{r_\tau}\), where \(A_\ell\)
+is the integral adapted lattice matrix.
+The balancing condition makes
+\begin{equation}\label{eq:sr-adapted-determinant-integral}
+ v\left(s\prod_\tau
+                  \tau(\det A_\ell)^{r_\tau}\right)\ge0.
+\end{equation}
+To verify the ideal step explicitly, let \(G\) be a local column
+basis of \(\Lambda_n\), and let \(g\) carry
+\(\Lambda_a\) to the standard lattice at \(\ell\).
+The adapted matrix is a rational-integer unit times \(gG\);
+the multiplying integer is prime to \(\ell\).
+Hence
+\[
+ v(\mathcal T(\det\Lambda_n))
+       =\sum_\tau r_\tau v(\tau(\det G)),\quad
+ v(\mathcal T(\det\Lambda_a))
+       =-\sum_\tau r_\tau v(\tau(\det g)).
+\]
+Applying \(v\) to \eqref{eq:sr-reflex-scalar-balance} proves
+\eqref{eq:sr-adapted-determinant-integral}.
+Using it in the normalized isogeny trace and applying
+\eqref{eq:sr-normalized-harmonic-pullback} gives
+\[
+                         v(sH_q)\ge-\rho(v).
+\]
+The existence of the adapted isogeny and the normalized trace
+identity, with this determinant factor, are required here.
+
+\paragraph{Case \(\ell\mid M\), \(\ell^2\nmid M\).}
+Take the rational integer \(\alpha=\ell\), so
+\(\operatorname{Nm}_a(\alpha)=\ell^{d_P}\).
+The odd-level torsion factorization expresses the mixed
+translate as a normalized pullback of a reached section with
+the residual auxiliary denominator prime to \(\ell\).
+The preceding chain-rule argument and primary decomposition
+therefore give
+\[
+                         v(\ell^{d_P}H_q)\ge-\rho(v).
+\]
+Write \(M=\ell M'\); \(M'\) is integral, so multiplication by
+\((M')^{d_P}\) preserves the inequality.
+Since the auxiliary lattice is standard at every prime of \(M\),
+its two determinant ideals in
+\eqref{eq:sr-reflex-scalar-balance} are units at the chart.
+Thus \(v(s)\ge0\), and
+\[
+                         v(M^{d_P}sH_q)\ge-\rho(v).
+\]
+This uses the rational \(\ell\) as the CM endomorphism.
+There is no need to choose an element of norm \(\ell\).
+
+\paragraph{Case \(\ell^2\mid M\).}
+Write
+\[
+ N=\ell^e n',\qquad M=\ell^k m,\qquad
+ k\le e,\quad m\mid n',\quad \ell\nmid n',
+\]
+and take \(\alpha=\ell^k\), \(\beta=\ell^{e-k}\).
+Then
+\(\alpha\overline\alpha=\ell^{2k}\),
+\(\beta\overline\beta=\ell^{2(e-k)}\).
+A translated point \(t\) satisfies \(t^{NM}=1\), because
+\(t^N\) is killed by the level ideal and hence by \(M\).
+Consequently
+\[
+ t^{N^2}=1,\qquad
+ (t^\beta)^{(n')^2\ell^{2k}}=1:
+\]
+the first exponent is a multiple of \(NM\), and the second is
+\(\ell^{e+k}(n')^2=(NM)(n'/m)\).
+These are precisely the torsion exponents needed to express the
+mixed translate as a normalized \(\beta\)-pullback of a regular
+reached section at line power \((n')^2\ell^{2k}\).
+
+Use \eqref{eq:sr-primary-index-cancellation}; its remaining index
+\(I^{(\ell)}\) is a unit.
+Apply the pullback calculation with
+\(\operatorname{Nm}_a(\alpha)=\ell^{kd_P}\).
+Every remaining summand has valuation at least \(-\rho(v)\),
+so the nonarchimedean triangle inequality gives
+\[
+                   v(\ell^{kd_P}H_q)\ge-\rho(v).
+\]
+The same determinant-ideal argument gives \(v(s)\ge0\), and
+\(M/\ell^k=m\) is integral.  Thus again
+\[
+                         v(M^{d_P}sH_q)\ge-\rho(v).
+\]
+
+In each of the three cases, the integral Fourier coefficients and
+\eqref{eq:sr-theta-local-reading} imply
+\[
+ v(sY_{\Lambda,P,x_0})
+      \ge-v(Q_M)-d_Pv(M)-\rho(v).
+\]
+Multiplication by \(Z^2\), followed by
+\eqref{eq:sr-chart-ramification-loss}, gives a nonnegative valuation.
+The normalization of valuations under finite DVR extension noted
+above descends it to the original divisorial chart.
+If the original section already belongs to the horizontal cusp
+space, this proves membership in the prescribed integral cusp
+lattice, whose additional conditions are exactly these
+nonnegative vertical valuations.
+The same \(N_a=Z^2\) works for every auxiliary lattice, every label,
+and every polynomial of the fixed row degrees.
+
+Finally the size estimate is elementary and has no local choice
+in it.  Suppose
+\[
+ \log M\le30L,\qquad
+ \log\Delta\le7fL,\qquad f,r,L\ge1,\qquad z=frL .
+\]
+Since \(frn+d_P\le2\kappa\) and \(d_P\le\kappa\),
+\[
+ \log Z
+   =(frn+d_P)\log M+d_P\log\Delta
+   \le60L\kappa+7fL\kappa
+   \le67z^2\kappa ,
+ \qquad
+ \log N_a\le134z^2\kappa .
+\]
+Thus the integer clearing factor contributes one fixed exponent
+before the theta spanning family is chosen.
+
+The denominator size, determinant-ideal implications, primary
+factorization, and valuation bookkeeping above are complete.
+For their application to the actual arithmetic models the local
+reading \eqref{eq:sr-theta-local-reading}, the half-degree
+connection bound \eqref{eq:sr-chart-ramification-loss}, regularity
+and exact normalized pullback of reached sections, and the adapted
+isogeny trace with the displayed determinant factor must be
+established in those models.
+These are stronger than integrality of the Fourier coefficients.
+Their producers in the frozen source include
+\srcid{HarmonicValuationLowerBoundHostFieldAllPlaces},
+\srcid{HarmonicValueTranslatedProductValuationBound},
+\srcid{ReachedSectionRegularOnIntegralModel},
+\srcid{MixedTranslatePullbackEqReachedSection},
+\srcid{ExistsAdaptedSimilitudeDataAtPrime},
+\srcid{SumHvPrimaryKernel}, and
+\srcid{ShortSeriesBoundCoprimeTorsionMul}.
+The global assembly is
+\srcid{ExistsBoundedIntegerGoodCoverThetaSeriesIntegral}.

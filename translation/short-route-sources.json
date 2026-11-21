@@ -2,7 +2,7 @@
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
   "status": "incomplete: generic and nontrivial exceptional uniform character producers and compatible connected geometric supply remain; new support, tangent, descent, lattice and regularization deductions printed",
-  "prior_manuscript_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
+  "prior_manuscript_commit": "eb555865e7da385a56566943e69e5d49805c28d5",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
@@ -636,7 +636,16 @@
       "Faithful paired CH realization and nonsemisimple support, including completion quotient direction",
       "Selmer-to-presentation conversion from exact K1/K2/K3 Laurent inputs, with finite coefficient tests, local flag correction, cotangent injectivity and second-order linear algebra",
       "Rank4 trace-fiber and reducible tangent estimates, collision bound and component propagation conditional on stated common-space/tower/modular ideal inputs",
-      "Uniform lattice Gram0.65 gap, Neumann inverse and finite theta-span implication from explicit global kernel and slab hypotheses"
+      "Uniform lattice Gram0.65 gap, Neumann inverse and finite theta-span implication from explicit global kernel and slab hypotheses",
+      "Actual definite-unitary ordinary function modules, factorial projector, finite freeness, Higman auxiliary projectivity, integral norm and augmentation control",
+      "Ordinary base change without flatness, explicit classical control and automatic local continuity/finite coefficient field of algebra-valued points",
+      "Integral Iwahori Bernstein/divided-difference old/new maps and both discriminant composites without index division",
+      "Fixed auxiliary nilpotence exponent n! and cohomological K1/K2/K3 limit conversion from the exact finite-level bounds and limit data",
+      "Rank4 regular coset proof, explicit mixed Hilbert/induced CaseII seed with published classical inputs, and actual seed local-zero implication",
+      "Gaussian large-conductor dyadic value test, local BK and correct odd polarized-adjoint rigidity",
+      "Fixed-model level labels, common multiplier, outside-level support and nonzero-degree isotropic translation annihilators",
+      "Explicit frame-slab kernel, unitary minor bound, Cartan Jacobian, integrability/reproduction and invariant heat-jet implication",
+      "Common theta denominator and all valuation-case bookkeeping, conditional on the stated local model/connection/reached-section calculus"
     ],
     "open_inputs": [
       "Actual finite-level automorphic control, residual core/charts, Selmer-to-presentation construction and automorphic seed/propagation for rank3 and Gaussian marked rings",
@@ -662,12 +671,50 @@
       "pairedCH": "49a04c0e88e774508d4d09fda9f32b1c95a4aa08",
       "selmerPresentation": "015c1f01a205c39390626d2b2d3cec7fec3c4aca",
       "rank4Core": "65dbf9bf7b1d017047619f433d7e8228a228c42b",
-      "gram": "a3a1f28c91fd34491932ea1381473404165db2b0"
+      "gram": "a3a1f28c91fd34491932ea1381473404165db2b0",
+      "cohLimit": "26e474ebd810889189d58986077981f2733ba855",
+      "ordinary": "f005f02d9fc12e15a07a523f8df029f7edda530c",
+      "ordinaryBC": "4a2f1be8e6ece89ee0c8a777433e51b40353bf24",
+      "oldNew": "082a5774a98c99066ef2f7276de80f7e6ff4076e",
+      "nil": "df42c3284253d25ef4b4d7e26b73a13fbc74f12f",
+      "h4": "b0a3524b88df05dd6323102b568f2c137a0aba63",
+      "seed": "f89459677e6e8f31485506c4f879865bd8e6f7cf",
+      "localZero": "199516843f4f33f9799014e46a9f549b2e765bd5",
+      "gaussian": "a52d5d6b50038abedfc2fddeab1c696ee4f0e668",
+      "phase": "928666e5f7eb426a83bd1dba322fbc98cc7c3db9",
+      "supp": "5208d3730e639942ad2fe991bccd3b7c1cd3080e",
+      "nongraph": "b4fd892b503a5c4cd2ca91e07804c1853aef0e6f",
+      "heat": "e4624ee11287dfe2b0b6676ba9dd30688c87ff65",
+      "slab": "b904187bc38a135ae4661932592977fc8aa481b6",
+      "denominator": "ee007dca53da42738da052f95785ea3f5763a0f8"
     },
     "published_rigidity": {
       "url": "https://arxiv.org/pdf/2207.04925",
       "theorem": "Thorne6.1",
       "scope": "Polarized descended adjoint over maximal totally real field, actual regular algebraic cuspidal CM realization and irreducibility on cyclotomic kernel; not full adjoint over CM field"
+    }
+  },
+  "external_resources": {
+    "check_interval": "Every few hours during active work; no background automation",
+    "last_checked_utc": "2026-11-21 21:32 UTC",
+    "github": {
+      "url": "https://github.com/leanprover-community/riemann-hypothesis",
+      "head": "7da4577eb40dd74b09218d111114ca43bc2ad226",
+      "pr45": "merged dead-import pruning",
+      "pr44": {
+        "head": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
+        "combined_clean_build": "still reported pending",
+        "independent_comparator": "still reported pending"
+      }
+    },
+    "zulip": {
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642250042",
+      "status": "Live messages could not be loaded by text, public archive or browser; not claimed read"
+    },
+    "divX_audit": {
+      "url": "https://github.com/aapolipponen/rh-lean-check-lumi/issues/2",
+      "checked_in_frozen_source": true,
+      "conclusion": "Degenerate geometric shell retains nontrivial actual lattices/metrics/numerical data. FamilyClassConnected is compatible eventual ChainTied window data, not classical moduli connectedness. ThetaIntegralsAgree, LocalMatching, CovolumeBoundOfX remain independent."
     }
   }
 }

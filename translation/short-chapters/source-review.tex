@@ -55,8 +55,8 @@ The first new specialization examined here was in the collaborative editor:
 The earlier 552-line snapshot has SHA-256
 \[
  \begin{gathered}
- \texttt{e2bab4de455929689f2977514ae8a84b8}\\
- \texttt{004fbbbb19619cf7b6866d77c93d33e}.
+ \srcid{e2bab4de455929689f2977514ae8a84b8}\\
+ \srcid{004fbbbb19619cf7b6866d77c93d33e}.
  \end{gathered}
 \]
 The two displayed strings concatenate to one 64-digit hash.
@@ -146,8 +146,8 @@ Its pinned GitHub bytes match the updated Principia editor body,
 with SHA-256
 \[
  \begin{gathered}
- \texttt{d183191cac31584b7fa051847a87fbce3}\\
- \texttt{dac7ec4a44a9f5701fe4ad2f9904321}.
+ \srcid{d183191cac31584b7fa051847a87fbce3}\\
+ \srcid{dac7ec4a44a9f5701fe4ad2f9904321}.
  \end{gathered}
 \]
 The author's report states that Lean checked both RH endpoints and
@@ -288,6 +288,59 @@ would not prove the imported cusp-scale results or the uniform metric
 estimates needed for the present families.
 Likewise a published-hypothesis entry states an input; it is not an
 independent proof of the input.
+
+\subsection{Fresh community checks and the meaning of the window supply}
+\label{sec:sr-latest-community-check}
+We rechecked the
+\href{https://github.com/leanprover-community/riemann-hypothesis}{community repository}
+at \srcid{7da4577eb40dd74b09218d111114ca43bc2ad226}.
+\href{https://github.com/leanprover-community/riemann-hypothesis/pull/45}{PR 45}
+has merged dead-import and unused-subtree pruning.
+\href{https://github.com/leanprover-community/riemann-hypothesis/pull/44}{PR 44}
+remains at \srcid{c9b3e57f0fe987012d32c2523635387bfe56d5a5};
+its report still lists the combined clean build, five transitive axiom
+checks and independent Comparator run as pending.
+These are source and dependency changes; the present edition does not
+claim to have independently repeated those builds.
+
+A new
+\href{https://github.com/aapolipponen/rh-lean-check-lumi/issues/2}{dependency audit}
+identifies a useful distinction in the geometric interface.
+The frozen source's \srcid{divXFl} uses a degenerate
+\srcid{DivX} geometric layer: its section map is zero and its
+boundary predicate is identically true.
+Its intersection operation still reads a numerical flag degree.
+The graft operation retains the actual family lattices,
+metrics, logarithmic covolumes and numerical records; these
+have not become zero or trivial.
+This distinction can be checked directly in
+\srcid{LatticeGeometry.Inhabited} and
+\srcid{AutomorphicMembership.GeoTiedPGraft}.
+
+The term \srcid{FamilyClassConnected}, defined in
+\srcid{CharacterBoxes.DivinNOfHypV}, means that one family supplies
+eventual \srcid{ChainTied} data on its prescribed windows.
+It is not by itself an assertion about the topological connectedness
+of a classical moduli space.
+Accordingly, the remaining supply problem is to construct compatible
+arithmetic, lattice and numerical witnesses with the stated uniform
+bounds. No classical connected-moduli assertion is added merely by
+the name of this predicate.
+
+This does not remove the independent theta and covolume inputs.
+The actual \srcid{SiegelEisensteinSecondTermHypotheses} assembly
+takes \srcid{ThetaIntegralsAgree}, \srcid{LocalMatching} and
+\srcid{CovolumeBoundOfX} separately.
+The first two enter its row, Fourier and evaluation-grid comparisons;
+the third enters the linked covolume and eventual height bounds.
+The degenerate \srcid{DivX} layer supplies none of those three
+quantitative statements.
+
+The
+\href{https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642250042}{live Zulip discussion}
+is also on the continuing source list. Its messages could not be
+retrieved by the text or browser views in this check; no claim from
+that unread discussion is used here.
 
 \subsection{What the literal edition does and does not supply}
 \label{sec:sr-literal-selection}
@@ -433,6 +486,15 @@ coefficient algebra, and Theorem~\ref{thm:selmer-paired-pres} proves its
 presentation from the three stated Laurent Selmer inputs.
 The rank-four core calculation in Section~\ref{sec:sr-rank-four-support}
 retains its common-space and modular-ideal hypotheses.
+It now includes the Case II induced seed, the regular-coset proof and
+the seed local-vanishing calculation, with their classical Hilbert,
+Jacquet--Langlands, Galois-realization and Hecke-ideal inputs stated.
+Section~\ref{sec:sr-ordinary-control} constructs the ordinary modules,
+coefficient and classical control, integral old/new maps, the fixed
+\(n!\) nilpotence exponent and the cohomological limit conversion.
+The actual arithmetic Selmer bounds, auxiliary limits, attached
+Galois determinants and seed-to-global support instantiation still
+require their matching proofs.
 Proposition~\ref{prop:sr-small-conductor-exceptional} unconditionally
 closes the small-conductor twist-one exceptional branch using
 the already proved bounded-order estimate.
@@ -456,7 +518,15 @@ analytic calculation used in the full-rank convergence bound.
 Section~\ref{sec:sr-theta-gram} proves the lattice count, uniform
 Gram gap and Neumann inverse, and the finite theta-span implication
 from its exact doubled-kernel and frame-slab identities.
-Those identities remain inputs to its actual geometric application.
+The finite test system, common phases, outside-level support and
+isotropic annihilators are now constructed in
+Section~\ref{sec:sr-level-phase-proof}.
+Section~\ref{sec:sr-frame-slab-kernel} proves explicit archimedean
+reproduction; Section~\ref{sec:sr-theta-common-denominator} gives the
+common-denominator assembly from its stated local geometric calculus.
+The scalar global identity, its exact model and heat-kernel
+identification, the ramified matching and the local integral-model
+calculus remain to be matched in the actual application.
 The construction of compatible arithmetic pairs, the global matching
 scalar and rank recursion, and the uniform integral theta spanning and
 metric estimates remain separate obligations.
@@ -471,9 +541,10 @@ Definition~\ref{def:sr-character-inputs} suffice for the polynomial
 version, by Proposition~\ref{prop:sr-two-counts}. The height/deformation and automorphic counting
 comparisons in Part II must be supplied with the construction and
 compatibility inputs they currently assume.
-\item Construct the connected geometric families, or directly the
+\item Construct the compatible window families, or directly the
 signed data of Definition~\ref{def:sr-supply}, on the required common
-windows. This includes the relevant global theta identity, ramified
+windows, in the exact sense explained in
+Section~\ref{sec:sr-latest-community-check}. This includes the relevant global theta identity, ramified
 matching, cusp/metric and integral-lattice estimates with compatible
 normalizations and constants.
 \end{enumerate}
