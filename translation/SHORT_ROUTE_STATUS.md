@@ -17,3 +17,5 @@ All papers from this account explaining this same RH route remain consolidated i
 The new prose proofs have not been separately formalized or independently refereed. Document compilation and rendering do not certify a complete RH proof.
 
 Build entry point: [short-route.tex](short-route.tex). Artifacts are saved remotely on GitHub and Principia; the workflow publishes the PDF, standalone LaTeX, source manifest, build report and page contact sheets.
+
+Current edition: [209-page PDF](https://principia-math.com/api/ws/files/2ee1c508abb5f50dfda689e69cc9ae9c) and [immutable source/build release](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-43722f46fd2854e1b325d9c1fc16c8ed02bc4193). The four-file Principia source expands byte for byte to the compiled single-file source (SHA-256 `58d9c83f57a46490a932b9d9f445d543e9c6e429b1cba6c1262e8cf500611cae`).
