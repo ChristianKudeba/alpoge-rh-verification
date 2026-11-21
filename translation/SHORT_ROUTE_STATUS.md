@@ -1,5 +1,7 @@
 # Ordinary RH through fourth-power samples
 
+The current single [310-page PDF](https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444) is pinned to source commit `6ea985a68c17c0c38d2c92d47becfd87826c3640`.
+
 This is a working exposition, **not a completed standalone unconditional proof of RH**.
 
 The four-agent revision adds full supporting deductions for the two character estimates and geometry: fixed-prime orbit aggregation, CaseII specialization, restriction and local tangent rigidity, component propagation, one common patched module, paired determinant algebra, integral descent maps, explicit short generators and finite-place theta regularization. The small-conductor twist-one exceptional branch at3 and7 is now proved using R=32768. The full uniform character bounds and compatible-window construction still require the actual arithmetic realization, Selmer bounds, common-space instantiation and uniform theta/metric inputs displayed in the text. The ordinary function modules, classical control and old/new operators are now constructed in prose; the exact rank-four CaseII seed and Gaussian local shortcut are printed with their remaining inputs.

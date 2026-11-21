@@ -4,54 +4,54 @@
   "paper_page": "https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper",
   "status": "Published consolidated working manuscript; mathematical proof remains incomplete",
   "canonical_pdf": {
-    "id": "e7637127b4253ed4e1a910a0fbaab5ef",
+    "id": "1bda9b6e2d268b4151aa70c7d053c444",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 2069934,
-    "url": "https://principia-math.com/api/ws/files/e7637127b4253ed4e1a910a0fbaab5ef",
+    "size": 2782992,
+    "url": "https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444",
     "attached": {
-      "id": "2b82796e0ffbad16f3f9a74c4105ebf9",
+      "id": "940ebe823531b72d90560177038ee4a7",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 214,
-    "verified_sha256": "e73bdd9a009d26764e794379a895c30fa322dc3579f1c04407bbb76e1e9a394b",
-    "source_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
-    "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size"
+    "pages": 310,
+    "verified_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
+    "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+    "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size"
   },
   "canonical_latex_master": "alpoge-rh-working-translation.tex",
   "source_files": [
     {
       "path": "alpoge-translation/arithmetic.tex",
-      "bytes": 319429,
-      "sha256": "4436b182d40f41946a2262522b146dac901c70070bb92e3278dc8924cfe2a98f",
+      "bytes": 370329,
+      "sha256": "49471203c4163e47f59808aa1a31bac459e72dedd5144712bb9e0aba48af2126",
       "file_id": "c3e3338d13685e0a6803c622713a922b",
-      "updated_at": 1795219741737
+      "updated_at": 1795297664362
     },
     {
       "path": "alpoge-translation/theta-and-geometry.tex",
-      "bytes": 301532,
-      "sha256": "f5f372cb061327282bae716c0db9a473a90288b6bdd108f82e1b301876d2c847",
+      "bytes": 363561,
+      "sha256": "e507ea234a4400375321b6d764915db542e9544826df291e0b7c6c52533222af",
       "file_id": "b7608052b93602f39ba6d6627f506a81",
-      "updated_at": 1795219748048
+      "updated_at": 1795297674894
     },
     {
       "path": "alpoge-translation/prime-sums-and-zeros.tex",
-      "bytes": 161501,
-      "sha256": "ee01a2dbff37c2fe173548fb1993f57df065e59ba487037e6081b43ebab32160",
+      "bytes": 359829,
+      "sha256": "edaf5aa3759445c835de7d0c6fd738117ef66887b69d7e72c268971b9c7a75de",
       "file_id": "b2a369c30823d8ea8d0edb2a807767c1",
-      "updated_at": 1795285905216
+      "updated_at": 1795297687866
     },
     {
       "path": "alpoge-rh-working-translation.tex",
-      "bytes": 226285,
-      "sha256": "822a56196aef85151c3bd6877afcd85daa1ff6067f3fa7eb11dec3ee89d08579",
+      "bytes": 354280,
+      "sha256": "f8ef8f5c23db92c4c0f9c0a560946c30c59b4df7d29517db5ab0f4d41c0dc14d",
       "file_id": "9c8cc33a546414334e2d4da3aade5210",
-      "updated_at": 1795292094599
+      "updated_at": 1795297696287
     }
   ],
   "expanded_source": {
-    "bytes": 1008603,
-    "sha256": "5956058cca4d8989550027502c070cfa8497fe09f3ba671cce8b906f27486773"
+    "bytes": 1447855,
+    "sha256": "8514a84987d052f69a12aa8fbe1ffb21702cfc6f3270ef9a3cabb582bb720e5b"
   },
   "removed_superseded_files": [
     {
@@ -99,42 +99,40 @@
   },
   "paper_stage_completion_unchanged": true,
   "previous_pdf": {
-    "id": "2e7d574f1458283c873cb4dd88988d13",
+    "id": "e7637127b4253ed4e1a910a0fbaab5ef",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 2052000,
-    "url": "https://principia-math.com/api/ws/files/2e7d574f1458283c873cb4dd88988d13",
+    "size": 2069934,
+    "url": "https://principia-math.com/api/ws/files/e7637127b4253ed4e1a910a0fbaab5ef",
     "attached": {
-      "id": "b678cb5603721667a1cc3b3a5dbe797e",
+      "id": "2b82796e0ffbad16f3f9a74c4105ebf9",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 212,
-    "verified_sha256": "4e6d0fea52002d4b54dfaf957fecec7b7dfc5b0d9996b269d98af8f57c7c1735",
-    "source_commit": "c46a979d5afbb919a2b9b28f9bb2da90f7b486a7",
-    "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size",
-    "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-c46a979d5afbb919a2b9b28f9bb2da90f7b486a7",
-    "replaced_attachment_removed": true
+    "pages": 214,
+    "verified_sha256": "e73bdd9a009d26764e794379a895c30fa322dc3579f1c04407bbb76e1e9a394b",
+    "source_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
+    "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size"
   },
   "title_credit": "with reductions from Principia contributors",
   "expanded_source_matches_compiled_release": true,
   "source_readback_matches_generated_text": true,
   "document_checks": {
-    "source_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
+    "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
     "status": "working exposition; character estimates and connected geometric supply unproved",
-    "pages": 214,
+    "pages": 310,
     "supporting_part_start_pages": [
-      55
+      151
     ],
     "title_credit_check": "passed",
     "reference_and_glyph_check": "passed",
     "distributed_and_flattened_text": "identical",
     "words_outside_page": [],
     "box_warnings": [
-      "Underfull \\hbox (badness 10000) in paragraph at lines 10013--10023\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
-      "Underfull \\hbox (badness 1533) in paragraph at lines 10487--10489\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
+      "Underfull \\hbox (badness 10000) in paragraph at lines 20326--20336\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
+      "Underfull \\hbox (badness 1533) in paragraph at lines 20800--20802\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
     ],
-    "pdf_sha256": "e73bdd9a009d26764e794379a895c30fa322dc3579f1c04407bbb76e1e9a394b",
-    "tex_sha256": "5956058cca4d8989550027502c070cfa8497fe09f3ba671cce8b906f27486773",
+    "pdf_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
+    "tex_sha256": "8514a84987d052f69a12aa8fbe1ffb21702cfc6f3270ef9a3cabb582bb720e5b",
     "contact_sheets": [
       "contact-01.png",
       "contact-02.png",
@@ -153,7 +151,15 @@
       "contact-15.png",
       "contact-16.png",
       "contact-17.png",
-      "contact-18.png"
+      "contact-18.png",
+      "contact-19.png",
+      "contact-20.png",
+      "contact-21.png",
+      "contact-22.png",
+      "contact-23.png",
+      "contact-24.png",
+      "contact-25.png",
+      "contact-26.png"
     ]
   },
   "current_manuscript_count": 1,
@@ -208,6 +214,23 @@
       "hash_scope": "Release PDF verified in memory; Principia imported from that immutable release with matching size",
       "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-43722f46fd2854e1b325d9c1fc16c8ed02bc4193",
       "replaced_attachment_removed": true
+    },
+    {
+      "id": "e7637127b4253ed4e1a910a0fbaab5ef",
+      "filename": "alpoge-rh-consolidated-manuscript.pdf",
+      "content_type": "application/pdf",
+      "size": 2069934,
+      "url": "https://principia-math.com/api/ws/files/e7637127b4253ed4e1a910a0fbaab5ef",
+      "attached": {
+        "id": "2b82796e0ffbad16f3f9a74c4105ebf9",
+        "path": "alpoge-rh-consolidated-manuscript.pdf"
+      },
+      "pages": 214,
+      "verified_sha256": "e73bdd9a009d26764e794379a895c30fa322dc3579f1c04407bbb76e1e9a394b",
+      "source_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
+      "hash_scope": "Release PDF verified in memory; Principia source_url import returned matching size",
+      "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-e52042ab25cc04c0c282c1caa55b311fafc6374b",
+      "replaced_attachment_removed": true
     }
   ],
   "remaining_inputs": [
@@ -220,15 +243,19 @@
     "Twist-one character bound of any fixed bounded order at 3 and 7",
     "Coefficient-uniform complex arithmetic-group cohomology, ideal-class finite adelic orbits and polynomial congruence-level factor",
     "Finiteness of every principal rational character group and a common K-group integer controlling all coefficient-prime supports",
-    "Pointwise character bound retaining order and twist in its exponent"
+    "Pointwise character bound retaining order and twist in its exponent",
+    "Finite Cayley–Hamilton quotient, paired coefficient algebra and Laurent Selmer presentation conversion",
+    "Ordinary function modules, classical control, integral old/new maps and nilpotence exponent n!",
+    "CaseII induced seed and Gaussian local rigidity with remaining arithmetic realization inputs explicit",
+    "Fixed ambient theta system, phase normalization, heat jets, frame-slab reproduction and denominator assembly"
   ],
   "new_prose_independently_refereed": false,
   "new_prose_separately_formalized": false,
   "latest_contributor_check": {
     "queue": {
       "total": 175187,
-      "translated": 1884,
-      "reviewed": 1621
+      "translated": 2021,
+      "reviewed": 1630
     },
     "paper": {
       "path": "reorganized_incomplete_proof_725p.pdf",
@@ -245,11 +272,20 @@
       "TopPlug",
       "SiegelEisensteinSecondTermHypotheses"
     ],
-    "other_contributors_not_modified": true
+    "other_contributors_not_modified": true,
+    "community": {
+      "repository": "leanprover-community/riemann-hypothesis",
+      "head": "7da4577eb40dd74b09218d111114ca43bc2ad226",
+      "pr45": "merged",
+      "pr44_head": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
+      "pr44_combined_verification": "pending in checked snapshot",
+      "zulip": "Live and archive access failed; no messages verified"
+    }
   },
   "literal_edition_scope": {
     "formal_record_rendering_complete": true,
     "explanatory_mathematical_prose_complete": false,
     "reverse_audit_checks": "transcription fidelity; independent formal verification is a separate report"
-  }
+  },
+  "source_partition_note": "Four existing paths reused with adjusted part boundaries below the 512 KB editor cap."
 }
