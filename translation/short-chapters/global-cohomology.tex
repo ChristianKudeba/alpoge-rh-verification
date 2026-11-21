@@ -524,6 +524,272 @@ This proves \eqref{eq:sr-homology-final}, including at the small
 torsion primes.
 \end{proof}
 
+
+\subsection{Arithmetic-group cohomology and finite levels}
+\label{sec:sr-arithmetic-cohomology}
+The same complex gives the coefficient-uniform cohomology input used
+in Section~\ref{sec:spectrum-deformation}.
+This application is over \(\mathbb C\); the earlier integral argument
+was needed to retain torsion at the small primes.
+
+Keep \(F,N,n,d,D,I_0,V_0\) as above, without any roots-of-unity
+hypothesis, and set
+\[
+ s=nN^2,\qquad T_0=(V_0+1)^{dN},\qquad
+ C_0=I_0^{d^2+d+1}T_0^{T_0+1}.
+\]
+These integers depend only on \(F,N\).
+
+\begin{srproposition}\label{prop:sr-arithmetic-cohomology}
+For every finite-dimensional complex representation \(V\) of
+\(\Gamma_0=\mathrm{GL}_N(\mathcal O_F)\),
+\begin{equation}\label{eq:sr-arithmetic-cohomology}
+ \sum_{j\geq0}\dim_{\mathbb C}H^j(\Gamma_0,V)
+                                      \leq C_0\dim_{\mathbb C}V.
+\end{equation}
+The cohomology vanishes for \(j\geq T_0\).
+If \(H\subset\mathrm{GL}_N(F)\) is commensurable with \(\Gamma_0\),
+the corresponding sum for any finite-dimensional \(H\)-module \(V\)
+is at most
+\[
+ C_0[\Gamma_0:H\cap\Gamma_0]\dim_{\mathbb C}V.
+\]
+\end{srproposition}
+\begin{proof}
+Use the ordinary oriented nerve in the proof of
+Lemma~\ref{lem:sr-normal-acyclic}.
+A simplex has a common frame by Lemma~\ref{lem:sr-common-frame}.
+For a fixed frame, the proof of Proposition~\ref{prop:sr-orbit-bound}
+bounds all possible vertices by \(T_0\).
+Its vertices are distinct, so every simplex has at most \(T_0\)
+vertices. The augmented oriented complex is therefore exact and
+zero in degrees \(p\geq T_0\).
+The number of its degree-\(p\) simplex orbits is at most
+\[
+               I_0^{d^2+d+1}T_0^{p+1}.
+\]
+Indeed an ordering of its vertices is an ordered simplex in the
+previous count, and forgetting the order maps orbit sets onto orbit
+sets.
+
+A stabilizer of an unordered simplex permutes its finite vertex set.
+The kernel fixes every vertex and is contained in a finite vertex
+stabilizer. Thus the full stabilizer is finite.
+It can act on the oriented generator by its permutation sign.
+Over \(\mathbb C\), invariants of a finite group are exact: average
+a lift over the group to lift any invariant vector through a
+surjection. All its positive cohomology consequently vanishes.
+Applying a group resolution to the exact oriented complex therefore
+computes \(H^*(\Gamma_0,V)\) by a cochain complex whose degree-\(p\)
+term has dimension at most
+\[
+           I_0^{d^2+d+1}T_0^{p+1}\dim V.
+\]
+More explicitly each orbit contributes the stabilizer invariants of
+\(V\) tensored with the orientation character; their dimension is
+at most \(\dim V\).
+There are finitely many orbits in each degree.
+This is the cohomological version of the resolution argument in
+Lemma~\ref{lem:sr-integral-action-bound}.
+It also proves the asserted vanishing.
+
+A cohomology group has dimension at most its cochain group.
+Since \(T_0\geq2\),
+\[
+ \sum_{p=0}^{T_0-1}T_0^{p+1}
+       =\frac{T_0^{T_0+1}-T_0}{T_0-1}
+       \leq T_0^{T_0+1}.
+\]
+Summing the preceding cochain dimensions proves
+\eqref{eq:sr-arithmetic-cohomology}.
+
+For the last assertion put \(J=H\cap\Gamma_0\).
+Restriction from \(H\) to \(J\) is injective in every degree:
+the composition of restriction and the transfer back to \(H\)
+is multiplication by \([H:J]\), a nonzero complex scalar.
+Shapiro's lemma identifies \(H^*(J,V)\) with
+\(H^*(\Gamma_0,\operatorname{Coind}_J^{\Gamma_0}V)\).
+The latter coefficient module has dimension
+\([\Gamma_0:J]\dim V\).
+Apply \eqref{eq:sr-arithmetic-cohomology} and the injectivity.
+No action of \(H\) on the original integral lattice is being assumed.
+\end{proof}
+
+We now give the finite-orbit and level factors rather than leaving
+them as an arithmetic-group hypothesis.
+Let \(\widehat{\mathcal O}_F\) be the product of the finite local
+integer rings, put
+\[
+ G_f=\mathrm{GL}_N(\mathbb A_{F,f}),\quad
+ G_r=\mathrm{GL}_N(F),\quad
+ U=\mathrm{GL}_N(\widehat{\mathcal O}_F),\quad
+ U(q)=\ker\bigl(U\longrightarrow
+        \mathrm{GL}_N(\widehat{\mathcal O}_F/q\widehat{\mathcal O}_F)\bigr)
+\]
+for positive integers \(q\).
+In particular \(U(1)=U\).
+Put \(M_0=2^nD\) and
+\[
+                  C_*=C_0 M_0^{n+1}(9M_0)^s.
+\]
+For a complex representation \(V\) of \(G_r\), the action on
+functions is
+\((\gamma f)(x)=\gamma\cdot f(\gamma^{-1}x)\).
+
+\begin{srproposition}\label{prop:sr-level-cohomology}
+For every positive integer \(M\) and every finite-dimensional
+complex \(G_r\)-module \(V\),
+\begin{equation}\label{eq:sr-level-cohomology}
+ \sum_{j\geq0}\dim_{\mathbb C}
+ H^j\bigl(G_r,\operatorname{Map}(G_f/U(3M),V)\bigr)
+                                   \leq C_* M^s\dim_{\mathbb C}V.
+\end{equation}
+The constant is chosen before \(M\) and \(V\).
+\end{srproposition}
+\begin{proof}
+First identify the \(G_r\)-orbits in \(G_f/U\).
+For \(g\in G_f\), the module
+\[
+                P_g=F^N\cap g\widehat{\mathcal O}_F^N
+\]
+is a full \(\mathcal O_F\)-lattice and its completion is
+\(g\widehat{\mathcal O}_F^N\).
+Here is the elementary approximation in that assertion.
+Choose an integer \(b>0\) with
+\[
+ b\widehat{\mathcal O}_F^N\subset
+ g\widehat{\mathcal O}_F^N\subset
+ b^{-1}\widehat{\mathcal O}_F^N.
+\]
+Only finitely many primes occur in these inclusions.
+The Chinese remainder theorem identifies
+\(b^{-1}\mathcal O_F^N/b\mathcal O_F^N\) with the product of its
+local quotients at those primes.
+Taking the inverse image of the given subgroups in that finite
+quotient constructs \(P_g\), proves that it lies between the two
+global lattices, and proves the completion assertion.
+Conversely the completion of any full lattice is locally free over
+each discrete valuation ring, hence has the form
+\(g\widehat{\mathcal O}_F^N\).
+Right multiplication by \(U\) leaves this lattice unchanged.
+Two such lattices are in the same rational matrix orbit exactly
+when they are isomorphic as \(\mathcal O_F\)-modules: an isomorphism
+extends uniquely to their \(F\)-spans.
+
+For completeness, the classification needed here is already
+elementary over a Dedekind domain.
+Project a nonzero coordinate of a full lattice onto its image,
+a nonzero fractional ideal \(I\).
+An invertible ideal is projective.
+Indeed choose finitely many \(x_i\in I,y_i\in I^{-1}\) with
+\(\sum_i x_iy_i=1\).
+Given a surjection onto \(I\) and lifts \(e_i\) of \(x_i\), the
+map \(z\mapsto\sum_i(y_i z)e_i\) splits it.
+The coordinate projection therefore splits.
+Its kernel is a lattice of rank one less, so induction expresses
+the original lattice as a direct sum of fractional ideals.
+Proposition~\ref{prop:sr-ideal-lattices} converts that sum to
+\(\mathcal O_F^{N-1}\oplus I\), where \(I\) is their product.
+Two such normalized modules are isomorphic precisely when their
+determinant ideals have the same ideal class.
+The necessity follows by taking the top exterior power.
+For sufficiency, multiply the final coordinate by a generator of
+the ratio of the ideals.
+Thus the orbit set is the ideal class group.
+
+Choose integral ideal representatives \(I_\lambda\) with
+\(s_\lambda=\#(\mathcal O_F/I_\lambda)\leq M_0\), using
+Minkowski, and write
+\(P_\lambda=\mathcal O_F^{N-1}\oplus I_\lambda\).
+The ideal count in Lemma~\ref{lem:sr-global-generator} gives
+\(h_F\leq M_0^{n+1}\); that argument uses no roots of unity.
+Choose finite adelic representatives \(g_\lambda\) completing
+these lattices.
+The fiber over an orbit in \(G_f/U\) has at most
+\[
+ [U:U(3)]
+       \leq\#M_N(\mathcal O_F/3\mathcal O_F)=3^s
+\]
+orbits at level three.
+The ring has \(3^n\) elements because \(\mathcal O_F\) is free of
+rank \(n\) over \(\mathbb Z\).
+The stabilizer in \(G_r\) of any such orbit representative is
+\[
+ H_\lambda=G_r\cap g_\lambda U(3)g_\lambda^{-1}.
+\]
+It is independent of the representative inside \(g_\lambda U\),
+since \(U(3)\) is normal in \(U\).
+It consists of the automorphisms of \(P_\lambda\) acting identically
+on \(P_\lambda/3P_\lambda\).
+The equality follows by the completion assertion and the same
+Chinese remainder theorem.
+
+The group \(\Gamma_0(3s_\lambda)\) is contained in
+\(H_\lambda\cap\Gamma_0\).
+To verify this, the finite group \(\mathcal O_F/I_\lambda\) has
+order \(s_\lambda\), so
+\(s_\lambda\mathcal O_F^N\subset P_\lambda\subset\mathcal O_F^N\).
+If \(\gamma\equiv1\pmod{3s_\lambda}\), then
+\[
+       (\gamma-1)P_\lambda\subset
+                    3s_\lambda\mathcal O_F^N\subset3P_\lambda.
+\]
+The inverse has the same congruence, which proves preservation in
+both directions as well as the level-three condition.
+The automorphism group of \(P_\lambda\) is commensurable with
+\(\Gamma_0\), as both lattices lie between rational scalar multiples
+of one another. Explicitly its level-\(3s_\lambda\) kernel on
+\(P_\lambda\) is contained in \(\Gamma_0\), and has finite index;
+the preceding inclusion gives the finite index on the other side.
+Therefore
+\[
+ [\Gamma_0:H_\lambda\cap\Gamma_0]
+                             \leq(3s_\lambda)^s\leq(3M_0)^s.
+\]
+Proposition~\ref{prop:sr-arithmetic-cohomology} bounds the total
+cohomology of every finite-dimensional \(H_\lambda\)-module \(W\)
+by \(C_0(3M_0)^s\dim W\).
+This proves the required coefficient-uniform stabilizer estimate.
+
+Finally consider \(G_f/U(3M)\to G_f/U(3)\).
+Every fiber has \(D_M=[U(3):U(3M)]\) elements.
+In fact \(D_M\leq M^s\): write \(u=1+3A\) with
+\(A\in M_N(\widehat{\mathcal O}_F)\).
+Distinct cosets in this quotient have distinct images of \(A\)
+modulo \(M\), since equality of these images is equivalent to
+\(u^{-1}u'\equiv1\pmod{3M}\).
+There are \(M^s\) possible images.
+
+Over a \(G_r\)-orbit at level three, the function module on its
+inverse image is coinduced from its stabilizer, with coefficient
+module the functions on this \(D_M\)-point fiber with values in
+\(V\). This module has dimension \(D_M\dim V\).
+This assertion follows by restricting a function to the fiber at
+the chosen orbit representative; its values on other fibers are
+then the coinduction function on rational translates.
+The diagonal action stated before the proposition is exactly the
+action transported by this restriction.
+Shapiro's lemma applies with no finiteness condition on the index
+in \(G_r\).
+There are at most \(h_F3^s\) orbits, so summing their bounds gives
+\[
+ C_0 h_F3^s(3M_0)^sD_M\dim V
+                   \leq C_*M^s\dim V.
+\]
+The product decomposition over the orbit set is finite.
+This proves \eqref{eq:sr-level-cohomology}.
+\end{proof}
+
+For the rank-three spectrum over the fixed imaginary quadratic
+field used in the character estimate, \(s=18\).
+Thus this proves the coefficient-uniform arithmetic cohomology and
+finite-level inputs in Section~\ref{sec:spectrum-deformation},
+with constants independent of the weight and level.
+The separate infinitesimal-character criterion, cuspidal cohomology
+injection, and the realization and rigidity of deformation points
+must still be checked on the representations to which they are applied.
+A dimension estimate alone does not provide that realization.
+
 \subsection{The number of cohomology generators}
 Put \(X=X_{\ell,a}(F)\), already finite by
 \eqref{eq:sr-K-comparison}, and

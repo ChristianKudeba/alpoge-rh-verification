@@ -208,7 +208,8 @@
     "Determinant-prescribed fractional-ideal lattice comparison (SStein), with CRT construction, valuation equivalence and exact Minkowski covolume scaling",
     "Uniform global high-twist cohomology bound, including at 2, with exponent 24, via published K-theory and Hurewicz comparisons plus a full integral torsion and geometric orbit calculation",
     "K_2(24), hence the dyadic common-window bound with C_K=24, eta=epsilon/48 and J=2^26*(19248/epsilon)^24",
-    "Bounded-order twist-one polynomial character bound at 3 and 7 with B_R=(6R+1)*(12R)^24"
+    "Bounded-order twist-one polynomial character bound at 3 and 7 with B_R=(6R+1)*(12R)^24",
+    "Coefficient-uniform complex cohomology of arithmetic groups, finite adelic orbit count and polynomial congruence-level bound, with the lattice and module arguments printed"
   ],
   "latest_combined_source": {
     "path": "verification/LogCubeRH.lean",
@@ -559,6 +560,16 @@
       }
     ],
     "proof_scope": "geometric nerve, frame and orbit estimates, integral stabilizer spectral sequence, generator bound and numerical constants printed; established comparison theorems used with exact hypotheses",
-    "separately_formalized": false
+    "separately_formalized": false,
+    "complex_cohomology_extension": {
+      "coefficient_uniform": true,
+      "constant_before_weight_and_level": true,
+      "proved_inputs": [
+        "bddArith for arithmetic stabilizers commensurable with GL_N(O_F)",
+        "finite GL_N(F) orbits at fixed adelic level",
+        "M^(degree(F)*N^2) level factor"
+      ],
+      "proof_scope": "finite-dimensional oriented normal-cone nerve, finite-stabilizer averaging, transfer/Shapiro, projective lattice classification and finite congruence quotient"
+    }
   }
 }

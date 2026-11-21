@@ -4,6 +4,8 @@ This is a working exposition, **not a completed standalone unconditional proof o
 
 The global high-twist bound is now proved in prose. The new chapter gives an independent integral-homology route with the positive-definite region, acyclicity of the ordered normal-cone complex, common shortest-vector frames, a Hermite orbit count, finite-stabilizer torsion at all primes, the Kummer generator estimate, and every numerical absorption. The established arithmetic K-theory comparison and Mathew Hurewicz theorem are stated with primary references. The result is uniform in the field, coefficient prime and twist, with exponent 24.
 
+The same finite-dimensional normal-cone nerve now also proves the coefficient-uniform cohomology bound for every finite-dimensional complex arithmetic-group module. A full lattice/ideal-class argument supplies the finite adelic orbit count and the polynomial level factor, discharging the `bddArith` and finite-double-coset inputs in the spectrum-counting chapter.
+
 This supplies K_2(24) and discharges the hypothesis of the dyadic common-window theorem. The dyadic generator, cokernel, fixed-center, exceptional-set, discriminant and local-cohomology calculations remain part of the same proof. The exact local cohomology formula is s_2(L_m,a)+m+2+v_2(a), whenever finite.
 
 The new global estimate also proves a polynomial twist-one bound for principal characters of fixed bounded order at 3 and 7. The exponent is chosen before the host. The full two rational-character estimates still require bounds uniform in unbounded character order and in all required twists.
@@ -17,5 +19,3 @@ All papers from this account explaining this same RH route remain consolidated i
 The new prose proofs have not been separately formalized or independently refereed. Document compilation and rendering do not certify a complete RH proof.
 
 Build entry point: [short-route.tex](short-route.tex). Artifacts are saved remotely on GitHub and Principia; the workflow publishes the PDF, standalone LaTeX, source manifest, build report and page contact sheets.
-
-Current edition: [209-page PDF](https://principia-math.com/api/ws/files/2ee1c508abb5f50dfda689e69cc9ae9c) and [immutable source/build release](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-43722f46fd2854e1b325d9c1fc16c8ed02bc4193). The four-file Principia source expands byte for byte to the compiled single-file source (SHA-256 `58d9c83f57a46490a932b9d9f445d543e9c6e429b1cba6c1262e8cf500611cae`).
