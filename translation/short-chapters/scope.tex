@@ -3,7 +3,10 @@
 This is a consolidated working exposition, not a completed unconditional
 proof of RH. Its first part proves the prime-only analytic criterion,
 the signed finite-group reduction, the elementary conductor-one
-arithmetic packet, and two geometric comparisons.
+arithmetic packet, the odd prime-to-degree minus estimate, a uniform
+dyadic generator bound, and two geometric comparisons.
+It also proves the distributional comparison with a spectral route in
+Section~\ref{sec:sr-shared-distribution}.
 The missing uniform construction is stated with its complete local
 inequalities and quantifier order in
 Definition~\ref{def:sr-supply}.
@@ -24,6 +27,10 @@ The separate
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=c36fb16dbf85efd1520d208bf47edf3a}{\texttt{PrincipalWindows}}
 interface isolates the conductor-one connected-family route.
 Its explicit geometric premises must still be proved in a standalone text.
+The newer 552-line \srcid{ConductorOneRHCombined} source and the five
+PDFs on the papers page are reviewed in
+Section~\ref{sec:sr-source-review}; the implications it proves have
+not been mistaken for proofs of those premises.
 
 The
 \href{https://github.com/leanprover-community/riemann-hypothesis/pull/12}{signed-signal upstream supplement}
@@ -51,8 +58,9 @@ The ordinary-zeta oscillation argument in this edition excludes positive
 real zeros with the alternating zeta series; it consequently omits the
 general real-pole case in the Lean argument.
 The elementary bounds here also give the constant four in
-\eqref{eq:sr-Elip}. These prose variations have not been separately
-formalized or checked by Lean.
+\eqref{eq:sr-Elip}. These prose variations, including the dyadic pro-\(2\) group proof and
+spectral uniqueness argument added in this revision, have not been
+separately formalized or checked by Lean.
 The class-number proof prints the one-ramified-prime argument and the
 strict cyclotomic descent explicitly, using the classical background
 listed in Section~\ref{sec:sr-arithmetic}.

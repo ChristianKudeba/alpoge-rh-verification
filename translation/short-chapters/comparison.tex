@@ -1,0 +1,269 @@
+\section{The prime distribution shared by the two analytic routes}
+\label{sec:sr-shared-distribution}
+The arithmetic-geometric approach controls the smoothed error \(E\).
+A spectral approach seeks a trace identity for its prime-power
+distribution. The following calculation identifies the common object,
+including its normalization, without assuming RH or a trace formula.
+
+\subsection{An exact identity on the logarithmic line}
+Set \(H(u)=e^{-u/2}E(e^u)\) for \(u\geq0\), and let \(D_u=d/du\).
+For \(u>0\), in distributions,
+\begin{equation}\label{eq:sr-prime-distribution}
+ (D_u^2-\tfrac14)H
+  =\sum_{n\geq2}\frac{\Lambda(n)}{\sqrt n}\delta_{\log n}
+          -e^{u/2}\,du .
+\end{equation}
+This sum is locally finite. In particular, for every
+\(\varphi\in C_c^\infty(0,\infty)\),
+\begin{equation}\label{eq:sr-prime-test}
+ \int_0^\infty H(u)(\varphi''(u)-\tfrac14\varphi(u))\,du
+ =\sum_{n\geq2}\frac{\Lambda(n)}{\sqrt n}\varphi(\log n)
+       -\int_0^\infty e^{u/2}\varphi(u)\,du.
+\end{equation}
+
+Here is a direct proof. Put \(a=\log n\). The contribution of \(n\)
+to \(e^{-u/2}T(e^u)\) is
+\[
+ h_n(u)=\frac{\Lambda(n)}{\sqrt n}
+ \bigl(e^{(u-a)/2}-e^{-(u-a)/2}\bigr){\bf1}_{u\geq a}.
+\]
+It is continuous, is zero before \(a\), and solves
+\(h_n''-\tfrac14 h_n=0\) away from \(a\).
+Its first derivative jumps at \(a\) by \(\Lambda(n)/\sqrt n\).
+Splitting the integral at \(a\) and integrating by parts twice
+therefore gives
+\[
+ \int_0^\infty h_n(u)(\varphi''(u)-\tfrac14\varphi(u))\,du
+       =\frac{\Lambda(n)}{\sqrt n}\varphi(a).
+\]
+Only finitely many \(h_n\) contribute on the support of \(\varphi\).
+The remaining term in \(H\) is
+\[
+ (1+\gamma-u)e^{u/2},\qquad
+ (D_u^2-\tfrac14)((1+\gamma-u)e^{u/2})=-e^{u/2}.
+\]
+This proves \eqref{eq:sr-prime-test} and
+\eqref{eq:sr-prime-distribution}. There is no boundary term at zero,
+since the test functions vanish in a neighborhood of zero.
+
+The values at zero, useful for a one-sided Laplace transform, are
+\[
+ H(0)=1+\gamma,\qquad H'(0)=\frac{\gamma-1}{2}.
+\]
+For \(\Re z>3/2\) the elementary growth bound already proved for
+\(E(e^u)\) justifies integration by parts at infinity.
+Changing variables gives
+\(\mathcal L H(z)=\Phi(z+\tfrac12)\), and
+\eqref{eq:sr-prime-distribution} yields
+\begin{align}
+ (z^2-\tfrac14)\Phi(z+\tfrac12)
+  &=-\frac{\zeta'(z+\tfrac12)}{\zeta(z+\tfrac12)}
+       -\frac1{z-\tfrac12}\notag\\
+  &\qquad +(1+\gamma)z+\frac{\gamma-1}{2}.
+ \label{eq:sr-centered-transform}
+\end{align}
+The boundary terms have been displayed, so they cannot be lost by
+formally transforming a differential operator on a half-line.
+Equation~\eqref{eq:sr-mellin} gives the same identity algebraically.
+The poles associated to nontrivial zeros are located at
+\(z=\rho-\tfrac12\). Thus a bound on \(E\) and a valid global spectral
+identity address the same zeros, by different additional arguments.
+The local prime-power calculation itself proves neither of them.
+
+\subsection{The growth estimate actually needed for spectral sums}
+The following global zero count is enough for smooth compactly
+supported tests; a universal logarithmic bound in each unit-height
+box for arbitrary Mellin transforms is not needed.
+\begin{srlemma}\label{lem:sr-global-zero-count}
+The nontrivial zeros of \(\zeta\), counted with multiplicity, satisfy
+\[
+ \#\{\rho:|\rho|\leq R\}=O(R\log(R+2)).
+\]
+\end{srlemma}
+\begin{proof}
+From \eqref{eq:sr-reflection},
+\[
+ \xi(s)=\frac{s(s-1)}2\pi^{-s/2}\Gamma(s/2)\zeta(s)
+  =\frac12+\frac{s(s-1)}4J(s),
+\]
+where
+\[
+ J(s)=\int_1^\infty(\Theta(t)-1)
+           (t^{s/2-1}+t^{(1-s)/2-1})\,dt
+\]
+is entire and \(\xi(0)=1/2\).
+For \(t\geq1\),
+\[
+ 0\leq\Theta(t)-1
+ \leq\frac{2e^{-\pi t}}{1-e^{-\pi}}.
+\]
+Indeed \(n^2\geq n\) bounds the positive-index sum by a geometric
+series. For \(|s|\leq R\), \(R\geq2\), both powers in \(J\)
+are bounded by \(t^m\), with \(m=\lceil(R+1)/2\rceil\).
+Consequently
+\[
+ |J(s)|\leq C\int_1^\infty e^{-\pi t}t^m\,dt
+       \leq C\,\frac{m!}{\pi^{m+1}}
+       \leq C(R+2)^{R+2}.
+\]
+The integral over \([0,\infty)\) equals \(m!/\pi^{m+1}\), by
+\(m\) integrations by parts.
+Hence
+\(\log\max_{|s|\leq R}|\xi(s)|\leq C'(R+2)\log(R+2)\).
+
+For completeness the needed Jensen inequality follows by factoring
+the finitely many zeros in a closed disk and applying the mean-value
+property to the logarithm of the remaining nonvanishing holomorphic
+factor. Its contribution from a zero \(\rho\) in the disk of radius
+\(R_1\) is \(\log(R_1/|\rho|)\); this follows from
+the mean of \(\log|R_1e^{i\theta}-\rho|\), which is \(\log R_1\).
+Choose \(2R<R_1<2R+1\) with no zero on its boundary.
+Each zero with \(|\rho|\leq R\) then contributes at least \(\log2\).
+The sum of these contributions is bounded by
+\(\log\max_{|s|\leq R_1}|\xi(s)|-\log|\xi(0)|\).
+This proves the assertion for zeros of \(\xi\).
+Every nontrivial zeta zero occurs in \(\xi\) with the same multiplicity,
+since the other factors are holomorphic and nonzero there.
+\end{proof}
+
+\subsection{What an exact spectral identity on shrinking strips would prove}
+\begin{srlemma}[Uniqueness for a vertical discrete spectrum]
+\label{lem:sr-spectrum-unique}
+Let \(\mathcal Z\) be a closed discrete set in
+\(\{z:|\Re z|\leq B\}\).
+Give its points nonzero multiplicities \(m_z\) such that
+\(\sum_{z\in\mathcal Z}|m_z|(1+|\Im z|)^{-M}<\infty\)
+for some \(M\geq0\).
+For \(\varphi\in C_c^\infty(0,\infty)\) put
+\(F_\varphi(z)=\int_0^\infty\varphi(u)e^{zu}\,du\).
+If
+\[
+ \sum_{z\in\mathcal Z}m_zF_\varphi(z)=0
+       \quad\hbox{for every such }\varphi,
+\]
+then \(\mathcal Z\) is empty.
+\end{srlemma}
+\begin{proof}
+Integration by parts an arbitrary number of times in \(u\)
+shows rapid decay of \(F_\varphi(z)\) as \(|\Im z|\to\infty\),
+uniformly for \(|\Re z|\leq B\).
+There are no boundary terms, because the support is compact in
+\((0,\infty)\). Thus
+\(a_z=m_zF_\varphi(z)\) is absolutely summable.
+
+For \(T\geq0\), define
+\(\varphi_T(u)=\varphi(u-T)\), with zero extension.
+It is another permitted test, and
+\(F_{\varphi_T}(z)=e^{zT}F_\varphi(z)\).
+The hypothesis becomes \(\sum_z a_ze^{zT}=0\).
+For \(\Re w>B\), multiply by \(e^{-wT}\) and integrate \(T\)
+from zero to infinity. The sum of the absolute integrals is at
+most \(\sum_z|a_z|/(\Re w-B)\), so interchange is justified.
+We obtain
+\[
+ \sum_{z\in\mathcal Z}\frac{a_z}{w-z}=0\qquad(\Re w>B).
+\]
+This series converges normally on every compact set disjoint from
+\(\mathcal Z\): only finitely many \(z\) are near that compact set,
+and \(|w-z|\geq1\) uniformly for all remaining sufficiently large
+\(z\). It therefore defines a meromorphic function, with residue
+\(a_z\) at \(z\).
+The plane minus a closed discrete set is connected. One can join
+two points by a polygonal path and detour around the finitely many
+points on its compact image.
+The identity theorem makes this meromorphic function zero off
+\(\mathcal Z\), so all its residues vanish.
+
+If \(z_0=\sigma+i\tau\) belonged to \(\mathcal Z\), choose a nonzero
+nonnegative smooth bump \(b\) supported in \((0,\infty)\) and set
+\(\varphi(u)=b(u)e^{-i\tau u}\).
+Then \(F_\varphi(z_0)=\int b(u)e^{\sigma u}\,du>0\).
+This contradicts \(a_{z_0}=0\), since \(m_{z_0}\ne0\).
+\end{proof}
+
+Suppose, as an additional hypothesis, that for every \(\delta>0\)
+one had an identity
+\begin{equation}\label{eq:sr-strip-trace}
+ \mathcal A(\varphi)=
+  \sum_{\substack{\rho\\|\Re\rho-1/2|<\delta}}
+        m_\rho F_\varphi(\rho-\tfrac12)
+       \qquad(\varphi\in C_c^\infty(0,\infty)),
+\end{equation}
+with exactly the same functional \(\mathcal A\) at every width.
+The zero count in Lemma~\ref{lem:sr-global-zero-count} makes these
+sums absolutely convergent, by integration by parts as above.
+Subtracting the identities at \(0<\delta_1<\delta_2\) gives the
+zero distribution for
+\[
+ \{\,\rho-\tfrac12:
+             \delta_1\leq|\Re\rho-\tfrac12|<\delta_2\,\}.
+\]
+This is closed discrete, because zeros have no finite accumulation
+point. Lemma~\ref{lem:sr-spectrum-unique} makes it empty.
+Any off-line zero would belong to such a set for some two widths,
+so \eqref{eq:sr-strip-trace} would imply RH.
+
+This implication explains the burden of a width-independent trace
+claim. Local calculations of the prime and gamma terms do not prove
+\eqref{eq:sr-strip-trace}. A construction must prove the spectral
+identification, convergence and equality of the global traces,
+including any terms introduced by changing the strip.
+This paper does not assume \eqref{eq:sr-strip-trace} in its
+arithmetic-geometric argument.
+
+\subsection{Two checks on proposed replacements for that burden}
+For \(\Re A>0\) put
+\[
+ g_A(x)=(4\pi A)^{-1/2}\exp(-x^2/(4A)),
+ \qquad h(x)=\frac{g_{1+i}(x)-g_{1-i}(x)}{2i}.
+\]
+Use the square root continuous in the right half-plane and positive
+on the positive real axis. Then \(h\) is real-valued.
+For every real \(c\), every derivative of \(e^{cx}h(x)\) is a
+polynomial times a Gaussian with strictly negative quadratic real
+part. It is therefore Schwartz.
+Completing the square for positive real \(A\) gives
+\(\int_{\mathbb R}g_A(x)e^{zx}\,dx=e^{Az^2}\).
+Both sides are holomorphic for \(\Re A>0\), locally uniformly by
+Gaussian domination; continuation in \(A\) proves the same formula
+there. Thus, for \(\varphi(t)=h(\log t)\),
+\[
+ \int_0^\infty\varphi(t)t^z\,\frac{dt}{t}
+                  =e^{z^2}\sin(z^2).
+\]
+This entire transform has simple zeros at
+\(z=i\sqrt{n\pi}\), \(n\geq1\).
+The number in \([-1,1]+i[T,T+1]\), for large \(T\), equals
+\[
+ \left\lfloor\frac{(T+1)^2}{\pi}\right\rfloor
+ -\left\lceil\frac{T^2}{\pi}\right\rceil+1
+                  =\frac{2T}{\pi}+O(1).
+\]
+It cannot satisfy an \(O(\log T)\) unit-box bound.
+Rapid vertical decay alone consequently cannot justify that bound
+for arbitrary exponential-Schwartz Mellin transforms.
+In Jensen's inequality an upper bound on a rapidly decaying value
+does not supply the lower bound on that value needed to bound its
+negative logarithm.
+
+There is also an elementary projection check.
+Let \(\mathcal H\) be a Hilbert space and \(\lambda_0\) a nonzero
+continuous linear functional.
+If the range of \(P_T\) lies in \(\ker\lambda_0\) for every
+\(T\geq T_0\), then \(P_T\) cannot converge strongly to the identity:
+otherwise, for every \(x\),
+\(\lambda_0(x)=\lim_T\lambda_0(P_Tx)=0\).
+More generally intersections of an increasing collection of
+evaluation kernels decrease as the collection grows.
+Passing to complementary projectors changes the limiting subspace;
+it does not prove density in the full space.
+
+These two checks apply to the general zero-count and kernel-projector
+claims in Masullo's current draft, Lemma~9.3.2.4 and
+Theorem~9.3.2.6 (printed pages 425--426).
+The affected statements need replacement before their downstream
+spectral argument can supply an input here.
+This identifies particular obstructions; it is not a verdict on every
+other result in that draft.
+The source PDF and the separate, longer audit are listed in
+Section~\ref{sec:sr-source-review}.

@@ -1,13 +1,19 @@
 # Ordinary RH through fourth-power samples
 
-This is a working exposition, **not a completed unconditional proof of RH**.
+This is a working exposition, **not a completed standalone unconditional proof of RH**.
 
-The new first part gives full prose proofs of the prime-only criterion and analytic ending, the signed finite-group comparison, canonical conductor-one field and degree estimates, the one-ramified-prime class-number lemma and its cyclotomic consequences, strict descent at 3 and 7, the integer-budget equivalence, finite-exception window selection, and the numerical budget absorption. It also proves logarithmic integrability after principalisation and the shifted positive-definite lattice theta identity.
+The main argument prints proofs of the prime-only analytic criterion and ending, the signed finite-group comparison, the conductor-one field and its degree, cyclotomic class-number oddness, strict descent at 3 and 7, integer-budget equivalence, finite-exception interval selection, and numerical absorption. The supporting arithmetic chapters print the characterwise minus descent, its cyclotomic derivative system and Frobenius selection.
 
-The single PDF includes the earlier 163-page working translations as a supporting second part. Their hypotheses and remaining obligations are retained. The new first part does not prove that the signed geometric data exist on the required arbitrarily late windows. It does not prove the characterwise bound PB(E), the uniform pointwise height bound, the quantitative dyadic inputs, or all relevant global theta and integral geometry estimates.
+This consolidation closes the odd prime-to-degree minus bound PB(E) by combining those internal proofs with the common Bernoulli integer. For conductor-one fields every odd prime is eligible. It also proves a uniform 24-generator bound for the unramified dyadic Galois module in the enlarged cyclotomic limit and its split quotient, with full bidual identifications giving the source's Tower.IsTower input, an exact centered prime-distribution identity, a spectral uniqueness lemma and the growth bound needed to apply it to zeta zeros. The dyadic argument bounds generators, not finite-twist orders.
 
-New prose simplifications and the cyclotomic arguments have not been independently formalized. The successful Lean checks of Anton's reductions verify their stated implications and do not certify this new exposition.
+The manuscript is still conditional on the uniform supply of signed geometric data. In Anton's current 552-line formal reduction the explicit inputs after Weber are a uniform plus-height bound and a connected-family construction. Its reported 3,857 imported project modules also contain substantial mathematical proofs; two explicit formal premises do not mean just two short prose lemmas remain.
 
-Build entry point: [short-route.tex](short-route.tex). The GitHub workflow publishes one PDF, its flattened LaTeX, page-rendering contact sheets, and a build report in a permanent release named `short-route-COMMIT`.
+The text still needs the uniform plus bound, the transport from the dyadic module to finite-twist cohomology, the quantitative high-twist and exceptional-set estimates, and the required global theta, ramified matching, cusp/metric and integral-model constructions. The source review keeps these obligations explicit.
+
+All five current Principia PDFs were identified and hashed. No new independent paper closing these obligations was found. Masullo's PDF is unchanged from the version with the specific zero-count and projector problems proved in our audit. Selected relevant entries in the community's growing prose bundle were examined; their imported hypotheses were retained.
+
+The new prose arguments have not been independently formalized. Anton's latest compilation is author-reported; we verified the source hash and read its signatures, but did not repeat that Lean run. PDF compilation and rendering do not verify mathematical completeness.
+
+Build entry point: [short-route.tex](short-route.tex). The GitHub workflow publishes one PDF, flattened LaTeX, page-rendering contact sheets, a build report and the source manifest in a permanent release named `short-route-COMMIT`.
 
 All new files and compilation outputs are stored on GitHub. Principia uploads remain paused.

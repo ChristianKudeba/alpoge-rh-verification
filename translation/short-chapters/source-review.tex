@@ -1,0 +1,204 @@
+\section{Consolidation of the current project sources}
+\label{sec:sr-source-review}
+This section records the source review behind the present consolidation.
+Its purpose is to distinguish a proved internal deduction, an imported
+formal theorem and an assumption still awaiting a prose proof.
+The review is of the files available on 21 November 2026.
+Version identifiers and verified byte hashes are recorded in the
+accompanying \srcid{short-route-sources.json}.
+
+\subsection{The five PDFs on the papers page}
+The
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper}{project papers page}
+currently contains the following five PDFs.
+\begin{description}
+\item[Formal entry points.]
+\href{https://principia-math.com/api/ws/files/402cfc03e76bc4f9eafd0eb930a80a20}{\srcid{alpoge-rh-formal-entry-points.pdf}}
+records endpoint declarations and their formal dependencies.
+Its six pages are not a six-page mathematical proof.
+\item[Earlier working translation.]
+\href{https://principia-math.com/api/ws/files/259cf87468cc745b1e81e358086a251e}{\srcid{alpoge-rh-working-translation.pdf}}
+is an earlier version of our exposition, rather than an independent
+argument that can discharge its successor's assumptions.
+\item[The 163-page working translation.]
+\href{https://principia-math.com/api/ws/files/8ca901b46a918a9293164d6a63d1ea7e}{\srcid{alpoge-rh-working-translation-163pp.pdf}}
+is the supporting text incorporated in Part II.
+Proposition~\ref{prop:sr-PB} now connects its printed minus descent to the
+short route; no proof term is needed to make that connection.
+\item[The separate analytic audit.]
+\href{https://principia-math.com/api/ws/files/b561b940f8dd3d3b8f8a2d1d83b359dc}{\srcid{masullo-zero-count-audit.pdf}}
+contains counterexamples and checks on the second proposed approach.
+Section~\ref{sec:sr-shared-distribution} includes the checks relevant here.
+\item[Masullo's draft.]
+\href{https://principia-math.com/api/ws/files/e8e3c2bb97f9bf324d74bff487bfb435}{\emph{The Music of the Primes}}
+is the 940-page version already examined in that audit.
+Its prime-side normalization is comparable with
+\eqref{eq:sr-prime-distribution}; its global spectral identification
+cannot be used here without replacing the affected steps.
+\end{description}
+This review found no additional standalone proof closing the stated
+inputs among these five files. The bytes of every listed PDF were hashed for this review.
+In particular the Masullo version has not silently been replaced by
+a revision resolving the identified issues.
+This statement concerns the five files returned by the project at the
+time of review, rather than papers that might appear later.
+
+\subsection{Anton's new conductor-one reduction}
+The main new source is in the collaborative editor:
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=b64c07f1e23480429eacd6b354f04f26}{\srcid{ConductorOneRHCombined.lean}}.
+Its current body is 552 lines, with SHA-256
+\[
+ \begin{gathered}
+ \texttt{e2bab4de455929689f2977514ae8a84b8}\\
+ \texttt{004fbbbb19619cf7b6866d77c93d33e}.
+ \end{gathered}
+\]
+The two displayed strings concatenate to one 64-digit hash.
+The author reports a successful Lean 4.33.1 compilation in 664 seconds.
+The present consolidation independently checked the source bytes and
+read the theorem signatures; it did not independently repeat that
+compilation. The reported 33 direct imports reach 3,857 project
+modules, besides Mathlib. The preceding 1,873-line version reached
+3,856. Thus the shorter source is a useful specialization and
+reorganization; its imported mathematical development remains extensive.
+
+The top theorem is
+\(\srcid{Principia.Ordinary.ConductorOneRH.rh}\).
+It is an implication with three explicit inputs.
+The first is the oddness of the class number of every cyclotomic field
+of \(2\)-power conductor; this is proved in
+Lemma~\ref{lem:sr-oneprime} and its application above.
+The other two inputs are as follows.
+
+\paragraph{A uniform plus-length bound.}
+In the source this is the predicate \srcid{Height}.
+It requires a single natural exponent \(C\) and two fixed auxiliary
+primes, before the host and the twist range are chosen.
+For every sufficiently large principal host \(h\), every
+\(t\geq2\) with \(h.\srcid{Big}(t)\), and its CM field \(E\), it gives
+\begin{equation}\label{eq:sr-principal-height}
+ \sum_{\substack{\ell\in S\\\ell\ \mathrm{odd}}}\log\ell
+       \sum_{a=1}^{t-1}s^+_{\ell,E}(a)
+                       \leq(Nt)^C
+       \quad\hbox{for every finite prime set }S .
+\end{equation}
+The host is for the trivial character. Its field and \(N\) are those
+in Section~\ref{sec:sr-arithmetic}.
+The size condition includes \(2t+1<q,d\) and excludes finitely many
+fixed character-dependent constants. The two auxiliary-prime
+inequalities and these fixed exclusions must hold for the same host.
+Equation~\eqref{eq:sr-principal-height} is not a consequence of the minus
+bound, since it controls the complementary conjugation eigenspaces.
+Allowing \(C\) to depend on the individual host would change the assertion.
+
+\paragraph{A construction of connected families.}
+The final theorem also assumes an implication from
+\srcid{HostExW}\((3/2,(\srcid{GChi}\,1).\srcid{req})\) to
+\srcid{FamilyClassConnected}\(((\srcid{GChi}\,1).\srcid{cls}(3/2))\).
+These are the archive's host-window and connected-family predicates.
+They include geometric witnesses and their uniform estimates.
+A prose deduction using this route must define those witnesses and prove
+their properties. Naming the predicates does not do that.
+Definition~\ref{def:sr-supply} instead states the exact signed-data
+existence assertion used by the fully printed comparison in Part I.
+The two interfaces should not be identified without constructing the
+map between their witnesses.
+
+The 552-line file proves the following assembly within the imported
+development. Its degree-one specialization removes the exceptional
+odd-prime term. The minus estimate, the supplied dyadic estimate and
+\eqref{eq:sr-principal-height} give the full strict-length budget.
+The high-twist size theorem and the rank bound provide an exceptional
+set with at most 24 elements. Finite-exception avoidance supplies a
+common interval. This produces a principal cohomological window.
+The assumed connected-family construction then gives the prime-sum
+inequality, which excludes right-half-plane zeros. Modulus-one
+Dirichlet \(L\) is \(\zeta\), so reflection gives ordinary RH.
+The degree-one cancellation and the final identification of \(L\)
+remove bookkeeping required for nontrivial characters.
+
+The latest source uses
+\[
+ J_{\mathrm{archive}}=2^{26}(2C_KC_t/\epsilon)^{24}.
+\]
+The direct interval proof in \eqref{eq:sr-J} gives
+\(J_{\mathrm{direct}}=2^{25}(2C_KC_t/\epsilon)^{24}\) under its
+stated exceptional-set hypotheses.
+These are different interval estimates. The sharper numerical
+calculation does not itself establish those hypotheses.
+
+\subsection{What imported results still need an internal proof}
+The short file supplies the high-twist theorem by assembling the
+class-counting ingredients. Its source lines 182--189 invoke
+\srcid{lemmaK_of_steps} together with chain, prism, intersection,
+theta, class, torsion and quaternionic bounds.
+The explicit Poitou--Tate and local duality parameters are therefore
+not its only mathematical content: the other ingredients are
+imported proved results. The standalone manuscript still needs their
+applicable statements and proofs, or a valid replacement for them.
+
+The connected-family branch we inspected is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean}{\srcid{ThirdPlaceSeries.TopShape}}.
+Its concluding comparison sets \(e_D=2,e_L=0\), turning the
+exponent \(1/2+(e_D+e_L+7)\epsilon\) into \(1/2+9\epsilon\).
+That substitution is elementary.
+The hypotheses supplying the integral theta realizations, rank and
+determinant bounds, genus mass, metric control, admissible twists and
+connected geometric model are not elementary consequences of that
+substitution. The longer route's supporting chapters establish several
+comparisons from specified local data, while retaining the construction
+of those data as inputs.
+
+The community's generated
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=fd6fc09854184b61bca8dd800a4859b5}{\srcid{rh-unpacked.tex}}
+snapshot reports 1,067 translated modules and 1,001 reviewed modules
+out of 175,187. We inspected relevant geometric and cohomological
+entries in that snapshot.
+For example
+\srcid{CuspidalModerateGrowthRapidDecay} separates the height used in
+derivative growth from the quotient height used in its conclusion.
+Its proof uses a cusp-scale decomposition, a unipotent-variation bound
+and an iterated-gain theorem.
+The following \srcid{CuspFormsRapidDecay} entry is a wrapper converting
+that finite-derivative estimate into rapid decay.
+These entries help track the proof, but appending their statements
+would not prove the imported cusp-scale results or the uniform metric
+estimates needed for the present families.
+Likewise a published-hypothesis entry states an input; it is not an
+independent proof of the input.
+
+\subsection{The resulting proof ledger}
+The odd prime-to-degree minus bound is now an internal consequence:
+the strict characterwise descent, its derivative system and local
+identities, the common Bernoulli integer and
+Proposition~\ref{prop:sr-PB} form one chain.
+The dyadic class-number base, the uniform 24-generator bound of
+Proposition~\ref{prop:sr-dyadic-generators}, the elementary field degree,
+the finite interval selection and numerical absorption are also proved here.
+The analytic endpoint and signed finite comparison have complete
+printed proofs.
+
+To obtain an unconditional standalone proof by this route, the
+following work remains.
+\begin{enumerate}
+\item Prove the uniform plus estimate
+\eqref{eq:sr-principal-height}, with one exponent before all hosts and
+twist ranges. The height/deformation and automorphic counting
+comparisons in Part II must be supplied with the construction and
+compatibility inputs they currently assume.
+\item Transport the dyadic module bound in
+Proposition~\ref{prop:sr-dyadic-generators} to the source's finite-twist
+cohomological estimates, and prove the high-twist size bounds and
+fixed finite exceptional-set construction. A bound on generators
+does not bound the orders of the required finite groups.
+\item Construct the connected geometric families, or directly the
+signed data of Definition~\ref{def:sr-supply}, on the required common
+windows. This includes the relevant global theta identity, ramified
+matching, cusp/metric and integral-lattice estimates with compatible
+normalizations and constants.
+\end{enumerate}
+These are missing proofs in this exposition, not a claim that the
+original formal archive has corresponding unproved declarations.
+A source proof may be completely checked while its human explanation
+is still incomplete. Conversely, a shorter conditional theorem or a
+successful PDF build does not complete that explanation.

@@ -23,17 +23,22 @@ with reductions from Anton and the Principia contributors}
 \maketitle
 \begin{abstract}
 We organize the shorter conductor-one route around one explicit supply
-assertion for arithmetic-geometric data.
+assertion for arithmetic-geometric data, and compare its analytic ending
+with a spectral approach.
 We prove the prime-only fourth-power criterion, its full analytic ending,
 the signed finite-group comparison, the explicit conductor-one field and
 degree bounds, cyclotomic class-number regularity at 2, 3 and 7, strict
-descent at 3 and 7, and the numerical interval and length-budget comparisons.
-We also give direct logarithmic-integrability and positive-definite
-lattice-theta comparisons.
+descent at 3 and 7, a uniform dyadic generator bound in the cyclotomic
+limit, and the numerical interval and length-budget comparisons.
+The odd prime-to-degree minus bound is assembled from the full descent
+printed in the supporting chapters. We also prove the centered prime
+distribution identity, a spectral uniqueness criterion, and direct
+logarithmic-integrability and positive-definite lattice-theta comparisons.
 The existing longer-route translations are included as supporting chapters.
-The uniform supply assertion, its pointwise height input, the characterwise
-minus bound, quantitative dyadic inputs, and parts of the global theta and
-integral geometric construction are not proved in this edition.
+The uniform supply assertion, its pointwise height input, the transport
+to finite-twist dyadic size estimates, the high-twist cohomological size
+bound, and parts of the global theta and integral geometric construction
+are not proved in this edition.
 This document is therefore a working exposition with proved implications,
 not a completed unconditional proof of the Riemann hypothesis.
 \end{abstract}
@@ -42,9 +47,11 @@ not a completed unconditional proof of the Riemann hypothesis.
 \input{short-chapters/scope}
 \part{The shorter route for ordinary zeta}
 \input{short-chapters/analytic}
+\input{short-chapters/comparison}
 \input{short-chapters/finite}
 \input{short-chapters/arithmetic}
 \input{short-chapters/geometry}
+\input{short-chapters/source-review}
 \clearpage
 \part{Supporting translations from the longer route}
 \paragraph{The source.}
@@ -134,7 +141,12 @@ geometric content which the reader still needs for an independent proof.
 \item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-derivatives}
 give the generator count, the signed annihilator, the construction and
 local relations of the derivative classes, and the simultaneous choice
-of auxiliary primes. On the rank-three side,
+of auxiliary primes. Proposition~\ref{prop:sr-PB} assembles the complete
+prime-to-degree minus estimate from those printed arguments and the
+Bernoulli integer calculation. Proposition~\ref{prop:sr-dyadic-generators}
+proves the separate 24-generator statement for the unramified cyclotomic
+module, while its finite-twist transport and size estimates remain to
+be supplied. On the rank-three side,
 Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
 derive the trace product and the full graded intersection inequality.
 Sections~\ref{sec:kato-rigidity} and~\ref{sec:type-one-rigidity} derive

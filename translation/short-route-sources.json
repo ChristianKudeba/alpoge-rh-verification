@@ -1,16 +1,16 @@
 {
-  "edition": "ordinary-rh-short-route-working-exposition",
+  "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "incomplete: conditional on the uniform signed-data supply",
+  "status": "incomplete: plus-height, finite-twist quantitative estimates and uniform geometric construction remain",
   "prior_manuscript_commit": "8f24eadc552967b963390bdf83f085f6838f4c12",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
     "Uniform signed-data supply on arbitrarily late fourth-power windows",
-    "Characterwise prime-to-degree minus bound PB(E)",
-    "Uniform odd plus bound from PointHV",
-    "Quantitative dyadic rank and cohomological size bounds",
-    "Relevant global theta, ramified matching, cusp and integral-model comparisons"
+    "Uniform odd plus bound from PointHV/Height",
+    "Dyadic module transport to finite-twist cohomology and quantitative high-twist size estimates",
+    "Fixed exceptional-set construction with the needed uniformity",
+    "Relevant global theta, ramified matching, cusp/metric and integral-model constructions"
   ],
   "principia_sources": [
     {
@@ -189,6 +189,127 @@
       "status": "reviewed",
       "translated_by": "Baelson",
       "reviewed_by": "lowrank"
+    }
+  ],
+  "preceding_short_route_commit": "9cd013c786ba170e3984fb2bf9745653c976be31",
+  "proved_in_this_revision": [
+    "PB(E) assembled from internally printed characterwise descent, cyclotomic derivatives, Frobenius selection and Bernoulli integer product",
+    "Uniform 24-generator bound for the unramified dyadic module and its split quotient; explicit bidual identifications with Tower.XX and Tower.XP, hence the generator input Tower.IsTower; finite-twist size comparison not included",
+    "Centered prime-distribution identity with all half-line boundary terms",
+    "Global zeta zero growth bound and uniqueness of a vertical discrete spectral distribution",
+    "Counterexample to arbitrary Mellin-transform O(log T) unit-box zero counts and the decreasing-kernel projection check"
+  ],
+  "latest_combined_source": {
+    "path": "ConductorOneRHCombined.lean",
+    "id": "b64c07f1e23480429eacd6b354f04f26",
+    "updated_at": 1795245641028,
+    "updated_by": {
+      "username": "anton",
+      "avatar": "026e75c286c8e5c5659147c48b91aee0",
+      "name": "anton"
+    },
+    "utf8_bytes": 29309,
+    "logical_lines": 552,
+    "sha256": "e2bab4de455929689f2977514ae8a84b8004fbbbb19619cf7b6866d77c93d33e",
+    "direct_imports": 33,
+    "reported_transitive_project_imports": 3857,
+    "compiler_report": {
+      "source": "author report in Principia research notes",
+      "lean": "4.33.1",
+      "seconds": 664,
+      "independently_repeated_in_this_revision": false
+    },
+    "explicit_premises": [
+      "Weber odd class numbers",
+      "uniform principal plus-height bound",
+      "principal host-window to connected-family construction"
+    ],
+    "weber_proved_in_manuscript": true
+  },
+  "papers_review": [
+    {
+      "path": "alpoge-rh-formal-entry-points.pdf",
+      "url": "https://principia-math.com/api/ws/files/402cfc03e76bc4f9eafd0eb930a80a20",
+      "size": 171218,
+      "source_file_id": "8ca98586b88358808a09789e844f4c76",
+      "sha256": "bab79e7d53b740e8caae850a11a5f43b90e17fdfa0a407806ee4e4f32e9fb423",
+      "verified_bytes": 171218,
+      "relationship": "endpoint record, not full exposition"
+    },
+    {
+      "path": "alpoge-rh-working-translation-163pp.pdf",
+      "url": "https://principia-math.com/api/ws/files/8ca901b46a918a9293164d6a63d1ea7e",
+      "size": 1670387,
+      "source_file_id": "51c2ab9db507735b7622b65c6884b44c",
+      "sha256": "cbfef2891adea12dac191f04544b76659a8202bfd5293d1596019eb45db662cc",
+      "verified_bytes": 1670387,
+      "relationship": "supporting chapters already incorporated"
+    },
+    {
+      "path": "alpoge-rh-working-translation.pdf",
+      "url": "https://principia-math.com/api/ws/files/259cf87468cc745b1e81e358086a251e",
+      "size": 1567173,
+      "source_file_id": "83f7dd67090be2cbe257693851c543d8",
+      "sha256": "797ec509967c88098bbe2990cfc09629490f4421b8182bf78130caacc79a6302",
+      "verified_bytes": 1567173,
+      "relationship": "earlier version of our exposition"
+    },
+    {
+      "path": "principia-harness/a0564e7e/masullo-zero-count-audit.pdf",
+      "url": "https://principia-math.com/api/ws/files/b561b940f8dd3d3b8f8a2d1d83b359dc",
+      "size": 306591,
+      "source_file_id": "9d1c207fe7d641fad408a92c8e155583",
+      "sha256": "cac67d92aae58f4897e2803698e646b3c79d013e16f1c89ee999e14a650c0fef",
+      "verified_bytes": 306591,
+      "relationship": "our analytic audit"
+    },
+    {
+      "path": "masullo-the-music-of-the-primes.pdf",
+      "url": "https://principia-math.com/api/ws/files/e8e3c2bb97f9bf324d74bff487bfb435",
+      "size": 6756996,
+      "source_file_id": "7d35549842c1a34cd0e5e1cbcb4756ce",
+      "sha256": "e039d3f6cf0a4b14f03c7edb85097752dd65c0a2fe543c76fe992be234f97bf5",
+      "verified_bytes": 6756996,
+      "relationship": "same 940-page version as the audited source"
+    }
+  ],
+  "community_bundle": {
+    "path": "rh-unpacked.tex",
+    "id": "fd6fc09854184b61bca8dd800a4859b5",
+    "updated_at": 1795246680342,
+    "reported_translated": 1067,
+    "reported_reviewed": 1001,
+    "total_project_modules": 175187,
+    "scope": "Selected relevant geometric/cohomological entries inspected; entire bundle not claimed independently reviewed"
+  },
+  "dyadic_definition_sources": [
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.Mk0IdMapCongr",
+      "ref": "alpoge-source-7cbf7a0c",
+      "read_and_matched": [
+        "XDual",
+        "Dinf",
+        "Xinf"
+      ]
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.NumberFieldTowers.XTwApplyApply",
+      "ref": "alpoge-source-7cbf7a0c",
+      "read_and_matched": [
+        "GenLE",
+        "XX",
+        "XP",
+        "IsTower"
+      ]
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.QuadraticExtensions.ModulusAdjoinISqrtNegPrimes",
+      "ref": "alpoge-source-7cbf7a0c",
+      "read_and_matched": [
+        "withI",
+        "base2",
+        "XRk"
+      ]
     }
   ]
 }
