@@ -204,7 +204,10 @@
     "Uniform dyadic free-lift congruence A^128 = 1 modulo 8 and cokernel growth c_m(a) <= c_7(a)+24(m-7)_+",
     "Matrix-logarithm center bound with at most 24 fixed centers and exceptional twists on a whole horizon",
     "Fixed-layer discriminant |disc L_7| <= 2^8192 (qd)^512",
-    "Full dyadic common-window estimate conditional on specialized high-twist cohomology bound K_2(C_K), which remains unproved"
+    "Full dyadic common-window estimate conditional on specialized high-twist cohomology bound K_2(C_K), which remains unproved",
+    "Exact local/global cyclotomic images and H² length s_2(L_m,a)+m+2+v_2(a) in the principal dyadic tower; cohomology growth at most 25(m-7)_+",
+    "Fixed Q(sqrt(-3)) auxiliary arithmetic packet for every odd nonresonant prime, including seven; substantial PropGK producer still required",
+    "Determinant-prescribed fractional-ideal lattice comparison (SStein), with CRT construction, valuation equivalence and exact Minkowski covolume scaling"
   ],
   "latest_combined_source": {
     "path": "verification/LogCubeRH.lean",
@@ -450,5 +453,48 @@
     "historical_sources": "translation/archive/principia-before-194-page-consolidation.json",
     "separate_audit": "masullo-zero-count-audit.pdf",
     "other_contributors_unchanged": true
-  }
+  },
+  "certificate_snapshot": {
+    "ref": "6186b8d5c272c08c90f6f5cce1a25d22232ed78d",
+    "path": "verification/research/certificate-construction",
+    "scope": "sources and recorded verification inspected; Lean replay not repeated here",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 7335,
+        "sha256": "13fc2c9244891533533d7e65f79aaeaf0427e55704664a5c083deee5b8a1d1e7"
+      },
+      {
+        "path": "notes/plus.md",
+        "bytes": 7350,
+        "sha256": "ee48082f7c70d870ae4c168755388b5921a472f905335bacdedb0725739c4a93"
+      },
+      {
+        "path": "Compaction/ClosedCohomologyInputs.lean",
+        "bytes": 1689,
+        "sha256": "93e8794e69e90f410cbba10548e1fb7d70a2d78665166bda94de339aa61a893a"
+      },
+      {
+        "path": "PrincipalNonresonant.lean",
+        "bytes": 5296,
+        "sha256": "83c4cb5512f34089a75641959404130f2bd9d2fe7ee3bbe7af489f935446cae9"
+      },
+      {
+        "path": "PairCertificate.lean",
+        "bytes": 2502,
+        "sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66"
+      },
+      {
+        "path": "AllOrbitCertificate.lean",
+        "bytes": 5040,
+        "sha256": "e567b2ad934ed3c16d05ee7eb7e9224a51484b7ef2828f503bec8227d202fa87"
+      },
+      {
+        "path": "verification/kernel-replay-summary.json",
+        "bytes": 4272,
+        "sha256": "a98edf504b08746d812025691851abd9a01ef7be8e781662f9eeab6f137c2a86"
+      }
+    ]
+  },
+  "remaining_class_counting_note": "SStein lattice comparison and local cohomology corrections proved independently; remaining class-counting chain includes primitive homology classes, detection/counting, stable-rank bounds, torsion estimates and global strict comparison"
 }

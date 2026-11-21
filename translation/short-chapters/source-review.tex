@@ -169,6 +169,33 @@ the height bound from them with all prime weights retained.
 This removes a separate CM-host assumption at 3 and 7.
 It does not remove the need to prove the two rational estimates.
 
+\subsection{New certificate constructions}
+The newer repository work at
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/6186b8d5c272c08c90f6f5cce1a25d22232ed78d/verification/research/certificate-construction}{the pinned certificate-construction snapshot}
+supplies explicit integer witnesses before the field realizations and
+coefficient primes are chosen.
+Its odd-minus certificates, Weber proof and dyadic-window adapters
+assemble proved archive inputs. Its nonresonant plus certificate
+uses \(\mathbb Q(\sqrt{-3})\), whose elementary arithmetic packet
+is proved in Section~\ref{sec:sr-three-auxiliary}.
+A pair of distinct auxiliary primes supplies two nonzero integers;
+their squared product covers the one excluded prime of either
+individual estimate. Products over a fixed set of rational character
+orbits then give one integer independent of the later prime set.
+
+The snapshot's notes explicitly retain the substantial
+\srcid{PropGK} integer producer and the nontrivial resonant estimate
+as inputs. They also identify \(\ell=3,a=1\) as a case that a
+rank-four estimate stated only for \(a\geq2\) cannot cover.
+Thus these constructions improve the arithmetic assembly without
+providing the missing standalone counting proof.
+The recorded kernel replay reports acceptance of the closed
+odd-minus certificate, Weber theorem and the implication from a joint
+window to the final cohomological window, using only the three standard
+axioms. We inspected those records and the relevant sources; we did not
+repeat their replay in this document build.
+The joint-window producer still has mathematical content to translate.
+
 \subsection{What imported results still need an internal proof}
 The short file supplies the high-twist theorem by assembling the
 class-counting ingredients. Its source lines 182--189 invoke
@@ -221,7 +248,13 @@ the finite interval selection and numerical absorption are also proved here.
 Section~\ref{sec:sr-dyadic-bounds} now proves a uniform free-lift
 congruence, cokernel growth from depth seven, the matrix-logarithm
 center bound, the 24-element exceptional set fixed on a whole horizon,
-and the fixed-depth discriminant estimate. The dyadic common-window
+and the fixed-depth discriminant estimate. It also computes all local
+cohomology corrections exactly and proves the resulting growth bound
+of 25 per layer. Section~\ref{sec:sr-ideal-lattices} proves the
+\srcid{SStein} fractional-ideal comparison and its covolume identity.
+These are internal ingredients of the class-counting chain; its
+remaining global estimates still require proofs.
+The dyadic common-window
 theorem is an internal deduction from \(K_2(C_K)\), not a proof of
 that remaining high-twist input.
 The analytic endpoint and signed finite comparison have complete

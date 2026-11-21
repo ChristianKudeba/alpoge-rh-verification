@@ -270,3 +270,70 @@ Their source proofs involve the global counting and geometric
 comparisons in Part II. The vanishing and the assembly above
 are not substitutes for those two estimates.
 
+
+\subsection{A fixed auxiliary field for every nonresonant prime}
+\label{sec:sr-three-auxiliary}
+The newer certificate construction uses
+\(K=\mathbb Q(\sqrt{-3})\) in place of
+\(\mathbb Q(\sqrt{-7})\) for principal hosts.
+The following arithmetic part of that refinement is independent of
+the still-required global counting theorem.
+
+\begin{srproposition}\label{prop:sr-three-auxiliary}
+Let \(t\geq2\), let \(q,d>2t+1\) be principal primes, and put
+\(N=2^{h+2}qd\) and \(K=\mathbb Q(\sqrt{-3})\).
+Let \(\ell\) be an odd prime, \(1\leq a<t\), with
+\(\ell-1\nmid2a\), and let \(\psi\) be a character of the
+principal CM field of level dividing \(N\).
+Then
+\[
+ h_K=1,\quad |\operatorname{disc}K|=3,\quad
+ (3,N)=1,\quad \ell\nmid3h_K,\quad \ell\nmid\operatorname{ord}\psi .
+\]
+Every odd-primary local component of \(\psi\) has order at most two.
+If \(\overline\kappa_\ell\) is the cyclotomic character modulo
+\(\ell\), then
+\[
+ \ker\overline\kappa_\ell\cap\ker\psi
+                              \not\subseteq G_K .
+\]
+Thus the one auxiliary quadratic field works for every odd
+nonresonant prime, including seven.
+\end{srproposition}
+\begin{proof}
+The quadratic integral basis gives discriminant \(-3\).
+Minkowski's bound is \((2/\pi)\sqrt3<2\), so every ideal class
+contains an ideal of norm one. Hence \(h_K=1\).
+The principal primes exceed \(2t+1\geq5\), so neither is three,
+and \(3\nmid N\).
+The prime three is always resonant, since \(3-1=2\mid2a\).
+Consequently \(\ell\ne3\), proving \(\ell\nmid3h_K\).
+
+The Galois group of the principal CM field is a \(2\)-group,
+so \(\operatorname{ord}\psi\) is a power of two and is prime to
+the odd prime \(\ell\).
+At an odd prime different from \(q,d\) its local ramified component
+is trivial. At \(q\) and \(d\) the inertia image comes from a
+quadratic radical, and therefore has exponent at most two.
+This proves the assertion about local components.
+
+Finally take inertia \(I_3\) at three in \(G_{\mathbb Q}\).
+Both \(\overline\kappa_\ell\) and \(\psi\) are unramified there:
+their conductors divide respectively \(\ell\) and \(N\), both
+prime to three. Thus
+\(I_3\subseteq\ker\overline\kappa_\ell\cap\ker\psi\).
+But \(K/\mathbb Q\) is ramified at three, so \(I_3\) has
+nontrivial image in \(\operatorname{Gal}(K/\mathbb Q)\).
+It is not contained in \(G_K\). This proves the final assertion.
+\end{proof}
+
+This verifies the auxiliary discriminant, class-number, order and
+inertia conditions of the newer principal nonresonant argument.
+It does not produce the trace-difference integers or their uniform
+size bound, called \srcid{PropGK} in that source.
+The newer construction retains that producer as an input.
+Nor does it bound the nontrivial resonant contributions; these
+include \(\ell=3,a=1\), for which an argument requiring \(a\geq2\)
+would leave a gap.
+The two estimates in Definition~\ref{def:sr-character-inputs}
+therefore remain unproved in this edition.

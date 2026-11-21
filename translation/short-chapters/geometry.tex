@@ -1,11 +1,146 @@
-\section{Two geometric comparisons with independent proofs}
+\section{Geometric and lattice comparisons with independent proofs}
 \label{sec:sr-geometric}
 Recent translations by Baelson, reviewed by lowrank, identify the
 principalisation, arithmetic intersection, toroidal-chart and Fock-model
 branches of the original development. A statement that merely re-exports
 an earlier theorem does not yet explain that theorem's proof.
-We record two elementary comparisons that can be proved directly here,
+We record geometric and lattice comparisons that can be proved directly here,
 and specify their domains to avoid applying them beyond their hypotheses.
+
+\subsection{An exact comparison of fractional-ideal lattices}
+\label{sec:sr-ideal-lattices}
+One ingredient of the high-twist class-counting argument is a
+determinant-prescribed comparison of integral lattices.
+Here it has a direct proof over a Dedekind domain.
+
+\begin{srproposition}\label{prop:sr-ideal-lattices}
+Let \(R\) be a Dedekind domain with fraction field \(F\).
+Let \(I_1,\ldots,I_r\) and \(J_1,\ldots,J_r\) be nonzero
+fractional ideals, and let \(\beta\in F^\times\), with
+\[
+                  \prod_{j=1}^rJ_j=\beta\prod_{j=1}^rI_j.
+\]
+If \(r=0\), assume also \(\beta=1\).
+There exists \(A\in\mathrm{GL}_r(F)\) with
+\[
+ \det A=\beta,\qquad
+             A\left(\bigoplus_{j=1}^rI_j\right)
+                         =\bigoplus_{j=1}^rJ_j.
+\]
+\end{srproposition}
+\begin{proof}
+We first construct, for any two nonzero fractional ideals \(I,J\),
+a determinant-one matrix sending \(I\oplus J\) onto \(R\oplus IJ\).
+Choose \(0\ne a\in I^{-1}\).
+Then \(aI\) is a nonzero integral ideal; let \(\mathcal P\) be its
+finite set of prime divisors.
+
+Choose \(b\in J^{-1}\) whose image in \(J^{-1}/PJ^{-1}\) is nonzero
+for every \(P\in\mathcal P\).
+Here is a direct justification of that simultaneous choice.
+For any such \(P\), \(J^{-1}\ne PJ^{-1}\), since multiplication
+by the invertible ideal \(J\) would otherwise give \(R=P\).
+Choose \(b_P\) outside \(PJ^{-1}\).
+For distinct maximal ideals the Chinese remainder construction gives
+\(e_P\in R\) with
+\(e_P\equiv1\pmod P\) and \(e_P\equiv0\pmod Q\) for every other
+\(Q\in\mathcal P\).
+Then \(b=\sum_P e_Pb_P\) has the required residues.
+The Chinese remainder construction used here follows inductively
+from \(P+Q=R\) for distinct maximal ideals.
+If \(\mathcal P\) is empty, take \(b=0\).
+
+Both \(aI\) and \(bJ\) are integral ideals and
+\[
+                         aI+bJ=R.
+\]
+Indeed a maximal ideal containing their sum would contain \(aI\),
+so would belong to \(\mathcal P\); but \(bJ\subseteq P\) would
+imply \(b\in PJ^{-1}\), contrary to the choice.
+Choose \(x\in I,y\in J\) with \(ax+by=1\), and put
+\[
+       B=\begin{pmatrix}a&b\\-y&x\end{pmatrix},
+       \qquad
+       B^{-1}=\begin{pmatrix}x&-b\\y&a\end{pmatrix}.
+\]
+The displayed relation gives \(\det B=1\) and verifies the inverse.
+For \(u\in I,v\in J\), the first coordinate \(au+bv\) belongs
+to \(R\), and the second coordinate \(-yu+xv\) belongs to \(IJ\).
+Conversely, for \(z\in R,w\in IJ\),
+\[
+                 xz-bw\in I,\qquad yz+aw\in J,
+\]
+using \(b\in J^{-1},a\in I^{-1}\).
+Thus \(B\) induces the claimed exact lattice comparison.
+
+For \(r\geq2\), apply these two-coordinate matrices successively
+in coordinates \((1,2),(2,3),\ldots,(r-1,r)\).
+All full matrices have determinant one, and their product \(B_I\)
+sends
+\[
+       \bigoplus_j I_j\quad\hbox{onto}\quad
+                             R^{r-1}\oplus\prod_j I_j .
+\]
+Construct \(B_J\) in the same manner.
+The diagonal matrix
+\(D=\operatorname{diag}(1,\ldots,1,\beta)\) sends the first
+normalized lattice onto the second and has determinant \(\beta\).
+Therefore \(A=B_J^{-1}DB_I\) has the required determinant and
+image. For \(r=1\), take \(A=(\beta)\).
+For \(r=0,\beta=1\), take the identity of the zero space,
+whose determinant is one.
+\end{proof}
+
+In a number field \(F\), write
+\[
+ I_j=\prod_P P^{a_{j,P}},\qquad
+ J_j=\prod_P P^{b_{j,P}},
+\]
+with integer exponents of finite support.
+If
+\[
+              v_P(\beta)=\sum_j(b_{j,P}-a_{j,P})
+                                      \quad\hbox{for every }P ,
+\]
+unique ideal factorization gives
+\(\prod J_j=\beta\prod I_j\).
+The proposition consequently produces the exact equivalence
+\begin{equation}\label{eq:sr-ideal-valuations}
+ \bigl(v_P(x_j)\geq a_{j,P}\ \hbox{for all }j,P\bigr)
+ \quad\Longleftrightarrow\quad
+ \bigl(v_P((Ax)_j)\geq b_{j,P}\ \hbox{for all }j,P\bigr).
+\end{equation}
+We use \(v_P(0)=+\infty\).
+Membership in a fractional ideal is equivalent to these valuation
+inequalities, by unique factorization and localization at the
+discrete valuation rings \(R_P\).
+This proves, in particular, the determinant and valuation comparison
+called \srcid{SStein} in the class-counting chain leading to \(K_2\).
+
+There is also an exact archimedean consequence.
+Use the standard Minkowski embedding of \(F^r\) into
+\(\mathbb R^{rr_1}\times\mathbb C^{rr_2}\), with fixed Lebesgue
+measure, and let \(\operatorname{covol}\) denote lattice covolume.
+The two direct sums of fractional ideals are full lattices, and
+\begin{equation}\label{eq:sr-ideal-covolume}
+ \operatorname{covol}\left(\bigoplus_jJ_j\right)
+   =|\operatorname{Norm}_{F/\mathbb Q}\beta|\,
+                  \operatorname{covol}\left(\bigoplus_jI_j\right).
+\end{equation}
+Indeed the real absolute Jacobian of \(A\) is
+\[
+ \prod_{\sigma\ {\rm real}}|\sigma(\det A)|
+ \prod_{\sigma\ {\rm complex}/\mathrm{conj}}|\sigma(\det A)|^2
+                 =|\operatorname{Norm}_{F/\mathbb Q}\beta|.
+\]
+A complex-linear matrix has real determinant equal to the square
+of the absolute value of its complex determinant; this follows
+by triangularization, or by writing its real and imaginary blocks.
+Applying the change-of-variables formula to a lattice fundamental
+parallelepiped proves \eqref{eq:sr-ideal-covolume}.
+This comparison applies uniformly at every layer and twist.
+The later metric estimates also require bounds on operator norms;
+the exact determinant comparison supplies the covolume factor.
 
 \subsection{Logarithmic norms after principalisation}
 Let \(X\) be a connected smooth projective complex variety of dimension \(d\),
