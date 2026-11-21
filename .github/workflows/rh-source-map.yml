@@ -20,14 +20,23 @@ jobs:
       - name: Locate the exact saturation and slope producers
         run: |
           set -euo pipefail
-          rg --no-ignore -n --glob '*.lean' 'FlatSat|height_comparison_global_model|SlopeBoundSt|def.*N3|N3 : Prop|Model.N3' formal-source/src | tee source-map.txt
           python3 - <<'PY'
           from pathlib import Path
+          import re
+          pattern=re.compile(r'FlatSat|height_comparison_global_model|SlopeBoundSt|\bN3\b')
+          hits=[]
+          excerpts=[]
           for path in Path("formal-source/src").rglob("*.lean"):
               body=path.read_text(encoding="utf-8")
-              if "FlatSat" in body and not path.name == "FlatSat.lean":
-                  print("\nSOURCE FILE:",path)
-                  print(body)
+              matches=[f'{path}:{i}:{line}' for i,line in enumerate(body.splitlines(),1) if pattern.search(line)]
+              hits.extend(matches)
+              if ('FlatSat' in body and path.name != 'FlatSat.lean') or re.search(r'(?:def|structure|abbrev)\s+N3\b',body):
+                  excerpts.append('\nSOURCE FILE: '+str(path)+'\n'+body)
+          report='\n'.join(hits)+'\n'+''.join(excerpts)
+          if not hits:
+              raise SystemExit('No producer definitions found')
+          Path('source-map.txt').write_text(report,encoding='utf-8')
+          print(report)
           PY
       - name: Preserve the source map
         uses: actions/upload-artifact@v4
