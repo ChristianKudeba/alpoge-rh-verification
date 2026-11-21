@@ -1,1 +1,1 @@
-Restore the first seventeen checked input assets by numeric release ID, then run the comparison pilot. The canonical draft is release 453307898.
+Measure the 150,000-record pilot, with the preparation job as the only writer of source segments.
