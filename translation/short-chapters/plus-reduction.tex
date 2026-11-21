@@ -5,9 +5,9 @@ Anton's subsequent
 reduces the polynomial plus-height input to two rational-character
 bounds. We give the precise estimates and their assembly here.
 This section first records the two estimates as inputs.
-The generic estimate is proved later in
-Theorem~\ref{thm:sr-generic-character-estimate}; completion of the
-exceptional estimate remains necessary.
+The estimates are proved later in
+Theorem~\ref{thm:sr-generic-character-estimate} and
+Proposition~\ref{prop:sr-nontrivial-final-assembly}.
 We first supply the trivial-character vanishing needed in that assembly.
 
 \subsection{Two vanishing arguments over \(\mathbb Q\)}
@@ -169,7 +169,7 @@ extension is finite free over \(\mathbb Z_\ell\), and continuous
 cohomology and the local kernels commute with finite direct sums.
 Adding the further local conditions only takes a subgroup.
 
-\subsection{The two remaining estimates}
+\subsection{The two uniform estimates}
 Write \(M=Nt\), with \(t\geq2\).
 All the following quantifiers concern the same sufficiently large
 principal hosts as \eqref{eq:sr-principal-height}.
@@ -197,8 +197,10 @@ Finiteness is included in both estimates.
 \end{srdefinition}
 The first is a simultaneous sum over arbitrarily large finite
 prime sets, rather than a pointwise bound which could not be
-summed over all primes. These two estimates are still assumptions
-of the next proposition.
+summed over all primes. We first prove their height implication and subsequently construct
+both estimates, in
+Theorem~\ref{thm:sr-generic-character-estimate} and
+Proposition~\ref{prop:sr-nontrivial-final-assembly}.
 
 \begin{srproposition}\label{prop:sr-two-counts}
 Definition~\ref{def:sr-character-inputs} implies the polynomial
@@ -267,11 +269,10 @@ Case III simplifications in the contributors' files.
 The proof above avoids retaining the case labels: the generic,
 resonant and exceptional conditions are stated directly.
 
-The arithmetic content not supplied here is
-\eqref{eq:sr-generic-count} and~\eqref{eq:sr-nontrivial-count}.
-Their source proofs involve the global counting and geometric
-comparisons in Part II. The vanishing and the assembly above
-are not substitutes for those two estimates.
+The vanishing and numerical assembly above are supplemented by
+the actual support, rigidity and fixed-field counting constructions
+in Theorem~\ref{thm:sr-generic-character-estimate} and
+Proposition~\ref{prop:sr-nontrivial-final-assembly}.
 
 
 \subsection{A fixed auxiliary field for every nonresonant prime}
@@ -338,8 +339,8 @@ The newer construction retains that producer as an input.
 Nor does it bound the nontrivial resonant contributions; these
 include \(\ell=3,a=1\), for which an argument requiring \(a\geq2\)
 would leave a gap.
-The two estimates in Definition~\ref{def:sr-character-inputs}
-therefore remain unproved in this edition.
+The later deformation and counting chapters supply these separate
+producers and both uniform estimates.
 
 \subsection{Finiteness and a common integer for every coefficient prime}
 \label{sec:sr-character-finiteness}
@@ -592,11 +593,33 @@ Then \(d=r(\ell-1)\leq6R\), and the displayed exponent is at most
 These propositions prove the finiteness requirements for the two
 remaining character estimates and explain the limited uniformity
 obtained directly from the global bound.
-They do not prove the exponents \(A,B\) in
-Definition~\ref{def:sr-character-inputs}.
+The exponents \(A,B\) in Definition~\ref{def:sr-character-inputs}
+are instead supplied by the later fixed-spectrum constructions.
 The integer \(D_{E,a}\) varies with the host and twist, and the
 exponent in \eqref{eq:sr-character-order-bound} varies with
 \(a,r,\ell\).
 Choosing the maximum of finitely many exponents after fixing a
 host or a finite prime set would not give the required quantifier
 order.
+
+
+\subsection{The resulting unconditional arithmetic height bound}
+\begin{srcorollary}\label{cor:sr-principal-plus-height-proved}
+The polynomial plus-height estimate
+\eqref{eq:sr-principal-height} holds for all sufficiently large
+principal hosts with one exponent chosen before the host and
+the twist range. With the exponents constructed in
+Theorem~\ref{thm:sr-generic-character-estimate} and
+Proposition~\ref{prop:sr-nontrivial-final-assembly}, one may take
+\(A+3B+5\).
+\end{srcorollary}
+\begin{proof}
+The cited results prove both estimates of
+Definition~\ref{def:sr-character-inputs}, including finiteness
+and their coefficient normalizations. Increase the fixed host
+threshold to the maximum of their thresholds.
+The rational trivial-character vanishings cover the omitted
+exceptional and resonant terms.
+Proposition~\ref{prop:sr-two-counts} now applies, with all its
+hypotheses supplied and with the stated exponent.
+\end{proof}

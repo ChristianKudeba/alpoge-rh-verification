@@ -1,12 +1,11 @@
 {
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "Incomplete standalone prose exposition; generic uniform character estimate assembled; exceptional endpoint and global geometric construction remain.",
+  "status": "Incomplete standalone prose exposition; both uniform character estimates and the polynomial plus-height bound have prose proofs; global theta/window geometric construction remains.",
   "prior_manuscript_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
-    "Gaussian specialization of the shared rank-three support and final exceptional estimate; rank-four final endpoint is proved.",
     "Complete signature induction/global theta proportionality and normalized recursions; period factorization and the lower-nonzero CT-descent step are printed.",
     "General semiabelian saturation, integral-model commensurability, tied height/covolume construction; universal logarithmic Lie slope is proved.",
     "Compatible eventual common-window assembly."
@@ -961,6 +960,18 @@
     {
       "name": "exceptional-count-after-rank-four-endpoint",
       "blob_sha": "1c2a459127e2e0fac4834f22e042e7fd42ffe7ef"
+    },
+    {
+      "name": "Gaussian-frame-actual-two-runs-and-classicality",
+      "blob_sha": "a9b32c18ab8f006a2da03287f525358624d26668"
+    },
+    {
+      "name": "Gaussian-producer-fully-instantiated",
+      "blob_sha": "82674141f10e7162bcdf3c55825eeb829a69f645"
+    },
+    {
+      "name": "uniform-nontrivial-character-estimate",
+      "blob_sha": "fc189764730a420c14f7075f6806e016fb4c43fd"
     }
   ],
   "current_revision_review": "All added proof chunks reviewed by root against their stated hypotheses; root Decay proof reviewed by connected_geometry. Document checks remain separate from mathematical verification.",
@@ -973,5 +984,11 @@
     "slope_closed_by": "d3966c815f696ba612fc2e33a77aab8ad3ac8ad5",
     "flat_sat_actual_producer": "e917b6d3c43ffcbc37cc7674c184039f8960cb56",
     "model_N3_path": "src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/BirationalGeometry/ToroidalCompactification/UniformisationConclusion.lean"
+  },
+  "arithmetic_branch": {
+    "generic_estimate": "thm:sr-generic-character-estimate",
+    "exceptional_estimate": "prop:sr-nontrivial-final-assembly",
+    "polynomial_plus_height": "cor:sr-principal-plus-height-proved",
+    "proof_status": "Printed and internally reviewed; no separate Lean verification or independent refereeing of this prose."
   }
 }

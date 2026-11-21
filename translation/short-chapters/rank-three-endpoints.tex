@@ -244,9 +244,9 @@ Gaussian host algebra.
 We give the arithmetic specialization needed for the
 large-conductor Gaussian branch, including coefficient
 prime \(3\).
-The shared sharp/flat propagation theorem has a precise
-remaining role at the end of this subsection;
-automorphy is not assumed as a Gaussian literature input.
+The shared sharp/flat construction is instantiated on this
+very frame in Section~\ref{subsec:sr-gaussian-actual-two-runs};
+automorphy is obtained from its actual Hecke support.
 
 Fix \(K=\mathbb Q(i)\), \(\eta=\eta_K\),
 \(\ell\in\{3,7\}\), twist \(1\), and an actual principal
@@ -679,17 +679,10 @@ They divide neither by \(3\) nor by \(3!\);
 the rank-three nilpotence exponent is \(3!=6\).
 The normalized inertia types and ordinary characters
 here have just been identified.
-Accordingly the only shared support input still needed
-at this interface is the completed sharp/flat
-rank-two/rank-three propagation theorem, with its
-actual arithmetic frame bound and its two strict
-classes.
-It is the theorem implemented by
-\(\mathrm{PrLinkedEnd}\to\mathrm{AbsMain}
- \to\mathrm{PropagationTheoremGL3}\), using the
-rank-two sharp/flat run.
-Once that shared construction has been completed,
-it gives, on this very frame,
+Section~\ref{subsec:sr-gaussian-actual-two-runs}
+checks every shared support hypothesis on these exact
+data and performs the two runs in their required order.
+Proposition~\ref{prop:sr-gaussian-actual-g10} proves
 \[
  \mathrm{FinPt}(\Phi,3),\qquad
  \mathrm{AutPt}(\Phi,3,\epsilon_\ell^{-1}),\qquad
@@ -698,15 +691,15 @@ it gives, on this very frame,
 \]
 The two actual distinguished auxiliary places remove
 each other's omitted-place qualification.
-This is the precise use of the common theorem;
-(G10) is not inferred merely from an Eisenstein
+This conclusion uses the actual completed support
+construction, not merely the existence of an Eisenstein
 congruence or a regular algebraic realization of the seed.
 
-\subsubsection{From the shared output to the Gaussian host endpoint}
-We record the final implication so that, after (G10),
-no further Gaussian automorphy premise remains.
+\subsubsection{From the two runs to the Gaussian host endpoint}
+We record the final implication from the proved (G10).
 The quotient map in \(\mathrm{GalLink}\) is by the
-closed normal closure of the inertia elements on which
+closed normal closure of the inertia elements away
+from \(\ell\) on which
 \(\eta\) and \(\bar\Psi\) are both trivial.
 An actual marked Gaussian point therefore restricts
 to the exact ordinary rank-three representation
@@ -789,18 +782,16 @@ Proposition~\ref{prop:sr-cyclotomic-restriction} supplies
 the infinite-cyclotomic-kernel condition.
 Together these give all three clauses of
 \(\mathrm{BPrime\_s}\) at the actual Gaussian host,
-once the explicitly stated common support input (G10)
-is supplied.
+using the proved (G10).
 
-This locates the remaining common dependency exactly.
-The Gaussian prime-\(3\) seed, its character normalization,
-its actual module insertion, the finite-unramified
-strengthened real base, local frame witnesses and the
-descent/local-comparison implication have been proved
-here. Completion of the shared sharp/flat propagation
-construction supplies (G10); none of the predicates
-\(\mathrm{BPrime\_s.aut}\) or
-\(\mathrm{ThmS6Core\_s}\) is used as a substitute for it.
+This completes the actual Gaussian producer.
+The prime-\(3\) seed, character normalization, actual
+module insertion, finite-unramified strengthened real
+base, local frame witnesses, two propagation runs and
+descent/local-comparison have all been supplied.
+The predicates \(\mathrm{BPrime\_s.aut}\) and
+\(\mathrm{ThmS6Core\_s}\) are conclusions of this
+construction.
 
 % Frozen source:
 % DnEndsTop.ends0_alt -> DnEnds.ends_u_alt -> SymTop.linkedEnd_alt
@@ -809,6 +800,362 @@ construction supplies (G10); none of the predicates
 % Host interface: DnHost, AutEnd3Alt, SymmetricCubeTheoremOfEndomorphisms.
 % Actual local conditions: FrobeniusSmoothVectors/
 % FrobeniusSplitPrimeDatum.Gen.g4,g5 and UFacts.mu,f3.
+
+\subsection{Instantiation of the two runs on the Gaussian frame}
+\label{subsec:sr-gaussian-actual-two-runs}
+
+We discharge (G10) on the frame actually constructed in
+Section~\ref{subsec:sr-gaussian-producer}.
+In this subsection \(K=\mathbb Q(i)\),
+\(\eta=\eta_K\), \(\ell\in\{3,7\}\), \(a=1\), and
+\(\Psi=\epsilon_\ell\psi\).
+The finite character \(\psi\) has the large dyadic
+conductor specified there.
+We use the strengthened real field \(F=F_r^+\)
+and \(L=FK\) of (G3), not the earlier index-two
+field alone.
+
+\paragraph{The arithmetic frame and its local group maps.}
+Let \(U=G_F\).
+The actual frame quotient is
+\[
+ \pi:U\twoheadrightarrow\Gamma
+   =U\Big/
+    \overline{\left\langle
+       I_p\cap U\cap\ker\eta\cap\ker\bar\Psi:
+                                      p\ne\ell
+                         \right\rangle}^{\,\rm normal}.
+ \tag{GT1}
+\]
+Its index-two subgroup is \(\Gamma_0=\ker\delta\),
+where \(\delta\pi=\eta\); the natural map
+\(G_L\twoheadrightarrow\Gamma_0\) is surjective.
+The exclusion \(p\ne\ell\) in (GT1) is essential:
+the ordinary pro-\(\ell\) inertia is retained.
+The character \(\varepsilon\) and \(\bar\Psi\)
+descend because they are trivial on the killed
+inertia.
+The maps of local decomposition and inertia groups
+are the actual ones of \(\mathrm{GalLink}\).
+At every place over \(\ell\), \(L/F\) splits;
+hence the local group of either CM place is
+the same local group used by the frame.
+This gives the required local identifications, not
+merely an equality of their residue degrees.
+
+The fixed biquadratic real base and the fresh field
+\(F_\vartheta\) are included before choosing the
+Ferrero--Washington constant \(C_0\).
+The shared arithmetic-frame theorem of
+Section~\ref{sec:arithmetic-frame-uniform-depth}
+applies with this \(\eta,\Psi\).
+Its proof permits any imaginary quadratic sign
+with the verified full-local-group separation.
+Here (G4) says \(\bar\Psi^2\ne1\) on every
+ordinary local group, including at \(3\);
+(G5) is exactly its other global sign witness.
+The odd cyclotomic layers preserve both.
+The local mod-\(\ell\) cyclotomic inertia image
+remains full and no local \(\mu_\ell\) occurs.
+Thus all local \(H^0\) and dual \(H^0\) vanishings,
+the unit ranks and the inflation--restriction
+injections used in that theorem hold here.
+Choose the cyclotomic depth only after \(C_0\).
+It gives the actual \(\Phi.\mathrm{Ok}(C_0)\),
+\(\Phi.\mathrm{Big}(C_0)\), and the two nonzero
+strict classes of
+Lemma~\ref{lem:frame-strict-classes}.
+In particular the full-decomposition-group condition,
+rather than the false claim that
+\(\bar\Psi^2\ne1\) on \(3\)-adic inertia, is what
+is used throughout this specialization.
+
+Choose the marked element in the local group as
+the image of \(f^{2\ell^u}\) in (G4).
+It has \(\bar\Psi(g_0)^2\ne1\).
+The normalized diagonal weights are
+\[
+                  w^{(2)}=(1,-1),\qquad
+                  w^{(3)}=(1,0,-1).
+ \tag{GT2}
+\]
+Thus the marked difference has distinct residual
+eigenvalues in both ranks. Their inverse differences
+require only \(2^{-1}\), which exists at \(3,7\).
+
+\paragraph{The common automorphic coefficient data in both ranks.}
+Use the two scalar characters already constructed:
+\[
+                       \kappa_2=\lambda^{-1}|_{G_L},
+                          \qquad \kappa_3=\epsilon_\ell^{-1}.
+ \tag{GT3}
+\]
+Their norm and transfer identities are (G8)--(G9)
+and the rank-three cyclotomic identity.
+They have finite prime-to-\(\ell\) inertial order
+away from \(\ell\).
+The scalar-twisted residual tuple on the arithmetic
+CM group is exactly
+\[
+            \bar\chi_i=\bar\kappa_n\bar\Psi^{\,w_i^{(n)}}.
+ \tag{GT4}
+\]
+This is the residual datum of the universal ordinary
+determinant ring \(\mathcal B_n\).
+It is also the residual datum of the actual
+ordinary function module used below.
+
+All field hypotheses (CA1) have been verified for
+these very fields:
+\[
+ L/F\text{ unramified at every finite place},\quad
+ S\text{ split in }L/F,\quad d>1,\quad
+                    d=4\ell^s,\quad4\mid nd
+                       \quad(n=2,3).
+ \tag{GT5}
+\]
+The positive definite identity forms give compact
+unitary groups at infinity and quasi-split groups
+at every finite place.
+Thus the arbitrary-classical-eigenline Galois
+realization has its stated scope even for \(n=3,\ell=3\).
+
+At tame split places use the single coefficient lattice
+\[
+ \tau_{0,n}=\bigotimes_{u\in S,\ u\nmid\ell}
+       \sigma_{\rm crys}
+       \left(\bigoplus_i
+          \widetilde{\bar\kappa_n\bar\Psi^{w_i}}|_{I_u}\right)^\vee.
+ \tag{GT6}
+\]
+It is finite free and fixed as auxiliary levels vary.
+The actual seed inertia (G6)--(G7), after multiplication
+by (GT3), is this inertia type, with zero monodromy.
+The prime \(w\) used to construct the Eisenstein seeds
+is killed by restriction to \(L\), so it adds no tame
+type or level here.
+At the ordinary places the coefficient character
+and the normalized \(U_j\) are precisely (CA3)--(CA4),
+with the ordered Galois characters of (GT4).
+They fix both unit and uniformizer values.
+The scalar twists in (GT3) are used in those equations;
+they are removed only when passing back to the frame.
+Consequently the maps from \(\mathcal B_n\) to the
+entry trace algebra use these same characters.
+
+The fresh scalar prime \(p_0\) of (G2) supplies
+the distinguished-place premise in both ranks.
+All its residue degrees in \(F\) are odd powers
+of \(\ell\), so
+\[
+   \bar\Psi|_{D_{v_0}}=1,\qquad
+              \bar\varepsilon(\operatorname{Frob}_{v_0})=-1.
+ \tag{GT7}
+\]
+After the scalar multiplication (GT4), every
+residual Frobenius eigenvalue is the same unit.
+Thus all eigenvalues of its adjoint action are \(1\);
+multiplication by \(\bar\varepsilon=-1\) makes
+\(\bar\varepsilon\operatorname{Ad}-1\) invertible.
+This proves the needed residual \(H^0=0\), including
+if a residual matrix is not semisimple.
+Nakayama transfers it to every selected \(K[[T]]\)-point.
+The actual matrix \(N4\) argument then gives the
+distinguished unramified relation (CA14).
+The witness in \(G_L\) provided by (GT7), followed by
+Chebotarev in its finite character quotient, gives two
+such places outside any fixed finite set.
+They can use the same (GT3).
+Fix one place in (GT8) below and perform the construction;
+then repeat it with the second place.
+The ideals for the two distinguished levels may differ.
+Within either construction the base ideal is fixed as
+the Taylor--Wiles levels vary.
+The resulting systems attach to the same given Galois
+representation; strong multiplicity one identifies their
+cuspidal realizations and removes the two local exceptions.
+
+The finite-level modules are therefore exactly
+\(M_{n,Q}(K)\) of
+Section~\ref{sec:common-ordinary-arithmetic-action},
+with (GT6), (CA3), (CA4) and (GT7).
+The projectors, classical detectors, auxiliary
+projectivity, old/new maps and Vieta identities apply
+on the one fixed coefficient lattice.
+Their nilpotence exponent is \(n!\); it is an
+exponent, not a divisor.
+None of these operations requires \(\ell>n\).
+The resulting fixed Hecke quotient
+\[
+                          \mathcal B_n/J_n=\mathbb T_n
+ \tag{GT8}
+\]
+is finite and torsion free over its weight algebra.
+
+For the nice curves used in these two runs, the
+arithmetic first- and second-Selmer estimates and the
+Taylor--Wiles prime choices have exactly the frame
+hypotheses just verified.
+The local character inequalities are those of the
+selected nice-curve producer; the residual sign,
+local separation and \(N4\) inputs are (G4)--(G5)
+and (GT7).
+The common completed support has dimension
+\(1+D_0\), \(D_0=nd+n|Q|\), after the one formal
+weight variable is sent to the actual curve parameter.
+Section~\ref{subsec:sr-same-completion-galout}
+therefore discharges the ordinary and paired
+presentation inclusions in that same completion.
+No changed support ideal or separately chosen
+coefficient ring is introduced.
+Proposition~\ref{prop:common-ordinary-actual-input}
+now gives \(\mathrm{P1core}\) and
+\(\mathrm{P3core}\) for the actual ideals (GT8).
+There is no condition \(\eta=\eta_{-3}\) in these
+arguments.
+
+\paragraph{Seeds, the rank-two run, and then the rank-three run.}
+The two seeds (G6)--(G9) are actual irreducible
+characteristic-zero representations, with the symmetric
+conjugate pairings and actual automorphic realizations
+proved there. Their stable-cuspidal insertion in the
+modules (GT6) puts their eigensystems in (GT8).
+This includes \(\ell=3\), using the corrected
+Eisenstein construction in
+Section~\ref{subsec:sr-eisenstein-three}.
+It gives the actual seed points (SF5), not merely
+residual determinants.
+
+Apply the full-dimensional seed construction
+(SF6)--(SF15) to each seed.
+The trace Gram determinant is nonzero at the seed,
+so a minimal Hecke component has absolutely
+irreducible generic representation.
+Untwisting by the corresponding (GT3) gives the
+same frame group (GT1), by its closed kernel property.
+The symmetric form and marked difference normalize
+exactly as in (SF9)--(SF11).
+The entry cone then gives the actual point on
+\(A_n\) with contraction \(Z_{B_n}\) of dimension
+\(1+nd\).
+This verifies the full-dimensional seed premise in
+both ranks on the same arithmetic frame.
+
+The actual entry spaces and their flat/sharp charts
+use only \(\Phi.\mathrm{Ok}\), \(\Phi.\mathrm{Big}\)
+and these two strict classes.
+The characteristic-\(\ell\) residue equations,
+curve avoidance and thick Cayley--Hamilton quotient
+are the ones in
+Sections~\ref{sec:entry-space-flat} and
+\ref{sec:actual-seed-two-propagations}.
+Their proofs use the marked weights (GT2),
+invertibility of \(2\), the class bounds and the
+displayed local dimensions.
+They have no further restriction on \(\eta\) or on
+the odd coefficient prime.
+
+Perform the rank-two propagation first.
+Equations (SF16), (SF18) and the connected
+rank-two core give (SF19) for \(M_2=J_2B_2\).
+Use that conclusion and the actual outer-corner map
+to form \(I_3\). Its finite-weight and Type-E
+containments are precisely (SF20).
+Only then perform the rank-three sharp/flat run:
+the ordinary stable inclusion and the thick paired
+inclusion, now supplied for this frame, give (SF21)
+for \(M_3=J_3B_3\).
+This checks the order of the argument and supplies
+the exceptional support ideal from rank two.
+Proposition~\ref{prop:actual-common-two-three-endpoint}
+consequently applies with all its fields instantiated.
+It gives
+\[
+                     \mathrm{GoodPt}_2,\quad
+                     \mathrm{GoodPt}_3,\quad
+                     \mathrm{FinPt}_3
+ \tag{GT9}
+\]
+on this actual Gaussian frame.
+
+\begin{srproposition}\label{prop:sr-gaussian-actual-g10}
+The Gaussian frame constructed in (G1)--(G9) satisfies
+the three conclusions (G10):
+\[
+ \mathrm{FinPt}(\Phi,3),\qquad
+ \mathrm{AutPt}(\Phi,3,\epsilon_\ell^{-1}),\qquad
+ \mathrm{AutPt}(\Phi,2,\lambda^{-1}|_{G_L}).
+\]
+There is no additional Gaussian support premise.
+\end{srproposition}
+\begin{proof}
+The finite-point assertion is (GT9).
+For a characteristic-zero DVR point, \(\mathrm{GoodPt}_n\)
+makes its determinant pair kill \(J_n\).
+The faithful finite Hecke module has nonzero fiber
+at every such Hecke point.
+Lemma~\ref{lem:sr-good-point-classical-all-dominant}
+therefore supplies the actual classical ordinary
+representation with that determinant and these
+ordered characters.
+At the target rank-three weight \(a=1\), its
+exponents after scalar normalization are
+\((0,-1,-2)\), with algebraic highest weight
+\((0,0,0)\).
+The corresponding algebraic module has only its
+extremal column, so the ordinary control assertion
+includes this boundary weight.
+Very regular weights were needed only for the
+detector family used to construct (GT8).
+
+The given irreducible point and the classical
+semisimple Galois representation have the same
+determinant. Characteristic-polynomial
+Brauer--Nesbitt identifies them.
+Its base change must be cuspidal, since more than
+one discrete block gives a reducible semisimple
+representation. The frame's symmetric pairing and the norm and transfer
+identities (GT3) give exactly the multiplier
+\(\epsilon_\ell^{1-n}\) on this normalized
+Galois representation.
+Chebotarev and strong multiplicity one identify the
+conjugate cuspidal system with its dual in the
+normalization (CA5). Thus the automorphic representation
+is genuinely conjugate self-dual.
+For rank two at \(a=1\), the adjacent algebraic
+highest-weight difference is \(2a-1=1\), so its same
+classical-control application is dominant as well.
+This gives \(\mathrm{AutPt}\) in both ranks, with
+precisely the scalar characters (GT3), and proves (G10).
+The two distinguished places remove the local
+exception exactly as in the common two-link
+construction.
+
+Apply now the final implication in
+Section~\ref{subsec:sr-gaussian-producer}.
+The finite-character triangularity and graded
+finite-part theorems give the actual host's finite
+weight-zero ring. Type-I points are irreducible on
+every open subgroup; (G10) and exact cyclic descent
+give actual cuspidal automorphy over \(\mathbb Q(i)\).
+The actual crystalline-component calculation of
+Section~\ref{subsec:sr-saturated-ordinary-crystalline}
+and the Gaussian local ratio calculation give
+the original local condition, including the
+dual-number points, at \(\ell=3,7\).
+Together with
+Proposition~\ref{prop:sr-cyclotomic-restriction}
+these are all three clauses of
+\(\mathrm{BPrime_s}\), hence the required actual
+\(\mathrm{ThmS6Core_s}\) endpoint.
+\end{proof}
+
+The two growing towers and their class-rank constant
+have served only to produce (GT9).
+The subsequent count is over the fixed Gaussian
+field at the original conductor and fixed weight.
+Neither their degrees nor the initial seed weights
+enter that count.
 
 \subsection{The actual generic rank-three endpoint after propagation}
 \label{subsec:sr-generic-three-endpoint}
