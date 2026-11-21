@@ -1,0 +1,259 @@
+\section{Construction and rank of the boundary period lattice}
+\label{sec:boundary-periods}
+
+Let \(T\) be the complete discrete valuation ring on a horizontal
+boundary trait, \(K=\operatorname{Frac}T\), \(\pi\) a uniformizer, and
+\(G/T\) the semiabelian model with principally polarized abelian
+generic fiber. At a nonsplit point the source first splits the toric
+part of \(G_{\kappa(T)}\). In the horizontal case its finite splitting
+field is separable because \(\kappa(T)\) has characteristic zero.
+Lifting this extension to the finite unramified extension of \(T\)
+gives the split special-fiber torus. Write \(T\) for the resulting
+ring. When a split presentation has already been supplied, the
+construction below starts there. The torus need not have a
+complement in the special fiber.
+
+\subsection{The formal torus and the two lattices}
+
+Put \(S_e=\operatorname{Spec}(T/\pi^{e+1})\). The torus with character
+group \(X\) has over \(S_0\) a kernel embedding into \(G_0\), with
+abelian quotient \(B_0\). On every thickening there is an extension
+\[
+  1\longrightarrow \operatorname{Hom}(X,\mathbb G_m)_{S_e}
+  \longrightarrow G_e\longrightarrow B_e\longrightarrow 0.
+\]
+Here one uses the formal Raynaud extension theorem for a smooth
+semiabelian scheme whose special torus is isotrivial. In the present
+case that torus is split. The morphisms commute with restriction to
+each preceding thickening. The construction used in the release starts
+with an even trivialization of the cubical line on the special torus,
+lifts that trivialization and the torus kernel across each nilpotent
+thickening, and descends the line to \(M_e\) on \(B_e\). Restricting a
+descended cubical line back to the preceding level gives its previous
+descent. The finite-level quotient is a torus torsor, so the
+weight-\(x\) functions on it form an invertible sheaf. Multiplication
+identifies the tensor product of the weight-\(x\) and weight-\(x'\)
+sheaves with the weight-\(x+x'\) sheaf, as one sees on any
+trivialization of the torsor. This supplies the homomorphism into the
+dual abelian scheme on every level.
+
+The rings \(T/\pi^{e+1}\) exhaust the formal completion, each \(B_e\)
+is proper, and the compatible \(M_e\) have ample special fiber.
+Grothendieck algebraization therefore gives a projective \(B/T\)
+with an invertible sheaf \(M\) inducing these data. Full faithfulness
+on proper schemes applied to the group operations and their identities
+gives the group law on \(B\). Smoothness and geometric connectedness
+yield the abelian scheme. The Raynaud extension \(G^\natural\) is an
+extension of this \(B\) by the split torus. Its formal completion is
+identified with the formal completion of \(G\). This accounts for the
+presence of a torus at every infinitesimal level even though \(G_K\)
+is abelian.
+\footnote{\href{https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision-dense.pdf}{K.-W.~Lan,
+\emph{Arithmetic Compactifications of PEL-Type Shimura Varieties},
+\S3.3.3, equations (3.3.3.1)--(3.3.3.2) and Proposition 3.3.3.6};
+\href{https://stacks.math.columbia.edu/tag/089A}{Grothendieck
+algebraization, Stacks Project, Theorem 30.28.4}.}
+
+In the usual degeneration datum \(X\) is the character group, \(Y\)
+the lattice of periods, and \(\phi:Y\to X\) the map attached to the
+polarization. Lan's degree formula is
+\[
+  \deg\lambda_K=[X:\phi Y]^2\,\deg\lambda_B.
+\]
+A principal polarization on \(G_K\) therefore identifies \(Y=X\)
+through \(\phi\), and \(\lambda_B\) identifies \(B\) with its dual.
+This explains why one and the same lattice and a map \(c:X\to B(T)\)
+occur in the local jet formulas. More intrinsically, \(c\) corresponds
+under this principal identification to the preceding homomorphism
+from weights into \(B^\vee(T)\). Its value is determined by the
+rigidified weight bundle, so tensor product gives
+\(c(x+x')=c(x)+c(x')\).
+\footnote{\href{https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision-dense.pdf}{Lan,
+Lemma 3.4.4.3 and Theorem 4.2.1.14}. The hypotheses on the base in
+\S4.1 hold with the complete normal noetherian domain \(T\) and its
+radical maximal ideal. The model is semiabelian, with split special
+torus and abelian generic fiber. The rigidified symmetric cubical line
+is ample by Lemma 4.2.1.6. Its formal descent is the compatible system
+of descended lines above, as required by Definition 4.2.1.1.}
+
+\subsection{The valuation of the period factors}
+
+Write \(f_x\) for the Fourier coefficients of a nonzero generator of
+the level-one theta space. In the principal case the space is
+one-dimensional. Every coefficient map is nonzero, and translating
+the \(x\)-coefficient through a period \(y\) gives
+\[
+ f_{x+y}=\psi(y)\tau(y,x)\,t_{c(y)}^* f_x .
+\]
+The equality uses the canonical isomorphisms of the corresponding
+line fibers, with the scalar convention of the displayed equation.
+Lan proves nonvanishing and this formula in
+\S\S4.3.2--4.3.3. In the release the nonvanishing step uses the
+degree-two addition formula and torus-torsion weights. Its support is
+a coset of a subgroup of odd index; the exclusion of prime-index
+subgroup obstructions makes that subgroup the full lattice.
+
+Let \(Q(y)=v_T(\psi(y))\), evaluated relative to an integral generator
+of its one-dimensional line. Any two such generators differ by a
+unit, so \(Q(y)\in\mathbb Z\) is unambiguous. Write \(B(y,x)\) for
+\(v_T(\tau(y,x))\) relative to the integral biextension. Comparison of
+the two orders of translating \(f_0\) gives
+\[
+  Q(y+z)=Q(y)+Q(z)+B(y,z),\qquad B(y,z)=B(z,y).
+\]
+The biextension law gives additivity of \(B\) in each argument.
+Rigidification gives \(Q(0)=0\). The even cubical normalization of
+the chosen line gives \(Q(-y)=Q(y)\). Taking \(z=-y\) yields
+\(B(y,y)=2Q(y)\); by induction \(Q(ny)=n^2Q(y)\) for \(n\in\mathbb Z\).
+
+Here is the convergence input giving strict positivity. Since \(f_0\)
+is a nonzero integral section on the proper abelian quotient, some
+germ has order at most \(m\) for a fixed \(m\). Indeed a section
+vanishing at every finite level is zero by formal separation.
+Translation by the integral point \(c(y)\) moves this witness to a
+germ where \(t_{c(y)}^*f_0\) has order at most the same \(m\). At any
+fixed finite level a section on the torus torsor has only finitely
+many weights. On a finite affine cover trivializing the torsor this
+is finite Laurent support, and one takes the union of the supports.
+Consequently, for fixed \(n\), away from finitely many \(y\) all germs
+of \(f_y\) belong to \(\pi^{m+n}\). In integral frames the preceding
+equation at \(x=0\) now reads \(b f_y=a h\) up to a unit, with
+\(\psi(y)=a/b\) and \(h=t_{c(y)}^*f_0\) at its witness.
+If \(v_T(a/b)<n\), write \(a/b=u\pi^j\) with \(u\in T^\times\)
+and \(j<n\). The local ring is \(T\)-flat, so multiplication by \(\pi\)
+is injective. Clearing denominators in \(f_y=u\pi^j h\) then gives
+\(h\in\pi^{m+n-j}\), a contradiction. Thus \(\{y:Q(y)<n\}\) is
+finite. If \(0\ne y\) had \(Q(y)\le0\), the distinct multiples
+\(ky\), \(k\ge1\), would all belong to \(\{Q<1\}\).
+This proves \(Q(y)>0\) for nonzero lattice vectors. The integral
+symmetric matrix of \(B\) is positive definite on the real span:
+a negative direction would contain rational approximants of negative
+square, and a singular rational matrix would have a rational kernel
+vector. A finite extension of complete discrete valuation rings of
+ramification index \(e\) sends \(Q,B\) to \(eQ,eB\) for
+integer-normalized orders. This statement precedes the subsequent
+use of a divisible value group on \(\overline K\).
+\footnote{\href{https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision-dense.pdf}{Lan,
+equations (4.3.1.2), (4.3.1.7), Proposition 4.3.1.9, and
+\S4.2.4}. In the release see
+\srcid{ExistsDegenerationDataFunctionalEquationDegreeOn},
+\srcid{PsiTendstoZero}, \srcid{CubeRelScalarsMemMaximalIdeal}
+and \srcid{EvenQuadraticPosOfFiniteNonpos} in
+\srcid{UniformizationProofs}.}
+
+The polarization and the integral action of \(\mathcal O_E\) also
+give the balance identity required in Section~\ref{sec:period-basis}.
+Write \(\mathcal P_B\) for the Poincaré biextension. On \(B\) the
+Rosati condition is \(a^\vee\lambda_B=\lambda_B\bar a\). The
+defining property of the dual morphism identifies
+\((a\times1)^*\mathcal P_B\) with \((1\times a^\vee)^*\mathcal P_B\).
+Under this identification the induced actions on the period
+trivialization satisfy
+\[
+        (a\times1)^*\tau=(1\times\bar a)^*\tau
+                \quad\text{on }Y\times X .
+\]
+This is the endomorphism part of the degeneration equivalence:
+the integral action on the generic polarized abelian variety
+corresponds to actions on its abelian part, its two lattices and its
+period map. The left action on \(X\) is obtained from its natural
+right action by conjugation. The displayed equality is an equality
+in integral line fibers after extending scalars to \(K\); the
+canonical identification of their integral lattices comes from the
+Poincaré biextension over \(T\). In independent integral frames its
+coefficient is a unit. Taking valuations thus gives
+\(B(ay,x)=B(y,\bar a x)\), with no scalar error. This also gives the
+conjugation in the torus action used below.
+\footnote{\href{https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision-dense.pdf}{Lan,
+Definition 5.1.1.3(4) and Theorem 5.1.1.4}. The release takes the
+valuation of an origin-normalized Rosati generator in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/ExistsRosatiGen.lean}{\srcid{bOf_balance}}.}
+
+\subsection{The rank bound from the PEL determinant condition}
+
+Let \(d=[E:\mathbb Q]\), \(r=\operatorname{rank}_{\mathbb Z}X\), and
+\(s=\dim_E(X\otimes_{\mathbb Z}\mathbb Q)\). For a generic point of
+the moduli datum of signature \((p_0,q_0)\) we prove
+\[
+   r=ds,\qquad s\le\min(p_0,q_0).
+\]
+The first equality follows by restriction of scalars.
+Put \(F=\overline K\), and fix an embedding
+\(\sigma:\mathcal O_E\to F\). It suffices to exhibit \(s\) independent
+\(\sigma\)-eigenvectors in \(\operatorname{Lie}(G_F)\).
+We use row vectors and let \(M(a)\) be the integral matrix of \(a\)
+on the Lie algebra of \(G\), in a basis over \(T\). The toric Lie
+algebra at level \(e\) consists of the additive forms on \(X\) with
+values in \(T/\pi^{e+1}\). This description follows by evaluating
+a character on dual numbers as \(1+\varepsilon t\). In a
+\(\mathbb Z\)-basis of \(X\), define \(A(\bar a)\) to be the matrix
+of \(\bar a\) on \(X\) with column coordinates. The conjugation is
+the source's convention for the toric part of the endomorphism.
+
+The kernel embedding on level \(e\) induces an injection on tangent
+vectors. Lift its matrix to an \(r\times g\) matrix \(C\) over
+\(T\), where \(g=\dim G_K\). Equivariance and injectivity give
+\[
+   CM(a)\equiv A(\bar a)C\pmod{\pi^{e+1}},
+   \qquad CD=I_r
+\]
+for some \(g\times r\) matrix \(D\) over \(T\). For the second
+assertion, a residue row in the kernel of \(C\bmod\pi\) lifts to
+\(w\) with \(wC\in\pi T^g\). Then \(\pi^ew\) is in the level-\(e\)
+kernel, so \(\pi^ew\in\pi^{e+1}T^r\) and the original residue row
+is zero. Thus \(C\) has an invertible \(r\times r\) minor over \(T\),
+which gives a right inverse. Neither the lifts \(C\) nor their right
+inverses need to be chosen compatibly as \(e\) varies.
+
+Let \(V\) be the integral closure of \(T\) in \(F\).
+It is a domain with fraction field \(F\). Its element \(\pi\) is a
+nonunit. Every \(0\ne u\in V\) divides some power of \(\pi\) in \(V\):
+a monic integral equation for \(u\) can be chosen with nonzero
+constant term, giving \(u\mid b\) for some \(0\ne b\in T\);
+then \(b\) is a unit times a power of \(\pi\). Also
+\(\sigma(\mathcal O_E)\subset V\). In an \(E\)-basis of \(X_{\mathbb Q}\),
+applying \(\sigma\circ\text{conjugation}\) to each coordinate gives \(s\)
+independent additive forms with
+\(\varphi(\bar a x)=\sigma(a)\varphi(x)\). Clearing a common
+denominator on the integral basis of \(X\) gives an \(s\times r\)
+matrix \(\Phi\) over \(V\) of full row rank satisfying
+\(\Phi A(\bar a)=\sigma(a)\Phi\). Form the matrix \(H\) by adjoining
+horizontally the blocks \(M(a)-\sigma(a)I_g\) for integral additive
+generators \(a\) of \(\mathcal O_E\). At every level the previous
+congruence gives matrices over \(V\) such that
+\[
+    CD=I_r,\qquad \Phi C H=\pi^{e+1}Z .
+\]
+
+Over \(F\) choose a generalized inverse of \(H\) by inverting its
+restriction to a complement of its kernel on its image. Choose a
+right inverse to \(\Phi\). Clearing denominators gives integral
+matrices \(P,\Psi\) and \(0\ne b,b'\in V\) with
+\(HPH=bH\) and \(\Phi\Psi=b'I_s\). Take \(e\) with
+\(\pi^e=bb' u\), and use matrices \(C,D,Z\) for this \(e\). Define
+\[
+   W=b\Phi C-\Phi CH P,\qquad N=D\Psi .
+\]
+Then
+\[
+  WH=0,\qquad WN=bb'\bigl(I_s-\pi u ZP D\Psi\bigr).
+\]
+The determinant in parentheses is \(1\bmod \pi\). Since
+\(V/(\pi)\ne0\), it is nonzero. Thus the \(s\) rows of \(W\) are
+independent over \(F\). The identity \(WH=0\) puts each row in the
+\(\sigma\)-eigenspace for all additive generators, hence for every
+element of \(\mathcal O_E\). Finally choose \(\sigma\) and its
+conjugate. The distinguished imaginary generator of the host maps
+under these embeddings to the two opposite nonzero roots in the
+determinant condition. Their eigenspaces have dimensions \(p_0,q_0\)
+in some order. Applying the bound to both gives the assertion.
+\footnote{The source proof is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/UnitaryExistence/ExistsMulEqSmulOne.lean}{\srcid{ExistsMulEqSmulOne}},
+especially \srcid{exists_matrix_level}, \srcid{exists_solutions},
+\srcid{finrank_le_of_lieMult}, and \srcid{rank_le_signature}.
+The argument uses the actual \(\mathcal O_E\)-equivariance on the
+formal trait and the generic moduli determinant condition. The
+trace-normalized pullback of the theta line and its integral torsion
+identification are additional structures used in the jet calculation
+of Sections~\ref{sec:theta-lift-valuation}
+and~\ref{sec:local-theta-jets}.}

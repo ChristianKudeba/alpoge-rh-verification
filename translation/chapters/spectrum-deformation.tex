@@ -1,0 +1,251 @@
+\section{Counting the cuspidal spectrum that receives the deformation points}
+\label{sec:spectrum-deformation}
+
+For a CM number field $K$, set $d_K=[K:\mathbb Q]$. Let $n\ge2$,
+$M\ge1$, $H\ge0$ be integers, and let $m_0>\cdots>m_{n-1}$ be
+integers satisfying $|m_i|\le H$. Write $K_n(M)$ for the principal
+congruence subgroup of $\mathrm{GL}_n(\widehat{\mathcal O}_K)$ of level
+$M$, viewed inside the finite adelic group. The collection
+$\mathrm{Sig}_K(m,M)$ consists of cuspidal representations with
+contragredient equal to the complex-conjugation pullback in the sense of
+the source, a nonzero $K_n(M)$-fixed vector, and infinitesimal character
+\[
+                    I_m=\{(n-1)/2+m_i:0\le i<n\}
+\]
+at every embedding $K\hookrightarrow\mathbb C$. For fixed $K,n$
+and any finite set $S$ of pairwise nonisomorphic members, we will obtain
+\begin{equation}
+ |S|\le C(K,n) M^{s}(H+1)^s,\qquad s=d_K n^2 .
+ \label{eq:spectrum-count}
+\end{equation}
+Here the bounds in the source construction are kept separate until
+the final multiplication. The quantified source theorem
+\texttt{card\_k\_of\_printed\_results} permits unnamed constants and
+uses the coarser exponent $s+s$ on $M(H+1)$. Both estimates follow from
+the same two inequalities. The constants depend on $K,n$.
+
+\subsection{One coefficient system for all the representations in $S$}
+
+For $0\le k<n$ put $\nu_k=k+1+H-m_{n-1-k}$ and $H'=n+2H$.
+These are nonnegative integers bounded by $H'$. They are
+nonincreasing, since
+\[
+       \nu_{k+1}-\nu_k=1-(m_{n-2-k}-m_{n-1-k})\le0 .
+\]
+Let $X$ be a generic $n$ by $n$ matrix. For $0\le h<H'$ the set
+$\{k:\nu_k>h\}$ is an initial segment of size $b_h$.
+Take the product $f(X)$ of the top-left principal minors of orders
+$b_h$, with the empty minor equal to one. This polynomial is nonzero
+by evaluation at the identity, and has degree at most $nH'$.
+For an upper triangular $B$, the top-left $b_h$ by $b_h$ block of
+$XB$ is the corresponding block of $X$ multiplied by that of $B$.
+Consequently
+\[
+             f(XB)=f(X)\prod_{i=0}^{n-1} B_{ii}^{\nu_i}.
+\]
+The space of polynomials of degree at most $nH'$ in the $n^2$
+entries of $X$ is stable under the right substitution $X\mapsto XB$.
+Each monomial has each exponent between zero and $nH'$, giving
+dimension at most $(nH'+1)^{n^2}$. The highest-weight scalar
+calculation in \texttt{Weyl.existsScalar} extracts a nonzero module $P$
+of dimension at most this bound, with the central quantum determinant
+acting as $\prod_k(u-k+\nu_k)$.
+
+Use one copy at every embedding of $K$, with the determinant shift
+$N_0=n+H$ in \texttt{exists\_tens}. Their external tensor product
+has dimension at most $(nH'+1)^{n^2d_K}$. The logarithmic differential
+at a given embedding acts through that factor. The central polynomial
+therefore acts by the scalar
+\[
+ \prod_{k=0}^{n-1}(u-N_0-k+\nu_k)
+       =\prod_{k=0}^{n-1}(u-(n-1)-m_{n-1-k}).
+\]
+An irreducible submodule $\Xi$ inherits this scalar, and the dimension
+can only decrease. In the infinitesimal-character convention the
+polynomial is evaluated at $u+(n-1)/2$. Its value is
+$\prod_i(u-((n-1)/2+m_i))$, giving $\Xi$ the character $-I_m$
+at every embedding. In particular the sign of the dual coefficient
+system is fixed throughout $S$. Since
+$n(n+2H)+1\le(n+1)^2(H+1)$, we have
+\[
+                 \dim\Xi\le((n+1)^2)^s (H+1)^s .
+\]
+This uses the highest-weight scalar calculation and tensor realization
+in the source. The transformation law of $f$, dimension estimate,
+reversal of indices and infinitesimal-character shift were computed
+above.
+
+\subsection{The level factor in cohomology}
+
+Put $G=\mathrm{GL}_n(\mathbb A_{K,f})$ and
+$\Gamma=\mathrm{GL}_n(K)$, acting on the left. For the fixed level
+$U_0=K_n(3)$ there are finitely many double cosets
+$\Gamma g_i U_0$. This is the finite-double-coset input, together
+with the finite index of $U_0$ at integral level one. Write
+$\Gamma_i=\Gamma\cap g_iU_0g_i^{-1}$. The arithmetic subgroup
+cohomology theorem \texttt{bddArith} gives a constant $c_i$
+such that for each finite-dimensional complex $\Gamma_i$-module $V$,
+\[
+          \sum_{j\ge0}\dim H^j(\Gamma_i,V)\le c_i\dim V .
+\]
+Its hypotheses apply because the $\Gamma_i$ are commensurable with
+$\mathrm{GL}_n(\mathcal O_K)$ in $\Gamma$. The underlying geometric
+input is a bounded arithmetic-group complex; the commensurability
+comparison is part of that theorem.
+
+Set $U'=K_n(3M)$. Every fiber of $G/U'\to G/U_0$ has
+$D=[U_0:U']$ elements: the fiber above $gU_0$ is $gU_0/U'$.
+For a coefficient representation of dimension $a$ the function
+space on such a fiber has dimension $Da$. The inverse image of a
+$\Gamma$-orbit in $G/U_0$ contributes a coinduced representation
+from $\Gamma_i$, with this fiber function space as its coefficients.
+Concretely a section is determined on each translate by its values
+on the fiber at $g_iU_0$, subject to the $\Gamma_i$-action there.
+Shapiro's lemma identifies its cohomology with that of $\Gamma_i$
+on the fiber. Summing over the finitely many orbits gives
+\[
+ \sum_{j\ge0}\dim H^j\!\left(\Gamma,
+        \operatorname{Map}(G/U',\mathbb C^a)\right)
+                  \le \left(\sum_i c_i\right) Da .
+\]
+The action on functions is
+$(\gamma f)(x)=\xi(\gamma)f(\gamma^{-1}x)$ for the coefficient
+representation $\xi$. This is the cohomology quantity
+\texttt{cohDim} used by the spectrum count.
+
+Reduction modulo $3M$ embeds the quotient by its principal-congruence
+kernel into $\mathrm{GL}_n(\widehat{\mathcal O}_K/
+3M\widehat{\mathcal O}_K)$. The coefficient ring has
+$(3M)^{d_K}$ elements by the rank of the integral lattice. The
+number of invertible matrices is at most the number of all matrices,
+so $D\le(3M)^s$. This proves
+$\mathrm{cohDim}\le c_2 M^s a$ with
+$c_2=3^s\sum_i c_i$, independent of the level and the coefficients.
+
+Every $\pi\in S$ has the opposite infinitesimal character to $\Xi$.
+The cohomological criterion \texttt{ClozelCohC} gives nonzero relative
+Lie-algebra cohomology for $\pi\otimes\Xi$. Every fixed vector at
+level $M$ remains fixed at level $3M$ because reduction modulo $M$
+factors through reduction modulo $3M$. The cuspidal cohomology
+injection \texttt{BorelInjC}, applied to the finite pairwise
+nonisomorphic set $S$ and the open compact group $U'$, gives
+$|S|\le\mathrm{cohDim}$ for $a=\dim\Xi$. Combining the inequalities
+proves \eqref{eq:spectrum-count} with
+$C(K,n)=c_2((n+1)^2)^s$. The argument applies to every finite set of
+representatives and therefore also bounds the number of isomorphism
+classes.
+
+For rank three over the imaginary quadratic field used in the
+single-character estimate, $s=18$. After the inverse cyclotomic
+twist the weight vector is $(e-1,-1,-e-1)$, with $e\ge1$.
+It decreases strictly, its opposite pairs sum to $-2$, and one
+can take $H=e+1$. Thus the bound for this CM spectrum is at most
+$C(K,3)2^{18}[M(e+1)]^{18}$, since $e+2\le2(e+1)$.
+The count concerns global systems. Section~\ref{sec:common-trace-integer}
+explains how global labels give traces at a fixed unramified prime.
+The uniform passage over all residue characteristics also uses local
+compatibility, Satake integrality and conjugation of the systems.
+
+\subsection{Which mixed points contribute to the two spectra}
+
+Write $\Omega=\overline{\mathbb Q}$, $G_F=\operatorname{Gal}(\Omega/F)$,
+and use the deformation data of Section~\ref{sec:single-character}.
+In this argument $K$ is the imaginary quadratic field cut out by
+the quadratic multiplier $\eta$, so $\ker\eta=G_K$. The coefficient
+ring $\mathcal O$ has absolute ramification index one here, and
+$\iota:\overline{\mathbb Q}_\ell\simeq\mathbb C$ is fixed.
+Let $r$ be a geometric point of the marked three-dimensional
+representation and $X_g$ its matrix on $\ker\eta$. Index the rows
+and columns by $0,1,2$. A mixed point is neither upper nor lower
+triangular in the normalization. The theorem \texttt{twoPt\_shape}
+gives two cases. In type I the $X_g$ act irreducibly on three
+coordinates. In type II the middle coordinate and the outer pair
+form blocks, and the two by two outer corner acts irreducibly.
+The two cases cannot overlap because the middle coordinate is an
+invariant line in type II.
+
+Let $B$ be the chosen valuation ring of $\Omega$ above $\ell$.
+The endomorphism and automorphy input \texttt{GdEndAlt} supplies one
+marking with an integral finiteness conclusion and integral ordinary
+endpoint statements for ranks three and two. The integral-point
+theorem \texttt{exists\_ordPt\_of\_point} says precisely what is
+needed to use these statements. For every permitted local deformation
+condition, its marked ring, and an evaluation of the algebra of
+matrix entries giving $r$, there exist a finite DVR
+$\mathcal O\subset A\subset\overline{\mathbb Q}_\ell$, a unit $t$
+of $\overline{\mathbb Q}_\ell$, and an ordinary $A$-point $r'$
+whose scalar extension is the torus conjugate of $r$ by
+$T=\operatorname{diag}(t,1,t^{-1})$. Its construction uses finiteness
+of the weight-zero algebra, a graded finite-point theorem and the
+local deformation conditions. The same marking works for every such
+point. We spell out the use of conjugation because it changes the
+coordinates of the outer corner.
+
+On $\ker\eta$ one has $X'_g=TX_gT^{-1}$. In type I this carries
+invariant subspaces bijectively to invariant subspaces. The ordinary
+irreducibility theorem \texttt{matIrr\_open\_gd} upgrades the resulting
+irreducibility to each open subgroup of $G_{\mathbb Q}$ contained in
+$\ker\eta$. This stronger conclusion is an explicit hypothesis of
+the rank-three ordinary endpoint. Applying it gives conjugate
+self-dual automorphy for the restriction $\rho'=r'|_{G_K}$ after
+the twist $\rho'\otimes\chi_\ell^{-1}$, including the source's
+local witness for the continuous representation. Conjugating by
+$T^{-1}$ intertwines this twist with
+$\rho\otimes\chi_\ell^{-1}$. The same automorphy conclusion therefore
+holds at the original point. Admission to the counted spectrum also
+requires the level conditions and the local assertion denoted
+$\mathrm{Unl}(\ell,M,(e,0,-e),\rho)$. The separate result
+\texttt{admissible\_typeI\_even\_level\_alt} supplies these for the
+admissible type-I data.
+
+In type II, the point theorem gives $(X_g)_{11}=1$ for $g\in G_K$.
+For an extension $W:G_{\mathbb Q}\to\mathrm{GL}_2(
+\overline{\mathbb Q}_\ell)$ agreeing with the outer corner on $G_K$,
+the marking requires $\operatorname{tr}W(c)=0$ at the designated
+complex conjugation $c$. Let $D_t=\operatorname{diag}(t,t^{-1})$
+and $W'=D_t W D_t^{-1}$. The odd-weight matrix entries of $X'_g$
+still vanish, its middle entry is one, and its corner on $G_K$ is
+$D_t\operatorname{corner}(X_g)D_t^{-1}=W'(g)$. Its corner remains
+irreducible. Also $\operatorname{tr}W'(c)=0$. The rank-two ordinary
+endpoint gives a classical newform $f$ of weight $2e+1$ attached to
+$W'\otimes\chi_\ell^{-e}$, together with the witness
+$\mathrm{WitAQ}(\iota,W')$ for weak admissibility. Conjugacy
+transports both assertions to $W$. Thus the untwisted rank-three
+restriction on $G_K$ has the form $\mathbf1\oplus W|_{G_K}$ and
+the rational spectrum supplies this branch's labels. In the assembled
+integer bound, the rank-two level is $M|\operatorname{disc}K|$ and
+the integral weight vector is $(e,-e)$. The rank-three
+CM count above applies to the type-I branch. The rational count
+and its quadratic restriction argument appear in
+Section~\ref{sec:common-trace-integer}.
+
+\paragraph{Scope of the arithmetic inputs.}
+The cohomological criterion, cuspidal cohomology injection, finite
+double coset theorem, arithmetic-stabilizer bound, and scalar
+highest-weight calculation enter the spectrum count. The passage from
+integral ordinary points to automorphy uses the separate endpoint
+theorem, proven in the release through linked ordinary systems,
+descent, and unitary automorphy. The conjugacy argument above proves
+the transfer to the original point. It uses the marked shape and
+open-subgroup irreducibility theorems as inputs. The subsequent
+rigidity argument applies adjoint Selmer vanishing to type I and
+rank-two adjoint and Kato inputs to type II.
+
+\paragraph{Source map.}
+The definitions of the spectrum and weights are in
+\texttt{AutomorphicForms.IsoOfFrob}. The coefficient construction is
+\texttt{TWeylC}, with the minor polynomial in \texttt{TopPol} and the
+tensor and scalar steps in \texttt{ExistsTens} and \texttt{ExistsScalar}.
+The orbit argument is \texttt{TemperedLocalComponents.CohBoundFree}
+and the final cohomological comparison is \texttt{TCardK}. The
+rank-three specialization is in
+\texttt{FrobeniusTraceCountBoundOfCmEigensystemCount}.
+The point statements are \texttt{UnitaryThreeGroups.PtShape},
+\texttt{CurveDVRSpecialization.WeightZeroAlgebraLeEntryAlgebra},
+\texttt{MatIrrOpenGd}, \texttt{AutEnd3AltAlt}, and
+\texttt{AutomorphyU3OfEndoscopy}. The precise modular-form
+normalization is in \texttt{AutomorphyDescent.AutNewformW}.
+
+\footnote{\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TCardK.lean}{The counting deduction},
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/AutomorphicForms/TemperedLocalComponents/CohBoundFree.lean}{the level and cohomology exponents}, and
+\href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/AutomorphyU3OfEndoscopy.lean}{the integral endpoint comparison}.}

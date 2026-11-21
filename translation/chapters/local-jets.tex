@@ -254,12 +254,11 @@ Section~\ref{sec:cusp-jets} has \(e=1\).
 \footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/HarmonicValueTranslateDivisorLevelIntegralChart.lean}{Normalized pullback, the character factor, and its integrality};
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/HarmonicValueTranslateEqUnitMulNormaliserThetaVa.lean}{full-level version of the translate identification}.}
 
-The comparison uses the polarized uniformization and torsion
-identification on the prescribed chart, the normalized theta-lift and unit-ball properties in
-Section~\ref{sec:theta-translate-span}, and the chart-independence
-and pullback identities for the canonical connection. The preceding
-calculation gives the interpolation cost and its transfer to a rule;
-a derivation of those geometric inputs from the definitions is still
-required for a standalone account. A finite place at which \(p\mid M\)
-requires its own local argument since the integral spanning step above
-uses that \(q\) is a unit.
+Section~\ref{sec:jet-connection} proves the chart and pullback
+identities used here, starting with the polarized uniformization,
+the compatible primitive generating frame and the correspondence
+of sections. Sections~\ref{sec:theta-translate-span}
+and~\ref{sec:theta-lift-valuation} give the integral translate
+argument. The argument at a finite prime \(p\mid M\) requires a
+different local estimate, because in the full-level comparison
+\(q=M\) and the projector requires \(q\in T^\times\).

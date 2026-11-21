@@ -1,0 +1,271 @@
+\section{The connection on a uniformizing chart}
+\label{sec:jet-connection}
+
+Fix a framed point on the characteristic-zero fiber. In one copy of
+a formal group chart let \(Z\) be the coordinates, \(F_0\) the
+formal group law, \(A_a(Z)\) the action of \(a\in\mathcal O_E\),
+and \(D_u\) the invariant derivation in tangent direction \(u\).
+Thus \(D_u f(Z)\) is the coefficient of \(t\) in
+\(f(F_0(Z,tu))\). All calculations with exponentials below take
+place over a characteristic-zero field. The lattice on which
+values are eventually bounded is the one in
+Section~\ref{sec:local-theta-jets}.
+
+\subsection{A local formula and its independence of gauge}
+
+The rigidified cubical line provides multiplicative factors
+\(\Phi_1,\Phi_2\) for the two partial addition laws of the
+biextension, a symmetry factor, and an adjoint factor \(J_a\).
+A canonical gauge is a series \(h(Z,W)\), zero on each axis, whose
+partial additive coboundaries are the logarithms of the first two
+factors. For instance,
+\[
+ \log\Phi_2(X,Y,Z)=h(X,Y)+h(X,Z)-h(X,F_0(Y,Z)).
+\]
+Its difference under interchanging the arguments is the logarithm
+of the symmetry factor. The adjoint condition reads
+\(\log J_a(X,Y)=h(A_aX,Y)-h(X,A_{\bar a}Y)\). With the element
+\(w_0\) defining the primitive theta line, put
+\(H_h(Z)=h(Z,A_{w_0}Z)\). If the germ in the primitive frame of a
+section of the \(k\)-th power is \(f\), the chart evaluates a
+monomial in the connection by
+\[
+      \left.D_{u_1}\cdots D_{u_j}\bigl(f\,\exp(kH_h)\bigr)
+      \right|_{Z=0}.
+\]
+For multiple columns apply the corresponding derivatives in the
+specified copies, with the product factor
+\(\exp(k\sum_b H_h(Z_b))\).
+
+We give the gauge construction to indicate where denominators enter.
+Pass to the normalized formal logarithm of the commutative smooth
+formal group. It is obtained by termwise integration of the
+closed invariant differentials dual to the tangent basis. They are
+closed since the invariant tangent fields commute, and their
+constant matrix is the identity. The resulting coordinates turn
+the group law into addition, because the pullback of each invariant
+differential by addition is the sum of its two pullbacks. For a
+symmetric, normalized additive cocycle \(C(x,y)\), allow inactive
+coordinates as parameters, and put
+\(g_j(x)=\partial_{y_j} C(x,0)\). Differentiating the cocycle equation
+gives \(\partial_{y_j}C(x,y)=g_j(x+y)-g_j(y)\).
+Symmetry, followed by taking the mixed partial derivatives, gives
+\(\partial_i g_j=\partial_j g_i\). Choose the formal primitive \(h_1\)
+of \(-\sum_jg_j\,dx_j\) with zero constant. It has zero linear part
+in \(x\), and
+\(C(x,y)=h_1(x)+h_1(y)-h_1(x+y)\), by differentiation in \(y\)
+and evaluation at \(y=0\). Apply this to the first multiplication
+law. After this change of frame, the interchange law for a
+biextension makes the logarithm of the second defect additive in
+its passive variable. Applying the same primitive in its active
+variable preserves that additivity, since integration is linear in
+the coefficients. This kills both defects.
+
+The remaining endomorphism defects are biadditive. In their
+\(\mathbb Q\)-vector space let \(l(a)\) act on the first argument
+and \(r(a)\) by \(\bar a\) on the second. The logarithms \(\delta(a)\)
+of the adjoint factors satisfy
+\[
+  \delta(ab)=l(b)\delta(a)+r(a)\delta(b).
+\]
+Indeed this is the logarithm of the composition law for the adjoint
+trivializations, and \(l,r\) commute. In \(E\otimes_\mathbb Q E\)
+take the separability element \(\sum_i x_i\otimes y_i\), characterized
+by \(\sum_i x_i y_i=1\) and
+\((a\otimes1)e=(1\otimes a)e\); it is the projector onto the
+multiplication factor of the finite étale algebra \(E\otimes E\).
+Extend \(l,r,\delta\) by rational linearity. Apply
+\(x\otimes y\mapsto l(x)\delta(y)\) to the last identity to obtain
+\(\delta(a)=l(a)v-r(a)v\), where \(v=\sum_i l(x_i)\delta(y_i)\).
+Adding this biadditive correction kills the adjoint defects without
+changing the multiplication laws. Finally, the residual logarithm
+of the symmetry factor is alternating, biadditive, and commutes
+with the adjoint actions. Subtracting half of it supplies the
+last correction since \(h(Y,X)-h(X,Y)\) is the required symmetry
+logarithm. This constructs \(h\).
+\footnote{See \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/CanonGaugeOfLog.lean}{\srcid{canonGauge_of_log}} and
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/DerivationInnerOfSeparabilityElement.lean}{the endomorphism correction}.}
+
+For two choices \(h,h'\), their difference in logarithmic coordinates
+is a bilinear form \(L\). In fact its two additive coboundaries
+vanish, so differentiation over the characteristic-zero field makes
+it linear in each argument. The adjoint law gives
+\(L(au,v)=L(u,\bar a v)\). If \(u,v\) have eigencharacters
+\(\tau,\sigma\) with \(\sigma\ne\bar\tau\), choose \(a\) with
+\(\tau(a)\ne\sigma(\bar a)\). Subtraction gives \(L(u,v)=0\).
+The diagonal change of gauge is a homogeneous quadratic polynomial
+\(q(Z)=L(Z,dA_{w_0}Z)\) in logarithmic coordinates.
+
+For a polynomial \(P\) in the derivative symbols, let
+\(\langle P,S\rangle=P(\partial)S(0)\) in these coordinates.
+Repeated differentiation of a monomial gives
+\(\langle P,Z_iS\rangle=\langle\partial_iP,S\rangle\).
+The letters in the source are tangent directions \(u_j\). Equivalently,
+substitute \(Z=\sum t_j u_j\) in each column and use ordinary
+directional differentiation in the \(t_j\); the same identity
+applies even if the substitution is not an isomorphism. With
+\(q_{\mathrm{tot}}=\sum_b q(Z_b)\), it follows that
+\[
+  \langle P,e^{kq_{\mathrm{tot}}}S\rangle
+   =\sum_{j=0}^{\lfloor\deg P/2\rfloor}
+       \frac{k^j}{j!}\,
+          \langle q_{\mathrm{tot}}(\partial)^j P,S\rangle .
+\]
+The quadratic coefficients have support only in conjugate pairs.
+The same form occurs on every column. Thus
+\(q_{\mathrm{tot}}(\partial)\) is a linear combination of the
+operators
+\(\sum_b\partial_{(\tau,i,b)}\partial_{(\bar\tau,j,b)}\).
+The defining harmonic equations annihilate \(P\) under each of them.
+Only \(j=0\) contributes. Individual mixed derivatives may change
+with the gauge; the asserted invariant is the harmonic combination.
+
+For a change of formal coordinates, compose the two charts with
+their normalized formal exponential in the marked tangent
+directions. The resulting group homomorphisms agree since they
+have the same differential and additive coordinates determine a
+homomorphism in characteristic zero. A change of primitive frame
+may initially give different frames at adjacent truncation orders.
+Their ratio on the lower truncation is a unit normalized at the
+axes. The equal cubical multiplication, symmetry and adjoint
+factors imply that its logarithm in two arguments is biadditive,
+symmetric and balanced, through that order. In logarithmic
+coordinates it is a bilinear form through the truncation. Successive
+subtractions of these bilinear forms make the frames compatible
+to the desired order. Their cumulative diagonal change has the form
+\(\exp(kq_{\mathrm{tot}})\) just treated. The total degree
+\(D=\deg P\) suffices. Writing \(I=(Z)\), an invariant derivative
+sends \(I^j\) into \(I^{j-1}\), by the Leibniz rule. Consequently
+terms in \(I^{D+1}\) make no contribution to the evaluated
+derivative. These facts give chart-independence at the exact order
+used for the jet.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/FormalGroupCharts/CanonGaugeIndependenceHarmonic.lean}{Gauge change and conjugate eigendirections};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/FrRatio.lean}{ratios of truncated frames};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/CIndVerb.lean}{reduction of chart-independence to the finite jet}.}
+
+\subsection{The normalized pullback factor}
+
+Let \(\beta\bar\beta=N>0\) and write \(X=Z\) for the universal
+formal point. The integral ratio between the normalized pullback
+frame and the old frame is the following unit:
+\[
+ W(X)=
+ \frac{J_\beta(X,A_{w_0\beta}X)}
+ {\prod_{i=0}^{N-1}\Phi_2(X,A_{iw_0}X,A_{w_0}X)} .
+\]
+The normalization of the cubical line on the zero face supplies
+constant one in this formula. To see the frame identity, identify
+the primitive line at \(X\), divided by its origin fiber, with the
+biextension line at \((X,A_{w_0}X)\).
+The denominator composes the second partial addition
+\(N\) times in the \(w_0\)-direction. The numerator transports the
+\(\beta\)-action from the first to the second factor by Rosati,
+where \(\bar\beta w_0\beta=Nw_0\). Both identifications agree at the
+origin. Therefore a section with germ \(f\) in power \(k\) has
+normalized pullback germ \(f'=W^k(f\circ A_\beta)\) in power \(kN\).
+
+The logarithmic formula makes the entire adjustment explicit.
+The denominator telescopes to
+\(NH_h(X)-h(X,A_{Nw_0}X)\), since \(h(X,0)=0\).
+The logarithm of its numerator is
+\(H_h(A_\beta X)-h(X,A_{Nw_0}X)\). Hence
+\[
+      W=\exp\{H_h\circ A_\beta-NH_h\},\qquad
+      f'e^{kNH_h}=(f e^{kH_h})\circ A_\beta .
+\]
+Applying an invariant derivative in direction \(u_{\tau,i}\) to a
+pullback by \(A_\beta\) multiplies it by \(\tau(\beta)\). This follows
+by differentiating the group-homomorphism law on the dual numbers.
+Iteration, multiplication over the columns, and the fixed row
+degrees of \(P\) give the character
+\[
+      \prod_{\tau,i}\tau(\beta)^{a_{\tau,i}} .
+\]
+All the harmonic monomials have that same factor.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/ThreePointSeriesExponentialOfDefect.lean}{Normalized cubical and adjoint factors};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/HarmonicValueNormalisedPullbackChainRule.lean}{pullback germs and the character on the row degrees}.}
+
+\subsection{Comparison on the uniformized frame}
+
+Take the integral chart over \(T\), the framed generic point \(y\),
+its polarized uniformization, and a generating frame on the jets
+compatible with the rigidified primitive frame. Let \(F\) be a
+characteristic-zero extension field of \(\operatorname{Frac}T\).
+Suppose the uniformized sections \(\sigma_b\) correspond to the
+geometric sections \(s_b\) under the specified generic-fiber
+identification. Write \(f_b\) for their uniformized germs. To compare
+the two evaluations it suffices, on each truncated jet, to make the
+same base change in the coordinates, the tangent directions, the
+cubical line and its generating frame. Indeed the two sections
+restrict to the same section of the identified line. Dividing by
+the common power of its generating frame gives the same truncated
+series; equality may be checked on a trivializing open cover.
+The canonical gauge also pulls back, since its identities are
+identities of series and the homomorphism is between
+characteristic-zero fields. The chart-independence just proved
+identifies the scalar on these germs with the scalar defining the
+connection on the original framed point. Finally, derivatives in
+different columns act on independent variables, so evaluating the
+box product of the \(f_b\) gives precisely the sum of products of
+one-column values used to define the theta rule. This proves the
+equality for the tied sections at any power \(k\) and harmonic \(P\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/HarmonicValueConnectionIntegralChart.lean}{\srcid{harmonic_value_of_tied_sections}}.}
+
+This field-valued comparison can also be used at a finite residue
+prime. An integral assertion about the connection requires additional
+control. Here is the unit hypothesis in one such assertion. Let
+\(u,u'\) be integral directions of character \(\sigma\). Let \(B_h\)
+be the matrix of the bidegree-\((1,1)\) part of \(h\). Taking that
+component of the adjoint equation shows that
+\[
+       (dA_a)^t B_h-B_h dA_{\bar a}
+\]
+has integral entries. The logarithm of the integral adjoint unit
+has the same bidegree-\((1,1)\) coefficients as the unit itself:
+its rigidification makes it one on both axes, so higher powers of
+its augmentation have bidegree at least \((2,2)\). Contracting the
+matrix between \(u^t\) and \(u'\) proves that
+\((\sigma(a)-\sigma(\bar a))u^tB_hu'\) is integral.
+Thus an \(a\) with \(\sigma(a)-\sigma(\bar a)\in T^\times\) gives
+integrality of this contraction. The additional operator \(dA_{w_0}\)
+on \(u'\) multiplies it by the integral eigenvalue \(\sigma(w_0)\).
+This unit-separation hypothesis belongs to this coefficient argument.
+The separate projector for integral theta translates in
+Section~\ref{sec:theta-translate-span} uses \(q\in T^\times\).
+On the horizontal boundary both arguments are in residue
+characteristic zero, where a nonzero element of the coefficient
+field has valuation zero under the structural map through \(T\).
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/CanonicalGaugeEigenvectorPairingIntegral.lean}{The precise same-character integrality lemma}.}
+
+\subsection{Why the boundary weight shift has zero cost}
+
+Let \(e_Z\) be the idempotent of the component. If a cusp section
+\(f=e_Z f\) has nonzero evaluation, then \(e_Z(y)=1\).
+The source constructs a distinguished unit section \(K_4\) and a
+unit rule \(\rho\) with \(e_Z\rho^4=a\,e_ZK_4\),
+\(a\) a nonzero coefficient-field element depending on \(Z\).
+The integral-model theorem for the theta scalar gives
+\(v_T(K_4(y))=0\) here. The map from the stalk of the horizontal
+boundary sends the coefficient field into \(T\). Applying this to
+both \(a\) and \(a^{-1}\) gives \(v_T(a)=0\). Evaluating the fourth
+power identity gives \(4v_T(\rho(y))=0\), hence the weight-one
+twisting section \(t=e_Z\rho^{-1}\) has order zero. Its inverse on
+the component is \(e_Z\rho\). The input on parallel weights gives
+another invertible twisting section \(t_{-w}\) of weight
+\(\operatorname{par}(-w)\), of order zero at the same point.
+Its boundedness and that of its inverse preserve the cusp condition;
+the same property is part of the construction of \(t\).
+Thus \(f\,t_{-w}t^{-m}\) removes both \(\operatorname{par}(w)\) and
+the scalar weight \(m\), preserving nonvanishing and the exact order.
+The boundary theorem is stated for \(4\mid m\); in this application
+\(m=n/2\) and \(8\mid n\). The final multiplication uses only the
+integer power once the weight-one twist is in hand. The fourth
+power relation enters in constructing and controlling that twist.
+
+The existence of the fourth root as a global rule up to the
+component scalar, the integral-model unit theorem for \(K_4\),
+and the existence of the parallel-weight twist are geometric inputs
+to this last argument. They are distinct from the formal connection
+identities proved above.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/IntegralFramePointStalk.lean}{Construction of the weight-one twist and its valuation};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/BoundaryValuationTwistInvariant.lean}{the boundary twist at the prescribed point}.}

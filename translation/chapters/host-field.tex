@@ -1,0 +1,266 @@
+\section{The cyclotomic CM field on a common window}
+\label{sec:host-field}
+
+Fix a primitive Dirichlet character $\psi$ of conductor $M\geq 1$, and
+write $\Xi=\langle\psi\rangle$, $o=|\Xi|$. The arithmetic object supplied
+to the window argument is a number field $E$ with a specified Artin map,
+two quadratic characters, a CM type, ranks and level primes. We construct
+its field and its type, including the sign correction in the Artin map
+which is needed when $\psi$ is odd.
+
+\subsection{The tower and the factor in the degree}
+
+Write $U_n=(\mathbb Z/n\mathbb Z)^\times$. For $e\geq 0$ put
+\[
+ B=U_M/\ker\psi,\qquad D_e=2^{e+2},\qquad
+ L_e=\operatorname{lcm}(D_e,M),\qquad C_e=U_{D_e}/\{1,-1\}.
+\]
+The group $C_e$ has order $2^e$. The order of $B$ is $o$ because
+$\operatorname{im}\psi$ is cyclic of order $o$. The annihilator of
+$\Xi$ on $U_M$ is $\ker\psi$, since a unit on which $\psi$ takes value one has the same property for
+every power.
+
+The source first selects a modulus $Q$ as the least divisor of $L_e$
+such that $D_e\mid Q$ and the quotient map $U_{L_e}\to B$ kills all
+units congruent to $1$ modulo $Q$. The modulus $L_e$ itself is
+admissible. In the primitive case used here, $Q=L_e$. To prove this,
+take a unit $v$ modulo $M$ congruent to $1$ modulo $h=\gcd(Q,M)$.
+The Chinese remainder theorem supplies $z$ congruent to $v$ modulo
+$M$ and to $1$ modulo $Q$. It is coprime to $M$ and $Q$, hence to
+$L_e$ since $D_e\mid Q$. The defining property of $Q$ gives
+$\psi(v)=\psi(z)=1$. The reduction $U_M\to U_h$ is surjective.
+Its kernel is thus killed by $\psi$ and $\psi$ factors through $h$.
+Primitivity gives $M\le h$. Since $h\mid M$, equality follows,
+so $M\mid Q$. Combining $D_e\mid Q$, $M\mid Q$ and $Q\mid L_e$
+proves the assertion.
+
+Let $\eta_e:U_{L_e}\to C_e\times B$ be reduction on both factors and
+let $A_e=\operatorname{im}\eta_e$. This finite abelian group is the
+multiplicative presentation of the frame. Its projection to $C_e$
+is surjective. Its kernel maps bijectively by the second projection
+onto
+\[
+ B_e=\bigl\{[u\bmod M]\in B: u\in U_{L_e},\
+                                   u\equiv\pm1\bmod D_e\bigr\}.
+\]
+Indeed a kernel element has first coordinate one; conversely the unit
+in the definition of $B_e$ supplies a preimage. Therefore
+$|A_e|=2^e|B_e|$. Reduction of a unit from level $L_{e+1}$ to $L_e$
+preserves its $B$ coordinate and takes each sign modulo $D_{e+1}$
+to the same sign modulo $D_e$. Thus $B_{e+1}\subseteq B_e$. The
+positive integers $|B_e|\le o$ attain a minimum $c$ at some $e_1$,
+after which they are all $c$. Consequently
+\[
+          1\le c\le o,\qquad n_e:=|A_e|=c2^e \quad(e\ge e_1).
+\]
+The constant depends only on the initial character. This proves the
+degree stabilization used to choose the scale with the correct factor.
+
+\subsection{The field, including the sign of complex conjugation}
+
+Take $e\ge\max(e_1,2,4M,64o)$ and distinct primes $q,d$ as in
+Section~\ref{sec:rh-common-windows}, with $(M,qd)=1$.
+Set $N=Qqd$, where $Q=L_e$. For $a\in U_N$ let $\lambda_q(a)$ and
+$\lambda_d(a)$ be its quadratic residue signs. Identify each sign with
+$1$ or $-1$ in $U_Q$ and put $w(s)=\eta_e(s)\in A_e$.
+In the Galois coordinates used in the source, the Artin map is
+\[
+ \alpha(a)=\bigl(\lambda_q(a),\lambda_d(a),
+           \eta_e(a\bmod Q)\,w(\lambda_q(a))\bigr)
+       \ \in\ \{1,-1\}^2\times A_e .
+\]
+For any desired triple $(s,t,v)$, choose a unit modulo $Q$ mapping to
+$v w(s)$, a unit modulo $q$ with sign $s$, and a unit modulo $d$ with
+sign $t$. Each sign occurs at an odd prime. Since $Q,q,d$ are
+pairwise coprime, one unit $a\bmod N$ realizes all three choices.
+As $w(s)^2=1$, we have $\alpha(a)=(s,t,v)$. Both primes are
+$3\bmod4$, whence $\alpha(-1)=(-1,-1,1)$, including for odd $\psi$.
+
+Identify $\operatorname{Gal}(\mathbb Q(\zeta_N)/\mathbb Q)$ with
+$U_N$ by $\sigma_a(\zeta_N)=\zeta_N^a$. Define
+$E=\mathbb Q(\zeta_N)^{\ker\alpha}$. Galois correspondence and the
+surjectivity just proved give $\operatorname{Gal}(E/\mathbb Q)
+=\{1,-1\}^2\times A_e$ in these coordinates, and $[E:\mathbb Q]=4n_e$.
+For every integer $a$ prime to $N$ the restriction $\sigma_a|_E$
+is the identity precisely when
+\begin{equation}
+\label{eq:host-field-kernel}
+ a\equiv\pm1\bmod D_e,\qquad \psi(a)=1,\qquad
+ \lambda_q(a)=1,\qquad\lambda_d(a)=1.
+\end{equation}
+Indeed the sign coordinates must first be one, leaving
+$\eta_e(a\bmod Q)=1$ as the third condition. Its two coordinates give
+the first two conditions of \eqref{eq:host-field-kernel}.
+In particular $E$ is the compositum inside $\mathbb Q(\zeta_N)$
+of $\mathbb Q(\zeta_{D_e})^+$, the field cut out by $\psi$ in
+$\mathbb Q(\zeta_M)$, and the two quadratic fields
+$\mathbb Q(\sqrt{-q})$ and $\mathbb Q(\sqrt{-d})$. Indeed the
+subgroup fixing a compositum is the intersection of the four fixing
+subgroups. This description allows an intersection of the first
+two fields and accounts for the factor $c$ in the degree.
+
+For the quadratic identifications, let $p=q$ or $d$, select a
+primitive $p$th root $\zeta$, and extend $\lambda_p$ by zero at zero.
+The Gauss sum $g=\sum_{a\bmod p}\lambda_p(a)\zeta^a$ has
+$\sigma_u(g)=\lambda_p(u)g$ by change of variables. In a complex
+embedding,
+\[
+ |g|^2=\sum_{t\in\mathbb F_p^\times}\lambda_p(t)
+               \sum_{b\in\mathbb F_p^\times}\zeta^{(t-1)b}
+       =(p-1)-\sum_{t\ne0,1}\lambda_p(t)=p .
+\]
+Also $\overline g=\lambda_p(-1)g=-g$, so $g^2=-p$.
+It belongs to $E$ by \eqref{eq:host-field-kernel}. This supplies
+the root and the transformation rule invoked in
+\texttt{CharData.exists\_root}. Write $s_d$ for the chosen root of
+$-d$ and $K=\mathbb Q(s_d)\subset E$. Every embedding of $E$ into
+$\mathbb C$ sends $s_d$ to $i\sqrt d$ or $-i\sqrt d$.
+Cyclotomic complex conjugation induces the nontrivial involution
+$(-1,-1,1)$ on $E$ and acts by ordinary conjugation in every embedding.
+Its fixed field $F$ is totally real; every embedding of $F$ extends
+to $E$, and its image is pointwise fixed by complex conjugation.
+As $s_d$ is purely imaginary under every embedding, $E$ is totally
+imaginary and $E/F$ is quadratic. Thus $[F:\mathbb Q]=2n_e$ and the
+signature of $E$ is $(0,2n_e)$. The selected CM type is
+\[
+   \Phi=\{\tau:E\hookrightarrow\mathbb C:\tau(s_d)=i\sqrt d\}.
+\]
+Conjugation pairs the embeddings, with exactly one of each pair in
+$\Phi$. Thus $|\Phi|=2n_e$. For $\tau\in\Phi$ and
+$\sigma=(s,t,v)$, one has $\tau\circ\sigma\in\Phi$ exactly when
+$t=1$, since $\sigma(s_d)=t s_d$.
+
+\subsection{Which characters are tested on the same window}
+
+Let $P_2:A_e\to B$ be the second projection and $A_0=\ker P_2$.
+It is surjective by surjectivity of $U_{L_e}\to U_M$.
+For every complex character $\theta$ of $\{1,-1\}^2\times A_e$
+trivial on the subgroup $\{(1,1,v):v\in A_0\}$, there are
+$\xi\in\Xi$ and $i,j\in\{0,1\}$ such that for all $a$ prime to $N$,
+\[
+   \theta(\alpha(a))=\xi(a)\lambda_q(a)^i\lambda_d(a)^j,
+       \qquad \theta(1,-1,1)=(-1)^j.
+\]
+Indeed $v\mapsto\theta(1,1,v)$ descends to $B$. Every character
+of the cyclic group $B$ is a power of the faithful character induced
+by $\psi$. Its pullback to $U_M$ is the required $\xi$.
+Each of the homomorphisms
+$s\mapsto\theta(s,1,w(s))$ and $t\mapsto\theta(1,t,1)$ is either
+trivial or the sign character. Let $i,j$ be their exponents. Multiplying
+the three identities following from the factorization
+\[
+  \alpha(a)=(\lambda_q(a),1,w(\lambda_q(a)))\,
+             (1,\lambda_d(a),1)\,(1,1,\eta_e(a\bmod Q))
+\]
+proves the formulas. This is the comparison \texttt{TwistAny}
+which permits the previously selected prime pair to serve all these
+characters, including an odd initial $\psi$.
+
+\subsection{The decomposition condition at the level primes of the field}
+
+We give the arithmetic behind \texttt{decomp\_typeI}. For every prime
+$\ell\mid Qq$, every prime $\mathfrak P$ of $E$ above $\ell$, and
+every automorphism stabilizing $\mathfrak P$, its second sign is $+1$.
+For odd $\ell\mid Q$, we have $\ell\mid M$, and the common window
+ensures $\ell\mid d+1$ once its splitting bound exceeds $4M$.
+It also ensures $q\mid d+1$. Hence $-d$ is a nonzero square
+modulo each odd $\ell\mid Qq$. It is $1\bmod8$ because $d=7\bmod16$.
+
+Here is the simultaneous square-root calculation.
+If $s^2+d=\ell^j h$ for $j\ge1$ at an odd prime $\ell\mid Qq$,
+choose $v\bmod\ell$ with $h+2sv\equiv0\bmod\ell$. This is possible
+since $\ell\nmid 2s$. Then $(s+\ell^jv)^2+d$ is divisible by
+$\ell^{j+1}$. At two start with $s=1$ modulo $8$. If
+$s^2+d=2^j h$, $j\ge3$, retain $s$ when $h$ is even and take
+$s+2^{j-1}$ when $h$ is odd. In the latter case the quotient at $2^j$
+becomes $h+s+2^{j-2}$, which is even. Chinese remaindering the
+solutions at prime powers gives one odd $s$ with $Qq\mid s^2+d$.
+Since $16\mid Q$, one has $4\ell\mid Qq$ for every $\ell\mid Qq$,
+including $\ell=2$.
+
+The element $\omega=(1+s_d)/2$ is integral, with polynomial
+$X^2-X+(1+d)/4$. Put $v=(1+s)/2$. Then
+\[
+              (\omega-v)(\omega-(1-v))=-(s^2+d)/4\in\mathfrak P .
+\]
+At least one factor is in $\mathfrak P$. An automorphism stabilizing
+$\mathfrak P$ with second sign $-1$ would exchange their vanishing
+modulo $\mathfrak P$, as it sends $\omega$ to $1-\omega$. Both then
+vanish, forcing $2v-1=s\in\mathfrak P$ and hence $\ell\mid s$.
+This contradicts $s^2\equiv-d\bmod\ell$ and $\ell\nmid d$.
+Thus the decomposition group lies in the subgroup preserving $\Phi$.
+
+At $d$, the cyclotomic inertia group is the subgroup of $U_N$
+congruent to $1$ modulo $Qq$. Its image in $\operatorname{Gal}(E/\mathbb Q)$
+has exactly the elements $(1,1,1)$ and $(1,-1,1)$, by the Artin
+formula and Chinese remaindering. Here we use the cyclotomic inertia
+description and the restriction of inertia to a Galois subextension.
+The same two facts at $q$ give the group
+$\{(1,1,1),(-1,1,w(-1))\}$. Both ramification indices are two
+and the residue characteristics are odd, so these two primes are tame.
+
+\subsection{Compatibility with the width and the additional level}
+
+In the interval of Section~\ref{sec:rh-common-windows}, a single pair
+$q,d$ works for all $Z\le x\le Z^{3/2}$. At each such $x$ the
+chosen exponent satisfies $x^{2+8\epsilon}\le c2^e\le
+2x^{2+8\epsilon}$. For fixed $M,\epsilon$ and $J\ge1$, choose the
+lower threshold so that $x>c2^{\max(e_1,2,4M,64o)}$ and
+$x^{\epsilon/(5J)}\ge\max(5,4M)$. Then $e$ meets the construction
+bound and $b=\lfloor Y^{\epsilon/5}\rfloor\ge4M$, since
+$Y\ge x^{1/J}$. We have $Q\le4M\,2^e\le4M n_e$ and
+$Q\le n_e^2$ since $4M\le2^e\le n_e$. Every odd prime divisor
+$\ell$ of $Q$ divides $M$, so $4\ell\le b$. Finally
+$o^{64}\le 2^{64o}\le2^e$. With $q>3$ at sufficiently large
+scale, these are the size and splitting inequalities in
+\texttt{FieldRows}. The first quadratic sign and the root of $-q$
+were proved above. To verify exactness, fix a prime $\ell\mid Q$. We claim that
+some $v\in U_Q$ congruent to one modulo $Q/\ell$ has
+$\eta_e(v)\ne1$. If $D_e\mid Q/\ell$ and every such $v$ had
+trivial image, $Q/\ell$ would meet all the defining requirements
+for $Q$, contradicting minimality. If $D_e\nmid Q/\ell$, then
+$\ell=2$ and $Q/D_e$ is odd. The integer $1+Q/2$ is coprime to
+$Q$ and is $1+D_e/2$ modulo $D_e$, distinct there from both $1$
+and $-1$ since $D_e\ge16$. It gives the desired $v$. Choose by
+Chinese remaindering a unit $u\bmod N$ equal to $v\bmod Q$ and one
+modulo $qd$. Then $u\equiv1\bmod N/\ell$, while
+$\alpha(u)=(1,1,\eta_e(v))\ne1$. This proves the exact field row
+of \texttt{AnyGrp.exact\_data} and \texttt{ModData.exact}.
+Equation~\eqref{eq:host-field-kernel} identifies this very $E$ with
+a field allowed by the universal quantifier in \texttt{WinDatum.bound}.
+Thus the strict Selmer estimate applies to it, with the same $x,e,q,d$.
+
+The additional split level primes enter through
+\texttt{levelData} and \texttt{hostOfFieldOf}. With rank $k$ and the
+proof's scale parameter $b_x=\exp(x^\epsilon)$, the former supplies
+two distinct primes $g_i\in[(kb_x)^8,2(kb_x)^8]$ satisfying its
+quadratic norm condition, and primes $p,p',q_0$ with
+\[
+ p,p'\equiv1\bmod 15N,\qquad q_0\equiv1\bmod N,\qquad
+             p,p',q_0\le N^{C_8}.
+\]
+The three latter primes are pairwise distinct, and $p,p'$ differ
+from each $g_i$. The norm condition gives $g_i\equiv1\bmod N$.
+Therefore all the indicated level primes split completely in $E$,
+since their cyclotomic Frobenius maps to the identity. The source
+obtains the prime selection from \texttt{ShortNorm} and
+\texttt{SmallOne}. The rank construction, the choices of thick
+subsets, and the automorphic design are additional results. In
+particular, when a regular algebraic cuspidal representation over $E$
+is used later, regular algebraicity is a condition on that
+representation. Computing the signature of $E$ supplies the
+archimedean places over which that condition is formulated.
+
+\paragraph{Source identifications.}
+The conductor calculation and kernel appear in
+\texttt{CharacterBoxes.KerChiAny}, the degree argument in
+\texttt{CharacterBoxes.OrdAny}, and the field and rank bounds in
+\texttt{CharacterBoxes.FieldChi} and \texttt{ShortNorms.supplyOfAdmOf}.
+In the source directory \texttt{InertiaGaloisSymmetry},
+\texttt{AnyFrame} gives the Artin map, \texttt{OfChar} takes its fixed
+field, \texttt{CycBasic} and \texttt{CycAll} prove the degree and CM type,
+and \texttt{CycGrp} proves the stabilizer and inertia statements.
+The field identification uses elementary cyclotomic Galois theory,
+finite abelian character duality, and the cyclotomic decomposition of
+inertia. The common prime-selection and analytic window estimates are
+used with the quantifiers in Section~\ref{sec:rh-common-windows}.
