@@ -1,0 +1,2 @@
+Replaying 98821 declarations for [Compaction.Weber.weber] into an empty kernel environment
+REPLAY PASSED; axioms: [Classical.choice, Quot.sound, propext]

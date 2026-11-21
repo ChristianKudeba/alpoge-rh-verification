@@ -1,0 +1,1 @@
+'CertificateHour.RootTripleCertificate.collect' depends on axioms: [propext, Classical.choice, Quot.sound]

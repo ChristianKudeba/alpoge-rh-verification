@@ -1,0 +1,23 @@
+{
+  "module": "AllCertificates",
+  "source_sha256": "9e6a06d070ff8ebd8adb92cc5e93f1f88a09eb2b60ad0fa8a7fbac0c0f3993cc",
+  "trust_zero": false,
+  "exit_code": 0,
+  "seconds": 5.185798229998909,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/principia-harness/certificate-hour/matrix/research",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/principia-harness/certificate-hour/matrix/research-output/AllCertificates.olean",
+    "/workspace/principia-harness/certificate-hour/matrix/research/AllCertificates.lean"
+  ],
+  "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+  "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

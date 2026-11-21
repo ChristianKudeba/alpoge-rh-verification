@@ -1,0 +1,26 @@
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/CyclotomicPowerKernel.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/CyclotomicPowerKernel.lean:29:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/CyclotomicPowerKernel.lean:30:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'Compaction.CyclotomicPowerKernel.contains_outside_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.CyclotomicPowerKernel.quotient_is_two_group' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "inspected_at_utc": "2026-11-21T08:56:39.352856+00:00",
+  "purpose": "External contribution provenance for the certificate-construction research session; no implication here is claimed to be an unconditional shorter RH proof.",
+  "contributions": [
+    {
+      "file": "OrdinaryRH.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/OrdinaryRH.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "470147f4e139604173834f2329b16be081ba2139",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/470147f4e139604173834f2329b16be081ba2139/verification/OrdinaryRH.lean",
+      "sha256": "e2bab4de455929689f2977514ae8a84b8004fbbbb19619cf7b6866d77c93d33e",
+      "bytes": 29309,
+      "lines": 552,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      },
+      "earlier_linux_evidence": {
+        "run_id": "44880288220",
+        "job_id": "136773884957",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44880288220/job/136773884957",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": null
+      }
+    },
+    {
+      "file": "LogCubeRH.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/LogCubeRH.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "d85b449fa08d46836c934a7809fe3c9cae2e4a6a",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/d85b449fa08d46836c934a7809fe3c9cae2e4a6a/verification/LogCubeRH.lean",
+      "sha256": "d183191cac31584b7fa051847a87fbce3dac7ec4a44a9f5701fe4ad2f9904321",
+      "bytes": 33486,
+      "lines": 630,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      }
+    },
+    {
+      "file": "TwoCharacterCounts.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/TwoCharacterCounts.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "76ffabc62ab67b126afc128013ab6efa6f7d2a7c",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/76ffabc62ab67b126afc128013ab6efa6f7d2a7c/verification/TwoCharacterCounts.lean",
+      "sha256": "be6ccce3ae6696230518adc7bc509542c6eb5c47c644c35996234854f067de2a",
+      "bytes": 16601,
+      "lines": 356,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      }
+    },
+    {
+      "file": "RegularCharacterHeight.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/RegularCharacterHeight.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "b8afa4ee2aca3cb3478b1f706cac6b03b258b9fe",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/b8afa4ee2aca3cb3478b1f706cac6b03b258b9fe/verification/RegularCharacterHeight.lean",
+      "sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96",
+      "bytes": 15816,
+      "lines": 282,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      }
+    },
+    {
+      "file": "PrincipalHeightCounts.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/PrincipalHeightCounts.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "76ffabc62ab67b126afc128013ab6efa6f7d2a7c",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/76ffabc62ab67b126afc128013ab6efa6f7d2a7c/verification/PrincipalHeightCounts.lean",
+      "sha256": "a3e22e684b33c373a1046b02231c1ed4f7341b2c65a7062a9aea0ee8646ce84c",
+      "bytes": 18481,
+      "lines": 342,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      }
+    },
+    {
+      "file": "ExceptionalCharacterHeight.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/ExceptionalCharacterHeight.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "76ffabc62ab67b126afc128013ab6efa6f7d2a7c",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/76ffabc62ab67b126afc128013ab6efa6f7d2a7c/verification/ExceptionalCharacterHeight.lean",
+      "sha256": "a28ed6619eac5de2bcb500633b027b388c8fb0e6c1f094120b3e6c35a4a5749e",
+      "bytes": 3638,
+      "lines": 77,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      }
+    },
+    {
+      "file": "ConductorOneCases.lean",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/ConductorOneCases.lean",
+      "contributor": {
+        "principia_username": "anton",
+        "github_login": "antoshashakov"
+      },
+      "repository": "antoshashakov/riemann-hypothesis",
+      "commit": "76ffabc62ab67b126afc128013ab6efa6f7d2a7c",
+      "source_url": "https://github.com/antoshashakov/riemann-hypothesis/blob/76ffabc62ab67b126afc128013ab6efa6f7d2a7c/verification/ConductorOneCases.lean",
+      "sha256": "098881f61b371179e5c4427873a7c1818d631d30d354479755ccafa37486344d",
+      "bytes": 5015,
+      "lines": 107,
+      "independent_linux_evidence": {
+        "run_id": "44882399656",
+        "job_id": "136780322899",
+        "url": "https://github.com/antoshashakov/riemann-hypothesis/actions/runs/44882399656/job/136780322899",
+        "result": "success",
+        "source_hash_checked": true,
+        "printed_axioms": "propext, Classical.choice, Quot.sound",
+        "log_path": "/workspace/principia-harness/certificate-hour/contributions/character-counts-linux-decoded.log",
+        "independence_scope": "Separate Linux runner; not an independent mathematical peer review."
+      }
+    }
+  ],
+  "scope": {
+    "OrdinaryRH.lean": "Checked ordinary-RH specialization, conditional on Weber, principal-family connection, and a uniform principal-host height input.",
+    "LogCubeRH.lean": "Checked reduction that permits exp(C*(1+log(N*t))^3) height; does not supply the arithmetic height bound.",
+    "TwoCharacterCounts.lean": "Checked reduction to simultaneous generic counts plus pointwise nontrivial exceptional/resonant counts; neither count producer is proved in this source.",
+    "RegularCharacterHeight.lean": "Actual positive-twist trivial-character vanishing for regular cyclotomic primes, including unconditional specializations at3 and7; certificate M=1 for those trivial-character components.",
+    "PrincipalHeightCounts.lean": "Checked intermediate count-to-principal-height transfer.",
+    "ExceptionalCharacterHeight.lean": "Checked intermediate exceptional-prime reductions, with hypotheses explicit.",
+    "ConductorOneCases.lean": "Checked principal-host case analysis and character decomposition."
+  },
+  "non_source_references": [
+    {
+      "author": "JoseClaudioSJr",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/issues/5",
+      "local_path": "/workspace/principia-harness/certificate-hour/contributions/reader-map-issue5.md",
+      "scope": "Unofficial strategy map. It explicitly does not verify uniform Selmer estimates; no certificate construction."
+    }
+  ],
+  "other_updates": [
+    {
+      "author": "thorimur",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/4",
+      "head": "1c5f6b9d495eb09ed4fcc6d13ac159bf05a02317",
+      "observed_at_utc": "2026-11-21T09:07:22Z",
+      "scope": "Import minimization using agitate and lenient elaborators. PR body still warns full build not established and advises not merging. Not a checked mathematical reduction.",
+      "full_manual_build_url": "https://github.com/leanprover-community/riemann-hypothesis/actions/runs/44880502417",
+      "full_manual_build_status": "in_progress as observed09:07"
+    }
+  ],
+  "log_evidence_lines": {
+    "OrdinaryRH.lean": 536,
+    "ConductorOneCases.lean": 545,
+    "PrincipalHeightCounts.lean": 596,
+    "ExceptionalCharacterHeight.lean": 602,
+    "RegularCharacterHeight.lean": 703,
+    "TwoCharacterCounts.lean": 796,
+    "LogCubeRH.lean": 904
+  }
+}

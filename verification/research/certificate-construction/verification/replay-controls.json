@@ -1,0 +1,18 @@
+[
+  {
+    "label": "replay-positive-control",
+    "exit_code": 0,
+    "expected_behavior_observed": true,
+    "seconds": 11.608021277999796,
+    "log_sha256": "1bf55c7408e607039d51ee9317922b23940cec8bf8eb8fc55e58c0e5ed0b6a6c",
+    "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939"
+  },
+  {
+    "label": "replay-negative-control",
+    "exit_code": 1,
+    "expected_behavior_observed": true,
+    "seconds": 7.086082492998685,
+    "log_sha256": "a59ec61d51db1601aaa1d7f9f35495052666b75936c63db9fea04310b9d1fe59",
+    "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939"
+  }
+]

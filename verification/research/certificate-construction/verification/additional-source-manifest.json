@@ -1,0 +1,14 @@
+[
+  {
+    "module": "Compaction.FiniteLengthCard",
+    "path": "Compaction/FiniteLengthCard.lean",
+    "sha256": "33b8f6489eeeff6f23309372fdfcaf1407a6b5548f813942d2113dfd7f6b938d",
+    "validation": "separate native checks, dyadic native-manifest.json"
+  },
+  {
+    "module": "Compaction.PrimeCertificateAsOrders",
+    "path": "Compaction/PrimeCertificateAsOrders.lean",
+    "sha256": "4649cc914cc7e4cdbed953af4dcf99547a11dd72e6760dd6abd0bd666fac4408",
+    "validation": "separate native checks, dyadic native-manifest.json"
+  }
+]

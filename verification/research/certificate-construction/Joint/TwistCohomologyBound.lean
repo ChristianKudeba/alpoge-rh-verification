@@ -1,0 +1,42 @@
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.BOdd
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SChain
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SPrism
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SPrismMul
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.FirstFace
+import Development.EtaleCohomology.CyclotomicDiscriminants.FinSRel
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.STrans
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.FProd
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SThetaOf
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.PiRepApply
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.ExpStep
+import Development.EtaleCohomology.CyclotomicDiscriminants.FinSStein
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SClassOf
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SUpperOf
+import Development.EtaleCohomology.CyclotomicDiscriminants.FinSDetect
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SelmerOrderCounts
+import Development.EtaleCohomology.CyclotomicDiscriminants.FinSFewOf
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.RingEquivalences.OrderOfOneAddPrimePowZmodPrimePow
+import Development.EtaleCohomology.CyclotomicDiscriminants.FinSLayer
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.ExponentLe
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.NumThree
+import Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SFinal
+
+/-! The high-twist cohomology bound from Alpöge's class-counting lemmas. -/
+
+namespace Joint.TwistCohomologyBound
+
+open Formalism.GaloisCohomology UpperTheory.V UpperTheory.V.ZK
+
+theorem exists_exponent (pt : GlobalTheory.Published.PoitouTateDuality)
+    (lf : LocalFinitenessK) (ltate : LocalTateDualityK) : ∃ C, LemmaK C :=
+  lemmaK_of_steps bOdd pt lf ltate sChain sPrism sPrismMul sZc
+    LateralTheory.Fin.SRel.intersectionNumber_baseChange sTrans sCoc sThetaOf sPhi sEta
+    LateralTheory.Fin.SStein.intersectionNumber_baseChange sClassOf sUpperOf
+    LateralTheory.Fin.SDetect.intersectionNumber_baseChange sCount
+    LateralTheory.Fin.SFewOf.intersectionNumber_baseChange PositivityTheory.QuaternionShaBounds.sSha
+    LateralTheory.Fin.SLayer.intersectionNumber_baseChange sTors sNum sFinal
+
+end Joint.TwistCohomologyBound
+
+#print axioms Joint.TwistCohomologyBound.exists_exponent
+

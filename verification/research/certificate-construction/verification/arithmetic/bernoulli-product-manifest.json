@@ -1,0 +1,146 @@
+{
+  "sources": [
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.MapGenBChar",
+      "sha256": "7a84fd98752f7b2a310001da8a8f3dcb7447f967173d5bbdf28f3025d6a51129"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Charbij",
+      "sha256": "1f46cb213b438db68a272831ea22bbcc7a3cee0cdd6df652818591bdf7daac15"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Ratprod",
+      "sha256": "183f15bd106f519a4684e3d78ec4e3c50a050d8eb73a64379ac0339b00277030"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Condmap",
+      "sha256": "11a9d7b22ec8fca82cdab3ef9a7d648ba3afa1914c33924f1b19824a1d86bafb"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Primmap",
+      "sha256": "df9f2133ff4265cdfda13257ca1b47d019ee813772d966ec0f35247ed125b749"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Primval",
+      "sha256": "a333dee424f27644559f91cf719885b99523a3fee2c906e5b3cd80bc1e75ab0a"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Expand",
+      "sha256": "0bbcc6cbd49d7958fd443912d61bbcc660c81d58b8eab388092bb2f917d775cd"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Primden",
+      "sha256": "908554912d2c6e16f0df3604f421e8d4dcf5ff033b7faf5875dfd430f1eeeec0"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Denint",
+      "sha256": "9854cb7efb2841b72c28904265312ecfffbef5918bb1de018be4f40f64578481"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Denchar",
+      "sha256": "34953f42fd63bdf843c2f330c712130bb4121cb899693963388f0793f79f3a8f"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Primmem",
+      "sha256": "f206e63e6cfeae49b78199277978f4d4de8784b59913bbcb0ada4a70fc5188d4"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Polybound",
+      "sha256": "eddf8a8a46c073c756a57d91f12badb85317d470929ed2a9c577eb1d61aeaa85"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BUpper",
+      "sha256": "5afc361d6267e851a2f99b11523283f7cb538d764203ca81914a4f60338b550c"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Denupper",
+      "sha256": "7f52c467183143e17739040b361c026c259fca85246e9bc99f7ca656b34e04d7"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.GaussMulGaussInv",
+      "sha256": "1f784a155513e064c0f6890237cc14347582fbbdf6c1603aa6eae2966b797808"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.FeLFunctionConstMul",
+      "sha256": "de61de4b2b6887ef1867b97e64d47b6aebaeebbf635edde231dc0c363d0b71cd"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BTaylor2",
+      "sha256": "91dd69d68b2da36817b8ed095191a212529a914e4b1909c61be642926c688c04"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Termdiff",
+      "sha256": "1ea2315012cfde59116bc73df2638a9f21dbaaa7b7e75e695ee36971e0e6cbc8"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Termsum",
+      "sha256": "3989e89cdfc3933f4c4f45d7d8174a6f76005203971709b94475c237f712061b"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Hurzero",
+      "sha256": "8e333e6c5c49fe29319ca28fd4ce22e93f6ecdfadf131ceb51bcee9243c15658"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Sumicc",
+      "sha256": "2d483c8faeb5e5ec6fd85c1207c26b7e01d01eb37f58e97aeb264add91f08dfb"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BLval",
+      "sha256": "f6f1948c337d67757ebc63e85bcaff21bfc75e2cbba4469301ea61276e8a036e"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BLprim",
+      "sha256": "e0822b760c6c782d352afe936f0c267933f9c9ada4a4065dd07f5b1a9cf3960d"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Parity",
+      "sha256": "f429a66c30b09970c2916eeb4ff67f7817fceb819c08a680b5a4e0d188e8bb39"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Bcoef",
+      "sha256": "9344de5f3d1bc6073a31c060309b4d9e8cac13017959d750d1125bb247c60d19"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BRaabe",
+      "sha256": "08a5807d95ecc616285d79d0780c4322886405937560a67232f2c063a45f5fef"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.SumIccMulEq",
+      "sha256": "a90eb24cea24f23842b7788cdf5277f8f723f1628d8d0e3f56916d7f073c252f"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BernoulliPolyReflection",
+      "sha256": "d8fa30eeb97fd1f42427b191c3b9b1e35d73b4ea64d6c242befb11c726e001c0"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.DirichletCharacterLevelRaising",
+      "sha256": "b594617df9f0614499a0cd6578be35c6e9c1b884297835d06fdba9501245479c"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.GeneralizedBernoulliChangeLevel",
+      "sha256": "a169be8e9be2eb658c0a1961e07476798b398c9160956322e891077272646dd5"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Primlevel",
+      "sha256": "a7104ee492788b1820f8fe779d6e5f80b5307a1ed5b9d7e9b750f825e351e8ca"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BNzC",
+      "sha256": "6323f3653aef7dc264b925879819620dc9a24e66baf8990434b10b725453899c"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Prodint",
+      "sha256": "d82d20b5a36498bc9231c8e2fcb59b98fe75beea5b6f4dfdf2f060045ef41fdb"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BUltraUnit",
+      "sha256": "f5942b496c97e15ab91e13287bb6288e73efa87c74598cd6595e59292add4277"
+    },
+    {
+      "path": "BernoulliProductCertificate.lean",
+      "sha256": "2f3906cf84b8e69c19862e8ac146ded954f43da3e809d708c793c4403a9d3e44"
+    }
+  ],
+  "snippet_sha256": "f04dc3bc8168d8e8965d30615183d9eb865ebd81ec29a7a98ce41ce245e72d68",
+  "characters": 73831
+}

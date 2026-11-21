@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "scope": "Rank-four integer certificate arithmetic and root-parameter aggregation; retains original producer inputs, does not close full plus-height or exceptionalp3e1.",
+  "actual_archive_ref": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "modules": [
+    {
+      "module": "RootTripleCertificate",
+      "source": "/workspace/principia-harness/certificate-hour/contributions/RootTripleCertificate.lean",
+      "sha256": "0e3e3ffdbbcb2e80f9b3e3e793c519d076c17a6de037ff86c651103653e67e08",
+      "native_evidence": "/workspace/principia-harness/certificate-hour/matrix/checks/RootTripleCertificate.json",
+      "native_log": "/workspace/principia-harness/certificate-hour/matrix/checks/RootTripleCertificate.log",
+      "checked": true,
+      "standard_axioms_only": true
+    },
+    {
+      "module": "IntegralNormCertificate",
+      "source": "/workspace/principia-harness/certificate-hour/contributions/IntegralNormCertificate.lean",
+      "sha256": "56ee2d8b73d0ec73c99162c990cc76d25d218a790fb63351f155afb9cbfaeba5",
+      "native_evidence": "/workspace/principia-harness/certificate-hour/matrix/checks/IntegralNormCertificate.json",
+      "native_log": "/workspace/principia-harness/certificate-hour/matrix/checks/IntegralNormCertificate.log",
+      "checked": true,
+      "standard_axioms_only": true
+    },
+    {
+      "module": "NormProductCertificate",
+      "source": "/workspace/principia-harness/certificate-hour/contributions/NormProductCertificate.lean",
+      "sha256": "afb7c3345a3ad05d10875be427eb1bf11c5c8ec3e203812377b977ddfa47e6eb",
+      "native_evidence": "/workspace/principia-harness/certificate-hour/matrix/checks/NormProductCertificate.json",
+      "native_log": "/workspace/principia-harness/certificate-hour/matrix/checks/NormProductCertificate.log",
+      "checked": true,
+      "standard_axioms_only": true
+    },
+    {
+      "module": "ResonantRawBound",
+      "source": "/workspace/principia-harness/certificate-hour/contributions/ResonantRawBound.lean",
+      "sha256": "09561c1c9b3b6ec49c07064bc896357b397e46718ba85eb3fcbc455e5c03ea42",
+      "native_evidence": "/workspace/principia-harness/certificate-hour/matrix/checks/ResonantRawBound.json",
+      "native_log": "/workspace/principia-harness/certificate-hour/matrix/checks/ResonantRawBound.log",
+      "checked": true,
+      "standard_axioms_only": true
+    },
+    {
+      "module": "ResonantCertificate",
+      "source": "/workspace/principia-harness/certificate-hour/contributions/ResonantCertificate.lean",
+      "sha256": "9743826c773d9280f5522590b0b4dc77df436f21068a06465bc3993b81c0df10",
+      "checked": false,
+      "reason": "Full original CountS import closure hits mmap ENOMEM; no Lean proof verdict yet."
+    },
+    {
+      "module": "ResonantRawUniform",
+      "source": "/workspace/principia-harness/certificate-hour/contributions/ResonantRawUniform.lean",
+      "sha256": "ebc270de2338e97dd4aa33d1ca2319c1615c0f401797cf1dfb4f01c630bfb527",
+      "checked": false,
+      "reason": "Full original CountS import closure hits mmap ENOMEM; no Lean proof verdict yet."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/PGroupInertia.lean:14:52: warning: `normalizerCondition_of_isNilpotent` has been deprecated: Use `Group.normalizerCondition_of_isNilpotent` instead
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/PGroupInertia.lean:13:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'Compaction.Weber.eq_top_of_normalClosure_eq_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.Weber.relative_kernel_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,16 @@
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/AllOddMinusCertificate.lean:23:9: warning: Variable name `hPB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hPB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/AllOddMinusCertificate.lean:23:26: warning: Variable name `hSt` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hSt
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/AllOddMinusCertificate.lean:34:4: warning: Unused tactic linter: `change Real.log ((M₀ * M₁ : ℕ) : ℝ) ≤ _` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Compaction.AllOddMinusCertificate.universal' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,2 @@
+'CertificateHour.NormProductCertificate.valuation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificateHour.NormProductCertificate.normalized_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

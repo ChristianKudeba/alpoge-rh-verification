@@ -1,0 +1,23 @@
+{
+  "module": "Compaction.FactorialSmallPrimeCertificate",
+  "source_sha256": "868b94300196fdee29cec91b60368d2a2e427e7894e20de32cc88def313b2fd2",
+  "trust_zero": false,
+  "exit_code": 0,
+  "seconds": 5.0263637069947436,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/principia-harness/certificate-hour/matrix/research",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/principia-harness/certificate-hour/matrix/research-output/Compaction/FactorialSmallPrimeCertificate.olean",
+    "/workspace/principia-harness/certificate-hour/matrix/research/Compaction/FactorialSmallPrimeCertificate.lean"
+  ],
+  "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+  "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

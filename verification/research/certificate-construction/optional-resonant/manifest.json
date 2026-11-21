@@ -1,0 +1,22 @@
+[
+  {
+    "module": "IntegralNormCertificate",
+    "source_sha256": "56ee2d8b73d0ec73c99162c990cc76d25d218a790fb63351f155afb9cbfaeba5",
+    "scope": "separately checked; not part of aggregate; norm witness remains an input"
+  },
+  {
+    "module": "NormProductCertificate",
+    "source_sha256": "afb7c3345a3ad05d10875be427eb1bf11c5c8ec3e203812377b977ddfa47e6eb",
+    "scope": "separately checked; not part of aggregate; norm witness remains an input"
+  },
+  {
+    "module": "ResonantRawBound",
+    "source_sha256": "09561c1c9b3b6ec49c07064bc896357b397e46718ba85eb3fcbc455e5c03ea42",
+    "scope": "separately checked; not part of aggregate; norm witness remains an input"
+  },
+  {
+    "module": "RootTripleCertificate",
+    "source_sha256": "0e3e3ffdbbcb2e80f9b3e3e793c519d076c17a6de037ff86c651103653e67e08",
+    "scope": "separately checked; not part of aggregate; norm witness remains an input"
+  }
+]

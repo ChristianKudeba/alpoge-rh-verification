@@ -1,0 +1,541 @@
+{
+  "generated_at_utc": "2026-11-21T08:58:45.343860+00:00",
+  "scope": "Exact new dyadic research sources, compiled against pinned archive dependency caches",
+  "status": "native elaboration complete",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "source_files": [
+    {
+      "path": "PrimeCertificate.lean",
+      "module": "Compaction.PrimeCertificate",
+      "source_sha256": "506894317bc7ec059f4950ebd00af6a4b90b434c40334de23feaa148a0cc19e6",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.PrimeCertificate.json",
+      "native_log": "evidence/Compaction.PrimeCertificate.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.PrimeCertificate.construct",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrimeCertificate.dyadic",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "FiniteLengthCard.lean",
+      "module": "Compaction.FiniteLengthCard",
+      "source_sha256": "33b8f6489eeeff6f23309372fdfcaf1407a6b5548f813942d2113dfd7f6b938d",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.FiniteLengthCard.json",
+      "native_log": "evidence/Compaction.FiniteLengthCard.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.FiniteLengthCard.card_eq_pow_length",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.FiniteLengthCard.finite_of_length",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "PrimeCertificateAsOrders.lean",
+      "module": "Compaction.PrimeCertificateAsOrders",
+      "source_sha256": "4649cc914cc7e4cdbed953af4dcf99547a11dd72e6760dd6abd0bd666fac4408",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.PrimeCertificateAsOrders.json",
+      "native_log": "evidence/Compaction.PrimeCertificateAsOrders.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.PrimeCertificate.orderCertificate_eq",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrimeCertificate.construct_orders",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "DyadicWindows.lean",
+      "module": "Compaction.DyadicWindows",
+      "source_sha256": "ad3bd523ce5d8df2ec70908cde4fa3d2b3f1bc8f90270d00e07f98ee3ac5dc06",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.DyadicWindows.json",
+      "native_log": "evidence/Compaction.DyadicWindows.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.DyadicWindows.select_window",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "ArchiveDyadic.lean",
+      "module": "Compaction.ArchiveDyadic",
+      "source_sha256": "ca0f998cd46a8c635e96a113e5bb181a315af3f502a17f41cb0c298cb8ccb991",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.ArchiveDyadic.json",
+      "native_log": "evidence/Compaction.ArchiveDyadic.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.ArchiveDyadic.control",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ArchiveDyadic.windows",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ArchiveDyadic.from_archive",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "ArchiveDyadicClosed.lean",
+      "module": "Compaction.ArchiveDyadicClosed",
+      "source_sha256": "0eeb27eaddb07888e1b95fd238fc32c212e6a79add88deae3b1e35aa034f7c10",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.ArchiveDyadicClosed.json",
+      "native_log": "evidence/Compaction.ArchiveDyadicClosed.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.ArchiveDyadicClosed.duality",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ArchiveDyadicClosed.high_twist",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ArchiveDyadicClosed.windows",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "ClosedCohomologyInputs.lean",
+      "module": "Compaction.ClosedCohomologyInputs",
+      "source_sha256": "93e8794e69e90f410cbba10548e1fb7d70a2d78665166bda94de339aa61a893a",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.ClosedCohomologyInputs.json",
+      "native_log": "evidence/Compaction.ClosedCohomologyInputs.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.ClosedCohomologyInputs.duality",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ClosedCohomologyInputs.local_finiteness",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ClosedCohomologyInputs.local_tate",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.ClosedCohomologyInputs.high_twist",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "PrincipalDyadicClosed.lean",
+      "module": "Compaction.PrincipalDyadicClosed",
+      "source_sha256": "bca95c5bc9c87caf05688e98afa28ef605b3233b11f6aa044ae2e5c7911d0f0f",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.PrincipalDyadicClosed.json",
+      "native_log": "evidence/Compaction.PrincipalDyadicClosed.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.PrincipalDyadicClosed.tower_bound",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrincipalDyadicClosed.control",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrincipalDyadicClosed.windows_at",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrincipalDyadicClosed.windows",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/AbsoluteInertiaGeneration.lean",
+      "module": "Compaction.AbsoluteInertiaGeneration",
+      "source_sha256": "43162a06f6aa9670579a1092add1d74ced2e33b26a661cccdced46dc3db62e86",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.AbsoluteInertiaGeneration.json",
+      "native_log": "evidence/Compaction.AbsoluteInertiaGeneration.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.Weber.inertia_normalClosure_eq_top",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/CyclotomicPlaceConjugacy.lean",
+      "module": "Compaction.CyclotomicPlaceConjugacy",
+      "source_sha256": "bc49ed6a50d5378f4acfa28f0994215dd53398e224a80fc080c1c89f55a22706",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.CyclotomicPlaceConjugacy.json",
+      "native_log": "evidence/Compaction.CyclotomicPlaceConjugacy.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.CyclotomicPlaceConjugacy.conjugate",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/CyclotomicPowerKernel.lean",
+      "module": "Compaction.CyclotomicPowerKernel",
+      "source_sha256": "1db4fc8f3ccb75afda278fb1bd8788c7d965f94dfc655bef699986f5eacceb80",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.CyclotomicPowerKernel.json",
+      "native_log": "evidence/Compaction.CyclotomicPowerKernel.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.CyclotomicPowerKernel.contains_outside_prime",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.CyclotomicPowerKernel.quotient_is_two_group",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/HilbertPowerKernel.lean",
+      "module": "Compaction.HilbertPowerKernel",
+      "source_sha256": "29bc856660a9dae7137dd9aa8c4a083dbf66676380f98beeeb6a083489171fc0",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.HilbertPowerKernel.json",
+      "native_log": "evidence/Compaction.HilbertPowerKernel.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.HilbertPowerKernel.normal",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.HilbertPowerKernel.isOpen",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.HilbertPowerKernel.index",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.HilbertPowerKernel.contains_principal_decomposition",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/OddClassNumber.lean",
+      "module": "Compaction.OddClassNumber",
+      "source_sha256": "f645d619fdab78aa77497a26dddf078ce5c04466ae0afe121dcb45353f5ef503",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.OddClassNumber.json",
+      "native_log": "evidence/Compaction.OddClassNumber.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.OddClassNumber.odd_card_of_square_index_one",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.OddClassNumber.classNumber_odd_of_square_index_one",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/PGroupInertia.lean",
+      "module": "Compaction.PGroupInertia",
+      "source_sha256": "360a08b2354a3b5a226030408000b832696a81a2d1833d5ec43750f7389bbf76",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.PGroupInertia.json",
+      "native_log": "evidence/Compaction.PGroupInertia.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.Weber.eq_top_of_normalClosure_eq_top",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.Weber.relative_kernel_eq",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/PrincipalCyclotomicPrime.lean",
+      "module": "Compaction.PrincipalCyclotomicPrime",
+      "source_sha256": "78f421b9d2a6e0fdbb8826051d519b4cbf03dc21ecc7b374b14bba2d25fbff72",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.PrincipalCyclotomicPrime.json",
+      "native_log": "evidence/Compaction.PrincipalCyclotomicPrime.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.PrincipalCyclotomicPrime.principal",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrincipalCyclotomicPrime.class_eq_one",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.PrincipalCyclotomicPrime.unique",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    },
+    {
+      "path": "weber/Weber.lean",
+      "module": "Compaction.Weber",
+      "source_sha256": "2593394ca25c88caae2baf951ad50bb1c9113d954e0da45ed0ea9f128f56c1cf",
+      "native_elaboration": "passed",
+      "native_metadata": "evidence/Compaction.Weber.json",
+      "native_log": "evidence/Compaction.Weber.log",
+      "axiom_inventories": [
+        {
+          "declaration": "Compaction.Weber.odd_classNumber",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "declaration": "Compaction.Weber.weber",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ],
+      "trust_zero_requested": false,
+      "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+    }
+  ],
+  "hosted_constructor_check": {
+    "check_id": "260fb3ef5e25c4162dc670dac5b5d15e",
+    "result": "closed",
+    "sorries": 0,
+    "snippet_sha256": "957474c020d48962a020cb34a2ab152eadabf1562b85a29cb69f2a3748ad45aa",
+    "manifest": "evidence/hosted-constructor-manifest.json",
+    "verdict": "evidence/hosted-constructor-check-result.json"
+  },
+  "kernel_replay": {
+    "status": "separate evidence; pending collection by root matrix agent",
+    "note": "Native elaboration records do not themselves assert a complete imported-proof kernel replay."
+  },
+  "not_claimed": [
+    "A complete RH proof",
+    "Full Main Comparator acceptance",
+    "A million-line deletion",
+    "Fresh compilation of every cached original dependency",
+    "Numerical decimal values of the certificate integers"
+  ],
+  "pending_native_modules": []
+}

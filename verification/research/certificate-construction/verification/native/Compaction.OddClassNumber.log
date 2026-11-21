@@ -1,0 +1,4 @@
+'Compaction.OddClassNumber.odd_card_of_square_index_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.OddClassNumber.classNumber_odd_of_square_index_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

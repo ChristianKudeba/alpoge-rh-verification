@@ -1,0 +1,12 @@
+'Compaction.AllOddMinusCertificateClosed.exists_uniform_certificates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Compaction.JointWindowWithoutMinus.vwin_of_joint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.ArchiveDyadicClosed.windows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.PrincipalDyadicClosed.windows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.Weber.weber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificateHour.PrincipalNonresonant.gd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificateHour.PrincipalTwistCertificate.nonresonant_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CertificateHour.FullPlusCertificate.with_resonant_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

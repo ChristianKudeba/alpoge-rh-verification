@@ -1,0 +1,24 @@
+{
+  "verified": "on Principia",
+  "check_id": "260fb3ef5e25c4162dc670dac5b5d15e",
+  "mode": "scratch",
+  "result": "closed",
+  "checked_by": "server",
+  "sorries": 0,
+  "axioms": [],
+  "messages": [
+    {
+      "severity": "info",
+      "line": 4267,
+      "column": 0,
+      "text": "'Compaction.PrimeCertificate.construct' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "severity": "info",
+      "line": 4268,
+      "column": 0,
+      "text": "'Compaction.PrimeCertificate.dyadic' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    }
+  ],
+  "note": "scratch checks never close a step"
+}

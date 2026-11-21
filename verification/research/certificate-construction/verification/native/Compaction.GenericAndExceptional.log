@@ -1,0 +1,7 @@
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/GenericAndExceptional.lean:9:29: warning: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Compaction.GenericAndExceptional.construct' depends on axioms: [propext, Classical.choice, Quot.sound]

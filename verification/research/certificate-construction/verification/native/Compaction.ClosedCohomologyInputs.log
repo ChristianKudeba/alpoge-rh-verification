@@ -1,0 +1,4 @@
+'Compaction.ClosedCohomologyInputs.duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.ClosedCohomologyInputs.local_finiteness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.ClosedCohomologyInputs.local_tate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.ClosedCohomologyInputs.high_twist' depends on axioms: [propext, Classical.choice, Quot.sound]

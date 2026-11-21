@@ -1,0 +1,23 @@
+{
+  "module": "Compaction.JointWindowWithoutMinus",
+  "source_sha256": "5f1cdac8d87a6361c0ed49e6f5fc76ea69081c877c39ffd640fae3f373c46698",
+  "trust_zero": false,
+  "exit_code": 0,
+  "seconds": 13.395377383996674,
+  "command": [
+    "/workspace/principia-harness/a0564e7e/integration/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+    "-j1",
+    "-s400000",
+    "-R",
+    "/workspace/principia-harness/certificate-hour/matrix/research",
+    "-DautoImplicit=false",
+    "-DrelaxedAutoImplicit=false",
+    "-DmaxSynthPendingDepth=3",
+    "-DmaxHeartbeats=4000000",
+    "-o",
+    "/workspace/principia-harness/certificate-hour/matrix/research-output/Compaction/JointWindowWithoutMinus.olean",
+    "/workspace/principia-harness/certificate-hour/matrix/research/Compaction/JointWindowWithoutMinus.lean"
+  ],
+  "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+  "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+}

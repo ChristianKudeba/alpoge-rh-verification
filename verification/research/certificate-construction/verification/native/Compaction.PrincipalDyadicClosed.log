@@ -1,0 +1,4 @@
+'Compaction.PrincipalDyadicClosed.tower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.PrincipalDyadicClosed.control' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.PrincipalDyadicClosed.windows_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.PrincipalDyadicClosed.windows' depends on axioms: [propext, Classical.choice, Quot.sound]

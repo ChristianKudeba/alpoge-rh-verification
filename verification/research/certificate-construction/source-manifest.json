@@ -1,0 +1,537 @@
+{
+  "root": "AllCertificates",
+  "all_certificates_native_check": "checks/AllCertificates.json",
+  "new_source_files": [
+    "Compaction/BernoulliProductCertificate.lean",
+    "Compaction/BernoulliLengthCertificate.lean",
+    "Compaction/BernoulliTwistCertificate.lean",
+    "Compaction/OddMinusCertificate.lean",
+    "Compaction/FactorialSmallPrimeCertificate.lean",
+    "Compaction/AllOddMinusCertificate.lean",
+    "Compaction/AllOddMinusCertificateClosed.lean",
+    "Compaction/OddMinusBudgetBound.lean",
+    "Compaction/OddMinusVVle.lean",
+    "Compaction/PolynomialAbsorption.lean",
+    "Compaction/JointWindowWithoutMinus.lean",
+    "Joint/PowerWindow.lean",
+    "Compaction/PrimeCertificate.lean",
+    "Compaction/DyadicWindows.lean",
+    "Compaction/ArchiveDyadic.lean",
+    "Joint/TwistCohomologyBound.lean",
+    "Compaction/ClosedCohomologyInputs.lean",
+    "Compaction/ArchiveDyadicClosed.lean",
+    "Compaction/HilbertPowerKernel.lean",
+    "Compaction/CyclotomicPowerKernel.lean",
+    "Compaction/PrincipalCyclotomicPrime.lean",
+    "Compaction/CyclotomicPlaceConjugacy.lean",
+    "Compaction/OddClassNumber.lean",
+    "Compaction/PGroupInertia.lean",
+    "Compaction/AbsoluteInertiaGeneration.lean",
+    "Compaction/Weber.lean",
+    "Joint/DyadicAvoidance.lean",
+    "Joint/WeberBase.lean",
+    "Joint/WeberRank.lean",
+    "Joint/WeberTower.lean",
+    "Joint/DyadicRankWindow.lean",
+    "Compaction/PrincipalDyadicClosed.lean",
+    "PairCertificate.lean",
+    "OrbitCertificate.lean",
+    "AllOrbitCertificate.lean",
+    "NormalizedLength.lean",
+    "PlusCertificate.lean",
+    "GenericHostCertificate.lean",
+    "ConductorOneCases.lean",
+    "PrincipalNonresonant.lean",
+    "Compaction/AuxiliaryPrimes.lean",
+    "RootAuxiliaryPrimes.lean",
+    "PrincipalCertificate.lean",
+    "Compaction/CertificateAssembly.lean",
+    "RootCertificateAssembly.lean",
+    "PrincipalTwistCertificate.lean",
+    "RegularCharacterHeight.lean",
+    "RegularOneCertificate.lean",
+    "Compaction/GenericAndExceptional.lean",
+    "RootGenericAndExceptional.lean",
+    "RootFactorialSmallPrime.lean",
+    "HeightResonantCertificate.lean",
+    "FullPlusCertificate.lean",
+    "Compaction/SelmerAssembly.lean",
+    "Compaction/MixedGrowth.lean",
+    "AllCertificates.lean"
+  ],
+  "source_files": [
+    {
+      "module": "Compaction.BernoulliProductCertificate",
+      "path": "Compaction/BernoulliProductCertificate.lean",
+      "source_sha256": "2f3906cf84b8e69c19862e8ac146ded954f43da3e809d708c793c4403a9d3e44",
+      "bytes": 3224,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.BernoulliLengthCertificate",
+      "path": "Compaction/BernoulliLengthCertificate.lean",
+      "source_sha256": "3ee5b8825d443d0ec9eb27a28cdad39b3344718c7b3458ce950cf826d45b1417",
+      "bytes": 3479,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.BernoulliTwistCertificate",
+      "path": "Compaction/BernoulliTwistCertificate.lean",
+      "source_sha256": "e81be03748c5dcaf9915b671bd9eac66c93427b587a852cf4f7638f44878fda3",
+      "bytes": 4597,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.OddMinusCertificate",
+      "path": "Compaction/OddMinusCertificate.lean",
+      "source_sha256": "05a82420c48d6373cbc93ca916bebc4f4e9509884d50d5728cf29d3bc57431d4",
+      "bytes": 2348,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.FactorialSmallPrimeCertificate",
+      "path": "Compaction/FactorialSmallPrimeCertificate.lean",
+      "source_sha256": "868b94300196fdee29cec91b60368d2a2e427e7894e20de32cc88def313b2fd2",
+      "bytes": 6132,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.AllOddMinusCertificate",
+      "path": "Compaction/AllOddMinusCertificate.lean",
+      "source_sha256": "885b9b25f13e860c64d0db855226b1ebcf6bb09e644abb69d168ae6c602b212e",
+      "bytes": 3501,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.AllOddMinusCertificateClosed",
+      "path": "Compaction/AllOddMinusCertificateClosed.lean",
+      "source_sha256": "01544a9af115f41f959fd81c781aa0fc73a93ecaaf190ca15d8dd92a730bd27a",
+      "bytes": 2189,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.OddMinusBudgetBound",
+      "path": "Compaction/OddMinusBudgetBound.lean",
+      "source_sha256": "e6812170e126ad59ee5e4d4cf781ae33e7db30e9e5b2a44655a423f3e03928cd",
+      "bytes": 2119,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.OddMinusVVle",
+      "path": "Compaction/OddMinusVVle.lean",
+      "source_sha256": "f2730f393f9512dc822bbb43855388e8ccfad08ac3799a03a6e4e3e499ad51c6",
+      "bytes": 3803,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.PolynomialAbsorption",
+      "path": "Compaction/PolynomialAbsorption.lean",
+      "source_sha256": "f1a32de5b89166cc38e29eef8a8d7aaf7052cff5fb765d12fe0c16ddda395660",
+      "bytes": 1601,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.JointWindowWithoutMinus",
+      "path": "Compaction/JointWindowWithoutMinus.lean",
+      "source_sha256": "5f1cdac8d87a6361c0ed49e6f5fc76ea69081c877c39ffd640fae3f373c46698",
+      "bytes": 7140,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.PowerWindow",
+      "path": "Joint/PowerWindow.lean",
+      "source_sha256": "d067c1ca0cec0ac9dd671e95523d0252fb4d68f29fa7910e4c0d78fe5b84fd92",
+      "bytes": 4156,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.PrimeCertificate",
+      "path": "Compaction/PrimeCertificate.lean",
+      "source_sha256": "506894317bc7ec059f4950ebd00af6a4b90b434c40334de23feaa148a0cc19e6",
+      "bytes": 3525,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.DyadicWindows",
+      "path": "Compaction/DyadicWindows.lean",
+      "source_sha256": "ad3bd523ce5d8df2ec70908cde4fa3d2b3f1bc8f90270d00e07f98ee3ac5dc06",
+      "bytes": 4721,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.ArchiveDyadic",
+      "path": "Compaction/ArchiveDyadic.lean",
+      "source_sha256": "ca0f998cd46a8c635e96a113e5bb181a315af3f502a17f41cb0c298cb8ccb991",
+      "bytes": 4239,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.TwistCohomologyBound",
+      "path": "Joint/TwistCohomologyBound.lean",
+      "source_sha256": "a6f2abf68100c179e72573a9d788e4684c462b506a1d235596cffd0d1e5c8b6a",
+      "bytes": 3047,
+      "kind": "research-source"
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.LayeredIsomorphisms.Kmono",
+      "path": "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Kmono.lean",
+      "source_sha256": "c8014bf9ddbf29d96b451dc80106df51a4b03e0672793f1c39477eec3471267a",
+      "bytes": 1053,
+      "kind": "original-source-copy"
+    },
+    {
+      "module": "Compaction.ClosedCohomologyInputs",
+      "path": "Compaction/ClosedCohomologyInputs.lean",
+      "source_sha256": "93e8794e69e90f410cbba10548e1fb7d70a2d78665166bda94de339aa61a893a",
+      "bytes": 1689,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.ArchiveDyadicClosed",
+      "path": "Compaction/ArchiveDyadicClosed.lean",
+      "source_sha256": "0eeb27eaddb07888e1b95fd238fc32c212e6a79add88deae3b1e35aa034f7c10",
+      "bytes": 1729,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.HilbertPowerKernel",
+      "path": "Compaction/HilbertPowerKernel.lean",
+      "source_sha256": "29bc856660a9dae7137dd9aa8c4a083dbf66676380f98beeeb6a083489171fc0",
+      "bytes": 5820,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.CyclotomicPowerKernel",
+      "path": "Compaction/CyclotomicPowerKernel.lean",
+      "source_sha256": "1db4fc8f3ccb75afda278fb1bd8788c7d965f94dfc655bef699986f5eacceb80",
+      "bytes": 2631,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.PrincipalCyclotomicPrime",
+      "path": "Compaction/PrincipalCyclotomicPrime.lean",
+      "source_sha256": "78f421b9d2a6e0fdbb8826051d519b4cbf03dc21ecc7b374b14bba2d25fbff72",
+      "bytes": 2739,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.CyclotomicPlaceConjugacy",
+      "path": "Compaction/CyclotomicPlaceConjugacy.lean",
+      "source_sha256": "bc49ed6a50d5378f4acfa28f0994215dd53398e224a80fc080c1c89f55a22706",
+      "bytes": 1797,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.OddClassNumber",
+      "path": "Compaction/OddClassNumber.lean",
+      "source_sha256": "f645d619fdab78aa77497a26dddf078ce5c04466ae0afe121dcb45353f5ef503",
+      "bytes": 1300,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.PGroupInertia",
+      "path": "Compaction/PGroupInertia.lean",
+      "source_sha256": "360a08b2354a3b5a226030408000b832696a81a2d1833d5ec43750f7389bbf76",
+      "bytes": 2002,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.AbsoluteInertiaGeneration",
+      "path": "Compaction/AbsoluteInertiaGeneration.lean",
+      "source_sha256": "43162a06f6aa9670579a1092add1d74ced2e33b26a661cccdced46dc3db62e86",
+      "bytes": 2672,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.Weber",
+      "path": "Compaction/Weber.lean",
+      "source_sha256": "2593394ca25c88caae2baf951ad50bb1c9113d954e0da45ed0ea9f128f56c1cf",
+      "bytes": 3485,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.DyadicAvoidance",
+      "path": "Joint/DyadicAvoidance.lean",
+      "source_sha256": "3b5653c610338e123ade72434286dc9e6a26ee02f1f677a31994bf03be26ee67",
+      "bytes": 2717,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.WeberBase",
+      "path": "Joint/WeberBase.lean",
+      "source_sha256": "91769c7ebcd2d2abd7bbea9bfb3e2bc8f41873ac8678f7d26eaca74f5a260ed0",
+      "bytes": 3701,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.WeberRank",
+      "path": "Joint/WeberRank.lean",
+      "source_sha256": "9be310aec8f38bd1738d10882945f2767ac114e8e17d0c5bb848a1bccfe13bfb",
+      "bytes": 2571,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.WeberTower",
+      "path": "Joint/WeberTower.lean",
+      "source_sha256": "f27c84e741d1d642d89e040854b09af5a8b53683da762603ee3eef2ef24a2dc9",
+      "bytes": 867,
+      "kind": "research-source"
+    },
+    {
+      "module": "Joint.DyadicRankWindow",
+      "path": "Joint/DyadicRankWindow.lean",
+      "source_sha256": "79e7b35a982521e3be3b485792b493fcdee631bd66ed136450ad078e9c22cbe9",
+      "bytes": 1818,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.PrincipalDyadicClosed",
+      "path": "Compaction/PrincipalDyadicClosed.lean",
+      "source_sha256": "bca95c5bc9c87caf05688e98afa28ef605b3233b11f6aa044ae2e5c7911d0f0f",
+      "bytes": 3819,
+      "kind": "research-source"
+    },
+    {
+      "module": "PairCertificate",
+      "path": "PairCertificate.lean",
+      "source_sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66",
+      "bytes": 2502,
+      "kind": "research-source"
+    },
+    {
+      "module": "OrbitCertificate",
+      "path": "OrbitCertificate.lean",
+      "source_sha256": "71521046e9d042f0c0e7a50df113416303181303eac91a394cc858a9cc833b67",
+      "bytes": 2717,
+      "kind": "research-source"
+    },
+    {
+      "module": "AllOrbitCertificate",
+      "path": "AllOrbitCertificate.lean",
+      "source_sha256": "e567b2ad934ed3c16d05ee7eb7e9224a51484b7ef2828f503bec8227d202fa87",
+      "bytes": 5040,
+      "kind": "research-source"
+    },
+    {
+      "module": "NormalizedLength",
+      "path": "NormalizedLength.lean",
+      "source_sha256": "f95d295b4b5581bed5bb15da7aee2e2fe3087a48f1ce182bf0b76ac2516ac6e4",
+      "bytes": 1112,
+      "kind": "research-source"
+    },
+    {
+      "module": "PlusCertificate",
+      "path": "PlusCertificate.lean",
+      "source_sha256": "3a4d4c1a1846f5e64b84e8edf5e5cc4fdb1ab2bbe66413bf9269cbb04007fdab",
+      "bytes": 2726,
+      "kind": "research-source"
+    },
+    {
+      "module": "GenericHostCertificate",
+      "path": "GenericHostCertificate.lean",
+      "source_sha256": "127d0281a0ed09753fb119277c950f94dfad3e07060f06824e657ffbcb6fefbe",
+      "bytes": 2924,
+      "kind": "research-source"
+    },
+    {
+      "module": "ConductorOneCases",
+      "path": "ConductorOneCases.lean",
+      "source_sha256": "098881f61b371179e5c4427873a7c1818d631d30d354479755ccafa37486344d",
+      "bytes": 5015,
+      "kind": "research-source"
+    },
+    {
+      "module": "PrincipalNonresonant",
+      "path": "PrincipalNonresonant.lean",
+      "source_sha256": "83c4cb5512f34089a75641959404130f2bd9d2fe7ee3bbe7af489f935446cae9",
+      "bytes": 5296,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.AuxiliaryPrimes",
+      "path": "Compaction/AuxiliaryPrimes.lean",
+      "source_sha256": "5844e81007ccf600d1b05796566e4c900af2c7353c23f5f16d7ef047de7c6af8",
+      "bytes": 3505,
+      "kind": "research-source"
+    },
+    {
+      "module": "RootAuxiliaryPrimes",
+      "path": "RootAuxiliaryPrimes.lean",
+      "source_sha256": "11ec72f7a0d16d85f17031f63d348793e471c5ddd032a7e96374e6ba55ad8af9",
+      "bytes": 34,
+      "kind": "research-source"
+    },
+    {
+      "module": "PrincipalCertificate",
+      "path": "PrincipalCertificate.lean",
+      "source_sha256": "9df8a70097f41df6f7c5b71b3aa58581f00e4b067ed3fc532968fb737adcfccd",
+      "bytes": 3786,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.CertificateAssembly",
+      "path": "Compaction/CertificateAssembly.lean",
+      "source_sha256": "9fc7712f738f5e2c619b14b0cf794de495dfa774fc46874066eb624800be9bb4",
+      "bytes": 3165,
+      "kind": "research-source"
+    },
+    {
+      "module": "RootCertificateAssembly",
+      "path": "RootCertificateAssembly.lean",
+      "source_sha256": "c961ef3bc6a615238855aba66e08a5995b4f3e99bae795ad3cc387093bd323da",
+      "bytes": 38,
+      "kind": "research-source"
+    },
+    {
+      "module": "PrincipalTwistCertificate",
+      "path": "PrincipalTwistCertificate.lean",
+      "source_sha256": "d1460fa698070754a20052e47a5cdb459cc4014d1a68fe8b443ce804e6d9f37b",
+      "bytes": 4451,
+      "kind": "research-source"
+    },
+    {
+      "module": "RegularCharacterHeight",
+      "path": "RegularCharacterHeight.lean",
+      "source_sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96",
+      "bytes": 15816,
+      "kind": "research-source"
+    },
+    {
+      "module": "RegularOneCertificate",
+      "path": "RegularOneCertificate.lean",
+      "source_sha256": "15d47da52e0243ceb683fe43f8755f6c01911e3f879e8f4ff5d5ce0c3c379bbf",
+      "bytes": 1909,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.GenericAndExceptional",
+      "path": "Compaction/GenericAndExceptional.lean",
+      "source_sha256": "1b45b7e62bdcc37c2a53a83a1f05b55d60011206aa1e984f4621fc3c8d0c9f68",
+      "bytes": 2787,
+      "kind": "research-source"
+    },
+    {
+      "module": "RootGenericAndExceptional",
+      "path": "RootGenericAndExceptional.lean",
+      "source_sha256": "8bec70a1e7dd561d9d0a32bc41f2d601a204603d07e6ba57ccbe7f0874bd8545",
+      "bytes": 40,
+      "kind": "research-source"
+    },
+    {
+      "module": "RootFactorialSmallPrime",
+      "path": "RootFactorialSmallPrime.lean",
+      "source_sha256": "30624ddc11a3a04aba4094e7ce8ebebf240738386fecd2f1caad77da4b81546b",
+      "bytes": 49,
+      "kind": "research-source"
+    },
+    {
+      "module": "HeightResonantCertificate",
+      "path": "HeightResonantCertificate.lean",
+      "source_sha256": "31cf5c18bb49344e447653b95bde0ada04b7db7c4c7d7ac1abd8390e25b9bef1",
+      "bytes": 2245,
+      "kind": "research-source"
+    },
+    {
+      "module": "FullPlusCertificate",
+      "path": "FullPlusCertificate.lean",
+      "source_sha256": "9db303a53216f1ac5fcb9b0e84d8398ffdeebdeb4bce7a9faac22c4b6e477583",
+      "bytes": 2961,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.SelmerAssembly",
+      "path": "Compaction/SelmerAssembly.lean",
+      "source_sha256": "9571c8ba1f3b4e830f9d8f27bf46518244fb84e7e9ffac4c5ef541fda7b9c3bd",
+      "bytes": 3515,
+      "kind": "research-source"
+    },
+    {
+      "module": "Compaction.MixedGrowth",
+      "path": "Compaction/MixedGrowth.lean",
+      "source_sha256": "e8938d28b7cdb8a44981bb558f4d7170c02cfe3f07159086abfc9b0359c8e984",
+      "bytes": 3075,
+      "kind": "research-source"
+    },
+    {
+      "module": "AllCertificates",
+      "path": "AllCertificates.lean",
+      "source_sha256": "9e6a06d070ff8ebd8adb92cc5e93f1f88a09eb2b60ad0fa8a7fbac0c0f3993cc",
+      "bytes": 1392,
+      "kind": "research-source"
+    }
+  ],
+  "external_imports": [
+    "CompanionTheory.AutomorphicTheory.PadicCyclotomicFields.GcohTop",
+    "Development.AbelianVarietyTheory.Proofs.InertiaEigenvalues.CyclotomicCharInertiaSurjective",
+    "Development.AbelianVarietyTheory.Proofs.InertiaEigenvalues.PoitouTateDualityOfNormalised",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.AdditiveValuationNorms.ABoundOfIsTower",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.CMFieldExponentialBounds.AdmissibleOfPageN",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.CMFieldExponentialBounds.bigpair",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.CMFieldExponentialBounds.logpair",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.BUltraUnit",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Prodint",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.BernoulliNumbers.Sumval",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.ClassFieldRamification.MinkAbs",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.FerreroWashingtonIndex.FerreroWashington",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.FerreroWashingtonIndex.IneCyc",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.ArtConj",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.ArtDec",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.ArtIne",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.ArtSurj",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.GalOfCyc",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.PlaceDict",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.PullOnto",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.KummerTheory.ToGalDict",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.SelmerTransport.DvrFacts",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.SelmerTransport.GalQuot",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.GaloisLibrary.SelmerTransport.Places",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.HeightAndVanishing.Cases",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.HeightAndVanishing.GdOfHost",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.HeightAndVanishing.HostLevel",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.HeightAndVanishing.OrbFacts",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.HeightAndVanishing.OrbSum",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.HeightAndVanishing.RedPrime",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.LayeredIsomorphisms.PartA",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.LayeredIsomorphisms.SecondBound",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.LengthEqAddEigen",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.LevelCohomology.TorsClass",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.BOdd",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.ExpStep",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.ExponentLe",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.FProd",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.FirstFace",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.NumThree",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.PiRepApply",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.RingEquivalences.OrderOfOneAddPrimePowZmodPrimePow",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SChain",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SClassOf",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SFinal",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SPrism",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SPrismMul",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SThetaOf",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.STrans",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SUpperOf",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ClassCounting.SelmerOrderCounts",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.OddResidueBounds.ActEx",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.OddResidueBounds.AtPrime",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.OddResidueBounds.ThmBcOfPsiBound",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.PlacesOfRationals.PlacesQ",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.PrimeSetBoundDataOfPrimitiveChar",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.PrimitiveFrobeniusFixed.Iv",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.PrimitiveFrobeniusFixed.ShaToShT",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.QuadraticExtensions.IsAlgClosureRat",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.QuadraticExtensions.ModulusAdjoinISqrtNegPrimes",
+    "Development.AutomorphicArithmetic.AutomorphicVarieties.UnitaryThreeGroups.KatoUse",
+    "Development.AutomorphicSpectrum.Proofs.GlobalProofs.UnramifiedOrthogonality",
+    "Development.EtaleCohomology.CyclotomicDiscriminants.FinSDetect",
+    "Development.EtaleCohomology.CyclotomicDiscriminants.FinSFewOf",
+    "Development.EtaleCohomology.CyclotomicDiscriminants.FinSLayer",
+    "Development.EtaleCohomology.CyclotomicDiscriminants.FinSRel",
+    "Development.EtaleCohomology.CyclotomicDiscriminants.FinSStein",
+    "Development.WeilBound.CoreStatements.PublishedTheorems.PoitouTateDuality.PoitouTateNineTerm.PoitouTateNormalisedHolds",
+    "Mathlib",
+    "ReciprocityTheory.GaloisValuations.ArithOfA"
+  ],
+  "uncompiled_rank_four_drafts_included": false,
+  "note": "Imports form the exact successful aggregate source DAG; external source dependencies are supplied by the original archive and pinned Mathlib."
+}

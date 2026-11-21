@@ -1,0 +1,3 @@
+'Compaction.ArchiveDyadicClosed.duality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.ArchiveDyadicClosed.high_twist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.ArchiveDyadicClosed.windows' depends on axioms: [propext, Classical.choice, Quot.sound]

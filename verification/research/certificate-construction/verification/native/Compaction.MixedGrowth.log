@@ -1,0 +1,3 @@
+'Compaction.MixedGrowth.scaled_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.MixedGrowth.exponential_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.MixedGrowth.mixed_budget' depends on axioms: [propext, Classical.choice, Quot.sound]

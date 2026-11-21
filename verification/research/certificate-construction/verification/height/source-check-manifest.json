@@ -1,0 +1,254 @@
+[
+  {
+    "path": "AllOrbitCertificate.lean",
+    "sha256": "e567b2ad934ed3c16d05ee7eb7e9224a51484b7ef2828f503bec8227d202fa87",
+    "source_lines": 100,
+    "check": {
+      "module": "AllOrbitCertificate",
+      "source_sha256": "e567b2ad934ed3c16d05ee7eb7e9224a51484b7ef2828f503bec8227d202fa87",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "ConductorOneCases.lean",
+    "sha256": "098881f61b371179e5c4427873a7c1818d631d30d354479755ccafa37486344d",
+    "source_lines": 107,
+    "check": {
+      "module": "ConductorOneCases",
+      "source_sha256": "098881f61b371179e5c4427873a7c1818d631d30d354479755ccafa37486344d",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "FullPlusCertificate.lean",
+    "sha256": "8f5943714406f74080bcfdff60f83e1ddff370a8a5f7e40429398813b311e5d4",
+    "source_lines": 56,
+    "check": {
+      "module": "FullPlusCertificate",
+      "source_sha256": "8f5943714406f74080bcfdff60f83e1ddff370a8a5f7e40429398813b311e5d4",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "GenericHostCertificate.lean",
+    "sha256": "127d0281a0ed09753fb119277c950f94dfad3e07060f06824e657ffbcb6fefbe",
+    "source_lines": 57,
+    "check": {
+      "module": "GenericHostCertificate",
+      "source_sha256": "127d0281a0ed09753fb119277c950f94dfad3e07060f06824e657ffbcb6fefbe",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "NormalizedLength.lean",
+    "sha256": "f95d295b4b5581bed5bb15da7aee2e2fe3087a48f1ce182bf0b76ac2516ac6e4",
+    "source_lines": 27,
+    "check": {
+      "module": "NormalizedLength",
+      "source_sha256": "f95d295b4b5581bed5bb15da7aee2e2fe3087a48f1ce182bf0b76ac2516ac6e4",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "OrbitCertificate.lean",
+    "sha256": "71521046e9d042f0c0e7a50df113416303181303eac91a394cc858a9cc833b67",
+    "source_lines": 52,
+    "check": {
+      "module": "OrbitCertificate",
+      "source_sha256": "71521046e9d042f0c0e7a50df113416303181303eac91a394cc858a9cc833b67",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "PairCertificate.lean",
+    "sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66",
+    "source_lines": 57,
+    "check": {
+      "module": "PairCertificate",
+      "source_sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "PlusCertificate.lean",
+    "sha256": "3a4d4c1a1846f5e64b84e8edf5e5cc4fdb1ab2bbe66413bf9269cbb04007fdab",
+    "source_lines": 52,
+    "check": {
+      "module": "PlusCertificate",
+      "source_sha256": "3a4d4c1a1846f5e64b84e8edf5e5cc4fdb1ab2bbe66413bf9269cbb04007fdab",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "PrincipalCertificate.lean",
+    "sha256": "9df8a70097f41df6f7c5b71b3aa58581f00e4b067ed3fc532968fb737adcfccd",
+    "source_lines": 76,
+    "check": {
+      "module": "PrincipalCertificate",
+      "source_sha256": "9df8a70097f41df6f7c5b71b3aa58581f00e4b067ed3fc532968fb737adcfccd",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "PrincipalNonresonant.lean",
+    "sha256": "83c4cb5512f34089a75641959404130f2bd9d2fe7ee3bbe7af489f935446cae9",
+    "source_lines": 118,
+    "check": {
+      "module": "PrincipalNonresonant",
+      "source_sha256": "83c4cb5512f34089a75641959404130f2bd9d2fe7ee3bbe7af489f935446cae9",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "PrincipalTwistCertificate.lean",
+    "sha256": "d1460fa698070754a20052e47a5cdb459cc4014d1a68fe8b443ce804e6d9f37b",
+    "source_lines": 86,
+    "check": {
+      "module": "PrincipalTwistCertificate",
+      "source_sha256": "d1460fa698070754a20052e47a5cdb459cc4014d1a68fe8b443ce804e6d9f37b",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "RegularCharacterHeight.lean",
+    "sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96",
+    "source_lines": 282,
+    "check": {
+      "module": "RegularCharacterHeight",
+      "source_sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "RegularOneCertificate.lean",
+    "sha256": "15d47da52e0243ceb683fe43f8755f6c01911e3f879e8f4ff5d5ce0c3c379bbf",
+    "source_lines": 45,
+    "check": {
+      "module": "RegularOneCertificate",
+      "source_sha256": "15d47da52e0243ceb683fe43f8755f6c01911e3f879e8f4ff5d5ce0c3c379bbf",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "ResonantCertificate.lean",
+    "sha256": "31cf5c18bb49344e447653b95bde0ada04b7db7c4c7d7ac1abd8390e25b9bef1",
+    "source_lines": 48,
+    "check": {
+      "module": "ResonantCertificate",
+      "source_sha256": "31cf5c18bb49344e447653b95bde0ada04b7db7c4c7d7ac1abd8390e25b9bef1",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "RootAuxiliaryPrimes.lean",
+    "sha256": "5844e81007ccf600d1b05796566e4c900af2c7353c23f5f16d7ef047de7c6af8",
+    "source_lines": 83,
+    "check": {
+      "module": "RootAuxiliaryPrimes",
+      "source_sha256": "5844e81007ccf600d1b05796566e4c900af2c7353c23f5f16d7ef047de7c6af8",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "RootCertificateAssembly.lean",
+    "sha256": "9fc7712f738f5e2c619b14b0cf794de495dfa774fc46874066eb624800be9bb4",
+    "source_lines": 62,
+    "check": {
+      "module": "RootCertificateAssembly",
+      "source_sha256": "9fc7712f738f5e2c619b14b0cf794de495dfa774fc46874066eb624800be9bb4",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "RootFactorialSmallPrime.lean",
+    "sha256": "868b94300196fdee29cec91b60368d2a2e427e7894e20de32cc88def313b2fd2",
+    "source_lines": 121,
+    "check": {
+      "module": "RootFactorialSmallPrime",
+      "source_sha256": "868b94300196fdee29cec91b60368d2a2e427e7894e20de32cc88def313b2fd2",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  },
+  {
+    "path": "RootGenericAndExceptional.lean",
+    "sha256": "1b45b7e62bdcc37c2a53a83a1f05b55d60011206aa1e984f4621fc3c8d0c9f68",
+    "source_lines": 58,
+    "check": {
+      "module": "RootGenericAndExceptional",
+      "source_sha256": "1b45b7e62bdcc37c2a53a83a1f05b55d60011206aa1e984f4621fc3c8d0c9f68",
+      "trust_zero": false,
+      "exit_code": 0,
+      "toolchain": "leanprover/lean4:v4.33.1",
+      "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    "matches_checked_source": true
+  }
+]

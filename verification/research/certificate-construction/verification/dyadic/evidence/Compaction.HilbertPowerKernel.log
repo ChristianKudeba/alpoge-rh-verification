@@ -1,0 +1,38 @@
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/HilbertPowerKernel.lean:29:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/HilbertPowerKernel.lean:56:0: warning: automatically included section variable(s) unused in theorem `Compaction.HilbertPowerKernel.isOpen`:
+  [Normal ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Normal ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/HilbertPowerKernel.lean:69:0: warning: automatically included section variable(s) unused in theorem `Compaction.HilbertPowerKernel.index`:
+  [Normal ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Normal ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/HilbertPowerKernel.lean:81:0: warning: automatically included section variable(s) unused in theorem `Compaction.HilbertPowerKernel.contains_relative_inertia`:
+  [Normal ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Normal ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/HilbertPowerKernel.lean:94:0: warning: automatically included section variable(s) unused in theorem `Compaction.HilbertPowerKernel.contains_principal_decomposition`:
+  [Normal ℚ K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Normal ℚ K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Compaction.HilbertPowerKernel.normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.HilbertPowerKernel.isOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.HilbertPowerKernel.index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.HilbertPowerKernel.contains_principal_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

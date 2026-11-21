@@ -1,0 +1,76 @@
+{
+  "kind": "explicit Lean kernel replay of compiled proof closures into an empty environment",
+  "api": "Lean.Environment.replay, Kernel.Environment.addDeclCore",
+  "compiler": "Lean 4.33.1, commit819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+  "cases": [
+    {
+      "label": "pair",
+      "module": "PairCertificate",
+      "target": "CertificateHour.PairCertificate.dominates",
+      "declarations_replayed": 8760,
+      "result": "passed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "source_sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66",
+      "source_file": "research/PairCertificate.lean",
+      "log_file": "replay-positive-control.log",
+      "log_sha256": "1bf55c7408e607039d51ee9317922b23940cec8bf8eb8fc55e58c0e5ed0b6a6c",
+      "verifier_snapshot": "ReplayCertificate.lean",
+      "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
+      "verifier_snapshot_note": "Current verifier including explicit target AST equality checks and negative-control mode"
+    },
+    {
+      "label": "odd-closed",
+      "module": "Compaction.AllOddMinusCertificateClosed",
+      "target": "Compaction.AllOddMinusCertificateClosed.exists_uniform_certificates",
+      "declarations_replayed": 133455,
+      "result": "passed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "source_sha256": "01544a9af115f41f959fd81c781aa0fc73a93ecaaf190ca15d8dd92a730bd27a",
+      "source_file": "research/Compaction/AllOddMinusCertificateClosed.lean",
+      "log_file": "replay-odd-closed.log",
+      "log_sha256": "b7e054e9b109018c57fcb19561c2a8cdea830335240700b9a3cfb593828d4fc9",
+      "verifier_snapshot": "ReplayCertificate-before-controls.lean",
+      "verifier_sha256": "8426203fb90376b04fe16cc452726d57acad862e2ba80791ef0f6c5cd4378a30",
+      "verifier_snapshot_note": "Pre-control snapshot reconstructed from recorded source patches"
+    },
+    {
+      "label": "weber",
+      "module": "Compaction.Weber",
+      "target": "Compaction.Weber.weber",
+      "declarations_replayed": 98821,
+      "result": "passed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "source_sha256": "2593394ca25c88caae2baf951ad50bb1c9113d954e0da45ed0ea9f128f56c1cf",
+      "source_file": "research/Compaction/Weber.lean",
+      "log_file": "replay-weber.log",
+      "log_sha256": "be5eee61f83d638eceee1d3d986ace8c64de6807327b64e6f8f1b85eb9f030ef",
+      "verifier_snapshot": "ReplayCertificate.lean",
+      "verifier_sha256": "c7d342991c8f8e7a722359269049bc930ef47adae876a1907104fa764847d939",
+      "verifier_snapshot_note": "Current verifier including explicit target AST equality checks and negative-control mode"
+    }
+  ],
+  "negative_control": {
+    "result": "rejected as expected",
+    "mutation": "target proof replaced by Sort0",
+    "log_file": "replay-negative-control.log",
+    "log_sha256": "a59ec61d51db1601aaa1d7f9f35495052666b75936c63db9fea04310b9d1fe59"
+  },
+  "scope_limitations": [
+    "Not a full Main Comparator verdict",
+    "No claim that -t0 alone replays imports",
+    "Inputs are SHA256-verified original project caches and pinned official Mathlib caches; source-file rebuild is a separate validation route"
+  ],
+  "joint_consumer_replay": "running; see replay-joint-consumer.log"
+}

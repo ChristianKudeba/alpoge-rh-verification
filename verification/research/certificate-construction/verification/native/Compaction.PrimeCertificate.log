@@ -1,0 +1,2 @@
+'Compaction.PrimeCertificate.construct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.PrimeCertificate.dyadic' depends on axioms: [propext, Classical.choice, Quot.sound]

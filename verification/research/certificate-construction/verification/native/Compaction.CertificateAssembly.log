@@ -1,0 +1,2 @@
+'Compaction.CertificateAssembly.multiply_with_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.CertificateAssembly.across_twists' depends on axioms: [propext, Classical.choice, Quot.sound]

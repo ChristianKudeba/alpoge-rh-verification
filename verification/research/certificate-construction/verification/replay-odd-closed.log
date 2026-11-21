@@ -1,0 +1,2 @@
+Replaying 133455 declarations for [Compaction.AllOddMinusCertificateClosed.exists_uniform_certificates] into an empty kernel environment
+REPLAY PASSED; axioms: [Classical.choice, Quot.sound, propext]

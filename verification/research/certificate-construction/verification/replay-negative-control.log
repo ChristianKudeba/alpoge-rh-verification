@@ -1,0 +1,31 @@
+NEGATIVE CONTROL: deliberately replaced CertificateHour.PairCertificate.dominates's proof with Sort 0
+Replaying 8760 declarations for [CertificateHour.PairCertificate.dominates] into an empty kernel environment
+uncaught exception: while replaying declaration 'CertificateHour.PairCertificate.dominates':
+(kernel) declaration type mismatch, 'CertificateHour.PairCertificate.dominates' has type
+  Type
+but it is expected to have type
+  {a b : Int} →
+    @Ne Int a 0 →
+      @Ne Int b 0 →
+        (r s : Nat) →
+          @Ne Nat r s →
+            (L : Nat.Primes → Real) →
+              ((p : Nat.Primes) →
+                  @Ne Nat (@Subtype.val Nat (fun p => Nat.Prime p) p) r →
+                    @LE.le Real Real.instLE (L p)
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 2
+                        (@Nat.cast Real Real.instNatCast
+                          (padicValInt (@Subtype.val Nat (fun p => Nat.Prime p) p) a)))) →
+                ((p : Nat.Primes) →
+                    @Ne Nat (@Subtype.val Nat (fun p => Nat.Prime p) p) s →
+                      @LE.le Real Real.instLE (L p)
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) 2
+                          (@Nat.cast Real Real.instNatCast
+                            (padicValInt (@Subtype.val Nat (fun p => Nat.Prime p) p) b)))) →
+                  (p : Nat.Primes) →
+                    @LE.le Real Real.instLE (L p)
+                      (@Nat.cast Real Real.instNatCast
+                        (@DFunLike.coe (@Finsupp Nat Nat (@MulZeroClass.toZero Nat Nat.instMulZeroClass)) Nat
+                          (fun x => Nat) (@Finsupp.instFunLike Nat Nat (@MulZeroClass.toZero Nat Nat.instMulZeroClass))
+                          (Nat.factorization (CertificateHour.PairCertificate.mass a b))
+                          (@Subtype.val Nat (fun p => Nat.Prime p) p)))

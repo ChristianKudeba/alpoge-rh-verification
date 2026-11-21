@@ -1,0 +1,8 @@
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/CyclotomicPlaceConjugacy.lean:29:23: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+/workspace/principia-harness/certificate-hour/matrix/research/Compaction/CyclotomicPlaceConjugacy.lean:21:0: warning: automatically included section variable(s) unused in theorem `Compaction.CyclotomicPlaceConjugacy.conjugate`:
+  [IsAlgClosure ℚ Ω]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsAlgClosure ℚ Ω] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Compaction.CyclotomicPlaceConjugacy.conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]

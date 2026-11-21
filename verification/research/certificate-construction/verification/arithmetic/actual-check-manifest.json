@@ -1,0 +1,62 @@
+{
+  "hosted_bernoulli_modules": "bernoulli-universal-manifest.json, check f1cab776f56826d1c1e72d99d0bd8dec",
+  "native_actual_modules": [
+    {
+      "module": "Compaction.OddMinusCertificate",
+      "source_sha256": "05a82420c48d6373cbc93ca916bebc4f4e9509884d50d5728cf29d3bc57431d4",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.OddMinusCertificate.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.FactorialSmallPrimeCertificate",
+      "source_sha256": "868b94300196fdee29cec91b60368d2a2e427e7894e20de32cc88def313b2fd2",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.FactorialSmallPrimeCertificate.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.AllOddMinusCertificate",
+      "source_sha256": "885b9b25f13e860c64d0db855226b1ebcf6bb09e644abb69d168ae6c602b212e",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.AllOddMinusCertificate.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.AllOddMinusCertificateClosed",
+      "source_sha256": "01544a9af115f41f959fd81c781aa0fc73a93ecaaf190ca15d8dd92a730bd27a",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.AllOddMinusCertificateClosed.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.OddMinusBudgetBound",
+      "source_sha256": "e6812170e126ad59ee5e4d4cf781ae33e7db30e9e5b2a44655a423f3e03928cd",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.OddMinusBudgetBound.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.OddMinusVVle",
+      "source_sha256": "f2730f393f9512dc822bbb43855388e8ccfad08ac3799a03a6e4e3e499ad51c6",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.OddMinusVVle.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.PolynomialAbsorption",
+      "source_sha256": "f1a32de5b89166cc38e29eef8a8d7aaf7052cff5fb765d12fe0c16ddda395660",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.PolynomialAbsorption.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    },
+    {
+      "module": "Compaction.JointWindowWithoutMinus",
+      "source_sha256": "5f1cdac8d87a6361c0ed49e6f5fc76ea69081c877c39ffd640fae3f373c46698",
+      "check_record": "/workspace/principia-harness/certificate-hour/matrix/checks/Compaction.JointWindowWithoutMinus.json",
+      "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "exit_code": 0
+    }
+  ],
+  "note": "New research declarations compiled against matching pinned original-module caches; see matrix replay records for independent dependency rechecking."
+}

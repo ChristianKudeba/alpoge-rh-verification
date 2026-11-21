@@ -1,0 +1,2 @@
+'Compaction.FiniteLengthCard.card_eq_pow_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Compaction.FiniteLengthCard.finite_of_length' depends on axioms: [propext, Classical.choice, Quot.sound]

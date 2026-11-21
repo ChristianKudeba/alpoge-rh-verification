@@ -1,0 +1,106 @@
+[
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/PairCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/PairCertificate.lean",
+    "source_sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66",
+    "staged_sha256": "72e21e0ca7e9d8a6c5673448ccc00d2500009573d8d88aef0b66487e1b392f66"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/OrbitCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/OrbitCertificate.lean",
+    "source_sha256": "71521046e9d042f0c0e7a50df113416303181303eac91a394cc858a9cc833b67",
+    "staged_sha256": "71521046e9d042f0c0e7a50df113416303181303eac91a394cc858a9cc833b67"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/AllOrbitCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/AllOrbitCertificate.lean",
+    "source_sha256": "e567b2ad934ed3c16d05ee7eb7e9224a51484b7ef2828f503bec8227d202fa87",
+    "staged_sha256": "e567b2ad934ed3c16d05ee7eb7e9224a51484b7ef2828f503bec8227d202fa87"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/NormalizedLength.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/NormalizedLength.lean",
+    "source_sha256": "f95d295b4b5581bed5bb15da7aee2e2fe3087a48f1ce182bf0b76ac2516ac6e4",
+    "staged_sha256": "f95d295b4b5581bed5bb15da7aee2e2fe3087a48f1ce182bf0b76ac2516ac6e4"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/PlusCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/PlusCertificate.lean",
+    "source_sha256": "3a4d4c1a1846f5e64b84e8edf5e5cc4fdb1ab2bbe66413bf9269cbb04007fdab",
+    "staged_sha256": "3a4d4c1a1846f5e64b84e8edf5e5cc4fdb1ab2bbe66413bf9269cbb04007fdab"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/ConductorOneCases.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/ConductorOneCases.lean",
+    "source_sha256": "098881f61b371179e5c4427873a7c1818d631d30d354479755ccafa37486344d",
+    "staged_sha256": "098881f61b371179e5c4427873a7c1818d631d30d354479755ccafa37486344d"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/RegularCharacterHeight.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/RegularCharacterHeight.lean",
+    "source_sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96",
+    "staged_sha256": "8a4c16bf2f56827ea5b1cd1693704d5e847d70f785bf62b685ca921c6be6ed96"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/RegularOneCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/RegularOneCertificate.lean",
+    "source_sha256": "15d47da52e0243ceb683fe43f8755f6c01911e3f879e8f4ff5d5ce0c3c379bbf",
+    "staged_sha256": "15d47da52e0243ceb683fe43f8755f6c01911e3f879e8f4ff5d5ce0c3c379bbf"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/GenericHostCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/GenericHostCertificate.lean",
+    "source_sha256": "127d0281a0ed09753fb119277c950f94dfad3e07060f06824e657ffbcb6fefbe",
+    "staged_sha256": "127d0281a0ed09753fb119277c950f94dfad3e07060f06824e657ffbcb6fefbe"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/PrincipalNonresonant.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/PrincipalNonresonant.lean",
+    "source_sha256": "83c4cb5512f34089a75641959404130f2bd9d2fe7ee3bbe7af489f935446cae9",
+    "staged_sha256": "83c4cb5512f34089a75641959404130f2bd9d2fe7ee3bbe7af489f935446cae9"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/PrincipalCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/PrincipalCertificate.lean",
+    "source_sha256": "9df8a70097f41df6f7c5b71b3aa58581f00e4b067ed3fc532968fb737adcfccd",
+    "staged_sha256": "9df8a70097f41df6f7c5b71b3aa58581f00e4b067ed3fc532968fb737adcfccd"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/PrincipalTwistCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/PrincipalTwistCertificate.lean",
+    "source_sha256": "d1460fa698070754a20052e47a5cdb459cc4014d1a68fe8b443ce804e6d9f37b",
+    "staged_sha256": "d1460fa698070754a20052e47a5cdb459cc4014d1a68fe8b443ce804e6d9f37b"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/ResonantCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/HeightResonantCertificate.lean",
+    "source_sha256": "31cf5c18bb49344e447653b95bde0ada04b7db7c4c7d7ac1abd8390e25b9bef1",
+    "staged_sha256": "31cf5c18bb49344e447653b95bde0ada04b7db7c4c7d7ac1abd8390e25b9bef1"
+  },
+  {
+    "source": "/workspace/principia-harness/certificate-hour/height/FullPlusCertificate.lean",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/FullPlusCertificate.lean",
+    "source_sha256": "8f5943714406f74080bcfdff60f83e1ddff370a8a5f7e40429398813b311e5d4",
+    "staged_sha256": "9db303a53216f1ac5fcb9b0e84d8398ffdeebdeb4bce7a9faac22c4b6e477583"
+  },
+  {
+    "source": "canonical import shim",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/RootAuxiliaryPrimes.lean",
+    "staged_sha256": "11ec72f7a0d16d85f17031f63d348793e471c5ddd032a7e96374e6ba55ad8af9"
+  },
+  {
+    "source": "canonical import shim",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/RootCertificateAssembly.lean",
+    "staged_sha256": "c961ef3bc6a615238855aba66e08a5995b4f3e99bae795ad3cc387093bd323da"
+  },
+  {
+    "source": "canonical import shim",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/RootFactorialSmallPrime.lean",
+    "staged_sha256": "30624ddc11a3a04aba4094e7ce8ebebf240738386fecd2f1caad77da4b81546b"
+  },
+  {
+    "source": "canonical import shim",
+    "staged": "/workspace/principia-harness/certificate-hour/matrix/research/RootGenericAndExceptional.lean",
+    "staged_sha256": "8bec70a1e7dd561d9d0a32bc41f2d601a204603d07e6ba57ccbe7f0874bd8545"
+  }
+]
