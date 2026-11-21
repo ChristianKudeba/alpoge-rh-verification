@@ -1,0 +1,135 @@
+\section{The auxiliary powers in the theta-rule DVR test}
+\label{sec:key-rule-dvr}
+
+The good-reduction step in Section~\ref{sec:key-different} uses a
+unit normalization for the theta scalar on an integral polarized
+abelian family. We explain how the local construction can give
+unit values at \emph{every} residue characteristic even though
+the construction of an individual powered invariant uses an
+auxiliary integer which must be invertible. The word level has
+two different roles here. The auxiliary integer in this argument
+is chosen for a determinant calculation on sections of the
+polarizing line. The fixed level of the moduli problem satisfies
+the separate condition in Section~\ref{sec:key-different}.
+
+\subsection{Choosing transverse-intersection degrees at a given prime}
+
+For the numerical construction let \(d\geq1\) denote the dimension
+parameter for the intersection. Given a prime \(p\), set
+\[
+       n=4p,\qquad b=dn+1,\qquad b'=b+p,\qquad
+       P=\prod_{j=0}^d (b-jn)(b'-jn).
+\]
+Then \(n\ge4\) and \(dn<b<b'\). Each factor in \(P\) is \(1\bmod p\),
+so \(P>0\) and \(p\nmid P\), including at \(p=2\). The exponent in
+the determinant construction is
+\[
+     c=2P^{3d+2}\,d!\,n^d(b'-b)>0 .
+\]
+It can be divisible by \(p\). Only \(P\) is required to be a unit
+in this part of the construction.
+
+For every \(m\geq0\) choose a four-squares representation
+\(m=a^2+b_1^2+b_2^2+b_3^2\). The integer matrix
+\[
+ U_m=
+ \begin{pmatrix}
+ a&-b_1&-b_2&-b_3\\
+ b_1&a&-b_3&b_2\\
+ b_2&b_3&a&-b_1\\
+ b_3&-b_2&b_1&a
+ \end{pmatrix}
+\]
+has \(U_m^{\,t}U_m=mI_4\): the columns have squared norm \(m\)
+and their pairwise dot products cancel termwise. These matrices
+supply the square-determinant comparisons at degrees \(b-jn\)
+and \(b'-jn\). This proves all the arithmetic admissibility
+conditions.
+
+Here is the geometric input used with these integers. A tuple of
+\(d\) sufficiently general sections of \(L^n\) on the special
+fiber cuts out \(d!n^d\) transverse points for the principal
+polarization. The release picks a basis of \(H^0(L^n)\), gives
+the tuple algebraically independent coefficients over the residue
+field, and passes to a local injection into a complete DVR in
+which the finitely many coefficients have lifts. Its transversality
+theorem gives the required étale zero locus on the extended residue
+field. After another injective local extension, the determinant
+comparison theorem supplies a unit from the two section Koszul
+complexes, their evaluation at those points, the Jacobian product,
+and the comparisons on fourth powers given by the \(U_m\). This
+step requires \(P\) to be invertible. The separate theorems on
+independence of the sections and change of base make the resulting
+powered invariant functorial. These intersection, determinant,
+and functoriality assertions are geometric inputs to the following
+valuation argument.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/ExistsAdmissibleKeyNumericalDataPrimeTo.lean}{Admissible prime-to-\(p\) parameters and the quaternions};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Definitions/KeyFormula/DegProd.lean}{degrees and powers in the determinant invariant};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/ExistsIntegralKeyInvariantRuleCharZero.lean}{residue-field extension, transverse intersections and comparison}.}
+
+\subsection{Changing the auxiliary integer}
+
+In abelian dimension \(g\ge1\), the normalization step uses the
+previous numerical construction at \(d=2g\). For each prime \(p\)
+it produces a positive exponent \(N_p=2c\), an integer \(P_p\)
+prime to \(p\), and a scalar \(F_p(x)\) functorial on framed
+data \(x\) over fields of characteristic zero. At a DVR where
+\(P_p\) is a unit its value on the generic fiber of integral
+data is a unit. On a complex datum in normalized half-characteristic
+coordinates it has value
+\[
+          F_p(x)=\bigl(\det(M)^4/c_0^8\bigr)^{N_p},
+\]
+where \(c_0\) is the nonzero theta scaling. These assertions are
+the output of the normalized determinant construction just invoked.
+
+For any two auxiliary primes \(p,q\), and any field \(K\) of
+characteristic zero, one has
+\[
+                         F_p(x)^{N_q}=F_q(x)^{N_p}.
+\]
+To see this, descend the framed datum to a countable subfield
+\(K_0\subset K\), as permitted by finite data descent in the
+source. Embed \(K_0\) into \(\mathbb C\) and extend the datum
+there. The two sides are equal to the same power of
+\(\det(M)^4/c_0^8\), by the complex uniformization. Functoriality
+and injectivity of \(K_0\hookrightarrow\mathbb C\) give equality
+over \(K_0\). Extending scalars back gives the formula over \(K\).
+
+Fix one choice \(F_2\). In residue characteristic zero \(P_2\)
+is invertible. If the residue characteristic is \(p>0\) and
+\(P_2\) is a nonunit, use \(F_p\), for which \(P_p\) is a unit.
+For a DVR valuation \(v\) on \(K\) and the generic fiber of the
+integral frame,
+\[
+           N_p v(F_2(x))=N_2 v(F_p(x))=0 .
+\]
+Since \(N_p>0\), this gives \(v(F_2(x))=0\).
+Thus the fixed powered rule is a unit at all residue
+characteristics. This computation uses no \(p\)-adic division by
+the integer \(N_p\) in the valuation ring.
+
+The exponent-one scalar used in the manuscript also requires
+a coherent root over arbitrary characteristic-zero fields.
+The complex candidate \(t(x)=\det(M)^4/c_0^8\) is fixed by the
+theta transformation law. The release establishes its descent
+using connected families of polarized varieties, equivariance of
+the complex value, and its specialization on smooth curves. The
+elementary uniqueness step is as follows. Suppose a smooth
+integral complex base carries a unit \(u\) and a continuous
+normalized value \(t\) with \(t^N=u^N\) on the complex points.
+Their ratio takes values in the finite discrete group \(\mu_N\);
+the complex points of this base are connected, so the ratio is
+constant. An equality \(u=t\) in one fiber identifies them on
+the entire base. Establishing the indicated families and their
+arithmetic comparison is additional to this observation.
+Once descent gives the exact rule \(\kappa\) functorial in the
+field and with the displayed normal value, apply the same
+countable-field argument to obtain
+\(\kappa(x)^{N_2}=F_2(x)\). Taking valuations gives
+\(v(\kappa(x))=0\), proving the unit conclusion for an integral
+proper theta datum at every residue characteristic under the
+stated inputs.
+\footnote{\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/ThetaKeyRuleExistsOfAlgebraicInvariants.lean}{Cross-power equality and replacement of the auxiliary integer};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/ThetaFrameValueEqUnitSmoothConnectedBase.lean}{constancy of the root on smooth connected bases};
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/UniformizationProofs/KeyFormulaOfConnFam.lean}{the geometric and specialization inputs for the exponent-one rule}.}
