@@ -1,0 +1,844 @@
+\section{Compatible descent maps and the principal signed-data bridge}
+\label{sec:sr-compatible-descent}
+
+The geometric construction uses one arithmetic model, its integral
+lattice, and its archimedean metric at a time.  We prove two additional
+parts of that construction: the finite group descent maps, with their
+integral and norm bounds, and the passage from the principal host's
+analytic estimates to the signed correction and complementary mean.
+The existence of all geometric models with uniform bounds is distinguished
+from these implications at the end of the section.
+
+\subsection{The principal host in the coordinates of the signed comparison}
+\label{sec:sr-principal-coordinate-bridge}
+
+Put \(D_h=2^{h+2}\), with \(h\geq2\), and
+\[
+ H=(\mathbb Z/D_h)^\times/\{1,-1\},\qquad n=|H|=2^h .
+\]
+Let \(q,d\) be distinct odd primes, with \(q\equiv3\pmod8\),
+\(d\equiv7\pmod{16}\) and \(q\mid d+1\).  The principal host is
+\[
+ E=\mathbb Q(\zeta_{D_h})^+(\sqrt{-q},\sqrt{-d}).
+\]
+The divisibility condition is a property of the selected window pair.
+In the frozen arithmetic construction,
+\srcid{CharacterBoxes.ExistsPageN.WinPair} includes the field
+\srcid{d_q : q \mid d+1}; \srcid{CharacterBoxes.PairGood} retains
+a \srcid{WinPair} as its \srcid{pair} field.
+The map \srcid{CharacterBoxes.HostOfField.hostOfField} consumes that
+same \srcid{PairGood} when making the host.
+Thus the principal window selection supplies \(q\mid d+1\) before
+the host is passed to the geometric construction.
+It is not a consequence of the weaker abstract \srcid{Host.pair}
+condition.  Every application of this bridge uses a selected window
+host with this retained provenance.
+
+This is the fixed field of the subgroup specified by the dyadic
+congruence in the arithmetic construction.  Its real cyclotomic
+factor, rather than the full cyclotomic field, is used here.
+
+Write \(\lambda_q,\lambda_d\) for the two quadratic residue
+characters.  The cyclotomic Artin map at the modulus \(D_hqd\) is
+\[
+ a\longmapsto \bigl(\lambda_q(a),\lambda_d(a),[a]_{D_h}\bigr).
+\]
+The three coordinate maps are simultaneously surjective by the Chinese
+remainder theorem.  Their fixed field is the displayed compositum;
+in particular \([E:\mathbb Q]=4n\).  If
+\(\lambda_q(a)=(-1)^{a_q}\) and
+\(\lambda_d(a)=(-1)^{a_d}\), use the additive coordinates
+\begin{equation}\label{eq:sr-host-coordinate-swap}
+ \operatorname{Gal}(E/\mathbb Q)\ \longrightarrow\
+       \Gamma=(\mathbb Z/2)^2\times H,\qquad
+ (\lambda_q(a),\lambda_d(a),[a])\longmapsto(a_d,a_q,[a]).
+\end{equation}
+Thus the first sign in the signed comparison is the \(d\)-sign.
+Complex conjugation is \(c=(1,1,0)\), because the dyadic factor is real.
+The embeddings carrying the chosen root of \(-d\) to \(i\sqrt d\)
+form exactly \(\Phi=\{(0,b,h)\}\).  The characters of
+Section~\ref{sec:sr-finite} are consequently
+\[
+                   \chi=\lambda_d,\qquad \omega=\lambda_q .
+\]
+
+For completeness this coordinate choice gives exactly the inertia
+conditions of that section.  Outside \(2,q,d\) the extension is
+unramified.  At \(d\), cyclotomic inertia maps onto
+\(\{0,(1,0,0)\}\).  At \(q\), the field
+\(\mathbb Q(\sqrt{-d})\) is split: the congruence
+\(-d\equiv1\pmod q\) lifts to a square in \(\mathbb Q_q\).
+It is also split at two, because \(-d\equiv1\pmod8\).
+For the latter assertion start with an odd root modulo \(8\);
+if \(z^2+d=2^j u\), \(j\geq3\), retain \(z\) when \(u\)
+is even and replace it by \(z+2^{j-1}\) when \(u\) is odd.
+Starting from \(z_3=1\), this defines odd integers \(z_j\) with
+\(z_j^2+d\equiv0\pmod{2^j}\) and
+\(z_{j+1}-z_j\in\{0,2^{j-1}\}\).
+Indeed the change of its square is
+\(2^jz_j+2^{2j-2}\equiv2^j\pmod{2^{j+1}}\).
+The sequence is Cauchy in \(\mathbb Z_2\), since the valuations of
+its successive differences tend to infinity.
+Its limit \(z\) satisfies \(z^2+d=0\), by continuity.
+Literal compatibility of the intermediate roots modulo \(2^j\)
+is not required.
+The decomposition groups at \(2,q\) therefore act trivially on the
+\(d\)-quadratic subfield.  They lie in \(\Phi\); both their inertia
+groups and their Frobenius representatives lie in \(\Phi\).
+These are precisely the host conditions used in the signed balance.
+
+Let \(\theta\in\widehat\Gamma\), and let \(\theta^*\) be the primitive
+Dirichlet character inducing its cyclotomic Artin character.
+Use its actual normalization
+\[
+                    \ell_\theta=L'(1,\theta^*)/L(1,\theta^*)
+                    \quad(\theta\ne1).
+\]
+Then the inertial coefficient in the signed comparison is exactly
+\begin{equation}\label{eq:sr-primitive-inertial-coefficient}
+ \frac1{|I_p|}\sum_{u\in I_p}\theta(rF_p+u)
+                         =\theta^*(p^r)\qquad(r\geq1).
+\end{equation}
+Indeed a nontrivial character on \(I_p\) has sum zero, and
+the primitive Dirichlet character is ramified at \(p\) in exactly
+this case.  If the inertia restriction is trivial, the sum is
+\(\theta(F_p)^r\); the primitive character is unramified and its
+value at \(p\) is \(\theta(F_p)\).
+These assertions follow directly in the cyclotomic realization:
+the \(p\)-primary unit factor is the inertia group, a character
+kills that factor exactly when its conductor is prime to \(p\),
+and Frobenius on the prime-to-\(p\) cyclotomic factor acts by \(p\).
+This argument includes primes dividing the larger host modulus but
+not the conductor of \(\theta^*\).
+Thus all the \(G_\theta\), at both thick and thin nodes, are the
+same centered primitive-character ramps as those in the host
+analytic estimates.
+
+Here are the estimates needed from that host, stated without a
+predicate name.  For the three nontrivial characters of
+\(\Gamma/H\), assume
+\begin{equation}\label{eq:sr-host-three-quadratics}
+ |G_\chi(x)|,\ |G_{\chi\omega}(x)|,\ |G_\omega(x)|
+                         \leq x^{1/2+\epsilon}.
+\end{equation}
+For every \(\theta\in\widehat\Gamma\), assume
+\begin{equation}\label{eq:sr-host-thin-analytic}
+ |G_\theta(y)|\leq y\exp(-c x^{\epsilon/8})
+ \quad\left(y\geq \tfrac13\exp(x^{\epsilon/3})\right),
+ \qquad c>0 .
+\end{equation}
+The first estimate is the principal specialization of the source's
+bounded-character estimate, rather than an additional independence
+assumption.  To check this, the retained primitive set for the
+cyclic subgroup generated by the principal character is \(\{1\}\).
+The source first requires triviality on \(H_0\), and here \(H_0=H\).
+It then bounds the characters taking value \(-1\) at
+\(e=(1,0,0)\), together with those taking value \(1\) there that are
+not retained.  The first class contains \(\chi,\chi\omega\);
+the second contains \(\omega\), since it is nontrivial.
+The surjectivity of the Artin map ensures that none of these
+three primitive characters is the principal character.
+This unpacks the definitions
+\srcid{HostRaw.Bounded}, \srcid{BoundedCharsPointwise} and
+\srcid{EAtH.bdG}; it verifies which three bounds are being used.
+
+\begin{srproposition}\label{prop:sr-host-signed-analytic-bridge}
+On this principal host, \eqref{eq:sr-host-three-quadratics}
+implies the signed correction inequality
+\(\mathcal C(x)\leq3x^{1/2+\epsilon}\).
+Suppose also that \eqref{eq:sr-host-thin-analytic} holds and that
+the thin weights satisfy
+\[
+ 0<w_{u,j}(\rho)\leq2b',\qquad
+ b'\exp(x^{\epsilon/3})\leq xb,\qquad
+ |a_t/b-x|\leq1,\qquad x\geq3 .
+\]
+If
+\begin{equation}\label{eq:sr-thin-host-budget}
+       2f(x+1)\exp(-c x^{\epsilon/8})\leq x^{-1},
+\end{equation}
+then the complementary mean for these same data satisfies
+\(\mathcal R\geq-Q/x\).
+\end{srproposition}
+\begin{proof}
+Taking real parts and applying the triangle inequality to the three
+bounds gives the correction inequality.
+Put \(X'=\exp(x^{\epsilon/3})\) and
+\(\vartheta=\exp(-c x^{\epsilon/8})\).  At a thin node,
+\[
+ \frac{a_t}{w_{u,j}(\rho)}
+   \geq \frac{(x-1)b}{2b'}
+   \geq\frac{x-1}{2x}X'\geq X'/3 .
+\]
+Consequently the modulus of its weighted ramp is at most
+\(a_t\vartheta\leq(x+1)b\vartheta\).
+In the definition of \(\mathcal R\), for each \(u,t,j\)
+there are at most \(f\) summation points, \(2f\) characters and
+the prefactor \(1/f\).  Taking absolute values before averaging
+over \(u\) gives
+\[
+ \mathcal R\geq-2f|T|m(x+1)b\vartheta\geq-|T|mb/x .
+\]
+The last step is \eqref{eq:sr-thin-host-budget}.
+Every ramp and every normalization in this calculation belongs to the
+one host just fixed, by \eqref{eq:sr-primitive-inertial-coefficient}.
+\end{proof}
+
+The threshold in this implication is uniform over the host fields
+on the prescribed dyadic size range.  In fact
+\(n\leq2x^{2+8\epsilon}\) gives \(f\leq4x^{2+8\epsilon}\).
+It is enough to require
+\[
+       c x^{\epsilon/8}\geq\log16+(4+8\epsilon)\log x .
+\]
+This holds above a threshold depending on the fixed
+\(\epsilon,c\), before choosing any field or node, since
+\(x^{\epsilon/8}/\log x\longrightarrow\infty\).
+
+The same observation deals with the repair inequality without a
+hidden dependence on the number of nodes.  If
+\(f\leq A_f x^{B_f}\), \(\eta\leq A_\eta x^{B_\eta}\),
+where the nonnegative exponents and constants are fixed on the
+family, and \(b=\exp(x^\epsilon)\), then
+\[
+ 6f x(x+1)(\eta+1)
+ \leq12A_f(A_\eta+1)x^{B_f+B_\eta+2}\leq b
+\]
+eventually, uniformly over that family.
+Finally a cutoff can be chosen as the ceiling of the largest of the
+finitely many positive ratios \(a_t/w_{u,j}(\rho)\), increased to
+one if necessary.  This chooses one cutoff for all the nodes and
+changes none of their weights.
+
+\subsection{Integral twisted traces and the exact norm loss}
+\label{sec:sr-twisted-trace-descent}
+
+Let \(K\) be a number field, \(R\) a commutative \(K\)-algebra and
+\(S\) a finite group of order \(s\).
+Suppose \(\rho_g\) are \(K\)-algebra automorphisms satisfying the
+right action convention
+\[
+             \rho_1=\operatorname{id},\qquad
+             \rho_{hg}=\rho_g\circ\rho_h .
+\]
+Fix a character \(\xi:S\to K^\times\), and set
+\[
+ \operatorname{Tr}_\xi(F)=\sum_{g\in S}\xi(g)^{-1}\rho_g(F),
+ \qquad
+ A(u)_{h,g}=\rho_{hg}(u),\qquad \Delta(u)=\det A(u).
+\]
+Assume that multiplication by \(\Delta(u)\) is injective on \(R\).
+
+Let \(V_-,V,V_+\) be finite dimensional \(K\)-subspaces of \(R\).
+Assume that \(V\) is \(S\)-stable and that
+\[
+       V_-\,\rho_h(u)\subset V,\qquad V\,\rho_h(u)\subset V_+
+                         \quad(h\in S).
+\]
+Put \(N=V\cap R_\xi\), where
+\(R_\xi=\{F:\rho_g(F)=\xi(g)F\text{ for all }g\}\), and define
+\[
+             \varphi_h(f)=\operatorname{Tr}_\xi(f\rho_h(u)).
+\]
+
+\begin{srproposition}\label{prop:sr-twisted-trace-descent}
+The maps \(\varphi_h:V_-\to N\) have zero common kernel, and
+\begin{equation}\label{eq:sr-descent-ranks}
+           \dim_K V_-\leq s\dim_K N\leq\dim_K V_+ .
+\end{equation}
+Suppose lattices in the three spaces are preserved by the indicated
+actions and products, \(u\) is integral, and the lattice in \(N\)
+is \(L_\xi=L\cap R_\xi\), for the chosen lattice \(L\subset V\).
+Then every \(\varphi_h\) carries the source lattice into \(L_\xi\).
+
+At each complex embedding let the target norm be Hermitian,
+let every \(\rho_g\) act isometrically on \(V\), and assume
+\[
+                  \|f\rho_h(u)\|_V\leq B\|f\|_{V_-}
+                  \quad(h\in S),\qquad B\geq0 .
+\]
+For these very same maps,
+\begin{equation}\label{eq:sr-descent-norms}
+                \sum_{h\in S}\|\varphi_h(f)\|_V^2
+                              \leq s^3 B^2\|f\|_{V_-}^2 .
+\end{equation}
+If the integral lattice \(L_\xi\) does not span \(N\), its rank
+still satisfies \(s\operatorname{rk}L_\xi\leq\dim_K V_+\).
+\end{srproposition}
+\begin{proof}
+Reindexing \(g\mapsto gk\) gives
+\(\rho_k(\operatorname{Tr}_\xi F)=\xi(k)\operatorname{Tr}_\xi F\).
+The stability and product assumptions therefore put each
+\(\varphi_h(f)\) in \(N\).
+
+If every \(\varphi_h(f)\) is zero, put
+\(v_g=\xi(g)^{-1}\rho_g(f)\).  Expanding the trace gives
+\[
+                    (A(u)v)_h=\varphi_h(f)=0 .
+\]
+Multiplication by the adjugate gives \(\Delta(u)v=0\).
+The assumed injectivity of multiplication by \(\Delta(u)\)
+forces \(v=0\); its identity coordinate is \(f\).  Thus
+\(f\mapsto(\varphi_h(f))_h\) is an injection \(V_-\to N^S\),
+proving the first rank inequality.
+
+For the other inequality use
+\(\Psi:N^S\to V_+\), \(\Psi(F)=\sum_h F_h\rho_h(u)\).
+If \(\Psi(F)=0\), applying \(\rho_g\) and using the common
+eigencharacter of the \(F_h\) yields
+\[
+                  \sum_h \rho_{hg}(u)F_h=0\qquad(g\in S).
+\]
+Thus \(A(u)^t F=0\).  Its determinant is again \(\Delta(u)\),
+so the same adjugate argument proves that \(\Psi\) is injective.
+This proves the second rank inequality.
+
+Every value of \(\xi\) is a root of unity, since \(S\) is finite.
+Its inverse is an algebraic integer and a unit, so the
+unnormalized trace preserves integral lattices.  The preceding
+eigencharacter computation proves integrality in \(L_\xi\),
+without dividing by \(s\).
+
+At a complex embedding the same roots of unity have modulus one.
+For each \(h\), the triangle inequality, invariance of the target
+norm and the multiplication bound give
+\[
+ \|\varphi_h(f)\|_V
+ \leq\sum_g\|\rho_g(f\rho_h(u))\|_V
+ \leq sB\|f\|_{V_-}.
+\]
+Squaring and summing over the \(s\) possible \(h\) proves
+\eqref{eq:sr-descent-norms}.  Finally
+\(\operatorname{rk}L_\xi=\dim_K(KL_\xi)\leq\dim_K N\),
+which proves the last assertion.
+\end{proof}
+
+In the geometric application the three spaces are cusp sections at
+weights \(G-W,G,G+W\) on one cover, \(S\) is its prescribed level
+subgroup, and \(\rho\) is pullback by level changes.
+The equality between the deep type lattice and \(L_\xi\), preservation
+of the cusp condition, integrality of the pullbacks and isometry of
+their Petersson metrics must all refer to this same cover.
+Under those identifications the proposition constructs the maps,
+rather than merely assuming their existence.
+The source names are \srcid{mapsCore},
+\srcid{twistedTrace\_equivariant\_and\_injective\_of\_groupDet}
+and \srcid{finrank\_le\_card\_mul\_finrank\_eigenspace\_le}.
+This is the map input used in the cover-to-covolume argument of
+Section~\ref{sec:cov-lattice}.
+
+\subsection{One integral section with all component determinants nonzero}
+\label{sec:sr-bounded-determinant-selection}
+
+We next prove the simultaneous integral selection behind the preceding
+maps.  Let
+\[
+                      R=\prod_{Z\in\mathcal Z}R_Z
+\]
+be a finite product of integral \(K\)-algebras, each embedded in a
+field \(\Omega_Z\), and suppose \(S\) permutes the factors through
+its action.  Write \(e_Z\) for the component idempotents.
+Let \(W\subset R\) be a finite dimensional subspace decomposed as
+\(\bigoplus_Z e_ZW\).
+For each \(Z\), choose integral elements
+\(w_{Z,1},\ldots,w_{Z,n_Z}\) spanning \(e_ZW\) over \(K\).
+Suppose there is \(u_0\in W\) for which
+\[
+                       \Delta(u_0)_Z\ne0\quad(Z\in\mathcal Z).
+\]
+
+\begin{srproposition}\label{prop:sr-bounded-determinant-selection}
+There are integers \(0\leq m_{Z,i}\leq s^2\) such that
+\[
+ u=\sum_{Z,i}m_{Z,i}w_{Z,i},\qquad
+                       \Delta(u)_Z\ne0\quad(Z\in\mathcal Z).
+\]
+In particular \(\Delta(u)\) is a nonzero divisor in \(R\).
+Suppose \(n_Z\leq N\), and at every archimedean evaluation point
+only its one component contributes.
+If the nonnegative pointwise norms satisfy the triangle inequality
+and every \(w_{Z,i}\) has norm at most \(\beta\Lambda\) on that
+component, then \(u\) has pointwise norm at most
+\begin{equation}\label{eq:sr-short-determinant-bound}
+                              Ns^2\beta\Lambda .
+\end{equation}
+The bounds are independent of \(|\mathcal Z|\).
+\end{srproposition}
+\begin{proof}
+Consider changing a single coefficient, so the element has the form
+\(v+t w_{Z,i}\).  For a component \(Z'\), its group determinant
+is a polynomial in \(t\) of degree at most \(s\).
+If it is nonzero at the current coefficient, this polynomial
+is nonzero, and has at most \(s\) roots in the characteristic-zero
+field \(\Omega_{Z'}\).
+
+Only the components in the \(S\)-orbit of \(Z\) can be affected.
+Indeed \(\rho_g(w_{Z,i})\) is supported on the component to which
+\(\rho_g\) sends \(Z\); all entries in \(A(w_{Z,i})\) vanish at
+every other component.  That orbit has at most \(s\) members.
+Consequently there are at most \(s^2\) bad integers for this
+coefficient.  Among \(0,\ldots,s^2\) choose a good one.
+Begin with the coefficients of \(u_0\) in the spanning family and
+replace them one at a time.  At every step all component determinants
+remain nonzero, so the finite procedure gives the asserted \(u\).
+It is integral because its coefficients are ordinary nonnegative
+integers.  A product of domains has a nonzero divisor whenever all
+of its components are nonzero, proving the next assertion.
+
+At an evaluation point on \(Z\), all generators supported on other
+components vanish.  The triangle inequality gives
+\[
+            \|u\|\leq\sum_{i=1}^{n_Z}m_{Z,i}\|w_{Z,i}\|
+                          \leq Ns^2\beta\Lambda ,
+\]
+which proves the norm estimate.
+\end{proof}
+
+The initial nonzero-determinant condition can itself be verified
+by orbit evaluations.  Suppose for each component one can find an
+evaluation in its function field, together with compatible trivializations
+of the section fibers, such that the functionals
+\[
+                    w\longmapsto \operatorname{ev}_Z(\rho_g w),
+                         \qquad g\in S ,
+\]
+on \(W\) are linearly independent after extending scalars to that
+field.  Their joint map is then onto.  Choose values equal to one
+at the identity and zero at all other \(g\).
+The evaluation of \(A(w)\) is the permutation matrix
+\(({\bf1}_{hg=1})_{h,g}\), and has determinant \(1\) or \(-1\).
+Thus the determinant polynomial on \(W\) is not identically zero
+on that component.
+
+These finitely many nonzero polynomials have a simultaneous
+nonvanishing specialization with coefficients in \(K\).
+One way to check this even when their coefficients lie in different
+extension fields is the following.  For a polynomial with coefficients
+in an extension of \(K\), apply a \(K\)-linear functional on the
+finite span of its coefficients that is nonzero on one coefficient.
+This gives a nonzero polynomial over \(K\); nonvanishing of this
+polynomial implies nonvanishing of the original one.
+The product of the finitely many resulting polynomials is nonzero.
+An infinite field has a point at which a given nonzero polynomial
+does not vanish, by induction on its number of variables.
+This gives the required \(u_0\).  Thus orbit separation and the
+bounded integral generators give one integral section satisfying
+all the determinants simultaneously.
+
+Here is the uniform numerical consequence used in the actual descent.
+Put \(z\geq1\).  Suppose constants \(C_1,C_3\geq0\), chosen before
+all covers, give
+\[
+ \log s\leq120z^2,\qquad
+ N\leq e^{C_3z^3},\qquad \beta\leq e^{C_1z^3},\qquad
+                        \Lambda\leq e^{2C_3z^9}.
+\]
+The same selected section therefore has pointwise norm at most
+\[
+                         e^{(C_1+3C_3+240)z^9}.
+\]
+No component count occurs in the constant.
+For an invariant Petersson \(L^2\) metric, a pointwise bound \(B\)
+for multiplication by \(u\) gives
+\(\|f u\|_2\leq B\|f\|_2\), by integration of the squared
+pointwise inequality.  Pullback isometry gives this same bound for
+every \(\rho_hu\).  Hence
+\[
+                         C=C_1+3C_3+240
+\]
+is a uniform exponent in the preceding descent proposition.
+
+At the selected type level the source has the sharper group estimate
+\(\log s\leq45z^2\).
+If \(b\geq z^{12}\) and \(z\geq2C+200\), the maps satisfy the
+required sum-of-squares bound with multiplier \(e^{2b}\):
+\[
+ \log(s^3e^{2Cz^9})
+       \leq135z^2+2Cz^9
+       \leq(135+2C)z^9
+       \leq z^{10}\leq z^{12}\leq b\leq2b .
+\]
+This fixes the constants before selecting the geometric cover.
+It does not choose a new section separately for each descent map.
+
+For the archive these bounds come from
+\srcid{ExistsShortIntegralVectorOfDeterminantBound},
+using \srcid{IntegralCuspSlopePowerBound},
+\srcid{ShortGeneratorNormComparison},
+\srcid{ExistsCuspRegularLevelDeterminant} and
+\srcid{CoveringDomainLatticeRegularity}.
+The integer coefficient argument is the mathematical content of
+\srcid{CardLeOfDetEqZero.exists\_short}.
+The proof above supplies the finite selection and descent calculations.
+To apply it to every member of the required family one must still
+supply the geometric orbit separation, the short spanning families,
+and their stated uniform metric comparisons.
+
+\subsection{The simultaneous geometric input still required}
+\label{sec:sr-geometric-selection-residual}
+
+The preceding constructions reduce, but do not close, the geometric
+existence problem.  Their exact residual inputs are as follows.
+
+First, on every chosen cover the scalar Hodge-weight cusp space must
+have the orbit-evaluation separation used above, and its actual
+integral lattice must have the short spanning family with
+\(N,\beta,\Lambda\) as displayed.
+The source constructs orbit separation at its weight
+\(c_0\,\mathrm{hodgeWt}\), where the specified \(c_0\) is large enough
+for the quotient point-separation theorem.
+Its proof uses a descended linearized Hodge line on a finite quotient,
+the canonical-bundle identity, nefness and bigness, boundary vanishing
+and the applicable point-separation theorem.
+Qualitative existence at some larger weight would not prove this
+statement at the prescribed weight.
+
+Second, the theta realization, its local factors and the arithmetic
+model must be tied to that same cover and those same metrics.
+The definite Siegel--Weil theorem is the value of a doubled
+Eisenstein series on a specified box section.
+In the transposed doubling convention its parameter is
+\((d-n)/2\), and its value is the normalized theta average multiplied
+by \(1\) when \(n<d\), and by \(2\) when \(d\leq n\).
+Meromorphic continuation and this definite value alone do not give
+the agreement of two indefinite theta integrals with their ramified
+matching maps.
+The latter also requires the local intertwining, nonvanishing,
+tower and constant-term comparisons, and the extension from
+polynomial test vectors to the actual Schwartz data.
+The inspected source producer is
+\srcid{TheoremKOfMod.theoremK\_head2}; its final assembly
+\srcid{SphericalClosure.CloseSph.closeSph} uses precisely these
+comparisons.  The new \srcid{ThkBaseNormZeta} theorem gives the
+holomorphic value from anisotropic Siegel--Weil and continuation
+in the transposed box coordinates; it is one part of this chain.
+
+Third, the arithmetic intersection and cover construction must give
+the top inequality \eqref{eq:sr-top} with the four-term error
+\eqref{eq:sr-error} for the same selected data.
+The descent maps just constructed supply the map and rank part of
+the cover-to-covolume argument.  They do not by themselves construct
+the deep covers, the degree and rank shares, the component
+Hilbert--Samuel comparison, or the height lower bound.
+Their source assembly is
+\srcid{HodgeBundleWeights.TopCovolG.topCovolG\_alt}, followed by
+\srcid{ThirdPlaceSeries.TopCovolSlim2Use.topCovolSlim2\_use\_alt\_alt}.
+
+The selection procedure in the source is more precise than taking
+unrelated local choices.  Its
+\srcid{nonempty\_hyps\_definite\_side\_of\_closed\_bound}
+first takes the maximum of the row-functional threshold \(C_{F,0}\)
+and the evaluation-grid threshold \(C_{F,1}\).
+It then uses the same extension and the same grid
+\(\mathrm{GridA}(\max(C_{F,0},C_{F,1}))\)
+for the row functions, local matching, covolume and linked norm bounds.
+The later \srcid{nonempty\_hyps\_of\_allRows\_alt}
+intersects the finitely many row conditions before selecting its one
+family class and its one raw selection.
+Its projections provide the spectral data, base rows, height data,
+columns and indefinite realization from that raw selection.
+This explains how the archive avoids separate incompatible choices.
+A standalone construction must prove the component inputs of this
+procedure, not just restate its nonempty-package conclusion.
+
+For any finite list of estimates already proved uniformly on such
+a selection, taking the maximum of their lower scale thresholds
+makes them hold simultaneously.
+For constants this argument has to be performed before the family
+or host is chosen.  A statement
+\(\forall E\,\exists C_E\) cannot supply the fixed \(C\) in
+Definition~\ref{def:sr-supply}.
+The principal coordinate bridge above does prove that the signed
+correction and the complementary mean transfer simultaneously from
+one analytically controlled host; the remaining top comparison and
+its compatible uniform geometric realization are not established
+by this section.
+
+\section{Integral short generators and uniform metric constants}
+\label{sec:sr-short-generators}
+
+We prove the arithmetic lattice step in the construction of a short
+descent section.  The proof keeps the dependence on the coefficient
+field polynomial in its degree and root discriminant.  In particular
+it does not require a bound for the index of a chosen short spanning
+lattice.
+
+\begin{srlemma}[Quadratic Euclidean transference]
+\label{lem:sr-quadratic-transference}
+Let \(L\subset\mathbb R^n\) be a full Euclidean lattice, and suppose
+every nonzero element of \(L\) has norm at least \(\lambda>0\).
+The dual lattice \(L^*\) contains \(n\) linearly independent vectors
+of norm at most \(n^2/\lambda\).
+\end{srlemma}
+
+\begin{proof}
+Minkowski's convex body theorem applied to a cube contained in the
+Euclidean ball gives
+\(\lambda_1(M)\le\sqrt n\,\det(M)^{1/n}\) for every full lattice \(M\).
+Apply this first to \(L\) and then to \(L^*\).  Since
+\(\det(L)\det(L^*)=1\), it gives
+\[
+ \lambda_1(L^*)\le n/\lambda.
+\]
+Choose a shortest nonzero dual vector and divide out its integral
+content to get a primitive \(y_0\in L^*\), still with
+\(\|y_0\|\le n/\lambda\).
+Primitivity means that there exists \(x_0\in L\) with
+\(\langle y_0,x_0\rangle=1\): in a \(\mathbb Z\)-basis of \(L\), the
+coordinates of the integral functional \(y_0\) have greatest common
+divisor one.
+
+Put \(H=y_0^\perp\) and \(L_H=L\cap H\).
+The homomorphism \(L\to\mathbb Z\), \(x\mapsto\langle y_0,x\rangle\),
+is onto, so \(L=L_H\oplus\mathbb Zx_0\) as an abelian group.
+Thus \(L_H\) is a full lattice in the \((n-1)\)-dimensional space \(H\),
+and its shortest nonzero vector has norm at least \(\lambda\).
+Inductively choose independent
+\(w_1,\ldots,w_{n-1}\in L_H^*\subset H\) with
+\(\|w_i\|\le(n-1)^2/\lambda\).
+Let
+\[
+ c_i=\langle w_i,x_0\rangle-
+       \operatorname{round}(\langle w_i,x_0\rangle),\qquad
+ y_i=w_i-c_i y_0.
+\]
+Then \(|c_i|\le1/2\), and \(y_i\) is integral on both \(L_H\) and
+\(x_0\), so \(y_i\in L^*\).
+Its projection to \(H\) is \(w_i\), hence
+\(y_0,y_1,\ldots,y_{n-1}\) are independent.  Orthogonality gives
+\[
+ \|y_i\|^2
+ \le\frac{(n-1)^4+n^2/4}{\lambda^2}
+ \le\frac{n^4}{\lambda^2}.
+\]
+Together with the bound for \(y_0\), this completes the induction.
+The assertions for \(n=0\) and \(n=1\) follow directly; the displayed
+induction is used for \(n\ge2\).
+\end{proof}
+
+\begin{srlemma}[Small independent algebraic integers]
+\label{lem:sr-small-integers}
+Let \(K\) be a number field of degree \(\delta\), discriminant \(D_K\),
+and root discriminant \(\operatorname{rd}(K)=|D_K|^{1/\delta}\).
+There exist \(\delta\) elements
+\(\alpha_1,\ldots,\alpha_\delta\in\mathcal O_K\), independent over
+\(\mathbb Q\), such that
+\[
+ |\sigma(\alpha_i)|\le
+ \delta^3\operatorname{rd}(K)
+ \quad\hbox{for every embedding }\sigma:K\hookrightarrow\mathbb C.
+\]
+\end{srlemma}
+
+\begin{proof}
+Embed \(K\) in its Minkowski Euclidean space, with norm squared
+\(\sum_\sigma|\sigma(x)|^2\), counting both complex embeddings.
+The Euclidean dual of the image of \(\mathcal O_K\) is, up to an
+orthogonal reflection in the imaginary coordinates, the image of the
+codifferent
+\(\mathfrak D_K^{-1}=\{y:\operatorname{Tr}_{K/\mathbb Q}
+(y\mathcal O_K)\subset\mathbb Z\}\).
+This follows by choosing an integral basis and its trace-dual basis:
+reflection changes the real Euclidean pairing
+\(\operatorname{Re}\sum_\sigma\sigma(x)\overline{\sigma(y)}\)
+into \(\operatorname{Tr}(xy)\).
+
+The codifferent has ideal norm \(|D_K|^{-1}\).
+For \(0\ne y\in\mathfrak D_K^{-1}\), the inclusion
+\(y\mathcal O_K\subset\mathfrak D_K^{-1}\) implies
+\(|N_{K/\mathbb Q}y|\ge |D_K|^{-1}\).
+The arithmetic--geometric mean inequality therefore gives
+\[
+ \sum_\sigma|\sigma(y)|^2
+ \ge \delta |N_{K/\mathbb Q}y|^{2/\delta}
+ \ge \delta\,\operatorname{rd}(K)^{-2}.
+\]
+In particular every nonzero vector of this dual lattice has norm at
+least \(\operatorname{rd}(K)^{-1}\).
+Apply Lemma~\ref{lem:sr-quadratic-transference} to the dual lattice.
+Its dual, the original integer lattice, has \(\delta\) independent
+vectors of Euclidean norm at most
+\(\delta^2\operatorname{rd}(K)\).
+Each individual embedding is bounded by that norm.
+Enlarging \(\delta^2\) to \(\delta^3\) gives the stated form.
+\end{proof}
+
+\begin{srproposition}[Short spanning vectors give integral generators]
+\label{prop:sr-short-integral-generators}
+Let \(V\) be an \(R\)-dimensional vector space over \(K\), and let
+\(M\subset V\) be a finitely generated \(\mathcal O_K\)-submodule
+spanning \(V\).  For every embedding \(\sigma\), let \(N_\sigma\) be
+a seminorm satisfying
+\[
+ N_\sigma(av)=|\sigma(a)|N_\sigma(v),\qquad
+ N_\sigma(v+w)\le N_\sigma(v)+N_\sigma(w).
+\]
+Suppose \(S\subset M\) spans \(V\) over \(K\) and
+\(N_\sigma(s)\le A\) for every \(s\in S\) and every \(\sigma\).
+Then \(M\), as an abelian group, is generated by at most \(2\delta R\)
+vectors \(w_i\) such that
+\begin{equation}\label{eq:sr-generator-bound}
+ N_\sigma(w_i)\le
+ \max\{1,\delta^4R\operatorname{rd}(K)A\}
+ \quad\hbox{for every }i,\sigma.
+\end{equation}
+\end{srproposition}
+
+\begin{proof}
+The case \(R=0\) is immediate.  Choose a \(K\)-basis
+\(v_1,\ldots,v_R\) from \(S\), and choose the integers \(\alpha_j\)
+of Lemma~\ref{lem:sr-small-integers}.
+The \(\delta R\) vectors \(e_{j,k}=\alpha_jv_k\) form a
+\(\mathbb Q\)-basis of \(V\); they lie in \(M\), and every seminorm
+is at most
+\(A'=\delta^3\operatorname{rd}(K)A\).
+Write \(D=\delta R\), enumerate this basis by \(e_1,\ldots,e_D\),
+and put \(M_0=\sum_\ell\mathbb Ze_\ell\subset M\).
+
+The group \(M\) is free of rank \(D\): it is finitely generated and
+torsion free over \(\mathbb Z\), and its rational span is \(V\).
+Choose any \(\mathbb Z\)-basis \(b_1,\ldots,b_D\) of \(M\).
+No norm bound for this basis is needed.
+If \(b_i=\sum_\ell q_{i\ell}e_\ell\), define
+\[
+ \widetilde b_i=\sum_\ell
+       (q_{i\ell}-\lfloor q_{i\ell}\rfloor)e_\ell.
+\]
+Then \(b_i-\widetilde b_i\in M_0\), so \(\widetilde b_i\in M\).
+The \(2D\) vectors \(e_\ell,\widetilde b_i\) generate \(M\), since
+they generate every \(b_i\); and
+\[
+ N_\sigma(\widetilde b_i)
+ \le\sum_\ell
+       (q_{i\ell}-\lfloor q_{i\ell}\rfloor)N_\sigma(e_\ell)
+ \le DA'.
+\]
+The same bound holds for \(e_\ell\), since \(D\ge1\).
+Thus \(DA'=\delta^4R\operatorname{rd}(K)A\) proves
+\eqref{eq:sr-generator-bound}.  The index \([M:M_0]\) never enters.
+\end{proof}
+
+Here is the precise uniformity consequence used for descent sections.
+Let \(z\ge1\) be a size parameter, let \(S_{\rm wt}\ge0\) be the sum
+of absolute values of the highest-weight entries, and suppose the
+chosen coefficient fields and component cusp lattices satisfy
+\begin{align}
+ \log\delta&\le391z^2,&
+ \log\operatorname{rd}(K)&\le391z^2,\label{eq:sr-field-metric-size}\\
+ \log\max(1,R)&\le C_bz^3,&
+ \log A&\le C_2(z^3S_{\rm wt}+z^5).\label{eq:sr-span-metric-size}
+\end{align}
+Here \(C_b,C_2\ge0\) are fixed before fields, components, levels, and
+weights are chosen.  Proposition~\ref{prop:sr-short-integral-generators}
+gives generators of norm at most \(\Lambda\ge1\), in number \(N\), with
+\begin{equation}\label{eq:sr-uniform-short-generators}
+ \log\Lambda\le C_3(z^3S_{\rm wt}+z^5),\qquad
+ \log\max(1,N)\le C_3z^3,\qquad
+ C_3=2000+C_b+C_2.
+\end{equation}
+Indeed the first logarithm is bounded by the maximum of zero and
+\[
+ 4\log\delta+\log R+\log\operatorname{rd}(K)+\log A
+ \le1955z^2+C_bz^3+C_2(z^3S_{\rm wt}+z^5),
+\]
+which is at most the first right side of
+\eqref{eq:sr-uniform-short-generators}; and
+\(\log N\le\log2+\log\delta+\log R\le(392+C_b)z^3\).
+For a zero component space take the empty generating family and
+\(\Lambda=1\).
+
+The component sup norm and rank bounds have a common Hilbert-space
+normalization.  Let \(\mathcal H\) be a finite-dimensional Hilbert
+space of line-bundle sections on a component with a probability measure \(\mu\),
+and assume its norm is the corresponding \(L^2\) norm.
+If point evaluation has squared norm at most \(\beta\), then
+\[
+ |f(y)|^2\le\beta\|f\|_2^2,\qquad
+ \dim\mathcal H\le\beta.
+\]
+To prove the second assertion, choose an orthonormal basis \(f_i\).
+The evaluation estimate is equivalent to
+\(\sum_i|f_i(y)|^2\le\beta\).
+Integrating and using \(\mu(X)=1\) gives
+\(\dim\mathcal H=\sum_i\int|f_i|^2\le\beta\).
+Thus, if
+\begin{equation}\label{eq:sr-bergman-input}
+ 1\le\beta\le e^{C_1z^3},
+\end{equation}
+both the pointwise factor \(\sqrt\beta\le\beta\) and the logarithm of
+the component rank are controlled by this one fixed \(C_1\).
+The measure must be the same normalized component measure used in
+the integral lattice metric; an unnormalized quotient measure would
+insert its volume into the rank inequality.
+
+For completeness we now combine these bounds with the simultaneous
+group determinant construction.  Suppose the prescribed scalar
+Hodge weight satisfies \(S_{\rm wt}\le z^5\), the finite level group
+has cardinal \(s\) with \(\log s\le120z^2\), and a cusp section with
+nonzero group determinant exists on every component.
+Apply the componentwise integer-coefficient selection proved in
+Section~\ref{sec:sr-compatible-descent}.  It uses coefficients in
+\(\{0,\ldots,s^2\}\) in a single simultaneous choice.
+The resulting integral section has pointwise norm at most
+\(N s^2\beta\Lambda\), hence multiplication by any of its level
+translates has norm at most \(B\), where
+\begin{equation}\label{eq:sr-uniform-multiplier}
+ \log B\le (C_1+3C_3+240)z^9.
+\end{equation}
+This follows from
+\(\log N\le C_3z^3\),
+\(\log\Lambda\le2C_3z^9\),
+\(\log\beta\le C_1z^3\), and \(2\log s\le240z^2\).
+Every constant in \eqref{eq:sr-uniform-multiplier} is chosen before
+the level group or component is selected.
+
+The integral maps
+\(\varphi_h(f)=\sum_g\xi(g)^{-1}\rho_g(f\rho_hu)\)
+therefore satisfy
+\[
+ \sum_h\|\varphi_h(f)\|^2\le s^3 B^2\|f\|^2.
+\]
+This uses only the isometry of level translations and the multiplier
+bound just proved.  There is no division by \(s\) in the maps, so
+their integrality is retained at primes dividing \(s\).
+
+These arguments close the passage from a uniformly short integral
+\(K\)-spanning family to the simultaneous integral descent maps.
+For an actual Shimura family the remaining input
+\eqref{eq:sr-span-metric-size} must concern the prescribed algebraic
+theta sections, their common integral lattice, and the same
+Petersson metric.  Abstract finite generation does not prove it.
+
+More precisely, the frozen construction supplies this input in the
+following order.  Its theta spanning assertion uses the identical
+restricted tensor model, the integral Fourier datum
+\(\widehat{\mathbf1}_{x_0}\), unimodular positive definite auxiliary
+lattices trivial at the prescribed bad places, and integral harmonic
+polynomials.  One denominator \(N_a\), valid for every section in that
+theta family at the chosen weight, has
+\(\log N_a\le C_{\rm int}z^2\kappa\); its raw pointwise estimates have
+exponent \(C_{\rm raw}z^2\kappa\).  Multiplication by a reflex-ideal
+scalar balances the lattice index at every embedding without changing
+the \(K\)-span.  These are the substantive inputs to
+\texttt{ExistsGoodCoverAtMinimalLevel}; the theorem name alone is not
+a proof of them.
+To pass from these even theta weights to a general dominant weight of
+gap at least \(8fr+10\), one takes auxiliary even rank
+\(8(fr+1)\), a key-unit twisting section, and a flat-line twisting
+section with nonnegative finite valuations.  Their weights must add
+exactly to the desired weight.  Their archimedean factors have
+logarithms bounded by the key-unit term and
+\[
+ (|c_1|+q\log\operatorname{rd}(E))\sum_\tau|n_{0,\tau}|
+ +\sum_{p\ {\rm bad}}\log p
+ +\tfrac12\log\operatorname{rd}(K)+1,
+ \qquad |c_1|\le9rL.
+\]
+Together with the proved bad-prime bound and the weight-size
+inequalities, the source gives
+\(C_2=11C_{\rm even}+C_{\rm bad}+500\) in
+\eqref{eq:sr-span-metric-size}.
+Those theta spanning, integral-denominator, key-unit, flat-line, and
+Bergman constructions must all be established with these
+normalizations to discharge the geometric input; the lattice and
+constant arguments above do not replace them.

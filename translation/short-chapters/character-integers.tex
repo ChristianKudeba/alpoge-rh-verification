@@ -1,0 +1,501 @@
+\section{Integer bounds for the principal character packet}
+\label{sec:sr-character-integers}
+The two target estimates of Definition~\ref{def:sr-character-inputs}
+concern the same principal host and the same normalized strict lengths.
+This section proves their numerical and character-orbit reductions.
+The later support arguments make several underlying implications
+explicit; the automorphic producers still required are identified at
+each use.
+
+\subsection{A single Frobenius prime for the generic character sum}
+\label{sec:sr-fixed-seven-generic}
+Throughout this subsection the principal host is the field defined in
+Section~\ref{sec:sr-arithmetic}, with its fixing subgroup $H_{\rm host}$.
+Only its abelian $2$-group character packet, its degree bound, and its
+local quadratic characters at the two odd principal primes are used.
+We increase the fixed lower threshold for the principal primes to ensure
+$q,d>7$. This does not change the order of the uniform quantifiers.
+
+\begin{srproposition}[The exact orbit-integer implication]
+\label{prop:sr-orbit-integer-implication}
+Fix an imaginary quadratic field $K$. Assume the common trace-integer
+construction and the one-character deformation inequality of
+Sections~\ref{sec:common-trace-integer}
+and~\ref{sec:single-character}, including their stated arithmetic inputs.
+There are $c,C\in\mathbb N$, depending only on $K$, with the following
+property. For every $a\ge1$, positive modulus $N$, subgroup
+$J\le(\mathbb Z/N)^\times$, and prime
+$p\nmid30N|\operatorname{disc}K|$, there is a nonzero integer
+$Z=Z_{K,J,a,N,p}$ such that
+\begin{equation}\label{eq:sr-orbit-integer-size}
+ \log|Z|\le c\,\varphi([(\mathbb Z/N)^\times:J])
+                    [N(a+1)]^C\log p.
+\end{equation}
+The integer is chosen before the coefficient prime and coefficient ring.
+For every prime $\ell\ne p$ and finite splitting coefficient ring
+$\mathcal O$ at $\ell$, if one character of kernel $J$ satisfies the
+good-data conditions in Section~\ref{sec:single-character}, all such
+characters have finite strict groups and
+\begin{equation}\label{eq:sr-orbit-integer-valuations}
+       \sum_{\ker\psi=J}v_{\ell,a}(\psi)
+                              \le2\operatorname{ord}_\ell Z.
+\end{equation}
+\end{srproposition}
+\begin{proof}
+Choose $w\mid p$ and put $Q=Nw$. The complex orbit
+$\mathcal O_J$ consists of all characters modulo $N$ with kernel $J$.
+Its indexed roots $z_\chi=\chi(Q)^{-1}$ are permuted by every
+automorphism of $\mathbb C$, since an injective field homomorphism
+preserves a character kernel. If the orbit is nonempty, its quotient
+$(\mathbb Z/N)^\times/J$ is cyclic; its faithful characters form one
+orbit of cardinality $\varphi([(\mathbb Z/N)^\times:J])$.
+All of them are powers $\chi^u$ with $u$ prime to the order.
+If the orbit is empty, take $Z=1$.
+
+The trace-integer construction applied to this indexed family gives
+a nonzero integer $Z$ satisfying \eqref{eq:sr-orbit-integer-size}.
+For every $\ell\ne p$ it controls the product of all the nonzero
+differences between admissible traces at inverse Frobenius and the
+corresponding Eisenstein traces, for every finite list having pairwise
+nonisomorphic members within each orbit position.
+
+Fix such an $\ell$ and $\mathcal O$, and choose an embedding of its
+fraction field in $\overline{\mathbb Q}_\ell$ and a field isomorphism
+$\iota:\overline{\mathbb Q}_\ell\to\mathbb C$.
+Composition preserves kernels and identifies the coefficient-valued
+orbit with $\mathcal O_J$. This identification is onto: every character
+with a given kernel is a power, prime to the order, of one character
+already in the coefficient ring. Good data transfer to every character
+of this orbit. This is checked by the same powers: the kernels coincide,
+the quadratic local component is preserved, and all the remaining
+conditions depend only on the kernel, the order, or the prescribed parity.
+
+Arithmetic Frobenius at $w$ has cyclotomic value $Q$ and Dirichlet
+value $\psi(Q)$. Hence its inverse gives the reducible trace
+\[
+ T_\psi=Q^{-a}\psi(Q)^{-1}+1+Q^a\psi(Q).
+\]
+The separation supplied by the trace-integer construction permits the
+one-character inequality at this inverse Frobenius. It proves finiteness
+and supplies a finite set $X_\psi$ of pairwise nonisomorphic admissible
+representations with
+\[
+ v_{\ell,a}(\psi)\le
+       2\sum_{\rho\in X_\psi}
+          v_\ell\bigl(\operatorname{tr}\rho(\operatorname{Frob}_w^{-1})
+                                            -T_\psi\bigr).
+\]
+Here $v_\ell(\ell)=1$. The product inequality for $Z$ says
+\[
+ |Z|_\ell\le
+       \prod_{\psi}\prod_{\rho\in X_\psi}
+       \left|\operatorname{tr}\rho(\operatorname{Frob}_w^{-1})
+                                            -T_\psi\right|_\ell .
+\]
+All factors are nonzero. Taking $-\log_\ell$ bounds the sum of their
+valuations by $\operatorname{ord}_\ell Z$. Summing the preceding
+one-character inequalities proves
+\eqref{eq:sr-orbit-integer-valuations}.
+No distinctness is required between different orbit positions: the
+integer product retains their separate multiplicities.
+The coefficient normalization is exactly
+$\operatorname{length}_{\mathcal O}/v_{\mathcal O}(\ell)$, as in
+Section~\ref{sec:single-character}.
+\end{proof}
+
+\begin{srproposition}[The fixed-seven specialization]
+\label{prop:sr-fixed-seven-generic}
+Under the arithmetic inputs of
+Proposition~\ref{prop:sr-orbit-integer-implication} for the single field
+$K=\mathbb Q(\sqrt{-3})$, the generic estimate
+\eqref{eq:sr-generic-count} holds with one natural exponent fixed
+before the host, twist range, coefficient rings and finite prime set.
+More precisely, if $c,C$ are the constants above, choose
+$k\in\mathbb N$ once and for all with
+\[
+                2^k\ge\max(1,2c\log7).
+\]
+Then one may use $A=C+1+k$.
+\end{srproposition}
+\begin{proof}
+Fix $t\ge2$, a principal host with $q,d>7$, and $1\le a<t$.
+Let $\mathscr J_a$ be the set of kernels of its complex characters
+in $\mathcal X_a$. The entire kernel-$J$ orbit is contained in
+$\mathcal X_a$ for every $J\in\mathscr J_a$.
+Indeed, a character of the same kernel is $\psi^u$ for $u$ prime to
+$r=\operatorname{ord}\psi$. It is trivial on $H_{\rm host}$.
+If $r>1$ it is a power of two, so $u$ is odd and
+$\psi^u(-1)=\psi(-1)$; if $r=1$ the orbit is a singleton.
+Consequently these orbits partition $\mathcal X_a$, and
+\begin{equation}\label{eq:sr-orbit-totient-sum}
+ \sum_{J\in\mathscr J_a}
+           \varphi([(\mathbb Z/N)^\times:J])
+             =|\mathcal X_a|\le[E:\mathbb Q]\le N.
+\end{equation}
+This equality concerns character kernels in the full group of units
+modulo $N$, with their common host fixing subgroup retained.
+
+Put $p=7$. The choice $q,d>7$ gives $7\nmid N$, while
+$|\operatorname{disc}K|=3$, so $7\nmid30N|\operatorname{disc}K|$.
+Proposition~\ref{prop:sr-three-auxiliary} verifies the good-data
+conditions for every odd nonresonant coefficient prime and every
+character in $\mathcal X_a$. For the source's character $\psi'$ with
+the $\ell$-local component removed, the final kernel condition follows
+from inertia at three as well: its conductor still divides $N$.
+Use Proposition~\ref{prop:sr-orbit-integer-implication} once for
+each $J\in\mathscr J_a$, obtaining $Z_J=Z_{K,J,a,N,7}$.
+Every $\ell$ in the prescribed generic set $S$ differs from seven.
+Thus all the following strict lengths are finite and
+\begin{align*}
+ \sum_{\ell\in S}\log\ell
+                   \sum_{\psi\in\mathcal X_a}v_{\ell,a}(\psi)
+ &\le2\sum_{J\in\mathscr J_a}
+                     \sum_{\ell\in S}
+                      (\log\ell)\operatorname{ord}_\ell Z_J\\
+ &\le2\sum_{J\in\mathscr J_a}\log|Z_J|\\
+ &\le2c\log7\,N[N(a+1)]^C .
+\end{align*}
+The middle inequality is prime factorization of the nonzero integers
+$Z_J$; it does not contain $|S|$.
+Put $M=Nt$. Since $a<t$, we have $N(a+1)\le M$, $N\le M$,
+and $M\ge2$. Our fixed choice of $k$ gives
+\[
+        2c\log7\,N[N(a+1)]^C
+                         \le M^{C+1+k}.
+\]
+This proves the asserted uniform quantifier order.
+\end{proof}
+
+\paragraph{Source verification and remaining scope.}
+The exact proposition $\srcid{PropGK}$ is defined in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/UnitaryThreeGroups/KatoUse.lean}
+{\srcid{UnitaryThreeGroups.KatoUse}}.
+Its producer is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/FPropGKU.lean}
+{\srcid{FPropGKU.propGK_of_numberU3U_of_oneCharU}}.
+The two arguments above prove the orbit assembly and the entire
+coefficient-prime summation. Their stated arithmetic input still
+includes the unramified automorphy used by the one-character inequality.
+In the archive its producer runs through
+\srcid{DnEndsTop.ends0_alt}, \srcid{LinkedEndE},
+\srcid{PrLinkedEnd}, \srcid{AbsMain}, and the characteristic-$\ell$
+component-propagation theorem \srcid{PropagationTheoremGL3}.
+The fixed-seven specialization does not replace that producer.
+
+\subsection{Arithmetic absorption in the principal exceptional packet}
+\label{sec:sr-exceptional-absorption}
+
+Throughout this subsection the principal host is the actual fixed field
+used in Section~\ref{sec:sr-arithmetic}:
+\[
+ E=\mathbb Q\bigl(\zeta_{2^{h+2}}+\zeta_{2^{h+2}}^{-1},
+                   \sqrt{-q},\sqrt{-d}\bigr),\qquad N=2^{h+2}qd.
+\]
+Equivalently, its fixing subgroup at the dyadic factor is generated by
+\(-1\). We use precisely its character packet \(\mathcal X_a\).
+In particular the dyadic component of an admitted character is even.
+Enlarging this field to the full dyadic cyclotomic compositum would
+enlarge that packet and is not a step in the following argument.
+The primes \(q,d\) satisfy the principal congruences, exceed \(2t+1\),
+and exceed any fixed thresholds stated below.
+
+For clarity, the assertions below concerning a deformation comparison
+are implications from explicitly stated comparisons. They establish the
+uniform scalar absorptions, not the construction of the deformation
+points or their automorphic realization.
+
+\begin{srproposition}\label{prop:sr-principal-case-II-arithmetic}
+Let \(1\leq a<t\), let \(\psi\in\mathcal X_a\) be nontrivial, and suppose
+\[
+ \ell\in\{3,7\}\quad\hbox{or}\quad
+                    (a\geq2,\ \ell-1\mid2a).
+\]
+Assume \(q,d>7\). Then \(\ell\nmid N\), the order of \(\psi\) is a
+nontrivial power of two, and its local components at odd primes have
+order at most two. Consequently, when \(a\geq2\), this is Case II
+of the source; neither Case III nor Case IV is needed for this packet.
+
+Write \(c=c_2(\psi)\) for the exponent in the conductor \(2^c\) of its
+dyadic component. Remove that component from \(\psi\), and call the
+order of the remaining character \(b\). Then \(b\mid2\), and
+\[
+ f=\operatorname{ord}_{\operatorname{lcm}(4,b)}(\ell)
+       =\operatorname{ord}_4(\ell)\leq2,\qquad
+ w=v_2(\ell^f-1),\qquad 4^w<\ell^4 .
+\]
+\end{srproposition}
+\begin{proof}
+The odd ramification of \(E/\mathbb Q\) comes from the two quadratic
+radicals, so the components at \(q,d\) have exponent two; there are no
+other odd ramified components. The dyadic quotient is a \(2\)-group.
+Thus every host character has \(2\)-power order, and its order is even
+when it is nontrivial.
+
+For an exceptional prime, \(\ell<q,d\) follows from \(q,d>7\).
+For a resonant prime, \(\ell\leq2a+1<q,d\).
+Since \(\ell\) is odd, in either case \(\ell\nmid2^{h+2}qd=N\).
+The \(\ell\)-power-order part of \(\psi\) and its local component at
+\(\ell\) are therefore both trivial. Hence the character denoted
+\(\mathrm{chiP}\) in the source is exactly \(\psi\), and its order is
+even. Together with \(a\geq2\) and the displayed exceptional or resonant
+alternative, these are exactly the three conditions defining Case II.
+Case III requires a nontrivial character of odd order, which cannot
+occur here. Case IV also requires odd order after taking \(\mathrm{chiP}\).
+
+Removing the dyadic component leaves the product of the two quadratic
+components, whose order divides two. Thus the modulus defining \(f\)
+is four. Finally \(2^w\leq\ell^f-1<\ell^2\), which gives \(4^w<\ell^4\).
+\end{proof}
+
+\begin{srproposition}[The small-conductor twist-one branch]
+\label{prop:sr-small-conductor-exceptional}
+At \(a=1\), the threshold
+\[
+                    R_1(\ell,\psi)=16\ell^2\,4^w
+\]
+equals \(9216\) for \(\ell=3\) and \(200704\) for \(\ell=7\).
+If \(2^{c_2(\psi)}<R_1(\ell,\psi)\), then
+\[
+ \operatorname{ord}\psi\leq
+ \begin{cases}2^{11},&\ell=3,\\2^{15},&\ell=7.\end{cases}
+\]
+Consequently this entire branch satisfies
+\[
+ (\log\ell)v_{\ell,1}(\psi)\leq(\ell N)^{B_{\mathrm{small}}},
+ \qquad
+ B_{\mathrm{small}}=196609\cdot393216^{24}.
+\]
+The exponent is fixed before the host, character and splitting ring.
+\end{srproposition}
+\begin{proof}
+Both three and seven are \(3\bmod4\), so \(f=2\).
+The valuations \(v_2(3^2-1)=3\) and \(v_2(7^2-1)=4\) give the displayed
+thresholds. Since
+\[
+ 2^{13}<9216<2^{14},\qquad
+ 2^{17}<200704<2^{18},
+\]
+the strict threshold bounds \(c_2(\psi)\) by thirteen or seventeen.
+
+For \(c\geq3\), the exponent of \((\mathbb Z/2^c)^\times\) is
+\(2^{c-2}\). Indeed the units are generated by \(-1\) and \(5\), and
+\(v_2(5^{2^j}-1)=j+2\), by induction using the factorization
+\(x^2-1=(x-1)(x+1)\). For \(c=0,1,2\), the unit-group exponent is at
+most two. The odd local components also have exponent at most two.
+The order of their product is the least common multiple of these
+\(2\)-power orders, proving the two order bounds.
+
+Apply Proposition~\ref{prop:sr-bounded-order-one} with \(R=2^{15}=32768\).
+Its exponent \((6R+1)(12R)^{24}\) is the displayed integer.
+This also proves finiteness in this branch.
+\end{proof}
+
+\paragraph{Normalization under a change of splitting ring.}
+If \(\mathcal O\subset\mathcal O'\) is a finite extension of splitting
+discrete valuation rings and \(\psi'\) is the same character in
+\(\mathcal O'\), then
+\[
+                         v_{\ell,a}(\psi')=v_{\ell,a}(\psi).
+\]
+Indeed \(\mathcal O'\) is finite free over \(\mathcal O\), and
+\[
+ (Q/\mathcal O)\otimes_{\mathcal O}\mathcal O'
+                       \simeq Q'/\mathcal O'.
+\]
+Choosing an \(\mathcal O\)-basis identifies the continuous cochain
+complex, and every local restriction complex, with a finite direct
+sum of the old complex. Thus cohomology and the simultaneous local
+kernel commute with this scalar extension. If
+\(e'=v_{\mathcal O'}(\varpi_{\mathcal O})\), the cyclic decomposition
+of a finite torsion module \(T\) gives
+\[
+ \operatorname{length}_{\mathcal O'}(T\otimes\mathcal O')
+       =e'\operatorname{length}_{\mathcal O}T,\qquad
+ v_{\mathcal O'}(\ell)=e'v_{\mathcal O}(\ell).
+\]
+Dividing gives the asserted identity. Finiteness descends by faithful
+flatness as well as ascending by scalar extension. In particular,
+adjoining the auxiliary dyadic roots of unity creates no factor in
+the normalized estimate.
+
+\begin{srproposition}[Uniform absorption of the rank-four comparison]
+\label{prop:sr-rank-four-absorption}
+Fix natural constants \(C,A\) in the rank-four common-integer
+comparison, before the principal host is chosen.
+For each Case II instance with \(a\geq2\), set
+\[
+ u=\max\{\ell N4^w,\ 2^{c_2(\psi)+6}\ell^3\},\quad
+ n=\lceil\log_2u\rceil,\quad
+ M=\ell\,2^nN,\quad k=2(\ell-1)2^n.
+\]
+Suppose the following comparisons have been constructed for these
+same data:
+\begin{enumerate}
+\item At an eligible prime \(p\geq5\), a finite pairwise nonisomorphic
+family of admissible rank-four representations \(\mathcal R\), with
+nonzero trace differences \(d_\rho\), satisfies
+\[
+ (\log\ell)v_{\ell,a}(\psi)
+                  \leq2\sum_{\rho\in\mathcal R}-\log|d_\rho|_\ell .
+\]
+\item A nonzero integer \(J\), for the common root-of-unity order \(k\),
+satisfies
+\[
+ |J|_\ell\leq\prod_{\rho\in\mathcal R}|d_\rho|_\ell,\qquad
+ \log|J|\leq C\varphi(k)\{M(a+1)\}^{A}\log p.
+\]
+\end{enumerate}
+These are the normalizations in
+\(\mathrm{Raw.Ineq}\), \(\mathrm{NumberSp4Alt}\), and
+\(\mathrm{CountS.exists\_frob\_nonvanishing\_with\_sha\_bound}\).
+There is no additional factor \(a+1\) outside the indicated \(A\)-th
+power.
+
+Choose once and for all \(b_4\in\mathbb N\) with \(2C\leq2^{b_4}\).
+If the two comparisons hold at every eligible prime, they imply
+\[
+ (\log\ell)v_{\ell,a}(\psi)\leq(\ell Na)^{B_4},\qquad
+                         B_4=10A+12+b_4 .
+\]
+\end{srproposition}
+\begin{proof}
+Put \(x=\ell Na\). The conductor \(2^{c_2(\psi)}\) divides \(N\).
+By Proposition~\ref{prop:sr-principal-case-II-arithmetic},
+\[
+ u\leq\max\{\ell^5N,\ 64N\ell^3\}\leq\ell^7N.
+\]
+Here \(64\leq\ell^4\) since \(\ell\geq3\).
+For every positive \(u\), \(2^{\lceil\log_2u\rceil}\leq2u\);
+hence
+\[
+                    2^n\leq2\ell^7N\leq\ell^8N.
+\]
+It follows that
+\[
+ \begin{split}
+ k&=2(\ell-1)2^n\leq2\ell^9N\leq x^{10},\\
+ M(a+1)&\leq\ell^9N^2(2a)
+                    \leq\ell^{10}N^2a\leq x^{10}.
+ \end{split}
+\]
+
+Choose a prime divisor \(p\) of the positive integer \(6\ell N-1\).
+It is different from two and three, so \(p\geq5\), and
+\(p\nmid\ell N\). Since the only added factor in \(M\) is a power
+of two, \(p\nmid M\). It is also outside the Case II ramification
+set, whose prime divisors are those of \(2\ell N\).
+Moreover
+\[
+       p\leq6\ell N-1<6\ell N\leq x^2,\qquad \log p\leq x^2,
+\]
+where \(a\geq2\), \(\ell\geq3\) ensure \(\ell Na^2\geq6\).
+
+Take negative logarithms of the product comparison. Since the
+differences are nonzero,
+\[
+ (\log\ell)v_{\ell,a}(\psi)
+       \leq2v_\ell(J)\log\ell
+       \leq2\log|J|
+       \leq2Ck\{M(a+1)\}^{A}\log p
+       \leq2C x^{10A+12}.
+\]
+The integer inequality \(v_\ell(J)\log\ell\leq\log|J|\) is immediate
+from \(\ell^{v_\ell(J)}\mid J\). Finally
+\(2C\leq2^{b_4}\leq x^{b_4}\), proving the stated exponent.
+All constants precede the host, \(\ell,a,\psi\), and coefficient
+extension.
+\end{proof}
+
+\begin{srproposition}[A fixed Gaussian test prime]
+\label{prop:sr-gaussian-fixed-prime}
+Raise the fixed principal-host threshold to \(q,d>11\).
+Then \(p=11\) is one eligible inert test prime for every Gaussian
+twist-one instance at \(\ell=3,7\). Its unique Gaussian prime \(w\)
+has norm \(121\), and \(11\nmid\ell N\).
+
+Suppose the Gaussian common-integer comparison has fixed constants
+\(C_G,A_G\in\mathbb N\), so that, with the Galois-stable list of
+all complex characters modulo \(N\), it supplies \(J_G\ne0\) with
+\[
+              \log|J_G|
+                 \leq C_G\varphi(N)(2N)^{A_G}\log11 .
+\]
+Suppose also that the marked universal ring, its finite weight-zero
+part, the automorphy and rigidity of its type-I points, and the
+cotangent comparison have supplied the source's inequality
+\[
+ v_{\ell,1}(\psi)
+     \leq2\sum_{\rho} -\log_\ell|d_\rho|_\ell ,
+\]
+with the nonisomorphism conditions needed for the common-integer
+comparison after restriction to \(G_{\mathbb Q(i)}\).
+Then
+\[
+ (\log\ell)v_{\ell,1}(\psi)
+        \leq4C_G\varphi(N)(2N)^{A_G}\log11
+        \leq(\ell N)^{B_G},
+ \qquad B_G=A_G+1+b_G,
+\]
+where \(b_G\) is any fixed natural number satisfying
+\(4C_G2^{A_G}\log11\leq3^{b_G}\).
+\end{srproposition}
+\begin{proof}
+Since \(11\equiv3\bmod4\), the polynomial \(X^2+1\) is irreducible
+over \(\mathbb F_{11}\): a root would give an element of order four
+in the group \(\mathbb F_{11}^{\times}\), whose order is ten.
+Thus \(11\) is inert in \(\mathbb Q(i)\) and its residue-field norm
+is \(11^2\). It divides neither the discriminant four nor \(N\);
+also \(\ell\ne11\).
+
+A point's automorphic realization may choose either of the two
+embeddings \(\mathbb Q(i)\hookrightarrow\Omega\). Partition the
+finite representative family accordingly. For each part the
+common-integer comparison bounds the sum of the negative
+\(\ell\)-adic logarithms by \(v_\ell(J_G)\).
+The same integer works for either embedding because its choice
+precedes the algebraic closure, embedding and coefficient prime
+in that comparison. Adding the two inequalities and then applying
+the cotangent factor two gives
+\[
+             (\log\ell)v_{\ell,1}(\psi)
+                         \leq4v_\ell(J_G)\log\ell
+                         \leq4\log|J_G|.
+\]
+This argument uses the source's distinctness after restriction;
+pairwise distinct rational representations alone would not
+justify this step.
+
+Finally \(\varphi(N)\leq N\), so the right side is at most
+\(4C_G2^{A_G}\log11\cdot N^{A_G+1}\).
+Since \(\ell\geq3\), \(N\geq1\), and \(b_G\geq0\), this is at most
+\((\ell N)^{A_G+1+b_G}\).
+\end{proof}
+
+Combining the preceding three branches would permit the single
+exponent
+\[
+                  B=\max\{B_{\mathrm{small}},B_4,B_G\}.
+\]
+The small-conductor twist-one branch is proved above without
+deformation inputs. The other two displayed absorptions require
+their stipulated deformation and common-integer comparisons.
+They do not assert that the finite weight-zero, no-block,
+automorphic-point or marked-ring constructions have been supplied.
+
+\paragraph{Frozen-source locations.}
+The precise source definitions are
+\(\mathrm{HeightAndVanishing.DirichletPrimeToLPartMulLPowerPart}\)
+(\(\mathrm{Host.H}\), \(\mathrm{R1}\), \(\mathrm{nII}\), and the cases),
+\(\mathrm{DenseThresholdCases.AfStmt}\)
+(\(\mathrm{NumberSp4Alt}\)),
+\(\mathrm{DenseThresholdCases.CountS}\),
+\(\mathrm{DenseThresholdCases.ConductorAtMapInjectiveCoeff}\),
+\(\mathrm{DenseThresholdCases.EHostNumberU}\), and
+\(\mathrm{DenseThresholdCases.CountVOf}\), at tag
+\texttt{alpoge-source-7cbf7a0c}.
+The finite weight-zero/no-block/automorphic rank-four producer is
+\(\mathrm{Sp4In0.sp4In0\_alt}\), through
+\(\mathrm{CuFinal.main4\_alt}\).
+The Gaussian marked-ring producer is
+\(\mathrm{DnEndsTop.ends0\_alt}\), second component
+\(\mathrm{ThmS6Core\_s}\).

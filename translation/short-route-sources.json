@@ -1,8 +1,8 @@
 {
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
-  "status": "incomplete: two rational-character estimates and connected geometric supply remain; uniform global high-twist bound proved in prose with exponent 24",
-  "prior_manuscript_commit": "8f24eadc552967b963390bdf83f085f6838f4c12",
+  "status": "incomplete: generic and nontrivial exceptional uniform character producers and compatible connected geometric supply remain; new support, tangent, descent, lattice and regularization deductions printed",
+  "prior_manuscript_commit": "e52042ab25cc04c0c282c1caa55b311fafc6374b",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
@@ -202,7 +202,7 @@
     "Uniform dyadic free-lift congruence A^128 = 1 modulo 8 and cokernel growth c_m(a) <= c_7(a)+24(m-7)_+",
     "Matrix-logarithm center bound with at most 24 fixed centers and exceptional twists on a whole horizon",
     "Fixed-layer discriminant |disc L_7| <= 2^8192 (qd)^512",
-    "Full dyadic common-window estimate conditional on specialized high-twist cohomology bound K_2(C_K), which remains unproved",
+    "Dyadic common-window deduction, whose specialized K_2(24) hypothesis is now discharged by the printed high-twist proof",
     "Exact local/global cyclotomic images and H² length s_2(L_m,a)+m+2+v_2(a) in the principal dyadic tower; cohomology growth at most 25(m-7)_+",
     "Fixed Q(sqrt(-3)) auxiliary arithmetic packet for every odd nonresonant prime, including seven; substantial PropGK producer still required",
     "Determinant-prescribed fractional-ideal lattice comparison (SStein), with CRT construction, valuation equivalence and exact Minkowski covolume scaling",
@@ -414,11 +414,12 @@
   ],
   "latest_notes": {
     "queue_snapshot": {
-      "translated": 1884,
+      "translated": 1953,
       "reviewed": 1621,
       "total": 175187
     },
-    "notes_updated_at": 1795283539158
+    "notes_updated_at": 1795294339248,
+    "append_progress": "Attempted required progress append; service rejected because existing notes plus entry exceed400000-character limit. No shared notes edited or deleted; progress retained in canonical manuscript index."
   },
   "new_dyadic_provenance": [
     {
@@ -605,5 +606,58 @@
     "reading_guide": "translation/kernel/reading.md",
     "generator": "translation/kernel/prose_records.py",
     "scope_checked_at_commit": "f26c24148d4ac31a9e40fd91a97779bbb8ea20fd"
+  },
+  "new_parallel_reconstruction": {
+    "date": "2026-11-21",
+    "agents": 4,
+    "chapters": [
+      "character-integers",
+      "restriction-rigidity",
+      "support-propagation",
+      "geometric-descent",
+      "theta-regularization"
+    ],
+    "additions": [
+      "Kernel-orbit integer summation at the single prime7 over Q(sqrt(-3)); exact generic exponent absorption conditional on the stated orbit integer and unramified automorphy producer",
+      "Only CaseII is required for nontrivial principal rank-four characters; no CaseIII or CaseIV branch for that packet",
+      "Small-conductor twist-one branch at3 and7 follows unconditionally from the already proved bounded-order bound with R=32768",
+      "Rank-four trace integer and fixed Gaussian prime11 scalar absorptions from their specified deformation comparisons",
+      "Procyclic restriction, rank-four residual quadratic self-twist criterion and finite imaginary quadratic catalogue",
+      "Positive ordinary-extension Bloch-Kato local condition with explicit adjacent-ratio check; correct descended polarized adjoint and symplectic projection",
+      "Characteristic-prime avoidance, abstract local/global propagation and explicit lower-cocycle interpolation",
+      "One common patched module, uniform nilpotence passage, graded support dimensions, fiber identity, completed support transport and chain induction",
+      "Generic incidence radical/height, odd-product stability detector and ordinary/paired presentation prime inclusions",
+      "Selected WinPair/PairGood host coordinates, primitive inertial ramps and signed analytic bridge",
+      "Integral twisted traces, exact rank inequalities, s^3 B^2 norm loss and bounded simultaneous determinant selection",
+      "Quadratic lattice transference, small algebraic integers and at most2 degree(K)*rank integral short generators",
+      "Primitive-frame finite-place regularizer, degree and operator norm, finite coinvariant cancellation",
+      "Adelic theta-square coefficient formula, Schwartz bounds and covariance completing the fixed-pair full-rank decay calculation under its stated Weil-model and standard reduction hypotheses"
+    ],
+    "open_inputs": [
+      "Actual finite-level automorphic control, residual core/charts, Selmer-to-presentation construction and automorphic seed/propagation for rank3 and Gaussian marked rings",
+      "CaseII rank4 finite weight-zero, no-block and actual cuspidal automorphic realization with the same local conditions",
+      "Global theta matching scalar, rank-recursion identities, uniform integral theta span/common denominator and short-section/metric producers on the same covers and windows",
+      "Connected arithmetic cover/intersection construction supplying the top four-term error comparison"
+    ],
+    "independent_formalization": false,
+    "root_review": "Algebraic, normalization and quantifier checks performed; no separate Lean proof or independent referee certification claimed",
+    "source_blobs": {
+      "fixed_seven": "c2b7ee9b930c50186059f8901d0aa1d1ca608b09",
+      "propagation": "fb983738925d7ded2b7c5bd1f310e2ec54a4521c",
+      "patching": "fea636f75318b950ea561502d84a80592cf5d4b0",
+      "incidence": "f313816e47d3091f448eb445682e52811762dac4",
+      "exceptional": "eff0ff5b26501e9d6828c734839c9a1de2bcc000",
+      "rigidity": "fa12424305824bd0c9bfda62acd69ae1e36d9c59",
+      "root_restriction": "a2376bd392594a4526f3df59396a018924b947c6",
+      "descent": "3ae172cb6a9e37d3aa22da6927b7a17f979ebc2d",
+      "metric": "c029611ba7584e9f12f0b26f895dc25dceeccc48",
+      "regularizer": "0c9a084d30576f7b942a87bb96380e21e310997e",
+      "theta_coefficients": "11af74429ccea41c0adf619c45f7308a425fc048"
+    },
+    "published_rigidity": {
+      "url": "https://arxiv.org/pdf/2207.04925",
+      "theorem": "Thorne6.1",
+      "scope": "Polarized descended adjoint over maximal totally real field, actual regular algebraic cuspidal CM realization and irreducibility on cyclotomic kernel; not full adjoint over CM field"
+    }
   }
 }

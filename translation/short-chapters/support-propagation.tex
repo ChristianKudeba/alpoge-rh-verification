@@ -1,0 +1,1248 @@
+\section{Automorphic support and local presentations}
+\label{sec:sr-support-propagation}
+The arithmetic endpoint requires one automorphic support to propagate
+through a connected deformation space. We first give the specialization
+and connectedness argument, then construct a single patched module
+from explicit finite-level inputs, and finally prove the determinant
+algebra used at the paired locus. These proofs do not replace the
+construction of the finite-level automorphic modules or the Galois
+presentations to which they apply.
+
+\subsection{The characteristic-prime propagation mechanism}
+\label{sec:sr-characteristic-propagation}
+We isolate and prove the prime-selection and connectedness arguments in
+the rank-three endpoint. These arguments do not invoke an automorphy
+lifting theorem. Their application still requires the specific
+deformation presentations and the Hecke-support implications stated
+at the end of this section.
+
+\subsubsection{A one-dimensional characteristic-prime specialization}
+\begin{srlemma}\label{lem:sr-nice-prime}
+Let $(R,\mathfrak m)$ be a Noetherian local ring, let
+$\varpi\in\mathfrak m$, and let $D\ge1$.
+Suppose that $I,\mathfrak a_1,\ldots,\mathfrak a_s$ are ideals with
+\[
+ \dim R/I\ge D+1,\qquad
+                  \dim R/\mathfrak a_i<D\quad(1\le i\le s).
+\]
+There is a prime $\mathfrak p$ such that
+\[
+ I+(\varpi)\subseteq\mathfrak p,\qquad
+ \dim R/\mathfrak p=1,\qquad
+                 \mathfrak a_i\not\subseteq\mathfrak p
+                              \quad(1\le i\le s).
+\]
+\end{srlemma}
+\begin{proof}
+The local dimension inequality for one equation gives
+$\dim R/(I,\varpi)\ge D$.
+One proof of that inequality is to lift a system of parameters of
+$R/(I,\varpi)$ to $R/I$ and adjoin $\varpi$; the resulting maximal-primary
+ideal has at most one additional generator, and Krull's height theorem
+bounds the dimension. Since a Noetherian ring has finitely many minimal
+primes, choose a minimal prime $\mathfrak q$ of $(I,\varpi)$ with
+$\dim R/\mathfrak q\ge D$.
+Then $\mathfrak a_i\not\subseteq\mathfrak q$ for every $i$.
+Choose $x_i\in\mathfrak a_i\setminus\mathfrak q$ and
+$g\in\mathfrak m\setminus\mathfrak q$, and put $f=g\prod_i x_i$.
+Thus $f\in\mathfrak m\setminus\mathfrak q$.
+
+Choose a prime $\mathfrak p$ maximal among the primes containing
+$\mathfrak q$ and avoiding $f$; the ascending-chain condition supplies
+a maximal element. Put $A=R/\mathfrak p$, with maximal ideal
+$\mathfrak n$ and image $\bar f$ of $f$.
+This is a local domain, $0\ne\bar f\in\mathfrak n$, and every nonzero
+prime of $A$ contains $\bar f$, by maximality of $\mathfrak p$.
+We claim $\dim A=1$.
+
+For any $0\ne x\in\mathfrak n$, choose a prime $P$ minimal over $(x)$.
+It is nonzero and has height at most one by the principal ideal theorem.
+It contains $\bar f$. Choose $Q$ minimal over $(\bar f)$ inside $P$.
+Since $\bar f\ne0$, $Q\ne0$. A strict inclusion $Q\subsetneq P$ would
+give the chain $0\subsetneq Q\subsetneq P$, contrary to the height
+bound for $P$. Hence $P=Q$.
+It follows that every element of $\mathfrak n$ lies in the union of
+the finitely many primes minimal over $(\bar f)$.
+Finite prime avoidance places $\mathfrak n$ inside one of them, so
+$\mathfrak n$ itself has height at most one.
+The nonzero element $\bar f\in\mathfrak n$ gives
+$0\subsetneq\mathfrak n$, so the dimension is exactly one.
+Finally $f\notin\mathfrak p$ forces
+$x_i\notin\mathfrak p$ for every $i$, proving the required avoidance.
+\end{proof}
+For $\varpi=\ell$, this produces a characteristic-$\ell$ prime.
+The conclusion concerns a one-dimensional quotient; it does not assert
+that the selected prime has height one.
+The source proof is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/CurveDVRSpecialization/NicePrimeEx.lean}
+{\srcid{CurveDVRSpecialization.NicePrimeEx}}.
+
+\subsubsection{Local propagation across ordinary and exceptional components}
+For a Noetherian ring $R$ and a prime $P$, write
+$d(P)=\dim R/P$. Fix an integer $D$, an ideal $\mathfrak s$, and five
+sets of primes $\mathcal T,\mathcal E,\mathcal G,\mathcal N,\mathcal W$.
+Think of these as the ordinary locus, exceptional locus, supported
+locus, selected specialization primes, and thick exceptional components.
+The following lemma states every hypothesis used by the local argument.
+
+Let $\mathcal C=\operatorname{Min}(\mathfrak s)$.
+Two members $P,Q\in\mathcal C$ are adjacent if
+$\dim R/(P+Q)\ge D$.
+Two selected exceptional primes $p,q\in\mathcal N\cap\mathcal E$ are
+linked if there is $W\in\mathcal C\cap\mathcal W$ with $W\subseteq p,q$.
+A chain in either relation means a finite chain, allowing length zero.
+
+\begin{srlemma}\label{lem:sr-local-propagation}
+Assume:
+\begin{enumerate}
+\item $\mathcal G$ is closed under specialization, and $\mathcal T$
+is closed under generalization.
+\item Every $p\in\mathcal N$ belongs to $\mathcal T\cup\mathcal E$.
+\item If $I\in\mathcal G$ and $d(I)\ge D$, there is
+$p\in\mathcal N$ containing $I$.
+\item If $W\in\mathcal C\cap\mathcal W$, $W\subseteq I$, and
+$d(I)\ge D$, there is $p\in\mathcal N\cap\mathcal E$ containing $I$.
+\item Every minimal prime of $R$ belonging to $\mathcal T$ is in
+$\mathcal C$. Every two members of $\mathcal C$ are connected by an
+adjacency chain. Every member of $\mathcal C$ is in
+$\mathcal T\cup\mathcal W$.
+\item If $p\in\mathcal N\cap\mathcal T\cap\mathcal G$, every prime
+$P\subseteq p$ belongs to $\mathcal G$.
+\item Suppose $p,q\in\mathcal N\cap\mathcal E$ are linked by a chain,
+and some $P\subseteq p$ belongs to $\mathcal T\cap\mathcal G$.
+Then every $P'\subseteq q$ belonging to $\mathcal T$ belongs to
+$\mathcal G$.
+\end{enumerate}
+If $I\in\mathcal T\cap\mathcal G$ and $d(I)\ge D$, then every minimal
+prime of $R$ in $\mathcal T$ belongs to $\mathcal G$.
+\end{srlemma}
+\begin{proof}
+First observe a consequence valid for every $p\in\mathcal N$:
+if some $Q\subseteq p$ belongs to $\mathcal T\cap\mathcal G$,
+then every $Q'\subseteq p$ in $\mathcal T$ belongs to $\mathcal G$.
+If $p\in\mathcal T$, specialization gives $p\in\mathcal G$ and
+hypothesis 6 applies. If $p\in\mathcal E$, hypothesis 7 applies to
+the chain of length zero.
+
+Choose a minimal prime $P_0$ of $R$ inside $I$.
+Generalization gives $P_0\in\mathcal T$, hence $P_0\in\mathcal C$.
+Hypothesis 3 supplies $p\in\mathcal N$ above $I$; the observation
+with witness $I$ proves $P_0\in\mathcal G$.
+
+We propagate the following information along an adjacency chain.
+A component $Q\in\mathcal C$ is informed if either
+$Q\in\mathcal T\cap\mathcal G$, or $Q\in\mathcal W$ and there are
+selected exceptional primes $p_0,p$ joined by a link chain such that
+some ordinary supported prime lies below $p_0$ and $Q\subseteq p$.
+Informed ordinary components are supported, by definition.
+
+Suppose $Q$ is informed and adjacent to $Q'$.
+Choose a prime $M$ above $Q+Q'$ with $d(M)\ge D$; a minimal prime
+of this quotient with maximal quotient dimension suffices.
+If $Q\in\mathcal T\cap\mathcal G$, specialization makes $M$ supported.
+Hypothesis 3 gives a selected $p\supseteq M$, and the first observation
+shows that every ordinary prime below $p$ is supported.
+If $Q$ is informed through an exceptional link chain, hypothesis 4
+gives a selected exceptional $p\supseteq M$.
+The old endpoint and $p$ are linked through $Q$; append this link to
+the old chain and apply hypothesis 7.
+Again every ordinary prime below $p$ is supported.
+Thus if $Q'\in\mathcal T$, then $Q'\in\mathcal G$.
+
+If $Q'\notin\mathcal T$, hypothesis 5 gives $Q'\in\mathcal W$.
+Hypothesis 4 gives a selected exceptional $p'\supseteq M$.
+When $Q$ is ordinary supported, $Q\subseteq p'$ is the initial
+ordinary supported witness, so $Q'$ is informed with a chain of
+length zero. When $Q$ is thick and informed, append the link from
+the previous endpoint to $p'$ through $Q$.
+This informs $Q'$ as well.
+
+Starting at the supported ordinary component $P_0$, hypothesis 5
+therefore informs every component in $\mathcal C$.
+Every minimal prime of $R$ in $\mathcal T$ lies in $\mathcal C$
+and is supported, which proves the conclusion.
+\end{proof}
+This is the entire argument of
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/CurveDVRSpecialization/LocProp.lean}
+{\srcid{CurveDVRSpecialization.LocProp}}.
+The separate propagation through thick exceptional primes is essential:
+ordinary propagation at a single specialization does not cross those
+components by itself.
+
+\subsubsection{Global propagation from a connected characteristic-prime core}
+\begin{srlemma}\label{lem:sr-global-propagation}
+Let $X$ be a Noetherian topological space. Fix subsets
+$T,G,C,D,E\subseteq X$.
+Call an irreducible component relevant if it meets $T$.
+Suppose:
+\begin{enumerate}
+\item $D\subseteq C$ and $C$ is connected.
+\item Every closed subset meeting $C$ meets $D$.
+\item $C\subseteq\overline{D\setminus E}$.
+\item Every relevant irreducible component meets $C$.
+\item If relevant components $Y,Y'$ meet at $x\in D$ and $Y\subseteq G$,
+then $Y'\subseteq G$.
+\item Every $x\in D\setminus E$ lies on a relevant component.
+\item Some relevant component is contained in $G$.
+\end{enumerate}
+Then $T\subseteq G$.
+\end{srlemma}
+\begin{proof}
+There are finitely many irreducible components.
+Let $A$ be the union of all relevant components contained in $G$, and
+let $B$ be the union of the other relevant components.
+These are closed sets. Hypotheses 3 and 6 give
+$C\subseteq A\cup B$.
+The seed and hypothesis 4 imply $C\cap A\ne\varnothing$.
+If a relevant component were not contained in $G$, hypothesis 4
+would also give $C\cap B\ne\varnothing$.
+Connectedness would then give $C\cap A\cap B\ne\varnothing$.
+Hypothesis 2, applied to the closed set $A\cap B$, would give
+$x\in D\cap A\cap B$.
+Choose a component in each of the two unions containing $x$.
+Hypothesis 5 would make the component from $B$ supported,
+contradicting its definition.
+Thus every relevant component is contained in $G$.
+Every point of $T$ lies on a relevant component, proving the claim.
+\end{proof}
+This is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/CurveDVRSpecialization/GlobProp.lean}
+{\srcid{CurveDVRSpecialization.GlobProp}}.
+The proof works with preconnected $C$; no nonemptiness is needed beyond
+the seed and the hypotheses that the seed component meets $C$.
+
+Here is how local charts give hypothesis 5. Let $T$ be open and $G$
+closed. At $x\in D$, suppose that a flat local chart
+$f:\operatorname{Spec}R\to X$ maps its closed point to $x$.
+Its minimal primes map to the generic points of components through $x$,
+and every such component is obtained this way.
+For an affine neighborhood this follows by factoring through
+$\mathcal O_{X,x}\to R$: the map is flat and local, hence faithfully
+flat; lying over and going down give the two assertions.
+Suppose every minimal prime of $R$ has quotient dimension at least
+the threshold $D_0$ in Lemma~\ref{lem:sr-local-propagation}.
+A relevant component $Y$ through $x$ has a minimal-prime lift $P$.
+Its generic point is in the open set $T$, so $P\in f^{-1}T$.
+If $Y\subseteq G$, then $P\in f^{-1}G$.
+The local lemma now places every ordinary minimal-prime lift in
+$f^{-1}G$. A lift of the generic point of any other relevant
+component $Y'$ through $x$ is one of these primes.
+Closedness of $G$ then gives $Y'\subseteq G$.
+The same argument starts a supported component from any local ordinary
+supported prime of sufficiently large quotient dimension.
+These are the chart comparisons called
+\srcid{ChartOfFlat} and \srcid{GlobOfCharts} in the source.
+
+\subsubsection{An explicit connected family in characteristic $\ell$}
+We prove the interpolation used for the characteristic-$\ell$ core.
+Let $k$ be a field of odd characteristic, $\Gamma$ a profinite group,
+$\delta:\Gamma\to\{\pm1\}$ a continuous surjection, and
+$c\in\Gamma$ an involution with $\delta(c)=-1$.
+Put $\Gamma_0=\ker\delta$.
+Let $\phi:\Gamma\to k^\times$ be a locally constant character with
+$\phi(c)=1$. On $\Gamma_0$ put $g^*=cg^{-1}c^{-1}$ and
+$P(g)=\phi(g)$, so $P(g^*)=P(g)^{-1}$.
+Fix $g_0\in\Gamma_0$ with $P(g_0)^2\ne1$ and local homomorphisms
+$\Gamma_v\to\Gamma_0$, on each of which $P^2$ is nontrivial.
+
+For a $k$-algebra $Q$, call a locally constant function
+$b:\Gamma_0\to Q$ a strict linear datum if
+\[
+ \begin{split}
+ b(gh)&=P(h)b(g)+P(g)^{-1}b(h),\\
+ b(g^*)&=b(g),\\
+ b(s)&=(P(s)-P(s)^{-1})\gamma_v
+                \quad(s\in\Gamma_v)
+ \end{split}
+\]
+for some $\gamma_v\in Q$.
+Call a pair of locally constant functions $(y,a)$ a lower datum if
+\begin{align*}
+ y(gh)&=P(h)y(g)+y(h),\\
+ a(gh)&=P(h)a(g)+y(g^*)y(h)+P(g)^{-1}a(h),\\
+ a(g^*)&=a(g),\qquad y(g_0)=y(g_0^*),
+\end{align*}
+and, on each local group, there are $\alpha_v,\beta_v,\gamma_v\in Q$
+with
+\[
+ \begin{split}
+ y(s)&=(P(s)-1)\alpha_v,\\
+ y(s^*)&=(1-P(s)^{-1})\beta_v,\\
+ a(s)&=(P(s)-P(s)^{-1})\gamma_v
+                  -(1-P(s)^{-1})\alpha_v\beta_v.
+ \end{split}
+\]
+These formulas give the normalized lower-triangular representation
+\[
+ R_{y,a}(g)=
+ \begin{pmatrix}
+ P(g)&0&0\\
+ y(g)&1&0\\
+ a(g)&y(g^*)&P(g)^{-1}
+ \end{pmatrix}.
+\]
+The two multiplication identities are precisely the matrix
+multiplication identity. The involution gives
+$R_{y,a}(g^*)=J\,{}^tR_{y,a}(g)J$ for the reversal matrix $J$,
+and the equality at $g_0$ is the marked off-diagonal normalization.
+The displayed local formulas imply the ordered three-character
+ordinary determinant identity by multiplying the three triangular
+factors. This checks the actual normalized representation conditions.
+
+\begin{srlemma}\label{lem:sr-low-interpolation}
+The lower data are stable under scalar extension and under
+\[
+             (y,a)\longmapsto(ty,t^2a+b),
+\]
+where $t\in Q$ and $b$ is a strict linear datum.
+Suppose there exists a nonzero strict linear datum over $k$ and a lower
+datum $(y_*,a_*)$ over $k$ with $y_*\ne0$.
+Then the nonzero lower-data core is connected, and its subset
+$y\ne0$ is dense, in every representing characteristic-$\ell$ core
+having the field-point and polynomial-point universal properties
+for these formulas.
+\end{srlemma}
+\begin{proof}
+The operation preserves the multiplication and involution identities
+by direct substitution. In the local formulas replace
+\[
+  (\alpha_v,\beta_v,\gamma_v)
+       \quad\hbox{by}\quad
+  (t\alpha_v,t\beta_v,t^2\gamma_v+\eta_v),
+\]
+where $b(s)=(P(s)-P(s)^{-1})\eta_v$.
+
+Fix a nonzero strict linear datum $b_0$.
+The pair $(0,b_0)$ is a lower datum.
+For any field-valued lower datum $(y,a)$, the polynomial-valued pair
+\[
+            (Ty,\ T^2a+(1-T)b_0)
+\]
+is a lower datum over $Q[T]$. Its evaluations at one and zero are
+$(y,a)$ and $(0,b_0)$.
+The generic prime of this polynomial family specializes to both
+endpoint primes. It stays in the nonzero core: a zero polynomial
+datum would have zero evaluation at zero, contradicting $b_0\ne0$.
+Thus every point is joined to the fixed point $(0,b_0)$ by a connected
+three-point subset consisting of the two endpoint primes and the
+generic prime of the family. Their union is connected.
+
+Now take an exceptional point $(0,a)$.
+The defining identities show that $a$ is a strict linear datum.
+The family
+\[
+                    (Ty_*,\ T^2a_*+a)
+\]
+specializes to $(0,a)$ at zero, and its generic point has nonzero
+first coordinate. Hence every exceptional point is in the closure
+of the nonexceptional locus. Points already outside the exceptional
+locus require no argument.
+\end{proof}
+
+The two nonzero data have a direct cohomological origin.
+For $m=1,2$, let $\xi_m=\phi^{-m}\delta$, and suppose that the strict
+degree-one cohomology for $\xi_m$, with local coboundaries at the
+chosen groups, is nonzero.
+These are precisely the two nontriviality fields in the source frame.
+The local nontriviality of $P^2$ ensures that the corresponding
+mapping-cone cohomology injects into $H^1(\Gamma,k(\xi_m))$:
+if a global cocycle is a coboundary, the difference of every local
+primitive and the global primitive is locally invariant, hence zero.
+Restriction to $\Gamma_0$ is injective by averaging over the quotient
+of order two.
+
+For $m=2$, choose a nonzero class and a cocycle $x$ with $x(c)=0$,
+which is possible because $\xi_2(c)=-1$.
+Then
+\[
+                         b_0(g)=P(g)x(g)
+\]
+is a nonzero strict linear datum.
+The cocycle equation proves its multiplication formula.
+Normalization at $c$ gives
+$x(g^*)=P(g)^2x(g)$, proving its involution formula.
+A local coboundary $x(s)=(P(s)^{-2}-1)h_v$ gives the local formula
+with $\gamma_v=-h_v$.
+
+For $m=1$, the same normalization gives a nonzero locally constant
+function $u(g)=P(g)x(g)$ with
+\[
+ u(gh)=P(h)u(g)+u(h),\qquad
+ u(g^*)=P(g)^{-1}u(g),\qquad
+ u(s)=(P(s)-1)\alpha_v.
+\]
+Put $p_0=P(g_0)$ and choose
+\[
+                 \lambda=-\frac{u(g_0)}{p_0+1}.
+\]
+The denominator is nonzero because $p_0^2\ne1$.
+Define
+\[
+ \begin{split}
+ y_*(g)&=u(g)+\lambda(P(g)-1),\\
+ a_*(g)&=\lambda^2
+   -\frac{\lambda^2}{2}(P(g)+P(g)^{-1})
+   -\lambda(u(g)+P(g)^{-1}u(g))
+   +\frac{P(g)^{-1}u(g)^2}{2}.
+ \end{split}
+\]
+Substitution of the three identities for $u$ proves the lower-data
+identities. At $g_0$ the difference
+$y_*(g_0)-y_*(g_0^*)$ is
+\[
+       \frac{p_0-1}{p_0}
+                  \bigl(u(g_0)+\lambda(p_0+1)\bigr)=0.
+\]
+For the local formulas use
+\[
+ \alpha_v'=\lambda+\alpha_v,\quad
+ \beta_v'=\alpha_v-\lambda,\quad
+ \gamma_v'=\frac{\alpha_v^2}{2}
+                         -\lambda\alpha_v-\frac{\lambda^2}{2}.
+\]
+Finally $y_*=0$ would give $u=-\lambda(P-1)$.
+Comparison with the involution formula at $g_0$ forces
+$2\lambda(p_0-1)=0$, hence $\lambda=0$ and $u=0$, a contradiction.
+This proves the required nonzero lower datum.
+
+The source formulas and their universal-property application are in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/FrobeniusSmoothVectors/StrSMul.lean}
+{\srcid{StrSMul}},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/FrobeniusSmoothVectors/ExistsNonzeroLowCocycle.lean}
+{\srcid{ExistsNonzeroLowCocycle}}, and
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/FrobeniusSmoothVectors/ExistsNonzeroLowCocycle.lean}
+{\srcid{preconnected_rank_three}}.
+These arguments produce connectedness and density once the source
+field-point and polynomial-point identifications have been established;
+those identifications must not be inferred merely from the existence
+of a formal local universal ring.
+
+\subsubsection{The remaining specialized interface}
+For the source's rank-three universal framed space $S$, the generic
+and exceptional strata are
+\[
+ T=\{P:\mathfrak t_+\not\subseteq P,\
+          \mathfrak t_-\not\subseteq P,\
+          \mathfrak e\not\subseteq P\},\qquad
+ E=\{P:\mathfrak t_+\not\subseteq P,\
+          \mathfrak t_-\not\subseteq P,\
+          \mathfrak e\subseteq P\},
+\]
+where $\mathfrak t_\pm$ are generated by the two triangular directions,
+and $\mathfrak e$ by entries of odd weight for weights $(1,0,-1)$.
+The supported locus is the zero locus of the Hecke ideal pulled back
+to the framed entry algebra.
+A selected prime has quotient dimension one, contains $\ell$, lies
+off both triangular loci, and has pairwise separated local characters.
+
+The local propagation threshold is $3d+1$ in rank three and $2d+1$
+in rank two. The preceding lemmas prove the abstract propagation
+once the following specialized facts are supplied:
+\begin{enumerate}
+\item The field-point and polynomial-point descriptions of the
+characteristic-$\ell$ core, the flat local charts, and the dimension
+bounds on the triangular and coincident-character loci.
+\item The sharp local ideal: outside $E$ it is zero. At a point of $E$
+the source constructs an even/odd presentation
+\[
+ R=\mathcal O'[[x_1,\ldots,x_a,y_1,\ldots,y_g]]
+                         /(F_1,\ldots,F_b,G_1,\ldots,G_g),
+ \qquad a=b+3d+1,\qquad G=M y .
+\]
+The even equations are $F_i$, the odd equations are $G_i$, and
+$\mathfrak e$ is generated by the images of the $y_j$.
+The sharp ideal is generated by the image of $\det M$.
+The adjugate identity $(\operatorname{adj}M)G=(\det M)y$ shows directly
+that every prime outside $E$ contains this ideal.
+The required connectedness of its minimal-prime graph and the
+ordinary/thick dichotomy still require the determinant-section and
+deformation-obstruction arguments of
+\srcid{Detsec}, \srcid{SumLe}, \srcid{ChainedOfComap}, and
+\srcid{ThickOfDer}.
+\item The Hecke-support implications P1 and P23, corresponding exactly
+to hypotheses 6 and 7 of Lemma~\ref{lem:sr-local-propagation}, and a
+seed of full weight-space dimension. The two-dimensional propagation
+must also supply the finite exceptional support ideal used in rank
+three. These are the inputs assembled in \srcid{PrLinkedEnd} and
+\srcid{AbsMain}.
+\end{enumerate}
+Thus the prime avoidance, interpolation and propagation arguments
+above are proved statements. They do not assert the full arithmetic
+endpoint before these specialized facts have been proved.
+In particular a theorem assuming that every residual constituent
+is individually polarized cannot supply this interface merely from
+the paired outer constituents $\bar\Psi$ and $\bar\Psi^{-1}$.
+
+\subsection{One patched module and its completed supports}
+\label{sec:sr-common-patched-module}
+This section proves the common-module and completed-support argument
+used in the source's \srcid{Raw} construction. In particular, the
+modules at different points of a prime chain arise from one module.
+Choosing a new module independently at each point would not prove
+the support-transport assertion.
+
+\subsubsection{The exact finite-level hypotheses}
+Let $\Lambda$ be a complete Noetherian local ring with finite residue
+field, and let $(R,\mathfrak m_R)$ be a Noetherian local ring.
+Fix a homomorphism
+\[
+       s:\Lambda[[Y_1,\ldots,Y_r]]\longrightarrow R.
+\]
+Write $y_i=s(Y_i)$, $Y=(y_1,\ldots,y_r)$ and
+$\mathfrak m=\mathfrak m_\Lambda R$.
+Let $f\in R$, let $I\subseteq R$ be an ideal, and let $X$ be an
+$R$-module finite over $\Lambda$, with compatible scalar actions and
+$YX=0$. Fix a nonprincipal ultrafilter $\mathcal U$ on $\mathbb N$.
+Let $M_N$ be $R$-modules satisfying:
+\begin{enumerate}
+\item For every $k,j\ge1$, for $\mathcal U$-almost all $N$ the module
+\[
+                  M_N/(Y^k+\mathfrak m_\Lambda^j)M_N
+\]
+is finite free over
+$\Lambda[[Y_1,\ldots,Y_r]]/((Y_1,\ldots,Y_r)^k,\mathfrak m_\Lambda^j)$.
+No common bound on the ranks is assumed.
+\item For every $j\ge1$, for $\mathcal U$-almost all $N$ there are
+$R$-linear maps
+\[
+ X/\mathfrak m_\Lambda^jX
+       \ \mathop{\rightleftarrows}^{\alpha_{N,j}}_{\beta_{N,j}}\
+             M_N/(Y+\mathfrak m_\Lambda^j)M_N
+\]
+such that both composites are multiplication by $f$.
+\item There are an integer $e\ge1$ and a set of generators
+$\mathscr R$ of $I$ such that, for every $a\in\mathscr R$ and $c\ge1$,
+for $\mathcal U$-almost all $N$ there is $b\in\operatorname{Ann}_R M_N$
+with
+\[
+                            (fa)^e-b\in\mathfrak m_R^c.
+\]
+The exponent $e$ precedes the approximation depth, the level, and
+the relation generator.
+\end{enumerate}
+These hypotheses separate finite-level automorphic control from
+the commutative algebra proved below. In the application,
+$\Lambda$ is the fixed ordinary weight algebra with its extra scalar
+variable, the $Y_i$ are the Taylor--Wiles variables, $f$ is the
+auxiliary eigenvalue discriminant, and $I$ contains the kernel,
+polarization, ordinary, inertia and two auxiliary relations.
+
+\begin{srproposition}\label{prop:sr-one-patched-module}
+Put $S=R[1/f]$ and $C=\widehat S^{\,Y}$, the $Y$-adic completion.
+Under the three finite-level hypotheses there is one finite
+$C$-module $\mathcal M$ with
+\begin{equation}\label{eq:sr-patched-fiber}
+ \mathcal M/Y\mathcal M\simeq C\otimes_R X,\qquad
+ I C\subseteq\sqrt{\operatorname{Ann}_C\mathcal M}.
+\end{equation}
+Moreover
+\begin{equation}\label{eq:sr-patched-gr}
+ \operatorname{gr}_Y\mathcal M
+           \simeq(\mathcal M/Y\mathcal M)[T_1,\ldots,T_r].
+\end{equation}
+Thus the variables are a quasi-regular sequence on $\mathcal M$.
+\end{srproposition}
+\begin{proof}
+For $k\ge0$, define the $R$-module
+\[
+ U_k=\prod_N M_N\big/
+ \left\{(z_N):
+    \text{for every }j,\ 
+     z_N\in(Y^k+\mathfrak m_\Lambda^j)M_N
+                  \text{ for }\mathcal U\text{-almost all }N\right\}.
+\]
+In particular $U_0=0$.
+The identity on representatives gives surjective maps
+$U_{k+1}\to U_k$. Their kernels are $Y^kU_{k+1}$.
+
+Here is the needed diagonal argument for the last assertion.
+Choose generators $a_1,\ldots,a_t$ of $Y^k$.
+If a representative $(z_N)$ maps to zero in $U_k$, then for each
+$j$ it admits, for almost all $N$, a decomposition
+\[
+       z_N=\sum_{\nu=1}^t a_\nu w_{\nu,N}+v_N,
+                          \qquad v_N\in\mathfrak m_\Lambda^jM_N.
+\]
+Choose a function $j(N)\to\infty$ along $\mathcal U$ on which these
+decompositions hold. Such a choice is obtained by imposing the first
+$j$ conditions and $N\ge j$, and taking the largest admissible
+$j\le N$. Use a decomposition at $j(N)$ for each $N$.
+The error sequence represents zero in $U_{k+1}$, which proves that
+the kernel is generated by the $a_\nu$.
+The reverse inclusion is immediate.
+The same argument shows
+\[
+ U_k/Y^aU_k\simeq U_a\quad(1\le a\le k),\qquad Y^kU_k=0.
+\]
+
+We next identify $U_1$ after inverting $f$.
+Choose a function $j(N)\to\infty$ along $\mathcal U$ and control maps
+from hypothesis 2 at precision $j(N)$.
+Lifting the images of elements of $X$ gives an $R$-linear map
+$\alpha:X\to U_1$; all failures of linearity of arbitrary lifts vanish
+in the defining quotient.
+For a representative $(z_N)$ and fixed $j$, reduce
+$\beta_{N,j(N)}(z_N)$ modulo $\mathfrak m_\Lambda^jX$ when
+$j(N)\ge j$. The finite set $X/\mathfrak m_\Lambda^jX$ has a unique
+$\mathcal U$-limit. These limits are compatible in $j$.
+Since the finite $\Lambda$-module $X$ is complete, they define an
+$R$-linear map $\beta:U_1\to X$.
+Changing a representative by a null sequence does not change the limit:
+$\beta_{N,j(N)}$ kills the $Y$-part and preserves the
+$\mathfrak m_\Lambda^j$-part.
+At each fixed precision the control identities give
+\[
+                      \alpha\beta=f,\qquad\beta\alpha=f.
+\]
+Consequently
+\[
+                         S\otimes_R U_1\simeq S\otimes_R X.
+\]
+
+Put $P_k=S\otimes_R U_k$.
+Localization is exact, so $P_{k+1}\to P_k$ is surjective with kernel
+$Y^kP_{k+1}$, and $Y^kP_k=0$.
+Also $P_1$ is finite over $S$.
+The inverse limit
+$\mathcal M=\varprojlim_kP_k$ is therefore finite over $C$,
+and $\mathcal M/Y^k\mathcal M\simeq P_k$ for every $k$.
+We give the finite-generation detail to make this use of completion
+explicit. Lift a finite generating set of $P_1$ compatibly through the
+surjective tower. If $K_k$ is the kernel of the resulting surjection
+$S^t\to P_k$, then
+\[
+             Y^kS^t\subseteq K_k,\qquad
+             K_k=K_{k+1}+Y^kS^t.
+\]
+Successively correcting coefficient vectors makes their differences
+belong to $Y^kS^t$; they converge in $C^t$.
+This proves $C^t\to\varprojlim P_k$ is onto.
+The same correction applied to relation vectors identifies the
+kernel of the $k$-th projection with $Y^k\mathcal M$.
+It also proves separatedness.
+
+For completeness, hypothesis 1 gives the associated graded
+calculation. A degree-$a$ relation
+\[
+               \sum_{|\nu|=a}y^\nu c_\nu
+                           \in(Y^{a+1}+\mathfrak m_\Lambda^j)M_N
+\]
+in a module free over the truncated power-series ring forces
+$c_\nu\in(Y+\mathfrak m_\Lambda^j)M_N$ for every $\nu$:
+in each free coordinate the degree-$a$ monomials are independent over
+$\Lambda/\mathfrak m_\Lambda^j$.
+Only finitely many monomials occur.
+Pass to $\mathcal U$-classes and use the diagonal kernel argument.
+For $k>a$ this proves the same coefficient implication in $U_k$.
+It survives localization and passage to the separated inverse limit.
+The usual map from the polynomial module on $\mathcal M/Y\mathcal M$
+to the associated graded is always surjective, and this coefficient
+implication proves injectivity. This gives
+\eqref{eq:sr-patched-gr}.
+The identification for $k=1$ gives the first assertion of
+\eqref{eq:sr-patched-fiber}.
+
+Finally fix $a\in\mathscr R$ and $k,j\ge1$.
+The finite $R$-module $X/\mathfrak m_\Lambda^jX$ has finite length,
+so some power $\mathfrak m_R^c$ kills it.
+The control maps at precision $j$ therefore give, for almost all $N$,
+\[
+                   f\mathfrak m_R^cM_N
+                            \subseteq(Y+\mathfrak m_\Lambda^j)M_N.
+\]
+Taking the $k$-fold product of the acting ideals gives
+\[
+              f^k\mathfrak m_R^{ck}M_N
+                            \subseteq(Y^k+\mathfrak m_\Lambda^j)M_N.
+\]
+Use hypothesis 3 at precision $ck$ and subtract an actual annihilator.
+It follows that
+\[
+              f^{k+e}a^eM_N
+                            \subseteq(Y^k+\mathfrak m_\Lambda^j)M_N
+\]
+for almost all $N$. The power $f^{k+e}$ is independent of $j$.
+Hence $f^{k+e}a^e$ kills $U_k$.
+After inverting $f$, $a^e$ kills $P_k$ for every $k$.
+Separatedness proves $a^e\mathcal M=0$.
+The generators of $I$ therefore map to the radical of the annihilator,
+which completes the proof.
+\end{proof}
+
+This reconstructs the common module produced in
+\srcid{AnnihilatorBaseChange.PmodEx} from the actual finite-level
+freeness, paired control maps, and uniform nilpotence hypotheses.
+It does not posit its existence separately at each specialization.
+
+\subsubsection{Dimension at a completed point}
+\begin{srlemma}\label{lem:sr-patched-support-dimension}
+Let $L$ be a complete regular local ring of dimension $d$, let $B$ be
+a complete Noetherian local $L$-algebra with local structure map,
+and let $M$ be a finite nonzero $B$-module.
+Suppose $y_1,\ldots,y_r\in\mathfrak m_B$ satisfy
+\[
+ \operatorname{gr}_{(y)}M
+                  \simeq(M/(y)M)[T_1,\ldots,T_r],
+\]
+and $M/(y)M$ is finite free over $L$.
+Then every irreducible component of $\operatorname{Supp}_BM$ has
+dimension exactly $d+r$.
+\end{srlemma}
+\begin{proof}
+Evaluation gives a local map $A=L[[Y_1,\ldots,Y_r]]\to B$ with
+$Y_i\mapsto y_i$.
+Lift an $L$-basis of $M/(y)M$ to $M$.
+Successive approximation in powers of $(y)$ gives a surjection
+$A^t\to M$: at each stage choose the next homogeneous coefficient,
+and use completeness of the finite $B$-module to take the limit.
+The associated graded hypothesis proves injectivity:
+a nonzero relation has a least total degree in the $Y_i$, whose
+coefficient vector would give a nonzero relation in the corresponding
+free homogeneous piece.
+Thus $M$ is finite free over $A$.
+
+The faithful action of $B/\operatorname{Ann}_BM$ embeds that ring in
+$\operatorname{End}_A(M)$, a finite free $A$-module.
+Consequently $B/\operatorname{Ann}_BM$ is a finite torsion-free
+$A$-algebra.
+Every minimal prime contracts to zero in the domain $A$, since a
+nonzero element of $A$ acts injectively on this torsion-free algebra
+and thus lies in no minimal associated prime.
+For each such prime $P$, the domain
+$(B/\operatorname{Ann}_BM)/P$ is finite integral over $A$.
+Its dimension is $\dim A=d+r$, proving the claim.
+\end{proof}
+This is the support-dimension content of
+\srcid{AnnihilatorBaseChange.PmDimQuot}
+and \srcid{AlgebraTools.CaCmPatch}.
+
+In the application, the regular local ring $L$ is the completion of
+the ordinary weight algebra at the contracted point.
+The relevant special fiber is finite free over $L$.
+Here is why finite freeness is preserved in that step.
+The action of $R$ on the finite free $\Lambda$-module $X$ factors
+through the finite $\Lambda$-algebra
+$R/\operatorname{Ann}_RX\subseteq\operatorname{End}_\Lambda X$.
+After completing $\Lambda$ at the contracted prime, this finite algebra
+is a product of its complete local factors.
+Completion at the selected $R$-prime picks one factor.
+The corresponding piece of $X\otimes_\Lambda L$ is an idempotent
+direct summand of a finite free $L$-module, and is therefore finite
+free because $L$ is local. Zero summands have empty support.
+
+\subsubsection{Fiber support and transport between completions}
+Let $q_i$ be any finite family of primes of $R$ satisfying
+\[
+                        I+Y\subseteq q_i,\qquad f\notin q_i.
+\]
+For such a prime, $q_iC$ is prime and contracts to $q_i$.
+Indeed $C/YC\simeq R[1/f]/Y$, so primes containing $Y$ are determined
+by the ordinary localization correspondence.
+Completing $C_{q_iC}$ gives the same ring as completing $R_{q_i}$:
+their quotients modulo every power of the selected maximal ideal
+agree, because $Y\subseteq q_i$ and $f$ is a unit there.
+Write this common completion as $B_i^0$, and put
+\[
+ \mathcal M_i=B_i^0\otimes_C\mathcal M,\quad
+ B_i=B_i^0/IB_i^0,\quad
+ S_i=(\operatorname{Ann}_{B_i^0}\mathcal M_i+IB_i^0)/IB_i^0.
+\]
+The radical assertion in \eqref{eq:sr-patched-fiber} ensures that
+the minimal support components and their dimensions are unchanged
+by this quotient.
+
+\begin{srlemma}\label{lem:sr-completed-support}
+The ideals $S_i$ satisfy:
+\begin{enumerate}
+\item If the completed special fiber is finite free over a regular
+local weight ring of dimension $d$, then
+$\dim B_i/P=d+r$ for every $P\in\operatorname{Min}(S_i)$.
+\item For every prime $Q\subseteq B_i$ containing $Y$,
+\[
+         S_i\subseteq Q
+          \quad\Longleftrightarrow\quad
+          \operatorname{Ann}_RX\subseteq Q\cap R.
+\]
+\item Suppose $Z\subseteq Q$ are primes of $B_i$, $S_i\subseteq Z$,
+$Y\subseteq Q$, and $Q\cap R\subseteq q_j$.
+There is a prime $Z'\subseteq B_j$ with
+\[
+                       S_j\subseteq Z',
+                  \qquad Z'\cap(R/I)=Z\cap(R/I).
+\]
+\end{enumerate}
+\end{srlemma}
+\begin{proof}
+Flat base change to a completion preserves the associated graded
+description and the special fiber. The first assertion therefore
+follows from Lemma~\ref{lem:sr-patched-support-dimension}.
+
+For the second, localize at the inverse image of $Q$ in $B_i^0$.
+Since the $y_i$ are in that maximal ideal and $\mathcal M_i$ is finite,
+Nakayama gives
+\[
+ (\mathcal M_i)_Q\ne0
+        \quad\Longleftrightarrow\quad
+      (\mathcal M_i/Y\mathcal M_i)_Q\ne0.
+\]
+Use \eqref{eq:sr-patched-fiber}.
+For any ring map $A\to B$ and finite $A$-module $N$,
+\[
+     \operatorname{Supp}_B(B\otimes_AN)
+              =(\operatorname{Spec}B\to\operatorname{Spec}A)^{-1}
+                                      \operatorname{Supp}_AN.
+\]
+To verify this identity, tensor at a prime with its residue field.
+The resulting tensor product is the extension of
+$N\otimes_A\kappa(p)$ through the field inclusion
+$\kappa(p)\hookrightarrow\kappa(Q)$, so it is nonzero exactly when
+the former vector space is nonzero.
+For finite modules, support is the zero locus of the annihilator.
+This proves assertion 2.
+
+For assertion 3, first work before quotienting by $I$.
+Let $p=Z\cap C$.
+The prime $p$ lies in $\operatorname{Supp}_C\mathcal M$, by the
+same support identity.
+Since $Q$ contains $Y$, its contraction to $C$ is determined by
+its contraction to $R$ modulo $Y$; hence $Q\cap R\subseteq q_j$
+implies $Q\cap C\subseteq q_jC$.
+Thus $p\subseteq q_jC$.
+The completion of $C_{q_jC}$ is faithfully flat, so there is a prime
+$Z'$ above $p$. The support identity puts it in the support of the
+base change of the same module $\mathcal M$.
+Contraction to $R$ is unchanged.
+The ideal $I$ lies in every support prime by the radical annihilation
+assertion, so the primes descend to the displayed quotients.
+This proves assertion 3.
+\end{proof}
+The source separates these three facts as
+\srcid{PmDimQuot}, \srcid{PmFib}, and \srcid{PmMove}.
+The last proof explicitly uses the common module: equality of numerical
+dimensions of independently chosen modules would not give transport
+of a support prime.
+
+\subsubsection{The completed-support chain}
+Here is the final algebraic form of the source's \srcid{ChainAbs}.
+Let $q_0,\ldots,q_h$ be selected points as above.
+Assume that the completed support components have dimension at least
+$d_0$. Let $\mathcal T$ be a property of primes of $R/I$ stable under
+generalization, and let $\mathcal E_i$ be a property of primes of $B_i$.
+Suppose the following local inclusion statement holds:
+\[
+ \left.
+ \begin{array}{c}
+ Z,Q\in\operatorname{Spec}B_i,\quad
+ \mathcal T(Z\cap(R/I)),\quad\dim B_i/Z\ge d_0,\\
+ \mathcal T(Q\cap(R/I))\ \text{or}\ \mathcal E_i(Q)
+ \end{array}\right\}
+                           \ \Longrightarrow\ Z\subseteq Q.       \tag{*}
+\]
+Suppose bridge primes $E_i$ of $R/I$ contain $Y$, lie below both
+$q_i/I$ and $q_{i+1}/I$, and every prime of $B_i$ above $E_i$ has
+property $\mathcal E_i$.
+Suppose there is a prime $p_0\subseteq q_0/I$ containing $Y$, with
+$\mathcal T(p_0)$ and
+$\operatorname{Ann}_RX\subseteq p_0\cap R$.
+
+\begin{srproposition}\label{prop:sr-completed-support-chain}
+If $p\subseteq q_h/I$ contains $Y$ and satisfies either
+$\mathcal T(p)$ or
+$\mathcal E_h(Q)$ for every prime $Q$ of $B_h$ above $p$, then
+\[
+                            \operatorname{Ann}_RX\subseteq p\cap R.
+\]
+\end{srproposition}
+\begin{proof}
+Faithful flatness lifts $p_0$ to a prime of $B_0$.
+The fiber-support equivalence puts it in $V(S_0)$.
+Choose a minimal support prime $Z_0$ below it.
+Then $\mathcal T(Z_0\cap(R/I))$ holds by generalization, and its
+dimension is at least $d_0$.
+
+Inductively suppose there is a supported prime $Z_i$ of $B_i$
+whose contraction has property $\mathcal T$.
+Replace it by a minimal support prime underneath.
+Lift the bridge $E_i$ to a prime $Q_i$ of $B_i$.
+The bridge hypothesis gives $\mathcal E_i(Q_i)$, so (*) gives
+$Z_i\subseteq Q_i$.
+The support-transport lemma then moves $Z_i$ to a supported prime
+of $B_{i+1}$ with the same contraction to $R/I$.
+This preserves $\mathcal T$ and proves the induction.
+
+At the last point, choose a minimal support prime beneath the
+supported prime obtained by induction, and lift $p$ to $Q\in B_h$.
+The final hypothesis and (*) put the minimal support prime below $Q$.
+Hence $S_h\subseteq Q$.
+The fiber-support equivalence now gives
+$\operatorname{Ann}_RX\subseteq p\cap R$, as required.
+\end{proof}
+
+\paragraph{What this closes in the actual source route.}
+The common-module construction, its uniform nilpotence passage,
+its completed support dimensions, the fiber identity, support
+transport, and the chain argument have now been proved from the
+displayed finite-level hypotheses and (*).
+The source modules are
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/AnnihilatorBaseChange/PmodEx.lean}
+{\srcid{PmodEx}},
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/AutomorphicDetection/AnnBc.lean}
+{\srcid{AnnBc}}, and
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/AnnihilatorBaseChange/ChainAbs.lean}
+{\srcid{ChainAbs}}.
+The single universal ring and relation ideal are defined in
+\srcid{SpecializationMapCompUniversalSection}; \srcid{LiftPt.core}
+applies the preceding facts to them.
+The arithmetic local inclusion (*) is the separate producer
+\srcid{AutomorphicDetection.GalOut}. It uses \srcid{S6} to realize the
+completed determinant over a finite quadratic coefficient algebra,
+then the first- and second-Selmer bounds and the Laurent presentation
+\srcid{SelmerScaling.PresOut0}.
+The finite-level freeness, paired control maps, uniform relation
+nilpotence, and that Galois inclusion have to be verified in this
+same universal ring before the full \srcid{Raw} endpoint is asserted.
+
+\subsection{The determinant algebra at paired components}
+\label{sec:sr-paired-determinant-algebra}
+We prove the last commutative-algebra step of the local inclusion
+used in the completed-support chain. It treats the two paired blocks
+through a finite coefficient algebra with an odd summand.
+
+\subsubsection{The generic incidence ideal}
+Let $g\ge1$, let $R$ be a Noetherian domain, and let
+\[
+ P_0=R[Z_{ij},T_j:1\le i,j\le g],\qquad
+ J=((ZT)_1,\ldots,(ZT)_g,\det Z).
+\]
+\begin{srlemma}\label{lem:sr-generic-incidence}
+The radical of $J$ is prime and contains no nonzero element of $R$.
+It does not contain $T_1$. The same assertions hold after extending
+the homogeneous ideal to $R[[Z_{ij},T_j]]$.
+If the latter power-series ring is Noetherian, the height of this
+prime is at most $g$.
+\end{srlemma}
+\begin{proof}
+Put $E=\operatorname{diag}(0,1,\ldots,1)$.
+Use two generic $g$-by-$g$ matrices $N,U$ and a scalar $t$ and define
+a polynomial map on coordinate rings by
+\[
+                 Z\longmapsto NE\operatorname{adj}U,\qquad
+                 T\longmapsto tUe_1.
+\]
+The image satisfies $ZT=0$ and $\det Z=0$.
+Its coordinate ring is a subring of the polynomial domain
+$R[N_{ij},U_{ij},t]$, so the kernel $K$ is prime.
+The images of a nonzero constant and of $T_1=tU_{11}$ are nonzero.
+
+Every field-valued pair $(M,v)$ with $Mv=0$ and $\det M=0$
+factors through this parametrization.
+If $v\ne0$, take the first column of an invertible $U$ to be $v$
+and take $t=1$.
+If $v=0$, take its first column to be any nonzero vector in $\ker M$
+and take $t=0$.
+In either case $MU$ has first column zero.
+Thus
+\[
+         N=(\det U)^{-1}MU
+       \quad\Longrightarrow\quad
+         NE\operatorname{adj}U=M,\qquad tUe_1=v.
+\]
+Apply this factorization to the fraction field of every prime quotient
+of $P_0$ containing $J$.
+Every element of $K$ belongs to all such primes, so $K=\sqrt J$.
+
+The ideal $J$ is homogeneous for total degree, and therefore so is $K$.
+For a homogeneous finitely generated ideal $K\subseteq R[\mathbf Z]$,
+a formal series belongs to $KR[[\mathbf Z]]$ exactly when each of its
+homogeneous polynomial pieces belongs to $K$.
+Indeed choose finite homogeneous generators and sum homogeneous
+coefficient decompositions degree by degree.
+If two series are outside this extended ideal, choose the least
+degrees $a,b$ of homogeneous pieces outside $K$.
+The degree-$a+b$ piece of their product is, modulo $K$, the product
+of those two pieces, and is nonzero because $K$ is prime.
+Thus the extended ideal is prime.
+Its contraction is $K$, and it is the radical of the extension of $J$.
+
+Write $\widehat K$ for that prime.
+Choose a prime $Q$ minimal over the $g$ row relations $ZT$
+inside $\widehat K$.
+Since $T_1\notin\widehat K$, also $T_1\notin Q$.
+The adjugate identity gives $(\det Z)T_1\in Q$, hence $\det Z\in Q$.
+Therefore $\widehat K=Q$.
+Krull's height theorem gives $\operatorname{ht}\widehat K\le g$.
+\end{proof}
+This is the explicit parametrization and homogeneous-completion
+argument of \srcid{CommutativeAlgebraHeight.GDetrad},
+\srcid{GHomprime} and \srcid{GDetps}.
+
+Now let $\mathcal O$ be a complete DVR and work in
+\[
+ P=\mathcal O[[Z_{ij},T_j,W_a]].
+\]
+The $g$ row relations $ZT$ form a regular sequence.
+One direct check gives diagonal $Z_{ii}$ weight one,
+off-diagonal $Z_{ij}$ weight two, and every $T_j$ weight one.
+The initial forms of the rows are the monomials $Z_{ii}T_i$.
+They involve disjoint sets of variables and form a regular sequence.
+Taking the least weighted degree of a relation then proves regularity
+of the original rows, one row at a time.
+Since $P$ is regular local and catenary, Lemma~\ref{lem:sr-generic-incidence}
+therefore gives
+\begin{equation}\label{eq:sr-incidence-dimension}
+               \dim P/\sqrt{(ZT,\det Z)}=\dim P-g.
+\end{equation}
+
+The same conclusion applies to elements $z_{ij},t_j$ of a power-series
+ring over $\mathcal O$ whose classes are linearly independent modulo
+$(\varpi,\mathfrak m_P^2)$.
+Complete the independent classes to a relative coordinate basis.
+The homomorphism from the power-series ring in those coordinates is
+an isomorphism: successive approximation gives surjectivity, and its
+invertible linear term gives an inverse by solving each homogeneous
+degree. Constants in $\varpi\mathcal O$ cause no problem because the
+map is continuous for the maximal-ideal topology.
+Thus the displayed incidence ideal is carried to the generic one.
+
+\subsubsection{Stability detected by odd products}
+Let $(B,\mathfrak m_B)$ be local and let $A$ be a finite commutative
+$B$-algebra with an injective structure map and a decomposition
+\[
+                          A=B\oplus N,\qquad NN\subseteq\mathfrak m_B.
+\]
+Define the ideal
+\[
+  I_{\rm odd}=(b\in B:\ uv=b\text{ in }A
+                              \text{ for some }u,v\in N).
+\]
+Consider a representation whose $B$-linear span is exactly
+\[
+ \begin{pmatrix}
+ M_a(B)&M_{a,n-a}(N)\\
+ M_{n-a,a}(N)&M_{n-a}(B)
+ \end{pmatrix},\qquad0<a<n .
+\]
+\begin{srlemma}\label{lem:sr-odd-product-detector}
+At a prime $q$ of $B$, this representation has full matrix span over
+an algebraic closure of $\kappa(q)$ if and only if
+$I_{\rm odd}\not\subseteq q$.
+\end{srlemma}
+\begin{proof}
+Pass to a prime of the integral algebra $A$ over $q$ and then to its
+residue field.
+If $I_{\rm odd}\subseteq q$, every $u\in N$ has square zero in that
+field, hence has zero image. All off-block entries vanish, so the span
+is block diagonal and is not the full matrix algebra.
+
+Otherwise choose $u,v\in N$ with $uv=b\notin q$.
+The image of $u$ in any residue field above $q$ is nonzero.
+The given span contains every same-block matrix unit and every
+off-block matrix unit multiplied by $u$.
+After extending scalars, division by the nonzero image of $u$ gives
+every matrix unit. The span is the full matrix algebra.
+\end{proof}
+For a single block ($a=n$), the given span is already the full matrix
+algebra; in the source the odd module is then zero.
+The trace-Gram determinant criterion gives the same statement without
+choosing an algebraic closure: the trace pairing on the full matrix
+algebra is nondegenerate, so a nonzero $n^2$-by-$n^2$ Gram minor is
+equivalent to full span. This is exactly the determinant predicate
+\srcid{DiscSt} and the proof in \srcid{ClosureConjugation.UrepStable}.
+
+\subsubsection{The ordinary presentation}
+\begin{srlemma}\label{lem:sr-ordinary-presentation-prime}
+Let $\mathcal O\to B$ be a local homomorphism from a complete DVR to
+a complete Noetherian local ring, inducing an isomorphism on residue
+fields. Suppose $x_1,\ldots,x_D\in\mathfrak m_B$ satisfy
+\[
+            \mathfrak m_B\subseteq
+                 (x_1,\ldots,x_D)+\varpi B+\mathfrak m_B^2.
+\]
+If $Z$ is prime and $\dim B/Z\ge D+1$, then $Z=0$.
+Consequently $Z\subseteq Q$ for every prime $Q$ of $B$.
+\end{srlemma}
+\begin{proof}
+The displayed cotangent generation and completeness give a surjection
+$\pi:\mathcal O[[X_1,\ldots,X_D]]\twoheadrightarrow B$,
+$X_i\mapsto x_i$, by successive approximation.
+The source is a regular local domain of dimension $D+1$.
+If its kernel after composition with $B\to B/Z$ contained a nonzero
+element, the principal ideal theorem and the regular local dimension
+formula would give $\dim B/Z\le D$.
+Hence the composite has zero kernel.
+Surjectivity now forces both $\ker\pi=0$ and $Z=0$.
+\end{proof}
+This proves the complete algebraic content of \srcid{PresOut0}.
+
+\subsubsection{The paired presentation}
+The following lemma is the last step in the exceptional local
+inclusion. It states the exact presentation data, including the
+independence that the Selmer calculation must supply.
+
+\begin{srlemma}\label{lem:sr-paired-presentation-prime}
+Let $\mathcal O\to B$ have the hypotheses of
+Lemma~\ref{lem:sr-ordinary-presentation-prime}, and let
+$A=B\oplus N$ be a finite commutative $B$-algebra as above.
+Let $m_1,\ldots,m_g$ generate $N$ over $B$, and let
+$x_1,\ldots,x_D\in\mathfrak m_B$.
+Suppose the vectors
+\[
+                 \bar c_{ij}=(c_{ij,1},\ldots,c_{ij,D})\bmod\varpi
+                    \quad(1\le i,j\le g)
+\]
+are linearly independent over the residue field, and put
+\[
+                  H=\varpi B+\mathfrak m_B^2+I_{\rm odd}.
+\]
+Assume
+\[
+ \mathfrak m_B\subseteq(x_1,\ldots,x_D)+H,\qquad
+        \sum_j\left(\sum_a c_{ij,a}x_a\right)m_j\in HN
+                                       \quad(1\le i\le g).
+\]
+If $Z,Q$ are primes of $B$ with
+\[
+ \dim B/Z\ge D+1,\qquad I_{\rm odd}\not\subseteq Z,\qquad
+ I_{\rm odd}\not\subseteq Q\ \text{or}\ \operatorname{Ann}_BN\subseteq Q,
+\]
+then $Z\subseteq Q$.
+\end{srlemma}
+\begin{proof}
+If $g=0$, then $N=0$ and $I_{\rm odd}=0$, contradicting the hypothesis
+at $Z$. Thus $g\ge1$.
+Since the $m_j$ generate $N$, choose $w_{ij}\in H$ such that
+\[
+                \sum_j\zeta_{ij}m_j=0,\qquad
+          \zeta_{ij}=\sum_a c_{ij,a}x_a-w_{ij}.
+\]
+Multiplication by the adjugate proves
+$(\det\zeta)m_j=0$ for every $j$, hence
+\begin{equation}\label{eq:sr-det-ann-odd}
+                             \det\zeta\in\operatorname{Ann}_BN.
+\end{equation}
+If $I_{\rm odd}\not\subseteq Q$, choose an odd product
+$uv=b\notin Q$. Equation~\eqref{eq:sr-det-ann-odd} gives
+$(\det\zeta)b=0$, using the injection $B\hookrightarrow A$.
+Primality then gives $\det\zeta\in Q$.
+If instead $\operatorname{Ann}_BN\subseteq Q$, the same conclusion
+follows directly. Thus both alternatives at $Q$ give
+$\det\zeta\in Q$.
+
+We make the formal coordinates explicit.
+The ring $A$ is complete local with maximal ideal
+$\mathfrak m_BA+N$, since the image of $N$ modulo $\mathfrak m_BA$
+has square zero. Every element of $I_{\rm odd}$ maps into
+$\mathfrak m_A^2$.
+The cotangent-generation assumption and the generators $m_j$
+therefore give a surjection
+\[
+        \pi:P=\mathcal O[[X_1,\ldots,X_D,T_1,\ldots,T_g]]
+                         \twoheadrightarrow A,
+          \qquad X_a\mapsto x_a,\quad T_j\mapsto m_j .
+\]
+Lift each $w_{ij}$ to
+$\widetilde w_{ij}\in(\varpi,\mathfrak m_P^2)$ and put
+\[
+                    z_{ij}=\sum_a c_{ij,a}X_a-\widetilde w_{ij}.
+\]
+The vectors $\bar c_{ij}$ are independent, so the $z_{ij}$ together
+with the $T_j$ are independent in the relative cotangent space.
+They extend to formal coordinates, as above.
+The row relations $zT$ belong to $\ker\pi$.
+
+Choose primes $Z',Q'$ of $A$ over $Z,Q$ by integrality.
+At least one $m_j$ is outside $Z'$; otherwise all of $N$ lies in
+$Z'$, so $I_{\rm odd}\subseteq Z'\cap B=Z$, a contradiction.
+Put $P_Z=\pi^{-1}Z'$.
+Then $zT\subseteq P_Z$ and at least one $T_j\notin P_Z$.
+The adjugate identity gives $\det z\in P_Z$.
+Consequently the prime
+\[
+                           K=\sqrt{(zT,\det z)}
+\]
+is contained in $P_Z$.
+Lemma~\ref{lem:sr-generic-incidence} and
+\eqref{eq:sr-incidence-dimension} give
+\[
+                        \dim P/K=\dim P-g=D+1.
+\]
+Since $A/Z'$ is finite integral over $B/Z$,
+\[
+                         \dim P/P_Z=\dim B/Z\ge D+1 .
+\]
+A strict inclusion $K\subsetneq P_Z$ in the complete regular local
+ambient ring would lower the quotient dimension by at least one.
+Hence $P_Z=K$.
+
+Finally $P_Q=\pi^{-1}Q'$ contains $zT$ and $\det z$, because
+$\det\zeta\in Q$. Thus
+$P_Z=K\subseteq P_Q$, giving $Z'\subseteq Q'$.
+Contracting to $B$ gives $Z\subseteq Q$.
+\end{proof}
+The proof supplies the power-series version needed for the source's
+\srcid{CotangentIndependentOfResidues.presOut1}.
+In particular it displays why the coefficient vectors must be
+independent before choosing the formal coordinates.
+
+\subsubsection{The actual local inclusion in the patched chain}
+For the completed determinant algebra used in
+Section~\ref{sec:sr-common-patched-module}, the source constructs
+a finite commutative coefficient algebra $A=B\oplus N$ with
+$NN\subseteq\mathfrak m_B$ and a matrix representation whose span is
+the two-block algebra above.
+The stable locus is detected by $I_{\rm odd}$ through
+Lemma~\ref{lem:sr-odd-product-detector}.
+The thick exceptional locus lies in
+$V(\operatorname{Ann}_BN)$.
+
+The first- and second-Selmer bounds and the spanning by the chosen
+odd cocycles produce the presentation in
+Lemma~\ref{lem:sr-paired-presentation-prime}:
+\srcid{AlCSmul.pres} supplies the $x_a,m_j,c_{ij,a}$ with the
+displayed generation, independence and relation properties.
+In the single-block case $N=0$ it supplies
+Lemma~\ref{lem:sr-ordinary-presentation-prime}.
+Thus, once that finite coefficient algebra and those explicit Selmer
+presentation data are constructed, the local implication (*) in
+Proposition~\ref{prop:sr-completed-support-chain} is a proved
+consequence of the two presentation lemmas.
+The Galois source performs these two cases in
+\srcid{AutomorphicDetection.GalOut.ctx_out}.
+
+The algebra $A=B\oplus N$ is not an assumption that the two residual
+constituents are separately polarized.
+In the source it is constructed from the completed
+Cayley--Hamilton algebra with its transpose involution, lifting its
+orthogonal rank-one idempotents and identifying the two opposite
+off-block corner modules with the odd summand $N$.
+Its multiplication is
+\[
+       (b,u)(c,v)=(bc+\beta(u,v),\,bv+cu),
+                    \qquad\beta:N\times N\longrightarrow B.
+\]
+The pairing is symmetric, and associativity of the corner products
+gives $\beta(u,v)w=\beta(v,w)u$.
+Residual block diagonality gives $\beta(N,N)\subseteq\mathfrak m_B$.
+The construction, including determinant and involution compatibility,
+is in \srcid{ClosureConjugation.OBLt},
+\srcid{ComplOddPart}, \srcid{GrI} and \srcid{UrepOf},
+assembled in \srcid{AutomorphicDetection.S6}.
+Those constructions and the Selmer presentation are the remaining
+arithmetic producers; the ordinary/paired prime-inclusion algebra
+above has been proved independently.
+
+\paragraph{Source locations.}
+The generic incidence sources are
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/CommutativeAlgebraHeight/GDetrad.lean}
+{\srcid{GDetrad}} and
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/CommutativeAlgebraHeight/GDetps.lean}
+{\srcid{GDetps}}.
+The completed local inclusion is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/AutomorphicDetection/GalOut.lean}
+{\srcid{GalOut}}.
+The exact paired presentation is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/SelmerScaling/CotangentIndependentOfResidues.lean}
+{\srcid{CotangentIndependentOfResidues}},
+and its Selmer producer is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties/PatchingModules/SelmerScaling/AlCSmul.lean}
+{\srcid{AlCSmul}}.

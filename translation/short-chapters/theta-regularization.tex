@@ -1,0 +1,432 @@
+\section{A simultaneous finite-place theta regularizer}
+\label{sec:sr-finite-regularizer}
+
+This section constructs the regularizer used to pass from matched
+quotients to ordinary convergent theta integrals.  The construction uses
+only the split Schr\"odinger model at one finite place.  Its finite support,
+nonzero degree, and compatibility with a finite set of relations are
+proved explicitly.
+
+Let \(k\) be a nonarchimedean local field with valuation ring \(\mathcal O\),
+uniformizer \(\pi\), and residue field \(\mathbb F_Q\).  Give \(k\) the
+absolute value \(|\pi|=Q^{-1}\).  Let \(d,r\) be nonnegative integers with
+\(d/2\ge r+1\), and let \(\nu:k^\times\to\mathbb C^\times\) be unitary.
+On functions on \(M_{r,d}(k)\) use the split Weil action
+\begin{equation}\label{eq:sr-regularizer-action}
+ (T_g\varphi)(Y)=\nu(\det g)|\det g|^{d/2}\varphi(g^{\mathsf t}Y),
+ \qquad g\in\operatorname{GL}_r(k).
+\end{equation}
+A row frame \(Y\in M_{r,d}(\mathcal O)\) is primitive if its reduction
+modulo \(\pi\) has row rank \(r\).  Equivalently its rows are independent
+over \(k\) and their \(\mathcal O\)-span is saturated in
+\(\mathcal O^d\).  Indeed, independence of the reductions implies that
+every \(c\in k^r\) with \(cY\in\mathcal O^d\) belongs to \(\mathcal O^r\):
+otherwise multiply \(c\) by a power of \(\pi\) to obtain a vector with at
+least one unit coordinate whose product with \(Y\) is zero modulo \(\pi\).
+The converse follows by lifting a nonzero relation modulo \(\pi\) and
+dividing it by \(\pi\).
+
+\begin{srproposition}[An explicit primitive-frame operator]
+\label{prop:sr-primitive-regularizer}
+There is a finitely supported sum
+\[
+ Z=\sum_{g\in\operatorname{GL}_r(k)}z_g T_g
+\]
+such that
+\[
+ Z{\bf1}_{M_{r,d}(\mathcal O)}
+   ={\bf1}_{\{\text{primitive row frames}\}}.
+\]
+Writing \(x=\nu(\pi)Q^{-d/2}\) and \(\deg Z=\sum_gz_g\), one has
+\begin{equation}\label{eq:sr-regularizer-degree}
+ \deg Z=\prod_{i=0}^{r-1}(1-Q^i x),\qquad
+ |\deg Z|\ge\frac12,\qquad
+ \sum_g|z_g|\le e^{1/2}.
+\end{equation}
+In particular \(Z_0=(\deg Z)^{-1}Z\) has degree one and coefficient
+\(\ell^1\)-norm less than \(4\).  With additive Haar measure on
+\(M_{r,d}(k)\), its operator norm on \(L^2\) is less than \(4\).
+\end{srproposition}
+
+\begin{proof}
+For every subspace \(L\le\mathbb F_Q^r\) of dimension \(j\), choose a
+lift of a basis of \(L\), extended to a matrix \(A_L\in
+\operatorname{SL}_r(\mathcal O)\).  For \(L=\mathbb F_Q^r\) take
+\(A_L=1\).  Such an extension exists for proper \(L\): extend the basis
+to an invertible matrix and adjust one of the complementary rows to
+make its determinant one, then lift an element of
+\(\operatorname{SL}_r(\mathbb F_Q)\) to
+\(\operatorname{SL}_r(\mathcal O)\).
+Put
+\[
+ \gamma_L=\operatorname{diag}(\underbrace{\pi^{-1},\ldots,\pi^{-1}}_j,
+                         1,\ldots,1)A_L,\qquad g_L=\gamma_L^{\mathsf t}.
+\]
+Then \(\det g_L=\pi^{-j}\), and
+\[
+ \gamma_LY\in M_{r,d}(\mathcal O)
+ \quad\Longleftrightarrow\quad
+ Y\in M_{r,d}(\mathcal O)\ \hbox{and}\ L\overline Y=0.
+\]
+For the reverse implication to integrality, use
+\(\gamma_L^{-1}=A_L^{-1}\operatorname{diag}(\pi,\ldots,\pi,1,\ldots,1)\),
+whose entries are integral.
+
+The M\"obius function from zero to a \(j\)-dimensional subspace in the
+subspace lattice is
+\(\mu(L)=(-1)^jQ^{j(j-1)/2}\).  This follows inductively from
+\(\sum_{L\le U}\mu(L)=0\) for every nonzero \(U\); equivalently it is the
+coefficient identity in the finite \(Q\)-binomial theorem
+\[
+ \sum_{L\le\mathbb F_Q^r}
+    (-1)^{\dim L}Q^{\dim L(\dim L-1)/2}X^{\dim L}
+ =\prod_{i=0}^{r-1}(1-Q^iX).
+\]
+The identity itself follows by induction on \(r\), splitting the
+subspaces according to their intersection with a fixed hyperplane; a
+\(j\)-dimensional subspace not contained in that hyperplane is specified
+by its \((j-1)\)-dimensional intersection and \(Q^{r-j}\) possible
+lifts.
+
+Take
+\[
+ Z=\sum_{L\le\mathbb F_Q^r}\mu(L)x^{\dim L}T_{g_L}.
+\]
+The scalar in \(T_{g_L}\) is \(x^{-j}\); hence, at an integral \(Y\),
+the value of \(Z{\bf1}_{M_{r,d}(\mathcal O)}\) is
+\(\sum_{L\le\ker(\overline Y)}\mu(L)\).  This is one precisely when
+\(\overline Y\) has independent rows and zero otherwise.  At a
+nonintegral \(Y\) every summand is zero, by the preceding equivalence.
+
+The same \(Q\)-binomial identity gives the degree in
+\eqref{eq:sr-regularizer-degree}.  Set \(t_i=Q^{i-d/2}\).  Since
+\(d/2\ge r+1\),
+\[
+ \sum_{i=0}^{r-1}t_i
+ \le \sum_{j=2}^{\infty}Q^{-j}
+ =\frac{1}{Q(Q-1)}\le\frac12.
+\]
+Consequently
+\[
+ |\deg Z|\ge\prod_{i=0}^{r-1}(1-t_i)
+ \ge1-\sum_{i=0}^{r-1}t_i\ge\frac12.
+\]
+Taking absolute values of the coefficients before combining repeated
+\(g_L\)'s, the \(Q\)-binomial identity with \(-|x|\) gives
+\[
+ \sum_g|z_g|
+ \le\sum_LQ^{j(j-1)/2}|x|^j
+ =\prod_{i=0}^{r-1}(1+t_i)
+ \le\exp\left(\sum_it_i\right)\le e^{1/2}.
+\]
+Each \(T_g\) is an \(L^2\) isometry: the change of variables
+\(Y\mapsto g^{\mathsf t}Y\) has modulus \(|\det g|^d\), cancelling the
+square of the scalar in \eqref{eq:sr-regularizer-action}.  The operator
+bound follows from the triangle inequality.
+\end{proof}
+
+The construction is unchanged by adapted integral coordinates.  More
+precisely, let \(\Lambda\) be an \(\mathcal O\)-lattice in \(k^d\), let
+\(P\in\operatorname{GL}_r(k)\), and take the local vacuum
+\[
+ \varphi_0(Y)=c\,{\bf1}_{M_r(\Lambda)}(PY).
+\]
+Use the preceding proof in a basis of \(\Lambda\) and replace every
+\(g\) by \(P^{\mathsf t}g(P^{\mathsf t})^{-1}\).  Conjugation preserves
+determinants and coefficient sums.  The resulting operator sends
+\(\varphi_0\) to \(c\) times the primitive-frame indicator at \(PY\),
+and satisfies the same degree and coefficient bounds.  Primitive
+frames form a compact open subset of the full-rank locus.  For example,
+compactness follows because they are a closed subset of
+\(M_{r,d}(\mathcal O)\), and openness follows from their description by
+the nonvanishing of an \(r\)-minor modulo \(\pi\).
+
+Now let \(E/F\) be a CM extension and consider a small theta pair
+\[
+ \dim_E V'=r=a',\qquad \dim_E W=d=a+a',\qquad a'<a,
+\]
+with \(d\) even.  Thus \(a\ge a'+2\) and \(d/2\ge r+1\), exactly the
+range of Proposition~\ref{prop:sr-primitive-regularizer}.  At a split
+finite place \(v\) of \(F\), the fixed integral Schr\"odinger model
+identifies the action of \(U(V')(F_v)\) with
+\eqref{eq:sr-regularizer-action}, possibly after the adapted coordinate
+change just described.  This identification includes its scalar
+\(\nu(\det g)|\det g|^{d/2}\); replacing it by a scalar-free action would
+give the wrong degree.
+
+\begin{srproposition}[One place for a finite collection]
+\label{prop:sr-simultaneous-regularizer}
+Let \(\Psi_1,\ldots,\Psi_N\) belong to the algebraic restricted tensor
+product of the fixed small theta model, and let
+\(u_1,\ldots,u_N\in U(V')(\mathbb A_{F,f})\).
+One can choose a single split finite place \(v\), one operator \(Z\)
+supported in \(U(V')(F_v)\), and finite adelic elements \(u_i^{\,v}\)
+whose \(v\)-components are one, such that
+\[
+ \deg Z\ne0,\qquad
+ Z\omega(u_i)\Psi_i=\omega(u_i^{\,v})Z\Psi_i\quad(1\le i\le N).
+\]
+Every \(Z\Psi_i\) has a finite sum of pure tensor representations whose
+\(v\)-factors are supported in the full-rank locus.  Assume the fixed arithmetic pair is the nondegenerate unitary Weil
+pair of Section~\ref{sec:theta-decay-proof}, with its rational
+Schr\"odinger coordinates, standard additive character, and the
+unitary reduction-theoretic cover, height comparisons, and finite
+quotient volume stated there.  Then every such vector has an ordinary
+absolutely convergent theta integral of moderate growth, by
+\eqref{eq:theta-full-decay} and the coefficient proof in
+Subsection~\ref{subsec:sr-theta-coefficient-proof}.
+\end{srproposition}
+
+\begin{proof}
+Write each \(\Psi_i\) as a finite sum of pure tensors.  Outside a finite
+set of places all these tensors have the same prescribed vacuum
+factor.  Enlarge this finite set so that the local characters and
+integral models are unramified and each \(u_i\) belongs to the
+hyperspecial group fixing the vacuum at every remaining place.
+There are infinitely many rational primes splitting completely in a
+Galois closure of \(E/\mathbb Q\); choose one outside the finite set and
+take a place \(v\) of \(F\) above it.  This is the only use here of the
+standard splitting-prime existence theorem; no size estimate for \(v\)
+is required.
+
+Use Proposition~\ref{prop:sr-primitive-regularizer} in the common vacuum
+coordinates at \(v\), and transport \(Z\) into \(U(V')(F_v)\).  Its
+degree stays nonzero.  The tensor factorization shows simultaneously
+that all \(Z\Psi_i\) have primitive-frame factors there.  Define
+\(u_i^{\,v}\) by deleting the \(v\)-component of \(u_i\).
+The deleted component acts trivially on every original vacuum factor,
+so \(\omega(u_i)\Psi_i=\omega(u_i^{\,v})\Psi_i\).
+The operator \(Z\) commutes with \(\omega(u_i^{\,v})\), since they are
+supported at disjoint places.  This proves the asserted identity.
+Full-rank local support is precisely the hypothesis of
+\eqref{eq:theta-full-decay}.  Under the fixed-pair and reduction
+hypotheses in the statement, Subsection~\ref{subsec:sr-theta-coefficient-proof}
+proves the coefficient majorant used by that estimate; the explicit
+packing and minor argument in Section~\ref{sec:theta-decay-proof}
+then proves convergence and moderate growth.
+\end{proof}
+
+The preceding proposition makes the quotient argument precise.
+Let \(G=U(V')\), fix any Haar measure \(dg\) and a measurable fundamental
+domain \(\mathcal F\) for \(G(F)\backslash G(\mathbb A_F)\), and write
+\[
+ I(\Psi)(h)=\int_{\mathcal F}\Theta_\Psi(g,h)\,dg
+\]
+whenever this integral is absolutely convergent.  The choice of Haar
+measure is fixed throughout.  The theta transformation law and
+rational left invariance imply
+\begin{equation}\label{eq:sr-ordinary-translate}
+ I(\omega(u)\Psi)=I(\Psi)
+\end{equation}
+whenever \(I(\Psi)\) exists.  Indeed
+\(\Theta_{\omega(u)\Psi}(g,h)=\Theta_\Psi(gu,h)\);
+right translation preserves quotient measure because a unitary group
+is unimodular.  The two fundamental domains give the same integral
+by rational left invariance.  In particular, finite sums satisfy
+\begin{equation}\label{eq:sr-ordinary-degree}
+ I(Z\Psi)=(\deg Z)I(\Psi)
+\end{equation}
+for every integrable \(\Psi\), regardless of the support of \(Z\).
+
+\begin{srcorollary}[Integrable finite relations vanish]
+\label{cor:sr-integrable-relations}
+Suppose
+\[
+ \Psi=\sum_{i=1}^{N}b_i\bigl(\omega(u_i)\Psi_i-\Psi_i\bigr)
+\]
+belongs to the algebraic model, and its theta integral is absolutely
+convergent.  Then \(I(\Psi)=0\).
+\end{srcorollary}
+
+\begin{proof}
+Apply Proposition~\ref{prop:sr-simultaneous-regularizer} to the entire
+finite collection.  Each \(Z\Psi_i\) is integrable and
+\[
+ Z\Psi=\sum_i b_i
+ \bigl(\omega(u_i^{\,v})Z\Psi_i-Z\Psi_i\bigr).
+\]
+Every difference on the right has zero integral by
+\eqref{eq:sr-ordinary-translate}; finite additivity is justified by
+absolute convergence.  Thus \(I(Z\Psi)=0\).
+On the other hand the assumed integrability of \(\Psi\) gives
+\eqref{eq:sr-ordinary-degree}.  Divide by the nonzero degree.
+\end{proof}
+
+Consequently, if two small vectors have the same image in the finite
+coinvariant quotient, both have convergent theta integrals, and their
+difference is a finite relation of the displayed form, their ordinary
+integrals agree.  If a representative \(\Psi_0\) in that class has
+already been matched to a big vector \(\Phi\) with
+\(I_V(\Phi)=cI_{V'}(\Psi_0)\), the same equality holds for every
+integrable representative \(\Psi\) in the class.  There is no additional
+volume scalar in this passage: the argument uses one Haar measure
+throughout, and scaling it scales every small integral by the same
+amount.
+
+This constructs the finite-place regularizer and proves the passage
+from a coinvariant class to any convergent representative.  The scalar
+\(c\), its nonvanishing, the placewise matching maps, and the universal
+character-independent rank-recursion signs still require their
+separate theta-comparison proofs; they are not consequences of the
+regularizer.  In the frozen source the construction here occurs in
+\texttt{ExistsTranslatesEqPrimFrameLat},
+\texttt{ExistsGoodPlaceTranslateCombinationLatticeIndica},
+\texttt{ExistsCombinationMemRegularSubspace},
+\texttt{TwistRegulariserIsGood}, and
+\texttt{ThetaIntegralsAgreeOfIntegrableKernel}.
+
+\subsection{The coefficient sum and its Schwartz majorant}
+\label{subsec:sr-theta-coefficient-proof}
+
+We give the coefficient calculation used in
+\eqref{eq:theta-lattice-majorant}.
+Let \(A=\mathbb A_F\), choose the standard nontrivial additive
+character \(\psi:A/F\to\mathbb C^\times\), and give the additive
+spaces self-dual Haar measure.  Use a rational polarization of
+the symplectic space of the specified Weil pair, so its
+Schr\"odinger space is \(\mathcal S(A^N)\) and its rational
+Heisenberg coordinates are \(F^N\oplus F^N\).  In these coordinates
+\[
+ [S(a,b)f](u)=
+ \psi\bigl(b\cdot u+\tfrac12 a\cdot b\bigr)f(u+a),
+ \qquad Pf(u)=f(-u).
+\]
+The rational polarization identifies these coordinates with the
+rational matrix space used in Section~\ref{sec:theta-decay-proof};
+the action of \((g,h)\) on that space is
+\(x\mapsto gx h^{\mathsf t}\), with the fixed changes of bases
+included in the model.
+
+For \(\Phi\in\mathcal S(A^N)\) set
+\[
+ c_\Phi(a,b)=
+ \int_{A^N}\psi\bigl(b\cdot u+\tfrac12a\cdot b\bigr)
+          \Phi(u+a)\overline{\Phi(-u)}\,du
+ =\langle S(a,b)\Phi,P\Phi\rangle .
+\]
+Then
+\begin{equation}\label{eq:sr-theta-square-coefficients}
+ \left|\sum_{x\in F^N}\Phi(x)\right|^2
+       =\sum_{a,b\in F^N}c_\Phi(a,b).
+\end{equation}
+All series in this identity converge absolutely.
+
+Here are the analytic details justifying that assertion and its
+uniform use with the infinite Schwartz variable.
+At the archimedean places, \(c_f\) is a Schwartz function of \((a,b)\).
+For every desired weight exponent its Schwartz seminorm is at most
+a constant times \(p(f)^2\), for a continuous Schwartz seminorm \(p\).
+To verify this, differentiate its integral in \(a,b\).
+A derivative in \(b\) inserts a polynomial in \(u+a/2\);
+a derivative in \(a\) differentiates \(f(u+a)\) and the phase.
+To bound a monomial in \(b\), move derivatives of the phase onto
+the two Schwartz factors by integration by parts.
+Write each occurrence of \(a\) as \((u+a)-u\) and expand.
+Every resulting integrand is a product of weighted derivatives of
+\(f(u+a)\) and \(f(-u)\).
+Bound the weighted derivatives by their Schwartz seminorms times
+\((1+|u+a|)^{-m}(1+|u|)^{-m}\), with \(m\) larger than the real
+dimension.  Its integral is bounded independently of \(a\).
+This bounds every polynomially weighted derivative of \(c_f\).
+Only finitely many derivatives and weights are needed for a fixed
+bound, so their maximum, enlarged by a fixed constant, is the
+continuous seminorm \(p\).
+The same proof applies to the product of the real and complex
+archimedean coordinates after the fixed linear change making the
+character the standard Fourier character.
+
+At a finite place, let \(\phi\) be locally constant with compact
+support \(K\), and choose a compact open additive subgroup \(U\)
+under which \(\phi\) is invariant.
+Nonvanishing of the integrand implies \(a\in K+K\).
+Translating the integration variable by \(t\in U\) multiplies
+the coefficient by \(\psi(b\cdot t)\); hence it is zero unless
+\(b\in U^\perp\).  The annihilator \(U^\perp\) is compact open.
+The coefficient is locally constant, and thus is again
+Schwartz--Bruhat, with compact support in
+\((K+K)\times U^\perp\).
+For a fixed finite adelic factor \(\phi_f\) this proves a bound
+\[
+ |c_{f\otimes\phi_f}(w)|
+ \le p_{\phi_f,L}(f)^2\,
+       {\bf1}_{C_f}(w_f)(1+|w|_\infty)^{-L}
+ \qquad(w\in A^{2N})
+\]
+for every \(L\), some fixed compact \(C_f\), and a continuous
+seminorm \(p_{\phi_f,L}\).
+Restricted tensor products are handled by multiplication of the
+local formulas; their vacuum factors agree outside finitely many
+places.  Finite linear combinations follow by polarization and the
+triangle inequality.
+
+It remains to check \eqref{eq:sr-theta-square-coefficients}.
+For fixed rational \(a\), apply additive adelic Poisson summation
+in \(u\) to the Schwartz function
+\(\Phi(u+a)\overline{\Phi(-u)}\).
+Because \(a,b\) are rational, \(\psi(a\cdot b/2)=1\).
+Self-dual measure for the standard character has
+\(\operatorname{vol}(A^N/F^N)=1\), so there is no Poisson volume
+factor, and the sum over rational \(b\) of its Fourier transform is
+\[
+ \sum_{u\in F^N}\Phi(u+a)\overline{\Phi(-u)}.
+\]
+Summing over rational \(a\), the bijection
+\((a,u)\mapsto(u+a,-u)\) of \(F^N\times F^N\) gives the product
+of the two theta sums in
+\eqref{eq:sr-theta-square-coefficients}.
+The coefficient sum is absolutely convergent by its proved Schwartz
+bound.  The double sum of the products is absolutely convergent
+because each theta sum of the absolute value of a Schwartz function
+converges.  These facts justify both Poisson summation and the
+rearrangement.
+
+The unitary Weil action of the pair preserves the Schwartz space,
+has
+\(\omega(g,h)S(w)\omega(g,h)^{-1}=S((g,h)w)\), and commutes with
+\(P\).  These assertions follow directly on the Schr\"odinger
+generators: a linear change has the square-root modulus making it
+unitary, multiplication by a quadratic character has modulus one
+and is even, and the self-dual Fourier transform is unitary and
+commutes with reflection.  Thus
+\[
+ c_{\omega(g,h)\Phi}(w)=c_\Phi((g,h)^{-1}w).
+\]
+Apply \eqref{eq:sr-theta-square-coefficients} to
+\(\omega(g,h)\Phi\), take absolute values, and apply the preceding
+Schwartz bound.  In the matrix coordinates of the fixed pair,
+this is precisely
+\[
+ |\Theta_{f\otimes\phi_f}(g,h)|^2
+ \le p_{\phi_f,L}(f)^2
+     \sum_{x}
+       {\bf1}_{C_f}\bigl((g^{-1}x(h^{-1})^{\mathsf t})_f\bigr)
+       (1+|g^{-1}x(h^{-1})^{\mathsf t}|_\infty)^{-L}.
+\]
+For full-rank local data, apply the explicit compact-coset
+Schr\"odinger separation in
+Section~\ref{sec:theta-decay-proof} to the local factor before
+this calculation.  On each piece the coefficient vanishes at
+every rank-deficient local matrix.  Rational rank-deficient
+matrices remain rank deficient under the two invertible group
+matrices.  The sum can therefore be restricted to full row rank.
+For a finite sum of pieces, take square roots of the separate
+bounds, use the union of their finite compact supports, and add
+their seminorms with the absolute values of their coefficients.
+This proves \eqref{eq:theta-lattice-majorant} in both of its forms.
+
+Consequently the lattice packing, full-rank minor estimate, and
+two-chamber calculation in
+Section~\ref{sec:theta-decay-proof} prove
+\eqref{eq:theta-full-decay} for this fixed arithmetic pair.
+The remaining standard reduction-theoretic assumptions are exactly
+the unitary Siegel-set cover, its height comparisons, and finite
+Haar volume of \(U_X(F)\backslash U_X(\mathbb A_F)\), as stated
+there.  They apply to the nondegenerate Hermitian space of the
+fixed pair; its unitary group is reductive and its center is the
+norm-one torus of the CM extension, which is anisotropic over
+\(F\).  At \(N_0=0\), \eqref{eq:theta-full-decay} is uniform in
+\(g\); integration over this finite-volume quotient gives ordinary
+absolute convergence.  Its polynomial bound in \(h\) gives moderate
+growth of the resulting integral.  None of these assertions
+constructs the arithmetic pair, nor asserts uniformity of its
+Schwartz seminorm constants across varying fields.

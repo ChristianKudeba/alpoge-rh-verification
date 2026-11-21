@@ -2,6 +2,8 @@
 
 This is a working exposition, **not a completed standalone unconditional proof of RH**.
 
+The four-agent revision adds full supporting deductions for the two character estimates and geometry: fixed-prime orbit aggregation, CaseII specialization, restriction and local tangent rigidity, component propagation, one common patched module, paired determinant algebra, integral descent maps, explicit short generators and finite-place theta regularization. The small-conductor twist-one exceptional branch at3 and7 is now proved using R=32768. The full uniform character bounds and connected-family construction still require the upstream automorphic, Selmer-presentation and uniform theta/metric inputs displayed in the text.
+
 The global high-twist bound is now proved in prose. The new chapter gives an independent integral-homology route with the positive-definite region, acyclicity of the ordered normal-cone complex, common shortest-vector frames, a Hermite orbit count, finite-stabilizer torsion at all primes, the Kummer generator estimate, and every numerical absorption. The established arithmetic K-theory comparison and Mathew Hurewicz theorem are stated with primary references. The result is uniform in the field, coefficient prime and twist, with exponent 24.
 
 The same finite-dimensional normal-cone nerve now also proves the coefficient-uniform cohomology bound for every finite-dimensional complex arithmetic-group module. A full lattice/ideal-class argument supplies the finite adelic orbit count and the polynomial level factor, discharging the `bddArith` and finite-double-coset inputs in the spectrum-counting chapter.
@@ -21,5 +23,3 @@ The new prose proofs have not been separately formalized or independently refere
 Build entry point: [short-route.tex](short-route.tex). Artifacts are saved remotely on GitHub and Principia; the workflow publishes the PDF, standalone LaTeX, source manifest, build report and page contact sheets.
 
 The literal edition is a lossless typesetting of the formal records with generated dependent-type annotations. Its completion does not mean that every mathematical argument has already been translated into explanatory prose. The source review now maps the exact rank-three, rank-four and geometric producer chains and distinguishes this coverage issue from a gap in the original formal proof.
-
-Current edition: [214-page PDF](https://principia-math.com/api/ws/files/e7637127b4253ed4e1a910a0fbaab5ef) and [immutable source/build release](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-e52042ab25cc04c0c282c1caa55b311fafc6374b). The four-file Principia source expands exactly to the compiled single-file source (SHA-256 `5956058cca4d8989550027502c070cfa8497fe09f3ba671cce8b906f27486773`).
