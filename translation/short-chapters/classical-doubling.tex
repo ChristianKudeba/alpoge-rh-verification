@@ -1,0 +1,414 @@
+\section{Classical global inputs with fixed doubling normalization}
+\label{sec:sr-classical-doubling-inputs}
+
+We match the two classical global inputs used by the theta
+comparison to their precise published statements.
+This establishes the anisotropic Siegel--Weil and Eisenstein
+continuation inputs themselves.
+It does not replace the separate local quotient comparison,
+rank-recursion and covolume arguments.
+
+Let \(E/F\) be a quadratic CM extension, with involution
+\(c\), and fix a nontrivial character
+\(\psi:\mathbb A_F/F\to\mathbb C^\times\).
+Use the source's choice
+\(\psi_\infty(t)=\exp(-2\pi i\operatorname{Tr}_{F_\infty/\mathbb R}t)\)
+and the selfdual measures for it.
+Let \(Y\) be a nondegenerate Hermitian or skew-Hermitian
+space of dimension \(n\), and put
+\[
+             Y^\square=Y\oplus Y^{-},\qquad
+             G^\square=U(Y^\square).
+\]
+The diagonal \(Y^\triangle=\{(y,y):y\in Y\}\) is a rational
+maximal isotropic subspace.
+Its stabilizer \(P\) is the Siegel parabolic, with Levi
+\(\operatorname{Res}_{E/F}\operatorname{GL}_n\).
+Thus the doubled group is quasi-split even when \(U(Y)\)
+is an inner form of a different signature.
+
+Write \(|\cdot|_E\) for the normalized adelic absolute value,
+and let \(K\) be a standard maximal compact subgroup in
+a rational hyperbolic frame carrying \(Y^\triangle\) to the
+first isotropic coordinate space.
+For the Iwasawa height
+\(a(m(t)uk)=|\det t|_E\), use normalized induction
+\begin{equation}\label{eq:sr-exact-induced-section}
+ f_s(m(t)ug)
+       =\chi(\det t)|\det t|_E^{\,s+n/2}f_s(g).
+\end{equation}
+The shift \(n/2\) is forced by the parabolic modulus.
+Over a splitting field the unipotent radical is the space of
+Hermitian \(n\)-by-\(n\) matrices.
+For a diagonal \(t=\operatorname{diag}(t_i)\), its diagonal
+coordinates contribute \(\prod_i|t_i|_E\), and each
+off-diagonal \(E\)-coordinate contributes
+\(|t_i|_E|t_j|_E\).
+Their product is \(|\det t|_E^n\).
+Conjugation invariance and triangular decomposition give the
+same formula for every \(t\).
+Hence \(\delta_P^{1/2}=|\det t|_E^{n/2}\).
+
+\subsection{The definite theta integral and its constant}
+
+Both ranks satisfy \(m,n\ge1\): these are explicit hypotheses
+in the source's \srcid{SiegelWeilStd}, not restrictions added
+for the application.  No zero-rank case is quantified there.
+Let \(A\) have dimension \(m\), be of the opposite
+Hermitian parity to \(Y\), and be definite at every infinite
+place of \(F\).
+Choose the standard unitary splitting character
+\[
+                    \chi|_{\mathbb A_F^\times}
+                                      =\eta_{E/F}^{\,m}.
+\]
+Let \(\omega^\square\) be the corresponding Weil representation
+for \(U(A)\times G^\square\) on its adelic Schwartz space.
+For a Schwartz vector \(\Phi\) that is \(K\)-finite, the
+Siegel--Weil section is
+\[
+ s_0=(m-n)/2,\qquad
+ f_{\Phi,s}(g)
+     =a(g)^{\,s-s_0}
+                  (\omega^\square(g)\Phi)(0).
+\]
+The Weil action on the Siegel Levi has exponent \(m/2\).
+Since \(s_0+n/2=m/2\), this is exactly
+\eqref{eq:sr-exact-induced-section}, rather than an induction
+shift chosen after the identity.
+
+We use the following published theorem: the anisotropic
+Siegel--Weil formula is holomorphic at \(s_0\) and equals
+\(c_{m,n}\) times the probability-normalized theta integral,
+where \(c_{m,n}=1\) for \(m>n\) and \(c_{m,n}=2\) for
+\(m\le n\).  This is Theorem~7.1 of Gan--Qiu--Takeda,
+\emph{The regularized Siegel--Weil formula (the second term
+identity) and the Rallis inner product formula},
+\url{https://arxiv.org/abs/1207.4709}.
+
+Here is the full normalization check for our application.
+A nonzero \(F\)-isotropic vector in \(A\) would remain
+isotropic at every infinite place, contradicting definiteness.
+Thus \(U(A)\) is anisotropic over \(F\) and its adelic
+quotient is compact.
+For any Haar measure \(\mu\) and any measurable fundamental
+domain \(D_A\), put
+\[
+       {\rm Av}_{A,\mu}(H)
+           =\mu(D_A)^{-1}\int_{D_A}H(h)\,d\mu(h).
+\]
+Its volume is finite and positive.
+Replacing \(\mu\) by \(t\mu\), \(t>0\), multiplies numerator
+and denominator by the same \(t\); changing fundamental
+domain preserves the integral of an automorphic function.
+The normalized integral therefore agrees with the
+Tamagawa-normalized integral of the theorem.
+For unitary groups the extra displayed factor
+\(\tau(U(A))/[E:F]\) in that theorem is \(1\).
+Consequently its conclusion is precisely
+\begin{equation}\label{eq:sr-exact-anisotropic-sw}
+ E(g,s_0,f_{\Phi})
+       =\begin{cases}1,&n<m,\\2,&m\le n\end{cases}
+          {\rm Av}_{A,\mu}
+            \left(\sum_{x}
+                  \omega^\square(g,h)\Phi(x)\right).
+\end{equation}
+All finite components of \(\Phi\), including ramified ones,
+are arbitrary Schwartz vectors in this theorem.
+No spherical-vector restriction or later adjustment of the
+ramified Haar measures occurs in
+\eqref{eq:sr-exact-anisotropic-sw}.
+For the other Hermitian parity, choose
+\(b\in E^\times\) with \(\overline b=-b\).
+Replace the form on \(A\) by \(b\) times that form and the
+form on \(Y\) by \(b^{-1}\) times that form.
+Their Hermitian parities are reversed, their unitary groups
+are unchanged, and their tensor symplectic pairing is
+unchanged because the two scalars multiply to one.
+This gives the skew-definite version with exactly the same
+\(\psi\), measures and factor.
+
+The source permits a rational Darboux realization \(d\), a
+Siegel evaluation functional \(l\), and an action \(S\) of
+\(U(A)\), rather than prescribing coordinate evaluation
+in advance.
+Its \srcid{IsDbl} conditions provide exactly their
+normalization: rational vectors have rational Darboux
+coordinates; \(l\) is invariant under the diagonal
+modulations and under \(S\); and
+\[
+ \sum_{y\in A\otimes Y}
+      l\bigl(\rho_d(y,-y)\Phi\bigr)
+                               =\sum_x\Phi(x).
+\]
+There is a direct scalar check, requiring no unproved
+uniqueness assertion for distributions.
+Choose a rational polarization carrying the diagonal
+\(A\otimes Y^\triangle\) to the modulation space.
+Its opposite Lagrangian is \(A\otimes\{(y,-y)\}\).
+The source's rationality condition makes its rational
+translations the full \(F\)-lattice of that opposite
+Lagrangian.  Rational changes of Schr\"odinger polarization
+preserve the theta functional: linear changes reindex the
+rational sum and Fourier changes use Poisson summation
+with selfdual measures and the product formula.
+Thus in these coordinates, writing
+\[
+ T_r\phi(t)=\phi(t+r),\qquad
+ M_b\phi(t)=\psi(b\cdot t)\phi(t),
+\]
+the two conditions on \(l\) become the following statements
+for \emph{all adelic} \(b\) and \emph{every} Schwartz \(\phi\):
+\[
+ l(M_b\phi)=l(\phi),\qquad
+       \sum_{r\in F^{2mn}}l(T_r\phi)
+                         =\sum_{r\in F^{2mn}}\phi(r).
+\]
+The rational Darboux change identifies the opposite
+translation lattice with \(F^{2mn}\).
+Apply the second equality also to \(M_b\phi\).
+Since \(T_rM_b=\psi(b\cdot r)M_bT_r\), the first equality
+gives
+\[
+ \sum_{r\in F^{2mn}}\psi(b\cdot r)
+                 \bigl(l(T_r\phi)-\phi(r)\bigr)=0
+                                     \quad(b\in\mathbb A_F^{2mn}).
+\]
+The series is absolutely summable: the source states an
+unconditional complex \srcid{HasSum} for the left side at
+\(b=0\), and the Schwartz theta sum on the right is
+absolutely convergent.
+Multiplication by the unitary characters gives one uniform
+absolute majorant for every \(b\).
+Integrating over the compact group
+\((\mathbb A_F/F)^{2mn}\), of mass one, and using character
+orthogonality selects \(r=0\).
+It gives \(l(\phi)=\phi(0)\) for every Schwartz \(\phi\).
+Thus both the evaluation functional and its scalar are
+fixed by the exact \srcid{IsDbl} conditions.
+In particular no freedom to multiply \(l\) by a nontrivial
+constant remains.
+
+The unspecified \(U(A)\)-action is fixed as well.
+In the diagonal polarization \(U(A)\) preserves both
+Lagrangians and acts on the translation coordinate space
+\(X=(A\otimes_EY)(\mathbb A_F)\) by a linear map \(a_h\).
+Its \(F\)-determinant has absolute value one:
+the unitary determinant identity gives
+\(N_{E/F}(\det_E h)=1\), and the determinant on \(X\)
+is its \(n\)-th power.
+Consequently the ordinary Weil action on this factor is
+\[
+                    (R_h\phi)(x)=\phi(a_h^{-1}x);
+\]
+there is no Jacobian factor.  It preserves Schwartz
+functions, fixes evaluation at zero and satisfies the
+same Heisenberg intertwining relation as \(S(h)\).
+We now use those facts, rather than presume scalar
+uniqueness of a representation.
+For every Schwartz \(\phi\) and every Heisenberg
+parameter \(w\), the intertwining relation in
+\srcid{IsDbl.lin} and the equality \srcid{IsDbl.fix}
+give
+\[
+ \begin{split}
+ l\!\left(\rho(w)S(h)\phi\right)
+   &=l\!\left(S(h)\rho(h^{-1}w)\phi\right)\\
+   &=l\!\left(\rho(h^{-1}w)\phi\right)
+    =l\!\left(\rho(w)R_h\phi\right).
+ \end{split}
+\]
+The same relation holds in the transported rational
+Darboux realization.
+Since \(l=\operatorname{ev}_0\), taking \(w=(x,0)\)
+among the pure translations says
+\((S(h)\phi)(x)=(R_h\phi)(x)\) for every \(x\).
+Thus \(S(h)=R_h\) on the entire Schwartz space.
+This proves the compatibility with the ordinary
+\(U(A)\)-Weil action, including its scalar, using precisely
+the preservation, Egorov and fixed-functional conditions
+present in \srcid{IsDbl}.  Behavior on functions outside
+the Schwartz space is irrelevant to either side of the
+identity.
+
+We also check that the unspecified doubled action
+\(\mathrm{om}\) has no remaining scalar character.
+The exact definition of \srcid{IsUWeilSplit} is
+\[
+  \srcid{IsLagr}\ \wedge\
+  \srcid{IsUSplitting}\ \wedge\ \srcid{SiegelRule}.
+\]
+Here \srcid{IsUSplitting} includes preservation of the
+Schwartz space, Egorov intertwining, preservation of
+the \(L^2\)-norm for Haar measure, and continuity after
+every admissible linear functional.
+Norm preservation and the inverse group element extend
+each operator to a unitary operator on \(L^2(X)\).
+The stated continuity gives continuous matrix
+coefficients against Schwartz vectors; these are
+admissible functionals, since pairing with a fixed
+Schwartz vector is continuous on each fixed finite
+Schwartz factor.
+Density and unitarity give a continuous unitary action.
+
+Compare this action with the ordinary Weil action for
+the specified \(\chi\).
+For each \(g\), their ratio commutes with all adelic
+translations and modulations, by Egorov.
+Such a bounded operator is scalar: commuting with
+modulations makes it multiplication by a bounded
+measurable function, and commuting also with
+translations makes that function constant almost
+everywhere.
+The first assertion follows by Fourier inversion for
+compactly supported test functions and then the
+bounded multiplication spectral algebra.
+Thus the ratio is \(c(g)\in U(1)\), and the group law
+and continuity make \(c\) a continuous character.
+Apply \srcid{SiegelRule} to
+\(l=\operatorname{ev}_0\), which is admissible and
+invariant under the diagonal modulation space.
+Since the ordinary action obeys the same rule, a
+Schwartz vector with \(\phi(0)\ne0\) gives \(c(p)=1\)
+for every element of the adelic Siegel parabolic.
+
+At each local place, a character trivial on this
+parabolic is trivial on the whole doubled group.
+Indeed the parabolic contains a Borel torus and its
+positive unipotent root groups; characters are
+conjugation invariant, so they are trivial on the
+opposite root groups as well.
+The root-group expressions for the Weyl
+representatives and Bruhat decomposition then
+generate the local group.
+This applies also at split places, where the group
+is general linear.
+Finite products of local factors are dense in the
+adelic restricted product, so continuity gives
+\(c(g)=1\) everywhere.
+The two actions agree on \(L^2\), and on Schwartz
+functions agree pointwise by continuity and full
+support of Haar measure.
+
+The splitting character and doubled action in
+\srcid{IsDbl.weil} are therefore exactly those in the
+classical formula, not a representation identified
+only up to an unspecified scalar.
+Finally \srcid{IsHgt.val} gives the height just used.
+The finite-dimensional \(K\)-orbit condition is precisely
+\(K\)-finiteness.
+Thus \eqref{eq:sr-exact-anisotropic-sw}, including its
+holomorphy assertion, establishes the classical input
+\srcid{SiegelWeilStd} with the source's quantifiers.
+The later change from a standard hyperbolic frame to a
+lattice-adapted frame transports this identity; it does not
+change the factor \(1\) or \(2\).
+
+\subsection{Meromorphic continuation in the required growth space}
+
+For a continuous \(K\)-finite section \(f=f_{s_1}\) obeying
+\eqref{eq:sr-exact-induced-section}, set
+\(f_s=a^{s-s_1}f\) and initially
+\[
+                  E(g,s,f)
+                     =\sum_{\gamma\in P(F)\backslash
+                                  G^\square(F)}f_s(\gamma g).
+\]
+This quotient agrees with the rational parabolic quotient
+in the source, since every rational maximal isotropic
+frame is obtained from the fixed diagonal one.
+
+We use Bernstein--Lapid, \emph{On the meromorphic
+continuation of Eisenstein series}, JAMS~37 (2024), 187--234,
+Theorem~2.3 and the corollary at the end of Section~8,
+\url{https://doi.org/10.1090/jams/1020}.
+They give convergence in a right half-plane and
+meromorphic continuation; locally, a scalar polynomial
+clears the poles into one Fr\'echet space of functions of
+uniform moderate growth.
+
+We check the section and topology hypotheses.
+Restriction of \(f\) to \(K\) belongs to a finite-dimensional
+continuous representation.
+At the infinite places its matrix coefficients are smooth.
+At finite places its compact image in a complex general
+linear group is a totally disconnected compact Lie group,
+hence finite; the section therefore has an open compact
+stabilizer.
+The parabolic transformation law extends this smoothness
+from \(K\) to \(G^\square\).
+The inducing representation of the Levi is the automorphic
+character \(\chi\circ\det\), with the displayed spectral
+twist.
+It is an automorphic form, so the theorem applies to this
+inducing datum without a cuspidality assumption.
+
+At a fixed \(s_*\), restrict the theorem's several-variable
+parameter to the one Siegel line \(s\).
+Shrink a disk around \(s_*\) so that no other singular
+hyperplane meets it.
+A product of linear factors through \(s_*\) restricts to a
+nonzero constant times \((s-s_*)^k\).
+The right half-plane of convergence ensures that the
+Siegel line is not contained in a singular hyperplane.
+Thus, for some \(k\ge0\),
+\[
+                 H(s)=(s-s_*)^kE(\,\cdot\,,s,f)
+\]
+extends holomorphically across \(s_*\) in one fixed
+uniform-moderate-growth Fr\'echet space.
+Its zeroth seminorm supplies a fixed integer \(N\) and,
+on a smaller closed disk, a fixed \(C\) with
+\[
+                     |H(s)(g)|\le C\,{\rm ht}(g)^N .
+\]
+Evaluation at \(g\), and all continuous linear growth
+functionals, are holomorphic on this disk.
+
+For clarity the latter statement gives exactly the weak
+functional condition used by the source.
+If a linear functional \(\lambda\) obeys
+\[
+ |\lambda(F)|\le C_N
+       \quad\hbox{whenever}\quad |F(g)|\le{\rm ht}(g)^N ,
+\]
+homogeneity gives
+\(|\lambda(F)|\le C_N\sup_g|F(g)|{\rm ht}(g)^{-N}\).
+It is therefore continuous on the fixed growth space in
+which \(H\) is holomorphic.
+The composition \(s\mapsto\lambda(H(s))\) is holomorphic.
+The height in the source is
+\({\rm ht}_2(g)={\rm heightGL}_F(g)\) for the displayed
+faithful matrix realization.
+It is polynomially comparable to the algebraic matrix
+height in the continuation theorem.
+Indeed coordinates of either fixed faithful realization
+are regular functions in the coordinates and inverse
+determinant of the other; bounding the finitely many
+coefficients and applying the local maximum norm bounds
+these functions by a constant times a fixed power.
+At all but finitely many finite places the coefficients
+are integral, so the product of these constants is finite.
+Applying this argument in both directions gives the
+comparison.  The field, rank and matrix realizations are
+fixed in this application; its constants may depend on
+them, as the quantifiers of \srcid{EisBL} permit.
+Multiplying the height by a constant or taking an
+equivalent matrix height only alters \(C,N\).
+This proves the \srcid{EisBL} input, including its
+\srcid{IsGrowForm} quantifier, rather than only pointwise
+meromorphic continuation.
+
+These two propositions close the named classical inputs
+to \srcid{theoremK\_head2}.
+They do not by themselves prove its complete output:
+\srcid{ThetaIntegralsAgree} additionally contains the
+normalized real and finite quotient maps, all matching
+identities, nonzero ordinary integrals and both
+codimension-two recursions with character-independent
+constants.
+Those consequences require their displayed local and
+global comparison arguments.
+Nor do the two classical inputs imply
+\srcid{CovolumeBoundOfX}, which belongs to the separate
+integral lattice and covering-tower branch.

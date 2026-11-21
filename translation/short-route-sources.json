@@ -2,7 +2,7 @@
   "edition": "ordinary-rh-consolidated-working-exposition",
   "date": "2026-11-21",
   "status": "incomplete: generic and nontrivial exceptional uniform character producers and compatible connected geometric supply remain; new support, tangent, descent, lattice and regularization deductions printed",
-  "prior_manuscript_commit": "eb555865e7da385a56566943e69e5d49805c28d5",
+  "prior_manuscript_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
   "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
   "independently_rechecked_prose": false,
   "remaining": [
@@ -646,13 +646,17 @@
       "Gaussian large-conductor dyadic value test, local BK and correct odd polarized-adjoint rigidity",
       "Fixed-model level labels, common multiplier, outside-level support and nonzero-degree isotropic translation annihilators",
       "Explicit frame-slab kernel, unitary minor bound, Cartan Jacobian, integrability/reproduction and invariant heat-jet implication",
-      "Common theta denominator and all valuation-case bookkeeping, conditional on the stated local model/connection/reached-section calculus"
+      "Common theta denominator and all valuation-case bookkeeping, conditional on the stated local model/connection/reached-section calculus",
+      "Actual finite-level first and second Selmer estimates, finite regular detectors and auxiliary arithmetic group tower/common limit",
+      "Actual rank3 curve N1 and N3, with a shorter closed-zero-set/principal-minor density proof; all-ranks N4 from exact V0ok",
+      "CaseII actual Hecke quotient, integral compact determinant interpolation, seed membership, residual Speh exclusion and weak-purity bound",
+      "Exact anisotropic doubling normalization and growth-space Eisenstein continuation inputs",
+      "Canonical cusp-weight mean with Cu=4 and exact quadratic CM elliptic period witness"
     ],
     "open_inputs": [
-      "Actual finite-level automorphic control, residual core/charts, Selmer-to-presentation construction and automorphic seed/propagation for rank3 and Gaussian marked rings",
-      "CaseII rank4 finite weight-zero, no-block and actual cuspidal automorphic realization with the same local conditions",
-      "Global theta matching scalar, rank-recursion identities, uniform integral theta span/common denominator and short-section/metric producers on the same covers and windows",
-      "Connected arithmetic cover/intersection construction supplying the top four-term error comparison"
+      "Actual compatible nice-curve/link selection, rank3 seed/support and quadratic automorphic descent with full local level data",
+      "Global theta quotient matching and rank recursions, ramified matching, local integral-model and reached-section calculus",
+      "Uniform algebraic-point height lower bound and compatible integral root towers supplying the common-window covolume data"
     ],
     "independent_formalization": false,
     "root_review": "Algebraic, normalization and quantifier checks performed; no separate Lean proof or independent referee certification claimed",
@@ -681,13 +685,21 @@
       "h4": "b0a3524b88df05dd6323102b568f2c137a0aba63",
       "seed": "f89459677e6e8f31485506c4f879865bd8e6f7cf",
       "localZero": "199516843f4f33f9799014e46a9f549b2e765bd5",
-      "gaussian": "a52d5d6b50038abedfc2fddeab1c696ee4f0e668",
+      "gaussian": "895cd4de940cb4d320d1918e19a4ad3b725e210d",
       "phase": "928666e5f7eb426a83bd1dba322fbc98cc7c3db9",
       "supp": "5208d3730e639942ad2fe991bccd3b7c1cd3080e",
       "nongraph": "b4fd892b503a5c4cd2ca91e07804c1853aef0e6f",
       "heat": "e4624ee11287dfe2b0b6676ba9dd30688c87ff65",
       "slab": "b904187bc38a135ae4661932592977fc8aa481b6",
-      "denominator": "ee007dca53da42738da052f95785ea3f5763a0f8"
+      "denominator": "ee007dca53da42738da052f95785ea3f5763a0f8",
+      "B1": "8c7c9b3a9252324946bbb318084224e79e13354a",
+      "B2": "df64d0823e1ce9a7c5936e084412334a5e867b18",
+      "TW": "fb205530896ee40b3fb7adc31ec94312ade51143",
+      "rank3N3": "cae4f1a828d3a544785dbb822055c8f2fdbf0642",
+      "caseIIHecke": "6eea90f0ff7631e93332c18a253cf35056c47e00",
+      "doubling": "d53df6185776bd1ceff2ec6adee6442c4cfa86a5",
+      "cuspMean": "cb517b41e3cb7e9039439d87ea27c4e16126302e",
+      "CMperiod": "eaa0a754b5e3889c898a19f93092f83c7fb00878"
     },
     "published_rigidity": {
       "url": "https://arxiv.org/pdf/2207.04925",

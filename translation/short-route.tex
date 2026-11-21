@@ -47,10 +47,14 @@ We prove the bounded-conductor twist-one case at three and seven,
 the fixed-prime integer absorptions, characteristic-prime propagation,
 common patched-support transport and paired determinant algebra.
 The ordinary function modules, integral old/new maps and cohomological
-limit arguments are constructed. The rank-four Case II seed and its
+limit arguments are constructed. The finite-level first- and second-Selmer
+bounds and the auxiliary arithmetic tower are proved for the actual
+nice points. Regular-coset density is proved on both rank-three curve branches. The rank-four Case II seed and its
 local rigidity are given with their classical inputs.
 Integral descent, short-generator bounds, finite theta tests,
 regularization and frame-slab reproduction are explicit.
+The classical doubling inputs are matched with their exact normalizations,
+and the canonical cusp-weight mean has uniform constant four.
 The longer-route translations remain as supporting chapters.
 The two character estimates and the connected geometric construction,
 with the uniform theta, ramified matching and metric estimates needed
@@ -72,6 +76,8 @@ This is a working exposition, not a completed standalone proof of RH.
 \input{short-chapters/plus-reduction}
 \input{short-chapters/character-integers}
 \input{short-chapters/restriction-rigidity}
+\input{short-chapters/regular-cosets}
+\input{short-chapters/arithmetic-selmer}
 \input{short-chapters/support-propagation}
 \input{short-chapters/ordinary-control}
 \input{short-chapters/rank-four-support}
@@ -81,6 +87,9 @@ This is a working exposition, not a completed standalone proof of RH.
 \input{short-chapters/theta-spanning}
 \input{short-chapters/theta-system}
 \input{short-chapters/theta-integrality}
+\input{short-chapters/classical-doubling}
+\input{short-chapters/cusp-mean}
+\input{short-chapters/cm-period}
 \input{short-chapters/source-review}
 \clearpage
 \part{Supporting translations from the longer route}
@@ -167,6 +176,21 @@ the conversion of the pointwise slope error into a prime-sum bound, and
 the passage from an admissible family of intervals to zero-freeness
 are given above. The following inputs carry substantive arithmetic or
 geometric content which the reader still needs for an independent proof.
+The newer Part I proofs additionally supply the finite-level
+Selmer estimates and auxiliary groups in
+Section~\ref{sec:sr-arithmetic-selmer-producers}, the selected
+curve regularity and distinguished local invariant calculation in
+Section~\ref{sec:sr-curve-regular-cosets}, and the actual Case II
+Hecke quotient in Subsection~\ref{subsec:sr-case-two-hecke}.
+Sections~\ref{sec:sr-classical-doubling-inputs},
+\ref{sec:sr-uniform-cusp-mean}, and
+\ref{sec:sr-quadratic-period-witness} respectively match the classical
+doubling inputs, prove the canonical mean bound, and construct the
+quadratic period witness. The remaining clauses below are read with
+these additions; they continue to require the compatible arithmetic
+and geometric realizations explicitly identified in Part I.
+
+
 \begin{itemize}
 \item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-derivatives}
 give the generator count, the signed annihilator, the construction and

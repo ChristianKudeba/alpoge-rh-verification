@@ -1,0 +1,565 @@
+\section{Regular cosets on the actual curve branches}
+\label{sec:sr-curve-regular-cosets}
+This section proves the regular-element density needed for the
+rank-three Taylor--Wiles construction.  Its hypotheses are the
+local separation and residual character conditions of the selected
+curve points.  Cyclotomic irreducibility by itself is not used as a
+substitute for them.
+
+Write \(A=k[[T]]\), \(F=k((T))\), and let \(\overline F\) be an
+algebraic closure.  Here \(k\) is finite of characteristic
+\(\ell\ge5\), as in the generic principal-character branch.
+Let \(G\) be the compact profinite global group and let
+\(G'\) be its closed cyclotomic kernel.  A curve representation has
+entries in \(A\), continuous modulo every \(T^j\).
+The local ordinary characters are denoted by
+\(\psi_{v,i}:D_v\to A^\times\).
+The residual global determinant is the product of the characters
+\(\chi_i:G\to k^\times\).  All residual characters in this section
+are characters of the full group \(G\), not merely of \(G'\).
+
+\subsection{Local separation on every open subgroup}
+\begin{srlemma}[No torsion in the principal units]
+\label{lem:sr-curve-principal-units}
+The group \(1+Tk[[T]]\) is torsion free.
+Suppose a compact local subgroup \(N_v\subset D_v\) maps into \(G'\),
+the ratios \(\psi_{v,i}/\psi_{v,j}\) have residue one on \(N_v\),
+and no such ratio is identically one there.
+For every open subgroup \(V\subset G\), there is a
+\(g\in N_v\) mapping into \(V\cap G'\) such that
+\[
+       \psi_{v,i}(g)^m\ne\psi_{v,j}(g)^m
+       \qquad(i\ne j,\ m\ge1).
+\]
+\end{srlemma}
+\begin{proof}
+If \(z\in Tk[[T]]\) is nonzero and
+\(m=\ell^r s\), with \(\ell\nmid s\), then
+\[
+ (1+z)^m=(1+z^{\ell^r})^s
+       =1+s z^{\ell^r}+\text{terms of higher \(T\)-order}.
+\]
+The displayed leading term is nonzero.  This proves the first claim.
+
+Put \(W=N_v\cap \iota_v^{-1}(V)\), where
+\(\iota_v:D_v\to G\) is the local map.
+It is open and of finite index in \(N_v\).
+A character ratio nontrivial on \(N_v\) stays nontrivial on \(W\):
+a positive power of any chosen element of \(N_v\) lies in \(W\),
+and the principal units have no torsion.
+Its image on \(W\) is therefore infinite.
+The kernel of that ratio is closed and has infinite index in \(W\).
+For completeness, such a subgroup has Haar measure zero:
+for every positive integer \(M\) there are \(M\) distinct cosets,
+all of its measure, and their disjoint union has measure at most one.
+There are only finitely many pairs \(i\ne j\).
+Their kernels cannot cover \(W\), because a finite union of
+measure-zero sets has measure zero.
+Choose \(g\) outside this union.
+Torsion freeness now proves every asserted inequality.
+\end{proof}
+
+At a selected nice curve point, these hypotheses hold with
+\(N_v\) the prescribed local subgroup on which both the
+residual character and the cyclotomic character are trivial.
+The equal residual values follow from that definition.
+The condition usually denoted \(\mathrm{Nice.sep}\) says precisely
+that the differences of the two universal local characters do
+not vanish on this subgroup after specialization.
+A scalar twisting character cancels from every ratio.
+Thus the preceding lemma applies to the actual twisted point,
+on every open subgroup, before any regular detector is selected.
+This deduction still requires a selected curve with that
+nonvanishing property; it does not prove existence of such curves.
+
+\subsection{The prime-rank restriction argument}
+We give the elementary irreducibility argument that strengthens
+the global type condition on these curves.
+
+\begin{srlemma}[Characters and reduction]
+\label{lem:sr-curve-character-matching}
+Let \(r:G\to\mathrm{GL}_d(A)\), \(d<\ell\), have residual
+characteristic polynomial
+\(\prod_{i=1}^d(X-\chi_i(g))\) at every \(g\).
+Suppose on a subgroup \(P\) its extension to \(\overline F\)
+is a sum of characters \(\lambda_1,\ldots,\lambda_d\).
+There is a single permutation of the indexed multisets such that
+the reductions of the \(\lambda_i\) equal
+\(\chi_i|_P\), after that permutation.
+The same assertion holds over \(\overline F\) for two sums of
+characters with equal characteristic polynomials.
+\end{srlemma}
+\begin{proof}
+Extend the \(T\)-adic valuation to \(\overline F\).
+Every \(\lambda_i(g)\) is integral because it is a root of a
+monic characteristic polynomial over \(A\).
+Applying the same argument to \(g^{-1}\) shows its inverse is
+integral.  It is a unit of this valuation ring and has a
+nonzero residue in an algebraic closure of \(k\).
+Reduction therefore gives genuine characters of \(P\).
+
+We recall the independence argument for distinct characters.
+If a nonzero relation \(\sum_i a_i\theta_i(g)=0\) holds for
+every \(g\), choose one with the fewest nonzero coefficients.
+For \(\theta_1\ne\theta_j\), choose \(h\) with
+\(\theta_1(h)\ne\theta_j(h)\).
+Subtract \(\theta_j(h)\) times the relation at \(g\) from the
+relation at \(hg\).  This gives a shorter nonzero relation,
+a contradiction.  Thus distinct characters are linearly
+independent.
+
+Take traces of the two characteristic-polynomial identities.
+Group together equal characters and apply this independence.
+Their multiplicities are integers between zero and \(d<\ell\),
+so equality in characteristic \(\ell\) is equality of those
+integers.  The two indexed multisets therefore agree.
+Choosing a bijection of equal entries gives one fixed
+permutation, valid on the whole subgroup.
+\end{proof}
+
+\begin{srproposition}[Irreducibility on the required restrictions]
+\label{prop:sr-curve-open-irreducibility}
+Let \(d=2\) or \(3\), and suppose \(r:G\to\mathrm{GL}_d(A)\)
+is absolutely irreducible over \(\overline F\).
+Assume that, for one local group \(D\), its semisimplification
+is the sum of \(d\) ordinary characters \(\psi_i\).
+Assume also:
+\begin{enumerate}
+\item for every open subgroup \(V\subset G\), some element of
+\(D\) maps into \(V\cap G'\) with all \(\psi_i\)-values distinct;
+\item the residual determinant is a sum of global characters
+\(\chi_i\), and two of their restrictions to \(D\) are unequal.
+\end{enumerate}
+Then \(r|_{V\cap G'}\) is absolutely irreducible for every
+open subgroup \(V\subset G\).
+\end{srproposition}
+\begin{proof}
+Replace \(V\) by its open normal core and put \(H=V\cap G'\).
+It suffices to prove irreducibility on \(H\).
+
+Here is the prime-dimension Clifford argument in the needed form.
+Choose a minimal nonzero \(H\)-invariant subspace \(W\).
+Every translate \(r(g)W\) is simple for \(H\), because \(H\)
+is normal.  The sum of all these translates is a nonzero
+\(G\)-invariant subspace, hence the whole representation.
+Only finitely many translates are needed to span it.
+A sum of simple modules is semisimple: adjoining a simple
+module either has zero intersection with the sum already
+formed or is contained in it.
+Grouping the resulting simple modules into their isotypic
+parts, \(G\) acts transitively on these parts.
+Their simple dimension, their common multiplicity and
+their number have product \(d\).
+Since \(d\) is prime, either the restriction is irreducible,
+or \(H\) acts by one scalar character, or it has exactly
+\(d\) distinct one-dimensional character spaces, permuted
+transitively by \(G\).
+In the homogeneous one-dimensional case \(H\) acts by scalars
+on the entire space; this also follows directly from
+semisimplicity.
+
+The scalar possibility contradicts the element in (1):
+its eigenvalues are the distinct values of the ordinary
+characters.  Suppose then that there are \(d\) distinct
+lines, and write
+\[
+        \pi:G\to S_d,\qquad P=\ker\pi .
+\]
+The action of \(P\) on these lines is by characters
+\(\lambda_1,\ldots,\lambda_d\).
+On \(D\cap H\) the line characters are the restrictions of
+the \(\psi_i\), in one fixed order, by
+Lemma~\ref{lem:sr-curve-character-matching}.
+They are distinct there, again by (1).
+For \(t\in D\), each character \(\psi_i\) is unchanged by
+conjugation by \(t\).
+Conjugation therefore cannot permute the distinct characters
+on \(D\cap H\).  It fixes every one of the \(d\) lines.
+Thus \(D\subset P\).
+
+Reduce the \(\lambda_i\) using
+Lemma~\ref{lem:sr-curve-character-matching}.
+They become the restrictions of the global \(\chi_i\), in
+one fixed order.  A global character is invariant under
+conjugation by every element of \(G\).
+But the permutation action of \(G\) is transitive on the
+lines, so conjugation transports any \(\lambda_i\) to any
+\(\lambda_j\).
+Their reductions are consequently all the same character
+on \(P\).
+Since \(D\subset P\), all the \(\chi_i|_D\) are equal,
+contradicting (2).
+Only the irreducible case remains.
+\end{proof}
+
+For the principal rank-three stable branch, the local residual
+characters are a common scalar times
+\(\overline\Psi,1,\overline\Psi^{-1}\).
+The host condition supplies a local element with
+\(\overline\Psi^2\ne1\), so the residual distinction in (2)
+holds.  Lemma~\ref{lem:sr-curve-principal-units} supplies (1).
+The same argument applies to the rank-two block on the
+two-plus-one branch.  In the actual integral coordinates,
+this block uses the outer indices \(0,2\), and its residual
+characteristic polynomial is
+\[
+        (X-\chi_0(g))(X-\chi_2(g)).
+\]
+Indeed one of the two opposite off-diagonal entries is zero
+after reduction, so their product in the two-by-two
+determinant vanishes.  The residual distinction is now
+\(\overline\Psi\ne\overline\Psi^{-1}\).
+The middle line is a direct summand of the ordinary local
+representation; its character is one of the three ordinary
+Jordan--Hölder characters.  The two-dimensional summand has
+the other two.  Their restrictions to every \(V\cap G'\)
+are distinct by the preceding local separation.
+Proposition~\ref{prop:sr-curve-open-irreducibility} therefore
+makes the outer block absolutely irreducible on every such
+restriction.  No irreducibility is asserted for the full
+two-plus-one representation.
+
+\subsection{Closed zero sets and principal minors}
+\begin{srlemma}[Closedness for algebraic-coefficient linear forms]
+\label{lem:sr-curve-linear-closedness}
+For every \(\overline F\)-linear functional \(L\) on
+\(M_d(\overline F)\), the set
+\(\{g:L(r(g))=0\}\) is closed in \(G\).
+\end{srlemma}
+\begin{proof}
+The finitely many coefficients of \(L\) lie in a
+finite-dimensional \(F\)-subspace of \(\overline F\).
+Choose an \(F\)-basis \(b_1,\ldots,b_s\) for their span and
+write
+\[
+                  L(r(g))=\sum_{\nu=1}^s b_\nu L_\nu(r(g)),
+\]
+where the \(L_\nu\) have coefficients in \(F\).
+The maps on the right take values in \(F\) and are continuous
+for its \(T\)-adic topology: each is a finite linear
+combination of the continuous entries in \(A\).
+Linear independence of the \(b_\nu\) says \(L(r(g))=0\)
+exactly when all \(L_\nu(r(g))=0\).
+This is a finite intersection of closed sets.
+\end{proof}
+
+\begin{srlemma}[A matrix in the coset with nonzero minors]
+\label{lem:sr-curve-coset-minors}
+Let \(Q\) be a compact profinite group with a representation
+\(s:Q\to\mathrm{GL}_d(\overline F)\).
+Assume its restriction to every open subgroup is irreducible,
+and all linear-functional zero sets in the preceding lemma
+are closed.
+For every \(y\in\mathrm{GL}_d(\overline F)\), there exists
+\(b\in Q\) such that every diagonal entry of \(ys(b)\)
+and of its inverse is nonzero.
+If \(d\le3\), every principal minor of \(ys(b)\) is nonzero.
+\end{srlemma}
+\begin{proof}
+For a nonzero vector \(v\) and a nonzero linear form \(f\),
+the zero set of \(f(s(g)v)\) has empty interior.
+Otherwise it contains a coset \(hW\), with \(W\) open in \(Q\).
+The span of \(s(W)v\) is a nonzero \(W\)-invariant subspace,
+hence the whole space.  The relation
+\(f(s(h)s(w)v)=0\) for every \(w\in W\) would make
+the nonzero form \(f\circ s(h)\) zero on the whole space.
+This is impossible.
+The zero set is closed by the linear-functional hypothesis.
+Its complement is therefore open and dense.
+
+Apply this to the \(d\) diagonal coefficients of \(ys(g)\).
+For the inverse coefficients use \(g\mapsto g^{-1}\), a
+homeomorphism of \(Q\), and the diagonal coefficients of
+\(s(g)y^{-1}\).
+There are only \(2d\) closed zero sets.
+The intersection of their open dense complements is nonempty:
+intersect the complements one at a time, keeping a nonempty
+open set at each step.
+A point \(b\) in that intersection has the required property.
+
+For a one-by-one principal minor this is the diagonal assertion.
+For \(d=3\), a two-by-two principal minor complementary to
+index \(i\) equals
+\(\det(ys(b))(ys(b)^{-1})_{ii}\), by the cofactor formula.
+It is nonzero.  The full determinant is nonzero because
+\(ys(b)\) is invertible.  The empty minor equals one.
+The cases \(d\le2\) are included in the same argument.
+\end{proof}
+
+The hypotheses here hold after every change of basis over
+\(\overline F\), since a matrix coefficient in the new basis is
+still a linear functional in the old entries.
+They also hold on \(V\cap G'\): every open subgroup of this
+closed subgroup contains a subgroup of the form
+\(V_1\cap G'\), with \(V_1\) open in \(G\).
+This follows by choosing an open ambient identity neighborhood
+inside the given relative open neighborhood and then a
+profinite open subgroup inside it.
+The preceding restriction proposition gives irreducibility.
+
+\subsection{The quadratic and cubic discriminants}
+\begin{srlemma}[Separating a small matrix by diagonal powers]
+\label{lem:sr-curve-discriminant}
+Let \(d\le3\), \(M\in\mathrm{GL}_d(K)\), for a field \(K\),
+have all principal minors nonzero.
+Let \(\alpha_1,\ldots,\alpha_d\in K^\times\) satisfy
+\((\alpha_i/\alpha_j)^m\ne1\) for \(i\ne j\) and \(m\ge1\).
+Then the characteristic polynomial of
+\(M\operatorname{diag}(\alpha_i)^m\) is separable for some
+integer \(m\ge0\).
+\end{srlemma}
+\begin{proof}
+Let \(B\) be the finitely generated multiplicative subgroup
+generated by the \(\alpha_i\).
+Its quotient by its finite torsion subgroup is a free
+abelian group.  Each \(\alpha_i/\alpha_j\) is nonzero in
+this quotient.  Choose a rational linear functional on
+\(B\otimes_{\mathbb Z}\mathbb Q\) which is nonzero on every
+one of these finitely many differences.
+Such a functional exists because finitely many proper
+hyperplanes cannot cover a vector space over the infinite
+field \(\mathbb Q\). In a fixed basis, evaluate the finitely
+many nonzero defining linear forms at \((1,t,t^2,\ldots)\).
+Each becomes a nonzero rational polynomial in \(t\); an integer
+outside their finitely many root sets gives the required functional.  It gives an additive weight
+\(w:B\to\mathbb Q\) with all \(w(\alpha_i)\) distinct.
+
+We shall use the following elementary fact.
+An exponential sum \(\sum_{\beta}c_\beta\beta^m\), with
+distinct nonzero bases \(\beta\), cannot vanish for every
+\(m\ge0\) unless all \(c_\beta\) are zero.
+For \(s\) bases, the equations for \(m=0,\ldots,s-1\)
+have Vandermonde determinant
+\(\prod_{i<j}(\beta_j-\beta_i)\ne0\).
+In particular a term with uniquely largest \(w\)-weight
+cannot cancel with the other bases.
+
+For \(d=0,1\), separability is immediate.
+For \(d=2\), relabel so \(w_1>w_2\), and put
+\(d_i=M_{ii}\), \(D=\det M\).
+The discriminant is the exponential expression
+\[
+ (d_1\alpha_1^m+d_2\alpha_2^m)^2
+                      -4D(\alpha_1\alpha_2)^m .
+\]
+Its uniquely highest-weight term is
+\(d_1^2(\alpha_1^2)^m\), with nonzero coefficient.
+It is nonzero for some \(m\), proving the claim.
+
+For \(d=3\), relabel so \(w_1>w_2>w_3\).
+Write \(p_{ij}\) for the principal two-by-two minors.
+The elementary symmetric coefficients of the characteristic
+polynomial are
+\[
+ e_1=\sum_i d_i\alpha_i^m,\qquad
+ e_2=\sum_{i<j}p_{ij}(\alpha_i\alpha_j)^m,\qquad
+ e_3=D(\alpha_1\alpha_2\alpha_3)^m .
+\]
+The discriminant of \(X^3-e_1X^2+e_2X-e_3\) is
+\[
+ \Delta=e_1^2e_2^2-4e_2^3-4e_1^3e_3
+                       -27e_3^2+18e_1e_2e_3 .
+\]
+The largest possible weights in these five terms, in order,
+are
+\[
+ \begin{gathered}
+ 4w_1+2w_2,\quad 3w_1+3w_2,\quad
+ 4w_1+w_2+w_3,\\
+ 2w_1+2w_2+2w_3,\quad 3w_1+2w_2+w_3 .
+ \end{gathered}
+\]
+The first is strictly largest.
+Within its term the unique largest monomial is
+\[
+              d_1^2p_{12}^2(\alpha_1^4\alpha_2^2)^m .
+\]
+Its coefficient is nonzero.  The Vandermonde fact therefore
+makes \(\Delta\ne0\) for some \(m\).
+This reasoning is valid also when some of the integers
+\(4,18,27\) become zero in \(K\); the leading coefficient
+has coefficient one.
+Nonzero discriminant is equivalent to separability for a
+monic polynomial, completing the proof.
+\end{proof}
+
+\subsection{Density on both actual rank-three branches}
+\begin{srtheorem}[The curve-point regularity condition]
+\label{thm:sr-curve-N3}
+Consider a selected nice curve point of the generic principal
+rank-three construction.  On its stable branch assume the
+global representation is absolutely irreducible.
+On its two-plus-one branch assume the actual outer
+rank-two block is absolutely irreducible and the middle
+coordinate is a character.
+Then, on either branch, every open subset of \(G\)
+meeting \(G'\) contains a \(\sigma\in G'\) for which
+\(\det(X-r(\sigma))\) is separable.
+\end{srtheorem}
+\begin{proof}
+Let \(O\) be such an open subset, choose \(t\in O\cap G'\),
+and choose an open subgroup \(V\subset G\) with \(tV\subset O\).
+Local separation supplies \(u\in V\cap G'\) whose full
+ordinary eigenvalue tuple \(\alpha\) has torsion-free
+pairwise ratios.  It has distinct eigenvalues, so
+\(r(u)\) is diagonalizable over \(\overline F\).
+Work in that eigenbasis.
+
+On the stable branch,
+Proposition~\ref{prop:sr-curve-open-irreducibility} and
+Lemma~\ref{lem:sr-curve-coset-minors}, applied to
+\(Q=V\cap G'\) and \(y=r(t)\), give \(b\in Q\)
+such that \(M=r(t)r(b)\) has every principal minor nonzero.
+Lemma~\ref{lem:sr-curve-discriminant} now gives an \(m\)
+for which \(Mr(u)^m\) has separable characteristic polynomial.
+It is \(r(tb u^m)\), and \(tb u^m\in O\cap G'\).
+
+On the two-plus-one branch diagonalize the rank-two block
+of \(r(u)\); its remaining scalar is the middle-line value.
+The rank-two restriction is irreducible on every open subgroup
+of \(Q\), as proved above.
+Choose \(b\in Q\) so that the two diagonal entries of
+the rank-two block of \(r(t)r(b)\) are nonzero.
+The scalar block is nonzero because it is a character.
+Every principal minor of the resulting three-by-three
+block matrix is nonzero: the mixed two-by-two minors are
+that scalar times a diagonal entry, the remaining
+two-by-two minor is the invertible rank-two determinant,
+and the full determinant is their product.
+Apply Lemma~\ref{lem:sr-curve-discriminant} to the full
+three-by-three matrix and its full free-ratio tuple.
+The same element \(tb u^m\) works.
+
+Separable characteristic polynomials descend from
+\(\overline F\) to \(F\), since extension of fields preserves
+the nonvanishing of their discriminant.
+This proves exactly the regular-density condition
+usually denoted \(N3\), before taking finite lists of
+simultaneously regular detectors.
+\end{proof}
+
+The arithmetic content used here is the actual nonvanishing
+of the local character differences on the selected curve,
+the residual local distinction, and the representation type
+of that curve.  Selecting curves with these properties and
+placing them in the required common support remain the
+separate curve-selection and support arguments.
+The elementary density proof introduces no additional
+automorphy assumption or fixed positive-characteristic
+valuation on \(\overline F\).
+
+For correspondence with the frozen development, the relevant
+paths under \srcid{CurveDVRSpecialization} are
+\srcid{NiceSep}, \srcid{IrrNormal}, \srcid{CliffPrime},
+\srcid{NiceIrr}, \srcid{NiceIrrE},
+\srcid{LinClosedOfAdic}, \srcid{RegCoset},
+\srcid{RegCosetE}, and
+\srcid{NiceSpecializationTwistSatisfiesThirdCondition}.
+The closed-zero-set argument above replaces the more general
+abstract exponential-sum/full-matrix construction by a direct
+argument on the actual profinite curve points.
+
+
+\subsection{The remaining two local nice-point conditions}
+\begin{srproposition}[The distinguished local invariant space]
+\label{prop:sr-curve-N4}
+Let \(r:G\to\mathrm{GL}_n(A)\) have the prescribed residual
+determinant. Suppose a distinguished local image \(D_0\)
+has the following two properties:
+all residual \(\chi_i|_{D_0}\) agree, and some \(g\in D_0\)
+has \(\overline\epsilon(g)\ne1\).
+Then
+\[
+ \{Y\in M_n(F):
+      \epsilon(g)r(g)Y=Yr(g)\text{ for every }g\in D_0\}=0.
+\]
+The assertion holds for every point of that same residual
+determinant and in every rank.
+\end{srproposition}
+\begin{proof}
+The zero-rank case is immediate.
+Use just the distinguished \(g\).
+Write \(C=r(g)\), \(e=\epsilon(g)\), and let
+\(c\in k^\times\subset A^\times\) be its common residual
+character value.
+Cayley--Hamilton applied after reduction gives
+\((C-cI)^n\in T M_n(A)\).
+Put \(N=C-cI\) and \(V=eC-cI\).
+Modulo \(T\),
+\[
+                  V=(\overline e-1)cI+\overline e\,N.
+\]
+This is invertible: a nonzero scalar plus a commuting
+nilpotent matrix has inverse given by a finite geometric
+series. Its determinant is a unit of \(A\), so \(V\) is
+invertible over \(A\).
+
+Clear a common denominator of \(Y\), so \(Y\in M_n(A)\).
+The assumed equation is \(VY=YN\).
+Induction gives \(V^nY=YN^n\).
+Write \(N^n=TQ\), with \(Q\in M_n(A)\); then
+\[
+                         Y=T V^{-n}YQ.
+\]
+Iterating this equality shows every entry of \(Y\) belongs
+to \(T^jA\) for every \(j\).
+Their intersection is zero, so \(Y=0\).
+Clearing denominators was injective, which proves the
+assertion over \(F\).
+\end{proof}
+
+For the generic principal packet over
+\(K=\mathbb Q(\sqrt{-3})\), this local condition can itself
+be arranged concretely.
+Here \(3\nmid\ell N\), \(\ell\) is odd, and
+\(\psi(-1)=(-1)^a\).
+Choose a prime \(p\), outside any prescribed finite set, with
+\[
+                       p\equiv-1\pmod{\ell N},
+                       \qquad p\equiv1\pmod3.
+\]
+The Chinese remainder theorem gives a reduced residue
+class, and Dirichlet's theorem supplies infinitely many
+such primes.
+It splits in \(K\).
+Its residual arithmetic Frobenius has
+\(\overline\epsilon(p)=-1\) and
+\[
+           \overline\epsilon(p)^a\overline\psi(p)
+                     =(-1)^a\overline\psi(-1)=1.
+\]
+The three residual characters are therefore all equal
+on its full decomposition group, after the common scalar
+link twist; inertia is trivial in the residual characters
+at this prime.
+At the initial imaginary-quadratic packet, taking that local
+group for \(D_0\) gives exactly the hypotheses of
+Proposition~\ref{prop:sr-curve-N4}.  When the arithmetic link
+passes to a further CM tower, it must retain these two
+local properties; the initial congruence calculation alone
+does not establish that transfer, since a residue-degree
+power can change the cyclotomic value.
+The local level introduced to obtain this distinguished
+place must subsequently be removed by the two-link argument.
+No bound for the least such prime is used here.
+For other residual packets the two displayed local
+properties must be checked separately.
+
+Finally, the ordered ordinary condition \(N1\) follows from
+the same local separation used above.
+Choose its free-ratio element in the full cyclotomic kernel.
+The \(\psi_i\) are pairwise unequal there.
+If \(\psi_i=\psi_j\epsilon\) with \(i<j\), their values
+would also be equal on this element, because
+\(\epsilon=1\) there.  This is a contradiction.
+Consequently the selected rank-three curves satisfy \(N1\)
+and \(N3\).  Whenever the selected link supplies the
+explicit distinguished-place condition \(\mathrm{V0ok}\),
+they also satisfy \(N4\) by the full matrix argument above. Their stable and two-plus-one type conditions are
+the ones retained throughout the preceding arguments.
+
+The general \(N4\) calculation corresponds to
+\srcid{WeakShimuraTheory/ProjectiveLineFlags/ContinuousLinearClosed.lean},
+\srcid{P1.n4V0}.  Its hypothesis is the explicit residual
+local condition \srcid{V0ok}; a global no-self-twist or
+no-Speh condition is not substituted for it.

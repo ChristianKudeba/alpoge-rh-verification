@@ -839,6 +839,67 @@ strong-open restriction lemma, completing the exact packet
 needed by the Gaussian counting argument.
 \end{proof}
 
+\begin{srlemma}[The actual Gaussian automorphic level]
+\label{lem:sr-gaussian-actual-level}
+For the points in Proposition~\ref{prop:sr-gaussian-rigidity},
+the automorphic representation attached to
+\(\widehat\rho=\rho\epsilon_\ell^{-1}\) has fixed cohomological
+weight and conductor ideal dividing
+\((N\mathcal O_K)^2\). In particular its conductor norm is
+at most \(N^4\).
+\end{srlemma}
+\begin{proof}
+At a finite place \(w\mid p\), with \(p\ne\ell\), the actual strict point has
+inertia type
+\(1\oplus\psi_K\oplus\psi_K^{-1}\), where
+\(\psi_K=\psi|_{G_K}\).
+This follows from the actual defining local relations in
+both cases. At the designated diagonal places the inertial
+matrix is conjugate to the prescribed diagonal matrix.
+At the other places it kills the inertia subgroup where
+the prescribed residual character is trivial.
+After restriction to \(G_K\), the remaining quotient is a finite cyclic \(2\)-group.
+Since \(\ell\ne2\), reduction identifies its finite
+characters uniquely, giving the stated three characters.
+Its inertia image is finite and hence its monodromy is zero.
+Thus the Artin conductor exponent is
+\[
+ a_w(\widehat\rho)=a_w(\rho)=2a_w(\psi_K).
+\]
+
+Restriction of the rational finite character gives
+\(\operatorname{cond}(\psi_K)\mid N\mathcal O_K\).
+One can check this directly by local reciprocity:
+a unit congruent to \(1\) modulo \(N\mathcal O_{K_w}\)
+has norm congruent to \(1\) modulo \(N\mathbb Z_p\)
+over the corresponding rational completion, so the
+rational character is trivial on its norm.
+This argument also covers the ramified place above \(2\).
+
+At the place above the coefficient prime \(\ell\),
+apply Lemma~\ref{lem:sr-gaussian-local-ratios} to the
+constant first-order lift.
+It shows that the actual representation \(\rho\), and
+therefore \(\widehat\rho\), is crystalline.
+Its Weil--Deligne representation is unramified with zero
+monodromy.
+Full local--global compatibility for the actual automorphic
+representation transfers all these conductor exponents
+to its local factors.
+Consequently its conductor divides
+\(\operatorname{cond}(\psi_K)^2\mid(N\mathcal O_K)^2\).
+The latter ideal has norm \(N^4\).
+
+The ordinary weights of \(\rho\) are \((1,0,-1)\);
+those of \(\widehat\rho\) are \((0,-1,-2)\), in the
+cyclotomic-exponent convention.
+They determine a fixed regular cohomological weight at
+both embeddings of \(K\), independent of the finite
+character order.
+This is the fixed-weight actual family to which the
+polynomial automorphic counting input is applied.
+\end{proof}
+
 \paragraph{Uniform size of the two Gaussian branches.}
 If \(2^c<R_1(3)\), then \(c\le13\) and the full principal
 character order is at most \(2^{11}\).
@@ -856,8 +917,10 @@ Its Gaussian prime has norm \(121\).
 The counting family must include both marked embeddings;
 a count of rational isomorphism classes alone does not
 bound the normalized coefficient length.
-With the marked count constant \(C_G\) and polynomial
-level exponent \(A_G\), the comparison gives
+Applying the proved polynomial level/weight-count input to
+Lemma~\ref{lem:sr-gaussian-actual-level}, and enlarging its
+fixed exponent to absorb conductor norm \(N^4\), gives fixed
+marked-count constants \(C_G,A_G\). The comparison then gives
 \[
  (\log\ell)v_{\ell,1}(\psi)
  \le4C_G\varphi(N)(2N)^{A_G}\log11

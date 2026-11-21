@@ -1,0 +1,324 @@
+\section{A quadratic CM period witness with the required metric}
+\label{sec:sr-quadratic-period-witness}
+
+The flat determinant comparison uses the quadratic subfield
+\[
+                  K=\mathbb Q(\sqrt{-D}),
+                  \qquad D=\operatorname{Host.d}.
+\]
+This is the coordinate selected by
+\(\operatorname{Host.rt}^2=-D\).
+It is not the other quadratic coordinate
+\(\mathbb Q(\sqrt{-\operatorname{Host.q}})\).
+Here \(D\ge7\) is squarefree and \(D\equiv3\pmod4\);
+thus \(\operatorname{disc}K=-D\).
+Write \(\chi=\chi_{-D}\) for the primitive odd quadratic
+Dirichlet character.
+
+We construct the elliptic period witness and compute its
+normalization.  We use the first main theorem of elliptic
+complex multiplication, in the form that CM \(j\)-invariants
+are integral and that the Hilbert class field acts
+transitively through the ideal classes.
+A reference with these precise assertions is Milne,
+\emph{Modular Functions and Modular Forms},
+Corollary~12.16 and Theorem~12.18,
+\url{https://www.jmilne.org/math/CourseNotes/MF110.pdf}.
+We also use potential good reduction for an elliptic curve
+with integral \(j\), as in Silverman,
+\emph{The Arithmetic of Elliptic Curves}, VII.5.5,
+\url{https://www.math.ens.psl.eu/~obenoist/refs/Silverman.pdf}.
+The analytic mean formula is derived below.
+
+\subsection{The integral curve and its tangent generator}
+
+Begin with the complex elliptic curve
+\(\mathbb C/\mathcal O_K\), with its canonical principal
+polarization and its \(\mathcal O_K\)-action.
+Complex multiplication supplies a number field of definition.
+Enlarge it to contain \(K\) and to define the endomorphisms.
+Its integral \(j\)-invariant implies potential good reduction
+at every finite prime.  A single finite extension gives good
+reduction at all primes: there are only finitely many bad
+primes, one may realize the required local extensions by
+approximation, and good reduction persists under further
+base change.
+We obtain an elliptic scheme \(\mathcal C/\mathcal O_M\)
+with its canonical principal polarization.
+Its generic-fiber endomorphisms extend to the scheme by the
+N\'eron property of a good elliptic model.
+
+We may further arrange that the Hodge line
+\(e^*\Omega^1_{\mathcal C/\mathcal O_M}\) is free.
+Indeed represent it by an invertible fractional ideal \(I\).
+Choose \(h\ge1\) with \(I^h=(\alpha)\), and adjoin an
+\(h\)-th root \(b\) of \(\alpha\).
+Then \((I\mathcal O_{M'})^h=(b)^h\).
+The fractional-ideal group of the Dedekind ring
+\(\mathcal O_{M'}\) has no torsion, so
+\(I\mathcal O_{M'}=(b)\).
+Taking this base change and, if desired, its normal closure
+makes the Hodge line free without losing good reduction.
+
+Choose a basis \(\omega\) of the Hodge line, and let \(v\)
+be its dual integral tangent generator.
+Use the \(\mathcal O_K\)-action for which
+\[
+               w=(1+\sqrt{-D})/2
+\]
+acts at the distinguished complex embedding by that scalar.
+The same scalar identity holds on the one-dimensional
+generic Lie algebra and on its integral lattice, since
+both maps are integral and agree generically.
+In particular
+\[
+                     w^2-w+(1+D)/4=0
+\]
+is the derivative relation required in the period witness.
+The Rosati involution is conjugation on \(\mathcal O_K\).
+We also choose the representing line bundle to satisfy
+the source's primitive-pairing identity, not only equality
+of polarizations.  On rigidified line bundles let
+\(T(L)\) be the cubical pairing pulled back by \(1,w\).
+The theorem of the cube makes \(T\) additive and makes
+it kill \(\operatorname{Pic}^0\).
+On the N\'eron--Severi group its action is multiplication
+by \(w+\overline w=1\).
+Therefore \(T^2=T\): the quotient \(T(L)/L\) is in
+\(\operatorname{Pic}^0\), where \(T\) is zero.
+Starting with the symmetric degree-one bundle of the
+zero section, choose its image under \(T\).
+It is again symmetric of degree one and represents the
+same principal polarization, and now
+\(T(L)\simeq L\) as rigidified line bundles.
+The identity extends over the good model; the relative
+Picard scheme is separated and the rigidification
+removes a line pulled back from the base.
+This is precisely \srcid{Ell.prim}.
+The metric on the tangent space depends on the
+polarization, so this choice does not change its
+normalization.
+At the distinguished embedding the period lattice is
+homothetic to \(\mathcal O_K=\mathbb Z+\mathbb Zw\),
+because the chosen complex curve was
+\(\mathbb C/\mathcal O_K\).
+No assertion that every Galois conjugate is in the principal
+ideal class is needed.
+
+For an embedding \(\sigma:M\hookrightarrow\mathbb C\), write
+the period lattice for \(\omega\) as
+\[
+                   \Lambda_\sigma=
+                     \Omega_\sigma(\mathbb Z+\tau_\sigma\mathbb Z),
+       \qquad y_\sigma=\operatorname{Im}\tau_\sigma>0 .
+\]
+The principal polarization has Hermitian form
+\(|z|^2/\operatorname{area}(\Lambda_\sigma)\).
+The source defines the tangent norm by multiplying this
+form by \(\pi\).
+Since \(\omega(v)=1\), its squared tangent norm is therefore
+\begin{equation}\label{eq:sr-cm-tangent-norm}
+                  n_\sigma=
+                   \frac{\pi}{|\Omega_\sigma|^2y_\sigma}.
+\end{equation}
+This fixes the normalization directly, without choosing
+among conventions for Faltings metrics.
+
+The canonical discriminant section is a nowhere-zero
+section of the twelfth Hodge power on a good elliptic scheme.
+Relative to \(\omega^{12}\) its coefficient
+\(\Delta_\omega\) is an algebraic unit.
+The analytic discriminant identity is
+\[
+             \sigma(\Delta_\omega)
+               =(2\pi)^{12}\Omega_\sigma^{-12}
+                                      \eta(\tau_\sigma)^{24}.
+\]
+It follows either from the usual Weierstrass
+\(g_2^3-27g_3^2\) identity, with invariant differential
+\(dz\), or by comparing its weight-twelve Fourier
+expansion at the cusp.
+The product formula for the unit gives
+\[
+ \frac1{[M:\mathbb Q]}\sum_\sigma\log|\Omega_\sigma|
+       =\log(2\pi)+
+          \frac2{[M:\mathbb Q]}\sum_\sigma
+                                      \log|\eta(\tau_\sigma)|.
+\]
+Combining this with
+\eqref{eq:sr-cm-tangent-norm} yields
+\begin{equation}\label{eq:sr-cm-eta-mean}
+ -\frac1{[M:\mathbb Q]}\sum_\sigma\log n_\sigma
+       =\frac1{[M:\mathbb Q]}\sum_\sigma
+                  \log\!\left(4\pi y_\sigma
+                                      |\eta(\tau_\sigma)|^4\right).
+\end{equation}
+CM reciprocity distributes the ideal classes uniformly
+among these embeddings.
+Passing to a finite extension repeats each embedding the
+same number of times.  Complex conjugation preserves
+\(y|\eta(\tau)|^4\).
+Consequently the right side is the uniform average over
+the \(h_K\) ideal classes, with \(\tau_\mathfrak a\)
+any corresponding upper-half-plane class point.
+
+\subsection{The mean from Poisson summation}
+
+Put
+\[
+ \mathcal E(\tau,s)
+    =\sum_{(m,n)\ne(0,0)}
+                  \frac{y^s}{|m+n\tau|^{2s}}
+                  \qquad(\operatorname{Re}s>1).
+\]
+Mellin inversion of the Gaussian and one-dimensional
+Poisson summation give
+\[
+ \begin{split}
+ \mathcal E(\tau,s)
+   ={}&2\zeta(2s)y^s
+       +2\sqrt\pi\,
+          \frac{\Gamma(s-\tfrac12)}{\Gamma(s)}
+                         \zeta(2s-1)y^{1-s}\\
+     &+\frac{8\pi^s\sqrt y}{\Gamma(s)}
+        \sum_{m,n\ge1}(m/n)^{s-1/2}
+           K_{s-1/2}(2\pi mn y)\cos(2\pi mn\,\operatorname{Re}\tau).
+ \end{split}
+\]
+To obtain it, separate \(n=0\), write each remaining
+power as its Gaussian Mellin integral, and Poisson-sum
+the \(m\)-variable.
+The zero Fourier mode is the gamma quotient in the first
+line, and the two opposite nonzero modes combine into
+the cosine in the second.
+For fixed \(y>0\), the second line converges normally
+near \(s=1\), by exponential decay in \(mn y\).
+
+At \(s=1\) use
+\(K_{1/2}(t)=\sqrt{\pi/(2t)}e^{-t}\),
+\(\Gamma'(\tfrac12)/\Gamma(\tfrac12)
+-\Gamma'(1)/\Gamma(1)=-2\log2\),
+and
+\[
+ \log|\eta(\tau)|
+     =-\pi y/12-
+         \sum_{m,n\ge1}\frac{e^{-2\pi mn y}}n
+                       \cos(2\pi mn\,\operatorname{Re}\tau).
+\]
+The term \(2\zeta(2)y=\pi^2y/3\) cancels the
+linear \(y\)-term from the eta product.
+The resulting Laurent expansion is
+\begin{equation}\label{eq:sr-cm-limit-formula}
+ \mathcal E(\tau,s)
+       =\frac{\pi}{s-1}
+           +2\pi\{\gamma-\log2-
+                         \log(\sqrt y|\eta(\tau)|^2)\}
+           +O(s-1).
+\end{equation}
+All identities here use ordinary Lebesgue measure and
+the Gaussian whose Fourier transform is itself.
+
+Let \(u_K=|\mathcal O_K^\times|\).
+Writing a fractional ideal as
+\(\Omega(\mathbb Z+\tau\mathbb Z)\) and using
+\(\operatorname{area}(\mathfrak a)
+   =N(\mathfrak a)\sqrt D/2\)
+shows, by grouping nonzero elements modulo units, that
+\[
+ \zeta_K(s)=\frac1{u_K}
+           \left(\frac2{\sqrt D}\right)^s
+                         \sum_{[\mathfrak a]}
+                                     \mathcal E(\tau_\mathfrak a,s).
+\]
+This also fixes the factor \(2/\sqrt D\).
+On the other hand \(\zeta_K(s)=\zeta(s)L(s,\chi)\).
+Comparing residues in
+\eqref{eq:sr-cm-limit-formula} gives
+\[
+                     L(1,\chi)=
+                        \frac{2\pi h_K}{u_K\sqrt D}>0 .
+\]
+Comparing constant terms divided by the residue gives
+\[
+ \gamma+\frac{L'(1,\chi)}{L(1,\chi)}
+    =2\gamma-\log2-\tfrac12\log D
+       -\frac1{h_K}\sum_{[\mathfrak a]}
+                   \log\!\left(y_\mathfrak a
+                                  |\eta(\tau_\mathfrak a)|^4\right).
+\]
+Adding \(\log(4\pi)\) and using
+\eqref{eq:sr-cm-eta-mean} proves the exact period value
+\begin{equation}\label{eq:sr-cm-period-exact}
+ -\frac1{[M:\mathbb Q]}\sum_\sigma\log n_\sigma
+       =x_D
+       :=\gamma+\log(2\pi/\sqrt D)
+                            -\frac{L'(1,\chi)}{L(1,\chi)} .
+\end{equation}
+The value is real, since \(\chi\) is real and
+\(L(1,\chi)>0\).
+
+Thus the constructed integral elliptic curve with
+tangent generator satisfies precisely
+\(\srcid{Ell.HasPeriod}(x_D)\).
+Conjugating its \(\mathcal O_K\)-action gives the witness
+for the other root of \(-D\), with the same underlying
+polarized curve and the same mean norm.
+The construction can be based-changed to contain any
+fixed number field needed by the host; the normalized
+mean in \eqref{eq:sr-cm-period-exact} is preserved.
+
+\subsection{The host discriminant correction}
+
+For the larger CM host \(E\), the source defines
+\[
+ \operatorname{logOm}(E,\chi)
+    =\gamma+\log(2\pi/\operatorname{rd}E)
+                            -\frac{L'(1,\chi)}{L(1,\chi)} .
+\]
+Consequently the precise relation between its parameter
+and the quadratic elliptic period is
+\begin{equation}\label{eq:sr-cm-period-host}
+ \operatorname{Re}\operatorname{logOm}(E,\chi)
+       =x_D-\log\operatorname{rd}E+\log\sqrt D .
+\end{equation}
+Replacing \(\sqrt D\) by \(\operatorname{rd}E\) inside
+the elliptic formula would lose this correction.
+
+There is an equally concrete finite-place correction
+when passing from the raw flat-frame norm to the
+normalized determinant ratio.
+For an embedding \(E\hookrightarrow M\), let
+\[
+ D_v=\log\|\mathfrak D_{E/\mathbb Q}\|_v
+\]
+use the source's ideal-log convention, in which the
+normalized sum over finite places and embeddings is
+\(-\log\operatorname{rd}E\).
+The product formula gives the normalized finite sum of
+\(\log|D|_v\) as \(-\log D\).
+Thus the correction
+\[
+                       q(D_v-\log|D|_v)
+\]
+has normalized finite sum
+\(q(\log D-\log\operatorname{rd}E)\).
+Adding it to the finite log norm subtracts this quantity
+from its Arakelov degree.
+In particular the raw degree
+\[
+ \frac{p-q}{2}\operatorname{Re}\operatorname{logOm}(E,\chi)
+          +q(\log D-\log\operatorname{rd}E)
+\]
+becomes exactly
+\[
+                 \frac{p-q}{2}
+                       \operatorname{Re}\operatorname{logOm}(E,\chi).
+\]
+This is the correction in
+\srcid{KroneckerCharacterPeriodFormula.degree\_frames}.
+The calculation checks its sign and normalizes the
+period witnesses just constructed.
+It does not replace the separate assertion that a
+given global flat frame has these integral local norms,
+nor does it construct the root tower required for
+\srcid{CovolumeBoundOfX}.

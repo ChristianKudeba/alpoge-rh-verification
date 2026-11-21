@@ -1509,3 +1509,780 @@ unitary Hecke-module realization.
 % PatchingModules/AutomorphicDetection/PfromAut.lean;
 % ModularityArgument/ThresholdArguments/DenseThresholdCases/
 % THidaU.lean, ExistsHeckeIdeal.lean, UnitaryHeckeData.lean.
+
+\subsection{The arithmetic Hecke quotient on the Case II tower}
+\label{subsec:sr-case-two-hecke}
+We identify the automorphic algebra in the rank-four support
+calculation with the ordinary modules of
+Section~\ref{sec:sr-ordinary-control}.
+The coefficient lattice, local types and operator
+normalizations must be the same on both sides.
+
+Keep an actual Case II tower. Write \(F\) for its totally real
+field, \(L=FK\) for its CM field, and \(S\) for the finite
+ramification set, including the places above \(\ell\) and the
+distinguished auxiliary place \(v_0\).
+The tower conditions give
+\[
+ L/F\ \hbox{unramified at every finite place},\qquad
+ v\in S\Longrightarrow v\ \hbox{splits in }L,\qquad
+ [F:\mathbb Q]>1 .
+ \tag{H1}
+\]
+The last assertion follows from the deep layer.
+The definite rank-four unitary group is quasi-split at every
+finite place: its global existence parity is satisfied since
+\(4[F:\mathbb Q]/2=2[F:\mathbb Q]\) is even.
+
+We use classical automorphic theorems in the following scope.
+Base change of a classical representation on this definite
+unitary group is an isobaric sum of discrete
+conjugate-self-dual general-linear representations.
+This is Labesse's Corollary 5.3 in
+\emph{Changement de base CM et s\'eries discr\`etes}; see
+\href{https://arxiv.org/pdf/0906.4189}{Guerberoff, Theorem 2.2}.
+Its field, degree and finite quasi-splitness hypotheses
+are (H1).
+For the cuspidal seed's descent with specified local factors,
+one can use
+\href{https://arxiv.org/pdf/1409.3731}
+{Kaletha--M\'inguez--Shin--White, Theorem 1.7.1}
+in its proved generic-parameter, pure-inner-twist case
+(the qualification immediately following the theorem).
+Our definite hermitian group is a pure inner form.
+The simple cuspidal parameter has trivial global component
+group modulo the center. Thus one may choose its prescribed
+split local members, its spherical nonsplit members, and
+its compact cohomological archimedean members.
+There is no remaining global multiplicity-character condition.
+The existence parity was checked above. No general
+nongeneric starred case of that theorem is used.
+Attached semisimple Galois representations are supplied by
+Guerberoff, Theorem 2.3.
+For their cuspidal constituents we use the polarization and
+full local--global compatibility of
+\href{https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf}
+{Barnet--Lamb--Gee--Geraghty--Taylor, Theorem 2.1.1}.
+At \(\ell\), potential semistability and compatibility can be
+checked after killing the finite inducing characters, where
+the local representation is Iwahori-spherical.
+The ordinary local flag has the characters determined by
+the unit and uniformizer equations below.
+These inputs concern already automorphic representations;
+none asserts automorphy of an arbitrary deformation.
+
+\subsubsection{The local lattice and the weight normalization}
+Let \(\mathcal O\) be a finite coefficient DVR, enlarged to contain
+the needed finite character values, and let
+\(\bar\chi_0,\ldots,\bar\chi_3\) be the link's residual
+characters on \(G_L\).
+At a split tame place \(u\), put
+\[
+                 \tau_u=\bigoplus_{i=0}^3
+                       [\bar\chi_i]|_{I_{L_w}},
+ \tag{H2}
+\]
+where brackets denote finite Teichm\"uller lifts.
+This is a finite-image inertial type extending to the Weil group.
+
+The local type used here must detect zero monodromy.
+The Schneider--Zink type \(\sigma^{\rm crys}(\tau_u)\)
+is finite dimensional and smooth on
+\(\mathrm{GL}_4(\mathcal O_{L_w})\), and occurs in a smooth
+irreducible \(\pi_w\) exactly when
+\(\operatorname{rec}(\pi_w)|_I=\tau_u\) and \(N_{\rm WD}=0\).
+A precise formulation is
+\href{https://math.uchicago.edu/~emerton/pdffiles/bonn-lectures-survey-article.pdf}
+{Emerton--Gee, Theorem 9.2.4}.
+Use the contragredient in the function coefficient module:
+\[
+              \tau_0=\bigotimes_u
+                              \sigma^{\rm crys}(\tau_u)^\vee .
+ \tag{H3}
+\]
+Invariants of \(\tau_0\otimes\pi_w\) are then
+\(\operatorname{Hom}(\sigma^{\rm crys}(\tau_u),\pi_w)\),
+which fixes the dual convention.
+
+There is a finite-free stable integral lattice in (H3)
+over a finite coefficient extension.
+Each compact representation factors through a finite quotient.
+Its finitely many matrices and inverses are defined over
+a finite extension; the sum of the finite orbit of a full
+lattice is stable.
+Tensor these lattices over the finitely many places.
+No order of a finite quotient is inverted.
+
+After the prescribed finite local torsion is fixed, the
+inertial weight algebra is an actual power-series algebra
+\[
+ \Lambda\simeq
+ \mathcal O[[X_{vij}:v\mid\ell,\ 0\le i<4,\ 1\le j\le d_v]],
+           \qquad d_v=[L_w:\mathbb Q_\ell].
+ \tag{H4}
+\]
+It represents the free pro-\(\ell\) unit quotients at
+the selected \(w\mid v\).
+Write \(\kappa_{vi}\) for its universal inertial characters.
+Use the source's local reciprocity convention and define
+the torus character \(\theta\) by
+\[
+ \kappa_{vi}(g)\epsilon_\ell(g)^i
+                  \theta(e_{vi}(y))=1,\qquad
+            \operatorname{Art}_v(g)=y\in\mathcal O_{L_w}^{\times}.
+ \tag{H5}
+\]
+Here \(e_{vi}(y)\) has \(y\) in coordinate \(i\).
+Local reciprocity makes (H5) well-defined and continuous.
+The function model uses \(\theta^{-1}\).
+Thus the factor \(\epsilon_\ell^i\) is part of the
+normalization, and is retained.
+
+For the commuting normalized ordinary operators, indexed
+by \(0\le j<4\), the same convention gives
+\[
+       U_{vj}=\prod_{i=0}^{j}
+                  \psi_{vi}(g_v)\epsilon_\ell(g_v)^i,
+                  \qquad\operatorname{Art}_v(g_v)=\varpi_v .
+ \tag{H6}
+\]
+Away from \(S\), the residual spherical values are specified by
+\[
+ \begin{split}
+ P_w(X)&=\prod_{i=0}^3
+          (X-\bar\chi_i(\operatorname{Frob}_w^{-1}))\\
+       &=\sum_{j=0}^{4}(-1)^j
+                  q_w^{j(j-1)/2}\bar a_{wj}X^{4-j},
+                        \qquad\bar a_{w0}=1 .
+ \end{split}
+ \tag{H7}
+\]
+Since \(q_w\) is a unit in the residue field, these
+\(\bar a_{wj}\) are uniquely determined.
+The residual ordinary values are those of (H6).
+Choose arbitrary integral lifts; the simultaneous residual
+localization depends only on their reductions.
+
+\subsubsection{Separation by classical specializations}
+Let \(M\) be the corresponding residual direct summand of
+the constructed ordinary function module, with lattice (H3)
+and character (H5).
+It is finite free over \(\Lambda\), by the ordinary projector
+and coefficient-change proofs, also after the direct-summand
+projection. If the residual system does not occur, set \(M=0\).
+Otherwise let
+\[
+              \mathbb T\subseteq\operatorname{End}_\Lambda(M)
+ \tag{H8}
+\]
+be the closed algebra generated by the selected spherical,
+ordinary and scalar operators.
+It is commutative: this is spherical and ordinary Iwahori
+commutativity, and commutativity at disjoint places.
+It is finite and torsion free over \(\Lambda\), because
+it is a submodule of the finite endomorphism module over
+the Noetherian domain \(\Lambda\).
+
+\begin{srlemma}\label{lem:sr-unitary-classical-separation}
+The evaluations of \(\mathbb T\) at actual classical ordinary
+eigensystems separate its elements.
+One may use a single fixed regular algebraic weight,
+varying finite-order characters above \(\ell\), and require
+the four finite inertial characters at each selected
+place to be pairwise distinct.
+Consequently \(\mathbb T\) is reduced.
+\end{srlemma}
+\begin{proof}
+In the free coordinates (H4), fix the algebraic part.
+Finite-order twists assign roots of unity of \(\ell\)-power
+order to a basis of the free pro-\(\ell\) quotient,
+after multiplication by the fixed characters for that
+algebraic part.
+They respect the prescribed finite torsion.
+The resulting coordinate values, after subtracting \(1\),
+have absolute value less than one.
+Each assignment lies in a finite coefficient extension.
+
+These assignments are Zariski dense for integral power series.
+In one variable a nonzero element of \(\mathcal O[[X]]\)
+has only finitely many zeros in the open unit disc.
+Divide out its coefficient-content power of the uniformizer
+and apply Weierstrass preparation at the first unit coefficient;
+the remaining power-series factor is a unit on that disc.
+It cannot vanish at every allowed torsion value.
+For several variables, specialize all but one and induct.
+The same proof permits finitely many values to be excluded
+in each free coordinate.
+As \(d_v>0\), it permits all equalities between the four
+finite inertial characters to be excluded at each place.
+
+At such a weight, coefficient and classical control identify
+\(M\) with actual classical ordinary forms; a specialized
+\(\Lambda\)-basis remains linearly independent.
+The definite automorphic space is semisimple.
+Its unramified operators act by their Satake characters.
+At \(\ell\), distinct finite inertial characters exclude
+linked inducing characters and monodromy between them.
+The ordered Jacquet line has the specified unit and
+uniformizer characters.
+The commuting normalized ordinary operators act on that
+line by one eigencharacter, and act by the same scalars
+on repeated automorphic copies.
+The selected commuting algebra is therefore a sum of its
+eigenspaces on this classical ordinary space.
+
+If \(t\in\mathbb T\) vanishes at every such eigencharacter,
+it acts as zero in every such specialization of \(M\).
+Each entry of its action matrix in a \(\Lambda\)-basis
+vanishes on the dense set just proved, hence is zero.
+The faithful inclusion (H8) gives \(t=0\).
+A nilpotent element vanishes at every field-valued character,
+so \(\mathbb T\) is reduced.
+\end{proof}
+
+\subsubsection{Integral interpolation at the prime three}
+\begin{srlemma}\label{lem:sr-compact-determinant-interpolation}
+Let \(T\) be a compact Hausdorff commutative ring, and
+\(x_\alpha:T\to E_\alpha\) a separating family of continuous
+maps to characteristic-zero fields.
+Let \(\Gamma\) be profinite and
+\(r_\alpha:\Gamma\to\mathrm{GL}_n(E_\alpha)\) continuous.
+Suppose that on a dense union of conjugacy classes their
+characteristic polynomials are specializations of
+polynomials in \(T[X]\).
+There is then a unique continuous \(n\)-dimensional
+determinant on \(T[\Gamma]\) with these specializations.
+No integer up to \(n!\) is inverted.
+\end{srlemma}
+\begin{proof}
+The injection \(T\to\prod_\alpha E_\alpha\) is a
+homeomorphism onto a closed subring, by compactness and
+the Hausdorff property.
+For \(g\in\Gamma\), its tuple of characteristic coefficients
+is a limit of the corresponding tuples on the dense set.
+Conjugation leaves these unchanged.
+Thus they belong to \(T\), and their maps \(\Gamma\to T\)
+are continuous.
+
+Characteristic polynomials suffice without dividing power
+sums by \(1,\ldots,n\).
+For finitely many matrices \(A_1,\ldots,A_s\), the integral
+Amitsur identity is
+\[
+ \det(1-\textstyle\sum_i t_iA_i)
+       =\prod_{[w]\ {\rm primitive}}\det(1-t_wA_w).
+ \tag{H9}
+\]
+The product is over primitive cyclic words, and \(A_w,t_w\)
+are the matrix word and its commuting monomial.
+In bounded degree only finitely many factors contribute.
+For generic matrices over \(\mathbb Z\), prove this over
+\(\mathbb Q\) by formal logarithms and grouping traces
+into cyclic words.
+Both sides have integral coefficients, so this proves
+an identity over \(\mathbb Z\), valid after arbitrary
+scalar extension.
+
+Apply (H9) to \(A_i=r_\alpha(g_i)\).
+Every factor is a characteristic polynomial of a group
+word, whose coefficients already belong to \(T\).
+Hence every coefficient on the left belongs to \(T\).
+This defines the degree-\(n\) polynomial law on finite
+sums in \(T[\Gamma]\).
+Multiplicativity, the unit and scalar-extension identities
+hold after every separating \(x_\alpha\), and therefore
+over \(T\). The same argument proves uniqueness.
+The characteristic-coefficient continuity above gives
+its profinite continuity.
+\end{proof}
+
+Apply this lemma to (H8) and
+Lemma~\ref{lem:sr-unitary-classical-separation}.
+The finite algebra \(\mathbb T\) over the compact
+power-series ring \(\Lambda\) is compact.
+Its arithmetic maps are continuous and lie in finite
+coefficient extensions, by the automatic-continuity
+argument following classical control.
+The attached classical semisimple representations give
+the \(r_\alpha\).
+Chebotarev supplies the dense conjugacy classes and
+(H7), with Hecke operators, supplies their polynomials.
+This constructs an actual continuous determinant
+\(D_{\mathbb T}\).
+
+We record the normalization for arbitrary discrete constituents,
+including odd-dimensional ones.
+This is the auxiliary-character construction in the proof
+of Guerberoff's realization theorem, made explicit in rank four.
+Write the discrete base change as
+\(\boxplus_i\Pi_i\), of ranks \(n_i\), with
+\(\sum_i n_i=4\).
+Choose a unitary anticyclotomic Hecke character \(\eta_i\),
+unramified at any prescribed finite set including the
+places above \(\ell\), whose infinity type is
+\[
+ \eta_{i,\tau}(z)=(z/|z|)^{\delta_{i,\tau}},
+ \quad
+ \delta_{i,\tau}=0\ \hbox{if }4-n_i\ \hbox{is even},
+ \quad
+ \delta_{i,\tau}\in\{1,-1\}\ \hbox{otherwise}.
+ \tag{H10a}
+\]
+The signs at conjugate embeddings are opposite.
+The CM Hecke-character construction used in that theorem
+supplies these characters with the stated finite
+unramifiedness; for even \(n_i\) take \(\eta_i=1\).
+Then \(\Pi_i\eta_i\) is cohomological.
+The discrete-spectrum classification writes
+\[
+       \Pi_i\eta_i
+             =\boxplus_{j=0}^{b_i-1}
+                         \pi_i^0|\det|^j,\qquad n_i=a_i b_i,
+\]
+where \(\pi_i^0\) is cuspidal of rank \(a_i\) and
+\(\pi_i^0|\det|^{(b_i-1)/2}\) is conjugate self-dual.
+
+Choose a second unitary anticyclotomic character \(\xi_i\),
+again unramified at the prescribed finite set, with angular
+infinity exponent \(0\) if \(a_i\) or \(b_i\) is odd,
+and exponent \(1\) or \(-1\) if both are even.
+Then
+\[
+       C_i=\pi_i^0\xi_i|\det|^{(b_i-1)/2}
+\]
+is cuspidal, cohomological and conjugate self-dual.
+The two Hecke characters
+\[
+ A_i=\xi_i^{-1}|\cdot|^{(a_i-1)(b_i-1)/2},
+       \qquad
+ B_i=\eta_i^{-1}|\cdot|^{(n_i-4)/2}
+ \tag{H10b}
+\]
+are \emph{algebraic}.
+Indeed an angular factor \((z/|z|)^\delta\) has
+exponents \(\delta/2,-\delta/2\), while the normalized
+complex norm has exponents \(1,1\).
+For \(A_i\), the integer
+\((a_i-1)(b_i-1)\) is odd exactly when both \(a_i,b_i\)
+are even, the case where the angular exponent is odd.
+For \(B_i\), \(n_i-4\) is odd exactly when the angular
+exponent in (H10a) is odd.
+Both pairs of resulting exponents are therefore integers.
+Only these algebraic products are converted into
+\(\ell\)-adic characters.
+
+Let \(r_{\ell,\iota}(C_i)\) use its rank-\(a_i\)
+normalization, and set
+\[
+ R_i=r_{\ell,\iota}(C_i)\,
+            \epsilon_\ell^{\,a_i-n_i}\,
+            r_{\ell,\iota}(A_i)\,
+            r_{\ell,\iota}(B_i).
+ \tag{H10c}
+\]
+All powers of \(\epsilon_\ell\) in this formula are integers.
+At a compatible finite place, the norm exponent in its
+parameter is
+\[
+ \frac{b_i-a_i}{2}+(a_i-n_i)
+       +\frac{(a_i-1)(b_i-1)}{2}
+       +\frac{n_i-4}{2}=-\frac32 .
+\]
+The factors \(\xi_i\) cancel and the remaining character
+is \(\eta_i^{-1}\).
+Thus \(R_i\) has parameter
+\(\operatorname{rec}(\pi_i^0\eta_i^{-1}|\det|^{-3/2})\).
+Consequently the total attached representation is
+\(\bigoplus_i\bigoplus_{j=0}^{b_i-1}R_i\epsilon_\ell^j\).
+Putting \(\rho_i'=R_i\epsilon_\ell^{b_i-1}\) and reversing
+the index gives exactly the form used below:
+\[
+             \bigoplus_i\ \bigoplus_{j=0}^{b_i-1}
+                                  \rho_i'\epsilon_\ell^{-j}.
+ \tag{H10}
+\]
+This proves the decomposition with actual continuous
+finite-coefficient Galois representations.
+It does not choose a square root of \(\epsilon_\ell\).
+The polarization and Hodge numbers are those of the
+definite-unitary realization; the auxiliary characters
+are untwisted by the algebraic products (H10b).
+
+The ordinary characters over \(\mathbb T\) are explicit.
+Set \(U_{v,-1}=1\); prescribe them on units by (H5)
+and on a uniformizer by
+\[
+        \psi_{vi}(g_v)\epsilon_\ell(g_v)^i
+                                  =U_{vi}U_{v,i-1}^{-1}.
+ \tag{H11}
+\]
+The ordinary operators are units in the complete local
+algebra \(\mathbb T\).
+Local reciprocity extends these data continuously:
+the local multiplicative group is the product of its
+units and the cyclic uniformizer group, whose map
+extends to its profinite completion since
+\(\mathbb T^\times\) is profinite.
+At each separating point these are the actual ordered
+Galois characters, by the two local equations and the
+ordinary flag.
+
+At the separating classical points the Galois local flags
+used above do not follow from semisimplified compatibility
+alone. Here is the additional check.
+Distinct finite inertial characters make the smooth local
+factor at \(\ell\) an irreducible principal series with
+zero-monodromy parameter.
+After a finite abelian extension killing those characters
+its parameter is unramified.
+Apply full compatibility and the crystalline assertion of
+the cuspidal Galois theorem, after a compatible solvable
+base change, and then restrict back.
+This proves potential crystallinity and the asserted
+finite inertial type, with zero monodromy.
+
+Over that local extension, order the Hodge numbers
+\(h_{\sigma0}<\cdots<h_{\sigma3}\) by the ordered ordinary
+characters. The normalized unit equations for \(U_{vj}\)
+say that the Newton number of the first \(j\) parameter
+lines is
+\(\sum_\sigma\sum_{i<j}h_{\sigma i}\).
+For any \(j\)-dimensional filtered subspace this is the
+minimum possible Hodge number.
+Weak admissibility gives the opposite inequality, so
+equality holds on these parameter subspaces.
+They are weakly admissible and yield Galois subrepresentations.
+Their successive rank-one quotients are the characters
+of (H5), (H11).
+Their distinct slopes make this flag canonical after the
+chosen ordering, so it descends.
+This supplies the actual ordinary flag, including its
+unit and uniformizer values.
+Both Galois-realization inputs used here apply at every
+odd coefficient prime; in particular rank four at
+\(\ell=3\) is included.
+\subsubsection{The quotient and its arithmetic points}
+Let \(B\) be the universal ordinary polarized determinant
+algebra for the same residual link and local characters.
+
+\begin{srproposition}\label{prop:sr-case-two-hecke-quotient}
+There is a continuous surjection
+\[
+                             B\longrightarrow\mathbb T
+ \tag{H12}
+\]
+compatible with \(\Lambda\), the Galois determinant and
+the ordered ordinary characters.
+Its kernel \(J_0\) is the actual automorphic ideal.
+The quotient \(B/J_0\) is finite and torsion free over
+\(\Lambda\), with dense classical arithmetic points.
+
+The normalized Case II seed defines an arithmetic point
+\(x\) of \(B\) with \(J_0\subseteq\ker x\).
+Every regular arithmetic point of \(B/J_0\) is realized
+by actual classical definite-unitary forms with the
+specified semisimple Galois determinant.
+If that Galois representation is irreducible, its
+general-linear base change is cuspidal.
+\end{srproposition}
+\begin{proof}
+At the separating classical points, the attached
+representations have the specified unitary polarization
+and ordered ordinary flags (H5), (H11).
+At tame type places they have inertia (H2) and zero
+monodromy, by (H3) and full local--global compatibility.
+They are unramified outside the specified ramification set.
+Thus the polarization, ordinary Cayley--Hamilton and
+killed-inertia relations hold at every separating point.
+They are polynomial determinant relations, so they hold
+over \(\mathbb T\).
+Equations (H7), (H6), Chebotarev and the integral identity
+(H9) give the specified residual determinant and local
+characters. Universality gives (H12).
+
+Its image contains \(\Lambda\), all spherical operators
+by (H7), and all ordinary operators by (H6).
+These topologically generate \(\mathbb T\).
+The image is closed by compactness of the source,
+so (H12) is surjective.
+Finiteness, torsion freeness and density follow from
+(H8) and Lemma~\ref{lem:sr-unitary-classical-separation}.
+If the residual module is zero, set \(J_0=B\).
+The seed argument next shows that this alternative
+does not occur for the actual seed link.
+
+Use the seed's actual cuspidal automorphic representation
+from Proposition~\ref{prop:sr-induced-case-two-seed},
+with the normalization of
+Proposition~\ref{prop:sr-seed-local-zero}.
+Its prescribed regular weights, tame inertial characters
+and nonexceptional local ordinary flag were checked there.
+Its ordinary local Jacquet vector has exactly the unit
+and uniformizer values (H5)--(H6).
+The auxiliary \(v_0\) was chosen away from its ramification;
+the seed and link-normalizing character are unramified
+there. Its split local factor therefore has a vector fixed
+by the first principal congruence subgroup.
+At tame places (H3) supplies the required coefficient
+vectors; at nonsplit places it is unramified.
+
+The proved generic pure-inner-form descent described
+after (H1) now gives a nonzero vector with this exact
+weight, tame type and auxiliary level in the classical
+definite-unitary space.
+Classical control places its eigensystem in the
+specialization of the constructed module.
+Its residual values are (H7), (H6), so it belongs to \(M\).
+It gives a character \(\mathbb T\to E_x\) whose composite
+with (H12) equals \(x\):
+the weight characters, Frobenius polynomials and ordered
+ordinary characters agree, and they generate \(B\).
+Hence \(J_0\subseteq\ker x\).
+
+Finally \(M\) is a faithful finite \(\mathbb T\)-module.
+Every prime of \(\mathbb T\) therefore belongs to its
+support. Localize at a characteristic-zero point and
+apply Nakayama to see that the corresponding fiber of
+\(M\) is nonzero.
+Classical control gives actual classical forms.
+A common eigenvector for the commuting finite-dimensional
+algebra in this fiber realizes the point.
+Its attached semisimple Galois determinant equals the
+given determinant by Frobenius compatibility and
+Chebotarev. If this representation is irreducible,
+(H10) has one summand and its length is one.
+The base change is then cuspidal.
+\end{proof}
+
+The point property just proved uses actual automorphy,
+the matched tame type, the nonexceptional ordered local
+flag and unramifiedness at \(v_0\).
+Those are the properties checked for the constructed seed.
+
+\subsubsection{Speh strings and the required spectral bound}
+The spectral assertion used at this endpoint is the
+strict bound called \(\mathrm{PureW}\):
+\[
+               |\iota(\alpha)|<
+                    \operatorname{Norm}(w)|\iota(\beta)|
+ \tag{H13}
+\]
+for any two nonzero Frobenius roots, off finitely many
+places. It is weaker than equality of their absolute
+values and suffices for the later block exclusion.
+
+\begin{srlemma}\label{lem:sr-case-two-speh-exclusion}
+At an arithmetic point on the actual link quotient
+\(B/J_0\), every length \(b_i\) in (H10) is one.
+Bound (H13) follows.
+Undoing the scalar link twist gives the
+\(\mathrm{PureW}\) condition on the original rational
+rank-four representation.
+\end{srlemma}
+\begin{proof}
+The exact residual input is
+\[
+          \bar\chi_i\ne\bar\chi_j\bar\epsilon_\ell
+                       \quad\hbox{on }G_L\quad(0\le i,j<4).
+ \tag{H14}
+\]
+It includes \(i=j\).
+On the tower this follows from
+\[
+ \forall w\in\mathbb Z^2\ \exists g\in G_L:\quad
+       \overline{(\chi_0/\chi_1)^{w_1}
+                 (\chi_0/\chi_2)^{w_2}}(g)
+                              \ne\bar\epsilon_\ell(g).
+ \tag{H15}
+\]
+The paired relation \(\chi_0\chi_3=\chi_1\chi_2\)
+expresses every \(\chi_i/\chi_j\) by its root weight
+\(w=w(i,j)\). A scalar link twist cancels.
+The tower condition \(\mathrm{Ok.g2}\) is exactly
+(H15). The subgroup of \(G_F\) fixing \(L\) is
+canonically \(G_L\), so its witnesses belong to the
+required group.
+
+Choose stable lattices in the summands of (H10).
+Their direct sum has residual semisimplification
+\(\bigoplus_i\bar\chi_i\), independently of the lattice:
+the characteristic polynomials agree with those of
+the actual determinant, and characteristic-polynomial
+Brauer--Nesbitt applies.
+If \(b_i\ge2\), a nonzero Jordan--H\"older
+constituent of the reduction of \(\rho_i'\) is
+some \(\bar\chi_s\).
+The next summand
+\(\rho_i'\epsilon_\ell^{-1}\) makes
+\(\bar\chi_s\bar\epsilon_\ell^{-1}\) another constituent,
+say \(\bar\chi_t\).
+This contradicts (H14). All \(b_i\) are therefore one.
+
+The remaining constituents are unitary cuspidal
+general-linear representations. Their unramified
+local components are unitary and generic.
+The generic part of the
+\href{https://www.numdam.org/item/ASENS_1986_4_19_3_335_0/}
+{Tadi\'c unitary classification} expresses them using
+tempered factors and complementary pairs with
+exponents \(s,-s\), \(0<s<1/2\).
+At an unramified place all factors are spherical;
+the Satake absolute values lie strictly between
+\(q_w^{-1/2}\) and \(q_w^{1/2}\).
+This holds for all constituents at once, so every
+two parameters have ratio strictly less than \(q_w\).
+The common rank-four Galois normalization multiplies
+them all by the same scalar and preserves this ratio.
+This proves (H13).
+
+A scalar link twist also cancels from the ratio.
+For a rational Frobenius power lying in \(G_L\),
+let \(f_w\) be the residue degree of the place below it.
+A rational exponent \(f\) is a multiple of \(f_w\);
+its eigenvalues are the \(f/f_w\)-th powers of
+the local Frobenius eigenvalues.
+Thus the bound \(<q_w\) becomes \(<p^f\).
+Exclude the finitely many ramified places and take the
+open subgroup \(G_L\). This is the required
+\(\mathrm{PureW}\) condition.
+\end{proof}
+
+\subsubsection{One module on the two links}
+The shared arithmetic Taylor--Wiles calculation has an
+exact role in this match.
+On a selected nice characteristic-\(\ell\) curve, its
+finite-level Selmer inputs are the first- and second-Selmer bounds
+of Section~\ref{sec:sr-arithmetic-selmer-producers}, on the actual auxiliary
+Galois groups with the actual ordinary and polarized
+local conditions. Their constants precede precision
+and auxiliary level.
+That shared arithmetic calculation proves these estimates and
+constructs the actual auxiliary groups and primes, under the nice-point
+conditions displayed there. The link must supply those same conditions,
+including its distinguished local \srcid{V0ok} condition.
+The modules to which they apply are precisely the
+ordinary function modules with lattice (H3),
+character (H5), residual system (H7) and varying
+split auxiliary local levels.
+One module system is used along the prime chain.
+
+The first finite-level hypothesis of
+Proposition~\ref{prop:sr-one-patched-module}
+is ordinary auxiliary projectivity and truncated
+freeness.
+Its second is given by the explicit old/new and
+trace maps of
+Proposition~\ref{prop:concrete-two-maps},
+with the same normalized auxiliary discriminant.
+For the third, use the actual Galois determinant
+constructed above at each auxiliary level.
+Its polarization, ordinary, inertia and auxiliary
+relations are the relations of \(B\).
+The explicit torus calculation gives nilpotence
+exponent \(n!=24\) in rank four.
+All maps act on the same free tame coefficient
+lattice and commute with its tame action, so the
+lattice introduces no new denominator.
+
+Consequently the three finite-level hypotheses hold
+for this actual system once the stated arithmetic
+Selmer bounds and auxiliary construction are invoked.
+Proposition~\ref{prop:tw-limit-coh} supplies the local
+presentation estimates, and
+Propositions~\ref{prop:sr-one-patched-module} and
+\ref{prop:sr-completed-support-chain} give a common
+module, its completed supports and their transport.
+This is the rank-four application of those shared proofs.
+
+Choose the two links with the same scalar character
+\(\kappa\) and distinct auxiliary primes.
+For their universal ordinary determinant algebras
+\(B,B'\), take the actual kernels \(J_0,J'_0\)
+in (H12). On their common paired space \(X\), put
+\[
+                        J=\phi(J_0)X+\phi'(J'_0)X.
+ \tag{H16}
+\]
+The finite weight-zero property follows from
+finiteness of \(B/J_0\) over \(\Lambda\).
+Indeed take a characteristic-\(\ell\) domain
+quotient after setting the fixed inertial weight
+characters to \(1\).
+The image of \(\Lambda\) is finite, so the link
+Hecke quotient is algebraic over a finite field.
+Thus all characteristic coefficients on \(G_L\)
+are algebraic constants.
+Every element of \(G_F\) has square in \(G_L\).
+Its eigenvalues and characteristic coefficients
+are algebraic constants as well.
+The complete local domain has the original finite
+residue field. Reduction is injective on every finite
+subfield, so any algebraic constant in it is the unique
+corresponding element of that residue field.
+All characteristic coefficients thus equal their
+residual values.
+These coefficient differences and the inertial weight
+differences topologically generate the maximal ideal
+of the paired trace algebra. Formal Nakayama, using
+Noetherianity, makes that maximal ideal zero in the
+domain quotient. Every such prime is therefore maximal.
+A power of the maximal ideal is consequently contained
+in the fixed-weight ideal, as required in
+Proposition~\ref{prop:sr-four-core}.
+
+On each nice curve the common module, the local
+presentations and
+Proposition~\ref{prop:sr-four-curve-genericity}
+give the curve-local support assertion.
+At the seed,
+Proposition~\ref{prop:sr-case-two-hecke-quotient}
+gives \(J_0x=J'_0x=0\), and
+Proposition~\ref{prop:sr-seed-local-zero}
+gives local vanishing of their two mapped ideals.
+The residual chain and
+Proposition~\ref{prop:sr-four-core} then transport
+this support to the original paired point.
+The characteristic-\(\ell\) exclusion is
+Lemma~\ref{lem:sr-four-characteristic-ell};
+the characteristic-zero spectral assertion is
+Lemma~\ref{lem:sr-case-two-speh-exclusion}.
+
+At a regular irreducible arithmetic point, classical
+control gives an automorphic representation with
+the prescribed local factors away from the
+distinguished auxiliary place.
+Both links describe the same global general-linear
+representation: their scalar twist is the same,
+and their Frobenius polynomials agree away from
+their two auxiliary places.
+Strong multiplicity one identifies their cuspidal
+representations. At any one finite place at
+least one link has no auxiliary exception.
+Its local--global comparison therefore gives
+the desired local statement there, including
+at the other link's auxiliary place.
+The level introduced for smallness has thereby
+been removed from the actual endpoint.
+
+This identifies the Case II Hecke and support
+objects with the shared ordinary construction.
+The arithmetic production of those Selmer bounds and
+of the actual auxiliary groups and prime-selection limit is supplied
+by Section~\ref{sec:sr-arithmetic-selmer-producers}; the matching nice-point
+and common-space conditions remain the ones explicitly used above.
+The further passage from automorphy over \(L\)
+to the source's \(\mathrm{IsAutQA}\), including
+its \(\mathrm{WitA}\) local level data over an
+imaginary quadratic field, is the separate
+solvable-descent and local-compatibility step.
+It is not inferred solely from the existence
+of a Hecke eigensystem.
+
+% Exact frozen-source correspondence:
+% DenseThresholdCases/HdEx, TTypeEx, TThetaEx, TResEx,
+% UnitaryHeckeData, TDenseU, TCoreSep, TCoreDet, OrdCoreH,
+% ExistsHeckeIdeal, TJRing, TJDense, THidaU, TLevelU, THasAutOf;
+% PointTheoremBaseObject, BirthPm, TPmFin, PmTwo,
+% Gsp4PromodularityCaseTwo, VWinPm, PmAutO, DnPmDown.
+% NoOmLift and MemMax in
+% WeakShimuraTheory/CharacteristicPolynomialRoots.

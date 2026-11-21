@@ -1,0 +1,417 @@
+\section{The uniform cusp-weight mean on unitary period quotients}
+\label{sec:sr-uniform-cusp-mean}
+
+We prove the numerical mean estimate used by the covolume
+construction.  The constants in this section are chosen before the
+field, Hermitian space, lattice and arithmetic level.
+The construction of an integral model with its tied period map is a
+separate issue; no such model is inferred from the mean estimate.
+
+Let \(E/F\) be a quadratic CM extension, put
+\[
+ [F:\mathbb Q]=f,\qquad [E:\mathbb Q]=d=2f,\qquad
+ R=|\operatorname{disc}E|^{1/d},
+\]
+and fix an \(E\)-Hermitian space \(V\) of dimension \(N=p+q\),
+of signature \((p,q)\) at every real place, where
+\[
+                   q\ge1,\qquad 3q+1\le N .
+\]
+Let \(\Lambda\subset V\) be a full \(\mathcal O_E\)-lattice.
+We use the canonical homogeneous Hodge metric of a compatible
+polarized Riemann-lattice realization.  Its alternating form \(B\) is integral on \(\Lambda\), its positive
+Hermitian majorants have imaginary part \(B\), and
+\[
+ B(ax,y)=B(x,\overline a y)\quad(a\in\mathcal O_E).
+\]
+The \(\mathcal O_E\)-action is the one induced by the fixed
+\(E\)-vector space.  In particular its operator norm, for every
+compatible majorant, is at most
+\(\max_\sigma|\sigma(a)|\).
+Let \(\Gamma\) be any arithmetic subgroup of the integral
+unitary group of this same lattice and form.
+Write \(X_\Gamma=\Gamma\backslash G_\infty\), with invariant
+probability measure, where
+\(G_\infty=\prod_{\tau:F\hookrightarrow\mathbb R}U(p,q)\).
+Passing to the quotient by a maximal compact subgroup makes no
+difference to any function below.
+
+For a majorant indexed by \(g\), let \(\|\cdot\|_g\) be its
+Euclidean norm and
+\[
+                  \lambda(g)=
+                     \min_{0\ne x\in\Lambda}\|x\|_g .
+\]
+Every minimum is positive and attained.  This follows from
+discreteness of a full lattice and properness of a positive
+Euclidean norm.  The minimum is a continuous function of \(g\):
+on a relatively compact neighborhood only finitely many lattice
+vectors can have norm below any fixed bound, and the minimum is
+locally the minimum of those finitely many continuous functions.
+
+For a nonzero saturated \(\mathcal O_E\)-submodule \(I\subset\Lambda\)
+that is \(B\)-isotropic, let \(r=\operatorname{rank}_{\mathcal O_E}I\).
+Its real rank is \(2fr\), and \(r\le q\).
+Indeed isotropy on the \(\mathcal O_E\)-module implies
+\(B(ax,y)=0\) for every \(a\in E\); nondegeneracy of the trace
+pairing then gives isotropy for the underlying \(E\)-Hermitian
+form.  Its dimension is at most the Witt index \(q\).
+
+Use the normalized cusp covolume
+\begin{equation}\label{eq:sr-cusp-covol-normalization}
+                  n_g(I)=
+                   \frac{\operatorname{covol}_g(I)}{R^{fr}},
+ \qquad
+ U(g)=\max\left(0,\sup_I-\log n_g(I)\right).
+\end{equation}
+This is the source's normalization, including its discriminant
+factor.  Here is a direct check against its determinant definition.
+Choose independent \(v_1,\dots,v_r\in I\) with
+\(J=\sum_i\mathcal O_Ev_i\) of finite index in \(I\), and let
+\(H_\sigma\) be the Gram matrix of their \(\sigma\)-eigenprojections.
+If \(\sigma\) runs through one CM type, that definition is
+\[
+                     n_g(I)=
+                   \frac{\prod_\sigma\det H_\sigma}{[I:J]} .
+\]
+For \(x,y\in I\), the imaginary part of their polarized inner
+product is zero.  Applying this also to \(ax,by\) and using
+nondegeneracy of the embedding matrix shows that the Gram matrices
+for conjugate eigenprojections are complex conjugates.
+They have the same positive determinant.
+In a tower basis \(\omega_jv_i\), where \((\omega_j)\) is an
+integral basis of \(E\), the real Gram matrix is obtained from the
+block diagonal matrices \(H_\rho\), for all embeddings \(\rho\),
+by the embedding matrix \((\rho(\omega_j))\).
+Taking determinants therefore gives
+\[
+ \det\operatorname{Gram}_{\mathbb R}(J)
+       =|\operatorname{disc}E|^r
+                        \left(\prod_\sigma\det H_\sigma\right)^2 .
+\]
+Changing from \(J\) to \(I\) divides this determinant by
+\([I:J]^2\).  Since
+\(R^{2fr}=|\operatorname{disc}E|^r\), taking positive square roots
+gives exactly \eqref{eq:sr-cusp-covol-normalization}.
+There is no suppressed factor of two in this computation.
+For example in \(E=\mathbb Q(i)\), take an isotropic real
+unit vector whose two conjugate eigenprojections have squared
+norm \(1/2\).  The real Gram determinant for its \(1,i\)
+translates is \(1\), whereas the displayed expression is
+\(4(1/2)^2=1\).  More generally the embedding determinant is
+the determinant over \emph{all} complex embeddings; the two
+conjugate projection blocks already contain these factors.
+Thus the proof below concerns the actual determinant cusp weight
+for the canonical tied Hodge metric.
+
+\subsection{Short integral multipliers and isotropic vectors}
+
+There are \(d\) independent algebraic integers
+\(a_1,\dots,a_d\) satisfying
+\begin{equation}\label{eq:sr-cusp-short-integers}
+                 \max_\rho|\rho(a_i)|\le dR .
+\end{equation}
+For completeness use the Euclidean embedding whose squared norm is
+\(\sum_\rho|\rho(x)|^2\).
+The dual of the integer lattice is the conjugate embedding of the
+codifferent.  If \(0\ne b\) belongs to the codifferent, ideal
+containment gives
+\(|N_{E/\mathbb Q}b|\ge|\operatorname{disc}E|^{-1}\).
+The arithmetic--geometric mean inequality yields
+\[
+                  \sum_\rho|\rho(b)|^2\ge d/R^2 .
+\]
+The Euclidean transference inequality
+\(\lambda_d(L)\lambda_1(L^*)\le d\)
+therefore supplies \(d\) independent integral vectors of norm
+at most \(\sqrt d\,R\), hence at most \(dR\).
+We use only this standard transference inequality from
+Banaszczyk, \emph{New bounds in some transference theorems in
+the geometry of numbers}, Theorem~2.1,
+\url{https://doi.org/10.1007/BF01445125}.
+Coordinate norms are bounded by Euclidean norm, proving
+\eqref{eq:sr-cusp-short-integers}.
+
+Set
+\[
+                 v_0=2fR=dR,\qquad r_0=v_0^{-1/2},
+ \qquad a=2fq,\qquad k=2f(N-1).
+\]
+Then \(k\ge3a\).
+Any two lattice vectors of norm less than \(r_0\) are
+\(E\)-orthogonal.  In fact
+\[
+ |B(a_i x,y)|\le
+              \|a_i x\|_g\|y\|_g
+          \le v_0\|x\|_g\|y\|_g<1 .
+\]
+The left side is the absolute value of an integer, so it is zero.
+The \(a_i\) span \(E\) over \(\mathbb Q\); the same vanishing holds
+for every element of \(E\), and the nondegenerate trace pairing
+identifies this with \(E\)-Hermitian orthogonality.
+Consequently all vectors of norm below \(t\le r_0\) lie in one
+real space of dimension at most \(a\).
+Disjoint balls of radius \(\lambda(g)/2\) in that space give
+\begin{equation}\label{eq:sr-cusp-packing}
+ \#\{0\ne x\in\Lambda:\|x\|_g<t\}
+       \le(1+2t/\lambda(g))^a
+       \le(3t/\lambda(g))^a
+                   \quad(\lambda(g)<t\le r_0).
+\end{equation}
+
+A bounded divisibility condition will make the counting function
+unfold into a finite sum of orbital integrals.
+For \(0\ne x\in\Lambda\), define
+\[
+                \iota(x)=
+          [\,\Lambda\cap Ex:\mathcal O_Ex\,].
+\]
+For a shortest vector \(x\), this index is at most
+\[
+                    C_0=(v_0\sqrt d)^d .
+\]
+To see this, the real \(d\)-dimensional lattice
+\(L_x=\Lambda\cap Ex\) has minimum \(\lambda(g)\).
+Minkowski's convex-body theorem gives
+\(\operatorname{covol}(L_x)\ge
+(\lambda(g)/\sqrt d)^d\); the weaker constant used here follows
+by putting a cube of volume \(2^d\) inside the Euclidean ball
+of radius \(\sqrt d\).
+The subgroup generated by \(a_1x,\dots,a_dx\) has covolume
+at most \((v_0\lambda(g))^d\), by Hadamard's determinant bound.
+It is contained in \(\mathcal O_Ex\), so division of the two
+covolumes proves the stated index bound.
+
+Let \(\mathcal V\) consist of the nonzero \(E\)-isotropic
+\(x\in\Lambda\) with \(\iota(x)\le C_0\), and define
+\[
+                    c_t(g)=
+                  \#\{x\in\mathcal V:\|x\|_g<t\}.
+\]
+This is a nonnegative measurable function.
+It is zero when \(t\le\lambda(g)\), is bounded by
+\eqref{eq:sr-cusp-packing} when \(t\le r_0\), and is at least
+one when \(\lambda(g)<t\le r_0\): a shortest vector then
+belongs to \(\mathcal V\).
+
+\subsection{The exact homogeneous mean}
+
+We now prove
+\begin{equation}\label{eq:sr-cusp-count-homogeneous}
+                 \int_{X_\Gamma}c_t\,d\mu=A t^k
+                       \quad(t>0)
+\end{equation}
+with some finite \(A\ge0\); no uniform bound on \(A\) is assumed.
+
+The two reduction-theoretic background facts needed here are
+finite covolume for arithmetic groups with no rational
+characters, and finiteness of rational parabolic double cosets.
+They are Borel--Harish-Chandra's finite-volume theorem and
+Borel, \emph{Introduction aux groupes arithm\'etiques},
+Theorem~15.5 and Proposition~15.6, applied by restriction of
+scalars to \(\mathbb Q\).
+We spell out their applications, since neither a uniform
+covolume nor a quantitative cusp count is needed.
+
+There are finitely many \(\Gamma\)-orbits of rational isotropic
+\(E\)-lines: their stabilizers are the line parabolics.
+On a fixed such line, \(I_\ell=\Lambda\cap\ell\) is a
+fractional ideal times a fixed vector.
+The condition \([I_\ell:\mathcal O_Ex]\le C_0\) leaves finitely
+many possibilities for the principal submodule
+\(\mathcal O_Ex\): its quotient is an integral ideal of bounded
+norm after identifying the fixed ideal class.
+Generators of each principal submodule form one
+\(\mathcal O_E^\times\)-orbit.
+A subgroup of finite index in these units occurs in the line
+stabilizer inside \(\Gamma\).
+Indeed choose a rational hyperbolic complement and write its
+Levi action as
+\(\operatorname{diag}(u,1,\overline u^{-1})\).
+Units in a suitable congruence subgroup preserve the fixed
+lattice.  Their intersection with \(\Gamma\) has finite index
+by arithmetic commensurability with the integral stabilizer.
+This argument does not require \(\Gamma\) itself to be a
+congruence subgroup.
+There are therefore only finitely many
+\(\Gamma\)-orbits in \(\mathcal V\).
+
+Fix an orbit representative \(x\).
+Its real stabilizer has unipotent radical and reductive
+quotient \(U(x^\perp/Ex)\).
+The latter has anisotropic center over \(F\), and hence no
+nontrivial \(F\)-rational characters; its arithmetic
+quotient has finite volume.
+The unipotent arithmetic quotient is compact.
+Thus the stabilizer quotient occurring in the orbit
+unfolding has finite volume.
+
+At one infinite place the orbit of a nonzero isotropic
+vector is the cone \(Q(z)=h(z,z)=0\), with its vertex deleted.
+The unitary group is transitive on it, by extending the
+vector to a hyperbolic pair.
+Its invariant measure is a positive constant times
+\(\delta(Q(z))\,dz\), equivalently surface measure divided
+by \(\|\nabla Q\|\).
+The group preserves Lebesgue measure and \(Q\), so this
+measure is invariant.
+Under \(z\mapsto tz\), \(dz\) contributes \(t^{2N}\)
+and the delta factor contributes \(t^{-2}\).
+It therefore scales by \(t^{2N-2}\).
+The measure of its intersection with a bounded majorant
+ball is finite: in polar coordinates its radial density
+is \(r^{2N-3}dr\), integrable at zero, and the angular
+section is compact and smooth.
+Taking products over the \(f\) real places gives degree
+\(2f(N-1)=k\).
+
+Tonelli's theorem unfolds the nonnegative count of this
+orbit into the stabilizer volume times its invariant
+cone integral.
+The preceding paragraph shows that the result is a finite
+constant times \(t^k\).
+Summing over the finitely many orbits, and dividing by
+the finite positive volume of \(X_\Gamma\), proves
+\eqref{eq:sr-cusp-count-homogeneous}.
+If there are no rational isotropic lines, the count is
+zero and the same formula holds with \(A=0\).
+
+\subsection{A uniform logarithmic tail}
+
+The unknown constant \(A\) disappears in a short argument.
+Put \(Z=r_0/\lambda\) and \(X=A r_0^k\).
+From the lower bound on \(c_t\) we have
+\[
+             \Pr(Z>u)\le\min(1,Xu^{-k})\quad(u\ge1).
+\]
+If \(X=0\), then \(Z\le1\) almost everywhere.
+If \(0<X\le1\), integration of this tail gives
+\(\mathbb E\log^+ Z\le X/k\le1/k\).
+If \(X>1\), the packing upper bound gives
+\[
+ X=\mathbb E c_{r_0}
+       \le3^a\mathbb E(Z^a{\bf1}_{Z>1})
+       \le3^a\frac{k}{k-a}X^{a/k}.
+\]
+For the last inequality split the layer-cake integral
+at \(u=X^{1/k}\).
+Taking logarithms and integrating the same tail once
+more gives
+\[
+ \mathbb E\log^+ Z
+ \le\frac{\log X}{k}+\frac1k
+ \le \frac{a\log3+\log(k/(k-a))}{k-a}+\frac1k
+ \le3 .
+\]
+The last bound uses \(k\ge3a\), \(a\ge1\),
+\(\log3<2\), and \(\log(3/2)<1\).
+In particular all logarithmic quantities just integrated
+are integrable.  We have proved, uniformly in the field,
+lattice and level,
+\begin{equation}\label{eq:sr-cusp-minimum-mean}
+             \mathbb E\log^+(r_0/\lambda)\le3 .
+\end{equation}
+
+Minkowski applied to a cusp sublattice \(I\) of rank
+\(s=2fr\) yields
+\(\operatorname{covol}_g(I)\ge
+(\lambda(g)/\sqrt s)^s\).
+Using \eqref{eq:sr-cusp-covol-normalization} and \(r\le q\),
+\[
+ \begin{split}
+ -\log n_g(I)
+   &\le fr\{2\log(1/\lambda(g))+\log(2frR)\}\\
+   &\le fq\{2\log^+(1/\lambda(g))+\log(2fqR)\}.
+ \end{split}
+\]
+The latter expression is nonnegative and independent of \(I\).
+It bounds the supremum defining \(U\), and proves that
+this supremum is finite.
+It is measurable, being a supremum over a countable
+collection of submodules of a countable lattice.
+Since \(r_0=v_0^{-1/2}\) and \(v_0\ge1\),
+\[
+          \log^+(1/\lambda)
+             \le\log^+(r_0/\lambda)+\tfrac12\log v_0 .
+\]
+Consequently
+\begin{equation}\label{eq:sr-cusp-mean-explicit}
+         0\le\mathbb E U
+           \le fq\{6+\log(2fR)+\log(2fqR)\}.
+\end{equation}
+
+For the principal hosts \(R\ge2\).
+If \(B_0\ge4fN^2\), then \(B_0\ge64\) and \(2fq\le B_0\).
+Thus both logarithms in
+\eqref{eq:sr-cusp-mean-explicit} are bounded by
+\(\log(B_0R)\), while \(\log(B_0R)\ge\log128>3\).
+For any real \(L\) this proves the precise estimate
+\begin{equation}\label{eq:sr-cusp-mean-four}
+       \mathbb E U
+           \le4fq\{\log(B_0R)+|L|\}.
+\end{equation}
+One can in particular take the source's \(L=\operatorname{hostLval}\).
+The constant is exactly \(C_u=4\), chosen before the host.
+
+\subsection{Passage to the tied Hodge integral}
+
+We identify the measure used above with the geometric
+integral in the covolume construction.
+In a matrix ball chart \(Z\in M_{p,q}(\mathbb C)\), the
+Hodge determinant metric has potential, up to a fixed
+positive scale and an additive constant,
+\[
+                         -\log\det(1-Z^*Z).
+\]
+Its Hessian sends a tangent matrix \(T\) to the positive
+form with left and right factors
+\((1-ZZ^*)^{-1}\) and \((1-Z^*Z)^{-1}\).
+The determinant of this Hessian is
+\[
+ \det(1-ZZ^*)^{-q}\det(1-Z^*Z)^{-p}
+                   =\det(1-Z^*Z)^{-N}.
+\]
+Taking products over the CM type shows that the top
+Hodge curvature measure is a fixed positive scalar
+times the invariant unitary measure.
+The scalar cancels in a normalized mean.
+
+This also handles the source's finite collections of
+period sheets and generic multiplicities.
+The integral of \(U\) is a sum of invariant integrals
+with positive sheet multiplicities; its denominator
+is the same sum with \(U\) replaced by \(1\).
+Dividing gives a positive weighted average of the
+means already bounded in
+\eqref{eq:sr-cusp-mean-four}.
+Branch loci and toroidal boundary divisors have zero
+top-dimensional measure.  The established integrability
+of \(U\) permits their removal without changing the
+integral.
+A compatible isometry of Riemann lattices preserves
+the submodules, Gram determinants, indices and
+minimum appearing in
+\eqref{eq:sr-cusp-covol-normalization}; thus the cusp
+weight on every sheet is the same actual function
+pulled back from its lattice fiber.
+
+For any tied canonical Hodge realization of the
+principal packet, with \(q=j'\), \(N=j+j'\) and
+\(f=|\mathrm{CMType}|\), we therefore obtain
+\[
+ \frac{\displaystyle
+          \int U\,c_1(\overline{\mathcal M})^{\dim X}}
+      {\displaystyle
+          \int c_1(\overline{\mathcal M})^{\dim X}}
+       \le4f j'
+          \{\log(B_0\operatorname{hostRd})
+                    +|\operatorname{hostLval}|\}.
+\]
+This proves the analytic numerical assertion
+\srcid{MeanU} for the canonical determinant cusp weight.
+It supplies the uniform mean part of the covolume
+producer.  It does not supply the remaining
+\srcid{HtU} lower bound at every algebraic point, nor
+the simultaneous integral root-tower and Hodge
+comparison witnesses needed to build
+\srcid{CovolumeBoundOfX}.

@@ -1,0 +1,1678 @@
+\section{Finite-level arithmetic Selmer estimates and auxiliary limits}
+\label{sec:sr-arithmetic-selmer-producers}
+The statements below construct the finite trace detectors and the
+auxiliary arithmetic tower, and prove the first- and second-Selmer
+bounds needed for the common-support argument.  They apply to the
+actual nice paired points with their displayed local conditions.
+Their constants may depend on that fixed finite family of points;
+the uniform conductor estimates later absorb this dependence through
+the common support and automorphic counting argument.
+
+
+\subsection{The arithmetic Taylor--Wiles tower and its common limit}
+\label{sec:arithmetic-tw-tower}
+
+We construct the actual auxiliary arithmetic groups and the limit
+used by the completed-support argument.
+The number of auxiliary primes is fixed by the selected trace
+detectors; it need not equal a conjectural dual Selmer dimension.
+
+Let \(L/L^+\) be the CM extension in the unitary problem, let
+\(\ell\) be odd, and let \(S\) contain all places above \(\ell\)
+and all ramification of the fixed residual packet.
+Write \(\Gamma_0\) for the arithmetic quotient over \(L^+\),
+\(G_0=\ker\eta\) for its CM subgroup, and
+\(G_0'=\ker(\varepsilon|_{G_0})\), using the \emph{full}
+\(\ell\)-adic cyclotomic character.
+Keep the actual residual characters \(\bar\chi_1,\ldots,\bar\chi_n\)
+and their polarized determinant.
+Suppose a finite set
+\[
+                   s_1,\ldots,s_r\in G_0'
+ \tag{TW1}
+\]
+has been chosen.
+For each of the finitely many nice paired points under
+consideration, require the characteristic polynomials
+of \(\rho(s_j)\) to be separable over its fraction field.
+The trace-detection proof chooses the \(s_j\) once, before the
+tower.  Regularity is used in the Selmer estimates, not in
+Chebotarev's construction below.
+The source of the regular-coset property for the actual curve
+points must therefore be established at the nice-point step;
+absolute irreducibility on the full cyclotomic kernel alone is
+not substituted for it.
+
+We use only the following standard arithmetic finiteness input:
+for every open subgroup \(U\) of the global arithmetic group,
+and of each fixed local group, the set
+\(\operatorname{Hom}_{\mathrm{cts}}(U,\mathbb F_\ell)\) is finite.
+Globally, an open subgroup corresponds to a finite number-field
+extension with a fixed finite ramification set.
+Kummer theory, finite generation of its \(S\)-unit group, and
+finiteness of its class group give this assertion after adjoining
+\(\mu_\ell\); restriction and corestriction, or the
+inflation--restriction sequence, give it before adjoining
+\(\mu_\ell\).
+Locally it follows from local class field theory.
+This is the actual \srcid{PhiCond} input; it is independent of
+the coefficient field and of the auxiliary tower level.
+
+\paragraph{A residual-kernel subgroup and a cofinal sequence.}
+Set
+\[
+ H=\{g\in\Gamma_0:\eta(g)=1,\ 
+          \bar\chi_i(g)=1\ (1\leq i\leq n),\
+          \bar\varepsilon(g)=1\}.
+ \tag{TW2}
+\]
+It is open and normal.
+Normality under \(G_0\) follows because the \(\bar\chi_i\) are
+characters.  Under complex conjugation, polarization identifies
+the multiset of conjugate characters with their inverses times
+the cyclotomic multiplier; on the displayed kernel the multiplier
+is \(1\), so that kernel is preserved.
+
+For an open normal \(J\subset\Gamma_0\), put
+\[
+ \Phi_\ell(J)=
+       \bigcap_{\alpha\in
+          \operatorname{Hom}_{\mathrm{cts}}(J,\mathbb F_\ell)}
+                         \ker\alpha .
+\]
+The intersection is finite, so \(\Phi_\ell(J)\) is open;
+it is characteristic in \(J\) and hence normal in \(\Gamma_0\).
+Take \(W_0=H\) and \(W_{N+1}=\Phi_\ell(W_N)\).
+Define, exactly as in the source,
+\[
+ \mathrm{PL}_\ell(H)=
+ \bigcap_{\substack{V\triangleleft_{\mathrm{open}}\Gamma_0\\
+     \forall h\in H\ \exists e\geq0:\ h^{\ell^e}\in V}}V.
+ \tag{TW3}
+\]
+Thus a finite quotient used in this intersection has an
+\(\ell\)-group image of \(H\).
+We have \(W_N\subset H\), and
+\[
+ \forall V\triangleleft_{\mathrm{open}}\Gamma_0,\
+ \mathrm{PL}_\ell(H)\subset V
+ \quad\Longrightarrow\quad
+ W_N\subset V\quad(N\text{ sufficiently large}).
+ \tag{TW4}
+\]
+To check this, the image \(P\) of \(H\) in \(\Gamma_0/V\)
+is a finite \(\ell\)-group.
+Indeed the maximal pro-\(\ell\) quotient of \(H\) is the quotient
+by (TW3): normal cores show that using open normal subgroups
+of \(\Gamma_0\), rather than all open normal subgroups of \(H\),
+does not change it.
+The images of \(W_N\) are contained in the iterated Frattini
+subgroups of \(P\), which reach \(1\).
+Equivalently, every nontrivial finite \(\ell\)-group has a
+nonzero homomorphism to \(\mathbb F_\ell\), so each nontrivial
+Frattini step strictly decreases its order.
+This proves (TW4).
+
+\paragraph{Choosing the primes, with the Frobenius convention fixed.}
+Lift each \(s_j\) to \(g_j\in G_L\).
+Since \(s_j\in G_0'\), its lift has
+\(\varepsilon(g_j)=1\).
+Let
+\[
+ U_N=\operatorname{pr}^{-1}(W_N)
+                 \cap\ker(\varepsilon\bmod\ell^N)\subset G_L .
+\]
+This is open and normal.
+Chebotarev, applied in the finite quotient by \(U_N\), chooses
+distinct auxiliary places \(v_{Nj}\) of \(L^+\), outside \(S\),
+split in \(L/L^+\), and places \(w_{Nj}\) of \(L\) above them,
+with arithmetic Frobenius representatives \(\sigma_{Nj}\)
+satisfying
+\[
+                         \sigma_{Nj}g_j\in U_N .
+ \tag{TW5}
+\]
+Here one may choose degree-one primes of \(L\).
+The usual avoidance of the finitely many rational primes
+ramifying in \(L/L^+\), together with degree one, makes the
+underlying \(L^+\)-place split; it also avoids every prescribed
+finite set.
+This is a finite Chebotarev problem at each \(N\), so simultaneous
+choice of the \(r\) distinct places follows by finite induction.
+
+Enlarge \(S\) by these \(v_{Nj}\) and let
+\(h_N:\Gamma_N\twoheadrightarrow\Gamma_0\) be the resulting
+arithmetic quotient map.
+At \(w_{Nj}\), choose a topological generator \(\tau_{Nj}\)
+of tame pro-\(\ell\) inertia and use the source convention
+\[
+             \phi_{Nj}=\operatorname{pr}_N(\sigma_{Nj}^{-1}),
+ \qquad Q_{Nj}=\mathrm Nw_{Nj}.
+ \tag{TW6}
+\]
+The inverse in this definition matters.
+Cyclotomic compatibility with arithmetic Frobenius and (TW5)
+give
+\[
+                           Q_{Nj}\equiv1\pmod{\ell^N}.
+ \tag{TW7}
+\]
+Normality of \(W_N\), followed by inversion of (TW5), gives
+\[
+             h_N(\phi_{Nj})s_j^{-1}\in W_N .
+ \tag{TW8}
+\]
+Consequently these products lie in \(H\) for every \(N\), and
+converge to \(1\) modulo every open normal subgroup containing
+\(\mathrm{PL}_\ell(H)\).
+
+Put \(H_N=h_N^{-1}(H)\).
+The tame relation, in the inverse-Frobenius convention (TW6),
+is
+\[
+ \phi_{Nj}^{-1}\tau_{Nj}\phi_{Nj}
+       =\tau_{Nj}^{Q_{Nj}}
+                        \pmod{\mathrm{PL}_\ell(H_N)}.
+ \tag{TW9}
+\]
+Wild inertia at this place has pro-residue-characteristic order,
+hence has trivial image in a pro-\(\ell\) quotient.
+The prime-to-\(\ell\) part of tame inertia also disappears.
+The local kernel of the tame pro-\(\ell\) quotient maps into
+\(\mathrm{PL}_\ell(H_N)\): every finite quotient in (TW3) has
+an \(\ell\)-group image on \(H_N\), so it kills these local
+prime-to-\(\ell\) subgroups.
+The arithmetic kernel \( \ker h_N\) is the closed normal subgroup
+generated by the new inertia groups.
+It follows that
+\[
+ \begin{gathered}
+ h_N(\tau_{Nj})=1,\\
+ \ker h_N\subset
+ \overline{\langle\!\langle
+       \tau_{N1},\ldots,\tau_{Nr},
+                         \mathrm{PL}_\ell(H_N)\rangle\!\rangle}.
+ \tag{TW10}
+ \end{gathered}
+\]
+The old local maps and their cyclotomic and polarization
+identities are preserved by \(h_N\).
+
+\paragraph{Uniform numbers of generators, without a Selmer assumption.}
+There is a constant
+\[
+ b_H=
+ \#\operatorname{Hom}_{\mathrm{cts}}(H,\mathbb F_\ell)\,
+                   \ell^{\,r[\Gamma_0:H]}
+ \tag{TW11}
+\]
+such that
+\[
+             \#\operatorname{Hom}_{\mathrm{cts}}
+                         (H_N,\mathbb F_\ell)\leq b_H
+                     \quad\hbox{for every }N.
+ \tag{TW12}
+\]
+Here is the arithmetic kernel count.
+Modulo homomorphisms inflated from \(H\), a character of \(H_N\)
+is determined by its values at the \(r[\Gamma_0:H]\) elements
+\(x\tau_{Nj}x^{-1}\), using one lift \(x\) of each coset
+of \(H\) in \(\Gamma_0\).
+Indeed conjugation by \(H_N\) does not affect a homomorphism
+from \(H_N\) to an abelian group.
+If all those values vanish, it kills the closed normal subgroup
+generated by the new \(\tau_{Nj}\).
+It also kills \(\mathrm{PL}_\ell(H_N)\), by (TW3).
+Equation (TW10) then makes it descend to \(H\).
+Each value has \(\ell\) choices, proving (TW11)--(TW12).
+Thus the bound is obtained before either of the first- and
+second-Selmer estimates.
+
+\paragraph{Why the required points and first-order data descend.}
+For a point of the fixed residual determinant, every
+\(h\in H\) has residual characteristic polynomial \((X-1)^n\).
+Its residual representation need not be the identity matrix.
+Nevertheless its image on \(H\) modulo \(T^m\) is a finite
+\(\ell\)-group: all residual elements are unipotent, so their
+orders are powers of \(\ell\), and Cauchy's theorem shows that
+their finite group has \(\ell\)-power order.
+The congruence kernel is an \(\ell\)-group too.
+It follows that the point kills \(\mathrm{PL}_\ell(H)\).
+One may also see this directly from Cayley--Hamilton:
+\[
+ \bar\rho(h)\text{ unipotent}\quad\Longrightarrow\quad
+     (\rho(h)^{\,\ell^{nm}}-1)\in T^mM_n(k[[T]]).
+ \tag{TW13}
+\]
+Apply the same calculation to all conjugates of \(h\), take the
+normal core of the finite representation kernel, and use (TW3).
+
+This argument includes the odd generators and the actual
+first- and second-order cocycles.
+Their semidirect-product or square-zero-matrix representations
+at finite coefficient precision have an additive
+\(\ell\)-group kernel and the same residual unipotent image
+on \(H\) or \(H_N\).
+They therefore kill the corresponding \(\mathrm{PL}\).
+The old local conditions are tested on the original local groups,
+so composing their maps with the quotient does not change those
+conditions.
+Inflation consequently identifies the relevant finite Selmer
+cocycles and boundaries on the original groups and on the
+\(\mathrm{PL}\)-quotients.
+In particular the first- and second-Selmer
+bounds proved below transport with their original constants.
+
+There is a corresponding statement for the completed determinant
+and its paired Cayley--Hamilton algebra.
+At any finite Artinian coefficient quotient the algebra is finite.
+The residual characteristic polynomial of \(h\in H\) is
+\((X-1)^n\), so \(h-1\) is nilpotent modulo the maximal ideal.
+Nilpotence of that ideal makes \(h-1\) nilpotent in the finite
+algebra.  A unit \(1+x\) with \(x\) nilpotent over a finite
+\(\ell\)-power coefficient ring has \(\ell\)-power order,
+by the binomial theorem.
+Thus the finite \(H\)-image is again an \(\ell\)-group and
+kills \(\mathrm{PL}_\ell(H)\).
+Taking all finite coefficient quotients proves descent in the
+completed topology, including the \emph{closed}
+Cayley--Hamilton relations.
+This is the same determinant and the same completed support
+ideal used in the support-propagation subsection.
+No new determinant ring is inserted at the limit step.
+
+We may therefore pass to the actual quotient tower and henceforth
+assume
+\[
+             \mathrm{PL}_\ell(H)=1,\qquad
+             \mathrm{PL}_\ell(H_N)=1 .
+ \tag{TW14}
+\]
+The sign and full cyclotomic character descend:
+\(\eta|_H=1\), and the image of \(H\) in
+\(1+\ell\mathbb Z_\ell\) is pro-\(\ell\).
+Every map and every marked element above descends as well.
+The image of \(H_N\) is now pro-\(\ell\), and (TW12) bounds its
+minimal number of topological generators.
+This is the Burnside basis theorem for pro-\(\ell\) groups:
+generators of its finite Frattini quotient lift to topological
+generators.  The coarse bound \(b_H\) is more than sufficient.
+
+\paragraph{One finitely generated cover for every level.}
+Let \(a_0=[\Gamma_0:H]\).
+Choose \(a_0\) coset representatives of \(H\) and one additional
+marked representative equal to complex conjugation \(c\).
+Lift the coset representatives to each \(\Gamma_N\), using
+\(c_N\) for the marked one, and add at most \(b_H\) generators
+of \(H_N\).
+The resulting \(a_0+1+b_H\) elements generate \(\Gamma_N\).
+Let \(P\) be the free profinite group on this fixed number of
+generators.
+It has continuous surjections
+\[
+                       \pi_N:P\twoheadrightarrow\Gamma_N
+ \tag{TW15}
+\]
+with one fixed \(c_P\in P\) mapping to \(c_N\), and with
+\(h_N\pi_N\) independent of \(N\) after projection to
+\(\Gamma_0/H\).
+The kernel \(H_N\) is pro-\(\ell\) and finitely generated;
+the finite coset representatives make its closure together with
+these lifts the whole group.
+This verifies surjectivity in (TW15), rather than merely
+mapping a free group to each level.
+
+\paragraph{The kernel limit and the base map.}
+Choose an ultrafilter \(\mathcal U\) on \(\mathbb N\) containing
+every cofinite set, and put \(K_N=\ker\pi_N\).
+For every open normal \(V\subset P\), the images \(K_NV/V\)
+range over the finite set of subgroups of \(P/V\).
+Exactly one such image occurs on a set in \(\mathcal U\).
+These images are compatible as \(V\) varies, and their transition
+maps are surjective: this holds for the images of every \(K_N\)
+and hence holds on the intersection of the finitely many
+relevant sets in \(\mathcal U\).
+Compactness produces a closed normal subgroup \(K_\infty\subset P\)
+with exactly those finite images.
+Set
+\[
+                        \Gamma_\infty=P/K_\infty .
+\]
+Then
+\[
+                K_NV=K_\infty V
+                   \quad\text{for \(\mathcal U\)-almost all }N
+ \tag{TW16}
+\]
+for every fixed \(V\).
+
+Write \(f_N=h_N\pi_N\).
+For any finite quotient \(\Gamma_0/V_0\), there are only finitely
+many continuous homomorphisms from \(P\) to that quotient,
+because \(P\) has finitely many topological generators.
+Their \(\mathcal U\)-limits are compatible and define
+a continuous \(f_\infty:P\to\Gamma_0\).
+For each \(V_0\), the equality \(f_N=f_\infty\) modulo \(V_0\)
+holds \emph{uniformly on all of \(P\)} for almost all \(N\).
+This proves \(K_\infty\subset\ker f_\infty\), using (TW16).
+It also proves surjectivity, since every \(f_N\) is surjective
+onto every finite quotient and the image of a compact group
+is closed.
+We obtain
+\[
+                      h_\infty:\Gamma_\infty
+                                      \twoheadrightarrow\Gamma_0 .
+ \tag{TW17}
+\]
+The sign and cyclotomic characters and complex conjugation are
+the ones obtained from \(f_\infty\).
+In particular \(c_\infty^2=1\), since \(c_N^2=1\) at every level.
+
+\paragraph{Uniform local limits; no lifting of local homomorphisms.}
+Here an arbitrary pointwise limit is insufficient.
+For each fixed old local group \(Y\), let
+\(H_Y\) be the inverse image of \(H\) under its base map, and put
+\(P_Y=\mathrm{PL}_\ell(H_Y)\), defined using \(Y\).
+The local finiteness input and the pro-\(\ell\) Burnside basis
+argument show that \(Y/P_Y\) is topologically finitely generated.
+Every local map \(i_N:Y\to\Gamma_N\) kills \(P_Y\), by (TW14):
+a finite quotient of \(H_N\) is an \(\ell\)-group, so the
+pullback of each such quotient appears in the defining
+intersection for \(P_Y\).
+
+Fix \(V\triangleleft_{\mathrm{open}}P\).
+For almost all \(N\), the subgroup \(S=K_NV=K_\infty V\)
+is fixed.  At those levels there is a canonical quotient
+\[
+                         \Gamma_N\longrightarrow P/S ,
+\]
+because \(\ker\pi_N=K_N\subset S\).
+Its composite with \(i_N\) is a continuous homomorphism
+\(Y/P_Y\to P/S\).
+There are finitely many such homomorphisms.
+Thus it is a single \emph{whole local map}, simultaneously for
+all \(y\in Y\), for almost all \(N\).
+These stabilized maps are compatible as \(V\) varies, and give
+a continuous local homomorphism
+\(i_\infty:Y\to\Gamma_\infty\).
+Its composite with \(h_\infty\) is the original base local map.
+
+Equivalently, for every \(V\), the local elements at level \(N\)
+and at the limit have lifts to \(P\) whose ratio lies in \(V\),
+uniformly for all \(y\in Y\), for almost all \(N\).
+This is the precise \srcid{Close} condition in the limit
+definition.
+The argument uses no continuous homomorphic lift
+\(Y\to P\), which need not exist.
+If one chooses arbitrary set sections of \(\pi_N\), their
+reductions modulo \(S\) are the canonical quotient map just
+described and are continuous; that is all that is required.
+There are only finitely many old local places, so all these
+conditions may be imposed simultaneously.
+
+\paragraph{Marked Frobenius, inertia and the commuting limit.}
+Choose set-theoretic lifts of \(\phi_{Nj}\) and \(\tau_{Nj}\)
+to \(P\), and take their compact \(\mathcal U\)-limits.
+Changing these lifts changes the limit only by \(K_\infty\),
+by (TW16); hence they define elements
+\(\phi_{\infty j},\tau_{\infty j}\in\Gamma_\infty\).
+The finite set of marked elements has the same uniform
+\srcid{Close} property.
+Equations (TW4), (TW8), and (TW14) give
+\[
+ h_\infty(\phi_{\infty j})=s_j,\qquad
+ h_\infty(\tau_{\infty j})=1 .
+ \tag{TW18}
+\]
+
+Finally these two marked elements commute.
+In the quotient tower, (TW9) is an exact identity.
+At any fixed finite quotient arising from \(P/V\), the image of
+\(\tau_{Nj}\) belongs to an \(\ell\)-group of bounded order,
+because \(H_N\) is pro-\(\ell\).
+Its exponent therefore divides some \(\ell^e\), independent of
+\(N\) for that fixed finite quotient.
+For \(N\geq e\), (TW7) makes
+\(\tau_{Nj}^{Q_{Nj}}=\tau_{Nj}\) in that quotient.
+The commutators consequently vanish in every finite quotient
+at the limit:
+\[
+                        [\phi_{\infty j},\tau_{\infty j}]=1 .
+ \tag{TW19}
+\]
+Together (TW15)--(TW19), the uniformly stabilized local maps,
+and the cofinal ultrafilter are the actual limit data used in
+the cohomology-limit and completed-support constructions.
+
+\paragraph{Scope and exact frozen sources.}
+This proves the arithmetic tower and the common group limit
+from a fixed finite list (TW1).
+The separable eigenvalues may be split by a finite extension of
+the complete coefficient DVR.
+For finitely many points, choose a common multiple of the residue
+degrees, then extend their finite residue fields to the same
+cardinality.  The resulting DVR extensions are finite, injective
+and local; all point equations and odd generators extend with
+them.
+Thus the eigenvalue and common-residue-cardinality requirements
+at the cohomology-limit interface are obtained by actual finite
+coefficient extensions.
+
+All paths below are under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}
+at the frozen tag \srcid{alpoge-source-7cbf7a0c}.
+The residual kernel is
+\srcid{PatchingModules.ChebotarevFamilies.StarSingle.hEx};
+its cofinal sequence is \srcid{FrSNormal.frat}.
+The prime choice is \srcid{ChebOne} and
+\srcid{ChebFam.chebFam}; the enlarged arithmetic quotient and
+kernel are \srcid{LevUp.levUp} and \srcid{kerLe}.
+The uniform character count is \srcid{HomBound.homBound},
+and the residual-unipotent descent is \srcid{UnipPow.rhoPL}.
+The assembled arithmetic construction is
+\srcid{PatchingModules.AutomorphicDetection.ArPl.arPl}.
+The quotient and cover are
+\srcid{PatchingModules.SeparableMatrixStability.QuotEx.quot_ex},
+\srcid{PlGen.pl_gen}, and \srcid{SysCover.sys_cover}.
+The kernel limit uses \srcid{AlgebraTools.LimKer} and
+\srcid{LimElt}; the uniform local argument is
+\srcid{SeparableMatrixStability.Loc_fin.loc_fin} and
+\srcid{InLim.in_lim}; the commuting limit is
+\srcid{CommLim.comm_lim}.
+Coefficient splitting and common residue degree are
+\srcid{PatchingModules.DeterminantPadicFree.CharPOfPadicAlt.onePt}.
+These sources are in
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties}.
+
+
+
+\subsection{The arithmetic second-Selmer bound}
+\label{sec:arithmetic-second-selmer}
+
+Here we prove the finite-level assertion \srcid{TWGrp.B2}, rather
+than assuming it in the limit argument.
+Let \(A=k[[T]]\), \(F=k((T))\), \(q=\#k\), with
+\(\operatorname{char}k=\ell\ne2\).
+Keep a nice paired point \(\rho\) of rank \(n\), with block sizes
+\(a,b=n-a\), and the original odd Selmer generators
+\(\kappa_1,\ldots,\kappa_g\).
+The hypotheses on these objects used below are precisely:
+\[
+ \begin{gathered}
+ \rho(G_0)\subset
+   \mathrm{GL}_a(A)\times\mathrm{GL}_b(A),\qquad
+ F[\rho(G_0')]=M_a(F)\oplus M_b(F),\\
+ G_0'=\ker(\varepsilon:G_0\to\mathbb Z_\ell^\times),\\
+ \psi_{v,i}\ne\psi_{v,j}\quad(i\ne j),\qquad
+ T^s z-\sum_jc_j\kappa_j\text{ is an odd boundary}
+ \text{ for every integral odd Selmer }z,
+ \tag{B2a}
+ \end{gathered}
+\]
+where \(s\) and \(c_j\in A\) in the last statement may depend on \(z\).
+We also keep the actual polarized and unramified equations:
+\(\rho(cgc^{-1})=\varepsilon(g)^{1-n}\rho(g)^{-\mathsf t}\),
+\(\rho(I_u)=1\),
+\(\kappa_j(cgc^{-1})=-\kappa_j(g)^{\mathsf t}\), and
+\(\kappa_j(I_u)=0\).
+Each \(\kappa_j\) is a continuous odd adjoint cocycle with its
+integral ordinary local correcting matrices and prescribed
+zero diagonal on the local \(\ell\)-primary torsion.
+The ordinary bases are integral and respect the block type;
+the characters \(\psi_{v,i}\) are trivial on that specified
+local \(\ell\)-primary torsion.
+The finite-coefficient Galois cohomology groups are finite.
+We use the global and local Euler characteristics, local duality,
+the global localization bound in degree two, and vanishing in degree
+three for \(\ell\)-primary coefficients.  For the actual CM
+arithmetic groups these are the cohomological statements proved
+in the global-cohomology subsection: the group over the totally
+real base has odd \(\ell\), and all primes above \(\ell\) are in the
+ramification set.
+
+Let \(G_N\to G_0\) be the actual auxiliary arithmetic groups.
+For clarity, the Taylor--Wiles properties used in this proof are:
+there is one fixed open normal \(H\subset\Gamma_0\) on which
+\(\eta\), \(\bar\varepsilon\), and the residual character semisimplification
+are trivial; there are fixed \(s_1,\ldots,s_r\in G_0'\), each
+\(\rho(s_j)\) having distinct eigenvalues over \(\overline F\);
+and there are auxiliary Frobenius and inertia elements
+\(\phi_{Nj},\tau_{Nj}\) satisfying
+\[
+ \begin{gathered}
+ h_N(\tau_{Nj})=1,\qquad
+ \rho(h_N(\phi_{Nj}))\equiv\rho(s_j)\pmod{T^m}
+       \quad(N\text{ sufficiently large for }m),\\
+ \mathrm Nw_{Nj}\equiv1\pmod{\ell^N},\qquad
+ \phi_{Nj}^{-1}\tau_{Nj}\phi_{Nj}
+           =\tau_{Nj}^{\,\mathrm Nw_{Nj}}
+               \pmod{\mathrm{PL}(H_N)},\\
+ \ker h_N\subset
+ \overline{\langle\!\langle\tau_{N1},\ldots,\tau_{Nr},
+                      \mathrm{PL}(H_N)\rangle\!\rangle}.
+ \tag{B2b}
+ \end{gathered}
+\]
+Here \(\mathrm{PL}(H_N)\) is the kernel used to retain the maximal
+pro-\(\ell\) quotient of the residual-kernel subgroup \(H_N\).
+These are arithmetic prime-selection and tame inertia statements;
+their construction is separate from the bound proved here.
+The point kills \(\mathrm{PL}(H)\).
+It suffices that every residual characteristic polynomial on \(H\)
+is \((X-1)^n\); one need not assume the residual matrices are identity.
+Their finite image consists of unipotent matrices and is therefore
+an \(\ell\)-group: every element has \(\ell\)-power order and
+Cauchy's theorem excludes other prime divisors of the group order.
+The kernel of reduction modulo \(T\) is an \(\ell\)-group as well.
+Thus every reduction modulo \(T^m\) has an \(\ell\)-group image on
+\(H\), which kills \(\mathrm{PL}(H)\); separatedness proves the
+integral assertion.
+
+\paragraph{One uniform approximation lemma.}
+We first record the complete-module argument responsible for uniformity
+in \(m\).  Suppose \(C,C'\) are \(T\)-torsion-free \(A\)-modules,
+\(C\) is complete and separated, \(C'\) is separated, and
+\(\Phi:C\to C'\) is linear.  Put
+\(S_m=\Phi^{-1}(T^mC')\).
+Suppose \(S_1/TC\) is finite, and an \(A\)-submodule \(B\subset\ker\Phi\) has the
+property that every \(z\in\ker\Phi\) has some \(T\)-power in \(B\).
+Then, for one constant \(C_\Phi\) before all \(m\), the reduction
+of \(S_m\) modulo \(T^mC\) is covered by at most \(q^{C_\Phi}\)
+cosets of the reduction of \(B\).
+The same is true after any linear projection of these reductions.
+
+Here is a proof that does not assume \(C\) finitely generated.
+The images of \(S_m\) in \(C/TC\) form a decreasing sequence of
+subgroups of the finite image of \(S_1\); they stabilize, say from
+\(m_0\) onwards.
+Division by \(T\) is legitimate in \(C'\).
+Here are the stabilization and limit steps explicitly.
+For every \(j\geq1\), the images of \(S_m\) in \(C/T^jC\)
+are constant for \(m\geq m_0+j-1\).
+For the induction, let \(x\in S_{m_0+j}\) and choose a solution
+\(s_1\) at any larger prescribed precision, with
+\(x-s_1=T c_1\), using stabilization modulo \(T\).
+Take that precision at least \(m_0+j\).
+Then \(c_1\in S_{m_0+j-1}\), because
+\(T\Phi(c_1)=\Phi(x-s_1)\) and \(C'\) is torsion free.
+Apply the induction hypothesis to \(c_1\), approximating it
+modulo \(T^j\) by a solution \(s_2\) at the prescribed precision.
+The solution \(s_1+Ts_2\) approximates \(x\) modulo \(T^{j+1}\).
+This proves the induction and, in particular, the convenient
+slightly weaker assertion
+\[
+ \forall j,M,\quad
+ x\in S_{m_0+j}\Longrightarrow
+ \exists s\in S_M,\quad x-s\in T^jC.
+ \tag{B2c1}
+\]
+Starting with \(r_0=x\in S_{m_0+j}\), apply (B2c1) successively
+to choose
+\[
+ r_n\in S_{m_0+j+n},\qquad
+ r_n-r_{n+1}=T^{j+n}d_n .
+\]
+Completeness gives \(L=\sum_{n\geq0}T^nd_n\in C\).
+Set \(k=x-T^jL\).
+For each \(n\), \(k-r_n\in T^{j+n}C\), whereas
+\(\Phi(r_n)\in T^{m_0+j+n}C'\).
+Separatedness of \(C'\) gives \(\Phi(k)=0\).
+Moreover \(T^j\Phi(L)=\Phi(x)\in T^{m_0+j}C'\);
+torsion freeness implies \(L\in S_{m_0}\).
+Thus
+\[
+ S_{m_0+j}\subset\ker\Phi+T^jS_{m_0}\qquad(j\geq0).
+ \tag{B2c}
+\]
+The kernel is complete and
+\(\ker\Phi\cap TC=T\ker\Phi\), again by torsion freeness of \(C'\).
+Thus its reduction modulo \(T\) is finite; successive approximation
+over \(A\) proves it is a finite \(A\)-module.
+The pointwise \(T\)-power condition on \(B\) is therefore uniform:
+\(T^s\ker\Phi\subset B\) for some \(s\).
+Choose finite representatives for \(\ker\Phi/B\) and for
+\(S_{m_0}\) modulo \(T^{m_0}C\).
+Formula (B2c) covers every \(S_{m_0+j}\) modulo \(T^{m_0+j}C\) by
+the sums of one representative of the first kind and \(T^j\)
+times one of the second.
+There are uniformly finitely many such sums.
+The finitely many \(m<m_0\) are absorbed into the constant.
+Their finiteness follows inductively from finiteness at \(m=1\):
+a difference divisible by \(T^r\) can be divided, and its new
+residue is a solution modulo \(T\).
+This proves the lemma.
+
+Apply it to continuous integral global cochains together with their
+finitely many local correcting matrices.
+Let \(\Phi\) list the cocycle, polarization, inertia, ordinary
+lower-entry and prescribed zero-diagonal defects.
+Its target is a product of finite free \(A\)-modules.
+The source is complete in the uniform \(T\)-adic topology:
+compatible locally constant reductions define a continuous integral
+cochain.  The solution set modulo \(T\) is finite by finite Galois
+\(H^1\), finite boundaries, and finitely many local matrices.
+Every finite-coefficient cochain lifts continuously, by using a
+section of the finite coefficient reduction.
+Take \(B\) to consist of exact solutions whose global cochain is
+in the span of the \(\kappa_j\) and integral boundaries; leave the
+compatible local correcting matrices unrestricted.
+The last condition in (B2a) is exactly the \(T\)-power condition
+on this \(B\).  Projecting to global cochains in the lemma yields
+\[
+ \#\operatorname{Sel}_{\mathrm{odd},0}(A/T^e)
+                  \leq q^{ge+C_0}\qquad(e\geq0).
+ \tag{B2d}
+\]
+This is a bound on classes, since the image of \(B\) has at most
+\(q^{ge}\) classes.  It is not obtained merely by asserting that
+the integral rank is \(g\); the approximation lemma controls
+classes which exist only at finite precision.
+
+\paragraph{The auxiliary primes add only a bounded odd Selmer factor.}
+Let \(M_e=\operatorname{Odd}_a(A/T^e)\), with adjoint \(G_0\)-action,
+extended to the full polarized group by minus transpose at complex
+conjugation.
+For each \(j\), the endomorphism
+\[
+ L_j:\operatorname{Odd}_a(A)\to\operatorname{Odd}_a(A),\qquad
+       Y\longmapsto \rho(s_j)Y\rho(s_j)^{-1}-Y
+\]
+is injective after inverting \(T\).
+Indeed the centralizer of a matrix with distinct eigenvalues is a
+commutative algebra.  It contains the even block idempotent, so an
+odd matrix in that centralizer commutes with the idempotent and is
+zero.  Smith normal form consequently gives \(c_j\) with
+\[
+       \#\ker(L_j\bmod T^e)\leq q^{c_j}\quad\hbox{for every }e.
+ \tag{B2e}
+\]
+
+For fixed \(m\) and sufficiently large \(N\), take an odd cocycle
+modulo \(T^e\), \(e\leq m\).
+Its value at \(\tau_{Nj}\) is unchanged by a coboundary, because
+\(\rho(\tau_{Nj})=1\).
+Its finite semidirect-product representation kills
+\(\mathrm{PL}(H_N)\): the image of \(H_N\) in the residual kernel,
+including the cocycle coordinate, is an \(\ell\)-group.
+The tame relation (B2b) and
+\(\mathrm Nw_{Nj}\equiv1\pmod\ell\) therefore show that its value
+at \(\tau_{Nj}\) centralizes \(\rho(h_N(\phi_{Nj}))\).
+This is the same centralizer as in (B2e) at precision \(e\).
+If all these inertia values vanish, (B2b) makes the cocycle descend
+to \(G_0\), with the same old local conditions.
+Inflation on \(H^1\) is injective, so the inertia-value map gives
+\[
+ \#\operatorname{Sel}_{\mathrm{odd},N}(A/T^e)
+ \leq \#\operatorname{Sel}_{\mathrm{odd},0}(A/T^e)
+                                  \prod_jq^{c_j}
+ \leq q^{ge+C_0+C_{\mathrm{aux}}},
+ \quad C_{\mathrm{aux}}=\sum_jc_j.
+ \tag{B2f}
+\]
+The constant \(C_{\mathrm{aux}}\) is fixed for the tower.
+
+\paragraph{The actual relative obstruction group.}
+At an ordinary place \(v\mid\ell\), let \(B_v\subset M_e\) be
+the upper-triangular odd submodule in the chosen ordinary basis,
+and put \(Q_v=M_e/B_v\).
+At a prescribed non-\(\ell\) place put \(Q_u=M_e\), imposing
+unramified classes on the specified inertia subgroup.
+The ordinary type condition makes \(Q_v\) free of rank \(ab\)
+over \(A/T^e\).
+Define \(\mathcal H^2_e\) by pairs
+\[
+ \left(u\in Z^2(G_N,M_e),\
+       b_w\in C^1(G_w,Q_w):\
+       db_w=\pi_w\operatorname{res}_w u\right),
+\]
+modulo pairs coming from a global \(1\)-cochain and local
+unramified \(1\)-cocycles.
+At ordinary places unramified here means locally a boundary,
+because the specified local subgroup is the full group.
+This is precisely the group
+\srcid{Dat.H2LocalConditions}; its defining cochains retain the
+ordinary correcting matrices.
+
+Write \(\mathcal C_e\) for the cokernel of
+\(H^2(G_N,M_e)\to\prod_wH^2(G_w,Q_w)\).
+The relative-cochain exact sequence, followed by Euler
+characteristics, gives
+\[
+ \#\mathcal H^2_e
+ \leq
+ \#\operatorname{Sel}_{\mathrm{odd},N}(A/T^e)\,
+ \left(\prod_{v\mid\ell}\#H^0(G_v,Q_v)\right)\#\mathcal C_e.
+ \tag{B2g}
+\]
+Here is the cancellation explicitly.
+The relative exact sequence has outer terms the cokernel of
+\(H^1(G_N,M_e)\to\prod_wH^1(G_w,Q_w)/\mathcal L_w\)
+and the kernel of localization in degree two.
+Their cardinalities multiply to \(\#\mathcal H^2_e\).
+The global odd module has rank \(2ab\), while minus transpose
+has a fixed space of rank \(ab\) at each real place.
+If \(d=[L^+:\mathbb Q]\), global Euler characteristic contributes
+\(q^{-eabd}/\#H^0(G_N,M_e)\).
+Local Euler characteristic at \(v\mid\ell\) contributes
+\(q^{eab[L^+_v:\mathbb Q_\ell]}\#H^0(G_v,Q_v)\).
+The degree sums are \(d\), so these powers cancel.
+At the other local places, the unramified \(H^1\) cardinality
+equals the \(H^0\) cardinality and contributes no remaining factor.
+The finite prescribed inertia types have order prime to \(\ell\);
+passing through them does not change that identity.
+Discarding the positive global \(H^0\) denominator proves (B2g).
+
+There are constants \(C_H,C_D\), independent of \(e,N\), with
+\[
+ \#H^0(G_v,Q_v)\leq q^{C_H},\qquad
+ \#\mathcal C_e\leq q^{C_D}.
+ \tag{B2h}
+\]
+For the first, choose for each distinct pair \(i,j\) an element
+where \(\psi_{v,i}/\psi_{v,j}\ne1\).
+In the lower-entry quotient, conjugation is triangular when entries
+are ordered by their distance below the diagonal.
+The diagonal coefficients of the invariance equations are these
+nonzero character differences.
+Successively eliminating the lower entries gives one nonzero
+\(a_v\in A\) annihilating all invariants in every \(Q_v\).
+Their cardinality is at most
+\(q^{ab\,v_T(a_v)}\), uniformly in \(e\).
+There are finitely many ordinary places.
+
+For the second, global duality bounds \(\mathcal C_e\) by
+\[
+ \operatorname{Hom}_{\mathbb F_\ell[G_N]}(M_e,\mathbb F_\ell(1)).
+\]
+Localization first in the full module and then in the quotients
+is legitimate because the local cohomological dimension is two.
+Choose \(s\) with \(T^sE\in A[\rho(G_0')]\), where
+\(E=\operatorname{diag}(1_a,0_b)\); this follows from the span
+condition in (B2a).
+An equivariant additive functional \(f\) satisfies
+\(f(\rho(g)Y)=f(Y\rho(g))\) for \(g\in G_0'\), since the
+cyclotomic character is \(1\) there.
+The same holds with any \(A\)-multiple of \(Y\), so it extends to
+the displayed \(A\)-linear span.
+Thus
+\[
+                   f(T^s(EY-YE))=0 .
+\]
+On the upper and lower odd blocks the commutator is respectively
+\(Y\) and \(-Y\).  Splitting the blocks proves
+\(f(T^sM_e)=0\).
+All such functionals are determined by \(M_e/T^sM_e\), and their
+number is at most \(q^{2abs}\).
+This proves the second assertion of (B2h), for example with
+\(C_D=2abs\).
+
+\paragraph{The obstruction quotient at every precision.}
+A bound for \(\mathcal H^2_m\) alone is not enough.
+For every \(e\leq m\), the two coefficient exact sequences
+\[
+ 0\to A/T^{m-e}\xrightarrow{T^e}A/T^m\to A/T^e\to0,\qquad
+ 0\to A/T^e\xrightarrow{T^{m-e}}A/T^m\to A/T^{m-e}\to0
+\]
+give
+\[
+ \#(\mathcal H^2_m/T^e\mathcal H^2_m)
+                         \leq\#\mathcal H^2_e\,\#\mathcal C_e.
+ \tag{B2i}
+\]
+We spell out the maps and the defect argument.
+Use the notation \(\mathcal E_r=\mathcal H^2_r\), and write
+\[
+ \begin{array}{c}
+ f:\mathcal E_{m-e}\longrightarrow\mathcal E_m,\quad
+ g:\mathcal E_m\longrightarrow\mathcal E_e,\\
+ k:\mathcal E_e\longrightarrow\mathcal E_m,\quad
+ r:\mathcal E_m\longrightarrow\mathcal E_{m-e}.
+ \end{array}
+\]
+The first row is induced by the first coefficient sequence, the
+second row by the second sequence.  The injections multiply
+coefficients by \(T^e\) and \(T^{m-e}\), respectively, and
+\[
+                         f r=T^e .
+ \tag{B2i1}
+\]
+The same coefficient maps act on the free lower-entry quotients
+\(Q_w\), where both sequences are exact.
+Local unramified cocycles lift under the coefficient surjections:
+at an ordinary place they are boundaries, which lift by lifting
+their correcting matrix; at another prescribed place first restrict to the finite
+prime-to-\(\ell\) inertia quotient.
+Averaging makes this restriction a boundary.
+Lift its correcting matrix, subtract that boundary, and lift
+the remaining Frobenius value in the inertia-invariant module;
+averaging makes invariants exact under the coefficient
+surjection.
+A cocycle on the procyclic unramified quotient is specified
+by that Frobenius value.
+It is continuous for finite \(\ell\)-primary coefficients:
+after an exponent of the finite Frobenius action, a further
+\(\ell\)-power makes the norm sum zero.
+Add back the lifted boundary.
+This gives an actual lift of the original unramified cocycle,
+including its finite inertial part.
+
+It follows directly on representatives that
+\(\ker g\subset\operatorname{im}f\).
+Indeed, if a relative pair \(p\) maps to a relative coboundary,
+lift its global correcting \(1\)-cochain and its local unramified
+\(1\)-cocycles.
+Subtract that lifted relative coboundary from \(p\).
+Both its global and local coordinates now map to zero pointwise.
+Exactness of the coefficient sequences gives unique preimages
+under the first injection.  Injectivity makes those preimages
+a global \(2\)-cocycle and compatible local \(1\)-cochains.
+They define a class of \(\mathcal E_{m-e}\) mapping to \([p]\).
+Consequently
+\[
+                 \#(\mathcal E_m/\operatorname{im}f)
+                                    \leq\#\mathcal E_e.
+ \tag{B2i2}
+\]
+
+For the other factor we give the actual defect construction.
+Take a relative representative
+\(p'=(u',b'_w)\) over \(A/T^{m-e}\).
+Global degree-three vanishing makes
+\(H^2(M_m)\to H^2(M_{m-e})\) surjective.
+Hence \(u'\) lifts to an actual global \(2\)-cocycle \(u\):
+first lift its cohomology class, then lift the correcting
+\(1\)-cochain and subtract its differential.
+Lift the local \(1\)-cochains \(b'_w\) arbitrarily to \(b_w\).
+The local defects have unique expressions
+\[
+ \pi_w\operatorname{res}_w u-db_w
+               =T^{m-e}c_w,\qquad c_w\in Z^2(G_w,Q_{w,e}).
+ \tag{B2i3}
+\]
+The right side is interpreted using the coefficient injection
+\(Q_{w,e}\hookrightarrow Q_{w,m}\).
+Its injectivity and \(d^2=0\) prove that \(c_w\) is a cocycle.
+The defect is measured in the \emph{actual} cokernel
+\[
+ \mathcal C_e=
+  \left(\prod_wH^2(G_w,Q_{w,e})\right)/
+       \operatorname{im}\!\left(H^2(G_N,M_e)
+                       \longrightarrow\prod_wH^2(G_w,Q_{w,e})\right).
+\]
+
+The zero criterion is explicit.
+If \(([c_w])_w\) is the localization of a global class represented
+by \(v\in Z^2(G_N,M_e)\), choose local \(a_w\) such that
+\(c_w=\pi_w\operatorname{res}_wv-da_w\).
+Then
+\[
+       (u-T^{m-e}v,\ b_w-T^{m-e}a_w)
+\]
+is a relative cocycle over \(A/T^m\) mapping to \(p'\).
+The same calculation applies to a difference of two relative
+representatives.  Choose one representative and one system of
+lifts for each element of
+\(\mathcal E_{m-e}/\operatorname{im}r\).
+Sending it to its defect class in \(\mathcal C_e\) is an
+injective map of sets: equality of two defect classes makes
+their difference a lift by the displayed correction, so the
+two quotient classes agree.
+This formulation needs no unproved independence of arbitrary
+choices of relative representatives.  In particular,
+\[
+           \#(\mathcal E_{m-e}/\operatorname{im}r)
+                                            \leq\#\mathcal C_e.
+ \tag{B2i4}
+\]
+By (B2i1), \(f\) induces a surjection from this quotient onto
+\(\operatorname{im}f/T^e\mathcal E_m\).
+Multiplying the bounds for
+\(\mathcal E_m/\operatorname{im}f\) and
+\(\operatorname{im}f/T^e\mathcal E_m\), using (B2i2)--(B2i4),
+proves (B2i).
+
+Combining (B2f)--(B2i), with \(r_\ell\) the number of ordinary
+places, yields, simultaneously for every \(e\leq m\) and all
+sufficiently large \(N\),
+\[
+ \#(\mathcal H^2_m/T^e\mathcal H^2_m)
+           \leq q^{ge+C},\qquad
+ C=C_0+C_{\mathrm{aux}}+r_\ell C_H+2C_D.
+ \tag{B2j}
+\]
+The constant is fixed before \(m,N\).
+
+\paragraph{Primitive relations and the explicit second-order lift.}
+Write the finite \(A\)-module \(\mathcal H^2_m\) in elementary
+divisors, with lengths
+\(\lambda_1\geq\lambda_2\geq\cdots\).
+Equation (B2j) says
+\(\sum_i\min(e,\lambda_i)\leq ge+C\).
+Taking \(e=\lambda_{g+1}\), when it is nonzero, proves
+\(\lambda_{g+1}\leq C\).
+Thus \(T^C\mathcal H^2_m\) is generated by at most \(g\) elements.
+For any \(g+1\) elements \(\xi_i\) of \(\mathcal H^2_m\), lift
+their coordinates in such a generating set to a \(g\) by \(g+1\)
+matrix over \(A\).  Its kernel over \(F\) has a nonzero vector.
+Clear denominators and divide by its common \(T\)-power.
+The resulting \(c_i\in A\) include a unit and satisfy
+\[
+                         T^C\sum_i c_i\xi_i=0 .
+ \tag{B2k}
+\]
+
+For the even Selmer tuples \(z_{ij}\) in \srcid{B2}, use the
+actual square-zero coefficient algebra
+\[
+ \mathbb D_g(A/T^m)
+  =(A/T^m)\oplus\bigoplus_j\epsilon_j(A/T^m)
+    \oplus\bigoplus_j\epsilon'_j(A/T^m)\oplus\eta(A/T^m),
+ \quad\epsilon_i\epsilon'_j=\delta_{ij}\eta.
+\]
+The fixed first-order representation is
+\((1+\sum_j\epsilon_j\kappa_j)\rho\).
+The extension of coefficient modules governing the next step is
+\[
+ 0\to\eta\,\operatorname{Odd}_a(A/T^m)
+       \longrightarrow W_2
+       \longrightarrow
+       \bigoplus_j\epsilon'_j\operatorname{Even}_a(A/T^m)\to0.
+\]
+For the \(i\)-th tuple its connecting obstruction is the relative
+class \(\xi_i\) just defined.
+Its global two-cocycle is, up to the sign convention for \(d^1\),
+\[
+ (g,h)\longmapsto
+        \sum_j[\kappa_j(g),\operatorname{Ad}(\rho(g))z_{ij}(h)].
+ \tag{B2l}
+\]
+This formula follows immediately by multiplying the two
+\(\mathbb D_g\)-valued matrices.
+The local component is obtained by applying the same differential
+to the chosen even local correcting matrices, using the fixed
+odd correcting matrices for the \(\kappa_j\).
+Its lower-entry projection has differential equal to the
+restriction of (B2l), so it is a pair defining \(\mathcal H^2_m\).
+This is a cochain construction, not an assumed obstruction
+vanishing theorem.
+
+When a linear combination of the relative classes vanishes,
+a global odd one-cochain and local odd correcting matrices
+trivialize the combination.
+Putting that cochain in the \(\eta\)-coordinate gives
+\[
+ \Psi(g)=
+    \sum_j\epsilon'_j\!\left(T^C\sum_i c_i z_{ij}(g)\right)
+                           +\eta\,y(g).
+\]
+The cocycle equation is exactly cancellation of (B2l).
+Complex-conjugation compatibility is obtained by averaging with
+its polarized transform; \(2\) is a unit.
+At ordinary places the same local correcting matrices make every
+lower entry zero.  The required diagonal entries on the specified
+inertia also remain zero: in the ordinary basis the relevant
+commutators are commutators of upper-triangular matrices and have
+zero diagonal.
+At other prescribed inertia the relative unramified condition
+makes the cocycle a boundary there.  Its action is trivial, by
+\(\rho(I_u)=1\) and \(\kappa_j(I_u)=0\), so that boundary is zero.
+Thus \(\Psi\in\operatorname{Sel}_{2,N}(A/T^m)\) and
+\[
+       \epsilon'_j(\Psi)=T^C\sum_i c_i z_{ij},\qquad
+                    \text{some }c_i\in A^\times .
+\]
+This proves \srcid{TWGrp.B2} with one \(C\) before every
+coefficient precision and every tower level.
+
+\paragraph{Scope and exact sources.}
+The proof applies in every rank and to both paired blocks; for
+\(a=n\) the odd module is zero and the same argument simplifies.
+It proves the actual finite-level arithmetic second-Selmer bound
+from the displayed nice-point, original-generator, standard
+arithmetic cohomology, and Taylor--Wiles group properties.
+It does not silently manufacture the regular cosets or the
+Taylor--Wiles tower; these are the separate prime-selection
+inputs in (B2b).
+
+All source paths below are at the frozen tag
+\srcid{alpoge-source-7cbf7a0c}, under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}.
+The uniform approximation proof is
+\srcid{PatchingModules.DegreeCountCohomology.SolCnt}
+(\srcid{scS\_stab}, \srcid{scS\_lim}, \srcid{sc\_kerfin},
+\srcid{sc\_unif}, \srcid{solCnt}).
+Its projected original odd-Selmer application is
+\srcid{ArchimedeanH0Cards.ImgCard.sel\_cnt} and \srcid{sel0}.
+The inertia comparison is
+\srcid{ArchimedeanH0Cards.ExistsCore.odd\_kill},
+\srcid{fix\_count}, and \srcid{selN}.
+The local invariant bound and dual invariant bound are
+\srcid{H0LocalCardBoundedOfClsKerLeKer} and \srcid{DualBound}.
+The relative group is defined in
+\srcid{PushforwardPreservesSelmerCocycles.Dat.H2LocalConditions};
+its cardinal formula is \srcid{OdCount.odCount}.
+The two exact-sequence chase is
+\srcid{ObstructionBoundOfDuality.step}, using
+\srcid{ExactMid} and \srcid{CokerBound}; primitive relations are
+\srcid{GenTrick.genTrick}.
+The explicit lift from those relations is
+\srcid{Transl.transl}; the final arithmetic specialization is
+\srcid{AutomorphicDetection.TaylorWilesObstructionBound.b2Ar}.
+These file paths are below
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties}.
+
+\subsection{Trace detection and the arithmetic first-Selmer bound}
+\label{sec:arithmetic-first-selmer}
+
+We prove the actual first-order bound \srcid{TWGrp.B1}.
+In particular the finite list of Taylor--Wiles elements is
+constructed, rather than postulated to detect all dual classes.
+
+Write \(A=k[[T]]\), \(F=k((T))\), \(Q=\#k\), and
+\(\operatorname{char}k=\ell\ne2\).
+Let \(\rho:G_0\to\mathrm{GL}_n(A)\) be one of the nice paired
+points, with block sizes \(a,b=n-a\).
+Put
+\[
+ E=M_a(F)\oplus M_b(F),\qquad
+ O=\operatorname{Hom}(F^b,F^a)\oplus
+                         \operatorname{Hom}(F^a,F^b).
+\]
+The precise global hypotheses used here are
+\[
+ F[\rho(G_0')]=E,\qquad
+ G_0'=\ker(\varepsilon|_{G_0}),\qquad
+ \exists g_*\in G_0:\bar\varepsilon(g_*)\ne1,
+ \tag{B1a}
+\]
+together with polarization and the original odd generators
+\(\kappa_1,\ldots,\kappa_g\).
+Their independence means that a linear combination which is
+the boundary of an odd skew matrix has all coefficients zero.
+Their original spanning property is the one already used in
+the second-Selmer proof.
+At \(v\mid\ell\), the integral ordinary bases respect the block
+type, and the ordered characters satisfy
+\[
+ \psi_{v,i}\ne\psi_{v,j}\ (i\ne j),\qquad
+ \psi_{v,i}\ne\psi_{v,j}\bar\varepsilon_v\ (i<j).
+ \tag{B1b}
+\]
+The prescribed local torsion is killed by the diagonal
+characters.  At the other prescribed inertia groups,
+\(\rho=1\) and \(\kappa_j=0\).
+We use the finite arithmetic cohomology, local and global duality,
+and Euler characteristics established previously.
+
+Let \(D_0\subset G_0\) be the distinguished local image.
+The remaining nice-point hypothesis used in this bound is exactly
+\[
+ \{Y\in M_n(F):
+    \bar\varepsilon(g)\rho(g)Y\rho(g)^{-1}=Y
+                         \text{ for all }g\in D_0\}=0 .
+ \tag{B1c}
+\]
+This is \srcid{N4}, an explicitly specified local condition.
+We do not replace it by irreducibility of \(\rho\).
+
+\paragraph{The actual dual coefficient module and its traces.}
+Use the square-zero coefficient algebra
+\[
+ {\mathbb D}_g=A\oplus\bigoplus_j\epsilon_jA
+                   \oplus\bigoplus_j\epsilon'_jA\oplus\eta A,
+ \qquad \epsilon_i\epsilon'_j=\delta_{ij}\eta,
+\]
+with all remaining products of positive-degree generators zero.
+The fixed first-order representation is
+\[
+                   \rho_1=(1+\sum_j\epsilon_j\kappa_j)\rho .
+\]
+The primal and dual modules are
+\[
+ W_1=E_A\oplus\bigoplus_j\epsilon_jO_A,\qquad
+ W_1^\vee=\eta E_A\oplus\bigoplus_j\epsilon'_jO_A.
+ \tag{B1d}
+\]
+Their pairing is the \(\eta\)-coefficient of \(\operatorname{tr}(XY)\).
+It is perfect over \(A\).
+The \(G_0\)-action on the dual module is
+\(\bar\varepsilon\,\operatorname{Ad}\rho_1\); its extension across
+complex conjugation is minus the cyclotomic multiplier times
+transpose.
+For a continuous polarized twisted cocycle \(z\), put
+\[
+             \ell_s(z)=
+       \eta\operatorname{tr}\bigl(z(s)\rho_1(s)\bigr)
+                         \quad(s\in G_0').
+ \tag{B1e}
+\]
+These are the actual trace functionals used by the construction.
+
+We first prove that their common zero space over \(F\) consists
+of boundaries.
+Write the coordinates of \(z\) as
+\[
+                 z(g)=\eta\varphi(g)
+                              +\sum_j\epsilon'_j\lambda_j(g),
+ \qquad \chi=\bar\varepsilon .
+\]
+Then
+\[
+ \begin{split}
+ \lambda_j(gh)&=\lambda_j(g)+
+                  \chi(g)\operatorname{Ad}\rho(g)\lambda_j(h),\\
+ \varphi(gh)&=\varphi(g)+\chi(g)\left(
+       \operatorname{Ad}\rho(g)\varphi(h)+
+       \sum_j[\kappa_j(g),
+                     \operatorname{Ad}\rho(g)\lambda_j(h)]\right).
+ \end{split}
+ \tag{B1f}
+\]
+The odd \(\lambda_j\) and even \(\varphi\) have the same transpose
+polarization sign \(s\), with \(s^2=1\).
+For \(g\in G_0'\), vanishing of (B1e) is exactly
+\[
+       \operatorname{tr}\left(
+        \varphi(g)\rho(g)+
+                \sum_j\lambda_j(g)\kappa_j(g)\rho(g)\right)=0 .
+ \tag{B1g}
+\]
+
+\paragraph{A relation calculation that detects the odd coordinates.}
+Here are the algebraic steps behind this assertion.
+Let \(R:F[G_0']\to E\) be induced by \(\rho\), and for
+\(c=\sum c_g[g]\) write
+\[
+ K_j(c)=\sum_gc_g\kappa_j(g)\rho(g),\qquad
+ L_j(c)=\sum_gc_g\lambda_j(g)\rho(g).
+\]
+The cocycle equations make \(K_j\) and \(L_j\) derivations
+relative to \(R\) on this group algebra.
+Define also
+\[
+ P(c)=\sum_gc_g\left(\varphi(g)\rho(g)+
+                     \sum_j\lambda_j(g)\kappa_j(g)\rho(g)\right).
+\]
+Multiplying (B1f) gives the explicit product formula
+\[
+ P(cd)=P(c)R(d)+R(c)P(d)+
+                  \sum_j\bigl(K_j(c)L_j(d)+L_j(c)K_j(d)\bigr).
+ \tag{B1h}
+\]
+We have \(\operatorname{tr}P(c)=0\) by (B1g).
+For \(c,d\in\ker R\) and opposite-block indices \(i,j\), insert
+preimages under \(R\) of the two diagonal matrix units
+\(e_{jj}\) and \(e_{ii}\) in \(\operatorname{tr}P(c e_{jj}d e_{ii})\).
+Surjectivity of \(R\), which is (B1a), permits these choices.
+Every term involving \(R(c)\) or \(R(d)\) vanishes.
+Formula (B1h) leaves precisely
+\[
+ \sum_\nu\left(
+      K_\nu(c)_{ij}L_\nu(d)_{ji}
+                 +L_\nu(c)_{ij}K_\nu(d)_{ji}\right)=0 .
+ \tag{B1i}
+\]
+
+We need the following elementary consequence of relation vanishing.
+Suppose \(K\) is an untwisted odd cocycle and \(L\) is a
+\(\chi\)-twisted odd cocycle.  If
+\[
+       \left(\sum_gc_g(K(g)+L(g))\rho(g)\right)_{ij}=0
+                                  \quad(c\in\ker R)
+ \tag{B1j}
+\]
+for one opposite-block pair \(i,j\), their corresponding entire
+corner is principal on \(G_0\).
+First, multiply the relation on the left and right by images
+of elements of \(G_0'\).
+The cocycle equation shows that the extra terms contain
+\(R(c)=0\); hence (B1j) is preserved.
+The matrix units in \(E\) move the indices to any entry in that
+corner.
+Thus the corner of \((K+L)(g)\rho(g)\) factors through a derivation
+of \(E\) into that corner bimodule.
+
+Every derivation of \(E=M_a(F)\oplus M_b(F)\) into \(M_n(F)\)
+is inner.  An explicit formula is useful here.
+Choose in each nonempty block an anchor index \(\beta(i)\),
+put \(u_i=e_{i,\beta(i)}\), \(v_i=e_{\beta(i),i}\), and for a
+derivation \(d\) take \(Y=\sum_i d(u_i)v_i\).
+The identities
+\(\sum_i u_iv_i=1\) and the Leibniz rule give
+\(d(e_{ij})=Ye_{ij}-e_{ij}Y\) whenever \(i,j\) are in one block.
+Linearity proves the assertion for all of \(E\).
+After changing the sign of \(Y\), we obtain
+\[
+                  K+L=\delta Y\quad\hbox{on }G_0'
+\]
+for the chosen corner.
+
+The two summands separate because \(\chi(g_*)\ne1\).
+For completeness, if \(c_*=\chi(g_*)\), direct expansion of
+the cocycle equations at \(g g_*\) and \(g_*g_*^{-1}gg_*\)
+gives
+\[
+ \begin{split}
+ Y_1=(c_*-1)^{-1}\bigl(
+  c_*\operatorname{Ad}\rho(g_*)Y
+             -c_*K(g_*)-L(g_*)-Y\bigr),\\
+             K=\delta Y_1,\qquad L=\delta(Y-Y_1)
+                                \quad\hbox{on }G_0'.
+ \end{split}
+ \tag{B1k}
+\]
+Here \(K,L\) denote their chosen corner projections.
+Project the correcting matrices to that corner.
+The errors from these equations, extended to \(G_0\) with their
+respective twists, vanish on \(G_0'\).
+Their values therefore centralize \(\rho(G_0')\).
+An odd matrix centralizing \(E\) is zero, because it commutes
+with the two block idempotents.
+Thus the corner equations hold on all of \(G_0\).
+
+Polarization reconstructs the opposite corner.
+If \(K(\sigma g)=-K(g)^{\mathsf t}\), replace its corner
+correcting matrix \(Y\) by \(Y-Y^{\mathsf t}\).
+If \(L(\sigma g)=sL(g)^{\mathsf t}\), replace its corner
+correcting matrix by \(Y+sY^{\mathsf t}\).
+The identity
+\[
+        \delta_\chi(Y)(\sigma g)
+                        =\delta_\chi(Y^{\mathsf t})(g)^{\mathsf t}
+\]
+follows from the polarized equation for \(\rho\).
+These replacements give the full odd boundaries with the
+required signs.
+
+Apply this consequence to
+\(K=\sum_\nu\alpha_\nu\kappa_\nu\),
+\(L=\sum_\nu\beta_\nu\lambda_\nu\).
+If (B1j) holds, the preceding argument makes \(K\) an odd skew
+boundary; independence of the \(\kappa_\nu\) implies
+\(\alpha_\nu=0\) for every \(\nu\).
+In (B1i), fix \(d\in\ker R\), and put
+\[
+                 \alpha_\nu=L_\nu(d)_{ji},\qquad
+                 \beta_\nu=K_\nu(d)_{ji}.
+\]
+Equation (B1i) is exactly (B1j), so all
+\(L_\nu(d)_{ji}\) vanish.
+Now each \(\lambda_\nu\) kills relations in the opposite entry.
+Applying the same argument with \(\alpha=0\) and
+\(\beta_\nu=1\), the other \(\beta\)'s zero, proves
+\[
+        \lambda_\nu=\delta_\chi Y_\nu,\qquad
+                Y_\nu\in O,\quad sY_\nu^{\mathsf t}=Y_\nu .
+ \tag{B1l}
+\]
+If \(a=n\), the odd module is zero and this paragraph is vacuous.
+
+\paragraph{The even coordinate and the full dual boundary.}
+Subtract from \(\varphi(g)\) the explicit cross term
+\[
+             \chi(g)\sum_\nu
+                  [\kappa_\nu(g),\operatorname{Ad}\rho(g)Y_\nu].
+\]
+Call the result \(\varphi_0(g)\).
+Equations (B1f) and (B1l) show, by expansion, that it is an
+ordinary \(\chi\)-twisted even cocycle.
+Cyclicity of trace and (B1g) give
+\(\operatorname{tr}(\varphi_0(g)\rho(g))=0\) on \(G_0'\).
+For a relation \(c\in\ker R\), put
+\(M=\sum c_g\varphi_0(g)\rho(g)\in E\).
+Apply the trace equation to \(gh\) and sum over \(c\).
+It gives \(\operatorname{tr}(M\rho(h))=0\) for all \(h\in G_0'\).
+The trace pairing on \(E\) is nondegenerate, so \(M=0\).
+Thus \(\varphi_0(g)\rho(g)\) factors through an even derivation
+of \(E\), which is inner by the same matrix-unit calculation.
+
+Subtract the resulting even boundary.
+The error vanishes on \(G_0'\), so its values centralize \(E\)
+and therefore commute with every \(\rho(g)\).
+The quotient \(G_0/G_0'\) is abelian.
+Its two cocycle expansions at \(g g_*\) and \(g_*g\) yield
+\[
+      (c_*-1)\varphi_{\rm err}(g)
+                =(\chi(g)-1)\varphi_{\rm err}(g_*).
+\]
+This is the boundary of
+\((c_*-1)^{-1}\varphi_{\rm err}(g_*)\).
+Averaging the correcting matrix with \(s\) times its transpose
+makes it have the required polarization, since \(2\) is a unit.
+Together with (B1l), this produces
+\[
+ Y=\eta Y_0+\sum_\nu\epsilon'_\nu Y_\nu\in W_1^\vee\otimes_A F,
+ \qquad
+             z(g)=\chi(g)\operatorname{Ad}\rho_1(g)Y-Y .
+ \tag{B1m}
+\]
+Clearing the finitely many matrix denominators proves that an
+integral \(z\) annihilated by all \(\ell_s\), \(s\in G_0'\),
+has a \(T\)-power in the integral polarized boundary module.
+This is the precise assertion called \srcid{Detects}.
+
+\paragraph{Choosing finitely many simultaneous regular detectors.}
+The module of continuous twisted cocycles with values in a fixed
+finite free \(A\)-module is finite over \(A\).
+Indeed its reduction modulo \(T\) injects into the finite set
+of residual continuous cocycles: the kernel of reduction is
+\(T\) times the integral cocycle module.
+Dividing a cocycle by \(T\) preserves continuity by testing
+one higher coefficient precision.
+The module is complete in the uniform \(T\)-adic topology,
+so successive approximation, or topological Nakayama, proves
+finite generation.
+Residual cocycle finiteness follows from \srcid{PhiCond}:
+on the open kernel of the residual action a cocycle is a
+homomorphism into a finite elementary \(\ell\)-group, and
+there are finitely many choices on its finite complement.
+This argument applies to the full matrix coefficient module
+over \(\mathbb D_g\), and hence to all its submodules.
+
+For finitely many nice points, let \(\mathcal S\subset G_0'\)
+be the set where every point has separable characteristic
+polynomial.
+For each point this regular set is open: the discriminant is
+a continuous \(A\)-valued function, and its nonvanishing is
+open by separatedness of \(A\).
+The actual regular-coset property \srcid{N3} says this open
+set meets every nonempty relatively open part of \(G_0'\).
+Finite induction, retaining the regular open sets already
+obtained, shows that \(\mathcal S\) is dense in \(G_0'\).
+
+For each integral cocycle \(z\), the function
+\(s\mapsto\ell_s(z)\) is continuous.
+Hence vanishing on \(\mathcal S\) implies vanishing on all
+of \(G_0'\), and (B1m) applies.
+On the finite \(A\)-module of integral cocycles, the functionals
+\(\ell_s\), \(s\in\mathcal S\), span a finite submodule of its
+\(A\)-dual.
+Select finitely many which generate that span.
+Their common kernel is therefore the common kernel of all
+the functionals.
+Do this for every point and take the finite union.
+It produces one list \(s_1,\ldots,s_r\in\mathcal S\) which
+detects every point, all of whose characteristic polynomials
+are separable at every point.
+The finite DVR extensions described in the tower subsection
+split all these polynomials and give the same residue-field
+cardinality across the finite family.
+This proves the actual choice input.
+
+\paragraph{A uniform bound on the dual Selmer factor.}
+The trace calculation over \(F\) alone does not bound classes
+which exist only modulo \(T^m\).
+Apply the uniform approximation lemma from the second-Selmer
+proof to continuous cochains, with defect map listing
+their cocycle, polarization, and the finitely many
+\(\ell_{s_j}\) equations.
+Take \(B\) to be the \(A\)-submodule of polarized boundaries.
+The hypothesis that every exact solution has a \(T\)-power
+in \(B\) is (B1m); residual solutions are finite by
+\srcid{PhiCond}.
+The lemma consequently gives one \(C_{\rm tr}\), before all \(m\),
+such that
+\[
+ \#\{z\in\operatorname{TwZ}(A/T^m):
+                     \ell_{s_j}(z)=0\ \forall j\}
+       \leq \#\operatorname{TwB}(A/T^m)\,Q^{C_{\rm tr}} .
+ \tag{B1n}
+\]
+
+Use the actual arithmetic tower constructed in this section.
+For fixed \(m\) and all sufficiently large \(N\), a full
+polarized dual cocycle locally a boundary at each new place
+has value zero at \(\tau_{Nj}\), because \(\tau_{Nj}\) acts
+trivially on the coefficient module.
+Its finite semidirect-product image kills
+\(\mathrm{PL}_\ell(H_N)\), as proved in the tower construction.
+The normal-kernel assertion (TW10) makes it descend to
+\(\Gamma_0\).
+Normalize its value at complex conjugation to zero by a
+boundary, using \(2^{-1}\), and restrict to \(G_0\).
+
+At finite precision there are only finitely many such
+base cocycles, not just finitely many point matrices.
+Intersect their finite semidirect-product kernels, along
+with the kernels of \(\rho_1\) and the cyclotomic character
+at that precision.
+This open subgroup contains \(\mathrm{PL}_\ell(H)\).
+Frobenius convergence (TW8) therefore identifies their
+values at \(h_N(\phi_{Nj})\) and at \(s_j\), simultaneously.
+The boundary equation at \(\phi_{Nj}\), multiplied by
+\(\rho_1(s_j)\) and traced, gives
+\[
+ \eta\operatorname{tr}\bigl(
+   (\operatorname{Ad}\rho_1(s_j)Y-Y)\rho_1(s_j)\bigr)=0 .
+\]
+Thus (B1n) applies.
+Normalization at complex conjugation has exactly the same
+fibers for cocycles and boundaries; canceling those fibers
+gives the actual dual bound
+\[
+       \#H^1_{\mathcal L^\perp,N}
+                    (W_1^\vee/T^m)\leq Q^{C_{\rm tr}},
+ \tag{B1o}
+\]
+when at the auxiliary places the dual local condition is
+being a boundary.
+For the global counting inequality it suffices to impose
+only these auxiliary local conditions, so any further
+orthogonality conditions can only decrease this cardinality.
+
+\paragraph{The local ordinary and invariant counts.}
+Put
+\[
+ \nu=\frac{a(a-1)}2+\frac{b(b-1)}2+gab .
+\]
+Then \(W_1\) has rank \(n+2\nu\), and its upper-triangular
+submodule in the actual ordinary basis has rank \(n+\nu\).
+For an ordinary place \(v\), let
+\(d_v=[L^+_v:\mathbb Q_\ell]\), and let \(d'_v\) be the free
+\(\mathbb Z_\ell\)-rank of the local unit quotient used by the
+ordinary weight algebra.
+Local class field theory gives
+\[
+                         \sum_{v\mid\ell}d_v
+                        =\sum_{v\mid\ell}d'_v=d,
+             \qquad d=[L^+:\mathbb Q].
+ \tag{B1p}
+\]
+The local abelian quotient, with the prescribed finite torsion
+removed, has rank \(d'_v+1\), including its unramified factor.
+
+Let \(Z_{b,v,m}\) be the actual upper-triangular cocycles,
+with diagonal zero on that prescribed torsion.
+Their diagonal coordinates are \(n\) continuous characters
+of this abelian quotient.
+They have at most \(Q^{mn(d'_v+1)}\) choices.
+Filter the strictly upper-triangular coordinates by their
+distance from the diagonal, retaining the even block entries
+and the \(g\) odd copies.
+There are \(\nu\) root coordinates.
+Each associated rank-one character is
+\(\psi_{v,i}/\psi_{v,j}\), \(i<j\).
+Its degree-two local cohomology is uniformly bounded in \(m\):
+local duality and (B1b) identify it with the dual of invariants
+of a nontrivial character.
+A fixed nonzero character difference annihilates those
+invariants at every precision.
+Local Euler characteristic, together with the elementary
+boundary count, therefore bounds its cocycles by
+\(Q^{m(d_v+1)+C_{ij}}\).
+Successively choosing the filtered coordinates never gives
+more choices than the product of these cocycle counts.
+Thus, with \(C_v\) fixed before \(m\),
+\[
+ \#Z_{b,v,m}\leq
+       Q^{\,m[n(d'_v+1)+\nu(d_v+1)]+C_v}.
+ \tag{B1q}
+\]
+This counts the actual ordinary cocycles; the fixed local
+correctors in \(\rho_1\) enter by the integral basis change.
+
+There are also constants \(C_G,C_*,C_j\) such that
+\[
+ \begin{array}{rl}
+ \#H^0(\Gamma_N,W_1/T^m)&\leq Q^{C_G},\\
+ \#H^0(D_0,W_1^\vee/T^m)&\leq Q^{C_*},\\
+ \#H^0(\langle s_j\rangle,W_1^\vee/T^m)
+                                      &\leq Q^{mn+C_j}.
+ \end{array}
+ \tag{B1r}
+\]
+These assertions follow by finite matrix equations and Smith
+normal form, as follows.
+A \(G_0'\)-invariant constant even matrix centralizes \(E\),
+hence is scalar on each block.
+The minus-transpose equation at complex conjugation kills
+both scalars.
+The remaining odd components centralize \(E\) and vanish.
+Thus the first invariant space is zero after inverting \(T\).
+For the second, first apply (B1c) to every \(\epsilon'\)-coordinate,
+then to the remaining \(\eta\)-coordinate; the cross terms
+disappear, so its invariant space also vanishes over \(F\).
+For the third, the odd components centralizing the regular
+\(\rho(s_j)\) vanish.
+Indeed the centralizer of a matrix with distinct eigenvalues
+is commutative and contains the block idempotent.
+The remaining even centralizer has dimension \(n\).
+A fixed finite set of the defining linear equations has these
+same kernels over \(F\).
+Their Smith factors bound finite-precision kernels by
+\(Q^C\) times \(Q^{m}\) for each surviving generic dimension,
+which gives exactly (B1r).
+The Frobenius approximation in the tower transports these
+bounds to the actual new local groups for large \(N\).
+
+\paragraph{The finite duality count and the exponent cancellation.}
+Let \(\operatorname{Sel}_{1,N,m}\) and
+\(\operatorname{Bd}_{1,N,m}\) be the actual primal cocycle and
+boundary sets.
+We give the count with every term visible.
+At an ordinary place take local cocycles equal to a boundary
+plus an element of \(Z_{b,v,m}\).
+The map from a correcting matrix and an upper cocycle onto
+this sum has fibers containing the upper-triangular module,
+of cardinality \(Q^{m(n+\nu)}\).
+Thus, writing \(M_m=W_1/T^m\),
+\[
+       \#\mathcal L^Z_v
+               \leq \#M_m\,
+                       \#Z_{b,v,m}/Q^{m(n+\nu)} .
+ \tag{B1s}
+\]
+At an old non-\(\ell\) place the unramified cocycle set has
+cardinality \(\#M_m\), since inertia acts trivially.
+At the distinguished and the new places take the full local
+cocycle set.
+Local duality at a non-\(\ell\) place gives its cardinality
+as \(\#M_m\) times the cardinality of the dual invariants.
+These are bounded by (B1r).
+
+Finally each real place has at least \(Q^{m\nu}\) invariants
+in \(M_m\).
+For the chosen complex conjugation these are its skew matrices,
+of rank \(\nu\).
+For another real conjugation, the polarized representation
+identifies its fixed space with that skew space by multiplication
+by the corresponding symmetric invertible matrix.
+This works integrally, so the same lower bound holds at
+finite precision.
+
+Apply the finite global-duality cardinal formula, using the
+perfect pairing in (B1d), the local subgroups just specified,
+and (B1o).
+In cocycle notation the local factors are
+\(\#\mathcal L^Z_w/\#M_m\); the real factors occur in the
+denominator, and the global primal invariants in the numerator.
+The denominator of global dual invariants can be discarded
+for an upper bound.
+Normalization at complex conjugation identifies the primal
+class quotient with
+\(\operatorname{Sel}_{1,N,m}/\operatorname{Bd}_{1,N,m}\),
+because \(2\) is invertible.
+Using (B1q)--(B1s) therefore gives
+\[
+ \begin{split}
+ \#\operatorname{Sel}_{1,N,m}\,
+   Q^{m[(n+\nu)\#\{v\mid\ell\}+\nu d]}
+ \ \leq\ 
+ \#\operatorname{Bd}_{1,N,m}\,
+ Q^{C_G+C_{\rm tr}+C_*+\sum_vC_v+\sum_jC_j}\\
+ {}\cdot
+ Q^{\,m\sum_{v\mid\ell}
+        [n(d'_v+1)+\nu(d_v+1)]+mnr}.
+ \end{split}
+ \tag{B1t}
+\]
+All cohomology and cocycle sets here are finite by the
+arithmetic finiteness input.
+The auxiliary level \(N\) only needs to exceed a threshold
+depending on \(m\).
+
+The identity (B1p) gives the exact cancellation
+\[
+ \sum_v[n(d'_v+1)+\nu(d_v+1)]+nr
+       -[(n+\nu)\#\{v\mid\ell\}+\nu d]=nd+nr .
+\]
+Hence one constant \(C\), fixed before every precision and
+tower level, satisfies
+\[
+ \boxed{\ 
+ \#\operatorname{Sel}_{1,N,m}
+ \leq\#\operatorname{Bd}_{1,N,m}\,
+                       Q^{\,m(nd+nr)+C}
+ \quad\text{for all sufficiently large \(N\), for each \(m\)}.
+       \ }
+ \tag{B1u}
+\]
+This is \srcid{TWGrp.B1} with its actual parameter
+\(D_0^{\rm bound}=nd+nr\).
+The point-dependent bounded constants affect only the
+precision threshold and additive constant; the displayed
+linear slope is explicit.
+
+\paragraph{Exact sources and what this closes.}
+All paths in this paragraph are under
+\srcid{Development.AutomorphicArithmetic.AutomorphicVarieties}
+at \srcid{alpoge-source-7cbf7a0c}.
+The odd relation calculation is
+\srcid{PatchingModules.DeterminantPadicFree.RelPair.relPair},
+\srcid{RelMove.relMove}, \srcid{DTw.der},
+\srcid{DerEv.derEv}, \srcid{DTwAlt.eigen},
+\srcid{Infres.infres}, \srcid{Shapiro.shapiro},
+and \srcid{BlockPrinc.ann}; these are assembled in
+\srcid{OddPart.oddPart}, \srcid{EvenPart.evenPart},
+and \srcid{DetAlg.detAlg}.
+Integral denominator clearing is \srcid{DetAsm.detAsm}.
+The actual dense and finite choices are
+\srcid{AutomorphicDetection.Detection.detection},
+\srcid{DeterminantPadicFree.MemPowSmul.z1Fg},
+\srcid{AcConst.matFg}, \srcid{FinSub.finSub},
+\srcid{DetFin.detFin}, \srcid{OmDense.omDense},
+and \srcid{AutomorphicDetection.Choice.choice}.
+Finite-precision detection is
+\srcid{EpsilonEtaMatrices.ExistsNcardAnnihilatedCocyclesLeCoboundariesMul};
+descent and normalization are
+\srcid{Descend} and \srcid{DualN.dualN}.
+The local and invariant estimates are
+\srcid{EntryZero}, \srcid{Rho1MapReductionLevel},
+\srcid{FinrankCentralizerW1Le}, and the local ordinary-count
+modules imported by \srcid{OneLevel}.
+The finite duality count is \srcid{OneLevel.oneLevel};
+its arithmetic assembly is
+\srcid{W1BoundArithmeticRankTwo.W1_bound_arithmetic_rank_two}
+and \srcid{AutomorphicDetection.BoundW1Arithmetic.b1Ar}.
+These sources are in
+\url{https://github.com/ChristianKudeba/alpoge-rh-verification/tree/alpoge-source-7cbf7a0c/src/Development/AutomorphicArithmetic/AutomorphicVarieties}.
+
+Thus the first- and second-Selmer estimates and the arithmetic
+Taylor--Wiles group tower have explicit proofs once the actual
+nice points, their regular-coset property, and the established
+arithmetic cohomology are in place.
+This result supplies those numerical and group-theoretic
+producers to the completed-support construction.
+It does not identify an arbitrary polarized representation
+with an automorphic point; that realization remains the
+separate classical and seed/support part of the argument.
