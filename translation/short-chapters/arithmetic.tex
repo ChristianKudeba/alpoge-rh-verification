@@ -567,9 +567,200 @@ of ideals. This further description is not needed for the bidual proof.
 \footnote{\href{https://math.ucla.edu/~sharifi/notes/iwasawa-ch03.html}{Sharifi,
 \emph{Iwasawa Theory}, Chapter 3, Corollary 3.2.7 and Proposition 3.2.20,
 for the Artin-map conventions}.}
-The subsequent comparison to finite-twist cohomology, its quantitative
-size bound and the exceptional-set construction still need their
-proofs before this generator result gives a dyadic window.
+The next subsection proves the finite-twist comparison and the return
+to the CM field. Uniform size bounds for the resulting cokernels and
+the exceptional-set construction are still required for a dyadic window.
+
+\subsection{Finite-twist descent and the precise dyadic cokernel}
+\label{sec:sr-dyadic-descent}
+We can prove the cohomological transport as well.
+For \(m\geq0\) set
+\[
+ L_m=L(\zeta_{2^{m+2}}),\qquad
+ \Gamma=\operatorname{Gal}(L_\infty/L).
+\]
+The intersection \(L\cap F_\infty\) is \(\mathbb Q(i)\).
+Indeed \(L/\mathbb Q(i)\) is biquadratic, and its three quadratic
+subfields are obtained by adjoining
+\(\sqrt{-q},\sqrt{-d},\sqrt{qd}\).
+Each is ramified at \(q\) or \(d\), by the odd valuation of its
+radicand; \(F_\infty/\mathbb Q(i)\) is unramified at both.
+Any nontrivial intersection would contain one of these quadratic
+subfields. Thus
+\(\Gamma\simeq\operatorname{Gal}(F_\infty/\mathbb Q(i))
+\simeq1+4\mathbb Z_2\).
+The unit \(5\) topologically generates this last group:
+\(v_2(5^{2^j}-1)=j+2\) shows that it generates every finite quotient.
+Choose \(\gamma\in G_L\) lifting that generator.
+Let \(\tau\) be its conjugation action on \(X_2\simeq\mathcal X_2\).
+It is independent of the chosen lift, since inner automorphisms
+act trivially on the abelian quotient \(X_2\).
+
+\begin{srproposition}\label{prop:sr-dyadic-descent}
+For every \(m\geq0\) and every twist \(a\geq1\), there is a natural
+identification
+\[
+ T_{2,a}(L_m)\simeq
+ \operatorname{Hom}_{\rm cont}\left(
+  \frac{X_2}{((5^a\tau)^{2^m}-1)X_2},
+                    \mathbb Q_2/\mathbb Z_2\right).
+\]
+Consequently, in extended \(\mathbb Z_2\)-lengths,
+\begin{equation}\label{eq:sr-dyadic-coker}
+ s_{2,L_m}(a)=
+ \operatorname{length}_{\mathbb Z_2}
+       \left(X_2/((5^a\tau)^{2^m}-1)X_2\right).
+\end{equation}
+\end{srproposition}
+\begin{proof}
+We first prove the needed restriction statement directly for cocycles.
+Suppose a profinite group \(B\) maps onto a group
+\(\Delta\simeq\mathbb Z_2\), with kernel \(A\), and acts on
+\(D=\mathbb Q_2/\mathbb Z_2\) through a character
+\(\beta:\Delta\to\mathbb Z_2^\times\).
+Assume \(\beta(\delta)-1\ne0\) for a topological generator \(\delta\).
+Then restriction identifies
+\begin{equation}\label{eq:sr-cocycle-restriction}
+ H^1(B,D(\beta))\simeq
+ \{\,\nu:A\to D\text{ continuous homomorphism}:
+       \nu(bub^{-1})=\beta(b)\nu(u)\,\}.
+\end{equation}
+There is no quotient by coboundaries on the right, since \(A\) acts
+trivially on \(D\).
+
+Here are the continuity and existence details.
+Choose \(b\in B\) above \(\delta\), and take its procyclic closed
+generated subgroup \(C\).
+The pro-\(2\) factor \(C_2\) maps onto \(\Delta\), since the
+prime-to-\(2\) factors have trivial image there.
+It is infinite, hence \(\mathbb Z_2\); its surjection to
+\(\mathbb Z_2\) is an isomorphism.
+The inverse supplies a continuous group section
+\(\Delta\to B\). Thus \(B=A\rtimes\Delta\).
+For a homomorphism \(\nu\) on the right of
+\eqref{eq:sr-cocycle-restriction}, put
+\(z(u\delta')=\nu(u)\) in this decomposition.
+Equivariance gives the cocycle identity, and the product decomposition
+and continuity of \(\nu\) give continuity of \(z\).
+Conversely every cocycle restricts to such an equivariant homomorphism.
+If its restriction is zero, it descends to a cocycle on \(\Delta\).
+Multiplication by the nonzero scalar \(\beta(\delta)-1\) is
+surjective on \(D\). Subtract a coboundary making the value at
+\(\delta\) zero. The cocycle identity makes all integral powers
+zero, and continuity and density make the whole cocycle zero.
+This proves injectivity and \eqref{eq:sr-cocycle-restriction}.
+
+Apply this with
+\[
+ B=G_{L_m},\quad A=G_{L_\infty},\quad
+ \Delta=\langle\gamma^{2^m}\rangle,\quad
+ \beta=\chi_{\rm cyc}^{-a}.
+\]
+Its value on the generator is \(5^{-a2^m}\ne1\).
+The same restriction statement applies at every prime above two.
+Indeed the local cyclotomic image is an infinite closed subgroup
+of \(1+4\mathbb Z_2\), hence is isomorphic to \(\mathbb Z_2\).
+It is infinite because a finite extension of \(\mathbb Q_2\)
+cannot contain the roots \(\mu_{2^n}\) of unbounded local degree.
+The scalar \(\beta(\delta)-1\) remains nonzero for a generator of
+this local image.
+
+At an odd prime the cyclotomic tower is unramified and the
+coefficient action on inertia is trivial.
+The inertia group at that prime lies in \(G_{L_\infty}\), so
+the global cocycle is unramified there exactly when its restricted
+homomorphism vanishes on that inertia group.
+At a prime above two the local restriction isomorphism just proved
+says that the local class is zero exactly when the homomorphism
+vanishes on its local subgroup in \(G_{L_\infty}\).
+These local subgroups are the decomposition groups used to
+define \(\mathcal D_2\).
+Thus global unramifiedness outside two and strict local vanishing
+at two identify \(T_{2,a}(L_m)\) with the elements
+\(\nu\in\mathcal D_2\) satisfying
+\[
+ \nu(\tau^{2^m}x)=5^{-a2^m}\nu(x)\qquad(x\in X_2).
+\]
+Inflation from \(G_{L_m,S_2}\) causes no further condition:
+the coefficient action is unramified at odd primes, and vanishing
+of the cocycle on their inertia groups is exactly the condition
+for it to descend to that quotient.
+
+Multiplying the last displayed identity by \(5^{a2^m}\)
+shows that these are exactly the characters of
+\(X_2/((5^a\tau)^{2^m}-1)X_2\).
+The endomorphism has compact image, so this quotient is a compact
+finitely generated \(\mathbb Z_2\)-module and its characters have
+the stated continuity.
+Finally a finite abelian \(2\)-group and its character group have
+the same length, as was checked in Lemma~\ref{lem:sr-dyadic-bidual}.
+If the quotient has a nonzero free \(\mathbb Z_2\)-part, its
+character group has a \(\mathbb Q_2/\mathbb Z_2\)-part and both
+lengths are infinite.
+The structure theorem for a finitely generated module over the
+discrete valuation ring \(\mathbb Z_2\) covers these two cases
+and proves \eqref{eq:sr-dyadic-coker}.
+\end{proof}
+
+We also need to return from this tower to the canonical CM field.
+Write \(E_h\) for the field in Section~\ref{sec:sr-arithmetic}
+with its parameter \(e=h\).
+The fixed-subgroup description and the quadratic Gauss sums give
+\[
+ E_h=F_{h+2}^{+}(\sqrt{-q},\sqrt{-d}),\qquad
+ F_{h+2}=\mathbb Q(\zeta_{2^{h+2}}).
+\]
+Adjoining \(i\) gives
+\[
+ E_h(i)=F_{h+2}(\sqrt{-q},\sqrt{-d})=L_h,\qquad
+ [L_h:E_h]=2 .
+\]
+To check the degree, the Chinese remainder automorphism which is
+inversion on the \(2\)-power roots and trivial on the \(q\)- and
+\(d\)-roots fixes \(E_h\) and sends \(i\) to \(-i\).
+Thus \(i\notin E_h\).
+The equality follows because \(F_{h+2}^{+}(i)=F_{h+2}\).
+
+Restriction now gives
+\begin{equation}\label{eq:sr-dyadic-return}
+ s_{2,E_h}(a)\leq1+
+ \operatorname{length}_{\mathbb Z_2}
+       \left(X_2/((5^a\tau)^{2^h}-1)X_2\right)
+                  \qquad(a\geq1).
+\end{equation}
+Here is the bound on its kernel.
+Set \(D=(\mathbb Q_2/\mathbb Z_2)(-a)\).
+A class whose restriction to \(G_{L_h}\) is zero can be represented,
+after subtracting a coboundary, by a cocycle zero on \(G_{L_h}\).
+The cocycle identity makes it descend to
+\[
+ H^1(\operatorname{Gal}(L_h/E_h),D^{G_{L_h}}).
+\]
+Inflation of this cohomology group is injective: if an inflated cocycle
+is a coboundary with primitive \(v\), its vanishing on \(G_{L_h}\)
+forces \(v\in D^{G_{L_h}}\).
+The invariant group is a finite cyclic \(2\)-group, since a
+nontrivial cyclotomic scalar \(5^{-a2^h}-1\) annihilates it.
+For a cyclic group of order two acting on a finite cyclic module
+\(M\), its \(H^1\) is a subquotient of \(M\), hence cyclic, and is
+killed by two. Explicitly a cocycle is determined by
+\(x\in\ker(1+\sigma)\), modulo \((\sigma-1)M\), and
+\(2x=(1-\sigma)x\) is a coboundary.
+Its cardinality is therefore at most two.
+The restriction kernel has length at most one.
+Strictness is preserved by restriction, and \(L_h/E_h\), obtained
+by adjoining \(i\), is unramified outside two.
+The image is consequently a subgroup of \(T_{2,a}(L_h)\).
+Length additivity and \eqref{eq:sr-dyadic-coker} give
+\eqref{eq:sr-dyadic-return}, including when a length is infinite.
+
+These formulas complete the transport of the dyadic generator
+module to the strict groups and identify exactly the cokernels
+whose sizes are needed. They do not bound those sizes uniformly:
+24 generators alone permit arbitrarily large finite orders.
+The matrix/valuation estimates, the high-twist cohomological
+size bound and their uniform dependence on the fields remain
+substantive inputs to the window construction.
 
 \subsection{The odd-prime minus budget, assembled from the printed descent}
 \label{sec:sr-minus-assembly}
@@ -804,9 +995,11 @@ The odd minus estimate \eqref{eq:sr-PB} now follows from the complete
 internal descent and integer-product assembly above.
 The unramified dyadic module has at most 24 generators by
 Proposition~\ref{prop:sr-dyadic-generators}.
-Its transport to the finite-twist estimates, the construction of the
-exceptional set and the cohomological size estimate called Lemma
-\(K\) in the source still need their full standalone proofs before
-this packet constructs the required window.
+The finite-twist transport and return to the CM field are now given by
+\eqref{eq:sr-dyadic-coker} and~\eqref{eq:sr-dyadic-return}.
+The uniform cokernel size estimates, the construction of the exceptional
+set and the cohomological size estimate called Lemma \(K\) in the source
+still need their full standalone proofs before this packet constructs
+the required window.
 The exceptional-interval selection and final absorption are proved here
 conditional on those precise inputs.

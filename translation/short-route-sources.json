@@ -8,7 +8,7 @@
   "remaining": [
     "Uniform signed-data supply on arbitrarily late fourth-power windows",
     "Uniform odd plus bound from PointHV/Height",
-    "Dyadic module transport to finite-twist cohomology and quantitative high-twist size estimates",
+    "Uniform dyadic cokernel order bounds and quantitative high-twist size estimates",
     "Fixed exceptional-set construction with the needed uniformity",
     "Relevant global theta, ramified matching, cusp/metric and integral-model constructions"
   ],
@@ -194,7 +194,8 @@
   "preceding_short_route_commit": "9cd013c786ba170e3984fb2bf9745653c976be31",
   "proved_in_this_revision": [
     "PB(E) assembled from internally printed characterwise descent, cyclotomic derivatives, Frobenius selection and Bernoulli integer product",
-    "Uniform 24-generator bound for the unramified dyadic module and its split quotient; explicit bidual identifications with Tower.XX and Tower.XP, hence the generator input Tower.IsTower; finite-twist size comparison not included",
+    "Uniform 24-generator bound for the unramified dyadic module and its split quotient; explicit bidual identifications with Tower.XX and Tower.XP, hence the generator input Tower.IsTower",
+    "Full finite-twist cokernel identification by continuous cocycles, and restriction to the canonical CM field with kernel length at most one; uniform cokernel orders not bounded",
     "Centered prime-distribution identity with all half-line boundary terms",
     "Global zeta zero growth bound and uniqueness of a vertical discrete spectral distribution",
     "Counterexample to arbitrary Mellin-transform O(log T) unit-box zero counts and the decreasing-kernel projection check"
@@ -310,6 +311,15 @@
         "base2",
         "XRk"
       ]
+    },
+    {
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.AdditiveValuationNorms.ABoundOfDescends",
+      "ref": "alpoge-source-7cbf7a0c",
+      "read_and_matched": [
+        "Descends",
+        "ABound implication"
+      ],
+      "scope": "finite-twist transport is proved by cocycles in this edition; the quantitative A-bound remains open in prose"
     }
   ]
 }
