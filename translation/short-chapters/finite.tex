@@ -1,0 +1,382 @@
+\section{The signed finite-group comparison}\label{sec:sr-finite}
+This section gives the finite comparison underlying Anton's shorter route.
+Every estimate in this section is proved; the existence of data satisfying
+them on late intervals is stated separately in
+Section~\ref{sec:sr-construction}.
+
+Let \(H\) be a finite abelian group, \(n=|H|\), and put
+\[
+ \Gamma=(\mathbb Z/2)^2\times H,\quad
+ \Phi=\{(0,b,h):b\in\mathbb Z/2,\ h\in H\},\quad f=|\Phi|=2n.
+\]
+Use additive notation for \(\Gamma\). Define
+\(c=(1,1,0)\), \(t^\circ=(0,0,t)\),
+\(\chi(a,b,h)=(-1)^a\), and \(\omega(a,b,h)=(-1)^b\).
+The dual group \(\widehat\Gamma\) consists of its complex unitary characters;
+its identity character is denoted \(1\). It has \(4n=2f\) elements.
+
+For each rational prime \(p\), choose a subgroup \(I_p\subset\Gamma\) and
+a Frobenius representative \(F_p\in\Gamma\).
+Fix distinct odd primes \(q,d\). The host conditions are:
+\[
+ I_p=0\ (p\notin\{2,q,d\}),\qquad
+ I_p\subset\Phi,\ F_p\in\Phi\ (p=2,q),\qquad
+ I_d=\{0,(1,0,0)\}.
+\]
+For \(p^r\), \(r\geq1\), set
+\[
+ c_\psi(p^r)=\frac1{|I_p|}\sum_{h\in I_p}\psi(rF_p+h).
+\]
+Extend these coefficients multiplicatively to all positive integers.
+Their absolute values are at most one, and \(c_1(m)=1\).
+Choose arbitrary constants \(\ell_\psi\in\mathbb C\) for \(\psi\ne1\).
+For \(y>0\), define
+\[
+ G_1(y)=E(y),\qquad
+ G_\psi(y)=\sum_{r\leq y}\Lambda(r)c_\psi(r)(y/r-1)+y\ell_\psi
+ \quad(\psi\ne1),
+\]
+using the same formula defining \(E\) also when \(0<y<1\).
+Put
+\[
+ {\cal C}(y)=\Re(G_\chi(y)+G_{\chi\omega}(y)-G_\omega(y)),
+ \qquad {\cal S}(y)=G_1(y)+G_\omega(y)-G_\chi(y)-G_{\chi\omega}(y).
+\]
+Thus \(\Re{\cal S}(y)=E(y)-{\cal C}(y)\).
+
+\subsection{Orthogonality, including the ramified coefficients}
+For every \(g\in\Gamma\), orthogonality on the finite abelian group gives
+\begin{equation}\label{eq:sr-coset}
+ \frac1f\sum_{\psi\in\widehat\Gamma}\psi(-g)c_\psi(p^r)
+ =\begin{cases}2/|I_p|&g-rF_p\in I_p,\\0&\text{otherwise}.\end{cases}
+\end{equation}
+To verify this without any representation theory, interchange the
+two finite sums. For each \(h\in I_p\), the inner sum is
+\(\sum_\psi\psi(rF_p+h-g)\), equal to \(|\Gamma|\) if its argument is zero
+and zero otherwise. The latter assertion follows by multiplying the sum
+by a character nontrivial on the argument; such a character exists by
+the decomposition of a finite abelian group into cyclic groups.
+There is at most one \(h\) giving zero. Division by \(f|I_p|\) proves
+\eqref{eq:sr-coset}.
+
+In particular the raw four-character prime-power coefficient is
+\[
+ 1+c_\omega(p^r)-c_\chi(p^r)-c_{\chi\omega}(p^r)
+ =\frac4{|I_p|}
+   \#\{h\in I_p:\chi(rF_p+h)=-1,\ \omega(rF_p+h)=1\}.
+\]
+This follows pointwise from
+\(1+\omega-\chi-\chi\omega=(1-\chi)(1+\omega)\).
+It is real and lies in \([0,4]\), even at ramified primes.
+This positivity statement concerns the coefficients; it does not by itself
+bound the complete signal, which also includes the normalizing terms in
+the functions \(G_\psi\).
+
+\subsection{The exact colour balance}
+For \(t\in H\) write \(\rho_t(g)=c+g+t^\circ\).
+It is a bijection from \(\Gamma\setminus\Phi\) to \(\Phi\).
+Let \(a>0\), let \(w\) be positive on \(\Phi\), and choose an integer
+\(N\geq a/w(\rho)\) for every \(\rho\in\Phi\). Define
+\[
+ \begin{split}
+ {\cal A}(a,t,w)={}&
+ 2\sum_{\substack{p\leq N\ {\rm prime}\\p\notin\{2,q,d\}\\F_p\notin\Phi}}
+  \log p
+  \sum_{\substack{1\leq r\leq N\\rF_p\notin\Phi}}
+       (a/p^r-w(\rho_t(rF_p)))_+\\
+ &+\log d\sum_{r=1}^N
+   \sum_{\substack{g-rF_d\in I_d\\g\notin\Phi}}
+       (a/d^r-w(\rho_t(g)))_+ ,
+ \end{split}
+\]
+and
+\[
+ M(a,w)=a\left(\log a-1-\gamma+\Re\ell_\chi
+                    -\frac1f\sum_{\rho\in\Phi}\log w(\rho)\right).
+\]
+Finally put
+\[
+ B(a,t,w)=\Re\left[
+ \frac1f\sum_{g\notin\Phi}\sum_{\psi\in\widehat\Gamma}
+    \psi(-g)w(\rho_t(g))G_\psi(a/w(\rho_t(g)))\right].
+\]
+Then
+\begin{equation}\label{eq:sr-balance}
+ {\cal A}(a,t,w)-M(a,w)=B(a,t,w).
+\end{equation}
+Here is a direct verification. First expand the ramp sums in \(B\) and
+use \eqref{eq:sr-coset}. Terms beyond \(N\) vanish by the choice of \(N\).
+The terms at \(2,q\) vanish, because their Frobenius cosets lie in \(\Phi\).
+For every other unramified prime the coefficient is two at the single
+point \(rF_p\). At \(d\), its two-point coset has exactly one point outside
+\(\Phi\), with coefficient one. These are precisely the two sums in
+\({\cal A}\). No prime with \(p>N\), or exponent \(r>N\), contributes,
+because \(p^r>N\) then and every relevant \(a/w\leq N\).
+
+For the remaining terms, sum each character on the complement of
+the index-two subgroup \(\Phi\):
+\[
+ \frac1f\sum_{g\notin\Phi}\psi(-g)
+ =\begin{cases}1&\psi=1,\\-1&\psi=\chi,\\0&\text{otherwise}.\end{cases}
+\]
+This follows from the same orthogonality, first on \(\Phi\) and then
+on its coset. The nontrivial-character linear terms therefore contribute
+\(-a\ell_\chi\).
+The normalizing terms in \(G_1\) contribute
+\(-a\log a+(1+\gamma)a+(a/f)\sum_{\rho\in\Phi}\log w(\rho)\).
+Their real parts give \(-M\), proving \eqref{eq:sr-balance}.
+
+\subsection{Two uniform Lipschitz estimates}
+For all \(A,w,w'>0\) and every character,
+\begin{equation}\label{eq:sr-weightlip}
+ |wG_\psi(A/w)-w'G_\psi(A/w')|
+ \leq\frac{3A}{\min(w,w')}|w-w'|.
+\end{equation}
+For \(\psi\ne1\), write
+\[
+ wG_\psi(A/w)=\sum_r\Lambda(r)c_\psi(r)(A/r-w)_++A\ell_\psi .
+\]
+The linear term cancels. Each positive-part function is Lipschitz with
+constant one, and only \(r\leq A/\min(w,w')\) can contribute.
+Equation \eqref{eq:sr-cheb} proves \eqref{eq:sr-weightlip}.
+For \(\psi=1\), the expression is the real continuous piecewise smooth
+function
+\[
+ \sum_r\Lambda(r)(A/r-w)_+-A\log A+A\log w+(1+\gamma)A.
+\]
+Off its finitely many breakpoints in any compact interval of \(w>0\),
+its derivative is \(A/w-\psi(A/w)\).
+By \eqref{eq:sr-cheb}, its absolute value is at most \(2A/w\).
+Integrating across the finitely many pieces proves the stronger bound
+with constant two, and hence \eqref{eq:sr-weightlip}.
+
+Also,
+\begin{equation}\label{eq:sr-Elip}
+ |E(x)-E(y)|\leq4|x-y|\qquad(x,y\geq1).
+\end{equation}
+For an integer \(m\geq1\), set \(L(m)=\sum_{r\leq m}\Lambda(r)/r\).
+The factorial identity gives
+\[
+ \log(m!)=mL(m)-\sum_{r\leq m}\Lambda(r)\{m/r\},
+\]
+where the second sum lies between zero and \(\psi(m)\leq3m\).
+The factorial integral bounds above imply
+\(-1\leq L(m)-\log m\leq3\), using
+\(1+\log m\leq m\).
+If \(m\leq x<m+1\), then \(L(x)=L(m)\) and
+\(0\leq\log x-\log m\leq\log2\). Therefore
+\[
+ -1-\log2\leq L(x)-\log x\leq3.
+\]
+The elementary harmonic integral inequalities give \(0\leq\gamma\leq1\).
+Away from its integer breakpoints,
+\(E'(x)=L(x)-\log x+\gamma\), whose absolute value is at most four.
+Continuity and integration over the finitely many pieces between \(x,y\)
+prove \eqref{eq:sr-Elip}.
+
+\subsection{Transporting one signed bound}
+Suppose \(x\geq3\), \(|y-x|\leq1\).
+Apply \eqref{eq:sr-weightlip} with \(A=xy,w=x,w'=y\).
+Taking real parts gives, for every \(\psi\),
+\[
+ |x\Re G_\psi(y)-y\Re G_\psi(x)|
+ \leq3\max(x,y)|x-y|\leq4x.
+\]
+Using the upper inequalities for \(\chi,\chi\omega\) and the lower
+one for \(\omega\), we obtain
+\(x{\cal C}(y)\leq y{\cal C}(x)+12x\).
+If \({\cal C}(x)\leq Bx^\theta\), \(B\geq0\), \(\theta\leq1\), then
+\[
+ {\cal C}(y)\leq Bx^\theta+B+12,
+\]
+because \(0\leq y\leq x+1\) and \(x^{\theta-1}\leq1\).
+Together with \eqref{eq:sr-Elip} this proves
+\begin{equation}\label{eq:sr-signaltransport}
+ \Re{\cal S}(y)\geq E(x)-Bx^\theta-(B+16).
+\end{equation}
+The additive loss here uses the elementary constant four proved above.
+
+\subsection{Averaging the thick part and bounding the repair}
+Choose subsets \(T,T_2\subset H\), an integer \(m\geq1\),
+numbers \(a_t>0\), a scale \(b>0\), and weights
+\(w_{u,j}(\rho)>0\), \(u\in H,1\leq j\leq m,\rho\in\Phi\).
+Call a point \(\rho\) thick for \(u\) if
+\(\rho=(0,1,h+u)\) for some \(h\in T_2\).
+Replace its weight by \(b\), keeping all other weights unchanged,
+to obtain \(\widetilde w_{u,j}\).
+Write \(\delta_2=|T_2|/n\). Define the thin mean
+\[
+ {\cal R}=\frac1n\sum_{u\in H}\sum_{t\in T}\sum_{j=1}^m
+ \Re\left[\frac1f
+ \sum_{\substack{g\notin\Phi\\\rho_t(g)\ {\rm not\ thick\ for}\ u}}
+ \sum_{\psi\in\widehat\Gamma}
+ \psi(-g)w_{u,j}(\rho_t(g))
+ G_\psi(a_t/w_{u,j}(\rho_t(g)))\right].
+\]
+Then
+\begin{equation}\label{eq:sr-thick}
+ \frac1n\sum_{u,t,j}B(a_t,t,\widetilde w_{u,j})
+ =\frac{\delta_2b}{2}\sum_{t\in T}\sum_{j=1}^m
+       \Re{\cal S}(a_t/b)+{\cal R}.
+\end{equation}
+Indeed thickness requires that \(g=(1,0,h)\).
+Averaging the translates \(T_2+u\) gives multiplicity \(|T_2|\)
+at each \(h\in H\). Summing over \(h\) kills every character nontrivial
+on \(H\). The four survivors \(1,\omega,\chi,\chi\omega\) have values
+\(1,1,-1,-1\), respectively, at \((1,0,0)\).
+Division by \(nf=2n^2\) leaves \(\delta_2/2\).
+The complementary part is unchanged by the replacement, proving the identity.
+
+Suppose moreover that \(|a_t/b-x|\leq1\), and the original thick weights
+satisfy \(b\leq w_{u,j}(\rho)\leq b+\eta+1\), where \(\eta\geq0\).
+For each fixed \(u,t,j\), \eqref{eq:sr-weightlip} bounds the change in
+each weighted \(G_\psi\) by
+\(3(x+1)(\eta+1)\).
+There are \(f\) possible \(g\), \(2f\) characters, and a factor \(1/f\).
+The triangle inequality therefore gives
+\[
+ |B(a_t,t,\widetilde w_{u,j})-B(a_t,t,w_{u,j})|
+ \leq6f(x+1)(\eta+1).
+\]
+Consequently, if \(Q=|T|mb\) and
+\begin{equation}\label{eq:sr-repair}
+ 6f(x+1)(\eta+1)\leq b/x,
+\end{equation}
+the total change in the averaged balance is at most \(Q/x\).
+
+The thin mean can also be recovered from the original stronger
+pointwise input. If at every thin node and for every \(\psi\),
+\[
+ |w_{u,j}(\rho)G_\psi(a_t/w_{u,j}(\rho))|\leq L,\qquad L\geq0,
+\]
+then the same count of terms gives
+\begin{equation}\label{eq:sr-thin}
+ {\cal R}\geq-2f|T|mL.
+\end{equation}
+If, more specifically, \(a_t\leq(x+1)b\),
+\(a_t/w_{u,j}(\rho)\geq X'/3\) at thin nodes and
+\(|G_\psi(z)|\leq z\vartheta\) for \(z\geq X'/3\), take
+\(L=(x+1)b\vartheta\).
+The inequality \(2f(x+1)\vartheta\leq1/x\) then yields
+\({\cal R}\geq-Q/x\). No averaging cancellation is assumed in this argument.
+
+\section{The exact geometric construction requirement}
+\label{sec:sr-construction}
+We now specify what must be supplied by the arithmetic geometry.
+The distinction between a local implication and the existence statement
+in this section is essential.
+
+\begin{srdefinition}[A signed datum at \(x\)]
+Fix \(C\geq0\) and \(0<\epsilon\leq1/2\). A signed datum consists of the
+host and node data above, a cutoff \(N\), numbers \(\eta\geq0,k>0,A_E\geq0\)
+and \({\rm Err}\), satisfying the following conditions.
+Write \(t_0=|T|,t_2=|T_2|,Q=t_0mb\).
+The host conditions hold, \(x\geq3\),
+\(|a_t/b-x|\leq1\), and every \(a_t/w_{u,j}(\rho)\leq N\).
+Thick weights lie in \([b,b+\eta+1]\), all weights are positive, and
+\eqref{eq:sr-repair} holds. The three substantive inequalities are
+\begin{align}
+ \frac1n\sum_{u,t,j}\bigl({\cal A}(a_t,t,w_{u,j})-M(a_t,w_{u,j})\bigr)
+       &\leq{\rm Err},\label{eq:sr-top}\\
+ {\cal C}(x)&\leq3x^{1/2+\epsilon},\label{eq:sr-correction}\\
+ {\cal R}&\geq-Q/x.\label{eq:sr-rest}
+\end{align}
+Finally the numerical shape requirements are
+\begin{gather}
+ A_E\leq2xb,\quad
+ t_0\geq n x^{-\epsilon/8}/2,\quad
+ x^{-\epsilon}\leq t_2/n\leq1,\label{eq:sr-shape1}\\
+ x^{1/2-\epsilon}\leq m\leq x^{1/2+\epsilon/2},\quad
+ xm\leq k\leq n^2x^{1/2-\epsilon},\quad
+ 26\leq x^{3\epsilon/8},\label{eq:sr-shape2}\\
+ {\rm Err}\leq x^{C\epsilon}\left[
+ t_0A_E(1+m^2/k)+m\left(2nmbx^\epsilon+
+                 \frac{t_2kb x^\epsilon}{n^2x^{-\epsilon}}\right)\right].
+ \label{eq:sr-error}
+\end{gather}
+\end{srdefinition}
+
+\begin{srproposition}[Pointwise consequence]\label{prop:sr-point}
+A signed datum at \(x\) gives \(E(x)\leq x^{1/2+(C+3)\epsilon}\).
+\end{srproposition}
+\begin{proof}
+The condition \(26\leq x^{3\epsilon/8}\) implies
+\(19\leq x^{1/2+\epsilon}\).
+Apply \eqref{eq:sr-signaltransport} with \(B=3,\theta=1/2+\epsilon\)
+and \(y=a_t/b\). It gives
+\(\Re{\cal S}(a_t/b)\geq E(x)-4x^{1/2+\epsilon}\).
+Equation \eqref{eq:sr-thick}, the thin lower bound, the repair bound,
+the exact balance, and \eqref{eq:sr-top} therefore give
+\begin{equation}\label{eq:sr-sizecomparison}
+ Q\frac{\delta_2}{2}(E(x)-4x^{1/2+\epsilon})
+       \leq{\rm Err}+2Q/x.
+\end{equation}
+All quantities divided by below are positive: \(n,b,m,t_0,k,\delta_2\)
+are positive by the shape requirements.
+
+Put \(Y=x^{1/2+13\epsilon/8}\) and \(P_0=x^{C\epsilon}\).
+Divide the bracket in \eqref{eq:sr-error} by \(Q\).
+Its four terms satisfy, respectively,
+\[
+ \frac{A_E}{mb}\leq2x^{1/2+\epsilon},\qquad
+ \frac{A_Em}{bk}\leq2,\qquad
+ \frac{2nmx^\epsilon}{t_0}\leq4x^{1/2+13\epsilon/8},\qquad
+ \frac{t_2kx^{2\epsilon}}{n^2t_0}\leq2x^{1/2+9\epsilon/8}.
+\]
+These follow in order from \(A_E\leq2xb\) and the lower bound on \(m\);
+from \(k\geq xm\); from the lower bound on \(t_0\) and upper bound on \(m\);
+and from the upper bounds on \(t_2,k\) and lower bound on \(t_0\).
+Each right side is at most its numerical coefficient times \(Y\), so
+\({\rm Err}\leq10P_0YQ\).
+Dividing \eqref{eq:sr-sizecomparison} by \(Q\delta_2/2\) gives
+\[
+ E(x)\leq4x^{1/2+\epsilon}
+       +20P_0Yx^\epsilon+4x^{\epsilon-1}
+ \leq4x^{1/2+\epsilon}+22P_0Yx^\epsilon .
+\]
+For the last step use \(x\geq3\) and \(P_0Y\geq1\).
+Since \(C\geq0\),
+\(x^{1/2+\epsilon}\leq P_0Yx^\epsilon
+=x^{1/2+(C+21/8)\epsilon}\).
+The result is at most \(26x^{1/2+(C+21/8)\epsilon}\).
+Absorb 26 by \(x^{3\epsilon/8}\), obtaining the asserted bound.
+\end{proof}
+
+\begin{srdefinition}[Uniform supply]\label{def:sr-supply}
+The supply assertion is the following precise statement:
+there exist \(C\geq0,\epsilon_0>0\), with \(\epsilon_0\leq1/2\), such that
+for every \(0<\epsilon<\epsilon_0\) and every \(Y_0\), there is
+\(Y\geq\max(Y_0,1)\) for which a signed datum with the same \(C,\epsilon\)
+exists at every fourth power \(j^4\in[Y,Y^{3/2}]\).
+The host, group, field, weights and auxiliary parameters may vary with
+the sample. The constant \(C\) and the order of quantifiers may not.
+\end{srdefinition}
+
+\begin{srtheorem}[Signed supply implies RH]\label{thm:sr-supply}
+The assertion of Definition~\ref{def:sr-supply} implies ordinary RH.
+\end{srtheorem}
+\begin{proof}
+Given any \(\alpha>0\), choose \(0<\epsilon<\epsilon_0\) with
+\((C+3)\epsilon\leq\alpha\).
+Proposition~\ref{prop:sr-point} bounds \(E(j^4)\) by
+\((j^4)^{1/2+\alpha}\) at all the supplied samples.
+By \eqref{eq:sr-integer} and \eqref{eq:sr-discard},
+\[
+ P(j^4)\geq\gamma j^4-(1+K)(j^4)^{1/2+\alpha}.
+\]
+The constant \(1+K\) is uniform across the chosen interval.
+Theorem~\ref{thm:sr-prime} now applies.
+\end{proof}
+
+\paragraph{Status of the construction.}
+The preceding theorem proves an implication. This edition does not prove
+Definition~\ref{def:sr-supply}. In particular it does not construct
+the geometric witnesses giving \eqref{eq:sr-top} with the error
+\eqref{eq:sr-error} on arbitrarily late intervals. It also does not give
+an independent proof that the signed correction bound
+\eqref{eq:sr-correction} and the complementary bound
+\eqref{eq:sr-rest} can be achieved simultaneously with those witnesses.
+The archive-to-signed-data map transfers these requirements from stronger
+archive inputs; it does not remove the requirement to prove their existence.
+Consequently Theorem~\ref{thm:sr-supply} cannot be described as an
+unconditional proof supplied by this paper.

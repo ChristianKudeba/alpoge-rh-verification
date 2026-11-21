@@ -1,0 +1,194 @@
+{
+  "edition": "ordinary-rh-short-route-working-exposition",
+  "date": "2026-11-21",
+  "status": "incomplete: conditional on the uniform signed-data supply",
+  "prior_manuscript_commit": "8f24eadc552967b963390bdf83f085f6838f4c12",
+  "public_signed_supplement_commit": "9430017510358b5ed1ab12c8bb900fd706e60a32",
+  "independently_rechecked_prose": false,
+  "remaining": [
+    "Uniform signed-data supply on arbitrarily late fourth-power windows",
+    "Characterwise prime-to-degree minus bound PB(E)",
+    "Uniform odd plus bound from PointHV",
+    "Quantitative dyadic rank and cohomological size bounds",
+    "Relevant global theta, ramified matching, cusp and integral-model comparisons"
+  ],
+  "principia_sources": [
+    {
+      "path": "Joint/FourthSamplesRH.lean",
+      "id": "d59903a6498c7db021b728233ee6bdc2",
+      "updated_at": 1795239615661,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/SignedSignal.lean",
+      "id": "57674e7030ca8ce9bc2b4113ee37ab82",
+      "updated_at": 1795238683099,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/SignedGeometry.lean",
+      "id": "116c16d3654fa8b487602e67ead50b96",
+      "updated_at": 1795240082984,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PointwiseGeometry.lean",
+      "id": "150a1ccfbf0ccf9a0b4297260c71c05d",
+      "updated_at": 1795241492565,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/ArchiveThin.lean",
+      "id": "41bb998820fe961dbf8e023c9469578b",
+      "updated_at": 1795240084380,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PrincipalWindows.lean",
+      "id": "c36fb16dbf85efd1520d208bf47edf3a",
+      "updated_at": 1795241655158,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PrincipalHostField.lean",
+      "id": "dbb5b2d6a7cc33fd7d130443ca0f8880",
+      "updated_at": 1795231266133,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/LengthBudget.lean",
+      "id": "b6fa1e4537ff47a8435d533b0de10983",
+      "updated_at": 1795231735925,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PrincipalPrimes.lean",
+      "id": "a9d1bfeef6ffe9d2527192e09069b145",
+      "updated_at": 1795233222019,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/ClassFieldDescent.lean",
+      "id": "e78d3496b633b1b6de281cecc5447831",
+      "updated_at": 1795234623996,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PrincipalMinus.lean",
+      "id": "5bb69933738a4d6fc7064d1a0373a46b",
+      "updated_at": 1795235678533,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PrincipalPlus.lean",
+      "id": "2f942bb7122895555f670ae9583857a7",
+      "updated_at": 1795234850519,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PrincipalBudget.lean",
+      "id": "eb0c90587c7fde1eedf4c4911431d061",
+      "updated_at": 1795235673254,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    },
+    {
+      "path": "Joint/PowerWindow.lean",
+      "id": "b155bf8cf668ccbaecacb180c5bdbfea",
+      "updated_at": 1795235681970,
+      "updated_by": {
+        "username": "anton",
+        "avatar": "026e75c286c8e5c5659147c48b91aee0",
+        "name": "anton"
+      }
+    }
+  ],
+  "translated_geometry_modules": [
+    {
+      "name": "Development.AbelianVarietyTheory.Proofs.DivisorProofs.RigidBoundaryChartsForFanUnitaryDatumStatement",
+      "version": 1,
+      "status": "reviewed",
+      "translated_by": "Baelson",
+      "reviewed_by": "lowrank"
+    },
+    {
+      "name": "Development.AbelianVarietyTheory.Proofs.DivisorProofs.ExistsFramesFockMapPolynomialLieActionsStatement",
+      "version": 1,
+      "status": "reviewed",
+      "translated_by": "Baelson",
+      "reviewed_by": "lowrank"
+    },
+    {
+      "name": "Development.AbelianVarietyTheory.Proofs.DivisorProofs.ArCalcOfPrincipalisation",
+      "version": 1,
+      "status": "reviewed",
+      "translated_by": "Baelson",
+      "reviewed_by": "lowrank"
+    },
+    {
+      "name": "Development.AbelianVarietyTheory.Proofs.DivisorProofs.SemiPullOfPrincipalisation",
+      "version": 1,
+      "status": "reviewed",
+      "translated_by": "Baelson",
+      "reviewed_by": "lowrank"
+    },
+    {
+      "name": "Development.AbelianVarietyTheory.Proofs.DivisorProofs.ArithHilbertSamuelNefOfAmpleStatement",
+      "version": 1,
+      "status": "reviewed",
+      "translated_by": "Baelson",
+      "reviewed_by": "lowrank"
+    }
+  ]
+}

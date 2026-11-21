@@ -1,0 +1,103 @@
+\section{Two geometric comparisons with independent proofs}
+\label{sec:sr-geometric}
+Recent translations by Baelson, reviewed by lowrank, identify the
+principalisation, arithmetic intersection, toroidal-chart and Fock-model
+branches of the original development. A statement that merely re-exports
+an earlier theorem does not yet explain that theorem's proof.
+We record two elementary comparisons that can be proved directly here,
+and specify their domains to avoid applying them beyond their hypotheses.
+
+\subsection{Logarithmic norms after principalisation}
+Let \(X\) be a smooth projective complex variety of dimension \(d\),
+\(L\) a holomorphic line bundle with smooth positive Hermitian norm,
+\(s\) a nonzero holomorphic section, and \(\alpha\) a smooth top-degree
+real form on \(X\).
+Then
+\begin{equation}\label{eq:sr-logint}
+ \int_X|\log\|s\||\,|\alpha|<\infty.
+\end{equation}
+In particular this applies when \(\alpha\) is a product of smooth Chern
+forms of total degree \(d\).
+
+Here is the proof, with principalisation as the classical resolution
+theorem in characteristic zero. Take a proper modification
+\(\pi:Y\to X\) with \(Y\) smooth, such that the zero divisor of
+\(\pi^*s\) is a simple normal crossings divisor.
+On a coordinate polydisk of \(Y\), with a nonvanishing local frame,
+\(\pi^*s=u z_1^{a_1}\cdots z_k^{a_k}\), where \(u\) is holomorphic
+and nowhere zero and the \(a_i\) are nonnegative integers.
+On a slightly smaller closed polydisk, both the norm of the frame
+and \(|u|\) are bounded above and below by positive constants.
+Consequently
+\[
+ |\log\|\pi^*s\||\leq C+\sum_{i=1}^ka_i|\log|z_i||.
+\]
+The smooth form \(\pi^*\alpha\) has bounded coefficients there.
+Fubini and polar coordinates give
+\[
+ \int_{|z|\leq r}|\log|z||\,dA(z)
+       =2\pi\int_0^r\rho|\log\rho|\,d\rho<\infty.
+\]
+Thus the required absolute integral is finite on each such polydisk.
+Compactness supplies a finite cover and a partition of unity.
+The modification is a biholomorphism away from analytic sets of measure
+zero. Change of variables there transfers the finite absolute integral
+to \(X\), proving \eqref{eq:sr-logint}.
+
+This proof covers smooth metrics. It does not assert the corresponding
+uniform estimates for every singular cusp metric appearing in the
+arithmetic construction. Bounds at those cusps must be checked with
+their actual metric growth and boundary multiplicities.
+
+\subsection{The shifted positive-definite lattice identity}
+Let \(V\) be a \(d\)-dimensional Euclidean space and \(L\subset V\)
+a full lattice of covolume \(v\). Define
+\(L^*=\{\lambda:\langle\lambda,\ell\rangle\in\mathbb Z
+\text{ for all }\ell\in L\}\).
+For \(t>0,u\in V\),
+\begin{equation}\label{eq:sr-latticetheta}
+ \sum_{\ell\in L}e^{-\pi t\|\ell+u\|^2}
+ =\frac{t^{-d/2}}v
+   \sum_{\lambda\in L^*}
+     e^{-\pi\|\lambda\|^2/t}e^{2\pi i\langle\lambda,u\rangle}.
+\end{equation}
+Both sides converge absolutely, locally uniformly in \(t>0,u\);
+all derivatives in \(u\) and any fixed number in \(t\) do as well.
+
+To prove this, choose a basis of \(L\) and write it as \(A\mathbb Z^d\).
+The least singular value of \(A\) is positive, so
+\(\|A n+u\|\geq c\|n\|-\|u\|\).
+A Gaussian in \(\|n\|\) dominates the summands and every fixed derivative
+on compact parameter sets; sums of these Gaussians converge by comparison
+with the product of \(d\) one-dimensional Gaussian sums.
+The periodization \(F(u)=\sum_{\ell\in L}e^{-\pi t\|\ell+u\|^2}\)
+is smooth and \(L\)-periodic. Its Fourier coefficient at \(\lambda\in L^*\)
+is, by integration over a fundamental domain and then all its translates,
+\[
+ \frac1v\int_Ve^{-\pi t\|x\|^2}e^{-2\pi i\langle\lambda,x\rangle}\,dx
+ =\frac{t^{-d/2}}v e^{-\pi\|\lambda\|^2/t}.
+\]
+The integral is a product of the one-dimensional Gaussian transforms
+proved in Section~\ref{sec:sr-transform}.
+The coefficients form an absolutely convergent Fourier series, whose
+sum therefore equals \(F\). This proves the identity and the derivative
+claims.
+
+The factor \(v\) is fixed by the Euclidean measure used in that integral.
+If \(L'\subset L\) has finite index \(h\), then
+\(\operatorname{covol}(L')=h\operatorname{covol}(L)\):
+a fundamental domain for \(L'\) is the disjoint union, up to its boundary,
+of \(h\) translates of a fundamental domain for \(L\).
+For an invertible real linear map \(B\),
+\(\operatorname{covol}(BL)=|\det B|\operatorname{covol}(L)\),
+by the ordinary change-of-variables formula.
+Thus no unspecified volume normalization is hidden in
+\eqref{eq:sr-latticetheta}.
+
+Positive definiteness is essential to this particular proof.
+For an indefinite quadratic form the displayed unsmoothed Gaussian
+need not even tend to zero along the lattice.
+Nor does \eqref{eq:sr-latticetheta} establish the required matching of
+ramified local Weil sections. The relevant Schwartz functions,
+regularizations and local measures in the global theta construction
+must be supplied separately.

@@ -1,0 +1,68 @@
+\section*{Scope, sources and verification status}
+\addcontentsline{toc}{section}{Scope, sources and verification status}
+This is a consolidated working exposition, not a completed unconditional
+proof of RH. Its first part proves the prime-only analytic criterion,
+the signed finite-group reduction, the elementary conductor-one
+arithmetic packet, and two geometric comparisons.
+The missing uniform construction is stated with its complete local
+inequalities and quantifier order in
+Definition~\ref{def:sr-supply}.
+The second part preserves the earlier working translations of the longer
+arithmetic-geometric route. Their stated hypotheses and final ledger
+remain in force; their inclusion does not discharge the first part's
+construction requirement.
+
+The shorter route follows Anton's Principia files
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=d59903a6498c7db021b728233ee6bdc2}{\texttt{FourthSamplesRH}},
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=dfeee1c759dca3c2b8e378a2dec2c780}{\texttt{PrimeFourthSamples}},
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=57674e7030ca8ce9bc2b4113ee37ab82}{\texttt{SignedSignal}},
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=150a1ccfbf0ccf9a0b4297260c71c05d}{\texttt{PointwiseGeometry}},
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=116c16d3654fa8b487602e67ead50b96}{\texttt{SignedGeometry}},
+and
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=41bb998820fe961dbf8e023c9469578b}{\texttt{ArchiveThin}}.
+The separate
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=c36fb16dbf85efd1520d208bf47edf3a}{\texttt{PrincipalWindows}}
+interface isolates the conductor-one connected-family route.
+Its explicit geometric premises must still be proved in a standalone text.
+
+The
+\href{https://github.com/leanprover-community/riemann-hypothesis/pull/12}{signed-signal upstream supplement}
+at commit \texttt{9430017510358b5ed1ab12c8bb900fd706e60a32}
+has an independent successful Lean 4.33.1 source rebuild of its 41 project
+dependencies. That verifies the supplement's implications with their
+stated hypotheses. It does not verify this new prose edition or prove
+its supply assertion.
+The simplification of the real Mellin identity by
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/editor?file=58b04d0292b512962984e43972698e31}{uimspeedrun}
+preserves its statement, deriving it from the complex identity.
+We use the same specialization principle, with the actual integral
+calculation printed in the text.
+
+Recent geometric translations by Baelson, reviewed by lowrank, include
+\href{https://principia-math.com/api/rh/step?name=Development.AbelianVarietyTheory.Proofs.DivisorProofs.ArCalcOfPrincipalisation}{arithmetic intersection calculus from principalisation},
+\href{https://principia-math.com/api/rh/step?name=Development.AbelianVarietyTheory.Proofs.DivisorProofs.SemiPullOfPrincipalisation}{semipositivity under pullback},
+\href{https://principia-math.com/api/rh/step?name=Development.AbelianVarietyTheory.Proofs.DivisorProofs.RigidBoundaryChartsForFanUnitaryDatumStatement}{rigid toroidal boundary charts}, and
+\href{https://principia-math.com/api/rh/step?name=Development.AbelianVarietyTheory.Proofs.DivisorProofs.ExistsFramesFockMapPolynomialLieActionsStatement}{Fock frames and Lie actions}.
+They locate the required geometric dependencies.
+The short re-export modules do not themselves contain the proofs of
+all their imported results.
+
+The ordinary-zeta oscillation argument in this edition excludes positive
+real zeros with the alternating zeta series; it consequently omits the
+general real-pole case in the Lean argument.
+The elementary bounds here also give the constant four in
+\eqref{eq:sr-Elip}. These prose variations have not been separately
+formalized or checked by Lean.
+The class-number proof prints the one-ramified-prime argument and the
+strict cyclotomic descent explicitly, using the classical background
+listed in Section~\ref{sec:sr-arithmetic}.
+
+The full formal export has also been typeset as an indexed record edition.
+That is a record transcription, not a human exposition.
+Its reverse-conversion audit establishes fidelity to the input records,
+not completion of this paper.
+The
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/rh-literal-audit-v1}{record edition and audit}
+and
+\href{https://math.mit.edu/~drew/grh/}{independent formal verification report}
+are separate evidence from the mathematical arguments printed here.

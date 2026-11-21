@@ -1,0 +1,385 @@
+\section{The conductor-one arithmetic packet}\label{sec:sr-arithmetic}
+The arithmetic specialization in this section follows the contributors'
+\texttt{PrincipalHostField}, \texttt{PrincipalCohomology},
+\texttt{LengthBudget}, \texttt{PrincipalMinus},
+\texttt{PrincipalPlus}, and \texttt{PowerWindow} files.
+We prove the elementary field, class-number, descent, and numerical
+comparisons here. The remaining uniform height and rank inputs are
+distinguished from these consequences at the end of the section.
+Classical background used here consists of finite Galois theory,
+the Dirichlet unit theorem, Hilbert theorem 90, the Minkowski ideal-class
+bound, and the unramified Artin reciprocity theorem.
+None is supplied by a reference to a Lean module.
+
+\subsection{An explicit field and its degree}
+Let \(q\equiv3\pmod8,d\equiv7\pmod{16}\) be primes and \(e\geq0\).
+They are distinct odd primes. Set \(r=e+2\), \(N=2^rqd\), and
+\(L=\mathbb Q(\zeta_N)\). Let \(A\) be the subgroup of
+\((\mathbb Z/N)^\times=\operatorname{Gal}(L/\mathbb Q)\) defined by
+\[
+ a\bmod2^r\in\{1,-1\},\qquad
+ \left(\frac aq\right)=\left(\frac ad\right)=1,
+\]
+and put \(E=L^A\).
+The Chinese remainder theorem and surjectivity of each quadratic character
+give
+\[
+ \operatorname{Gal}(E/\mathbb Q)\simeq
+ ((\mathbb Z/2^r)^\times/\{\pm1\})\times(\mathbb Z/2)^2,\qquad
+ [E:\mathbb Q]=2^r=2^{e+2}.
+\]
+Indeed the first factor has order \(2^{r-2}\), including \(r=2\),
+and each of the other factors has order two.
+In particular no odd prime divides the degree.
+
+Complex conjugation is the class of \(-1\).
+It is trivial on the first factor and nontrivial on both quadratic
+factors, since \(q,d\equiv3\pmod4\).
+It is therefore a nonidentity central involution.
+Its fixed field \(E^+\) lies in \(\mathbb R\), and
+\([E:E^+]=2\). Every embedding of the Galois field \(E\) has the same
+nontrivial conjugation action. Thus \(E\) is a CM field.
+The least positive conductor \(f_E\) for a cyclotomic embedding
+satisfies \(f_E\leq N\).
+
+This construction is independent of the ambient cyclotomic field used
+to describe it. In a larger cyclotomic field of conductor divisible by
+\(N\), the subgroup specified by these same three tests is the inverse
+image of \(A\). Restriction of automorphisms is surjective, and Galois
+correspondence identifies its fixed field with \(E\).
+Changing the chosen primitive root changes an exponent description by
+multiplication by a unit and leaves the automorphism's exponent itself
+unchanged. Therefore the fixed subgroup, and hence its fixed field,
+are unchanged. This proves the canonical-field reduction without
+retaining any choice of a realization.
+
+\subsection{Strict lengths and a single integer}
+For a prime \(\ell\), write \(S_\ell\) for the primes of \(E\) above \(\ell\).
+For \(a\geq1\), define the strict group
+\[
+ T_{\ell,a}(E)=\ker\left[
+ H^1(G_{E,S_\ell},(\mathbb Q_\ell/\mathbb Z_\ell)(-a))
+ \longrightarrow
+ \prod_{v\mid\ell}H^1(E_v,(\mathbb Q_\ell/\mathbb Z_\ell)(-a))\right].
+\]
+Cohomology is continuous, and the local maps are restrictions after
+inflation from the Galois group unramified outside \(S_\ell\).
+Let \(s_{\ell,E}(a)\) be its \(\mathbb Z_\ell\)-length, with value infinity
+allowed until finiteness has been proved.
+The group and length are independent of choices of closures and primes
+above local places: field isomorphisms induce isomorphisms of global
+and local groups, commute with restriction, and preserve these kernels.
+
+Here is a useful exact reformulation, following \texttt{LengthBudget}.
+For nonnegative integers \(L_\ell\) and a real \(B\),
+\begin{equation}\label{eq:sr-integerbudget}
+ \left(\forall S\ {\rm finite},\ \sum_{\ell\in S}L_\ell\log\ell\leq B\right)
+ \quad\Longleftrightarrow\quad
+ \left(\exists M\in\mathbb Z_{\geq1},\
+ \log M\leq B,\ \ell^{L_\ell}\mid M\ {\rm for\ every}\ \ell\right).
+\end{equation}
+For the forward implication, the empty set first gives \(B\geq0\).
+If \(L_\ell>0\), the singleton inequality gives \(\ell\leq e^B\).
+There are only finitely many such primes. Take \(M\) to be the product
+of \(\ell^{L_\ell}\) over this finite support; its logarithm is at most
+\(B\) by the hypothesis. Conversely, distinct prime powers are coprime,
+so each finite product divides \(M\), and its logarithm is at most
+\(\log M\leq B\).
+Apply this with \(L_\ell=\sum_{1\leq a<t}s_{\ell,E}(a)\), after proving
+every length in that sum finite.
+Finiteness cannot be dropped: replacing infinity by zero is not a
+mathematical interpretation of a length.
+
+\subsection{The one-ramified-prime class-number lemma}
+\begin{srlemma}\label{lem:sr-oneprime}
+Let \(L/K\) be a cyclic extension of degree \(p\), with \(p\) prime,
+and both fields totally imaginary. Suppose exactly one finite prime
+of \(K\) ramifies, and it is totally ramified. If
+\(p\nmid h_K\), then \(p\nmid h_L\).
+\end{srlemma}
+\begin{proof}
+Write \(G=\operatorname{Gal}(L/K)\), \(U_L\) for the units,
+\(I_L\) for fractional ideals, and \(P_L\) for principal fractional ideals.
+The group \(I_L\) is a direct sum of permutation modules on the primes.
+Its first cohomology is zero: for each orbit this reduces to
+\(H^1(J,\mathbb Z)=\operatorname{Hom}(J,\mathbb Z)=0\), with \(J\) finite.
+Taking invariants in \(0\to P_L\to I_L\to\operatorname{Cl}_L\to0\)
+therefore gives
+\[
+ |\operatorname{Cl}_L^G|
+   =|I_L^G/P_L^G|\ |H^1(G,P_L)|.
+\]
+Extension of ideals identifies \(I_K\) with a subgroup of \(I_L^G\).
+Invariants on each prime orbit show
+\([I_L^G:I_K]=\prod_{v\ {\rm finite}}e_v=p\).
+The sequence \(1\to U_L\to L^\times\to P_L\to1\), together with
+Hilbert theorem 90, gives
+\(P_L^G/P_K\simeq H^1(G,U_L)\). Thus
+\[
+ |I_L^G/P_L^G|=h_Kp/|H^1(G,U_L)|.
+\]
+In the same sequence,
+\[
+ H^1(G,P_L)\simeq
+ \ker\bigl(H^2(G,U_L)\to H^2(G,L^\times)\bigr)
+ = (U_K\cap N_{L/K}L^\times)/N_{L/K}U_L.
+\]
+For a cyclic group, \(H^2(G,U_L)=U_K/N_{L/K}U_L\).
+Consequently
+\[
+ |\operatorname{Cl}_L^G|
+ =\frac{h_Kp}{[U_K:U_K\cap N_{L/K}L^\times]}\,
+       \frac{|H^2(G,U_L)|}{|H^1(G,U_L)|}.
+\]
+
+For clarity, the last ratio is \(1/p\).
+Finite modules have Herbrand quotient one, as is seen by counting the
+kernel and image of \(g-1\) and of the norm.
+The logarithmic unit lattice, modulo its finite torsion, spans the
+hyperplane of sum zero in the real vector space on the complex places.
+By the Dirichlet unit theorem its rational representation is
+\(\mathbb Q[G]^{r_2(K)}-\mathbb Q\).
+Herbrand quotient is unchanged under passage to a commensurable
+integral lattice, since its finite quotient has Herbrand quotient one.
+For \(\mathbb Z[G]\) that quotient is one; for the trivial lattice
+\(\mathbb Z\) it is \(p\).
+The exact sequence from the sum-zero lattice to
+\(\mathbb Z[G]^{r_2(K)}\) and then to \(\mathbb Z\) therefore gives \(1/p\).
+These facts also show that the cohomology groups counted above are finite.
+We obtain the ambiguous-class formula, in precisely this case,
+\[
+ |\operatorname{Cl}_L^G|
+ =\frac{h_K}{[U_K:U_K\cap N_{L/K}L^\times]}.
+\]
+Its right side is prime to \(p\).
+If the \(p\)-Sylow subgroup \(A\) of \(\operatorname{Cl}_L\) were
+nontrivial, the action of \(G\) on \(A\) would have a nontrivial fixed
+point. Indeed its orbits have sizes one or \(p\), so
+\(|A^G|\equiv|A|\equiv0\pmod p\), while the identity is fixed.
+This would make \(p\) divide \(|\operatorname{Cl}_L^G|\), a contradiction.
+\end{proof}
+
+The units argument uses the usual rational representation form of the
+Dirichlet unit theorem. One can see the rational representation directly
+from its real logarithmic embedding: the invariants for every subgroup
+have dimension \(r_2(L^J)-1\); these determine the rational character
+of the cyclic group and give the stated representation.
+Thus the passage between the logarithmic real space and integral
+lattices does not assume a rational-valued logarithm.
+
+In \(\mathbb Q(\zeta_{p^{n+1}})/\mathbb Q(\zeta_{p^n})\), the degree
+is \(p\), the unique prime above \(p\) is totally ramified, and no other
+finite prime ramifies. These facts follow from the Eisenstein
+cyclotomic polynomial for \(\zeta_{p^n}-1\) and its discriminant,
+which is a power of \(p\).
+Starting with \(\mathbb Q(i)\), whose Gaussian integer ring is Euclidean
+by nearest-integer division in each coordinate, Lemma~\ref{lem:sr-oneprime}
+therefore proves
+\[
+ h_{\mathbb Q(\zeta_{2^n})}\ \hbox{is odd}\qquad(n\geq2).
+\]
+This proves the Weber input used in the contributors' dyadic reduction.
+
+The same argument applies to the primes 3 and 7 once the first class
+numbers are checked. For \(\mathbb Q(\zeta_3)\), the Minkowski bound is
+\((2/\pi)\sqrt3<2\), so every class has an ideal of norm one.
+For \(\mathbb Q(\zeta_7)\), the degree is six and the discriminant has
+absolute value \(7^5\); its Minkowski bound is
+\[
+ (4/\pi)^3\frac{6!}{6^6}7^{5/2}<5.
+\]
+Primes above 2 have residue degree three, and primes above 3 have
+residue degree six, because those are the orders of 2 and 3 modulo 7.
+Thus no ideal has norm 2, 3 or 4.
+Every ideal class has a representative of norm at most four, so the
+class number is one.
+Here the discriminant is obtained by taking the product of the
+derivatives of \(\Phi_p=(X^p-1)/(X-1)\) at its roots;
+its absolute value is \(p^{p-2}\).
+We have proved
+\[
+ p\nmid h_{\mathbb Q(\zeta_{p^n})}
+ \qquad(p=3,7,\ n\geq1).
+\]
+
+\subsection{Strict descent in the regular cyclotomic towers}
+\begin{srproposition}\label{prop:sr-regularsha}
+For \(p=3,7\), \(F=\mathbb Q(\zeta_{p^n})\), \(n\geq1\), and every
+\(a\geq1\), the strict group \(T_{p,a}(F)\) is zero.
+\end{srproposition}
+\begin{proof}
+Let \(D=(\mathbb Q_p/\mathbb Z_p)(-a)\) and represent a strict class
+by a continuous cocycle \(z:G_F\to D\), inflated from the group
+unramified outside \(p\).
+Its image is finite because \(G_F\) is compact and \(D\) is discrete.
+Hence all its values belong to \(D[p^b]\) for some \(b\).
+At the unique prime above \(p\), strictness says that the cocycle is a
+coboundary, \(z(g)=(g-1)v\), on the decomposition group, for some \(v\in D\).
+Choose a finite higher cyclotomic layer \(F_m\) in which the cyclotomic
+action is trivial on both \(D[p^b]\) and \(v\).
+
+The restriction \(z|_{G_{F_m}}\) is then a homomorphism into \(D[p^b]\).
+It is zero on decomposition at \(p\).
+At every other finite prime, it is zero on inertia: the coefficient
+action is unramified there and the original cocycle was inflated from
+the group unramified outside \(p\).
+All higher primes above \(p\) are conjugate, so the same vanishing
+holds at each choice of a local prime.
+Unramified Artin reciprocity makes this homomorphism factor through
+\(\operatorname{Cl}_{F_m}\).
+The latter group has order prime to \(p\), by the preceding result.
+A homomorphism from it into a finite \(p\)-group is zero.
+Thus \(z|_{G_{F_m}}=0\).
+
+Let \(F_\infty=\bigcup_mF_m\).
+The action on \(D\) is trivial on \(G_{F_\infty}\), and the preceding
+vanishing lets \(z\) descend to a continuous cocycle on
+\(\Gamma=\operatorname{Gal}(F_\infty/F)\simeq\mathbb Z_p\).
+Take a topological generator \(g\) of \(\Gamma\).
+The scalar \(g-1\) on \(D\) is
+\(\chi_{\rm cyc}(g)^{-a}-1\ne0\).
+Multiplication by every nonzero element of \(\mathbb Z_p\) is surjective
+on \(\mathbb Q_p/\mathbb Z_p\). Choose \(v_0\in D\) such that
+\((g-1)v_0=z(g)\).
+After subtracting this coboundary the cocycle vanishes on \(g\), hence
+on all its integral powers by the cocycle identity, and hence on
+\(\Gamma\) by continuity and density.
+The original class is zero.
+\end{proof}
+This proves the zero bottom-layer budgets for the two exceptional
+auxiliary primes, rather than merely naming an unramified-character input.
+
+\subsection{The odd-prime numerical budget and its remaining premise}
+For odd \(\ell\), complex conjugation on \(T_{\ell,a}(E)\) has complementary
+idempotents \((1+(-1)^ac)/2\) and \((1-(-1)^ac)/2\).
+Call their lengths \(s^+_{\ell,E}(a)\) and \(s^-_{\ell,E}(a)\);
+the minus eigenvalue is \((-1)^{a+1}\).
+When finite, they sum to \(s_{\ell,E}(a)\).
+
+Define \(b(f,k)=16f^{k+1}k!\).
+The precise prime-to-degree estimate used in the contributors' odd
+packet is the following assertion, here denoted \(\mathrm{PB}(E)\):
+all the minus lengths are finite, and, for every \(a\geq1\) and finite
+set \(S\) of odd primes not dividing \([E:\mathbb Q]\),
+\begin{equation}\label{eq:sr-PB}
+ \sum_{\ell\in S}s^-_{\ell,E}(a)\log\ell
+       \leq[E:\mathbb Q]\log b(f_E,a+1).
+\end{equation}
+For the canonical conductor-one field, every odd prime is eligible.
+Assuming \eqref{eq:sr-PB}, for \(t\geq2\) we get the fully explicit bound
+\begin{equation}\label{eq:sr-minus}
+ \sum_{\substack{\ell\in S\\\ell\ne2}}\log\ell
+       \sum_{a=1}^{t-1}s^-_{\ell,E}(a)
+ \leq3[E:\mathbb Q]t^2\log(tf_E).
+\end{equation}
+To check the entire numerical estimate, set \(u=tf_E\geq2\).
+For \(a<t\), \(16\leq u^4\), \(f_E^{a+2}\leq u^{a+2}\), and
+\((a+1)!\leq(a+1)^{a+1}\leq u^{a+1}\).
+Thus \(b(f_E,a+1)\leq u^{2a+7}\).
+Consequently
+\[
+ \sum_{a=1}^{t-1}\log b(f_E,a+1)
+ \leq(t-1)(2t+5)\log u\leq3t^2\log u.
+\]
+The last inequality follows from
+\(3t^2-(t-1)(2t+5)=t^2-3t+5>0\).
+Interchange the two finite sums in \eqref{eq:sr-PB} to obtain
+\eqref{eq:sr-minus}.
+This proves the polynomial budget from \(\mathrm{PB}(E)\);
+it does not prove \(\mathrm{PB}(E)\).
+The characterwise Selmer estimate behind that premise must still be
+verified in a completed standalone argument.
+
+\subsection{Selecting a whole interval away from finitely many exceptions}
+Let \(s,B\geq1\), \(U>0\), and let \(A\) be a set of at most \(R\)
+real numbers. There exists \(y\) such that
+\[
+ \frac{U}{s(sB)^R}\leq y,\qquad sy\leq U,
+\]
+and, for \(y\leq u\leq sy\) and \(a\in A\),
+\begin{equation}\label{eq:sr-logavoid}
+ a\leq u\quad\Longrightarrow\quad Ba\leq u.
+\end{equation}
+Here is the complete induction on \(R\).
+For \(R=0\), use \(y=U/s\).
+If some \(b\in A\) lies in \((U/(sB),U]\), remove it and apply the
+induction hypothesis to \(U'=U/(sB)\) and \(A\setminus\{b\}\).
+The resulting lower bound is exactly \(U/[s(sB)^R]\), and
+\(sy\leq U'<b\), so \(b\leq u\) never occurs on the resulting interval.
+The other points satisfy \eqref{eq:sr-logavoid} by induction.
+If there is no such \(b\), choose \(y=U/s\).
+Any \(a\leq u\leq U\) must satisfy \(a\leq U/(sB)\), hence
+\(Ba\leq U/s=y\leq u\).
+The required lower bound follows from \(sB\geq1\).
+
+Now let \(0<\eta\leq C_t\), \(X>1\), and let \(F\) be a set of at most
+\(R\) nonnegative integers.
+Apply the result with
+\(U=\log X,B=C_t/\eta\), and
+\(A=\{\log a/C_t:a\in F,\ a>0\}\).
+Exponentiating gives \(Y\) with
+\[
+ X^{1/J}\leq Y,\qquad Y^s\leq X,\qquad
+ J=s(sC_t/\eta)^R,
+\]
+such that for every \(Y\leq x\leq Y^s\), every \(a\in F\) with
+\(a\leq x^{C_t}\) already satisfies \(a\leq x^\eta\).
+The value \(a=0\) satisfies this automatically.
+For \(s=2,R=24,\eta=\epsilon/(2C_K)\), this is exactly the explicit
+interval exponent
+\begin{equation}\label{eq:sr-J}
+ J=2^{25}(2C_KC_t/\epsilon)^{24}.
+\end{equation}
+The exceptional set must be fixed before \(x\) varies on the whole
+interval. A new exceptional set at each \(x\) would not justify this argument.
+
+\subsection{Absorbing the conductor-one budgets uniformly}
+We finish the numerical passage needed after the difficult bounds have
+been obtained. Fix \(\epsilon>0,C\geq0\), take
+\(t=\lfloor x^{401}\rfloor\), and suppose
+\[
+ x^{2+8\epsilon}\leq2^e\leq2x^{2+8\epsilon},
+ \qquad \log(qd)\leq x^{\epsilon/4}.
+\]
+For the explicit field,
+\[
+ [E:\mathbb Q]\leq8x^{2+8\epsilon},\qquad
+ f_E\leq N=2^{e+2}qd,\qquad
+ \log(Nt)\leq(403+8\epsilon)\log x+\log8+x^{\epsilon/4}.
+\]
+In particular \(\log(Nt)\leq2x^{\epsilon/4}\) for all sufficiently large
+\(x\), with a threshold independent of \(q,d,e\) satisfying these inequalities.
+
+Assume the dyadic strict length sum is at most
+\(B_2=\exp(x^{4\epsilon/5})\), the odd minus sum is bounded by
+\eqref{eq:sr-minus}, and the odd plus sum is at most \((Nt)^C\).
+For every finite prime set, the total strict sum is then at most
+\begin{equation}\label{eq:sr-budgetsum}
+ (\log2)e^{x^{4\epsilon/5}}
+ +3[E:\mathbb Q]t^2\log(tf_E)+(Nt)^C.
+\end{equation}
+The degree and conductor estimates bound its middle term, eventually, by
+\(48x^{804+8\epsilon+\epsilon/4}\).
+Its last term is at most \(\exp(2Cx^{\epsilon/4})\).
+Each of the three displayed terms divided by
+\(\exp(x^\epsilon/2)\) tends to zero:
+take logarithms, divide by \(x^\epsilon\), and use respectively
+\(x^{-\epsilon/5}\to0\), \((\log x)/x^\epsilon\to0\), and
+\(x^{-3\epsilon/4}\to0\).
+Thus \eqref{eq:sr-budgetsum} is at most \(\exp(x^\epsilon/2)\)
+for all sufficiently large \(x\), uniformly in the auxiliary data.
+Equation \eqref{eq:sr-integerbudget} supplies a common integer \(M\)
+with \(\log M\leq\exp(x^\epsilon/2)\), if the stipulated finiteness
+and the three length estimates have been proved.
+
+\paragraph{What is still required here.}
+The class-number and strict descent arguments above prove the auxiliary
+regularity and zero bottom-layer inputs.
+They do not prove the uniform plus estimate \((Nt)^C\) furnished by
+the archive's pointwise height theorem.
+The odd estimate \eqref{eq:sr-PB}, the quantitative dyadic rank bound
+that produces at most 24 exceptional values, and the cohomological
+size estimate called Lemma \(K\) in the source also need their full
+standalone proofs before this packet constructs the required window.
+The exceptional-interval selection and final absorption are proved here
+conditional on those precise inputs.

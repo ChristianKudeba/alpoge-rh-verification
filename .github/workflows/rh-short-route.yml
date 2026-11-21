@@ -1,0 +1,177 @@
+name: Build the ordinary RH short-route exposition
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'translation/short-route.tex'
+      - 'translation/short-chapters/**'
+      - 'translation/short-route-sources.json'
+      - '.github/workflows/rh-short-route.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rh-short-route-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Check out the exposition and supporting chapters
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /translation/short-route.tex
+            /translation/short-route-sources.json
+            /translation/short-chapters/
+            /translation/chapters/
+      - name: Install the typesetting and visual inspection tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-luatex poppler-utils python3-pil
+      - name: Produce the single-file source
+        working-directory: translation
+        shell: python
+        run: |
+          import os, re
+          from pathlib import Path
+          root = Path.cwd()
+          out = Path(os.environ["RUNNER_TEMP"]) / "rh-short-route"
+          out.mkdir()
+          pattern = re.compile(r"(?m)^[ \t]*\\input\{((?:short-chapters|chapters)/[^{}\n]+)\}[ \t]*(?:%[^\n]*)?$")
+          def expand(path, active=()):
+              if path in active:
+                  raise ValueError("Cyclic chapter input")
+              def replace(match):
+                  name = match.group(1)
+                  child = (root / (name if name.endswith(".tex") else name + ".tex")).resolve()
+                  if not any(child.is_relative_to(root / d) for d in ("chapters", "short-chapters")):
+                      raise ValueError("Chapter escapes the source directory")
+                  return expand(child, (*active, path)).rstrip("\n")
+              return pattern.sub(replace, path.read_text(encoding="utf-8"))
+          (out / "rh-short-route.tex").write_text(expand(root / "short-route.tex"), encoding="utf-8")
+      - name: Compile both presentations and compare their text
+        working-directory: translation
+        shell: bash
+        run: |
+          set -euo pipefail
+          export SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)"
+          compile() {
+            latexmk -norc -lualatex -latexoption=-no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error "$1"
+            if grep -Ein 'undefined references|undefined citations|Reference .* undefined|Citation .* undefined|multiply.defin(ed|ition)|Missing character:' "${1%.tex}.log"; then
+              exit 1
+            fi
+          }
+          compile short-route.tex
+          pdftotext -layout short-route.pdf "$RUNNER_TEMP/short-distributed.txt"
+          cd "$RUNNER_TEMP/rh-short-route"
+          compile rh-short-route.tex
+          pdftotext -layout rh-short-route.pdf "$RUNNER_TEMP/short-standalone.txt"
+          cmp "$RUNNER_TEMP/short-distributed.txt" "$RUNNER_TEMP/short-standalone.txt"
+          cp "$GITHUB_WORKSPACE/translation/short-route-sources.json" .
+          pdfinfo rh-short-route.pdf | grep '^Pages:' >> "$GITHUB_STEP_SUMMARY"
+      - name: Render every page and inspect the page boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/rh-short-route"
+          mkdir -p "$out/qa/pages"
+          pdftoppm -r 72 -scale-to 900 -png "$out/rh-short-route.pdf" "$out/qa/pages/page"
+          pdftotext -bbox "$out/rh-short-route.pdf" "$out/qa/bounds.html"
+          /usr/bin/python3 - <<'PY'
+          import hashlib, json, os, re
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          from PIL import Image, ImageDraw
+          root = Path(os.environ["RUNNER_TEMP"]) / "rh-short-route"
+          pages = sorted((root / "qa/pages").glob("page-*.png"))
+          for start in range(0, len(pages), 12):
+              sheet = Image.new("RGB", (1110, 2070), "#cdd3da")
+              draw = ImageDraw.Draw(sheet)
+              for off, path in enumerate(pages[start:start+12]):
+                  im = Image.open(path).convert("RGB")
+                  im.thumbnail((350, 480))
+                  x = 10 + (off % 3)*370
+                  y = 24 + (off // 3)*515
+                  sheet.paste(im, (x+(350-im.width)//2, y))
+                  draw.text((x+5,y-15), f"Page {start+off+1}", fill="black")
+              sheet.save(root / "qa" / f"contact-{start//12+1:02d}.png")
+          xml = ET.parse(root / "qa/bounds.html")
+          escaped = []
+          for i,page in enumerate(xml.findall(".//{*}page"),1):
+              w,h=float(page.attrib["width"]),float(page.attrib["height"])
+              for word in page.findall(".//{*}word"):
+                  a=word.attrib
+                  if float(a["xMin"]) < -.5 or float(a["yMin"]) < -.5 or float(a["xMax"]) > w+.5 or float(a["yMax"]) > h+.5:
+                      escaped.append({"page":i,"text":"".join(word.itertext())[:100]})
+          log=(root / "rh-short-route.log").read_text(errors="replace")
+          warnings=re.findall(r"(?:Overfull|Underfull) \\[hv]box[^\n]*(?:\n[^\n]*)?",log)
+          text=Path(os.environ["RUNNER_TEMP"],"short-standalone.txt").read_text()
+          part_two=[]
+          for i,page in enumerate(text.split("\f"),1):
+              if re.search(r"Part\s+II\b",page) and "Supporting translations" in page:
+                  part_two.append(i)
+          report={"source_commit":os.environ["GITHUB_SHA"],"status":"working exposition; uniform geometric supply unproved",
+                  "pages":len(pages),"supporting_part_start_pages":part_two,
+                  "reference_and_glyph_check":"passed","distributed_and_flattened_text":"identical",
+                  "words_outside_page":escaped,"box_warnings":warnings,
+                  "pdf_sha256":hashlib.sha256((root/"rh-short-route.pdf").read_bytes()).hexdigest(),
+                  "tex_sha256":hashlib.sha256((root/"rh-short-route.tex").read_bytes()).hexdigest(),
+                  "contact_sheets":[p.name for p in sorted((root/"qa").glob("contact-*.png"))]}
+          (root/"build-report.json").write_text(json.dumps(report,indent=2)+"\n")
+          print(json.dumps({k:v for k,v in report.items() if k not in ("box_warnings","contact_sheets")},indent=2))
+          PY
+      - name: Preserve the paper, source and inspection sheets
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rh-short-route
+          path: |
+            ${{ runner.temp }}/rh-short-route/rh-short-route.pdf
+            ${{ runner.temp }}/rh-short-route/rh-short-route.tex
+            ${{ runner.temp }}/rh-short-route/build-report.json
+            ${{ runner.temp }}/rh-short-route/short-route-sources.json
+            ${{ runner.temp }}/rh-short-route/qa/contact-*.png
+          if-no-files-found: error
+          retention-days: 30
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Retrieve the checked edition
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: rh-short-route
+          path: paper
+      - name: Publish the source-pinned working edition
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="short-route-$GITHUB_SHA"
+          repo="$GITHUB_REPOSITORY"
+          if ! gh release view "$tag" --repo "$repo" --json isDraft >/dev/null 2>&1; then
+            notes="Working exposition, not a complete unconditional RH proof. Source: https://github.com/$repo/commit/$GITHUB_SHA. The uniform signed-data supply and substantive arithmetic-geometric inputs remain unproved in this edition."
+            create_release() {
+              gh release create "$tag" --repo "$repo" --target "$1" --draft --latest=false \
+                --title "Ordinary RH short-route exposition ${GITHUB_SHA:0:12}" --notes "$notes"
+            }
+            if ! create_release "$GITHUB_SHA" 2>"$RUNNER_TEMP/short-release-error"; then
+              cat "$RUNNER_TEMP/short-release-error" >&2
+              grep -qi 'Resource not accessible by integration' "$RUNNER_TEMP/short-release-error" || exit 1
+              create_release "${{ github.event.repository.default_branch }}"
+            fi
+          fi
+          gh release upload "$tag" paper/rh-short-route.pdf paper/rh-short-route.tex paper/build-report.json paper/short-route-sources.json paper/qa/contact-*.png --repo "$repo" --clobber
+          if ! gh release edit "$tag" --repo "$repo" --draft=false --latest=false 2>"$RUNNER_TEMP/short-release-error"; then
+            cat "$RUNNER_TEMP/short-release-error" >&2
+            grep -qi 'Resource not accessible by integration' "$RUNNER_TEMP/short-release-error" || exit 1
+            gh release edit "$tag" --repo "$repo" --draft=false --latest=false --target "${{ github.event.repository.default_branch }}"
+          fi
+          echo "Published https://github.com/$repo/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"

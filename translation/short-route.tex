@@ -1,0 +1,193 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.92in,footskip=0.46in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue,bookmarksnumbered=true]{hyperref}
+\hypersetup{pdftitle={Ordinary RH through fourth-power samples: a working exposition}}
+\usepackage{xurl}
+\setcounter{tocdepth}{1}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[2]
+\newcommand{\srcid}[1]{\nolinkurl{#1}}
+\newtheorem{srtheorem}{Theorem}[section]
+\newtheorem{srproposition}[srtheorem]{Proposition}
+\newtheorem{srlemma}[srtheorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{srdefinition}[srtheorem]{Definition}
+\theoremstyle{plain}
+\title{Ordinary RH through fourth-power samples\\[4pt]
+\large Proved reductions and the remaining geometric construction}
+\author{A working exposition of Alpöge's formal development\\
+with reductions from Anton and the Principia contributors}
+\date{21 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We organize the shorter conductor-one route around one explicit supply
+assertion for arithmetic-geometric data.
+We prove the prime-only fourth-power criterion, its full analytic ending,
+the signed finite-group comparison, the explicit conductor-one field and
+degree bounds, cyclotomic class-number regularity at 2, 3 and 7, strict
+descent at 3 and 7, and the numerical interval and length-budget comparisons.
+We also give direct logarithmic-integrability and positive-definite
+lattice-theta comparisons.
+The existing longer-route translations are included as supporting chapters.
+The uniform supply assertion, its pointwise height input, the characterwise
+minus bound, quantitative dyadic inputs, and parts of the global theta and
+integral geometric construction are not proved in this edition.
+This document is therefore a working exposition with proved implications,
+not a completed unconditional proof of the Riemann hypothesis.
+\end{abstract}
+\tableofcontents
+\clearpage
+\input{short-chapters/scope}
+\part{The shorter route for ordinary zeta}
+\input{short-chapters/analytic}
+\input{short-chapters/finite}
+\input{short-chapters/arithmetic}
+\input{short-chapters/geometry}
+\clearpage
+\part{Supporting translations from the longer route}
+\paragraph{The source.}
+This translation follows the Lean development released on 20 November 2026.
+The classical endpoint in \srcid{Main.lean} is the theorem
+\srcid{riemannHypothesis}, of type \srcid{RiemannHypothesis} in Mathlib.
+Alpöge's announcement describes the origin of the argument. Andrew Sutherland
+reports that the independent kernels nanoda and con-leche accepted the 
+full export. The five endpoints use propositional extensionality, classical
+choice and quotient soundness. Section~\ref{sec:kernel-reading} spells out
+the named endpoint and the meaning of a proof-term reference.
+These results concern the formal development. The proofs printed below can be
+assessed separately by tracking the inputs used in each section.
+\footnote{\href{https://alpo.ge/remark.pdf}{Alpöge's announcement};
+\href{https://math.mit.edu/~drew/grh/}{Sutherland's verification report and
+export}; \href{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Main.lean}{the final formal declarations}.}
+The arithmetic family must control characters of varying conductors. The
+modulus-one specialization occurs in the final deduction for the zeta
+function. We begin with that deduction so that the conclusion supplied by the
+later estimates is explicit.
+
+\input{chapters/entry}
+\input{chapters/arithmetic}
+\input{chapters/galois}
+\input{chapters/generators}
+\input{chapters/annihilator}
+\input{chapters/characterwise}
+\input{chapters/cyclotomic-elements}
+\input{chapters/derivatives}
+\input{chapters/selmer}
+\input{chapters/plus}
+\input{chapters/trace-integer}
+\input{chapters/spectrum-deformation}
+\input{chapters/ordinary-irreducibility}
+\input{chapters/ordinary-global-descent}
+\input{chapters/single-character}
+\input{chapters/deformation-chart}
+\input{chapters/deformation-support}
+\input{chapters/deformation-euler}
+\input{chapters/kato-rigidity}
+\input{chapters/type-one-rigidity}
+\input{chapters/theta}
+\input{chapters/siegelweil}
+\input{chapters/siegelweil-singular-vacuum}
+\input{chapters/ramifiedwhittaker}
+\input{chapters/thetadecay}
+\input{chapters/boundary-periods}
+\input{chapters/period-basis}
+\input{chapters/jets}
+\input{chapters/local-jets}
+\input{chapters/jet-connection}
+\input{chapters/key-different}
+\input{chapters/theta-rule-dvr}
+\input{chapters/finite-theta-span}
+\input{chapters/theta-lift-valuation}
+\input{chapters/theta-unit-basis}
+\input{chapters/volume}
+\input{chapters/selfdual}
+\input{chapters/rankshare}
+\input{chapters/chowdet}
+\input{chapters/chow-metric}
+\input{chapters/component}
+\input{chapters/covolume}
+\input{chapters/descent}
+\input{chapters/heightgap}
+\input{chapters/error}
+\input{chapters/primecomparison}
+\input{chapters/windows}
+\input{chapters/host-field}
+\input{chapters/quadratic-ray-family}
+\input{chapters/ray-real-gap}
+\input{chapters/ray-explicit}
+\input{chapters/level-primes}
+\input{chapters/windowexceptions}
+\input{chapters/window-relative-pnt}
+\input{chapters/windowexplicit}
+\input{chapters/analytic}
+\input{chapters/kernel-reading}
+\section*{Proofs still to be translated}
+\addcontentsline{toc}{section}{Proofs still to be translated}
+The proof of the reflection step, the determinant descent inequality,
+the conversion of the pointwise slope error into a prime-sum bound, and
+the passage from an admissible family of intervals to zero-freeness
+are given above. The following inputs carry substantive arithmetic or
+geometric content which the reader still needs for an independent proof.
+\begin{itemize}
+\item Sections~\ref{sec:selmer-generators}--\ref{sec:minus-derivatives}
+give the generator count, the signed annihilator, the construction and
+local relations of the derivative classes, and the simultaneous choice
+of auxiliary primes. On the rank-three side,
+Sections~\ref{sec:common-trace-integer}--\ref{sec:deformation-euler}
+derive the trace product and the full graded intersection inequality.
+Sections~\ref{sec:kato-rigidity} and~\ref{sec:type-one-rigidity} derive
+tangent rigidity at the identified modular points from the stated
+Galois-theoretic hypotheses. The spectrum count is derived from the arithmetic stabilizer bound,
+cohomological realization and cuspidal injection. Section~\ref{sec:ordinary-global-descent} identifies the twist and descends
+the specified representation across the cyclic layers. The global deformation
+model, the ordinary automorphy input over the auxiliary field, and the stated
+local--global compatibility theorems still enter the comparison.
+\item Sections~\ref{sec:sw-boundary} and~\ref{sec:theta-decay-proof}
+give the two-cell argument, the normalization of the definite theta
+value, the decay estimate from a nonzero minor, and the indefinite
+chamber integral. Section~\ref{sec:sw-singular-vacuum} evaluates all the singular
+vacuum tests at the distinguished parameter when \(m<n\). The differentiated
+sections, the other singular terms, Fock-space generation, automorphic reduction and coefficient estimates
+still enter these derivations.
+\item Sections~\ref{sec:component-volume}--\ref{sec:hs-component}
+derive the component degree and rank comparisons, the equality of
+covolumes, the Chow-form determinant and its metric, and the uniform
+height budget. The short period basis and the characteristic-zero harmonic
+jet are derived in the preceding sections. Inputs include the toroidal
+model and proportionality theorem, local isometry, strong approximation,
+and the construction of the global integral model with its level structures.
+Sections~\ref{sec:boundary-periods} and~\ref{sec:jet-connection}
+identify the boundary periods and derive the connection and twist comparisons
+on their respective domains. Section~\ref{sec:key-different} gives the fourth-root descent and the separate
+different bound. Section~\ref{sec:key-rule-dvr} proves the integral comparison at residue
+primes dividing an auxiliary denominator by changing invariants and comparing
+their powers. The transverse intersections, determinant comparison and
+connected-family input used there are specified in that section. Sections~\ref{sec:theta-translate-span}--\ref{sec:theta-unit-basis}
+prove the integral spanning, the valuation statement and the primitive
+frame from the specified local data. The horizontal and
+mixed-characteristic comparisons use different local ideals.
+\item Section~\ref{sec:window-exceptions} proves the character-count
+bound and derives the required mean-square estimate on the two prime
+progressions. Section~\ref{sec:window-explicit} derives the truncated explicit
+formula and the logarithmic derivative bound \(4\log y\). Section~\ref{sec:host-field} constructs the cyclotomic CM field with its
+conductor, local invariants and signature. Section~\ref{sec:window-relative-pnt} proves the required relative estimates,
+including the progression denominator and comparison of possible exceptional
+zeros. Section~\ref{sec:level-prime-selection} proves the exceptional-divisor
+count and the simultaneous selection of the level primes. It also derives
+the required norm-prime lower bound from the stated ray-class family
+estimates. Section~\ref{sec:ray-real-gap} proves the polynomial value bound
+and the real-zero gap from the counting, theta and positive-convolution
+identities. Section~\ref{sec:quadratic-ray-family} constructs the family and its
+shifted lattice, and proves the counting, theta, convolution and support
+identities. Section~\ref{sec:ray-explicit} proves its zero-free strip,
+uniqueness and simplicity of the possible exceptional zero, and the
+uniform explicit formula used for the prime selection. The remaining
+automorphic hypotheses and the passage from local geometric estimates to
+the global model still enter the common-window construction.
+\end{itemize}
+These are outstanding translations from the formal development.
+The independent verification of the released formal proof is recorded
+in the source note at the start of Part II.
+\end{document}

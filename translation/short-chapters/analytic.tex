@@ -1,0 +1,473 @@
+\section{A prime-only criterion for ordinary RH}
+\label{sec:sr-prime}
+Write \(\Lambda\) for the von Mangoldt function and
+\(\gamma=\lim_{m\to\infty}(\sum_{r=1}^m r^{-1}-\log m)\).
+For \(x\geq1\) put
+\[
+ T(x)=\sum_{n\leq x}\Lambda(n)(x/n-1),\qquad
+ E(x)=T(x)-x\log x+(1+\gamma)x.
+\]
+All sums over \(n\) in this part are sums over positive integers. For an
+integer \(m\geq1\) define
+\[
+ R(m)=\sum_{n\leq m}\Lambda(n)\left(1-\frac{m\bmod n}{n}\right),\quad
+ P(m)=\sum_{\substack{p\leq m\\p\ {\rm prime}}}
+ \log p\left(1-\frac{m\bmod p}{p}\right).
+\]
+The notation \(m\bmod n\) denotes the integer in \([0,n-1]\) congruent to
+\(m\) modulo \(n\).
+
+\begin{srtheorem}[Fourth-power prime criterion]\label{thm:sr-prime}
+Suppose that for every \(\epsilon>0\) there is a constant
+\(C_\epsilon\geq0\), independent of the subsequent interval, such that
+arbitrarily large \(Y\) satisfy
+\begin{equation}\label{eq:sr-prime}
+ P(j^4)\geq\gamma j^4-C_\epsilon(j^4)^{1/2+\epsilon}
+ \quad\hbox{whenever }j\in\mathbb N,\quad Y\leq j^4\leq Y^{3/2}.
+\end{equation}
+Then every nontrivial zero of the Riemann zeta function has real part
+\(1/2\).
+\end{srtheorem}
+The hypothesis in this theorem is an arithmetic input. The theorem does not
+assert it unconditionally. This section and the next two sections prove
+the entire implication without importing a theorem from the Lean archive.
+The criterion follows Anton's \texttt{FourthSamplesRH} and
+\texttt{PrimeFourthSamples}; the exclusion of positive real zeros below
+allows a shorter ordinary-zeta oscillation proof.
+
+\subsection{Elementary bounds and the exact factorial identity}
+Put \(\psi(x)=\sum_{n\leq x}\Lambda(n)\) and
+\(\vartheta(x)=\sum_{p\leq x}\log p\). We first record a bound used several
+times below:
+\begin{equation}\label{eq:sr-cheb}
+ 0\leq\vartheta(x)\leq\psi(x)\leq3x\qquad(x\geq0).
+\end{equation}
+Indeed, for any integer \(a\geq1\), Legendre's formula gives
+\[
+ v_p\binom{2a}{a}=\sum_{r\geq1}
+ \bigl(\lfloor2a/p^r\rfloor-2\lfloor a/p^r\rfloor\bigr).
+\]
+Every summand is nonnegative, and any \(p^r\in(a,2a]\) contributes one.
+Consequently
+\(\psi(2a)-\psi(a)\leq\log\binom{2a}{a}\leq2a\log2\).
+Summing with \(a=1,2,\ldots\) along successive powers of two gives
+\(\psi(2^k)\leq(2^{k+1}-2)\log2\). If \(x>1\), choose the least \(k\)
+with \(x\leq2^k\); then \(2^k<2x\), and hence
+\(\psi(x)<4x\log2<3x\). For \(0\leq x\leq1\) the sum is zero.
+The elementary inequality \(4\log2<3\) follows, for example, by retaining
+four positive terms in the series for \(\exp(3/4)>2\).
+
+Since \(\log r=\sum_{n\mid r}\Lambda(n)\), interchanging two finite sums gives
+\[
+ \log(m!)=\sum_{n\leq m}\Lambda(n)\lfloor m/n\rfloor .
+\]
+Using \(m/n=\lfloor m/n\rfloor+(m\bmod n)/n\) now yields the exact identity
+\begin{equation}\label{eq:sr-factorial}
+ E(m)=\gamma m-R(m)+q(m),\qquad
+ q(m)=\log(m!)-m\log m+m.
+\end{equation}
+Monotonicity of \(\log t\), applied on each unit interval, gives
+\[
+ m\log m-m+1\leq\log(m!)\leq m\log m-m+1+\log m.
+\]
+Thus \(1\leq q(m)\leq1+\log m\leq2\sqrt m\).
+For the last inequality integrate \(1/t\leq1/\sqrt t\) from \(1\) to \(m\).
+In particular,
+\begin{equation}\label{eq:sr-integer}
+ R(m)\geq\gamma m-E(m).
+\end{equation}
+A lower bound \(R(m)\geq\gamma m-Cm^{1/2+\epsilon}\) implies
+\(E(m)\leq(C+2)m^{1/2+\epsilon}\).
+
+Higher prime powers have a uniformly bounded cost:
+\begin{equation}\label{eq:sr-discard}
+ 0\leq R(m)-P(m)\leq K\sqrt m,\qquad
+ K=3+\frac{18}{\mathrm e\log2}.
+\end{equation}
+The first difference is nonnegative because every weight is in \([0,1]\).
+For \(m\geq2\) it is at most
+\[
+ \psi(m)-\vartheta(m)
+ =\sum_{r=2}^{\lfloor\log m/\log2\rfloor}\vartheta(m^{1/r})
+ \leq3\sqrt m+\frac{3\log m}{\log2}m^{1/3}.
+\]
+The function \(v\exp(-v/6)\), for \(v\geq0\), has maximum \(6/\mathrm e\).
+Taking \(v=\log m\) proves \eqref{eq:sr-discard}. The case \(m=1\) is zero.
+It follows that the fourth-power criterion with \(R\) is equivalent to
+\eqref{eq:sr-prime}, allowing a change of \(C_\epsilon\) by \(K\).
+
+\subsection{Interpolation between fourth powers}
+For any bounded interval of positive \(x\), the expression
+\(T(x)=\sum_n\Lambda(n)(x/n-1)_+\) has only finitely many nonzero terms.
+It is a convex continuous function. For \(0<a\leq x\leq b\), \(a<b\), put
+\(\lambda=(b-x)/(b-a)\). Convexity and the identity defining \(E\) imply
+\[
+ E(x)\leq\lambda E(a)+(1-\lambda)E(b)
+ +\lambda a\log a+(1-\lambda)b\log b-x\log x.
+\]
+The last three terms are at most
+\((x-a)(b-x)/(2a)\). To see this, subtract that quadratic from the chord
+of \(f(t)=t\log t\) minus \(f(x)\). The resulting function of \(x\) has
+second derivative \(1/a-1/x\geq0\), and vanishes at both endpoints.
+A convex function vanishing at both endpoints is nonpositive between them.
+Therefore
+\begin{equation}\label{eq:sr-interpolate}
+ E(x)\leq\max(E(a),E(b))+\frac{(b-a)^2}{8a}.
+\end{equation}
+Take \(a=j^4,b=(j+1)^4\), with \(j\geq1\).
+Then \(b\leq16a\) and
+\(b-a=4j^3+6j^2+4j+1\leq15j^3\). The interpolation loss is at most
+\(225\sqrt a/8\).
+
+Fix \(\epsilon>0\) and an interval from \eqref{eq:sr-prime}.
+Equation \eqref{eq:sr-factorial} gives
+\(E(j^4)\leq(C_\epsilon+2)(j^4)^{1/2+\epsilon}\) at every supplied sample.
+Set \(X=16Y\). For sufficiently large \(Y\),
+\[
+ 16(16Y)^{5/4}\leq Y^{3/2}.
+\]
+If \(X\leq x\leq X^{5/4}\), its bracketing fourth powers satisfy
+\(Y\leq a\leq x<b\leq Y^{3/2}\), since \(a\geq x/16\) and \(b\leq16x\).
+Consequently \eqref{eq:sr-interpolate} gives throughout that interval
+\[
+ E(x)\leq
+ \left((C_\epsilon+2)16^{1/2+\epsilon}+225/8\right)x^{1/2+\epsilon}.
+\]
+Increasing the lower threshold for \(Y\) absorbs the displayed constant
+into \(x^\epsilon\). Thus for every \(\epsilon>0\) there are arbitrarily
+late intervals
+\begin{equation}\label{eq:sr-continuous}
+ [X,X^{5/4}]\quad\hbox{on which}\quad E(x)\leq x^{1/2+2\epsilon}.
+\end{equation}
+Both the uniformity of \(C_\epsilon\) and the shortening of the interval
+have been used explicitly.
+
+\section{The zeta transform and its poles}\label{sec:sr-transform}
+We give the analytic facts needed in the window argument. The underlying
+tools are integration, Fourier series for a Gaussian, and Cauchy's
+integral formula.
+
+\subsection{Continuation, absence of positive real zeros, and reflection}
+For \(\Re s>1\), the absolutely convergent series and Euler product give
+\[
+ \zeta(s)=\sum_{n\geq1}n^{-s}=\prod_p(1-p^{-s})^{-1},\qquad
+ -\frac{\zeta'(s)}{\zeta(s)}=\sum_{n\geq1}\Lambda(n)n^{-s}.
+\]
+The product follows by expanding finitely many geometric series and then
+using absolute convergence to pass to all primes. Its logarithm converges
+absolutely, so the product is nonzero. Termwise differentiation of the
+logarithm is locally uniform in this half-plane.
+
+Partial summation gives
+\begin{equation}\label{eq:sr-continuation}
+ \zeta(s)=\frac{s}{s-1}
+  -s\int_1^\infty \{t\}t^{-s-1}\,dt .
+\end{equation}
+The integral and all its derivatives converge locally uniformly for
+\(\Re s>0\); its \(r\)-th derivative is dominated on
+\(\Re s\geq a>0\) by a constant times
+\(t^{-a-1}(1+\log t)^r\), which is integrable. This proves meromorphic
+continuation there, with a simple pole of residue one at \(1\).
+Furthermore
+\[
+ \int_1^m\{t\}t^{-2}\,dt=1+\log m-\sum_{r=1}^m1/r
+\]
+for integers \(m\geq1\). Taking the limit in this identity and then
+expanding \eqref{eq:sr-continuation} at \(1\) shows
+\begin{equation}\label{eq:sr-laurent}
+ \zeta(s)=\frac1{s-1}+\gamma+O(s-1).
+\end{equation}
+
+The alternating series \(\eta(s)=\sum_{n\geq1}(-1)^{n-1}n^{-s}\) is
+holomorphic for \(\Re s>0\). Summation by parts, using bounded partial
+sums of the signs, bounds its tails uniformly on every compact subset
+by a constant times \(M^{-a}\), where \(a\) is the minimum real part and
+\(M\) the first tail index. In \(\Re s>1\), separating even and odd terms
+gives \(\eta(s)=(1-2^{1-s})\zeta(s)\), and continuation gives the same
+identity throughout \(\Re s>0\).
+For real \(s>0\), pairing successive terms expresses \(\eta(s)\) as a
+sum of positive terms, the first of which is \(1-2^{-s}>0\).
+Thus \(\zeta(s)<0\) for \(0<s<1\); there are no positive real zeros.
+
+There are no zeros on \(\Re s=1\) either. For \(\sigma>1\) and real \(t\),
+the logarithmic Euler product and
+\(3+4\cos u+\cos(2u)=2(1+\cos u)^2\geq0\) give
+\[
+ \zeta(\sigma)^3|\zeta(\sigma+it)|^4
+ |\zeta(\sigma+2it)|\geq1.
+\]
+If \(t\ne0\) and \(\zeta(1+it)\) vanished to order \(m\geq1\), the left
+side would be \(O((\sigma-1)^{4m-3})\) as \(\sigma\downarrow1\), since
+\(\zeta\) is holomorphic at \(1+2it\). This tends to zero, a contradiction.
+At \(t=0\) there is a pole. Hence every zero in \(\Re s>0\) lies in
+\(0<\Re s<1\), is nonreal, and has finite positive multiplicity.
+The zeros form a locally finite set: a nonzero holomorphic function has
+isolated zeros, and a compact subset of its domain cannot contain an
+infinite discrete zero set without an accumulation point.
+
+For completeness, reflection can be recovered as follows.
+The Gaussian Fourier transform is
+\[
+ \int_{\mathbb R}e^{-\pi t x^2}e^{-2\pi i\xi x}\,dx
+ =t^{-1/2}e^{-\pi\xi^2/t}\qquad(t>0).
+\]
+The value at zero is the Gaussian integral, obtained by squaring and
+integrating in polar coordinates. Differentiation in \(\xi\) and
+integration by parts give the differential equation
+\(F'(\xi)=-(2\pi\xi/t)F(\xi)\), proving the formula.
+The smooth periodization \(\sum_{n\in\mathbb Z}e^{-\pi t(x+n)^2}\)
+has these values at integral \(\xi\) as its Fourier coefficients.
+Both the periodization and the resulting Fourier series converge
+uniformly with all needed derivatives. Evaluation at \(x=0\) gives
+\[
+ \Theta(t)=\sum_{n\in\mathbb Z}e^{-\pi n^2t}
+ =t^{-1/2}\Theta(1/t).
+\]
+Mellin integration, initially for \(\Re s>1\), and a split at \(t=1\)
+now give
+\begin{equation}\label{eq:sr-reflection}
+ \pi^{-s/2}\Gamma(s/2)\zeta(s)
+ =-\frac1s+\frac1{s-1}
+ +\frac12\int_1^\infty(\Theta(t)-1)
+ \left(t^{s/2-1}+t^{(1-s)/2-1}\right)\,dt .
+\end{equation}
+The integral is entire because of Gaussian decay, locally uniform with
+every derivative. Its right side is invariant under \(s\mapsto1-s\).
+This proves the functional equation and continuation to the whole plane.
+The standard Euler product
+\[
+ \Gamma(z)^{-1}=z e^{\gamma z}
+       \prod_{n=1}^{\infty}(1+z/n)e^{-z/n}
+\]
+shows that \(\Gamma\) has no zeros and has poles only at the nonpositive
+integers. Its product converges locally uniformly by
+\(\log(1+z/n)-z/n=O(n^{-2})\); the identity follows from Euler's
+limit formula for the gamma integral. These elementary gamma facts and
+\eqref{eq:sr-reflection} imply that a zero away from the negative even
+integers and \(0\) reflects to a zero at \(1-s\).
+At \(0\), comparison of the residues in \eqref{eq:sr-reflection} gives
+\(\zeta(0)=-1/2\). Thus proving zero-freeness in \(\Re s>1/2\)
+suffices for RH.
+
+\subsection{The smoothed Mellin identity}
+For \(\Re s>1\) and every positive integer \(n\), direct integration gives
+\[
+ \int_1^\infty(x/n-1)_+x^{-s-1}\,dx
+ =\frac{n^{-s}}{s(s-1)}.
+\]
+Indeed the integral starts at \(n\), and integrating
+\(n^{-1}x^{-s}-x^{-s-1}\) gives the displayed answer.
+Absolute convergence justifies summing this identity after multiplication
+by \(\Lambda(n)\): the sum of integrals of absolute values is
+\(\sum_n\Lambda(n)n^{-\sigma}/(\sigma(\sigma-1))<\infty\),
+where \(\sigma=\Re s>1\). Also
+\(\int_1^\infty x\log x\,x^{-s-1}\,dx=(s-1)^{-2}\) and
+\(\int_1^\infty x\,x^{-s-1}\,dx=(s-1)^{-1}\). Consequently
+\begin{equation}\label{eq:sr-mellin}
+ \Phi(s):=\int_1^\infty E(x)x^{-s-1}\,dx
+ =-\frac{\zeta'(s)}{s(s-1)\zeta(s)}
+       -\frac1{(s-1)^2}+\frac{1+\gamma}{s-1}.
+\end{equation}
+Initially this holds in \(\Re s>1\).
+The expansion \eqref{eq:sr-laurent} cancels both apparent polar terms at
+\(1\). Therefore \(\Phi\) is holomorphic on \(\Re s>0\) except at the
+zeros of \(\zeta\). If \(\rho\) is a zero of multiplicity \(m\), factor
+\(\zeta(s)=(s-\rho)^m h(s)\), \(h(\rho)\ne0\), locally. Then
+\[
+ \Phi(s)=\frac{c_\rho}{s-\rho}+H_\rho(s),\qquad
+ c_\rho=-\frac{m}{\rho(\rho-1)}\ne0,
+\]
+where \(H_\rho\) is holomorphic near \(\rho\).
+Every such pole is nonreal.
+
+Set \(g(u)=E(e^u)\), \(u\geq0\). This is a continuous real function.
+The trivial estimates \(\Lambda(n)\leq\log n\) and
+\(\sum_{n\leq x}1/n\leq1+\log x\) give
+\(T(x)\leq x\log x(1+\log x)\).
+Thus \(|g(u)|\leq C_0 e^{2u}\) for a fixed \(C_0\):
+each of \(1,u,u^2\), multiplied by \(e^{-u}\), is bounded on
+\([0,\infty)\). The change of variables \(x=e^u\) gives
+\[
+ \Phi(s)=\int_0^\infty g(u)e^{-su}\,du\qquad(\Re s>2).
+\]
+For every \(k\geq0\), differentiation under the integral yields
+\begin{equation}\label{eq:sr-deriv}
+ A_k(s):=\frac{(-1)^k\Phi^{(k)}(s)}{k!}
+ =\int_0^\infty g(u)\frac{u^k e^{-su}}{k!}\,du .
+\end{equation}
+On any closed sub-half-plane \(\Re s\geq2+a\), the differentiated
+integrands are dominated by \(C_0u^k e^{-au}\), an integrable function.
+This supplies the justification for every derivative in \eqref{eq:sr-deriv}.
+
+\section{The window oscillation argument in full}\label{sec:sr-landau}
+\begin{srtheorem}[One-sided windows exclude right-hand poles]\label{thm:sr-window}
+Let \(0<\theta<1\) and \(\delta>0\). If arbitrarily large \(U\) satisfy
+\[
+ g(u)\leq e^{\theta u}\qquad(U\leq u\leq(1+\delta)U),
+\]
+then \(\zeta\) has no zero with real part greater than \(\theta\).
+\end{srtheorem}
+
+\subsection{A localized gamma kernel}
+For \(a>0\), integration by parts \(k\) times gives
+\[
+ \int_0^\infty\frac{u^k e^{-au}}{k!}\,du=a^{-k-1},\qquad
+ \frac{u^k e^{-au}}{k!}\leq a^{-k}.
+\]
+The second inequality follows by retaining the \(k\)-th term of the
+series for \(e^{au}\). The boundary terms in the integration vanish
+because exponential decay dominates each fixed power.
+
+We will choose \(\sigma>2\), depending only on \(\delta\), and, for each
+\(U\geq1\), an integer \(k\geq U\) such that
+\begin{equation}\label{eq:sr-tail}
+ \int_{(0,\infty)\setminus[U,(1+\delta)U]}
+       \frac{u^k e^{(2-\sigma)u}}{k!}\,du
+ \leq C_1\sigma^{-k}.
+\end{equation}
+Here is an explicit existence argument, including both tails.
+Put \(\alpha=1+\delta/2\) and \(l=2+6/\delta\).
+For sufficiently large \(\sigma>2+l\), both
+\[
+ -l(1+\delta)+\alpha\sigma
+       \log\frac{\sigma}{\sigma-2-l}<-\tfrac12,\qquad
+ l+\alpha\sigma\log\frac{\sigma}{\sigma-2+l}<-\tfrac12
+\]
+hold. The limits of their left sides as \(\sigma\to\infty\) are both
+\(-1\), since \(\sigma\log(\sigma/(\sigma-a))\to a\).
+Choose such a \(\sigma\), also with \(\alpha\sigma\geq1\), and set
+\(k=\lceil\alpha\sigma U\rceil\).
+For \(u\geq(1+\delta)U\), insert \(e^{l(u-(1+\delta)U)}\geq1\)
+into the integrand. For \(0<u<U\), insert \(e^{l(U-u)}\geq1\).
+Enlarging each resulting integral to \((0,\infty)\) gives the tail bound
+\[
+ \frac{e^{-l(1+\delta)U}}{(\sigma-2-l)^{k+1}}
+ +\frac{e^{lU}}{(\sigma-2+l)^{k+1}}.
+\]
+Multiply by \(\sigma^k\).
+In the first term, use \(k<\alpha\sigma U+1\), since its logarithmic
+ratio is positive. In the second, use \(k\geq\alpha\sigma U\), since
+its logarithmic ratio is negative. The sum is at most
+\[
+ e^{-U/2}\left(
+ \frac{\sigma}{(\sigma-2-l)^2}+\frac1{\sigma-2+l}\right).
+\]
+This proves \eqref{eq:sr-tail} with the parenthesized expression as
+\(C_1\). The same choice has \(k\geq U\).
+
+\subsection{An inequality for the derivatives of the transform}
+For a good interval \(I=[U,(1+\delta)U]\), let
+\(w(u)=u^k e^{-\sigma u}/k!\).
+For any real \(v\), \eqref{eq:sr-deriv} and the triangle inequality give
+\[
+ |A_k(\sigma+iv)|+A_k(\sigma)
+ \leq\int_0^\infty(|g(u)|+g(u))w(u)\,du .
+\]
+The quantity \(A_k(\sigma)\) is real. On \(I\),
+\(|g|+g=2\max(g,0)\leq2e^{\theta u}\); outside \(I\), it is at most
+\(2C_0e^{2u}\). The kernel maximum and \eqref{eq:sr-tail} therefore give
+\begin{equation}\label{eq:sr-key}
+ |A_k(\sigma+iv)|+A_k(\sigma)
+ \leq\frac{2\delta U}{(\sigma-\theta)^k}
+       +\frac{2C_0C_1}{\sigma^k}.
+\end{equation}
+For every \(\eta>0\), all sufficiently large \(U\) satisfy
+\(\delta U\leq e^{\eta U}\). Since \(\sigma-\theta<\sigma\),
+\begin{equation}\label{eq:sr-key2}
+ |A_k(\sigma+iv)|+A_k(\sigma)
+ \leq C_2 e^{\eta U}(\sigma-\theta)^{-k},
+ \qquad C_2=2+2C_0C_1.
+\end{equation}
+For every \(\eta>0\), this holds for arbitrarily large good \(U\),
+with a corresponding \(k\geq U\), simultaneously for all \(v\).
+
+\subsection{Isolating one pole}
+Suppose for a contradiction that \(\rho_0\) is a zero with
+\(\Re\rho_0>\theta\). Write \(Z\) for the zeros in the positive half-plane.
+Consider the closed disk centered at the real point \(\sigma\), of radius
+\(\sigma-\theta\). It lies in \(\Re s\geq\theta>0\) and contains finitely
+many elements of \(Z\).
+
+There exist a number \(D\leq\sigma-\theta\) and a zero \(\rho_1\) such that
+the open disk \(B(\sigma,D)\) is pole-free and
+\begin{equation}\label{eq:sr-horizontal}
+ \sigma-\Re\rho_1<D.
+\end{equation}
+If the closed disk has no zeros, take \(D=\sigma-\theta,\rho_1=\rho_0\).
+Otherwise choose a zero \(\rho_*\) in it closest to \(\sigma\) and take
+\(D=|\sigma-\rho_*|,\rho_1=\rho_*\).
+All positive-half-plane zeros are nonreal, so
+\(\sigma-\Re\rho_*<|\sigma-\rho_*|\).
+This proves \eqref{eq:sr-horizontal} in the second case as well.
+
+We next find a center \(z=\sigma+iv\) and a radius \(r\leq D\) whose open
+disk contains exactly one zero \(\rho\), with \(d=|z-\rho|<r\).
+Start with \(z_0=\sigma+i\Im\rho_1\), so
+\(|z_0-\rho_1|=\sigma-\Re\rho_1<D\).
+Choose \(h>0\) so small that
+\[
+ |z_0-\rho_1|+2h<D,\qquad D+2h<\sigma .
+\]
+The set \(F=Z\cap\overline B(z_0,D+h)\) is finite. As \(v\) varies in
+\((\Im\rho_1-h,\Im\rho_1+h)\), two distinct points \(a,b\) of \(F\)
+can have equal distances from \(\sigma+iv\) for at most one value of \(v\).
+Indeed equality of their squared distances is affine in \(v\).
+If their imaginary parts coincide, equality would force equal real
+parts too, since both real parts are less than \(1<\sigma\).
+Exclude the finitely many possible tie values and choose \(v\) in the
+remaining interval. There is a unique nearest point \(\rho\) of \(F\);
+its distance is at most \(|z-\rho_1|<D\).
+Every zero outside \(F\) has distance greater than \(D\) from \(z\),
+by the triangle inequality.
+Choose \(r\) strictly between \(d\) and the smaller of \(D\) and the
+distances to all other points of \(F\). This proves the claim.
+Both disks under discussion are contained in \(\Re s>0\).
+
+\subsection{Cauchy estimates and the contradiction}
+Choose \(b_0\) with \(d<b_0<r\).
+Since \(\Phi\) is holomorphic in \(B(\sigma,D)\), Cauchy's formula
+on the circle of radius \(b_0<D\) gives
+\[
+ |A_k(\sigma)|\leq M_0 b_0^{-k}
+\]
+with \(M_0\) independent of \(k\).
+In \(B(z,r)\), subtract the single principal part
+\(c_\rho/(s-\rho)\). The resulting function is holomorphic throughout
+the disk, by the local factorization at \(\rho\). Cauchy's formula gives
+\[
+ \left|A_k(z)-\frac{c_\rho}{(z-\rho)^{k+1}}\right|
+ \leq M_1 b_0^{-k}.
+\]
+Combining these estimates with \eqref{eq:sr-key2} yields, for arbitrarily
+large good \(U\) and the corresponding \(k\geq U\),
+\[
+ \frac{|c_\rho|}{d^{k+1}}
+ \leq(M_0+M_1)b_0^{-k}
+       +C_2e^{\eta U}(\sigma-\theta)^{-k}.
+\]
+Here \(d>0\), since all zeros have real part less than \(1\), whereas
+\(\Re z=\sigma>2\). Also \(d<b_0<r\leq D\leq\sigma-\theta\).
+Multiply by \(d^k\), put \(\lambda=\log(b_0/d)>0\), and choose
+\(0<\eta<\lambda\).
+The right side is at most
+\[
+ (M_0+M_1)e^{-\lambda U}
+   +C_2e^{-(\lambda-\eta)U},
+\]
+which tends to zero. The left side is the fixed positive number
+\(|c_\rho|/d\). This contradiction proves
+Theorem~\ref{thm:sr-window}.
+
+\subsection{Completion of the conditional analytic deduction}
+Suppose \(\zeta(\rho)=0\) with \(\Re\rho>1/2\).
+The previous analytic facts give \(\Re\rho<1\).
+Choose \(\epsilon>0\) so small that
+\(\theta=1/2+2\epsilon<\Re\rho\).
+Equation \eqref{eq:sr-continuous}, after \(x=e^u\), supplies arbitrarily
+late intervals \([\log X,(5/4)\log X]\) with
+\(g(u)\leq e^{\theta u}\).
+Theorem~\ref{thm:sr-window}, with \(\delta=1/4\), rules out \(\rho\).
+Thus there are no zeros in \(\Re s>1/2\).
+Reflection from \eqref{eq:sr-reflection} proves
+Theorem~\ref{thm:sr-prime}.
+\qed
