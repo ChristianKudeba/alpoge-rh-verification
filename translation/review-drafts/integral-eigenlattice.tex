@@ -1,0 +1,687 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+\section{The integral-point eigenlattice comparison}
+\label{sec:sr-integral-eigenlattice-comparison}
+
+We specify the integral-model hypotheses of the comparison.
+Let \(E\) be the CM field of the PEL datum, let \(S\)
+be a finite set of rational primes containing every prime
+dividing \(\operatorname{disc}E\), and let
+\(\mathfrak M\) be the normal Hodge compactification used
+for the height comparison. Its semiabelian group is smooth;
+its generic fibre is the given principally polarized
+abelian scheme with \(\mathcal O_E\)-action.
+At \(p\in S\) its chosen torsion level is \(p^{R_p}\),
+where \(R_p\ge4\), and full generic torsion and the
+polarization's Weil pairing are part of its data.
+Assume the precise Hodge--Tate freeness condition:
+the finite-level cotangent lattice \(\omega'_p\)
+and, for every CM label \(s\), its image in the dual
+of the labelled generic Lie space are locally free
+on the \(p\)-fibre, of their prescribed ranks.
+These are both clauses of \(\mathrm{HTFree}(\mathfrak M,p)\).
+
+Let \(z:\operatorname{Spec}\mathcal O_L\to\mathfrak M\)
+be the actual integral point.
+Transport the Lie space of its given abelian-part model
+using the cartesian Lie identification in the point data.
+Write \(V\) for this \(L\)-space and
+\(\Lambda\subset V\) for the integral tangent module
+of the smooth group along \(z\).
+The given \(\mathrm{LinPt}\) identifies this with its
+integral tangent lattice, its action with the model's
+\(\mathcal O_E\)-action, and its labelled field embeddings
+with the model's labelled functions.
+For a label \(s\), put
+\[
+ \Lambda_s=\Lambda\cap V_s,\qquad
+ F_s=\mathfrak M.\mathrm{FibLat}_s(z).
+ \tag{IC1}
+\]
+Here \(F_s\) is the intersection of the local saturated
+evaluations of the patched Hodge lattice. The zero-prime term of this intersection puts \(F_s\)
+in \(V_s\).
+This definition, rather than a naive tensor product
+of an intersection, is the one used below.
+
+\paragraph{The different clears the integral projector.}
+Let \(\sigma_s:E\hookrightarrow L\) be the labelled
+embedding. Its restriction sends
+\(\mathcal O_E\) into \(\mathcal O_L\), by integrality.
+If \(a_i,b_i\) are trace-dual bases of \(E/\mathbb Q\),
+with \(a_i\in\mathcal O_E\), the separability projector is
+\[
+                e_s=\sum_i\sigma_s(b_i)\rho(a_i).
+ \tag{IC2}
+\]
+It acts as the identity on \(V_s\) and as zero on the
+other eigenspaces. Since
+\(b_i\in\mathfrak D_{E/\mathbb Q}^{-1}\), for every
+\(d\in\mathfrak D_{E/\mathbb Q}\),
+\[
+                    \sigma_s(d)e_s\Lambda\subseteq\Lambda .
+ \tag{IC3}
+\]
+Indeed \(db_i\in\mathcal O_E\), so the displayed
+operator is an integral linear combination of
+the \(\rho(a_i)\).
+At primes where the different is a unit this is
+an integral direct-sum decomposition.
+At ramified primes (IC3) is used as stated; no
+integral spectral idempotents are assumed there.
+
+\paragraph{The local Hodge--Tate constant and its exact scope.}
+For the finite-level Hodge lattice the constant is
+\[
+        \kappa_2=4,\qquad
+        \kappa_p=\zeta_p-1\quad(p\ne2),
+ \tag{IC4}
+\]
+where \(\zeta_p\) is primitive of order \(p\).
+The actual chart construction, expanded below, gives
+\[
+       \omega'_p\subseteq\omega,\qquad
+                   \kappa_p\omega\subseteq\omega'_p .
+ \tag{IC5}
+\]
+The published input is the integral Hodge--Tate theorem
+for a \(p\)-divisible group over a complete rank-one
+valuation ring: its linearized map has cokernel killed
+by an element of valuation at least \(1/(p-1)\);
+its rational kernel is the orthogonal complement
+specified by the dual Hodge--Tate map.
+We use the conservative constant \(4\) at \(2\),
+including the extra factor in the \(2\)-adic period
+comparison.\footnote{L.~Fargues,
+\href{https://www.numdam.org/item/10.24033/asens.2157.pdf}
+{\emph{La filtration canonique des points de torsion des
+groupes \(p\)-divisibles}}, Section 5.3.2, Theorem 2,
+and the \(p=2\) qualification in Remark 2 immediately
+before that section.}
+This input applies to the actual divisible-group
+test object constructed from the semiabelian torsion
+tower, not directly to an arbitrary lattice called
+Hodge--Tate.
+
+We describe the match and the passage from test objects
+to (IC5). On a normal affine chart \(A\) over
+\(\mathbb Z_{(p)}\), with fraction field \(\Omega\),
+the finite torsion group and Weil pairing give local
+differential representatives \(h_x\), one for each
+generic \(p^{R_p}\)-torsion point, with
+\[
+ \omega'_p=\sum_x A h_x+p^{R_p}\omega,\qquad
+                 h'_x-h_x\in p^{R_p}\omega .
+ \tag{IC6}
+\]
+The same formulas hold on overlapping charts.
+The lower chart construction has the
+\(\mathcal O_E\)-action, adjoint polarization pairing,
+and the integral symplectic basis modulo \(p\).
+The ranks are \(2g=\operatorname{rank}_{\mathbb Z}\mathcal L\)
+and the prescribed label ranks.
+They are the \(\mathrm{HTChart}\) and
+\(\mathrm{IsHTFamily}\) data; the projectivity of
+\(\omega'_p\) and its label images is exactly the
+\(\mathrm{HTFree}\) hypothesis.
+
+To test inclusion at a height-one prime above \(p\),
+pass to a dominating complete algebraically closed
+rank-one valued field.
+The Tate parametrization of the generic abelian
+scheme gives its compatible full torsion basis.
+Its quasi-finite torsion models have a finite open
+subgroup containing the closed fibre.
+The corresponding subgroup \(H_n\subset\mathcal L/p^n\)
+has the finite flat coordinate order.
+Induce that order to all of \(\mathcal L/p^n\);
+as a module it is the product of its translates over
+the finitely many cosets of \(H_n\).
+The subgroup identities
+\(pa\in H_{n+1}\Longleftrightarrow a\in H_n\)
+and the surjection \(H_{n+1}\to H_n\) give the
+transition exact sequences.
+These induced Hopf orders therefore define the
+\(p\)-divisible test group.
+Their cotangent module is the cotangent module of
+the original smooth group: the identity finite open
+part is unchanged.
+The actual cubical polarization is used here.
+Its translation isomorphisms and commutator construction
+extend the Weil pairing as a regular function on
+the product of the quasi-finite torsion schemes.
+Explicitly, the ratio
+\(\mathrm{cubN}(\theta,n,1,z,x)/
+\mathrm{cubN}(\theta,n,1,x,z)\)
+is a unit: the line-bundle factors cancel when
+\(x^n=z^n=1\). This formula is functorial on every
+test scheme and agrees over a proper geometric
+fibre with the theta-group commutator;
+this is \texttt{WeilPairingCubical} and
+\texttt{TorsionTowerWeilPairing.weil\_regular}.
+Restriction to the finite parts and the coset
+induction preserve that regularity.
+Together with the integral roots of unity and
+the \(\mathcal O_E\)-action this supplies
+\(\mathrm{PairingRegular}\), the polarized Tate
+pairing and its adjoint action.
+Regularity is not inferred from the generic
+bilinear form on a possibly nonnormal finite group
+scheme. The compatible PEL Tate parametrization
+just described supplies the required integral
+symplectic and \(\mathcal O_E\)-linear labels.
+This is the finite-part construction used in
+\(\mathrm{SemiabelianAdicTorsionOne}\)--%
+\(\mathrm{Five}\); it does not assert that every
+boundary torsion point extends as a section of the
+semiabelian group.
+
+The test group's finite-level differential is \(h_x\)
+modulo \(p^{R_p}\omega\), by the Weil-character
+definition. The integral Hodge--Tate theorem thus
+puts \(\kappa_p\omega\) in the base-changed module
+in (IC6).
+The constants satisfy
+\(\kappa_p\mid p^2\), so also
+\(\kappa_pp^{R_p-2}\mid p^{R_p}\).
+Projectivity permits testing the original lattice
+at height-one primes of the normal chart:
+a projective lattice is the intersection of its
+height-one localizations inside its generic vector
+space. Faithful valuation extension detects the
+same inclusion. At primes not above \(p\),
+(IC6) already gives \(\omega'_p=\omega\).
+This proves (IC5) on the chart and hence on the model.
+
+Dualizing (IC5), and using the locally free labelled
+restriction modules, gives the exact specialization
+statement for the Hodge--Tate dual lattice \(D_{p,s}\):
+\[
+ \Lambda_{\mathfrak p}\cap V_s
+       \subseteq (D_{p,s})_z,\qquad
+ \kappa_p(D_{p,s})_z
+       \subseteq\Lambda_{\mathfrak p}\cap V_s
+                                      \quad(\mathfrak p\mid p).
+ \tag{IC7}
+\]
+To justify base change here, the map from the locally
+free \(\omega'_p\) onto its labelled image has
+projective quotient and therefore splits locally.
+Its dual and the labelled image commute with the
+point's base change. Thus (IC7) does not interchange
+tensor product with a nonsaturated intersection.
+For completeness this specialization also works when
+the point is non-dominant. Locally let \(P=\omega\),
+\(H=\omega'_p\), \(n=p^{R_p}\), and let
+\(I_s=\operatorname{im}(H\to V_s^\vee)\).
+The model hypotheses make \(H,I_s\) locally free,
+and \(H\to I_s\) is split. There are maps
+\(H\to P\) and \(P\to H\) whose composites are
+multiplication by \(n\), since \(nP\subset H\subset P\).
+For a map to a characteristic-zero valuation domain
+\(R\), these identities survive tensoring.
+As \(H_R\) is free and \(n\ne0\), they imply that
+\(H_R\to P_R\) is still injective.
+The split dual \(I_{s,R}^\vee\) embeds in
+\(H_R^\vee\subset n^{-1}P_R^\vee\).
+Over \(\operatorname{Frac}R\), the labelled
+characteristic-zero action identifies this subspace
+with the specialized \(s\)-eigenspace.
+An integral eigentangent in \(P_R^\vee\) annihilates
+the kernel of \(H_R\to I_{s,R}\): this is true over
+the fraction field and hence over the domain.
+It therefore belongs to \(I_{s,R}^\vee\).
+Conversely a member of \(I_{s,R}^\vee\), evaluated
+on \(\kappa_pP_R\subset H_R\), gives an integral
+functional after multiplication by \(\kappa_p\).
+These are exactly the two inclusions in (IC7).
+No map of the model's function field to
+\(\operatorname{Frac}R\) has been used.
+The action and label identification in
+\(\mathrm{LinPt}\) make this \(V_s\) the point's
+actual eigenspace.
+
+At \(p\), the patched lattice is \(D_{p,s}\) for one
+sign of the CM label and its different-saturation
+for the other sign. In either case its definition
+gives
+\[
+ D_{p,s}\subseteq\mathfrak M.V_s,\qquad
+ \sigma_s(\mathfrak D_{E/\mathbb Q})\,\mathfrak M.V_s
+                                      \subseteq D_{p,s}.
+ \tag{IC8}
+\]
+The saturation in the second formula is imposed before
+evaluation; multiplication by each \(d\) therefore
+preserves that inclusion under every point map.
+Combining (IC7)--(IC8) proves the local comparison
+\[
+ \Lambda_s\otimes\mathcal O_{L,\mathfrak p}
+     \subseteq F_{s,\mathfrak p},\qquad
+ \kappa_p\,\sigma_s(\mathfrak D_{E/\mathbb Q})
+       F_{s,\mathfrak p}
+     \subseteq\Lambda_s\otimes\mathcal O_{L,\mathfrak p}.
+ \tag{IC9}
+\]
+Off \(S\), both the patching prime and the different
+are units. Equations (IC2)--(IC3), together with the
+ordinary Lie/cotangent duality of a smooth group,
+give equality of these two local lattices.
+
+\begin{srproposition}\label{prop:sr-actual-integral-eigenlattice}
+For the actual compactification, point and
+\(\mathrm{HTFree}\) data above, and every CM label \(s\),
+there is a nonzero integral ideal \(\mathfrak a_s\)
+of \(\mathcal O_L\) such that
+\[
+             \mathfrak a_s F_s\subseteq\Lambda_s,\qquad
+             \mathfrak a_s\Lambda_s\subseteq F_s,
+ \tag{IC10}
+\]
+and
+\[
+ \frac{\log N_{L/\mathbb Q}\mathfrak a_s}{[L:\mathbb Q]}
+       \le
+       2\sum_{p\in S}\frac{\log p}{p-1}
+                              +2\log\operatorname{rd}(E).
+ \tag{IC11}
+\]
+In fact \(\Lambda_s\subseteq F_s\), and the explicit
+ideal below gives the stronger bound with
+\(\log\operatorname{rd}(E)\) in place of its twice.
+\end{srproposition}
+\begin{proof}
+The functions \(\kappa_p\) have well-defined values
+\(k_p\in L\) at the point. To obtain a value, choose
+one prime of \(L\) above \(p\); regularity in (IC5)
+gives the value from that local chart.
+Uniqueness of evaluation at the generic point makes
+this the same value in every local comparison.
+Its polynomial relation is preserved by evaluation:
+\[
+       k_2=4,\qquad
+                  \Phi_p(k_p+1)=0\quad(p\ne2).
+ \tag{IC12}
+\]
+Since \(L\) has characteristic zero, \(k_p+1\) is a
+primitive \(p\)-th root, and \(k_p\ne0\).
+These relations also prove
+\(k_p\in\mathcal O_L\), globally.
+Set
+\[
+ K_S=\prod_{p\in S}k_p,\qquad
+ \mathfrak a_s=
+    \sigma_s(\mathfrak D_{E/\mathbb Q})\mathcal O_L
+                                      \cdot(K_S).
+ \tag{IC13}
+\]
+Both factors are nonzero.
+
+The local saturated evaluation defining \(F_s\)
+has the following membership criterion:
+\(x\in F_s\) if and only if, at every prime
+\(\mathfrak p\), some \(t\notin\mathfrak p\)
+makes \(tx\) a finite
+\(\mathcal O_L\)-linear combination of evaluated
+local generators of the patched lattice.
+This is just localization of a span.
+Thus (IC9) gives
+\(\Lambda_s\subseteq F_s\) globally.
+For \(x\in F_s\) and
+\(d\in\mathfrak D_{E/\mathbb Q}\), it also gives
+\[
+                           K_S\sigma_s(d)x\in V_s
+\]
+and says that this vector is an integral tangent
+vector over every \(\mathcal O_{L,\mathfrak p}\).
+The other \(k_q\)'s are integral and preserve
+these inclusions.
+
+The integral tangent module is finite projective,
+since the group is smooth.
+Over the Dedekind ring \(\mathcal O_L\) it is the
+intersection of its localizations inside \(V\).
+Hence the vector just displayed belongs to
+\(\Lambda_s\).
+Equivalently, write its coordinates in local
+trivializations of the tangent vector bundle:
+membership in every DVR localization makes every
+coordinate integral, and the unique local tangent
+sections agree on the fraction field and glue.
+This is exactly the
+\(\mathrm{tangent\_vector\_extends\_dvr}\)
+step, with the same cartesian Lie identification
+as in (IC1).
+Taking the ideal generated by all these \(d\)
+proves \(\mathfrak a_sF_s\subseteq\Lambda_s\).
+The other inclusion in (IC10) follows from
+\(\Lambda_s\subseteq F_s\) and integrality of
+\(\mathfrak a_s\).
+
+For odd \(p\), the cyclotomic identity gives
+\[
+                 (k_p)^{p-1}=(p)
+                    \quad\text{as ideals of }\mathcal O_L .
+\]
+Thus
+\[
+ \frac{\log N(k_p)}{[L:\mathbb Q]}
+               =\frac{\log p}{p-1}\quad(p\ne2),\qquad
+ \frac{\log N(4)}{[L:\mathbb Q]}=2\log2 .
+ \tag{IC14}
+\]
+The latter is exactly twice
+\(\log2/(2-1)\); no replacement \(k_2=2\) is made.
+
+For the extended different, the tower norm formula is
+\[
+ N_{L/\mathbb Q}
+  \bigl(\sigma_s(\mathfrak D_{E/\mathbb Q})\mathcal O_L\bigr)
+          =|\operatorname{disc}E|^{[L:E]},
+\]
+where \(L\) is regarded as an \(E\)-field through
+\(\sigma_s\). Therefore its normalized logarithm is
+\(\log\operatorname{rd}(E)\).
+Combining this with (IC13)--(IC14) yields
+\[
+ \frac{\log N\mathfrak a_s}{[L:\mathbb Q]}
+       =\log\operatorname{rd}(E)
+          +2\,\mathbf1_{2\in S}\log2
+          +\sum_{\substack{p\in S\\p\ne2}}
+                                    \frac{\log p}{p-1}.
+ \tag{IC15}
+\]
+Since \(\operatorname{rd}(E)\ge1\), this implies
+(IC11), including all ramification and field-degree
+normalizations. Finite extension of the point field
+multiplies both logarithmic ideal norms and its
+degree by the same factor.
+\end{proof}
+
+\paragraph{Source and hypothesis alignment.}
+The exact final producer is
+\texttt{Development/WeilBound/CoreStatements/%
+PlurisubharmonicCones/AbelianPartIntegralPointBis.lean},
+theorem
+\texttt{LevelTowerAlt.abelian\_part\_integral\_point\_bis}.
+Its exported statement is
+\texttt{GeometryProofs/AbelianPartIntegralPoint.lean}.
+The local calculation is
+\texttt{LocalPrimeBound.on\_S}, \texttt{off\_S},
+and \texttt{loc}, in
+\texttt{AevalCyclotomic.lean} and \texttt{InFibreLoc.lean}.
+The explicit ideal and norm are \texttt{NormBound.lean};
+the different norm is
+\texttt{PDifferentExtNorm.absNorm\_extDifferent}.
+The finite-level family and test-object joins are
+\texttt{HodgeTateFreeFlagLatticeLower},
+\texttt{HodgeTateFreeFlagLatticeUpper},
+\texttt{PointHTOfFarguesHodgeTate}, and
+\texttt{ExistsSandwichOfHodgeTateFree}.
+The two freeness clauses above are used at the
+projective-duality and specialization steps.
+They are not consequences of the Fargues bound alone.
+
+\subsection{The initial torsion level and the freeness modification}
+\label{subsec:sr-initial-htfree-construction}
+
+We record how the freeness hypothesis is produced in the
+actual root-model construction, separating it from later
+transport of already free models.
+
+Let \(e_0\) be the chosen generic component of the original
+integral moduli model and fix \(S\) and \(R_p\ge4\).
+Set \(n=\prod_{p\in S}p^{R_p}\).
+The generic fibre has characteristic zero, so its
+\(n\)-torsion and its full symplectic level structures
+form a finite etale cover.
+Choose one component of this cover and normalize the
+projective closure of \(e_0\) in its finite function-field
+extension. Normalization is finite here because the
+model is excellent. This gives a finite normal
+projective model with full generic level \(n\).
+The principal polarization and a symplectic pair with
+pairing \(1\) give a primitive \(n\)-th root of unity
+in this function field, hence all required
+\(p^{R_p}\)-th roots.
+The chosen component is compatible with the integral
+PEL Tate parametrization, including the
+\(\mathcal O_E\)-action and the alternating form.
+For precision, choose over an algebraic closure of
+the generic field the Tate parametrization supplied
+by the generic moduli datum, descend its finitely many
+values on \(\mathcal L/n\mathcal L\) and its primitive
+root, and take the resulting finite level field.
+Every embedding of this field into an algebraically
+closed field extends to the original algebraic
+closure. Transport of the chosen parametrization
+then gives a compatible full Tate parametrization
+extending the finite level over every such field.
+This is exactly
+\texttt{IsFullLevelAt}, as produced by
+\texttt{ExistsFullLevelFiniteExtension.exists\_fullLevel\_finite};
+it is stronger data than merely choosing a
+symplectic basis of one finite torsion group.
+Pull back the given semiabelian group, action and
+cubical polarization.
+
+On a normal affine open, the quasi-finite
+\(p^{R_p}\)-torsion model and its Weil characters
+give the representatives in (IC6).
+The character values, being roots of unity, are
+integral units on the normal base.
+A local lift of their differential gives \(h_x\);
+two lifts differ by \(p^{R_p}\omega\).
+There are finitely many generic torsion points,
+so (IC6) is a finite generating set.
+It proves coherence of \(\omega'_p\), full generic
+rank, and equality with \(\omega\) after inverting \(p\).
+The images in every labelled generic dual space
+are coherent as images of finite modules, with
+the prescribed generic ranks.
+No integral decomposition of the \(\mathcal O_E\)
+action at ramified primes is used to form these
+images.
+
+Here is the local existence argument for (IC6),
+including a boundary point.
+Pass first to the normal henselian local base at
+that point. Multiplication by \(n=p^{R_p}\) on the
+semiabelian group has quasi-finite flat kernel.
+Its finite open part containing the entire closed
+fibre is a finite flat subgroup \(H\).
+This finite part is obtained by Zariski's main
+theorem and the finite/open decomposition over a
+henselian base; its uniqueness makes it a subgroup.
+
+Full generic level identifies \(H_\Omega\) with a
+subgroup of the fixed finite torsion group.
+For a generic torsion point \(x\), its polarized
+Weil character restricted to \(H_\Omega\) is a
+generic section of the finite Cartier dual \(H^D\).
+A section of a finite scheme over a normal domain
+extends from its fraction field: every coordinate
+of the section is integral over the base and
+therefore belongs to it. Thus this character
+extends over the henselian local base.
+Near the identity, \(H\) is the full kernel of
+multiplication by \(n\).
+Lift the character function to the smooth ambient
+group and differentiate at the identity.
+Two lifts differ by the kernel's conormal ideal;
+its image in the ambient cotangent module is
+\[
+                         d[n]^*\omega=n\omega .
+\]
+This proves the asserted ambiguity.
+This construction gives a class modulo \(n\omega\)
+on an elementary etale neighbourhood: the finite
+part, its character and the chosen function descend
+there by finite presentation.
+On a normal etale overlap compare the two finite
+open parts near the identity.
+Their intersection is finite flat, open and closed
+in each, and has dense generic fibre.
+The two characters restrict to the same generic
+Weil character, hence agree on this intersection.
+Their differentiated classes therefore agree modulo
+\(n\omega\), since near the identity its defining
+ideal is the same kernel-of-\([n]\) ideal.
+Etale descent for the finite module
+\(\omega/n\omega\) now gives a unique class on the
+original local base.
+A local lift in the finite free cotangent module
+gives the required \(h_x\).
+For the finite-part decomposition one can use
+\href{https://stacks.math.columbia.edu/tag/02LN}
+{Stacks Project, Lemma 37.41.4}, applying it to all
+points of the finite closed fibre, then henselizing;
+the flatness comes from that of the torsion kernel.
+This constructs the local forms without asserting
+that \(x\) itself extends to a boundary section.
+
+The pullback assertion here concerns dominant morphisms
+between normal models carrying the transported generic
+torsion labels and cubical pairing. These include the
+Grassmann modifications and purely transcendental flag
+extensions used below. The pulled-back finite part is
+finite open and contains the entire new closed fibre;
+finite-clopen uniqueness identifies it with the new
+finite part. Its characters have the same generic
+values and therefore agree by normality.
+This proves equality of the generated differential
+lattices, including on these nonflat modifications.
+It does not identify the intrinsic Hodge--Tate lattice
+of an arbitrary specialized semiabelian fibre with
+a pullback of the generic abelian torsion construction.
+At an arbitrary integral point the target uses the
+evaluated coherent model lattice, as in (IC1).
+These are the constructions expanded in
+\texttt{HodgeTateWeilLocal.exists\_tors},
+\texttt{exists\_form}, \texttt{htLat\_exists\_lifts},
+and \texttt{HodgeTateWeilPullback.main}.
+
+There is one projective modification making this
+finite list of coherent full-rank lattices locally free.
+For a coherent torsion-free module of generic rank \(r\),
+take its relative Grassmannian of rank-\(r\) quotients,
+close the generic identity quotient, and normalize.
+The universal quotient is locally free.
+Its kernel is generically zero and hence torsion;
+inside the fixed generic vector space the quotient
+is exactly the image of the pulled-back lattice.
+For several modules take the closure of the common
+generic section in the product of these Grassmannians
+before normalizing.
+Apply this to every \(\omega'_p\) and every one of
+its labelled dual restrictions, for every \(p\in S\).
+The finite family is essential.
+
+The pulled-back lattices are the actual finite-level
+lattices of the new model.
+Indeed pull back the representatives \(h_x\) and the
+ordinary cotangent basis; they retain the same Weil
+characters. Every new representative for a torsion
+point differs from its corresponding pulled-back one
+by \(p^{R_p}\omega\).
+Both (IC6) and this ambiguity therefore give equality
+of the generated modules in both directions.
+The same equality for their labelled images is
+right-exactness of image and evaluation inside
+the fixed generic labelled space.
+Thus these are the actual \(\mathrm{HTFree}\)
+lattices, not unrelated flattened replacements.
+
+On the rational generic fibre all these modules
+were already vector bundles: \(p\) and the different
+are units there, and the labelled action is etale.
+The Grassmann modification is therefore an isomorphism
+there. It changes neither the generic component nor
+its finite cover degree.
+The different-twisted eigenspace lattices and their
+duals are locally free as well, since the different
+is an invertible ideal of the Dedekind ring
+\(\mathcal O_E\).
+For completeness the subsequent flagged root model
+can be built without a new freeness assertion.
+Put \(r_s=\operatorname{labelRk}(D,s)\).
+Take the generic point of the product of the complete
+flag varieties of these labelled generic spaces.
+In its big cell its field is the original field
+with \(\sum_s r_s(r_s-1)/2\) independent parameters
+adjoined. Use a basis over the original unlevelled
+generic field to choose these parameters, so a finite
+level-cover degree \(d\) remains \(d\) after this
+purely transcendental extension:
+\([K(\mathbf t):K_0(\mathbf t)]=[K:K_0]=d\).
+This is the \(\mathrm{IsGenericFlag}\) degree in
+\texttt{HodgeCptGoodReductionDegree}; the file's name
+does not introduce an additional good-reduction
+hypothesis at this step.
+
+Take the normal projective closure of the flag graph.
+A common flag/Grassmann modification, applied to the
+finite list of flag-step quotients both in the
+patched labelled lattices and in the full Lie
+lattice, makes their strict transforms locally free.
+Consequently every flag step and every successive
+graded piece is a vector bundle of the prescribed
+rank. Pullback of the actual Hodge--Tate lattices is
+the equality already proved, and local freeness
+of the previously constructed \(\omega'_p\) and
+its labelled images is preserved.
+Thus both \(\mathrm{HTFree}\) clauses survive these
+modifications; freeness of a flag alone is not
+substituted for them.
+
+The root lattices in the source are the specified
+tensor powers, including negative powers, of these
+rank-one graded pieces.
+They are therefore actual line bundles.
+For each one, choose a sufficiently high power of
+an ample coordinate bundle making its tensor
+product globally generated.
+Adding the resulting finite coordinate block
+expresses that line bundle as an integral
+combination of projective-coordinate bundles,
+with its chosen rational generator.
+Do this for the finite set of all root lattices,
+retain the old coordinate blocks, and use a common
+Segre refinement.
+This produces exactly the integers \(x_{\rm deg}\)
+and functions \(e\) in
+\(\mathrm{Fl.RootLines}(x_{\rm deg},e)\), on the
+same normal projective model.
+No extraction of new algebraic roots, or new
+field-degree factor, is part of this coordinate
+step.
+This is the construction in
+\texttt{HodgeCptLabelBases.exists\_flag\_model}
+and \texttt{HodgeCptBlockRefinement}.
+The parameter count also gives
+\[
+ \dim(\text{PEL generic fibre})
+   +\sum_s\frac{r_s(r_s-1)}2
+       =f\,\frac{(p+q)(p+q-1)}2,
+\]
+because the two ranks over each CM place are \(p,q\)
+and the PEL dimension there is \(pq\).
+It is the arithmetic dimension required by the
+root model after adding the base dimension.
+
+This is the initial construction in
+\texttt{HodgeCptProjectiveModel.exists\_hodgeCpt\_htFree},
+preceded by
+\texttt{LevelCoverStHolds.levelCover}
+and assembled in
+\texttt{IsPrimitiveRootOfLevel.exists\_hodgeCpt\_flag}.
+The later
+\texttt{HodgeCompactCoverPrimes.hodge\_compact\_cover\_primes}
+preserves this already established hypothesis while
+adjoining the root model; it is not used as its
+initial producer.
+The construction assumes the actual polarized
+semiabelian model and its finite-level Weil
+uniformization data. Those are the common geometric
+background of the moduli model, independent of the
+Fargues theorem and of this lattice comparison.

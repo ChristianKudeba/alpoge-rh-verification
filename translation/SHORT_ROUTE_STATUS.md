@@ -1,6 +1,6 @@
 # Ordinary RH through fourth-power samples
 
-The current single [496-page PDF](https://principia-math.com/api/ws/files/afd67f331f84d87cd2b9a9d66a5f7523) is pinned to source commit `33a889f2ae1cb1d4d1c4f234942f269f13e8a919`.
+The current single [499-page PDF](https://principia-math.com/api/ws/files/cca76507fe3aab3634da04d935689d92) is pinned to source commit `e91c5c8b4951a4ddc93a3f9258e9c0343c990c64`.
 
 **The manuscript remains an incomplete working exposition.** Its new mathematical prose has not been separately formalized or independently refereed.
 
@@ -16,6 +16,8 @@ The global high-twist cohomology bound, dyadic common-window estimate, fractiona
 
 Only one current manuscript for this route is uploaded to Principia. Its title credit reads “with reductions from Principia contributors.” The separate Masullo audit and every other contributor's paper remain unchanged.
 
-The build checks all 496 pages, references, glyphs, title credit and equality of flattened/distributed text. Those are document checks, not proof certification. Artifacts are saved remotely on GitHub and Principia; no manuscript artifacts are saved to the user's local computer.
+The build checks all 499 pages, references, glyphs, title credit and equality of flattened/distributed text. Those are document checks, not proof certification. Artifacts are saved remotely on GitHub and Principia; no manuscript artifacts are saved to the user's local computer.
 
 The literal record edition is a lossless typesetting of formal records. Its completion does not mean that all arguments have already been reconstructed as explanatory prose. No claim of completed standalone RH proof is made here.
+
+The new labelled-height chapter proves the exact different-corrected torus index, its cancellation, and the explicit final numerical budget. It retains the integral model and conjugate-degree premises. Critical review drafts are preserved separately under review-drafts and are not included as proved results in the PDF.

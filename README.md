@@ -7,7 +7,7 @@ verified by this work.**
 
 ## Current prose edition
 
-[Read the single 496-page PDF](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-33a889f2ae1cb1d4d1c4f234942f269f13e8a919/rh-short-route.pdf) or [its standalone LaTeX](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-33a889f2ae1cb1d4d1c4f234942f269f13e8a919/rh-short-route.tex).
+[Read the single 499-page PDF](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-e91c5c8b4951a4ddc93a3f9258e9c0343c990c64/rh-short-route.pdf) or [its standalone LaTeX](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-e91c5c8b4951a4ddc93a3f9258e9c0343c990c64/rh-short-route.tex).
 
 **This remains an incomplete working exposition, not a completed standalone unconditional proof of RH.** It presents the shorter ordinary-zeta route with reductions from Principia contributors and retains the earlier translations as supporting chapters in the same manuscript.
 
@@ -15,11 +15,13 @@ The current edition assembles both uniform rational-character estimates in prose
 
 The theta chapters develop real and unramified matching, the compact base case, cone evaluation and its finite-vacuum Euler factor, four constant terms, square-integrability and quotient descent. The full compatible theta induction and the integral/geometric common-window construction remain under review. In particular, the uniform section/covolume estimates and their compatibility with the same fields, models, metrics and windows are still required before a standalone conclusion can be claimed.
 
+The added height-budget chapter proves the determinant cancellation and numerical absorption with the model, saturation and integral-comparison premises still explicit.
+
 The review of [Chojecki's 23-page companion](https://www.ulam.ai/research/rh-short.pdf) records its shorter analytic exposition and its explicit use of the arithmetic construction and cohomological window as cited inputs in Sections 6–7. It does not replace those construction proofs.
 
-Part II begins on page 338. The [build report](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-33a889f2ae1cb1d4d1c4f234942f269f13e8a919/build-report.json) records successful compilation, reference/glyph/title checks, identical chapter-based and flattened text, and rendering of every page. Those document checks do not establish mathematical completeness.
+Part II begins on page 341. The [build report](https://github.com/ChristianKudeba/alpoge-rh-verification/releases/download/short-route-e91c5c8b4951a4ddc93a3f9258e9c0343c990c64/build-report.json) records successful compilation, reference/glyph/title checks, identical chapter-based and flattened text, and rendering of every page. Those document checks do not establish mathematical completeness.
 
-The [current Principia PDF](https://principia-math.com/api/ws/files/afd67f331f84d87cd2b9a9d66a5f7523) is the same 496-page edition. The [paper page](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper) contains one current manuscript and one five-input LaTeX project for this route. The separate Masullo audit and other contributors' papers are unchanged. Source details are recorded in [the status](translation/SHORT_ROUTE_STATUS.md), [source manifest](translation/short-route-sources.json), and [publication record](translation/principia-publication.json).
+The [current Principia PDF](https://principia-math.com/api/ws/files/cca76507fe3aab3634da04d935689d92) is the same 499-page edition. The [paper page](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper) contains one current manuscript and one five-input LaTeX project for this route. The separate Masullo audit and other contributors' papers are unchanged. Source details are recorded in [the status](translation/SHORT_ROUTE_STATUS.md), [source manifest](translation/short-route-sources.json), and [publication record](translation/principia-publication.json).
 
 The completed literal edition contains formal-term renderings and generated dependent-type annotations. It does not mean that all mathematical proofs have already been reconstructed as explanatory prose. The [reading guide](translation/kernel/reading.md) and [annotation generator](translation/kernel/prose_records.py) specify that scope.
 

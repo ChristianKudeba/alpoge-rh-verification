@@ -1,0 +1,336 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+
+\section{Rank-one contraction and the second constant term}
+\label{sec:sr-theta-two-step-contraction}
+
+We prove the remaining constant-term implication by an adelic
+rank-one argument. It uses continuity and polynomial growth;
+no spectral expansion of a noncuspidal form is needed.
+
+For a number field \(K\), write \(G=\mathrm{SL}_2(\mathbb A_K)\),
+\(\Gamma=\mathrm{SL}_2(K)\), and
+\(n(z)=\left(\begin{smallmatrix}1&z\\0&1\end{smallmatrix}\right)\).
+Let \(u\) have component \(2\) at every infinite place and component
+\(1\) at every finite place, and put
+\(b=\operatorname{diag}(u,u^{-1})\).
+The quotient \(K\backslash\mathbb A_K\) has probability Haar measure.
+
+\begin{srlemma}[A contraction equation for an adelic constant term]
+\label{lem:sr-theta-rank-one-contraction}
+Let \(\phi\) be continuous and left \(\Gamma\)-invariant. Suppose that,
+for an integer \(m\ge0\) and every compact \(\Omega\subset G\),
+\[
+ |\phi(b^k\kappa)|\le C_\Omega 2^{mk}
+       \quad(k\ge0,\ \kappa\in\Omega).
+ \tag{R1}\label{eq:sr-contraction-growth}
+\]
+Define \(c(g)=\int_{K\backslash\mathbb A_K}\phi(n(z)g)\,dz\).
+If \(c\) is continuous and, for some \(|\lambda|<1\),
+\[
+ c(b^2g)-c(bg)=\lambda\bigl(c(bg)-c(g)\bigr)
+                         \quad(g\in G),             \tag{R2}
+ \label{eq:sr-contraction-recurrence}
+\]
+then \(c(bg)=c(g)\) for every \(g\).
+\end{srlemma}
+
+\begin{proof}
+Put \(Dc(g)=c(bg)-c(g)\). Iteration gives
+\[
+ Dc(b^kg)=\lambda^kDc(g),\qquad
+ c(b^kg)=c(g)+(1+\lambda+\cdots+\lambda^{k-1})Dc(g).
+ \tag{R3}\label{eq:sr-contraction-geometric}
+\]
+Thus \(c(b^k\kappa)\) is bounded for \(k\ge0\) and
+\(\kappa\) in a fixed compact set.
+
+We specify the two elementary reduction facts used below.
+Adelic reduction for \(\mathrm{SL}_2\) gives a compact \(\Omega_0\)
+such that \(G=\Gamma\{b^k:k\ge0\}\Omega_0\).
+Indeed a Siegel set consists of a compact unipotent factor,
+a diagonal idele with norm bounded below, and a maximal compact
+factor. The norm-one idele class group is compact: its finite part
+is reduced to finitely many ideal classes, and Dirichlet's unit
+lattice reduces its infinite logarithms to a compact parallelepiped.
+Divide the remaining positive real norm into intervals
+\([|u|^k,|u|^{k+1}]\). The bounded initial interval is absorbed
+in \(\Omega_0\). This gives the asserted discrete-ray version of
+the usual Siegel set.
+\footnote{For the adelic reduction theorem and the definition of
+these Siegel sets, see J.~Getz and H.~Hahn,
+\emph{An Introduction to Automorphic Representations},
+Theorem~2.7.2, author's text:
+\url{https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf}.}
+
+The second fact is a useful quantitative form of additive
+compactness. Given a sufficiently small neighborhood \(V\) of \(1\),
+choose a nonnegative test function \(\eta\), smooth at infinity,
+locally constant at finite places, with compact support in \(V\)
+and integral one. For every compact \(\Omega\) there are a compact
+\(\Omega'\) and a constant \(C\) such that, for every \(z\) and \(k\),
+one can choose \(q\in K\) and \(v\in\Omega'\) with
+\[
+ n(-q)n(z)b^k=b^kv,\qquad
+ |\eta(\kappa^{-1}v^{-1}y)-\eta(\kappa^{-1}y)|
+           \le C2^{-k}\quad(\kappa\in\Omega,\ y\in G).
+ \tag{R4}\label{eq:sr-contraction-bump}
+\]
+The union of the supports in \(y\) in this formula is compact,
+independently of \(z,k,\kappa\).
+Here are the details. The finite part of a compactly supported
+locally constant function is invariant under some compact open
+subgroup. Compactness of the finite projection of \(\Omega\)
+allows us to choose an additive compact open subgroup \(U_f\)
+so small that conjugating \(n(U_f)\) by any \(\kappa_f\) preserves
+that invariance. Strong additive approximation chooses \(q\) with
+\((z-q)_f\in U_f\); modulo the resulting fractional ideal its
+infinite part can be placed in a fixed compact parallelepiped.
+Consequently \(v=b^{-k}n(z-q)b^k\) has finite part in \(n(U_f)\)
+and infinite off-diagonal entry bounded by \(C'2^{-2k}\).
+The finite change of \(\eta\) is zero, and the mean-value estimate
+for its infinite derivatives on a fixed compact set gives (R4),
+even with \(2^{-2k}\) in place of \(2^{-k}\).
+The same description proves compactness of all the supports.
+A finite sum of products of infinite smooth functions and finite
+locally constant functions gives these conclusions for \(\eta\).
+
+Let \(\phi_\eta(g)=\int_G\phi(gy)\eta(y)\,dy\) and define \(c_\eta\)
+similarly. Compact supports and compactness of the additive
+quotient justify Fubini, so \(c_\eta\) is the unipotent average
+of \(\phi_\eta\), and (R2) remains true after convolution.
+Changing variables in the convolution, and using automorphy
+and (R4), gives
+\[
+ \left|\phi_\eta(b^k\kappa)
+          -\phi_\eta(n(z)b^k\kappa)\right|
+       \le C_\Omega' 2^{(m-1)k}\qquad(m\ge1).
+ \tag{R5}\label{eq:sr-contraction-growth-drop}
+\]
+To see all constants explicitly, write the difference as
+\[
+ \int_G \phi(b^ky)
+       \{\eta(\kappa^{-1}y)
+                 -\eta(\kappa^{-1}v^{-1}y)\}\,dy .
+\]
+Both terms are supported in one compact set. On that set (R1)
+bounds the first factor by \(C_1 2^{mk}\), and (R4) bounds
+the second by \(C_2 2^{-k}\). Its finite Haar volume supplies
+the remaining constant. Averaging in \(z\), and using the
+boundedness of \(c_\eta(b^k\kappa)\) from (R3), shows that
+\(\phi_\eta\) has growth exponent \(m-1\).
+
+We now induct on \(m\). For \(m=0\), the discrete-ray Siegel set
+and automorphy make \(\phi\) globally bounded, say by \(M\).
+Its unipotent average is bounded by \(M\), and (R3), applied
+at \(b^{-k}g\), gives
+\[
+ |Dc(g)|\le 2M|\lambda|^k.
+\]
+Letting \(k\) tend to infinity proves \(Dc=0\).
+For \(m\ge1\), every sufficiently small neighborhood admits
+the bump just constructed. Equation (R5) and the induction
+hypothesis give \(Dc_\eta=0\).
+Choose such nonnegative bumps of integral one with supports
+shrinking to \(1\). Continuity of \(c\) implies
+\(c_\eta(g)\to c(g)\) and \(c_\eta(bg)\to c(bg)\).
+Therefore \(Dc=0\) again. All convolutions are over compact sets;
+no integrability over \(\Gamma\backslash G\) was assumed.
+\end{proof}
+
+We apply this lemma to the actual theta constant terms.
+Write \(Y=p+q\), \(d=a+a'\), and assume
+\[
+ a'>2Y+1,\qquad \delta=(a-a')/2>2Y+1.
+ \tag{R6}\label{eq:sr-two-step-range}
+\]
+Let \(\Sigma\) be the span of the large and small theta-period
+images. Its line constant term has the two distinct Levi laws
+\[
+        \alpha(t)|t|_E^{a'/2},
+        \qquad \beta(t)|t|_E^{a/2}.                \tag{R7}
+ \label{eq:sr-two-step-upper-laws}
+\]
+We call the corresponding functions \(F_\alpha,F_\beta\).
+They are unique: restrict the Levi to an idele of norm greater
+than one, whose two eigenvalues have different absolute values.
+The uniqueness also makes these components linear in \(F\).
+
+\begin{srlemma}[The next \(\beta\)-component vanishes]
+\label{lem:sr-theta-two-step-kill}
+Suppose \(p\ge1\), \(F\in\Sigma\), and \(F_\beta=0\).
+Remove a hyperbolic plane from the large first space and from
+\(W\), obtaining the actual lower pair
+\[
+     (b,a';p-1,q),\qquad b=a-2.
+\]
+Assume the already proved proportionality and nonvanishing for
+that lower pair and for its further rank reductions.
+For every maximal-compact \(k\), realize
+\(y\mapsto F_\alpha(\operatorname{lev}(y)k)\) as an element of
+the lower common image \(\Sigma_1\), using
+Proposition~\ref{prop:sr-theta-small-alpha-realization}.
+Its line constant term on \(U(W_1)\) has zero \(\beta\)-component.
+\end{srlemma}
+
+\begin{proof}
+If \(W_1\) has no isotropic line the assertion has no component
+to test. Otherwise choose two mutually orthogonal hyperbolic
+planes in \(W\), with isotropic vectors \(x_1,x_2\).
+The first removal uses \(x_1\), and the next removal uses \(x_2\).
+For every \(x\in U(W)(\mathbb A_F)\) the function
+\[
+           y\longmapsto
+                 F_\alpha(\operatorname{lev}(y)x)
+\]
+admits a lower splitting into functions \(A_x,C_x\) with laws
+\[
+       \alpha(t)|t|_E^{a'/2},
+       \qquad \beta(t)|t|_E^{b/2}.                \tag{R8}
+ \label{eq:sr-two-step-lower-laws}
+\]
+The assertion for arbitrary \(x\), and not just compact \(x\),
+is needed here. Write \(x=n\,m(t)\operatorname{lev}(g_1)k\)
+by Iwasawa decomposition for the first line parabolic.
+The first constant term is left \(n\)-invariant; \(\operatorname{lev}(y)\)
+normalizes this unipotent group and commutes with \(m(t)\).
+The asserted function is therefore the right translate by \(g_1\)
+of the compact-\(k\) lower function, multiplied by
+\(\alpha(t)|t|^{a'/2}\). This transports its lower splitting to
+all \(x\). No polynomial test-space invariance under arbitrary
+real group elements is being assumed.
+
+Set \(c(x)=A_x(1)+C_x(1)\). Embed
+\(\mathrm{SL}_2(\mathbb A_E)\) in \(U(W)(\mathbb A_F)\)
+by its standard action on \(E x_1+E x_2\), inverse conjugate
+transpose action on the dual isotropic plane, and identity on
+the orthogonal complement. Write \(\iota\) for this embedding.
+For the idele \(u\) in the preceding lemma, put \(r=|u|_E>1\)
+and \(h=\iota(\operatorname{diag}(u,u^{-1}))\).
+Equations (R7)--(R8) give
+\[
+ \begin{split}
+ c(hx)&=A_x(1)+\lambda C_x(1),\\
+ c(h^2x)&=A_x(1)+\lambda^2 C_x(1),\\
+ \lambda&=\alpha(u)\beta(u^{-1})\,r^{(a'-b)/2},
+                         \qquad |\lambda|<1.
+ \end{split}                                      \tag{R9}
+ \label{eq:sr-two-step-eigenvalue}
+\]
+For example the first character on the outer line contributes
+\(\alpha(u)r^{a'/2}\). On the inner line the \(A\)-term contributes
+its inverse, while the \(C\)-term contributes
+\(\beta(u^{-1})r^{-b/2}\). This proves both formulas with the
+actual, possibly nontrivial, unitary characters.
+The strict inequality follows from \(b>a'\), a consequence of (R6).
+
+For completeness we identify the average to which the rank-one
+lemma applies. Let \(N_2\) be the radical of the parabolic of the
+isotropic plane \(E x_1+E x_2\), and define, for fixed \(x\),
+\[
+ \phi_x(g)=\int_{N_2(F)\backslash N_2(\mathbb A_F)}
+                         F(n\iota(g)x)\,dn .
+\]
+The quotient is compact and has probability measure.
+The group \(\mathrm{SL}_2(E)\) normalizes \(N_2\), preserves
+its rational subgroup, and preserves the probability measure.
+Thus \(\phi_x\) is a continuous automorphic function for
+\(\mathrm{SL}_2(E)\). It has the growth in (R1) because \(F\)
+has polynomial adelic matrix height growth and the integration
+uses a compact set of representatives.
+
+Its upper-unipotent average is exactly \(g\mapsto c(\iota(g)x)\).
+Here is the group calculation behind this assertion.
+The unipotent group for the flag \(E x_1\subset E x_1+E x_2\)
+has two decompositions:
+\[
+ N_{\rm flag}=N_{x_1}\rtimes N_{x_2,W_1}
+             =N_2\rtimes\iota(N_{\mathrm{SL}_2}).
+\]
+In the block basis
+\((x_1,x_2;\,W_2;\,y_1,y_2)\), the second factor on the right
+is upper triangular unipotent on the first two coordinates
+and inverse transpose on the last two; \(N_2\) has identity
+on both of these diagonal two-by-two blocks.
+This identifies both groups and their kernels directly.
+All three rational unipotent quotients have probability Haar
+measure, so integration in stages in either order is Fubini
+on compact quotients. The first order gives the first line
+constant term and then its lower line constant term,
+namely \(A_x(1)+C_x(1)\); the second gives the asserted
+rank-one average.
+
+Equation (R9) supplies (R2) at every \(g\).
+Lemma~\ref{lem:sr-theta-rank-one-contraction} consequently gives
+\(c(hx)=c(x)\). Comparing this equality with (R9) yields
+\((\lambda-1)C_x(1)=0\), hence \(C_x(1)=0\).
+Replace \(x\) by \(\operatorname{lev}(y)k\) to obtain
+the vanishing of the entire lower \(\beta\)-component, as claimed.
+\end{proof}
+
+\begin{srproposition}[One zero component forces the other one to vanish]
+\label{prop:sr-theta-two-step-zero}
+Assume proportionality and nonvanishing for every smaller
+signature sum than \(Y\), with the actual rank reductions above.
+If \(q\ge1\) and \(F\in\Sigma\) has \(F_\beta=0\), then
+\(F_\alpha=0\).
+For \(q=0\) it is enough to assume \(F_\alpha=0\):
+in that case \(F_\beta=0\) follows from the boundary vanishing
+already proved.
+\end{srproposition}
+
+\begin{proof}
+If \(p=0\), the boundary vanishing
+Corollary~\ref{cor:sr-theta-boundary-component-zero} already gives
+\(F_\alpha=0\). Suppose \(p\ge1\). The compact-\(k\) restrictions
+of \(F_\alpha\) lie in the lower common image \(\Sigma_1\).
+The local constant-term descent proved in
+Proposition~\ref{prop:sr-theta-constant-term-descent} shows that,
+as the upper common-quotient vector varies in a submodule,
+their span is a submodule of \(\Sigma_1\).
+At finite places this is ordinary group equivariance.
+At infinity it is equivariance for the lower Lie algebra
+and maximal compact, which preserve the polynomial test spaces
+in these adapted Cartan coordinates. These are sufficient for
+the irreducibility argument; no real group translate is asserted
+to preserve the polynomial test space.
+
+Apply this observation to the module generated by \(F\).
+The identity \(F_\beta=0\) is stable under right translation
+(and under the Lie algebra and maximal compact on polynomial
+vectors), since it is an identity of component functions on
+the whole upper group. Thus all the lower restrictions in
+this module have zero \(\beta\)-component by the preceding lemma.
+By lower proportionality and Factor, \(\Sigma_1\) is one
+irreducible common-quotient image, and it is nonzero.
+If the lower restrictions had a nonzero span, this span
+would be all of \(\Sigma_1\).
+
+When \(q\ge1\), however, \(\Sigma_1\) contains a vector with
+nonzero \(\beta\)-component. Its large-side zero evaluation
+is onto the further lower polynomial test space. Choose
+a test vector with nonzero period in the \(B\)-reduction
+of \((b,a';p-1,q)\), which exists by the smaller-signature
+hypothesis. Lift it by this zero evaluation. The exact
+large-side \(\beta\) constant-term formula is a nonzero
+geometric constant times that lower period.
+This contradicts zero \(\beta\)-component on \(\Sigma_1\).
+Consequently every compact-\(k\) lower restriction is zero.
+Iwasawa decomposition and the first Levi law give
+\(F_\alpha=0\) on the whole group.
+
+For \(q=0\), the assertion needed for the induction is
+instead the final assertion in the proposition:
+the \(\beta\)-component vanishes on both original images
+by Corollary~\ref{cor:sr-theta-boundary-component-zero}.
+Once the \(\alpha\)-components have been matched it
+therefore vanishes on their difference as well.
+\end{proof}
+
+In the case \(p,q\ge1\), the further \(B\)-reduction just used
+has signature sum \(Y-2\), so this argument uses only earlier
+induction cases. The line-to-cusp implication and the proved
+cuspidal orthogonality then kill the difference whose chosen
+component was matched. The remaining work is to fix the
+adapted models before the finite packets and to identify
+that chosen component's nonzero scalar.

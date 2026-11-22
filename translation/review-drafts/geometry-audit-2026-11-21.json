@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-21",
+  "published_pdf_pages": 499,
+  "published_source_commit": "e91c5c8b4951a4ddc93a3f9258e9c0343c990c64",
+  "status": "Unconditional standalone prose proof incomplete",
+  "drafts": [
+    {
+      "path": "translation/review-drafts/theta-line-cusp.tex",
+      "proposed_blob": "5ac4bb1703e511e8839ddecd0e2517ad75f3e90d",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/theta-simultaneous-cutoff.tex",
+      "proposed_blob": "485034b40f7fabb44dde150d28b209d3a861cb82",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/theta-two-step.tex",
+      "proposed_blob": "f5440b52716f11bc7c79f7cf5680df0eb87f92c1",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/theta-adapted-tower.tex",
+      "proposed_blob": "c5cb65bcec727b0df429ddd1f4edb6f39d6e8602",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/theta-cuspidal-orthogonality.tex",
+      "proposed_blob": "1816e2fcb781644770ad53c35ed4d95a1d8ad4f5",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/theta-endgame.tex",
+      "proposed_blob": "d8474c81fad8d4e9ce7281445446194101a5c3fc",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/general-flat-saturation.tex",
+      "proposed_blob": "059bfa7ca84e9be51be29db6931c8316fa9ef297",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/formal-hodge-kernel-repair.tex",
+      "proposed_blob": "b320ee43602d39345dbf5e7d6cf51d64778f9456",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    },
+    {
+      "path": "translation/review-drafts/integral-eigenlattice.tex",
+      "proposed_blob": "465e94abbaea1e6ba7c2fbfd314ec6e54b3c497e",
+      "status": "Pending final mathematical review and integration; not in current PDF."
+    }
+  ],
+  "theta_review": {
+    "reviewers": [
+      "root",
+      "connected_geometry"
+    ],
+    "scope": "Six-section signature induction proposed; published input applications and dependency order checked internally, no separate formalization or independent refereeing.",
+    "constant_quantifiers": "Recursion constants precede the finite packet but may depend on host field/geometric data; downstream uniform metric/covolume constants are not supplied by this fact."
+  },
+  "flat_saturation_review": {
+    "unproved_shortcut": "The proposed general-flat-saturation draft had asserted integral identification of its formal cubical Hodge module with a Dieudonne object. The cited theorem alone does not establish that identification.",
+    "proposed_repair": "formal-hodge-kernel-repair.tex reconstructs finite-kernel/Cartier tangent bounds instead; root identified and corrected a disconnected-group distribution-algebra overstatement.",
+    "remaining": [
+      "Formal Frobenius exact-sequence identification",
+      "Globally compatible full Mumford models",
+      "Canonical determinant-extension comparison with analytic flat frame"
+    ]
+  },
+  "integral_point_review": {
+    "correction": "Intrinsic Hodge–Tate pullback under arbitrary specialization was overstated. Corrected scope is dominant normal modifications; direct split-dual module argument gives the needed point comparison for evaluated coherent model lattices.",
+    "starting_model": "Algebraic polarized semiabelian/cubical model remains a required background construction."
+  },
+  "next_covolume_work": [
+    {
+      "task": "Uniform short integral theta generators",
+      "endpoints": [
+        "ShortOfInputs.lean:207",
+        "EvenDomainWeightBound.lean:112",
+        "PolynomialCoefficientEmbeddingNormLeOfL1Bound.lean:399",
+        "NormPhiHatIndPhi.lean:325",
+        "ExistsBoundedIntegerGoodCoverThetaSeriesIntegral.lean:31",
+        "ShortLatticeSpanningSets.lean:98",
+        "FlatConstantAbsLeNineExplicit.lean:35"
+      ],
+      "required": "One common clearing integer and all-embedding generator norms before hosts, ranks, covers and weights; prescribed-weight window absorption."
+    },
+    {
+      "task": "Geometric section realization",
+      "endpoints": [
+        "GeometricOfHyp.lean:144",
+        "GoodWeightAntitoneGap.lean",
+        "WeightPrincipalisationBound.lean",
+        "WeightPositivityPrincipalisationDeep.lean",
+        "CanonicalModificationWeightBound.lean",
+        "ProportionalPositiveVolumes.lean"
+      ],
+      "required": "Full integral cusp lattice, function-field generation, and degree/share comparison on the same compactified flag model."
+    },
+    {
+      "task": "One carrying section",
+      "endpoints": [
+        "ExistsNonzeroSectionWeightBound.lean",
+        "ExistsCarryingSectionOrders.lean:344",
+        "CarryingSectionIntegralFrame.lean:198",
+        "ReferenceWeightOfDeepGood.lean"
+      ],
+      "required": "The same arithmetic section carries weights, satisfies valuation and archimedean bounds, and remains within the common cost budget."
+    },
+    {
+      "task": "Height-to-volume/covolume assembly",
+      "endpoints": [
+        "NefModelVolumes/HeightG.lean",
+        "NefModelVolumes/TwoLtHalfFinrank.lean",
+        "NefModelVolumes/TopCovolG.lean",
+        "NefModelVolumes/TopCovolSlim2.lean",
+        "CovolumeFromGramAndBounds.lean",
+        "Definitions/Divisors/CovolXOfCovol.lean:216-224"
+      ],
+      "required": "One threshold for all relevant components, indices, admissible points, good covers and divided weights."
+    }
+  ],
+  "published_theorem_scope_checks": [
+    {
+      "source": "Moriwaki arithmetic Hilbert–Samuel",
+      "url": "https://www2.kobe-u.ac.jp/~mhsaito/agsymkobe07/proceedings/moriwaki.pdf",
+      "scope": "Fixed-model asymptotics do not directly supply the specified uniform integral generator package."
+    },
+    {
+      "source": "Demailly L2 extension",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/source_files/kscv12_contrib/kscv12_contrib.pdf",
+      "scope": "Analytic extension estimate does not supply integral lattice or arithmetic uniformity."
+    },
+    {
+      "source": "Fujino point separation",
+      "url": "https://www.math.kyoto-u.ac.jp/~fujino/effective2-final.pdf",
+      "scope": "Printed ample hypothesis requires an application reduction before matching the broader nef-and-big source interface."
+    }
+  ],
+  "time_estimate": {
+    "status": "No reliable completion deadline",
+    "planning_scale": "Weeks of active work, low confidence, no dependable upper bound; not a guarantee.",
+    "reason": "Critical proof joins and several quantitative constructions remain beyond editorial integration."
+  }
+}

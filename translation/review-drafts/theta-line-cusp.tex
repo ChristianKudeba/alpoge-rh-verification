@@ -1,0 +1,281 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+
+\section{From a zero line constant term to cuspidality}
+\label{sec:sr-theta-line-cuspidality}
+
+Here is a local-to-global consequence of the actual split matching
+representation. It replaces a separate assumption that a zero line
+constant term already implies cuspidality.
+
+Let \(W\) be the fixed target of rank \(d=a+a'\), and suppose
+\[
+                    \delta=(a-a')/2>3.
+\]
+At a good fully split finite place \(v\), put \(k=F_v\) and
+\(q_v=|\mathcal O_k/\mathfrak p_k|\).
+In the specified split action the common target representation is,
+up to its already specified unitary determinant twist,
+\[
+ \pi_v=
+ i_{(a,a')}^{\,\mathrm{GL}_d(k)}
+       \bigl((\xi\circ\det_a)\boxtimes
+                         (\xi'\circ\det_{a'})\bigr),
+ \tag{U1}\label{eq:sr-cusp-line-local-representation}
+\]
+where \(i\) is normalized induction and \(\xi,\xi'\) are
+unramified unitary characters. The order of these two characters
+will not matter for the argument. This is an irreducible
+representation by the local calculation already proved.
+
+\begin{srlemma}[Generic pieces of the split Jacquet module]
+\label{lem:sr-cusp-line-jacquet}
+For \(1\le r\le d/2\), take the normalized Jacquet module of
+\(\pi_v\) for the three-block parabolic
+\((r,d-2r,r)\).
+Consider its first \(\mathrm{GL}_r(k)\) factor.
+It has no generic irreducible constituent if \(r>2\).
+If \(r=2\), every generic constituent on that factor is
+\[
+ i_{(1,1)}^{\,\mathrm{GL}_2(k)}
+   \left(\xi|\cdot|^{-(a-1)/2}\boxtimes
+                      \xi'|\cdot|^{-(a'-1)/2}\right),
+ \tag{U2}\label{eq:sr-cusp-line-GL2-piece}
+\]
+up to permutation and a common determinant twist.
+In particular the absolute values of the two inducing characters
+have ratio \(q_v^\delta\) at a uniformizer, or its inverse.
+\end{srlemma}
+
+\begin{proof}
+We spell out the relevant geometric-lemma calculation.
+The double cosets are indexed by matrices
+\((m_{ij})\) of nonnegative integers, with row sums
+\((a,a')\) and column sums \((r,d-2r,r)\).
+The corresponding subquotient is the tensor product, by columns,
+of normalized inductions of the normalized Jacquet modules
+of the two determinant characters.
+
+In the first column its two block sizes are \(m_{11},m_{21}\)
+with sum \(r\). A determinant representation of
+\(\mathrm{GL}_m(k)\) is nongeneric for \(m\ge2\):
+its upper unipotent action is trivial whereas a nondegenerate
+Whittaker character is nontrivial. Its Whittaker coinvariant
+space is zero.
+Whittaker coinvariants of normalized induction are the tensor
+product of those of the inducing blocks. One may verify this
+by the Bruhat filtration: only the open cell survives the
+nondegenerate character; integrating along that cell gives the
+tensor product. Twisted unipotent coinvariants are exact over
+\(\mathbb C\), by averaging on compact open subgroups and
+passing to their increasing union. Therefore vanishing on
+these subquotients proves vanishing for the entire Jacquet
+module and for every one of its subquotients.
+A generic first-column constituent thus requires
+\(m_{11},m_{21}\le1\), so \(r\le2\).
+
+If \(r=2\), both entries must be \(1\).
+In a normalized Jacquet module the determinant character of
+\(\mathrm{GL}_a\), restricted to its first block of size one,
+is \(\xi|\cdot|^{-(a-1)/2}\): the ordinary action is \(\xi\),
+and normalization multiplies by the inverse square root of
+the parabolic module. This power is independent of the
+distribution of the remaining \(a-1\) coordinates into the
+later two columns. The corresponding primed power is
+\(-(a'-1)/2\), proving (U2).
+Its character ratio has norm exponent \(\delta\).
+This principal series is irreducible: its ratio cannot equal
+\(|\cdot|^{\pm1}\), since \(\delta>3\).
+Thus there is no additional generic constituent with different
+parameters hidden in (U2).
+
+This is precisely the ordinary Bruhat geometric lemma of
+Bernstein--Zelevinsky, \emph{Induced representations of reductive
+\(p\)-adic groups I}, \S2 (Lemma~2.12 and its filtration);
+the block computation just given identifies all the terms
+needed here.
+\footnote{\url{https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/BZ-induced-1.pdf}.}
+\end{proof}
+
+\begin{srlemma}[The two-dimensional piece cannot be essentially unitary]
+\label{lem:sr-cusp-line-unitarity}
+An irreducible representation of the form (U2) is not essentially
+unitary when \(\delta>3\).
+\end{srlemma}
+
+\begin{proof}
+A common unramified real determinant twist making its central
+character unitary makes the two normalized Satake parameters
+have absolute values \(q_v^{\delta/2}\) and
+\(q_v^{-\delta/2}\).
+If the representation were unitary after such a twist, normalize
+the spherical vector to have norm one.
+The Hecke operator of
+\(K\operatorname{diag}(\varpi,1)K\), with \(\operatorname{vol}K=1\),
+is a sum of \(q_v+1\) unitary right translations.
+Its norm is at most \(q_v+1\).
+Directly decomposing this double coset into its \(q_v+1\)
+Iwasawa cosets gives its spherical eigenvalue
+\[
+                 q_v^{1/2}(\lambda_1+\lambda_2).
+\]
+Therefore
+\[
+ |\lambda_1+\lambda_2|
+          \le q_v^{1/2}+q_v^{-1/2}.                 \tag{U3}
+ \label{eq:sr-cusp-line-unitary-Hecke}
+\]
+But the reverse triangle inequality gives
+\[
+ |\lambda_1+\lambda_2|
+       \ge q_v^{\delta/2}-q_v^{-\delta/2}
+       > q_v^{3/2}-q_v^{-3/2}
+       >q_v^{1/2}+q_v^{-1/2}.
+\]
+For the last strict inequality, multiply by \(q_v^{3/2}\)
+and use
+\[
+ q_v^3-q_v^2-q_v-1
+       =(q_v-2)(q_v^2+q_v+1)+1>0
+       \qquad(q_v\ge2).
+\]
+This contradicts (U3).
+A unitary character twist changes neither the norm comparison
+nor this conclusion. Thus no determinant twist can unitarize
+(U2).
+\end{proof}
+
+\begin{srproposition}[The actual line-to-cusp implication]
+\label{prop:sr-theta-line-implies-cusp}
+Let \(F\) be a smooth moderate automorphic form in the span of
+the actual large and small polynomial theta-period images
+for a fixed triple. Suppose its constant term along the
+unipotent radical of an isotropic line is identically zero.
+Then \(F\) is cuspidal.
+
+More generally the assertion holds for such a form whose local
+module at one good fully split place is a quotient of a finite
+sum of copies of (U1).
+\end{srproposition}
+
+\begin{proof}
+All rational isotropic lines are conjugate by \(U(W)(F)\),
+by Witt extension. Automorphy therefore gives the zero constant
+term for every rational isotropic line. The zero assertion
+also holds for all right translates of \(F\).
+
+If \(F\) were not cuspidal, choose the least \(r\ge1\) for
+which its constant term along a rational isotropic \(r\)-plane
+is nonzero. Necessarily \(r\ge2\).
+Its Levi is
+\(\mathrm{GL}_r(\mathbb A_E)\times U(W_0)(\mathbb A_F)\).
+Every proper general-linear constant term of that nonzero
+Levi function is zero. Indeed staged unipotent integration
+identifies it with the constant term along a flag
+\(L\subset L_r\), \(0<\dim L<r\); integrate first over
+the radical for \(L\). That first integral is zero by
+minimality of \(r\). All the unipotent quotients here are
+compact, so the staged integrals are ordinary Fubini integrals.
+Thus a nonzero general-linear slice of this Levi function
+is a cuspidal automorphic form on \(\mathrm{GL}_r(\mathbb A_E)\).
+
+We recall two classical general-linear facts and their scope.
+Cuspidal automorphic representations of
+\(\mathrm{GL}_r(\mathbb A_E)\) are globally generic and are
+essentially unitary. Genericity follows by successive
+Fourier expansions along the last-column unipotent groups:
+cuspidality removes the zero coefficient, and the rational
+general linear group is transitive on their nonzero
+characters. Iterating gives a nonzero nondegenerate Whittaker
+coefficient. This is the usual cuspidal Whittaker expansion
+of Shalika.
+\footnote{J.~Shalika, \emph{The multiplicity one theorem for
+\(\mathrm{GL}_n\)}, Ann.~of Math.~100 (1974), 171--193:
+\url{https://annals.math.princeton.edu/1974/100-2/p01}.}
+After fixing a central character, its absolute value is a real
+power of the idele norm; twisting by the corresponding real
+power of determinant makes the central character unitary.
+Cuspidal rapid decrease modulo center then realizes the
+resulting representation unitarily in the cuspidal \(L^2\)
+space. In particular each local factor is essentially unitary.
+
+These facts apply to the nonzero slice just obtained.
+For precision one may take a nonzero irreducible constituent
+of its cuspidal automorphic span. The theta images are compact
+finite and infinitesimal-character finite at infinity by
+their actual real matching quotients. Restriction of a
+finite-dimensional upper compact type to the Levi compact
+group is still compact finite. To check the center condition
+on a constant term, use PBW projection along the parabolic
+nilpotent algebra. On a function constant along that radical,
+the upper center acts by its Harish--Chandra projection to
+the Levi center, with the ordinary half-modulus shift.
+Under the Harish--Chandra isomorphisms this is the inclusion
+\(\operatorname{Sym}(\mathfrak h)^{W_G}
+  \subset\operatorname{Sym}(\mathfrak h)^{W_M}\).
+The second algebra is finite over the first, because the
+Weyl groups are finite. Thus a finite-codimensional
+upper infinitesimal-character annihilator gives a
+finite-codimensional annihilator for the Levi center.
+In particular the general-linear slice has only finitely
+many generalized infinitesimal central weights.
+
+One can now take an actual central eigencomponent:
+decompose the norm-one idele class center, which is compact,
+into characters, and take a nonzero component. Its compact
+Fourier weights and its remaining real exponential weights
+are finite by the just-proved center condition. If a
+nilpotent logarithmic factor occurs in the real central
+direction, apply its highest nonzero central derivative
+to obtain a nonzero eigenvector. These operations commute
+with the general-linear group and preserve both cuspidality
+and the local Jacquet-module restriction.
+After the determinant norm twist making this character
+unitary, the slice lies in the cuspidal \(L^2\) space modulo
+center. Its usual discrete cuspidal decomposition, or the
+finite-dimensional fixed-level, fixed-compact-type,
+fixed-infinitesimal-character cusp space, gives a nonzero
+irreducible cuspidal constituent. Its Whittaker expansion
+gives genericity. This passage uses the general-linear
+cuspidal spectral theory only; it does not assume a
+multiplicity-one theorem for the unitary group.
+
+At the chosen split place, a parabolic stabilizing an
+\(r\)-plane becomes the three-block parabolic
+\((r,d-2r,r)\) in \(\mathrm{GL}_d(k)\).
+The two \(\mathrm{GL}_r(k)\) factors of its Levi are the
+two completions of \(\mathrm{GL}_r(E_v)\).
+The nonzero cuspidal constituent must be generic and
+essentially unitary at each of them.
+On the other hand its first factor is a subquotient of
+the Jacquet module calculated in the preceding lemma.
+Using an unnormalized constant term instead of normalized
+Jacquet restriction contributes only a common determinant
+norm twist; it does not affect genericity or essential
+unitarity.
+
+For \(r>2\) this contradicts the absence of a generic
+constituent. For \(r=2\) it contradicts the nonunitarity
+lemma. Hence no such \(r\) exists.
+Every proper rational parabolic is contained in one
+stabilizing a nonzero isotropic subspace, and staged
+integration then gives zero for all of its constant terms.
+This is cuspidality.
+
+For an actual triple the local period factorization gives
+exactly the representation (U1) at each good fully split
+place; for a sum or difference there are at most finitely
+many copies. Such places exist by the good-prime argument.
+Finally the exact rank inequality
+\(2(p+q)+1<(a-a')/2\) gives \(\delta>3\)
+whenever the target has an isotropic line, since then
+\(p+q\ge1\). No integrality of \(\delta\) is used. When it has
+none, its quotient has no proper rational parabolic and
+the assertion is immediate.
+\end{proof}
+
+This proposition supplies the line-to-cusp step only. In the
+signature induction one must still show that the other Levi
+component of the difference vanishes when the first chosen
+component has been matched. The two-step contraction and
+lower-rank injectivity address that separate statement.

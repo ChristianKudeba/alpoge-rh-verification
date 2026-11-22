@@ -1,0 +1,917 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+\subsection{Flat degree and saturation for every principal-signature fibre}
+\label{subsec:sr-general-flat-degree-saturation}
+
+Here a host retains its full definition: \(E\) is CM,
+\(E/E^+\) is unramified at every finite place, \(d\) is a prime
+with \(d\equiv7\pmod {16}\), and
+\[
+ \varrho^2=-d,\qquad w_0=(1+\varrho)/2\in\mathcal O_E,\qquad
+ \bar w_0=1-w_0.
+ \tag{FD1}
+\]
+Put \(K_d=\mathbb Q(\varrho)\), write \(\mathfrak D_E\) for the
+absolute different and \(R_E=|\operatorname{disc}E|^{1/[E:\mathbb Q]}\),
+and set
+\[
+ x_d=\gamma+\log(2\pi/\sqrt d)-L'(1,\chi_d)/L(1,\chi_d),\qquad
+ \Omega_E=x_d-\log R_E+\log\sqrt d .
+ \tag{FD2}
+\]
+Thus \(\Omega_E=\operatorname{Re}(\mathrm{CM.logOm}(E,\chi_d))\).
+The rank-one input is \eqref{eq:sr-cm-period-exact}, with metric
+\eqref{eq:sr-cm-tangent-norm}.  It will only be applied to CM
+elliptic curves; the passage to general fibres is proved below.
+No abelian-Galois hypothesis on \(E/\mathbb Q\) is used.
+
+Every degree is normalized by the number-field degree.
+For logarithmic lengths over \(k\) the convention is
+\[
+ \deg N=-\frac1{[k:\mathbb Q]}
+ \left(\sum_{\sigma:k\hookrightarrow\mathbb C}N_\infty(\sigma)
+       +\sum_p\sum_{j:k\hookrightarrow\mathbb C_p}N_p(j)\right).
+ \tag{FD3}
+\]
+We use \(|p|_p=p^{-1}\) and count all complex embeddings,
+including both members of a conjugate pair.
+
+Let \(\Lambda\) be a projective \(\mathcal O_E\)-lattice of rank
+\(r=p+q\), with perfect alternating integral trace pairing and
+Rosati compatibility.  Its period domain has signature \(p,q\)
+at embeddings over \(\varrho\mapsto\sqrt{-d}\), and opposite
+signature at the conjugates.  Fix a geometric component \(U\)
+of a fine algebraic PEL moduli scheme, and write
+\(V_\tau=\operatorname{Lie}(\mathcal A)_\tau\).
+An algebraic frame function \(\phi\) is nonzero and satisfies
+\[
+                  \phi(Av,Bw)\det A=\phi(v,w)\det B
+ \tag{FD4}
+\]
+on frames of \(V_\tau,V_{\bar\tau}\).
+It is a generator of
+\(\det V_\tau\otimes(\det V_{\bar\tau})^{-1}\).
+For an integral finite-index \(E\)-basis \(e\) of the period
+lattice, flatness means
+\[
+                   \phi(v,w)\det\binom C F=\rho\in\mathbb C^\times
+ \tag{FD5}
+\]
+for the two period coefficient matrices.  A global free
+\(\mathcal O_E\)-basis is not assumed.
+
+For \(j:E\hookrightarrow\mathbb C_p\), put
+\[
+ D_j=\log\sup_{b\in\mathfrak D_E}|j(b)|_p,\qquad
+                         h_{p,j}=\log|d|_p .
+ \tag{FD6}
+\]
+Suppose its Hodge lengths and its lengths on integral eigenframes
+of every semiabelian trait realization are constant on \(U\):
+\[
+ N_\infty(\sigma)=\log|\phi(v,w)|_\sigma
+       +\tfrac12\log|\det\Gamma_v|_\sigma
+       -\tfrac12\log|\det\Gamma_w|_\sigma,\qquad
+ \widetilde N_p(j)=\log|\phi(v,w)|_j .
+ \tag{FD7}
+\]
+Here the second formula is evaluated on integral eigenframes.
+The source's corrected \(\mathrm{HasNorms}\) system is
+\[
+                    N_p(j)=\widetilde N_p(j)
+                                        -q(D_{j|E}-h_{p,j}).
+ \tag{FD8}
+\]
+This codifferent correction is essential.
+
+\begin{srproposition}[Full flat degree]
+\label{prop:sr-general-flat-degree}
+For every host, signature and algebraic flat frame just described,
+if the constant lengths exist, then they have finite support and
+\[
+ \deg N=\frac{p-q}{2}\Omega_E+q(\log d-\log R_E),\qquad
+                  \deg\widetilde N=\frac{p-q}{2}\Omega_E .
+ \tag{FD9}
+\]
+No field-degree, level, rank or isogeny-degree bound enters.
+\end{srproposition}
+\begin{proof}
+We justify the CM evaluations on an arbitrary component.
+At a rational prime \(p_0\), put
+\(A=\mathcal O_E\otimes\mathbb Z_{(p_0)}\).
+The different has a real generator \(\delta\) over \(A\):
+the relative different of \(E/E^+\) is the unit ideal, and
+ideals in the semilocal Dedekind ring of \(E^+\) are principal.
+A denominator prime to \(p_0\) puts this generator in the
+original ideal.
+Multiplying the skew-hermitian trace pairing by \(\delta\)
+makes it unimodular over \(A\).
+
+It admits an orthogonal local basis with unit diagonal, including
+above \(2\).  Indeed at each maximal ideal some \(a\) has
+\(a-\bar a\) nonzero in its residue map: conjugation either
+exchanges the two split factors or acts nontrivially on the
+unramified quadratic residue extension.
+If all diagonal values vanished, the values on \(u+av\)
+would then force every cross pairing to vanish, contradicting
+nondegeneracy.  Choose a vector of unit norm at every maximal
+ideal by the Chinese remainder theorem, split off its orthogonal
+line, and induct.
+
+Perturb the first \(p\) vectors, preserving their congruence
+modulo an arbitrarily large power of \(p_0\), so that their
+whole \(p\)-by-\(p\) Gram block is positive definite at every
+archimedean embedding over the chosen square root.
+Choose a target positive-definite \(p\)-frame at each embedding;
+scale inside the open homogeneous cone of such Gram blocks
+and round in the prescribed integral lattice coset.
+This gives the integral perturbation with the required
+nonarchimedean congruences.
+Their Gram determinant retains its local unit norm.
+Orthogonal projection is integral at \(p_0\) since this block
+is unimodular.  Its complement is negative by the signature.
+Clearing denominators prime to \(p_0\) gives an integral
+\(A\)-basis \(x=(x_+,x_-)\) with pure orthogonal blocks.
+The associated pure period point remains in the same domain.
+Its complex abelian variety is isogenous to
+\[
+             C_+^{\,p[E:K_d]}\times C_-^{\,q[E:K_d]} .
+ \tag{FD10}
+\]
+Here \(C_\pm\) have the two CM types of \(K_d\).
+For algebraicity, form the Serre tensor products with the
+integral \(K_d\)-lattices in the two rational summands and quotient
+by the finite subgroup specifying \(\Lambda\).
+The polarization is the original integral trace pairing.
+The CM curves, the subgroup, the action and the polarization
+descend to a number field.  After finite extension the CM
+curves have good reduction and the isogenies extend to their
+semiabelian identity models.  Thus this constructs an algebraic
+CM point of the actual component.
+
+Put \(G=\det(\langle e_i,e_j\rangle_E)\ne0\), and write
+\(x=T_{p_0}e,\ t_{p_0}=\det T_{p_0}\).
+Self-duality of the alternating trace lattice gives
+\[
+ \log|jt_{p_0}|+\log|j\bar t_{p_0}|+\log|jG|
+                                    =-(p+q)D_j .
+ \tag{FD11}
+\]
+In fact its hermitian dual is
+\(\mathfrak D_E^{-1}\Lambda\); take determinants in a local
+basis.  At primes where \(e\) is a local basis the transition
+determinants have norm one; only finitely many primes fail.
+
+Let \(z_\pm\) be the periods of
+Section~\ref{sec:sr-quadratic-period-witness}.
+Evaluating (FD5) at one pure algebraic CM point gives
+\[
+ r_0z_+^p=\rho z_-^q,\qquad
+ r_0=\phi(y,v,w)\,
+       \tau(\det T_{p_0})/\tau(\det G_{x_-})\ne0 .
+ \tag{FD12}
+\]
+All factors defining \(r_0\) are algebraic.
+Enlarge the coefficient field \(k\) to contain them and the
+CM curves.  The same \(r_0\) works at all the pure local points,
+by the first identity and the fixed \(\rho\).
+
+For the squared Hodge norms \(n_\pm(\sigma)\) of the integral
+tangent generators of \(C_\pm\), the elliptic CM formula gives
+\[
+ -\frac1{[k:\mathbb Q]}\sum_\sigma\log n_+(\sigma)
+ =-\frac1{[k:\mathbb Q]}\sum_\sigma\log n_-(\sigma)=x_d .
+ \tag{FD13}
+\]
+Taking Gram determinants in (FD12) gives at every embedding
+\[
+ \begin{split}
+ N_\infty(\sigma)={}&\log|\sigma r_0|
+ +\frac p2(\log n_+(\sigma)+\tfrac12\log d)\\
+ &-\frac q2(\log n_-(\sigma)+\tfrac12\log d)
+                              +\tfrac12\log|\sigma(\tau G)|.
+ \end{split}
+ \tag{FD14}
+\]
+Indeed the pure Gram blocks are
+\(n_\pm(\pm\tau(\varrho))\tau(G_{x_\pm})\), and
+\(|\tau(\varrho)|=\sqrt d\).
+Conjugating the algebraic CM point proves this at every embedding.
+
+The finite calculation, with \(j:k\hookrightarrow\mathbb C_{p_0}\),
+is
+\[
+ \widetilde N_{p_0}(j)=\log|jr_0|-\log|j(\tau t_{p_0})|-qD_{j|E}
+                 +(q-p)(D_{j|E}-\log|j(\tau\varrho)|).
+ \tag{FD15}
+\]
+To check its integrality factors, take a \(\mathbb Z\)-basis
+\(b\) of \(\mathcal O_E\) and its trace-dual basis
+\(b^*\subset\mathfrak D_E^{-1}\).
+The \(\tau\)-coefficient in a Serre tensor product is extracted
+by \(\sum_b\tau(b^*)b\).  Its integral lattice therefore uses
+the codifferent.
+Since the different of \(K_d\) is \((\varrho)\), the scalars
+\(\delta_\pm\) changing pure frames to integral eigenframes satisfy
+\[
+       \log|j\delta_+|=\log|j\delta_-|
+                           =D_{j|E}-\log|j(\tau\varrho)|.
+ \tag{FD16}
+\]
+Apply the trace-dual coefficient map to a local basis; all
+remaining matrices and their inverses are integral, hence have
+unit determinant.  The negative Gram block contributes
+\(-qD_{j|E}\).
+Now (FD4), (FD12) and (FD16) prove (FD15).
+This uses a rational projector to compute the lattice; it does
+not suppose that spectral projectors are integral.
+
+As \(2\log|j(\tau\varrho)|=\log|d|_{p_0}\), (FD8) simplifies to
+\[
+ N_{p_0}(j)=\log|jr_0|-\log|j(\tau t_{p_0})|
+                     -(p+q)D_{j|E}+\frac{p+q}{2}\log|d|_{p_0}.
+ \tag{FD17}
+\]
+This proves finite support, supported only on \(r_0,d,\mathfrak D_E\)
+and the finite-index frame \(e\).
+Conjugation permutes the \(p_0\)-adic embeddings, so summing
+(FD11) replaces the sum of \(-\log|jt_{p_0}|\) by half the sum
+of \(\log|jG|+(p+q)D_j\).
+The normalized finite sums of \(D_j\) and \(\log|d|_p\) are
+\(-\log R_E\) and \(-\log d\).
+The product formula cancels \(r_0\) and \(G\).  Consequently
+(FD3), (FD13)--(FD14) give
+\[
+       \deg N=\frac{p-q}{2}x_d-\frac{p+q}{2}\log R_E
+                                      +\frac{p+3q}{4}\log d .
+\]
+This is the first formula in (FD9); the correction (FD8)
+changes the degree by \(q(\log R_E-\log d)\) and proves the second.
+Normalized embedding sums and degrees are invariant under
+finite extension, so the result descends from \(k\).
+\end{proof}
+
+\paragraph{Actual integral models and polarized uniformization.}
+The precise classical background used for frame existence is
+the complete-normal-ring equivalence of polarized
+degenerations with Mumford data, including its cubical-line
+and endomorphism variants: Lan, \S4.1, Theorems~4.4.16 and~5.1.1.4.
+The base may be any noetherian normal domain complete for a
+radical ideal.  Proper integral PEL models, including absolute
+ramified primes, are supplied by the normalized toroidal models
+and extended semiabelian families in Lan's ramified-characteristic
+Theorems~11.2 and~11.4.
+See the author's
+\href{https://www.kwlan.org/articles/cpt-PEL-type-thesis-revision.pdf}
+{Arithmetic compactifications} and
+\href{https://www.kwlan.org/articles/cpt-ram-flat.pdf}
+{Compactifications in ramified characteristics}.
+We verify the extra outputs required here.
+
+Choose level divisible by two distinct odd primes split in \(K_d\),
+with complementary ideals \(\mathfrak M,\bar{\mathfrak M}\).
+Increase the powers of both coprime auxiliary levels so that each defines a neat principal-congruence subgroup.  Then the prime-to-\(p\) level image is neat for every \(p\), and its factor is at least \(3\).  Add full auxiliary level as well.
+After finite extension the given point has that level.
+Take the normal closure of its geometric PEL component in a
+projective toroidal compactification.
+It is proper and flat over the coefficient valuation ring
+and carries the extended semiabelian family and action.
+The actual symmetric cubical line is fixed by the polarization
+and \(w_0\), by pulling the biextension back under \((1,w_0)\);
+the primitive identity in (FD1) identifies it with the original
+rigidified line.  Thus the model carries the same line, not
+just a polarization isogeny.
+After separating the constant field its special fibre is
+connected by Stein factorization.
+
+Let \(R\) be a complete noetherian normal local characteristic-zero
+domain mapping to this model, with nonempty abelian generic locus
+and split torus in its closed fibre.
+The degeneration equivalence gives an abelian \(R\)-scheme \(B\),
+a Raynaud extension \(1\to T_X\to\widetilde G\to B\to1\), a period
+lattice \(Y\), a principal polarization \(Y\simeq X\), the
+extension maps, biextension trivialization \(\tau\), and cubical
+trivialization \(\psi\).
+The formal and generic quotients identify with the given family.
+Functoriality transfers the action and Rosati involution.
+The rigidified primitive identity gives
+\[
+ (1+w_0)^*M\otimes M^{-2}\otimes w_0^*M^{-1}\otimes e^*M^2
+     \simeq\mathcal O_B,\qquad
+                 \psi(y)=\tau(y,w_0y)\,u(c(y)),
+ \tag{FD18}
+\]
+with rigidifications understood.
+This is the actual trace-form-twist identity; its scalar is
+fixed by rigidification.
+
+On every toroidal chart the period trivializations are units
+times boundary monomials.  Each boundary monomial is invertible
+on the abelian locus.  Therefore every \(\psi(y)\), in each
+line trivialization, is a regular unit on every affine open
+of that locus.  This proves the source's \(\mathrm{PsiUnitOn}\)
+clause, not only nonvanishing at the generic point.
+
+For every \(m\ge1\) and algebraically closed
+\(F\supset\operatorname{Frac}R\), the torsion comparison is
+\[
+ \frac{\{(y,g):y\in Y,\ g\in\widetilde G(F),\
+                                  [m]g=\iota(y)\}}
+      {(y,g)\sim(y+mz,g+\iota(z))}
+                                      \simeq A[m](F).
+ \tag{FD19}
+\]
+The quotient construction defines the map.
+Its kernel is exactly the displayed period relation, and lifting
+an \(m\)-torsion point proves surjectivity.
+One can first check this over a completed algebraic closure,
+where it is the analytic quotient, and then descend the finitely
+many roots of a period and torsion points through the algebraic
+cubical construction.  These formulas commute with field
+extension.  Addition and the action are preserved.
+The Weil pairing on both sides is the commutator of the two
+lifts to the cubical theta extension, namely the ratio of the
+two biextension trivializations.  Hence it too is preserved,
+also when \(m\) is divisible by the residue characteristic.
+The construction verifies all of \(\mathrm{Model.N3}\),
+including (FD18), the unit clause and (FD19).
+The independent arc-uniqueness condition \(\mathrm{N4}\) is not
+used in this subsection.
+
+
+\paragraph{The full integral Hodge lattice.}
+Formal coordinates and the rigidified cubical line construct
+a rank twice-dimension bundle \(\mathcal H\) with
+\[
+ 0\to\operatorname{Lie}(\mathcal G)^\vee
+         \to\mathcal H\to\operatorname{Lie}(\mathcal G)\to0 .
+ \tag{FD20}
+\]
+Here and below its left action is the conjugate dual action.
+A parameter change and change of cubical trivialization act by
+\[
+                  (v,f)\longmapsto(Cv,C^{-t}(f+Z^tv)).
+ \tag{FD21}
+\]
+The cocycle law proves gluing.
+For \(a\in\mathcal O_E\), let \(R_a\) be its tangent matrix
+and \(A_a\) the mixed derivative of its cubical comparison.
+The action on this bundle is
+\[
+                 (v,f)\longmapsto
+                     (R_av,R_{\bar a}^{\,t}f-A_a^{\,t}v).
+ \tag{FD22}
+\]
+Differentiating the cubical and Rosati identities proves
+additivity and multiplicativity.
+Over the characteristic-zero abelian locus it is the full
+de Rham realization, in its covariant convention.
+Its characteristic polynomial at \(a\) is
+\(\operatorname{char}(a\mid E)^r\), since the conjugate
+Lie multiplicities add to \(r=p+q\).
+This polynomial identity extends over the reduced normal model.
+
+We need actual local freeness over
+\(\mathcal O_E\otimes\mathcal O_{\rm model}\).
+At a geometric special point the reduction of polarized
+Mumford data gives a torus extension of an abelian variety
+\(B\), and the actual line is pulled back from a principally
+polarized line on \(B\).
+The torus character lattice is a projective
+\(\mathcal O_E\)-lattice.
+
+The full Hodge module of \(B\) over a perfect field \(k\)
+of characteristic \(p\) is the reduction of its integral
+Dieudonne realization, with the conjugate-dual convention
+fixed by its polarization.
+We use only the standard functorial identification with
+degree-one crystalline/de Rham realization, not an isogeny
+comparison with denominators; see
+\href{https://numdam.org/book-part/AST_1979__63__17_0/}
+{Berthelot--Messing, \emph{Theorie de Dieudonne cristalline I}},
+and the abelian comparison in Berthelot--Breen--Messing,
+\emph{Theorie de Dieudonne cristalline II}.
+The integral module is free over \(W(k)\).
+Each factor of \(\mathcal O_E\otimes W(k)\), after separating
+unramified embeddings, is a discrete valuation ring.
+A power of its uniformizer is \(p\) times a unit; hence the
+module is torsion free over this ring, and so free.
+The total characteristic polynomial fixes its ranks.
+This reasoning includes \(p=2\) and ramified local number fields.
+
+There is an elementary check of the torus pieces.
+Let \(P:\operatorname{Lie}G\to\operatorname{Lie}B\) be the
+quotient and \(T=\ker P\).
+A cubical change of gauge makes
+\(A_a=P^tA_{B,a}P\) in (FD22).
+The map \((v,f)\mapsto f|_T\) is equivariant.
+On its kernel, a linear section \(Q\) of \(P\) gives
+\[
+                         (v,f)\longmapsto(Pv,Q^tf).
+\]
+It is an equivariant surjection onto the full Hodge module
+of \(B\), with kernel \(T\).
+For instance \(f|_T=0\) says \(f=P^tQ^tf\), which verifies
+both the mixed term and the adjoint action in this formula.
+Thus the full Hodge module has three successive pieces:
+\(T\), the full Hodge module of \(B\), and the conjugate
+dual of \(T\).
+They are free over the residue algebra.
+Extensions with free quotient split as modules over that
+algebra, so the full module is free.
+The characteristic polynomial identity gives rank \(r\)
+on each factor.
+
+Lift such a residue basis to a local ring of the model.
+It gives a map
+\((\mathcal O_E\otimes\mathcal O_{\rm model})^r\to\mathcal H\).
+Nakayama gives surjectivity, and equal ordinary ranks over
+the local base give injectivity.
+Descent from a geometric residue field is faithfully flat.
+This proves the required local freeness; characteristic
+polynomials alone would not suffice over the nonreduced
+residue algebra.
+
+\begin{srlemma}[All character quotient degrees]
+\label{lem:sr-flat-fibre-character-degree-zero}
+On every proper curve in a geometric special fibre, every
+residue character \(\chi:\mathcal O_E\to k\) has a locally
+free rank-\(r\) quotient
+\[
+ \mathcal Q_\chi=\mathcal H/
+          \sum_{a\in\mathcal O_E}(a-\chi(a))\mathcal H
+                       \quad\text{with}\quad\deg\mathcal Q_\chi=0 .
+ \tag{FD23}
+\]
+\end{srlemma}
+\begin{proof}
+Normalize the curve and extend its constant field when necessary;
+degree zero descends.
+The formal Hodge construction in characteristic \(p\) gives
+the Hodge and conjugate exact sequences
+\[
+ \begin{split}
+ 0&\to\mathcal L^{\vee,\bar{\ }}\to\mathcal H\to\mathcal L\to0,\\
+ 0&\to F^*\mathcal L\to\mathcal H
+                         \to F^*(\mathcal L^{\vee,\bar{\ }})\to0,
+ \end{split}
+ \tag{FD24}
+\]
+where \(\mathcal L=\operatorname{Lie}\mathcal G\).
+These are assertions about the full integral lattices.
+For abelian fibres they are the Hodge and Cartier sequences.
+Their formal-coordinate proof also works for the torus
+extension with a pulled-back principal line:
+if \(H,A,S\) are the Hasse--Witt and mixed cubical matrices,
+the second sequence has maps
+\[
+              u\mapsto(Hu,A^tu),\qquad
+              (v,f)\mapsto(A-H^tS)v-H^tf.
+\]
+The cubical identities give zero composite.
+The first matrix has full column rank modulo every closed
+valuation ideal: the torus Hasse--Witt block is invertible,
+and on the abelian quotient its possible common kernel is
+the infinitesimal translation kernel of the principal line,
+which is zero.
+A full-rank minor is a unit; the displayed adjoint identity
+then gives split exactness over the local valuation ring.
+The coordinate changes (FD21) transport these exact sequences.
+The actions on their Frobenius terms are Frobenius twists,
+as is checked by applying \(a\) before or after Frobenius.
+
+The finite image of \(\chi\) is contained in a finite field
+\(k_0\subset k\).  Put \(A_0=k_0\otimes_{\mathbb Z}\mathcal O_E\).
+For an idempotent \(e\in A_0\), set \(d(e)=\deg(e\mathcal H)\).
+The two exact sequences and
+\(\deg F^*\mathcal V=p\deg\mathcal V\) imply
+\[
+                              d(F(e))=p\,d(e),
+ \tag{FD25}
+\]
+where \(F\) raises only the \(k_0\)-coefficients to their
+\(p\)-th powers.  A positive iterate of \(F\) is the identity,
+so \(d(e)=p^m d(e)\) and \(d(e)=0\).
+
+Let \(e_\chi\) be the idempotent of the local Artin factor
+of \(A_0\) belonging to \(\chi\).
+Filter that factor by ideals with one-dimensional residue-field
+successive quotients.
+Since \(\mathcal H\) is locally free over \(A_0\), this
+filtration remains exact on the local integral lattices.
+Multiplication by a representative of a simple ideal
+quotient identifies the corresponding quotient bundle with
+\(\mathcal Q_\chi\).
+Its possible change is a constant unit.
+If \(m_\chi>0\) is this Artin factor's length, additivity gives
+\[
+                       0=d(e_\chi)=m_\chi\deg\mathcal Q_\chi.
+\]
+This proves degree zero.
+Applying the character to a free rank-\(r\) module proves
+local freeness.  In particular no integral projector onto
+a colliding characteristic-zero embedding was used.
+\end{proof}
+
+\paragraph{Ramified determinants and the actual finite norm.}
+We still must compare this quotient with literal integral
+eigenspaces of the Lie lattice.
+Work in an algebraically closed complete valued field \(C\)
+of characteristic zero, with valuation ring \(V\).
+Let \(S\) be the residue cluster of an embedding \(\tau\).
+Choose \(\pi\in\mathcal O_E\) generating its ramified local
+factor over the maximal unramified subring.
+Approximation to the finitely many local uniformizers gives
+such a global element.
+After separating residue embeddings, the evaluation algebra is
+\(V[T]/\prod_{s\in S}(T-a_s)\), \(a_s=s(\pi)\).
+Write \(r_s=\operatorname{rk}\mathcal L_{\bar s}\) and \(r=p+q\).
+Its fixed determinant factor is
+\[
+ \gamma_\tau=
+  \frac{\prod_{s\ne\tau}(a_\tau-a_s)^{r_s}}
+       {\left(\prod_{s\ne\tau}(a_\tau-a_s)\right)^r}\ne0 .
+ \tag{FD26}
+\]
+It depends on embeddings and their ranks, not on the point.
+
+Here is the local calculation.
+Take a free \(\mathcal O_E\otimes V\)-frame \(t_1,\ldots,t_r\)
+of the full Hodge lattice.
+In its \(\tau\)-component choose an adapted basis \(u\):
+the first \(p\) vectors project to a saturated integral
+basis \(v\) of \(\mathcal L_\tau\), the others are dual to
+an integral basis \(w\) of \(\mathcal L_{\bar\tau}\).
+If the \(\tau\)-projection of the free frame is \(A u\), then
+\[
+                              \det A\in V^\times\gamma_\tau .
+ \tag{FD27}
+\]
+We prove this using the following exact lattice computation.
+
+Write \(R=V[T]/\prod_{s\in S}(T-a_s)\) and
+\(\mathscr M=R^r\subset\bigoplus_s C^r\), using evaluation.
+Let \(g_s:C^r\to W_s\) be the projection of the full Hodge
+space to its \(s\)-Lie component, and put
+\[
+ F_s=\ker g_s,\quad
+ \mathscr F=\mathscr M\cap\bigoplus_sF_s,\quad
+ \mathscr L=\mathscr M/\mathscr F,\quad
+ \Delta_\tau=\prod_{s\ne\tau}(a_\tau-a_s).
+ \tag{FD27a}
+\]
+The images \(W_s\) are independent, so \(\mathscr L\) is
+exactly the integral Lie image of this residue cluster.
+The module \(\mathscr F\) is saturated and \(T\)-stable.
+Polynomial evaluation gives
+\[
+ e_\tau\mathscr M=V^r,\qquad
+ \ker(T-a_\tau\mid\mathscr M)=\Delta_\tau V^r,\qquad
+ \operatorname{coker}(T-a_\tau\mid\mathscr M)=V^r .
+ \tag{FD27b}
+\]
+For the middle identity, a polynomial supported only at
+\(a_\tau\) is a multiple of
+\(\prod_{s\ne\tau}(T-a_s)\); division by these monic factors
+takes place over \(V\).
+
+Here are all index calculations, valid also for a nondiscrete
+valuation.  For a finitely presented torsion \(V\)-module
+\(Z\), let \(\lambda(Z)\) be the sum of the valuations of its
+nonzero Smith diagonal entries.
+Every finite matrix over a valuation ring admits such a
+diagonalization by pivoting at an entry of least valuation.
+Thus this length is well defined and additive in exact
+sequences of these modules.  In the discrete case it is the
+usual length times the valuation of a uniformizer.
+All modules here are kernels, images or cokernels of finite
+matrices; the saturated kernels and projected images are
+finite free.  This follows from the same finite elimination,
+so no noetherian hypothesis on \(V\) is being used.
+
+Set \(D=T-a_\tau\), and define
+\[
+ K=\ker(D\mid\mathscr F),\quad P=e_\tau\mathscr F,\quad
+ W=\mathscr F\cap\bigoplus_{s\ne\tau}F_s,\quad
+ Z=\operatorname{coker}(D\mid\mathscr F)_{\rm tors}.
+\]
+Projection gives the exact sequence
+\[
+                      0\to W\to\mathscr F/K\to P/K\to0 .
+ \tag{FD27c}
+\]
+Indeed its kernel is exactly the elements with zero
+\(\tau\)-component.  The quotient \(P/K\) is torsion.
+Moreover \(D(\mathscr F)\subset W\), and
+\(\mathscr F/W=P\) is torsion free, hence
+\(Z=W/D(\mathscr F)\).
+The map \(D\) induces an injection \(\mathscr F/K\to W\).
+It follows from (FD27c) that
+\(\lambda(D(\mathscr F)/D(W))=\lambda(P/K)\).
+The determinant of \(D\) on \(W\) is
+\(\prod_{s\ne\tau}(a_s-a_\tau)^{r_s}\), because its
+rational eigenspaces are exactly the \(F_s\).
+Consequently
+\[
+        \lambda(Z)+\lambda(P/K)
+                  =\sum_{s\ne\tau}r_s\,v(a_\tau-a_s).
+ \tag{FD27d}
+\]
+
+Apply the kernel--cokernel sequence for \(D\) to
+\(0\to\mathscr F\to\mathscr M\to\mathscr L\to0\).
+By the torsion-free cokernel in (FD27b), it gives
+\[
+ 0\to K\to\Delta_\tau V^r
+          \to\mathscr L\cap W_\tau\to Z\to0 .
+ \tag{FD27e}
+\]
+To check the last surjection explicitly, an element of \(Z\)
+has zero rational \(\tau\)-component; its image in
+\(\operatorname{coker}(D\mid\mathscr M)\) is torsion and
+therefore zero, so it lifts to \(D m\).
+The class of \(m\) lies in the indicated integral
+\(\tau\)-Lie module.
+Conversely every such class maps to a torsion cokernel class.
+Thus the last term is precisely \(Z\), not an unspecified
+defect bounded by it.
+
+Choose a basis \(u_L\) of \(\mathscr L\cap W_\tau\), with
+arbitrary lifts to \(C^r\), and a basis \(u_P\) of \(P\).
+Use \(K\) first in (FD27e), and then enlarge it to \(P\).
+The two determinant-index equalities give
+\[
+ \begin{split}
+ v\det(u_L,u_P)
+  &=r\,v(\Delta_\tau)-\lambda(Z)-\lambda(P/K)\\
+  &=\sum_{s\ne\tau}(r-r_s)v(a_\tau-a_s).
+ \end{split}
+ \tag{FD27f}
+\]
+The second equality is (FD27d).  This is the complete
+determinant identity; flag-dependent indices cancel.
+
+For application to the full Hodge lattice,
+\(\mathscr L\cap W_\tau\) has basis \(v\).
+The projected kernel \(P\) identifies with the dual of
+the saturated integral \(\bar\tau\)-Lie lattice:
+projection of \(\mathcal L^\vee\) to this dual component
+is restriction of linear functionals to
+\(\mathcal L_{\bar\tau}\).
+That submodule is saturated, hence a direct summand over
+the valuation ring, so every integral functional extends.
+Therefore the dual basis of \(w\) is a basis of \(P\).
+The adapted frame \(u\) is precisely the appended frame
+in (FD27f).  The projected free frame \(t\) is a basis of
+\(e_\tau\mathscr M=V^r\), and \(t=A u\).
+Taking inverse determinants in (FD27f) proves (FD27),
+with exactly the factor (FD26).
+Equality of valuations of two nonzero scalars means that
+their ratio is a unit of \(V\), so the asserted unit
+identity holds, not only an inequality.
+
+If the Lie frames change by \(P,Q\), the comparison reads
+\[
+                   \det A\,\det Q
+                             =u\gamma_\tau\det P,\qquad u\in V^\times .
+ \tag{FD28}
+\]
+This equation survives specialization to an actual integral
+trait point.  Its eigenlattices are the kernels of
+\(av-\tau(a)v=0\), for a finite integral basis of
+\(\mathcal O_E\); flat scalar extension preserves these kernels.
+The mixed matrices (FD22) specialize by the same changes
+of coordinates.  This explains why the quotient and the
+actual saturated eigenlattices have exactly the constant
+(FD26), even at absolute ramified primes.
+
+On a normal proper model over a coefficient DVR \(O\),
+put \(\mathscr Q=\det\mathcal Q_\tau\).
+The rational section \(s\) coming from a flat generic frame
+is a generator on the generic compactified component.
+The preceding degree-zero lemma implies that there are
+integers \(M>0,b\) with
+\[
+                          s^M/\varpi^b
+               \text{ a generator of }\mathscr Q^{\otimes M}
+                                  \text{ at every point}.
+ \tag{FD29}
+\]
+Indeed its divisor is vertical.
+Subtract the least ratio of a component coefficient to the
+corresponding special-fibre multiplicity, and clear denominators.
+The remaining divisor is effective and has coefficient zero
+on some special-fibre component.
+If nonzero, connectedness gives a zero-coefficient component
+meeting its support.  A proper curve in that component,
+through a meeting point and not contained in the support,
+has positive degree against the effective divisor, contrary
+to numerical triviality.
+One obtains the curve by hyperplane sections on a projective
+model and normalization.
+The effective divisor is therefore zero; normality identifies
+Cartier divisors from their codimension-one coefficients.
+This proves (FD29).
+
+Together (FD28)--(FD29) give, on actual integral trait eigenframes,
+\[
+              \log|\phi(v,w)|_p
+                       =\frac bM\log|\varpi|_p+\log|\gamma_\tau|_p .
+ \tag{FD30}
+\]
+Every term on the right is fixed on the component.
+This is actual finite norm constancy.
+The general CM evaluation (FD15) computes its value;
+no estimate for the valuation of (FD26) is needed.
+
+\begin{srproposition}[The actual adelic flat frame]
+\label{prop:sr-actual-adelic-flat-frame}
+For every nonzero principal-signature host datum, after
+fine level and finite coefficient extension each geometric
+period component has an algebraic flat frame with all
+constants required in Proposition~\ref{prop:sr-general-flat-degree}.
+The finite constants apply to every integral semiabelian
+trait realization with the same generic point and cubical line.
+\end{srproposition}
+\begin{proof}
+On the simply connected period domain use (FD5).
+Its multiplier is the determinant of integral unitary
+monodromy.  This is a unit whose absolute value at every
+embedding is one, hence a root of unity.
+Full level at least \(3\) makes it \(1\):
+if \(\zeta\ne1\) and \(\zeta-1\in m\mathcal O_E\),
+its norm is at least \(m^{[E:\mathbb Q]}\) and at most
+\(2^{[E:\mathbb Q]}\).
+Thus the determinant descends.
+The polarized Gram identity normalizes its Hodge length to one.
+
+This unit extends to the determinant line on a proper
+characteristic-zero toroidal resolution.
+In a Mumford boundary chart the monodromy logarithm occurs
+in an off-diagonal block of the logarithmic de Rham transition.
+This matrix is triangular with diagonal one.
+Consequently its determinant has no boundary zero, pole or
+logarithmic term.
+The canonical extension of the determinant therefore agrees
+with the determinant of (FD20).
+The unit extends across the boundary divisors and, by normality,
+the remaining codimension at least two sets.
+Resolution is used only in characteristic zero.
+
+GAGA makes the unit an algebraic line generator.
+It descends to a number field: the line is defined there,
+its section space commutes with extension to \(\mathbb C\),
+and evaluation becomes an isomorphism after this faithfully
+flat extension.
+A proper birational map to a normal scheme pushes the
+structure sheaf forward to the structure sheaf, so the
+unit descends from the resolution to the original generic
+component.  It gives (FD4)--(FD5).
+Two such algebraic flat frames differ by a nonzero
+coefficient-field scalar, since their ratio is a function
+on a proper connected integral resolution.
+
+At every complex embedding the same argument gives (FD7);
+complex conjugation handles an embedding reversing the
+chosen square root.
+At a finite place use the actual normal proper model,
+its full polarized uniformization (FD18)--(FD19), and
+the full Hodge lattice.
+Equations (FD23)--(FD30) give the constant on every trait.
+Properness extends the point to this model.
+Uniqueness of a semiabelian extension over a normal trait
+identifies the resulting family and its cubical line
+with the given realization, so this compares its actual
+integral eigenframes.
+Finite extensions separating the level or torus characters
+do not change the conclusion.
+
+Choose one algebraic flat frame.
+At each other place its scalar ratio with the constructed
+frame preserves constancy.
+This gives a single system \(\widetilde N\) at all places.
+Proposition~\ref{prop:sr-general-flat-degree} proves finite
+support for it.  No uninstantiated global geometric package
+remains in this construction.
+\end{proof}
+
+\begin{srtheorem}[General principal-signature flat saturation]
+\label{thm:sr-general-flat-saturation}
+Let \(L\) be any number field, and let
+\(\mathcal G/\mathcal O_L\) be a semiabelian scheme
+whose generic fibre is a principally polarized abelian
+variety with its host action and the actual symmetric
+rigidified cubical line specified by (FD1).
+Give \(B=\operatorname{Lie}\mathcal G\) its actual Hodge metric.
+Suppose \(\rho\in L,\ \rho^2=-d\), and \(p,q\ge0\) satisfy
+after every algebraically closed characteristic-zero extension
+\[
+ \operatorname{rk}\operatorname{Lie}(\mathcal G)_s
+       =\begin{cases}p&s(\varrho)=\rho,\\q&s(\varrho)=-\rho.
+         \end{cases}
+ \tag{FD31}
+\]
+Let \(s_1,s_2:\mathcal O_E\hookrightarrow\mathcal O_L\) be
+conjugate under every complex embedding of \(L\).
+Their integral eigenmodules \(B_{s_i}\) are saturated.
+If \(s_1(\varrho)=\rho\), then
+\[
+               \widehat{\deg}_n B_{s_1}
+                     -\widehat{\deg}_n B_{s_2}
+                                   =\frac{p-q}{2}\Omega_E .
+ \tag{FD32}
+\]
+In particular there is one absolute \(C\), chosen before
+\(E,L,p,q\), such that
+\[
+ \left|\widehat{\deg}_n B_{s_1}-\widehat{\deg}_n B_{s_2}\right|
+ \le C(\operatorname{rk}B_{s_1}+\operatorname{rk}B_{s_2})
+       \left(1+\log R_E+|L'(1,\chi_d)/L(1,\chi_d)|\right).
+ \tag{FD33}
+\]
+This is the full producer \(\mathrm{FlatSat}\).
+\end{srtheorem}
+\begin{proof}
+If \(p+q=0\) both modules are zero.
+Otherwise choose a complex embedding carrying \(\rho\)
+to the fixed square root.
+The actual Betti lattice and principal trace pairing of
+the given fibre give precisely the datum considered above.
+After finite extension and level it is a point of one
+actual component.  Use its adelic flat frame.
+
+Choose integral independent \(x_1,x_2\) spanning its two
+generic eigenspaces, up to finite index in their saturated
+lattices.  At infinity put
+\(N_{i,\infty}=\tfrac12\log|\det\operatorname{Gram}(x_i)|\).
+At a finite place choose an integral basis \(y_i\) of the
+saturated local eigenlattice and write \(x_i=T_i y_i\);
+a denominator of local norm one can first be cleared.
+Put \(N_{i,p}=\log|\det T_i|_p\).
+The determinant-ideal formula gives
+\[
+                         \deg N_i=\widehat{\deg}_n B_{s_i}.
+\]
+This includes nonprincipal determinant ideals, since the
+indices of a finite-index integral frame are precisely the
+local valuations of \(\det T_i\).
+
+Let \(a=\phi(y,x_1,x_2)\ne0\), an algebraic scalar in the
+coefficient extension.
+The Gram identity at infinity and (FD4) at finite places give
+\[
+                       \widetilde N_v
+                           =\log|a|_v+N_{1,v}-N_{2,v}
+\]
+at every place.  At finite places this uses the actual
+semiabelian trait clause, not a good-reduction substitute.
+Summing and applying the product formula to \(a\) yields
+\[
+              \deg\widetilde N
+                       =\widehat{\deg}_n B_{s_1}
+                                    -\widehat{\deg}_n B_{s_2}.
+\]
+Now (FD9) proves (FD32).
+Finite flat scalar extension preserves the saturated
+eigenmodules by their finite kernel description.
+Hodge metrics pull back, and normalized determinant degrees
+are invariant.  Hence this identity descends to \(L\).
+
+Finally
+\[
+          \Omega_E=\gamma+\log(2\pi)-\log R_E
+                                  -L'(1,\chi_d)/L(1,\chi_d).
+\]
+Use \(|p-q|/2\le p+q\) and \(R_E\ge1\).
+This proves (FD33) with an absolute constant.
+If \(s_1(\varrho)=-\rho\), swap the pair for the absolute-value
+conclusion.
+\end{proof}
+
+\paragraph{Exact producer audit.}
+The general CM computation is
+\texttt{FlatDegree.flatDegree}, with the actual formulas
+in \texttt{FrameFunctionCmValue},
+\texttt{FrameFunctionCmHeight} and
+\texttt{FrameFunctionCmNumberField}.
+The adelic frame construction supplies the uses of
+resolution, GAGA and integral models in \texttt{FlatZero},
+\texttt{FlatFirstFromResolutionAndGaga} and
+\texttt{FlatTheoremOfParts}.
+The full Hodge lattice and Frobenius--Artin argument are
+\texttt{HodgeLatticeDvrDegree} and
+\texttt{SplitHermitianGeneratorsExist}.
+The ramified determinant (FD26)--(FD30) is the actual
+\texttt{CmTypeValuationEmbedding}/\texttt{EigenLinePAdicFrame}
+comparison.
+The final determinant-ideal comparison is
+\texttt{ExistsCoordLattice} and \texttt{ExistsSmulMemSpan}.
+Thus (FD32)--(FD33) give the substantive conclusions of
+\texttt{flat\_hermitian\_fibre\_signature} and
+\texttt{flat\_saturation\_of\_degree} in
+\texttt{PhiDegFibLatLeOfIsOFamilyOfIsAdapted}.
+The host's finite-unramified CM-extension hypothesis is retained.
+There is no quadratic-CM-fibre restriction, abelian-Galois
+assumption, rank-dependent constant or coefficient-field
+degree loss.  The later integral-point commensurability
+and global height budget are separate conclusions.

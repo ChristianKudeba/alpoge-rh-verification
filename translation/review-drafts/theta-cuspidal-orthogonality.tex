@@ -1,0 +1,443 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+
+\section{Cuspidal orthogonality for the theta comparison space}
+\label{sec:sr-theta-cuspidal-orthogonality}
+
+Let \(\Sigma\) be the span of the large polynomial theta periods
+and the small polynomial theta periods in the actual cutoff,
+for one fixed triple. By the actual period factorization each
+local module of \(\Sigma\) is a quotient of a finite sum of
+copies of the common matching module. The target periods are
+square integrable. We prove the orthogonality assertion needed
+after a difference in \(\Sigma\) has been shown to be cuspidal.
+
+We use the following precisely applicable published rapid-decrease
+theorem. Miller--Schmid, Theorems~2.23--2.24, prove that a smooth
+cuspidal automorphic form of moderate growth and finite
+generalized infinitesimal character on an arithmetic quotient
+of a real reductive group with compact center has uniform
+moderate growth and decays faster than every inverse norm
+power on each generalized Siegel set. Their statement allows
+smooth vectors without compact finiteness and includes the
+corresponding seminorm bounds.
+\footnote{S.~Miller and W.~Schmid, \emph{On the rapid decay of
+cuspidal automorphic forms}, Adv.~Math.~231 (2012), 940--964,
+Theorems~2.23--2.24:
+\url{https://arxiv.org/pdf/1106.2149}.}
+
+Here the real group is
+\((\operatorname{Res}_{F/\mathbb Q}U(W))(\mathbb R)\);
+its center is a product of circles, hence compact.
+Fix the finite level of \(F\in\Sigma\).
+The adelic quotient has finitely many arithmetic real
+components at that level. On each, unipotent strong
+approximation identifies the adelic zero constant terms
+with the arithmetic real zero constant terms.
+Thus the form is cuspidal in the theorem's sense on each
+component. The actual real common matching module gives
+its finite generalized infinitesimal character.
+The proved theta bounds give moderate growth of its value;
+no uniform derivative growth assumption is added.
+The theorem supplies that conclusion and rapid decrease.
+Its matrix norm and our height are polynomially comparable
+on every fixed finite component, so its arbitrary inverse
+norm powers are precisely the required arbitrary inverse
+height powers. It also applies to fixed right translates,
+which retain moderate growth, the central annihilator
+and all the zero constant terms.
+This verifies the rapid-decrease input for every cuspidal
+\(F\in\Sigma\), rather than postulating it for the difference.
+
+\begin{srlemma}[The actual back-lifts are constant]
+\label{lem:sr-theta-backlift-constant-all-signatures}
+Let \(F\in\Sigma\) be cuspidal. For a Schwartz vector \(\Psi\)
+in either upper oscillator model put
+\[
+ \mathcal T_\Psi F(g)
+     =\int_{[U(W)]}F(h)\,
+                    \overline{\theta(\Psi;g,h)}\,dh .
+ \tag{O1}\label{eq:sr-theta-backlift-all-signatures}
+\]
+This converges, is continuous and automorphic in \(g\), and
+is a constant function on its first unitary group.
+\end{srlemma}
+
+\begin{proof}
+At a fixed \(g\), the kernel as a function of \(h\) is in \(L^2[U(W)]\).
+Indeed the all-rank lattice estimate with the first argument
+fixed bounds it on a target Siegel set by
+\(C_g\exp\{Dn\sum t_j/2\}\).
+Its squared integral has initial coefficient sums
+\(Dk(n-d+k)<0\), because the target Witt index is at most
+\(Y=p+q\), whereas
+\(n+Y<d\) for both \(n=a\) and \(n=a'\).
+The constants are uniform when \(g\) varies in a compact set.
+Cauchy--Schwarz with \(F\in L^2\) proves convergence and local
+uniform domination. Schwartz continuity gives continuity.
+Rational invariance of theta gives automorphy.
+
+We now apply the good split matrix-functional calculation already
+proved in Section~\ref{sec:sr-compact-global-comparison}.
+Here is the needed extension of that calculation beyond the
+compact base. Fix a good fully split place other than the cutoff
+place and freeze all the outside tensor factors.
+For a back-lift to the rank-\(a\) first space, parameterize the
+local common class of \(F\) by the \emph{onto primed} quotient
+on \(a'\)-row Schwartz matrices. For a back-lift to the
+rank-\(a'\) space, parameterize it by the \emph{onto unprimed}
+quotient on \(a\)-row matrices. Thus the two local test
+variables always have exactly \(a+a'=d\) rows.
+This applies to a sum of the two images as well, since both
+period maps have already descended to that same common module.
+
+The resulting bilinear functional is equivariant for the common
+right \(\mathrm{GL}_d\) action. It is an ordinary algebraic
+functional on the finite local Schwartz spaces: its values are
+the convergent \(L^2\) pairings just proved.
+The rank filtration, stabilizer modular mismatch, and full-rank
+fiber calculation from that section therefore apply verbatim.
+They prove invariance of (O1) under the first local unitary group
+at every such good split place. Compactness of the entire
+automorphic quotient was not used in that local calculation;
+only convergence of the displayed pairing was needed.
+
+Finally the already proved good-place density argument applies.
+Strong approximation for the special unitary group away from one
+noncompact split finite place reduces a continuous automorphic
+function invariant at these places to the norm-one determinant
+torus. That adelic torus quotient is compact. A nontrivial
+character trivial at all good split places would give a
+nontrivial unitary Hecke character whose Euler factors at all
+degree-one rational primes outside a finite set are those of
+the zeta function. Since \(E/\mathbb Q\) is Galois, the remaining
+prime ideals have rational residue degree at least two.
+The logarithm of their Euler-product contribution is bounded
+as \(s\downarrow1\), contradicting entire nontrivial Hecke
+\(L\)-functions and their nonvanishing at \(1\).
+Thus these local groups are dense on the torus quotient also.
+The back-lift is constant, as claimed.
+\end{proof}
+
+\begin{srproposition}[Orthogonality when the first space is isotropic]
+\label{prop:sr-theta-orthogonal-isotropic}
+Let \(F\in\Sigma\) be cuspidal.
+If one of the first Hermitian spaces is rationally isotropic,
+then \(F\) is orthogonal to every polynomial theta period from
+that space, with the actual cutoff on the small side.
+\end{srproposition}
+
+\begin{proof}
+It suffices to test vectors in the actual full-rank cutoff.
+For the small period this is its given domain.
+For a large period replace its finite factor at the good cutoff
+place by a full-rank representative of the same matching class.
+The exact full-rank coinvariant isomorphism supplies such a
+representative; the proved period factorization says that
+the large period is unchanged. Finite sums are treated by
+the same tensor presentation argument as before.
+
+For this cutoff vector \(\Psi\), full-rank decay gives, for every
+\(N\),
+\[
+ |\theta(\Psi;g,h)|
+       \le C_N\,\operatorname{qht}_X(g)^{-N}
+                         \operatorname{ht}_W(h)^{b_N}.
+\]
+Choose the target Siegel fundamental set. On it its ordinary
+height is bounded by a fixed power of quotient height:
+the upper chamber height bound and the rational-translate
+product-formula lower bound proved in the decay section give
+this comparison. Rapid decrease of \(F\) now gives
+\[
+ |\mathcal T_\Psi F(g)|
+       \le C'_N\operatorname{qht}_X(g)^{-N}.
+ \tag{O2}\label{eq:sr-theta-backlift-decay}
+\]
+The same estimate justifies Fubini with the first quotient
+integral, since that quotient has finite Haar volume.
+
+There is an unbounded quotient-height sequence in the isotropic
+first group. In its rational Witt basis take a chamber parameter
+tending to infinity. A nonzero entry in a negative row of a
+rational inverse matrix, together with the product formula,
+gives the rational-translate lower height bound; taking the
+infimum over rational translates still tends to infinity.
+By the preceding lemma the left side of (O2) is a constant.
+Letting this sequence tend to infinity shows that constant is zero.
+Fubini consequently gives
+\[
+ \langle I_X(\Psi),F\rangle
+        =\int_{[U(X)]}\overline{\mathcal T_\Psi F(g)}\,dg=0.
+\]
+This proves the assertion for all the periods under consideration.
+\end{proof}
+
+\begin{srlemma}[Cuspidal pullback of the doubled Eisenstein kernel]
+\label{lem:sr-theta-cuspidal-doubling-pullback}
+Let \(X\) be definite and let \(F\) be a rapidly decreasing
+cuspidal form on \(U(W)\).
+For an actual doubled flat Schwartz section, integrate its
+Eisenstein kernel, with the specified splitting determinant
+factor, against \(F\) in its second \(U(W)\) variable.
+The resulting meromorphic family in the first variable is
+cuspidal wherever it is regular.
+\end{srlemma}
+
+\begin{proof}
+Write \(G=U(W)\), \(H=U(W\oplus(-W))\), and \(P\subset H\)
+for the diagonal maximal-isotropic stabilizer.
+The doubled flat section is right compact finite, smooth at
+infinity, and locally constant of finite level at finite places.
+Only finitely many finite factors are nonstandard.
+Its inducing determinant character has absolute value one.
+If the prescribed doubling normalization multiplies the
+restricted Eisenstein series by separate determinant
+characters of the two copies, absorb the second character
+into \(F\) and restore the first after integration.
+A unitary determinant twist preserves rapid decrease and
+every zero unipotent constant term. Thus it suffices to
+prove the statement for the raw restricted section;
+the total determinant factors are retained in
+\(\vartheta\) and \(k_s\) below.
+
+First work with sufficiently large real part of \(s\).
+The orbit argument can be checked without an unspecified
+kernel identity. Let \(L\) be a maximal isotropic subspace of
+\(W\oplus(-W)\), and put
+\[
+ L_2=L\cap(0\oplus W),\qquad Y_2=\operatorname{pr}_2 L .
+\]
+Isotropy implies \(Y_2\subset L_2^\perp\).
+If \(L_2\ne0\), the second-copy unipotent radical
+\(N_{L_2}\) fixes \(L_2\) and acts trivially on
+\(L_2^\perp/L_2\). Consequently
+\((1,n)L=L\) for every \(n\in N_{L_2}\):
+the change of any second projection lies in \(L_2\),
+which is itself contained in \(L\).
+The induced action on \(L\) is unipotent, with determinant one.
+The inducing character and its half modulus therefore are
+trivial on this stabilizer. Unfolding this orbit integrates
+\(F\) first along
+\(N_{L_2}(F)\backslash N_{L_2}(\mathbb A_F)\);
+cuspidality makes it zero.
+For a maximal doubled isotropic subspace, the dimensions of
+its two intersections agree: if their dimensions are \(r_1,r_2\),
+its two projections have dimensions \(d-r_1,d-r_2\), and
+\(Y_i\subset L_i^\perp\) gives both inequalities
+\(r_1\ge r_2\) and \(r_2\ge r_1\).
+Thus every nonopen orbit has \(L_2\ne0\) and is covered.
+
+If both intersections vanish, the two projections identify
+\(L\) with the graph of a rational isometry of \(W\).
+Witt extension gives one rational open orbit, with diagonal
+\(G(F)\) stabilizer. On this orbit the actual section satisfies
+\[
+ f_s(\delta\iota(h,h'))
+       =\vartheta(h)\,
+                      f_s(\delta\iota(1,h^{-1}h')),
+\]
+where \(\vartheta\) is the specified determinant splitting
+character on \(G(\mathbb A_F)\). Its restriction to every
+unipotent subgroup is one. Indeed simultaneous left
+multiplication by \((h,h)\) stabilizes the diagonal
+isotropic subspace and acts on it by \(h\); apply the
+induction equivariance. The adelic norm of its determinant
+is one, so no \(s\)-dependent norm factor remains.
+The unfolded pullback is therefore exactly
+\[
+       \vartheta(h)\int_{G(\mathbb A_F)}
+                                k_s(g)F(hg)\,dg,\qquad
+       k_s(g)=f_s(\delta\iota(1,g)).                \tag{O4}
+ \label{eq:sr-theta-cusp-open-orbit}
+\]
+
+All the unfoldings just made are absolute in a sufficiently
+positive half-plane. One may check this directly on the
+Cartan decomposition already used for the theta estimates:
+the diagonal-isotropic Iwasawa determinant of
+\(\delta\iota(1,g)\) decreases by a fixed positive power of
+each growing Cartan coordinate. Thus \(k_s(g)\) is bounded
+by the corresponding negative powers with exponents tending
+to infinity with \(\operatorname{Re}s\).
+The Cartan Haar density has only fixed positive root powers.
+At a good finite place its resulting absolute integral is
+\(1+O(q_v^{-\operatorname{Re}s+c})\), with \(c\) depending
+only on the ranks; finitely many bad places have convergent
+geometric-series bounds for large \(\operatorname{Re}s\).
+The infinite Cartan integrals converge by the same comparison.
+Hence \(k_s\in L^1(G(\mathbb A_F))\) there.
+Equivalently, the absolutely convergent positive majorant
+for the Eisenstein series has polynomial growth on the
+target Siegel set, which is integrable against the rapid
+cusp form. This also justifies orbit unfolding and its
+compact unipotent averages. This is also the ordinary
+doubling unfolding, for arbitrary unitary signatures:
+Eischen's Theorem~4.3.4 and its orbit proof in
+\S4.3.4 give this same graph-orbit calculation.
+\footnote{E.~Eischen, \emph{Automorphic Forms on Unitary Groups},
+AWS notes, \S4.3.4:
+\url{https://swc-math.github.io/aws/2022/2022EischenNotes.pdf}.}
+The first-variable constant term of (O4) is zero:
+move that compact average inside its absolutely convergent
+integral, use \(\vartheta(n)=1\), and apply the zero
+constant term of \(F\) at \(hg\).
+This proves cuspidality in the initial half-plane.
+
+We next justify the continuation under these integrals.
+This requires more than pointwise meromorphic continuation.
+Bernstein--Lapid's corollary at the end of \S8, p.~226,
+states that locally a scalar polynomial clears the poles
+and the resulting Eisenstein family is holomorphic in one
+Fr\'echet space of smooth functions with a fixed uniform
+moderate-growth exponent. It applies to this compact-finite
+flat section and its determinant induction.
+\footnote{J.~Bernstein and E.~Lapid,
+\emph{On the meromorphic continuation of Eisenstein series},
+JAMS~37 (2024), 187--234, Theorem~2.3 and the corollary following
+its proof, author's offprint:
+\url{https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/2023-10-15-Eisenstein-series-JAMS.pdf}.}
+If \(h\) lies in a fixed compact set and \(h'\) lies in a
+target Siegel set, restriction of its defining seminorm
+therefore bounds the pole-cleared kernel by
+\(C\,\operatorname{ht}(h')^R\), with one \(R\), uniformly
+on a compact parameter set. Rapid decrease of \(F(h')\)
+makes
+\[
+ K\longmapsto
+       \int_{[G]}K(\iota(h,h'))F(h')\,dh'
+\]
+a continuous linear functional on that Fr\'echet space,
+uniformly for such \(h\). Averaging the first variable
+over a rational unipotent quotient is another such continuous
+functional: that quotient has compact representatives.
+Applying these functionals to the holomorphic pole-cleared
+family proves their holomorphy, hence meromorphy before
+clearing the poles. Their zero in the initial half-plane
+continues to zero everywhere.
+
+At a Siegel--Weil special value the definite, hence anisotropic,
+identity used below asserts regularity of the actual section's
+Eisenstein series, not a renormalized residue. This is enough
+also in the Fr\'echet sense: every coefficient in its possible
+finite principal Laurent part vanishes at every group point,
+so all those coefficient functions are zero.
+Thus evaluating the integral and the zero first constant term
+at that value is legitimate. The same argument applies at
+any other regular value. No isotropic Siegel--Weil assertion
+enters this continuation argument.
+\end{proof}
+
+\begin{srproposition}[Orthogonality for a definite first space]
+\label{prop:sr-theta-orthogonal-definite}
+Suppose the target \(W\) is isotropic, one first space \(X\)
+is definite, and an adapted opposite-rank tower step is available.
+Suppose the lower period on that unchanged definite first space
+is nonzero. Then a cuspidal \(F\in\Sigma\) is orthogonal to every
+polynomial theta period from \(X\).
+For the small definite first space its tested domain may be
+restricted to the actual cutoff.
+\end{srproposition}
+
+\begin{proof}
+Assume instead that
+\(\langle I_X(\Psi_2),F\rangle\ne0\).
+The back-lift \(\mathcal T_{\Psi_2}F\) is a constant \(b\).
+Since \([U(X)]\) is compact, ordinary Fubini gives
+\[
+         \langle F,I_X(\Psi_2)\rangle
+                      =\operatorname{vol}[U(X)]\,b;
+\]
+in particular \(b\ne0\).
+
+We check the compact-finiteness required by the classical
+identity and continuation, rather than assuming it for an
+arbitrary box vector. At infinity the Cartan on the doubled
+target \(W\oplus(-W)\) is
+\(\operatorname{diag}(\theta_W,-\theta_W)\).
+Its positive oscillator polarization is the direct sum of
+the polarization for \(X\otimes W\) and its complex conjugate.
+Thus \(\Psi_1\boxtimes\overline{\Psi_2}\), for polynomial
+Gaussian \(\Psi_1,\Psi_2\), is a polynomial times this doubled
+positive Gaussian. The doubled maximal compact fixes its
+Gaussian line and preserves each bounded polynomial degree,
+so the box is compact finite for the full doubled group.
+At a finite place smoothness of the Weil representation
+gives an open stabilizer of its Schwartz--Bruhat vector;
+its orbit under a compact subgroup is finite.
+Almost all factors are the unramified vacuum and are fixed.
+These facts prove compact-finiteness of the global section.
+For definite \(X\), its own Cartan is \(+1\) or \(-1\)
+according to its sign, so the stated positive polarizations
+are the actual polynomial spaces, with no varying choice.
+
+Apply the proved anisotropic Siegel--Weil identity to this
+\emph{definite} \(X\) and this actual doubled vector.
+With the already checked Haar normalization its special value is
+\[
+ E_{\Psi_1,\Psi_2}(h,h')
+   =c_{\rm SW}\operatorname{vol}[U(X)]^{-1}
+       \int_{[U(X)]}\theta(\Psi_1;g,h)
+                    \overline{\theta(\Psi_2;g,h')}\,dg ,
+ \tag{O3}\label{eq:sr-theta-anisotropic-doubled-kernel}
+\]
+including the prescribed splitting determinant factor.
+Here \(c_{\rm SW}\) is the nonzero scalar \(1\) or \(2\)
+already calculated. Compactness of \([U(X)]\), its uniform
+polynomial theta bound, and rapid decrease of \(F\) justify
+integrating (O3) against \(F(h')\) and interchanging integrals.
+The result is
+\[
+    c_{\rm SW}\operatorname{vol}[U(X)]^{-1}\,
+                                      b\,I_X(\Psi_1)(h).
+\]
+The preceding pullback lemma says this function is cuspidal.
+Its scalar is nonzero, so \emph{every} polynomial period
+\(I_X(\Psi_1)\) is cuspidal.
+
+This contradicts the already proved zero-term formula in the
+opposite-rank tower. In that step \(X\) is unchanged, the target
+loses one hyperbolic plane, and the zero constant-term component
+is a fixed nonzero constant times the lower period of the
+actual zero evaluation. That evaluation is onto on polynomial
+Gaussians and finite Schwartz vectors. On the small side
+a lower cutoff vector has an upper cutoff preimage: in its
+split Fourier coordinates retain the full-rank lower block.
+Multiply the fixed zero column by a compact open bump of
+value one at zero, and the integrated column by a compact
+open bump of integral one. The zero-evaluation formula
+\(e_0\phi(C)=c_v\int\phi(0,C,z)\,dz\), with its fixed
+nonzero \(c_v\), then gives the desired lower vector after
+one scalar rescaling.
+Thus lower nonvanishing gives a test vector with a nonzero
+upper constant-term component. An upper period cannot then
+be cuspidal. This contradiction proves orthogonality.
+\end{proof}
+
+\begin{srcorollary}[A cuspidal comparison difference vanishes]
+\label{cor:sr-theta-cuspidal-difference-zero}
+Suppose the lower nonvanishing required by the definite
+orthogonality proposition is available.
+If \(F\in\Sigma\) is cuspidal, then \(F=0\).
+\end{srcorollary}
+
+\begin{proof}
+In a noncompact target at least one of the signature parameters
+\(p,q\) is positive. A first space with positive Witt index
+is covered by the isotropic orthogonality proposition.
+A definite first space is covered by the other proposition,
+using the opposite-rank step. The needed rational isotropy
+or adapted step is the one in the tower construction.
+Hence \(F\) is orthogonal to both theta-image summands which
+span \(\Sigma\). In particular \(\langle F,F\rangle=0\).
+It is zero as an \(L^2\) function and, by continuity, pointwise.
+The compact target is the already proved compact-base
+comparison and is not an application of the present cusp
+argument.
+\end{proof}
+
+Only the definite case used Siegel--Weil here, and it used its
+proved anisotropic form with the actual box section and Haar
+normalization. No regularized isotropic Siegel--Weil identity
+has been inserted into the argument that is meant to prove
+the global theta comparison.

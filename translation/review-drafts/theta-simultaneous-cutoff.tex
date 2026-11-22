@@ -1,0 +1,192 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+
+\section{Keeping the cutoff after zero evaluation}
+\label{sec:sr-theta-simultaneous-cutoff}
+
+The small zero evaluation must sometimes be taken in a target with one
+fewer hyperbolic plane, while the first space is unchanged. A vector
+in the upper full-rank cutoff need not have its zero evaluation in the
+lower cutoff. The following modification, inside first-group
+augmentation, supplies exactly this compatibility.
+
+\begin{srlemma}[The finite simultaneous-cutoff modification]
+\label{lem:sr-theta-simultaneous-cutoff-local}
+At the selected good split place, let
+\(e_0:\mathcal S_{n,d}\longrightarrow\mathcal S_{n,d-2}\)
+be the actual normalized zero evaluation. Let
+\(\mathcal S^o_{n,d}\) and \(\mathcal S^o_{n,d-2}\)
+be the full-row-rank cutoff spaces in their specified opposite
+linear models. Assume \(n\le d-2\), and that the first character
+has the good-place nontrivial unitary factor \(\nu_v\).
+For every \(\phi\in\mathcal S^o_{n,d}\) there is
+\(\widetilde\phi\in\mathcal S^o_{n,d}\) such that
+\[
+ \widetilde\phi-\phi\in
+       \operatorname{span}\{(\omega_v(g,1)-1)\eta:
+                      \eta\in\mathcal S^o_{n,d}\},
+ \qquad
+              e_0\widetilde\phi\in\mathcal S^o_{n,d-2}.
+ \tag{Z1}\label{eq:sr-theta-simultaneous-cutoff-local}
+\]
+\end{srlemma}
+
+\begin{proof}
+Use the same split Fourier identification and the same adapted
+basis as in the cutoff lemma. Evaluation in the removed isotropic
+\(W\) line has one restriction coordinate and one integration
+coordinate. In matrix coordinates its Fourier support formula is
+\[
+       (e_0\phi)(C)
+             =c_v\int_{k^n}\phi(0,C,z)\,dz ,
+ \tag{Z2}\label{eq:sr-theta-zero-evaluation-block}
+\]
+with the fixed nonzero normalization \(c_v\).
+The zero column and the last column are the two removed plane
+coordinates; \(C\) has \(d-2\) columns.
+This follows directly from invariance under \(X\otimes Ex'\):
+one split idempotent acts by modulation and forces the first
+column to zero, and the other acts by translation and is
+integrated. The trace dual Fourier transform gives the
+specified lower model. Multiplying by invertible Gram matrices
+does not change either cutoff rank. The normalization of the
+vacua fixes \(c_v\), whose value is irrelevant to the argument.
+
+A matrix \((0,C,z)\) of full row rank forces
+\(\operatorname{rank}C\ge n-1\).
+Conversely every \(C\) of rank at least \(n-1\) admits \(z\)
+for which \((0,C,z)\) has rank \(n\).
+On a compact open neighborhood of such a \(C\), the same
+\(z\) and a sufficiently small compact open bump about it work.
+Multiply by an integral-one bump in the \(z\) variable and
+a bump equal to one at the zero restriction coordinate.
+A finite compact open partition proves from (Z2) that
+\[
+ e_0(\mathcal S^o_{n,d})
+       =V:=\mathcal S\{C:\operatorname{rank}C\ge n-1\}.
+\]
+It also proves that \(\mathcal S^o_{n,d-2}\subset V\).
+
+The first-group action on \(V\) is exactly the lower action:
+the change of the integration variable \(z\) contributes its
+Jacobian, changing the upper exponent \(d/2\) to
+\((d-2)/2\). The character factor \(\nu_v\) is unchanged.
+Thus \(e_0\) is an onto intertwiner
+\(\mathcal S^o_{n,d}\longrightarrow V\).
+
+Let \(V^o=\mathcal S^o_{n,d-2}\). The quotient \(V/V^o\)
+is the Schwartz space on the rank-\((n-1)\) stratum.
+Its first-group coinvariants vanish by the same stabilizer
+calculation used in the good split coinvariant proof.
+In a pivot chart the stabilizer contains a remaining
+\(\mathrm{GL}_1(k)\) block with arbitrary determinant.
+Its modular character and all norm factors are positive
+real numbers, while the prescribed unitary factor
+\(\nu_v\) is nontrivial. Choose a determinant on which it is
+not \(1\); the equivariant-distribution character condition
+cannot hold. Localize over the kernel Grassmannian and use
+the exact Schwartz sequence of the open rank locus.
+This proves
+\((V/V^o)_{U(X)_v}=0\).
+
+Right exactness of coinvariants says that
+\(V=V^o+\operatorname{Aug}_{U(X)_v}V\).
+Write \(e_0\phi=v^o+\sum_i(\omega_{1,v}(g_i,1)-1)v_i\).
+Choose upper cutoff preimages \(\eta_i\) of \(v_i\), and put
+\[
+ \widetilde\phi
+       =\phi-\sum_i(\omega_v(g_i,1)-1)\eta_i.
+\]
+The upper cutoff is stable under the first action.
+Intertwining gives \(e_0\widetilde\phi=v^o\), proving (Z1).
+No exactness of coinvariants on injections was used.
+\end{proof}
+
+\begin{srproposition}[An actual lower-cutoff realization of the small
+\(\alpha\) component]
+\label{prop:sr-theta-small-alpha-realization}
+For every small polynomial upper vector in the actual cutoff,
+one can change it by first-group augmentation so that its theta
+period is unchanged and its zero evaluation belongs to the
+actual lower cutoff. Its \(\alpha\) constant-term component is
+then a fixed nonzero scalar times the ordinary convergent
+lower small theta period of that zero evaluation.
+In particular, after an \(A\) step the \(\alpha\) component
+of the comparison space belongs to the actual lower comparison
+space, including for \(q>0\).
+\end{srproposition}
+
+\begin{proof}
+Present the vector as a finite sum of pure tensors with selected
+finite factors in \(\mathcal S^o_{n,d}\).
+Apply (Z1) at that one place to each factor. All other factors,
+and all infinite polynomial Gaussians, are unchanged.
+The upper cutoff is preserved, so all the modified theta
+periods converge. Their differences have zero first period
+by first-group invariance. Thus the actual upper theta period
+is unchanged. The global zero evaluation factors into the
+already chosen local evaluations, and its selected local
+factor is now in the lower cutoff. Hence the entire lower
+vector is in that cutoff and its lower period converges.
+
+The full small constant-term calculation gave the combined
+\(\alpha\) expression
+\[
+ c_0\Theta(e_0\omega(g,h)f')
+      -c_1\sum_L
+             \Theta(e_A\omega(\gamma_Lg,h)f').
+\]
+When \(e_0f'\) is in the lower cutoff, (T3) makes every
+unshifted \(e_A\) term zero. The cutoff is stable under the
+first action, so the same holds after each \(\gamma_Lg\).
+The combined expression therefore reduces to the zero term
+alone. Its integral is precisely the now convergent lower
+small period of \(e_0f'\), with the fixed Haar comparison.
+
+In an \(A\) step the large \(\alpha\) component is the actual
+lower large period of its cone vector, already a polynomial
+Schwartz vector. The small component just constructed is an
+actual lower small period in its cutoff. Their difference is
+therefore in the specified lower comparison space.
+\end{proof}
+
+\begin{srcorollary}[The boundary components vanish]
+\label{cor:sr-theta-boundary-component-zero}
+For every form in the actual comparison space:
+if \(q=0\), its \(\beta\) line constant-term component is zero;
+if \(p=0\), its \(\alpha\) line constant-term component is zero.
+\end{srcorollary}
+
+\begin{proof}
+If \(q=0\), the small first space is definite, so its line
+constant term has only the \(\alpha\) component.
+The large \(\beta\) component is the lower zero-evaluation
+period, on the unchanged first signature
+\((a-p,p)\) and target signature
+\((d-p-1,p-1)\).
+In the canonical Fock action its first character is
+\(\det^c\), \(2c=m_\alpha-m_\beta>d\).
+The joint-harmonic occurrence condition proved above requires
+the target negative signature to be at least \(p\).
+It is \(p-1\), so this character does not occur.
+Local Howe duality, or the explicit harmonic generation,
+makes the first-character oscillator quotient zero.
+The convergent lower period is first invariant and hence
+zero. Thus the large \(\beta\) component is zero as well.
+
+If \(p=0\), the large first space is definite and its
+\(\alpha\) component is zero.
+Use the preceding proposition to realize the small
+\(\alpha\) component as a lower small period in its cutoff.
+Its first signature is \((q,a'-q)\), its target signature is
+\((d-q-1,q-1)\), and its canonical first character is
+\(\det^{-c}\).
+The negative-character joint-harmonic condition requires
+the target negative signature to be at least \(q\).
+Again it is \(q-1\), so that local first-character quotient
+is zero. The lower period vanishes, proving the assertion.
+
+These are the exact positive- and negative-character
+conditions with the previously verified oscillator sign.
+No inference from equal infinitesimal characters is used.
+\end{proof}

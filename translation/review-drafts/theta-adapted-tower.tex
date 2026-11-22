@@ -1,0 +1,454 @@
+% REVIEW DRAFT: not an input of the current published manuscript.
+% This file is not proof certification; see geometry-audit-2026-11-21.json.
+
+\section{Adapted planes, lattices, and compatible theta models}
+\label{sec:sr-theta-adapted-tower}
+
+The rank induction requires actual lower spaces and operators, chosen
+before the finite character packet. We construct these choices here.
+The ground data are the specified CM extension \(E/F\), unramified
+at every finite place, the standard additive character, the finite
+split set \(P\), and the specified selfdual lattices. At a nonsplit
+finite place the residue characteristic is odd; this is exactly the
+inert-place condition of the ground datum. Put
+\(\mathfrak c=\mathfrak D_{E/\mathbb Q}^{-1}\).
+Since \(E/F\) is unramified,
+\(\mathfrak c=\mathfrak D_{F/\mathbb Q}^{-1}\mathcal O_E\);
+in particular it is fixed by conjugation. At the places over \(P\)
+it is the unit ideal, by the assumed unramified additive character.
+
+\begin{srlemma}[Isotropic planes in the actual range]
+\label{lem:sr-theta-rational-planes}
+For the ranks and signatures in (R6), the rational Witt indices
+of the two first spaces and the target are respectively
+\(p,q,p+q\). Any required first or target hyperbolic plane in the
+\(A\)- or \(B\)-reduction therefore exists over \(E\).
+\end{srlemma}
+
+\begin{proof}
+A nonsingular Hermitian space over a nonarchimedean quadratic
+local extension has anisotropic part of dimension at most two;
+over a split quadratic algebra it is hyperbolic.
+Consequently a local space of dimension at least \(2j+2\)
+contains \(j\) hyperbolic planes. The actual inequalities
+\(a'>2(p+q)+1\) and \(a>a'\) give this finite-place condition
+for \(j=p,q,p+q\) in all three spaces.
+At infinity the given signatures give these Witt indices exactly.
+
+The local-global isotropy theorem for Hermitian forms now supplies
+one rational hyperbolic plane whenever the displayed index is
+positive. Remove it and repeat: the finite dimension and the
+two infinite signatures decrease by two and by \((1,1)\),
+respectively, so the same argument supplies all the planes asserted.
+For the skew-Hermitian space multiply its form by any fixed nonzero
+anti-invariant element of \(E\); this converts the isotropy question
+to the Hermitian one. Such a scalar does not change isotropic
+subspaces. The bound at infinity also proves maximality of
+the asserted rational indices.
+
+These are precisely the field Hermitian-form classification and
+local-global isotropy theorem, with no integral-lattice assertion
+included in their use. One classical reference proving the
+local-global theorem is Kneser, \emph{Lectures on Galois Cohomology
+of Classical Groups}, \S5.5 (Landherr's theorem).
+\footnote{\url{https://mathweb.tifr.res.in/sites/default/files/publications/ln/tifr47.pdf}.}
+The integral splitting needed here is proved next.
+\end{proof}
+
+\begin{srlemma}[Splitting the lattice along a rational isotropic line]
+\label{lem:sr-theta-integral-plane}
+Let \(h\) be an \(\varepsilon\)-Hermitian form, linear in its first
+variable, where \(\varepsilon=1\) or \(-1\).
+Let \(D=\mathcal O_E\) in the Hermitian case and \(D=\mathfrak c\)
+in the skew-Hermitian case. Suppose \(\Lambda\) is \(D\)-selfdual:
+\[
+ \Lambda=\{v:h(v,\Lambda)\subset D\}.
+\]
+Given a rational isotropic line \(Ex\), one can choose \(y\) with
+\(h(x,y)=1\), \(h(y,y)=0\), and a fractional ideal \(\mathfrak b\)
+such that
+\[
+ \begin{split}
+  \Lambda\cap Ex&=\mathfrak b x,\\
+  \Lambda&=\mathfrak b x\ \mathbin{\perp_{\!H}}\!
+     (D\overline{\mathfrak b}^{-1}y)\ \perp\ \Lambda_1.
+ \end{split}                                      \tag{M1}
+ \label{eq:sr-adapted-lattice-plane}
+\]
+Here the first two summands form one hyperbolic plane;
+\(\perp_H\) denotes their mutual hyperbolic pairing, not
+orthogonality to one another. The complement \(\Lambda_1\)
+is \(D\)-selfdual for the restricted form.
+Moreover \(x\) may be scaled so that
+\(\operatorname{ord}_w\mathfrak b=0\) at every \(w\) over \(P\).
+\end{srlemma}
+
+\begin{proof}
+The intersection \(\Lambda\cap Ex\) is a rank-one projective
+\(\mathcal O_E\)-module, hence \(\mathfrak b x\).
+It is primitive: if a nonzero integral multiple of a vector of
+\(\Lambda\) lies in \(Ex\), that vector already lies in \(Ex\).
+Its quotient in \(\Lambda\) is therefore torsion free and
+projective over the Dedekind domain \(\mathcal O_E\).
+
+Dualizing this primitive summand and using \(D\)-selfduality shows
+that
+\[
+  \Lambda\longrightarrow D\overline{\mathfrak b}^{-1},
+                       \qquad z\longmapsto h(z,x)
+\]
+is onto. The target is projective, so a section is multiplication
+by a rational vector \(y\), normalized by \(h(x,y)=1\);
+the harmless factor \(\varepsilon\) in \(h(y,x)=\varepsilon\)
+does not change its coefficient ideal.
+Thus \(D\overline{\mathfrak b}^{-1}y\subset\Lambda\).
+
+There is an integral \(\theta\in\mathcal O_E\) with
+\(\theta+\bar\theta=1\). Indeed the trace map of a finite
+unramified quadratic extension of integer rings is locally
+surjective at every finite prime, including the split dyadic
+primes. Its image is the unit ideal of \(\mathcal O_F\),
+so it is globally surjective.
+Put \(k=h(y,y)\). Then \(\bar k=\varepsilon k\).
+The lattice inclusion just proved gives
+\[
+             k\in D^{-1}\mathfrak b\overline{\mathfrak b}.
+\]
+Replace \(y\) by \(y-\theta kx\).
+The coefficient inclusion is preserved since
+\[
+ (D\overline{\mathfrak b}^{-1})
+    (\theta k)\subset\mathfrak b.
+\]
+Bilinearity, \(h(x,x)=0\), \(h(x,y)=1\), and
+\(h(y,x)=\varepsilon\) give
+\[
+ h(y-\theta kx,y-\theta kx)
+       =k-\theta k-\varepsilon\bar\theta\bar k=0.
+\]
+This works with the same trace-one integer for both signs
+of \(\varepsilon\).
+
+The hyperbolic projections of \(z\in\Lambda\) are
+\(h(z,y)x\) and \(\varepsilon h(z,x)y\).
+The two coefficient ideals in (M1) and selfduality show that
+these projections belong to \(\Lambda\). Their subtraction
+gives the integral orthogonal complement. If a rational
+vector in that complement pairs into \(D\) with \(\Lambda_1\),
+it pairs trivially with the plane and into \(D\) with all of
+\(\Lambda\); selfduality places it in \(\Lambda_1\).
+This proves its selfduality.
+
+Finally choose \(s\in E^\times\) with prescribed valuations at
+the finitely many primes over \(P\), by weak approximation,
+and replace \(x,y\) by \(sx,\bar s^{-1}y\).
+The coefficient ideal of \(x\) becomes \(s^{-1}\mathfrak b\).
+Taking \(\operatorname{ord}_w s=\operatorname{ord}_w\mathfrak b\)
+proves the last assertion.
+\end{proof}
+
+Choose the planes in the large first space and in \(W\) when
+\(p>0\); choose them in the small first space and in \(W\)
+when \(q>0\). Apply (M1) to each. The orthogonal complements
+have the required lower signatures and lattice dualities.
+At \(v\in P\), the two chosen vectors are primitive in their
+respective split lattice projections. Complete them by a
+basis of the complement. This gives precisely the specified
+two columns of an adapted split basis. For an \(A\)-step place
+them in positions \(0,a-1\) in the first space and the same
+positions in the first \(a\)-block of \(W\); for a \(B\)-step
+use positions \(0,a'-1\) in the small first space and
+\(a,d-1\) in \(W\). The lower columns are those of the
+orthogonal complement. These choices are finite and are
+independent of \(\alpha,\beta\).
+
+At each infinite place choose positive and negative orthonormal
+frames of the complement, and the two frames furnished by
+\(x,y\) on the hyperbolic plane. The corresponding Cartan
+involutions preserve the complement and carry \(x\) to a
+nonzero scalar multiple of \(y\). This is the exact Cartan
+compatibility required by zero evaluation, cone evaluation,
+and their polynomial Fock spaces. We may first replace the
+original Cartans and split bases by these adapted ones.
+The lattices and rational forms have not changed.
+Any two Cartans of a fixed real unitary space are conjugate
+by its unitary group. The genuine oscillator action of those
+conjugating elements identifies their Gaussian polynomial
+spaces. First-group conjugation leaves the theta integral
+unchanged by change of variables; target-group conjugation
+right translates both compared functions by the same element.
+Thus a comparison proved with adapted Cartans transports
+back to the originally prescribed Cartans and matching maps.
+All the conjugating elements are fixed by the geometric data,
+before the finite packet.
+
+\begin{srlemma}[Actual Schr\"odinger models and vacua]
+\label{lem:sr-theta-fixed-models}
+Every space and lower complement just constructed has a rational
+Darboux Schr\"odinger model, nonzero finite lattice vacua that
+are standard indicators at almost every finite place, and a
+Haar measure with a measurable rational fundamental domain.
+The models can be related by the partial Fourier/evaluation
+maps used in the four constant-term formulas.
+These choices can all be made before the finite character packet.
+\end{srlemma}
+
+\begin{proof}
+The tensor space of a Hermitian first space and the skew-Hermitian
+target, with the specified trace alternating form, is a
+nondegenerate symplectic vector space over \(F\).
+Symplectic Gram--Schmidt over \(F\) gives a rational Darboux basis.
+Thus rational tensor vectors have two rational coordinate blocks,
+as required by the theta summation convention.
+
+At a finite place the tensor of the two specified lattices is
+selfdual for the additive-character symplectic pairing.
+This follows directly from the first lattice's
+\(\mathcal O_E\)-duality and the second's
+\(\mathfrak D_{E/\mathbb Q}^{-1}\)-duality.
+Use the same integral trace-one \(\theta\) as above to form the
+lattice Heisenberg character
+\[
+ \gamma\longmapsto
+ \psi_v\!\left(\tfrac12 B_\theta(\gamma,\gamma)\right),
+ \tag{M2}\label{eq:sr-theta-vacuum-character}
+\]
+where \(B_\theta\) is the tensor pairing with coefficient
+\(\theta\), in the fixed convention of the Weyl operator
+\(\rho(\gamma)\). This is the character in the specified
+lattice-vacuum eigenrelation. Its compatibility with Weyl
+multiplication follows by expanding the quadratic expression
+at \(\gamma+\gamma'\), using
+\(\theta+\bar\theta=1\), and using integral duality for the
+remaining trace term. Explicitly, in the fixed alternating
+form \(B\) the relation is
+\[
+ \chi_\theta(\gamma+\gamma')
+   =\chi_\theta(\gamma)\chi_\theta(\gamma')
+                      \psi_v(-B(\gamma,\gamma')/2).
+\]
+This is exactly the inverse Weyl multiplier, so it defines
+a genuine character of the lift of the lattice to the
+Heisenberg group. The phase is independent of the trace-one
+integer chosen here. Indeed if \(\theta_1-\theta_2\) is
+anti-invariant and \(k=h_{X\otimes W}(\gamma,\gamma)\),
+then \(k\) is anti-invariant and belongs to \(\mathfrak c\).
+Thus \((\theta_1-\theta_2)k\) is in
+\(F\cap\mathfrak c=\mathfrak D_{F/\mathbb Q}^{-1}\).
+Its contribution to the half trace is in the annihilator
+of the standard additive character. This also relates the
+same eigenline to any initially specified good-model vacuum.
+
+There is a unique one-dimensional eigenspace for this character
+in the Schr\"odinger representation. One elementary way to
+see existence and dimension is to sandwich the lattice between
+two sufficiently separated standard coordinate lattices.
+The subspace of functions supported in the larger coordinate
+box and periodic under the smaller translation lattice is
+finite dimensional. The Weyl operators on it form a finite
+Heisenberg representation. The selfdual lattice has maximal
+commuting image; its specified character occurs exactly once,
+by the finite translation/modulation Fourier basis.
+The finite boxes can be enlarged to contain every vector in
+question. This proves the asserted eigenline in the local
+Schwartz space, including residue characteristic two.
+Choose a nonzero vector on each eigenline.
+
+For almost every finite place the Darboux basis and the tensor
+lattice are standard integral, \(2\) is a unit, and the character
+and the additive measure are unramified. In these coordinates
+\(\mathbf1_{\mathcal O_v^N}\) has precisely (M2)'s eigenrelation.
+Choose it there. At the remaining finitely many places choose
+any nonzero vector on the line just constructed. This gives
+the required restricted product and its actual vacua; no
+simultaneous choice depending on a later character is involved.
+
+For an upper and lower tensor space, the adapted hyperbolic
+decomposition identifies the symplectic reduction of the
+specified isotropic subspace with the lower tensor space.
+Choose its symplectic basis by restriction and complete it to
+a rational Darboux basis upstairs. Evaluation on one coordinate
+block and Fourier integration on its dual block give the
+claimed maps. For an arbitrary earlier Darboux basis, conjugate
+by the rational symplectic change of coordinates, using its
+Schr\"odinger intertwiner. The local scalar may be fixed by sending
+the specified lattice vacuum to the lower one, whenever that
+map is nonzero. Any resulting finite product of normalization
+scalars is absorbed in the infinite intertwiner so that the
+global rational evaluation map retains its specified theta
+summation normalization. Only finitely many places require
+this adjustment; all these scalars depend on the fixed models.
+The finite vacuum calculation in
+Lemma~\ref{lem:sr-cone-finite-vacuum} proves this nonvanishing
+and gives the exact coefficient ideals. At infinity the
+adapted positive polarization gives the ordinary Gaussian
+and its polynomial derivatives; the corner evaluations and
+Fourier transforms preserve these polynomial spaces as proved
+in the cone and zero-evaluation calculations.
+
+Finally a reductive unitary group is unimodular and locally
+compact, with its rational subgroup discrete.
+A Borel fundamental domain exists for a discrete subgroup of
+a second-countable locally compact group. Choose a Haar
+measure and such a domain for each first group. Quotient
+integration is independent of the chosen domain. Scaling
+these measures only changes the geometric constants already
+kept explicit in the constant-term identities.
+\end{proof}
+
+\begin{srlemma}[Local vacuum normalization and the rational theta sum]
+\label{lem:sr-theta-rational-normalization}
+The finite vacuum normalizations in the preceding construction
+can be imposed simultaneously with the rational theta-sum
+normalization of each global intertwiner and evaluation map.
+The resulting global operator and every compensation scalar
+are fixed before the finite character packet.
+\end{srlemma}
+
+\begin{proof}
+Start with rational Darboux bases and selfdual additive measures,
+without normalizing any finite intertwiner by its vacuum.
+A rational symplectic change of coordinates has a theta-preserving
+Schr\"odinger intertwiner. This can be checked on the three usual
+generators of the rational symplectic group:
+a rational linear coordinate change, multiplication by a
+rational quadratic phase, and Fourier transform in a rational
+coordinate subspace. The first preserves the rational index
+set and has global determinant modulus one by the product
+formula. The second has phase one on rational vectors because
+the global additive character is trivial on \(F\).
+The third preserves the rational sum by adelic Poisson summation;
+with selfdual measures the additive quotient has volume one.
+Symplectic elimination expresses every rational symplectic
+matrix as a product of these generators. This proves the
+theta-preserving normalization of the global intertwiner.
+The local factors can be taken standard at almost every place.
+In particular this argument fixes the global scalar instead
+of appealing just to the local Stone--von Neumann theorem.
+
+The same argument fixes the global partial evaluation maps:
+use the rational coordinate projection and Fourier integrations
+specified by the adapted isotropic subspace, and transport by
+these theta-preserving intertwiners. Poisson summation in the
+integrated coordinate block gives their precise rational
+theta-summation identity. At this stage their local factors
+are fixed and standard at almost every finite place.
+
+At a remaining finite place let \(e_v^0\) be such a factor.
+It sends the upper vacuum to a nonzero scalar \(m_v\) times
+the prescribed lower vacuum (or to the corresponding explicitly
+computed corner-lattice indicator times that vacuum).
+Nonvanishing is the finite evaluation calculation already proved:
+the removed lattice subspace is totally isotropic even for
+the \(E\)-valued tensor form, so the character (M2) restricts
+to one on it; its compact integration has no nontrivial phase
+to cancel. In coordinates the result is precisely the
+nonzero ideal-coset characteristic function and Haar volume
+in Lemma~\ref{lem:sr-cone-finite-vacuum}.
+The lower remaining lattice character is the same (M2),
+so its eigenspace is the specified lower vacuum line.
+
+Replace \(e_v^0\) by \(m_v^{-1}e_v^0\) at these finitely many
+places, and replace the combined infinite factor \(e_\infty^0\)
+by \((\prod_v m_v)e_\infty^0\).
+The restricted tensor product is exactly unchanged:
+\[
+ \left((\prod_v m_v)e_\infty^0\right)
+       \otimes\bigotimes_{v<\infty}(m_v^{-1}e_v^0)
+             =e_\infty^0\otimes\bigotimes_{v<\infty}e_v^0.
+\]
+Thus both its rational theta identity and its finite vacuum
+normalizations hold at once. Multiplying an infinite
+intertwiner by a nonzero scalar preserves its polynomial
+Gaussian domain and all Lie/compact intertwining identities.
+For a corner evaluation \(m_v\) denotes its scalar coefficient;
+its corner ideal is retained, not normalized away.
+Changing the initially specified good-model vacuum only changes
+finitely many \(m_v\), since both choices are standard indicators
+almost everywhere. By the phase-independence proved above,
+it does not change the eigenline or this construction.
+These are all changes of fixed lattices and models; no
+Hecke-character value or conductor has been used.
+
+For the Weil action itself, changing a scalar of a Schr\"odinger
+intertwiner does not change its conjugated action.
+Changing a rational polarization uses Kudla's explicit
+polarization coboundary (Lemma~4.2); the global product of that
+coboundary is one by the same rational quadratic-phase and
+Fourier product formulas. Thus the genuine action and the
+theta functional remain compatible with the fixed splitting
+characters. The extra infinite scalar here belongs to the
+evaluation operator, and consequently to the geometric
+constant in the rank recursion; it does not alter a
+character-dependent local epsilon factor.
+\end{proof}
+
+The splitting characters are also exactly those required.
+For a pair of dimensions \(n,d\), Kudla's unitary splitting
+uses characters \(\chi_X,\chi_W\) restricting to
+\(\eta_{E/F}^{\,n},\eta_{E/F}^{\,d}\) on \(\mathbb A_F^\times\)
+(Kudla's Theorem~3.1); changes of polarization are compatible
+by his Lemma~4.2.
+\footnote{S.~Kudla, \emph{Splitting metaplectic covers of dual
+reductive pairs}, Israel J.~Math.~87 (1994), 361--401,
+\url{https://doi.org/10.1007/BF02773003}.}
+For the large pair these are
+\((\beta,\beta/\alpha)\), and for the small pair
+\((\alpha,\alpha/\beta)\).
+Indeed the given restrictions are
+\(\alpha|_{\mathbb A_F^\times}=\eta^{a'}\) and
+\(\beta|_{\mathbb A_F^\times}=\eta^a\), while
+\(a-a'\equiv a+a'\pmod2\).
+Removing two dimensions preserves both restrictions.
+Take these local splittings with the fixed standard additive
+character and selfdual additive measures. Their restricted
+tensor product is rationally trivial: the local Weil-index
+factors multiply to one, and the character factors multiply
+to one on \(E^\times\), by the Hecke-character condition.
+It is therefore the genuine adelic Weil action used in the
+rational theta series, in the rational Darboux model just chosen.
+Transport by Schr\"odinger intertwiners gives that action on
+any of our fixed models. Scalar ambiguity is removed by the
+same local lattice normalization and global rational theta
+normalization as in the earlier doubling-model comparison.
+This checks the character restrictions, additive sign,
+rational theta normalization, and lattice convention of the
+actual model simultaneously.
+
+\begin{srproposition}[A coherent finite family of rank reductions]
+\label{prop:sr-theta-coherent-tower}
+Fix the ground and geometric data with signature sum \(Y\).
+There is a finite tree of actual \(A\)- and \(B\)-reductions,
+with adapted planes, lower lattices, Cartans, split bases,
+Darboux models, vacua, measures, and evaluation maps as above.
+Every choice is made before \(\alpha,\beta\) and the finite
+ramification sets. Every node satisfies the same required
+rank and weight conditions.
+\end{srproposition}
+
+\begin{proof}
+At an \(A\)-edge the new ranks and signatures are
+\[
+ (a,a';p,q)\longmapsto(a-2,a';p-1,q),
+\]
+so \(Y_1=Y-1\) and \(\delta_1=\delta-1\).
+At a \(B\)-edge they are
+\[
+ (a,a';p,q)\longmapsto(a,a'-2;p,q-1),
+\]
+so \(Y_1=Y-1\) and \(\delta_1=\delta+1\).
+In both cases \(a'_1>2Y_1+1\) and
+\(\delta_1>2Y_1+1\). The parity of \(a+a'\)
+is preserved, and the lower total dimension decreases by two,
+so the strict weight condition remains valid.
+In particular all the lower first ranks remain positive
+(the terminal small rank is at least two).
+Apply the preceding constructions recursively. The signature
+sum decreases at each edge, so the tree is finite.
+It is unnecessary to identify lower nodes reached in different
+orders: the comparison induction applies to every actual
+geometric node with these properties.
+All operations used only this fixed finite tree and ground
+data. Character restrictions at every node have just been
+checked, so each later allowable packet uses these same choices.
+\end{proof}
