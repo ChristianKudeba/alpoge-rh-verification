@@ -54,7 +54,8 @@ jobs:
               return pattern.sub(replace, path.read_text(encoding="utf-8"))
           source=expand(root / "short-route.tex")
           (out / "rh-short-route.tex").write_text(source, encoding="utf-8")
-          editor=re.sub(r"(?m)^[ \t]+","",source).replace(r"\(","$").replace(r"\)","$")
+          editor=re.sub(r"(?m)^[ \t]+","",source)
+          editor=re.sub(r"\\\\|\\\(|\\\)",lambda m:m[0] if m[0]==r"\\" else "$",editor)
           names=re.findall(r"\\label\{([^{}]+)\}",editor)
           assert len(names)==len(set(names)), "Duplicate source labels"
           label_map={name:"p"+str(i+1) for i,name in enumerate(names)}
