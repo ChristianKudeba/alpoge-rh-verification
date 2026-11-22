@@ -1,0 +1,446 @@
+\subsection{The actual relative exponential with its prescribed central fibre}
+\label{subsec:ftb-actual-relative-exponential}
+
+Here \emph{holomorphic} for a map into scheme points means
+\(\mathrm{IsHolTo}\): the inverse image of each algebraic open
+is open, and every regular-function evaluation on that
+inverse image is holomorphic.
+All points and all group operations below are those of the
+given algebraic family.
+
+\begin{srlemma}[Relative affine coordinates with finite inverse tests]
+\label{lem:ftb-relative-affine-coordinates}
+Let \(p:Z\to X\) be smooth of relative dimension \(g\).
+Let \(B\subset\mathbb C^m\) be open, let
+\(y:B\to X(\mathbb C)\) be regular-evaluation-holomorphic,
+and let \(z_0\in Z(\mathbb C)\) lie over \(y(b_0)\).
+There are an affine neighborhood \(U\) of \(z_0\), regular
+functions \(t_1,\ldots,t_g\) on \(U\), finitely many further
+regular functions \(f_1,\ldots,f_n\), open parameter-coordinate
+sets \(N\subset\mathbb C^m\times\mathbb C^g\),
+\(O\subset\mathbb C^m\times\mathbb C^n\), and a
+regular-evaluation-holomorphic \(\sigma:N\to U(\mathbb C)\)
+such that
+\[
+ p(\sigma(b,w))=y(b),\qquad t(\sigma(b,w))=w.                 \tag{RE1}
+\]
+The point \((b_0,f(z_0))\) belongs to \(O\).
+If \(a\in U(\mathbb C)\) lies over \(y(b)\) and
+\((b,f(a))\in O\), then
+\[
+                (b,t(a))\in N,\qquad \sigma(b,t(a))=a.       \tag{RE2}
+\]
+Moreover, two dual-number points in \(U\), with the same
+base point, the same reduced point and the same values of
+all \(t_i\), are equal.
+\end{srlemma}
+\begin{proof}
+Take affine neighborhoods \(V\subset X\), \(U\subset Z\)
+on which smoothness gives an etale ring homomorphism
+\[
+                A[T_1,\ldots,T_g]\longrightarrow R,
+       \quad A=\Gamma(V,\mathcal O_X),\
+             R=\Gamma(U,\mathcal O_Z).
+\]
+The \(t_i\) are the images of the \(T_i\).
+Shrink the parameter neighborhood so that \(y(b)\in V\);
+evaluation along \(y\) gives ring maps
+\(\varphi_b:A\to\mathbb C\), analytic on every coefficient.
+
+Use a standard smooth presentation of this etale algebra.
+There are finitely many auxiliary variables \(Y_j\),
+as many equations \(P_r(T,Y)\), and an invertible square
+\(Y\)-Jacobian at the given evaluation point.
+The map
+\[
+ (b,w,v)\longmapsto
+ \bigl(b,w,(P_r^{\varphi_b}(w,v))_r\bigr)                    \tag{RE3}
+\]
+is analytic.
+Its derivative is block triangular, with identity on
+\((b,w)\) and that invertible Jacobian on \(v\).
+The analytic inverse theorem gives an analytic inverse
+on actual open neighborhoods of the point and its image.
+At target equation-coordinate \(0\), its \(Y\)-coordinates
+solve the relations.
+Evaluation therefore factors through the quotient
+presentation and gives a ring homomorphism
+\(\sigma(b,w):R\to\mathbb C\).
+
+For each \(r\in R\), choose a polynomial representative
+in the presentation.
+Its evaluation at these analytic coordinates is analytic.
+Thus every regular-function value is analytic.
+On smaller algebraic opens a regular function is locally
+a quotient of such values with nonzero denominator;
+this proves the claimed \(\mathrm{IsHolTo}\) statement.
+
+For the inverse tests choose the finite list consisting
+of the \(t_i\) and the auxiliary generators \(Y_j\).
+Let \(O\) say that their values, together with \(b\),
+lie in the source of the inverse in (RE3).
+Every ring homomorphism in this source that satisfies
+the equations is the indicated inverse point, by the
+two-sided inverse identities in (RE3).
+This gives (RE2), including actual equality of the
+ring homomorphisms, hence of the scheme points.
+Finally, formal unramifiedness of the etale ring map
+says that two lifts across
+\(\mathbb C[\epsilon]\to\mathbb C\), agreeing on \(A[T]\)
+and after reduction, coincide.
+The hypotheses on the base and on the \(t_i\) are exactly
+this agreement.
+\end{proof}
+
+\begin{srlemma}[The parameter-dependent halving logarithm]
+\label{lem:ftb-parametric-halving-logarithm}
+Let \(M(b,x,y)\), with \(b\in\mathbb C^m\) and
+\(x,y\in\mathbb C^g\), be analytic near \((b_0,0,0)\).
+Suppose the unit, commutativity and associativity identities
+\[
+ M(b,x,0)=x,\quad M(b,x,y)=M(b,y,x),\quad
+ M(b,M(b,x,y),z)=M(b,x,M(b,y,z))
+                                                               \tag{RE4}
+\]
+hold as germs at the indicated zero tuples.
+There are jointly analytic germs \(E(b,v),L(b,x)\) near
+\((b_0,0)\), inverse in their second variables, with
+\(E(b,0)=L(b,0)=0\), \(d_vE(b,0)=d_xL(b,0)=I\),
+and
+\[
+       E(b,v+w)=M(b,E(b,v),E(b,w))                            \tag{RE5}
+\]
+as a joint germ.
+\end{srlemma}
+\begin{proof}
+The inverse theorem with parameters follows by applying
+the analytic inverse theorem to \((b,x)\mapsto(b,F(b,x))\).
+If \(d_xF(b_0,0)\) is injective, finite equal dimensions
+make it invertible; the full derivative is block triangular
+and invertible.
+The inverse's first coordinate is \(b\), by its right
+inverse identity.
+This gives a jointly analytic inverse in the second variable.
+
+Apply this to doubling \(x\mapsto M(b,x,x)\).
+The derivative in \(x\) is \(2I\), by the two unit identities,
+so its inverse \(\varepsilon(b,x)\) is jointly analytic.
+For each nearby \(b\),
+\[
+                 \varepsilon_b(x)=\tfrac12x+O(\|x\|^2).
+                                                               \tag{RE6}
+\]
+The source makes this estimate uniform as follows.
+Choose a common product ball of radius \(s>0\) on which
+\(\varepsilon\) is analytic, \(\|\varepsilon\|\le K\),
+and its slices have (RE6), with \(K>0\).
+The second-order Cauchy estimate, with
+\(\varepsilon_b(0)=0\), \(d\varepsilon_b(0)=I/2\),
+gives
+\[
+ \|\varepsilon_b(x)-x/2\|\le C\|x\|^2,\qquad C=4K/s^2.
+\]
+Put \(r=\min(s,1/(8C))\).
+For \(\|x\|<r\) this implies
+\[
+                       \|\varepsilon_b(x)\|\le(5/8)\|x\|.
+                                                               \tag{RE7}
+\]
+All iterates stay in that ball.
+The functions
+\(L_j(b,x)=2^j\varepsilon_b^{\,j}(x)\) are jointly analytic.
+The contraction and quadratic-error calculation used in
+Lemma~\ref{lem:ftb-halving-logarithm} gives the uniform tail
+\[
+ \|L_j(b,x)-L(b,x)\|
+    \le \frac{64}{7}C\|x\|^2(25/32)^j
+    \le \frac{64}{7}Cr^2(25/32)^j.                          \tag{RE8}
+\]
+Thus \(L\) is jointly analytic by locally uniform
+convergence of holomorphic functions.
+
+For each fixed nearby \(b\), the same local commutative
+group-law argument as in that lemma gives
+\(L_b(0)=0\), \(dL_b(0)=I\), and
+\(L_b(M_b(x,y))=L_b(x)+L_b(y)\) as a slice germ.
+One must also make the last identity uniform in \(b\).
+The difference of its sides is jointly analytic on a
+common product ball.
+For every nearby \(b\) it vanishes on some neighborhood
+of \(0\) in the \((x,y)\)-slice.
+The identity theorem on the fixed connected slice ball
+makes it vanish on that whole ball.
+Hence it vanishes as a joint germ.
+Apply the parameter inverse theorem once more to \(L\)
+to obtain \(E\).
+The inverse identities give \(E_b(0)=0\), \(dE_b(0)=I\);
+the just-proved joint logarithm identity gives (RE5).
+\end{proof}
+
+\begin{srproposition}[The actual relative exponential]
+\label{prop:ftb-actual-relative-exponential}
+Let \(k\) be a field with an embedding
+\(\iota:k\hookrightarrow\mathbb C\).
+Let \(X\to\operatorname{Spec}k\) be locally of finite type,
+let \(G/X\) be an abelian scheme smooth of relative
+dimension \(g\), and let \(B\subset\mathbb C^m\) be open.
+Suppose \(y:B\to X(\mathbb C)\) is
+regular-evaluation-holomorphic and each \(y(b)\) lies
+over the fixed embedding \(\iota\).
+At \(b_0\in B\) prescribe an additive surjective
+regular-evaluation-holomorphic
+\[
+                       e_0:\mathbb C^g\to G_{y(b_0)}(\mathbb C)
+\]
+whose derivative identifies analytic vectors with
+algebraic vertical tangent vectors in both directions.
+Then, after shrinking to an open \(b_0\in B'\subset B\),
+there are maps \(e_b:\mathbb C^g\to G_{y(b)}(\mathbb C)\)
+and a single \(r>0\), with the following properties:
+\[
+\begin{gathered}
+ e_{b_0}=e_0,\quad e_b(v+w)=e_b(v)e_b(w),\quad
+                         e_b\text{ is surjective};\\
+ (b,v)\longmapsto e_b(v)\text{ is regular-evaluation-holomorphic};\\
+ \|v\|<r,\ e_b(v)=1\quad\Longrightarrow\quad v=0
+                         \qquad(b\in B').                 \tag{RE9}
+\end{gathered}
+Each \(e_b\) has both vertical tangent-bijection clauses.
+
+The construction also has the following local lifting
+property, with no restriction to the identity section.
+If \(W\subset\mathbb C^n\) is open,
+\(\beta:W\to B'\) is holomorphic,
+\(a_w\in G_{y(\beta(w))}(\mathbb C)\) is
+regular-evaluation-holomorphic, and
+\(e_{\beta(w_0)}(z_0)=a_{w_0}\), there is an analytic
+\(\zeta\) near \(w_0\), with
+\[
+        \zeta(w_0)=z_0,\qquad
+        e_{\beta(w)}(\zeta(w))=a_w\quad\text{near }w_0.       \tag{RE10}
+\]
+\end{srproposition}
+\begin{proof}
+Apply Lemma~\ref{lem:ftb-relative-affine-coordinates}
+to \(G\to X\) at the identity over \(y(b_0)\).
+Set \(c(b)=t(1_b)\), analytic by evaluation along the
+algebraic identity section, and write
+\[
+                 t_b^0(a)=t(a)-c(b),\qquad
+                 s_b(x)=\sigma(b,x+c(b)).
+\]
+On the finite-test neighborhood, (RE1)--(RE2) become
+\[
+          t_b^0(s_b(x))=x,\quad s_b(0)=1_b,\quad
+                         s_b(t_b^0(a))=a.                 \tag{RE11}
+\]
+All three identities hold on common neighborhoods of
+the indicated central points.
+Products, inverses and powers of actual holomorphic
+families of points are holomorphic:
+on affine pieces of the fibre product, its coordinate
+ring is generated by the two factor rings;
+evaluation preserves their sums and products.
+Postcomposition with the algebraic group operation
+therefore preserves regular-evaluation holomorphicity.
+This also explains why the group law used next is the
+one of the given family.
+
+Define
+\[
+                   M(b,x,y)=t_b^0(s_b(x)s_b(y)).
+\]
+It is jointly analytic near \((b_0,0,0)\).
+Identities (RE11) and the actual group laws imply (RE4).
+In the associativity identity, first use (RE11) to
+replace \(s_b(M(b,x,y))\) by \(s_b(x)s_b(y)\)
+on a small common neighborhood; then use associativity
+in \(G\).
+Lemma~\ref{lem:ftb-parametric-halving-logarithm} gives \(E,L\).
+Consequently
+\[
+                         v\longmapsto s_b(E(b,v))           \tag{RE12}
+\]
+is locally additive, jointly holomorphic, and has
+coordinate derivative \(I\).
+
+Choose one ball of radius \(r_1>0\) and one neighborhood
+of \(b_0\) on which these local identities, the inverse
+identities for \(E,L\), and (RE11) hold.
+The local additive maps (RE12) extend to additive maps
+\(\widehat e_b\) on all of \(\mathbb C^g\).
+Explicitly, for sufficiently large \(j\), use
+\[
+           \widehat e_b(v)=
+                  s_b(E(b,2^{-j}v))^{\,2^j}.               \tag{RE13}
+\]
+The local doubling identity makes (RE13) independent
+of sufficiently large \(j\).
+The local additive identity, after a common division
+of two vectors, proves global additivity.
+The extension agrees with (RE12) throughout a smaller
+common ball, not merely on an unspecified germ:
+divide a point in that ball dyadically until it lies in
+the initial equality neighborhood and then double back.
+
+Joint holomorphicity also holds at an arbitrary \((b,v)\).
+Choose an integer \(h>0\) so that \(\|v/h\|<r_1\).
+Near \((b,v)\), additivity gives
+\[
+                   \widehat e_{b'}(v')=
+                            s_{b'}(E(b',v'/h))^{\,h}.
+\]
+The right side is jointly regular-evaluation-holomorphic.
+Thus the global family has the required holomorphicity.
+
+Shrink the parameter set once more so that \(L_b(0)=0\)
+and its inverse identities hold on one common coordinate
+neighborhood.
+For some uniform \(r_2>0\), if \(\|v\|<r_2\) and
+\(\widehat e_b(v)=1\), (RE11)--(RE12) give
+\(E(b,v)=0\), hence \(v=L(b,0)=0\).
+There is also an actual inverse near the identity:
+\[
+                 \widehat e_b(L(b,t_b^0(a)))=a,             \tag{RE14}
+\]
+whenever \(a\) satisfies the original finite open tests
+and \((b,t_b^0(a))\) lies in the common logarithm domain.
+These are finitely many regular-function tests on each
+fixed fibre.
+The image of the additive map \(\widehat e_b\) is therefore
+a subgroup containing such a neighborhood.
+The final assertion of
+Proposition~\ref{prop:ftb-integral-complex-points-connected}
+makes it the whole fibre.
+This proves surjectivity without an unproved assertion
+about connected analytic images.
+
+We spell out the tangent step.
+For a holomorphic fibre map \(v\mapsto a(v)\), a vector \(w\)
+defines on an affine identity chart the homomorphism
+\[
+             f\longmapsto f(a(0))
+                    +\epsilon\,d(f\circ a)_0(w)
+                \quad\text{into }\mathbb C[\epsilon].      \tag{RE15}
+\]
+The product rule makes it a ring homomorphism.
+The affine point--ring-homomorphism identification makes
+(RE15) an actual dual-number point.
+Localization shows it has the asserted derivatives on
+every open; equality on an affine chart proves uniqueness.
+Since \(a\) remains over a fixed \(y(b)\), its base derivative
+is zero, so this point is vertical.
+For \(a=\widehat e_b\), the coordinate derivative in \(t\)
+is \(I\).
+Any vertical tangent vector has a coordinate vector
+\(w=(dt_i)\).
+The jet (RE15) for that \(w\) has the same base, reduction
+and \(t_i\)-values as the given tangent vector.
+The final, formally unramified clause of
+Lemma~\ref{lem:ftb-relative-affine-coordinates}
+makes the two equal.
+This proves both tangent-bijection clauses for
+\(\widehat e_b\).
+More generally the same argument shows that such a
+holomorphic map has the two-way tangent correspondence
+exactly when its \(g\)-by-\(g\) coordinate derivative
+is injective, hence bijective.
+
+The family must now match the \emph{prescribed} central
+exponential, rather than an exponential with an arbitrary
+central normalization.
+Put
+\[
+             T_0=d\bigl(t\circ e_0\bigr)_0
+                         \in\operatorname{End}_{\mathbb C}(\mathbb C^g).
+\]
+The preceding coordinate characterization, applied to the
+supplied tangent correspondence for \(e_0\), makes \(T_0\)
+invertible.
+There is an analytic local lift \(\eta\) of \(e_0\)
+through \(\widehat e_{b_0}\), by (RE14), with \(\eta(0)=0\).
+Its derivative is \(T_0\).
+The difference
+\(\eta(v+w)-\eta(v)-\eta(w)\) tends to zero and lies in
+\(\ker\widehat e_{b_0}\).
+The uniform small-kernel assertion makes it zero near
+\((0,0)\).
+A continuous locally additive germ agrees with its derivative:
+extend it additively by dyadic division; the extension is
+real linear by continuity, and uniqueness of the real
+derivative identifies it with \(T_0\).
+Thus \(\eta=T_0\) near \(0\), so
+\(\widehat e_{b_0}T_0=e_0\) near \(0\), hence everywhere
+by additivity.
+Define
+\[
+                              e_b(v)=\widehat e_b(T_0v).
+\]
+This proves the exact central equality in (RE9).
+Surjectivity and both tangent clauses persist because
+\(T_0\) is invertible.
+Replace \(r_2\) by \(r_2/(\|T_0\|+1)\); the operator-norm
+inequality proves the uniform last clause of (RE9).
+
+Finally, let \(\beta,a,w_0,z_0\) be as in (RE10).
+The actual holomorphic point
+\[
+                     h_w=a_w\,e_{\beta(w)}(z_0)^{-1}
+\]
+equals the identity at \(w_0\), hence satisfies the finite
+tests and the logarithm-domain condition near \(w_0\).
+Formula (RE14) gives the explicit lift
+\[
+ \zeta(w)=T_0^{-1}L\bigl(\beta(w),
+                     t_{\beta(w)}^0(h_w)\bigr)+z_0.        \tag{RE16}
+\]
+It is analytic near \(w_0\), equals \(z_0\) there, and
+additivity plus (RE14) gives (RE10).
+This is the source's full local lifting clause.
+\end{proof}
+
+\paragraph{Frozen source ledger and next interface.}
+All the following files have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/},
+at \srcid{alpoge-source-7cbf7a0c}.
+The square-Jacobian construction (RE3), its finite tests
+and quotient factorization are
+\srcid{ExistsHolomorphicSections.lean}
+(\srcid{a288c7894564d55a8a32b1c04d9bcb42acd6d74b}).
+Passage to actual scheme points and formal-unramified
+dual-number uniqueness is
+\srcid{ExistsChartWithParameters.lean}
+(\srcid{868938f5f6aac923cd3bb1064cbbdb99fb0565c7}).
+The parameter inverse, uniform Cauchy estimate,
+\(5/8\) contraction, \(25/32\) geometric ratio,
+\(64/7\) tail, and slice-to-joint identity argument are
+\srcid{ExistsAnalyticParamInverse.lean}
+(\srcid{fa9a9ead5ef46d2371247240442ac56a161d68da}).
+The centered chart, actual local group law, global
+additive extension, uniform kernel ball and local inverse
+(RE14) are
+\srcid{AnalyticAtCoordinateZero.lean}
+(\srcid{361cb89abffd48f035e4b979aa93dcdba0af4250}).
+Its holomorphic product/pullback rules and additive germ
+uniqueness are
+\srcid{EventuallyEqOfAdditiveOfHasFDerivAt.lean}
+(\srcid{cecff5d92fc66f83c4e05e50aeee9e29a322ca8d}).
+The actual dual-number tangent construction and injective
+coordinate-derivative criterion are
+\srcid{VerticalDerivativeInCoordinates.lean}
+(\srcid{c407e0b090e2dd8b374aef3aaa0c1c245e280d29}).
+The full assembly, prescribed central equality and
+(RE16) are \srcid{ExistsRelativeExpOfParts.lean}
+(\srcid{7909f077337921a132a7554acdc1599b9c7f9c6d}),
+the theorem \srcid{RelExp.exists_relative_exp}.
+The connected-fibre supplier it actually invokes was
+proved in
+Proposition~\ref{prop:ftb-integral-complex-points-connected}.
+
+Thus the actual \srcid{RelExp.exists_relative_exp}
+interface, including its general \(\mathrm{HasLifts}\)
+clause and one uniform small-kernel radius, is established.
+It does not yet choose a common period lattice, transport
+the \(\mathcal O_E\)-action or level markings, or choose a
+theta frame in a family.  Those subsequent choices must
+use these same actual maps \(e_b\).

@@ -1,0 +1,239 @@
+\subsection{The bounded forms-through-points reconstruction}
+\label{subsec:ftb-bounded-flat-projective-reconstruction}
+
+We use the source's stronger density condition.
+A set \(P\) of prime ideals of \(R\) is \emph{very dense} if
+\[
+ \forall q\in\operatorname{Spec}R,\ \forall f\notin q,\
+ \exists p\in P:\quad q\subseteq p,\quad f\notin p.
+ \tag{M6}\label{eq:ftb-very-dense-primes}
+\]
+Thus every nonempty relative basic open in every irreducible
+closed subset meets \(P\).
+Ordinary density in \(\operatorname{Spec}R\) is not enough
+for the argument below.
+
+For a finite set \(\Sigma\), write \(A_e(R)=R[X_i:i\in\Sigma]_e\)
+for the finite free module of homogeneous forms of degree \(e\).
+For finitely many vectors \(p_h\in R^\Sigma\), indexed by a
+finite set \(\mathcal H\), set
+\[
+ E_d:A_d(R)\longrightarrow R^{\mathcal H},\quad
+             F\longmapsto(F(p_h))_h,\qquad
+             J_d(p)=(\ker E_d)\,R[X_i].
+ \tag{M7}\label{eq:ftb-bounded-vanishing-ideal}
+\]
+In particular \(J_d\) is generated in the single degree \(d\);
+it is not the ideal of all forms vanishing at the points.
+
+For a field map \(x:R\to K\), a homogeneous ideal \(I_x\)
+has \(\mathrm{CutBy}(Q,d,p_x)\) if, for every \(e\ge d\),
+\[
+ \dim_K(I_x)_e=Q(e),\qquad
+       (I_x)_e=(J_d(xp))_e.
+ \tag{M8}\label{eq:ftb-bounded-cutby}
+\]
+The polynomial \(Q\in\mathbb Q[T]\) therefore records the
+dimension of the \emph{ideal} part, not the quotient part.
+The integer \(d\), the point labels and \(Q\) are the same
+in every fibre used below.
+
+\begin{srlemma}[Very dense constant rank over a reduced ring]
+\label{lem:ftb-very-dense-projective}
+Let \(R\) be reduced, \(P\) very dense, and \(M\) a finite
+\(R\)-module.
+If \(\dim_{k(p)}(M\otimes_Rk(p))\) has the same value for
+all \(p\in P\), then \(M\) is finite projective.
+\end{srlemma}
+\begin{proof}
+At an arbitrary prime \(q\), finite generation gives a
+basic open neighborhood on which fibre dimension is at
+most its value at \(q\).
+Choose \(p\in P\) above \(q\) in this neighborhood by
+\eqref{eq:ftb-very-dense-primes}.
+Dimension cannot decrease on specialization from \(q\)
+to \(p\).
+The two inequalities force the fibre dimension at \(q\)
+to equal the prescribed constant.
+Thus the fibre dimension is locally constant everywhere.
+
+We spell out the reduced-ring step, which also proves
+finite presentation when \(R\) is not Noetherian.
+Lift a basis of the fibre at \(q\) to a map
+\(\varphi:R^r\to M\).
+After shrinking by \(f\notin q\), this map is fibrewise
+surjective and every fibre has dimension \(r\).
+For a relation \(v\in\ker\varphi\) and a prime \(l\) not
+containing \(f\), the fibre map is an isomorphism, so
+every coordinate of \(v\) belongs to \(l\).
+If \(l\) contains \(f\), it contains every coordinate of
+\(fv\) as well.
+Thus each coordinate of \(fv\) belongs to every prime
+of \(R\); reducedness gives \(fv=0\).
+After inverting \(f\) the map is injective.
+Its cokernel is finite with zero fibre at every prime
+in that open, so it is zero there.
+Hence \(M_f\simeq R_f^r\).
+These basic opens cover the spectrum.
+A finite subcover supplies finite presentation, and a
+finitely presented locally free module is projective.
+\end{proof}
+
+\begin{srproposition}[The actual flat projective family from bounded torsion forms]
+\label{prop:ftb-flat-projective-from-bounded-forms}
+Let \(R\) be reduced, \(\Sigma,\mathcal H\) finite, and
+let \(p_h\in R^\Sigma\), \(d\in\mathbb N\),
+\(Q\in\mathbb Q[T]\) be fixed.
+Suppose a very dense set \(P\) has, for every \(p\in P\),
+a field \(K\), a map \(x:R\to K\) with kernel \(p\), and
+a homogeneous ideal \(I_x\) satisfying
+\eqref{eq:ftb-bounded-cutby}.
+Then \(J=J_d(p)\) is finitely generated, and
+\[
+ \begin{split}
+ &(A_e(R)/J_e)\text{ is finite projective for every }e\ge d,\\
+ &J\,K[X_i]=J_d(xp)\quad\text{for every field map }x:R\to K.
+ \end{split}
+ \tag{M9}\label{eq:ftb-bounded-form-projectivity}
+\]
+There is a projective, flat, finitely presented scheme
+\(Z/R\), with its actual coordinate line and sections,
+representing the homogeneous ideal \(J\).
+For every further field map \(x:R\to K\) and every homogeneous
+ideal \(I_x\) satisfying \eqref{eq:ftb-bounded-cutby}, the
+coordinate representation of \(I_x\) is isomorphic to the
+actual fibre of \(Z\), compatibly with the line and all
+section-coordinate vectors.
+The same \(d,Q,p_h\) occur throughout.
+\end{srproposition}
+\begin{proof}
+Consider \(E_d\) in \eqref{eq:ftb-bounded-vanishing-ideal}.
+At a good prime, the degree-\(d\) clause in
+\eqref{eq:ftb-bounded-cutby} identifies
+\(\ker(E_d\otimes K)\) with \((I_x)_d\), of dimension \(Q(d)\).
+Consequently its cokernel has the fixed fibre dimension
+\[
+             |\mathcal H|-\bigl(\dim_K A_d(K)-Q(d)\bigr).
+\]
+Apply Lemma~\ref{lem:ftb-very-dense-projective} to this
+finite cokernel.
+It is projective.
+The exact sequence with target \(R^{\mathcal H}\) splits,
+making \(\operatorname{im}E_d\) projective.
+The surjection \(A_d(R)\to\operatorname{im}E_d\) then splits.
+Equivalently there is a generalized inverse \(s\) with
+\[
+                                  E_dsE_d=E_d.
+ \tag{M10}\label{eq:ftb-evaluation-generalized-inverse}
+\]
+The projection \(1-sE_d\) has image \(\ker E_d\).
+This kernel is finite projective and commutes with
+\emph{every} base change, since the displayed splitting
+survives tensor product.
+The ideal it generates is therefore finitely generated,
+and for every field map its extension is exactly the
+ideal generated by the new degree-\(d\) evaluation kernel.
+This proves the second assertion of
+\eqref{eq:ftb-bounded-form-projectivity}; it is not an
+unjustified assertion that kernels commute with field
+specialization.
+
+At a good prime and any \(e\ge d\), the fibre of
+\(A_e(R)/J_e\) now has dimension
+\(\dim_KA_e(K)-Q(e)\), by
+\eqref{eq:ftb-bounded-cutby}.
+Homogeneous-part formation commutes with the field map:
+write a polynomial as the sum of its homogeneous parts,
+and project to degree \(e\).
+The relevant module is a quotient of the finite module
+\(A_e(R)\), so it is finite.
+Lemma~\ref{lem:ftb-very-dense-projective} makes it
+projective.
+This proves the first assertion.
+
+Construct the homogeneous projective coordinate scheme
+of \(J\), as in the preceding subsection.
+Finite generation of \(J\) gives finite presentation
+on every standard coordinate chart.
+We give the exact flat-chart argument used in the source.
+On the \(i\)-th chart its coordinate evaluation has
+\(X_i=1\).
+Given a finite linear relation
+\(\sum_a r_az_a=0\) in this chart, represent the \(z_a\)
+by homogeneous forms and homogenize them all to one
+degree by powers of \(X_i\).
+The homogeneous relation vanishes after localization,
+so some additional power \(X_i^k\) puts it in \(J\).
+Multiply further by \(X_i^d\).
+The relation is now a relation in the projective
+module \(A_{d+k+e}(R)/J_{d+k+e}\).
+Its flatness expresses it as a trivial relation there:
+the representative vector is a linear combination of
+vectors of coefficients whose scalar combinations
+vanish.
+Evaluate these representatives at \(X_i=1\).
+The same trivial-relation presentation is obtained for
+the original chart relation.
+This is the finite-relations criterion for flatness.
+Thus every chart, and therefore \(Z/R\), is flat.
+
+Finally fix one \(I_x\) as in the assertion.
+The two homogeneous ideals \(I_x\) and \(J_d(xp)\)
+have the same parts in all degrees \(e\ge d\).
+They consequently have the same projective coordinate
+functor on all \(K\)-algebras.
+Here is the lower-degree check.
+If a homogeneous form \(F\) has degree below \(d\),
+multiply it successively by coordinate variables.
+Once its degree reaches \(d\), the required vanishing
+is known.
+If every \(v_iF(v)\) vanishes and the coordinates
+\(v_i\) generate the unit ideal, then \(F(v)=0\).
+Descending the degree proves the same assertion for
+\(F\) itself.
+Taking homogeneous parts handles arbitrary forms.
+Hence an arbitrary unimodular coordinate vector
+vanishes on one ideal if and only if it vanishes on
+the other.
+The coordinate representability identities give an
+isomorphism of the two projective schemes.
+On local coordinate frames it preserves the ratios of
+the sections, so it gives the actual line-bundle
+isomorphism and equality of section coordinates.
+Together with the already proved base change of \(J\),
+this identifies it with the fibre of \(Z\).
+\end{proof}
+
+This proposition is the source's bounded-degree reconstruction,
+rather than a Hilbert--Samuel or generic extension substitute.
+Its next actual application still requires the source to supply
+one degree \(d\), one polynomial \(Q\), and the precise marked
+torsion coordinate vectors cutting every permitted theta
+fibre.  The analogous graph application needs the corresponding
+uniform graph-cut statements.  Those suppliers have not been
+asserted merely by proving the algebra above.
+
+\paragraph{Frozen source concordance.}
+The very-dense condition, \(\mathrm{dimDeg}\),
+\(\mathrm{vanIdeal}\) and \(\mathrm{CutBy}\) are defined in
+\srcid{src/Development/AbelianVarietyTheory/Definitions/ModuliSpaces/%
+FiniteHomogeneousInf.lean}
+(\srcid{1a1beedf08bb1a0f2369c22fa441010a9df8d31b}).
+The reduced constant-rank splitting is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/%
+ProjectiveCokerOfIsLocallyConstantFinrankRange.lean}
+(\srcid{044befc172ee0d741f991579401dacb0c1aa5164}).
+The actual evaluation map, generalized inverse, base-change
+kernel and high-degree projectivity are in
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/%
+HomogeneousComponentMemVanIdeal.lean}
+(\srcid{8098091c209f1f8e587027647f17f7df83182d0c}).
+The flat standard-chart calculation is
+\srcid{ExistsProjCoordRepresentationHomogeneousIdealFla.lean}
+(\srcid{5b0ceb928553b508f4c65e5c8a63dab7f5ceefdc}),
+in the same proof directory.
+The exact all-fibre assembly and lower-degree argument are
+\srcid{ExistsFlatProjectiveThroughPointsGoodFibres.lean}
+(\srcid{d1a5d3c35301a311389973b14729a24844b62260}).
+These are actual producer bodies, with reducedness,
+very density and the same degree/polynomial retained.

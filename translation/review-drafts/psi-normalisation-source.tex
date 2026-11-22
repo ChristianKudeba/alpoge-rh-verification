@@ -1,0 +1,345 @@
+\section{The primitive theta coefficient and integral degeneration scalars}
+\label{sec:faithful-psi-normalisation}
+We now print the coefficient argument in
+\srcid{ExistsDegDataPsiOfSectionNonzeroFibres}, with the same
+preuniformisation, complete-discrete-valuation-ring comparison and
+nonzero theta section. The argument proves integrality, strict
+positivity and adic finiteness of the actual degeneration scalars.
+It retains the earlier expansion-existence and generator-comparison
+producers specified below; it does not infer their existence from a
+formal Fourier series.
+
+Let \(R\) be a normal Noetherian local domain, complete for the
+source's proper prime ideal \(I\), and let \(K=\operatorname{Frac}(R)\).
+Let \(R\hookrightarrow V\) be the actual injective comparison with a
+complete discrete valuation ring, with
+\[
+                        \mathfrak m_V\cap R=I.
+ \tag{PN1}\label{eq:psi-normalisation-centre}
+\]
+Retain the actual preliminary data \(D,U\) over \(R\), actual full
+degeneration datum \(D'\) and uniformisation over \(V\), and the
+comparison \(C\) of their abelian quotients, cubical lines, character
+lattices, coordinates and rigidifications.
+The character-lattice map of \(C\) is the specified isomorphism
+\(X'\simeq X\).
+
+\subsection{The actual expansion and generator comparisons}
+Take the section \(\sigma\) supplied by
+\(\operatorname{ThetaNZ}\), nonzero on every fibre of the actual
+family. Its complete-base expansion is \(f=(f_\alpha)_{\alpha\in X}\)
+at line power one.
+Use the actual comparison to obtain its expansion \(f'\) over
+\(V\); the two expansions satisfy the source's
+\(\operatorname{SecCmp}\) with the same quotient map, generating
+line comparison and lattice isomorphism.
+The full uniformisation over \(V\) gives the actual relation
+\(\operatorname{PsiRel}(D',f')\).
+
+There is a nonzero term of \(f'\): the finite expansion at the
+closed fibre is a unit at some local point, and a finite sum of
+nonunits in a local ring cannot be a unit.
+The \(\operatorname{PsiRel}\) translations then make every
+term \(f'_\alpha\) nonzero. Indeed the translations and their
+specified line factors are invertible, and the character-lattice
+translation relating any two labels is a bijection.
+Every term \(f_\alpha\) is consequently nonzero too.
+If all local coefficients of one of them were zero, the
+\(\operatorname{SecCmp}\) equality would make every local
+coefficient of the corresponding \(f'_\alpha\) zero: its other
+factor is a generating line coefficient, hence a unit.
+This is \srcid{ne_zero_of_secCmp}, and uses the actual
+section comparison rather than just a nonzero dimension count.
+
+The source's
+\srcid{exists_psi_psiRel} now supplies the new generic generators
+\(\psi_\chi\) with \(\operatorname{PsiRel}(D,f)\).
+This generator-construction result is retained here as a separate
+input; its conclusion includes the relation on every test scheme.
+The rigidification comparison and the same nonzero zero-label
+term identify the pullbacks of these generators with those of
+\(D'\). Thus one has the actual \(\operatorname{PsiCmp}\).
+Over the fraction fields the comparison is along an embedding:
+the map \(R\to V\) is injective, so its extension
+\(K\to\operatorname{Frac}(V)\) exists uniquely.
+The symmetry and bimultiplicative identities for the pulled-back
+generators therefore descend by injectivity.
+In particular the new preliminary datum has the actual
+\(\operatorname{PsiEven}\) and \(\operatorname{TauBimult}\).
+The source's line and lattice comparisons then give
+\(\operatorname{IsPullDeg}\) with exactly the original \(C.\beta\),
+\(C.v\) and \(C.xe\); these equalities remain part of the
+conclusion, not just an unspecified isomorphism.
+
+\subsection{The scalar coordinates and the exact coefficient ratio}
+For every \(\chi\), choose an integral generating section
+\[
+                 g_\chi\quad\hbox{of}\quad
+                      (c_\chi^*M)^{-1}.
+\]
+This is possible over the local ring \(R\), since an invertible
+module over a local ring is free of rank one.
+Write the actual generic generator as
+\[
+                          \psi_\chi=a_\chi g_\chi,
+                          \qquad a_\chi\in K^\times.
+ \tag{PN2}\label{eq:psi-normalisation-scalar}
+\]
+Ideal membership for the generator is then exactly
+\[
+ \operatorname{PsiIn}(\chi,J)
+   \ \Longleftrightarrow\
+     a_\chi\in\operatorname{image}(J\longrightarrow K)
+               \qquad(J\subset R).
+ \tag{PN3}\label{eq:psi-normalisation-ideal}
+\]
+To verify this equivalence in every chart, the coefficient of
+\(g_\chi\) is a unit, so membership of its multiple in the
+extended ideal is equivalent to membership of the scalar.
+Conversely evaluate the global rank-one trivialisation over
+\(\operatorname{Spec}R\) to recover the scalar.
+Changing an integral generator multiplies the scalar by an
+integral unit and preserves the ideal.
+This is the exact local content of
+\srcid{PsiScalIn.main_local}.
+
+Let \(\vartheta\) be the source's nonzero-fibre theta section on
+the abelian quotient. Its line-power-one comparison supplies
+\(q,b_\chi\in R\) with
+\[
+                  f_0=q\vartheta,\qquad
+                  \operatorname{Coef}
+                     (D,\chi,g_\chi,\vartheta,f_\chi,b_\chi).
+ \tag{PN4}\label{eq:psi-normalisation-coefficients}
+\]
+The second relation is the actual translated-section coefficient
+identity; its line factors are the prescribed ones.
+It is not a choice of an arbitrary coefficient functional.
+
+\begin{srlemma}[The source coefficient ratio]
+\label{lem:psi-normalisation-ratio}
+For all \(\chi\),
+\[
+                             q a_\chi=b_\chi
+                                      \quad\hbox{in }K.
+ \tag{PN5}\label{eq:psi-normalisation-ratio}
+\]
+\end{srlemma}
+\begin{proof}
+Choose a point in the nonzero locus of the generic fibre of
+\(\vartheta\), and work in its local ring.  Its theta coefficient
+\(t\) is a unit.  Evaluate the
+\(\operatorname{PsiRel}\) identity after translating by
+\(-c_\chi\), so that the subsequent translation by \(c_\chi\)
+returns to that same point. In consistent frames let
+\(s,s_0\) denote the coefficients of the two expansion terms,
+\(u\) the actual \(\psi_\chi\) coefficient, \(g\) its integral
+generator coefficient, and \(r\) the remaining prescribed
+invertible cubical factor.
+The four defining identities are precisely
+\[
+             s=ur\,s_0,\qquad u=a_\chi g,\qquad
+             s_0=qt,\qquad s=b_\chi(gr)t .
+\]
+All scalars are mapped from \(K\) into this same local ring.
+Substitution and cancellation of the unit \(grt\) give
+\(qa_\chi=b_\chi\) there. The map from the field \(K\) into a
+nonzero local \(K\)-algebra is injective, so the equality holds
+in \(K\).  This expands
+\srcid{psiScal_eq_ratio}, including the common stalk and the
+specific translating point needed for its cancellation.
+\end{proof}
+
+\begin{srlemma}[Positivity transported before division by \(q\)]
+\label{lem:psi-normalisation-positive-coefficients}
+For every nonzero \(\chi\in X\), \(b_\chi\in I\).
+\end{srlemma}
+\begin{proof}
+Let \(\chi'\) be its preimage under \(C.xe\). The full datum over
+\(V\) has \(\operatorname{PsiIn}(\chi',\mathfrak m_V)\).
+Choose its integral rank-one generator as in
+\eqref{eq:psi-normalisation-scalar}.
+Pulling \(g_\chi\) through the actual generating line
+comparison gives another integral generator on \(V\).
+The ratio of these two integral generators is a unit of \(V\).
+The equality \(\operatorname{PsiCmp}\) therefore says that the
+image of \(a_\chi\) in \(\operatorname{Frac}(V)\) is
+\(m_\chi\in\mathfrak m_V\): it is the product of the
+coefficient in \(\mathfrak m_V\) and that integral transition
+unit.
+Apply the fraction-field embedding to
+\eqref{eq:psi-normalisation-ratio}. It gives the integral
+identity
+\[
+                         \phi(b_\chi)=\phi(q)m_\chi .
+\]
+The right side lies in \(\mathfrak m_V\), since \(q\in R\).
+Equation~\eqref{eq:psi-normalisation-centre} gives
+\(b_\chi\in I\).
+This is the producer
+\srcid{scalar_mem_of_psiIn}. It requires no preliminary
+assumption that \(q\) is invertible.
+\end{proof}
+
+\subsection{Primitivity forces the zero-label coefficient to be a unit}
+\begin{srlemma}[An actual unit term on the closed fibre]
+\label{lem:psi-normalisation-unit-term}
+There are an actual test scheme \(T/R\), a point \(z\in T\)
+above the closed point of \(R\), compatible quotient frames,
+and a label \(\alpha\), such that the evaluated coefficient
+of \(f_\alpha\) is a unit at \(z\).
+Every element of \(I\) maps to zero at that same test point.
+\end{srlemma}
+\begin{proof}
+The section \(\sigma\) is nonzero on the closed fibre.
+Choose a point in its nonzero locus and pull it to the
+level-zero thickening \(G_0=G\times_R R/I\).
+Such a pullback point exists since \(I\) is contained in
+the maximal ideal of the local base.
+Use the actual torus quotient \(q_0\) and the actual
+generating line comparison of \(U\).
+The level-zero expansion is finite. In its common local
+frames it writes the unit value of \(\sigma\), multiplied
+by a generating unit, as a finite sum of coefficients of
+the \(f_\alpha\), multiplied by character units.
+If every summand were a nonunit, all would lie in the
+maximal ideal of this local ring, and so would their sum.
+Thus a summand is a unit, and hence its \(f_\alpha\)
+coefficient is a unit.
+Take \(T=G_0\) with its structural map to \(\operatorname{Spec}R\).
+It factors through \(R/I\), so all elements of \(I\) map
+to zero.  All these assertions use that same \(T,z\) and
+the same actual quotient frames.
+This is \srcid{exists_unit_term}.
+\end{proof}
+
+\begin{srproposition}[The primitive denominator is a unit]
+\label{prop:psi-normalisation-q-unit}
+The scalar \(q\) in \eqref{eq:psi-normalisation-coefficients}
+belongs to \(R^\times\). Consequently every \(a_\chi\)
+belongs to \(R\), and \(a_\chi\in I\) for \(\chi\ne0\).
+\end{srproposition}
+\begin{proof}
+Use Lemma~\ref{lem:psi-normalisation-unit-term}.
+If its label \(\alpha\) is nonzero,
+Lemma~\ref{lem:psi-normalisation-positive-coefficients}
+makes \(b_\alpha\in I\).
+The actual \(\operatorname{Coef}\) identity at the same point
+then evaluates \(f_\alpha\) to zero, since its scalar
+\(b_\alpha\) is zero there. This contradicts its being a unit.
+
+Hence \(\alpha=0\). Equation \(f_0=q\vartheta\) makes the image
+of \(q\) a unit in this local ring, since a factor of a
+unit product is a unit.
+Its structural map lies above the closed point of
+\(\operatorname{Spec}R\), so a nonunit of \(R\), belonging
+to \(\mathfrak m_R\), would map into the local maximal
+ideal.  Therefore \(q\) was already a unit in \(R\).
+Now \eqref{eq:psi-normalisation-ratio} gives
+\(a_\chi=q^{-1}b_\chi\in R\), and its positive-label
+ideal assertion follows because multiplication by a unit
+preserves \(I\).
+\end{proof}
+
+\subsection{The uniform adic finiteness assertion}
+\begin{srlemma}[The closed-fibre flat-stalk test]
+\label{lem:psi-normalisation-flat-stalk}
+If \(S\) is local, \(p:Z\to\operatorname{Spec}S\) is flat
+and \(z\) lies above its closed point, then
+\(S\to\mathcal O_{Z,z}\) is injective.
+\end{srlemma}
+\begin{proof}
+It is a flat local homomorphism and hence faithfully flat.
+A faithfully flat algebra has injective structural map:
+if \(s\) maps to zero, the inclusion of the cyclic ideal
+\((s)\) in \(S\) becomes zero after faithfully flat
+extension, and faithfulness forces \((s)=0\).
+This is \srcid{eq_zero_of_cst_eq_zero}.
+\end{proof}
+
+\begin{srproposition}[The actual expansion coefficients tend adically to zero]
+\label{prop:psi-normalisation-adic}
+For every \(e\geq0\) there is a finite set \(S_e\subset X\)
+such that \(b_\chi\in I^{e+1}\) whenever \(\chi\notin S_e\).
+\end{srproposition}
+\begin{proof}
+At level \(e\), the actual expansion condition gives a
+finite set \(S_e\) outside which the \(f_\chi\) coefficients
+vanish on \(G_e=G\times_R R/I^{e+1}\).
+Fix \(\chi\notin S_e\).
+Choose a point of the closed fibre of the abelian quotient
+at which \(\vartheta\) is nonzero.
+Translate it by \(-c_\chi\), and lift it to \(G_e\)
+through the actual surjective torus quotient.
+In the notation of the coefficient identity, the
+subsequent \(+c_\chi\) translation returns to the chosen
+nonzero-theta point. Thus at the lifted point \(z\) the
+coefficient of \(f_\chi\) is zero, while the product of
+the integral \(g_\chi\) coefficient, the prescribed
+cubical factors and the translated theta coefficient
+is a unit.
+The \(\operatorname{Coef}\) identity therefore makes the
+image of \(b_\chi\) zero in \(\mathcal O_{G_e,z}\).
+
+The base ring \(R/I^{e+1}\) is local, and \(z\) lies
+above its closed point. The map from \(G_e\) is smooth,
+hence flat, since it is a pullback of the actual
+semiabelian family. Lemma~\ref{lem:psi-normalisation-flat-stalk}
+therefore detects the coefficient:
+\(b_\chi\bmod I^{e+1}=0\).
+This proves the stated ideal membership.
+It is the exact same-point argument of
+\srcid{coef_mem_pow}; ordinary generic-point vanishing
+would not detect this integral ideal.
+\end{proof}
+
+\begin{srcorollary}[The positivity and finiteness fields of the actual datum]
+\label{cor:psi-normalisation-degdata}
+For the new \(\psi_\chi\),
+\[
+ \operatorname{PsiIn}(\chi,I)\quad(\chi\ne0),\qquad
+ \{\chi:\neg\operatorname{PsiIn}(\chi,I^n)\}\ \hbox{is finite}
+                                      \quad(n\geq0).
+\]
+Together with the descended \(\operatorname{PsiEven}\)
+and \(\operatorname{TauBimult}\), these are the added
+fields of the actual \(\operatorname{DegData}(R,I)\).
+The underlying preliminary objects and their
+comparison with \(D'\) are retained.
+\end{srcorollary}
+\begin{proof}
+Use \(a_\chi=q^{-1}b_\chi\) and
+\eqref{eq:psi-normalisation-ideal}.
+For finiteness, use Proposition~\ref{prop:psi-normalisation-adic}
+with \(e=n\) and
+\(I^{n+1}\subset I^n\); the exceptional labels lie in the
+finite set \(S_n\).  For \(n=0\), this argument also works
+with \(I^0=R\).
+Replacing \(\psi\) changes no field in the source's
+\(\operatorname{PreU}\) that records the quotient maps,
+coordinates, generic polarized variety or line on \(G\).
+The source transports those fields literally by
+\srcid{preWithPsi} and its comparison by
+\srcid{cmpWithPsi}. Thus the constructed datum has the
+specified original comparison maps.
+\end{proof}
+
+\paragraph{Precise source boundary.}
+The four elementary coefficient and ideal producers
+proved here are, at the frozen commit
+\srcid{7cbf7a0c32fca1badf05931879a37c3f8a2b03b4},
+\srcid{Development/AbelianVarietyTheory/Proofs/DegenerationProofs/PsiScalarEqExpansionCoefRatio.lean},
+\srcid{PsiScalarMemOfPsiMemIdeal.lean},
+\srcid{ExistsExpansionTermUnitClosedFibre.lean}, and
+\srcid{ExpansionCoefMemAdicPow.lean}.
+The opening assembly is
+\srcid{ExistsDegDataPsiOfSectionNonzeroFibres.lean}.
+It retains the actual complete-base expansion-existence
+theorem, fibrewise nonzero-section base change,
+the construction \srcid{exists_psi_psiRel}, its rigidification
+and generator comparisons, and their prescribed
+\(\operatorname{IsPullDeg}\) equalities.
+This chapter does not replace those producers by the
+primitive coefficient argument. The separate descent
+of the full expansion bijections remains necessary
+for the complete-local uniformisation in N3.

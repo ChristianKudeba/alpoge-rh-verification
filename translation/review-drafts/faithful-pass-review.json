@@ -1,6 +1,6 @@
 {
   "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
-  "updated_utc": "2026-11-22T02:26:00Z",
+  "updated_utc": "2026-11-22T02:35:00Z",
   "current_published_pages": 558,
   "whole_manuscript_complete": false,
   "entries": [
@@ -328,6 +328,93 @@
       "status": "review pending",
       "reviewer": null,
       "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
+    },
+    {
+      "key": "complexAny",
+      "blob": "f0c3b0822ab6291744bb1b8dbb91e9d3a6f496ca",
+      "path": "translation/review-drafts/theta-arbitrary-uniformisation-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "complexConnected",
+      "blob": "024c0249169d187bc1b4863792340f75597f1353",
+      "path": "translation/review-drafts/complex-connected-fibre-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "complexRelativeExp",
+      "blob": "5980e382de29aa1592444c1c132898bf0d48ddf8",
+      "path": "translation/review-drafts/theta-relative-exponential-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "complexPeriods",
+      "blob": "e3e422c49d02ff0ff774161bdbe4432e7d2e984e",
+      "path": "translation/review-drafts/theta-relative-period-action-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "keyMMPre",
+      "blob": "7bf95802e5b14b0c1129f2cc00c1ec23fb95d2e4",
+      "path": "translation/review-drafts/theta-fine-moduli-coordinate-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "keyFlatProjective",
+      "blob": "672b02cc6894c799f7600aae89857bf6d5b607de",
+      "path": "translation/review-drafts/theta-flat-projective-reconstruction-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "keyGraph",
+      "blob": "4205aef68205d90e006f9ca0ec8f1e0a46c54f8f",
+      "path": "translation/review-drafts/theta-graph-reconstruction-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "thetaCoverFourier",
+      "blob": "741a80d72a41a8260a1a5d128ec99a83ab157b3a",
+      "path": "translation/review-drafts/theta-cover-fourier-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "thetaAnalyticJets",
+      "blob": "b7321d5bc30bba5563925bf00f3029e383bd5dfe",
+      "path": "translation/review-drafts/theta-analytic-jets-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "thetaAnalyticChart",
+      "blob": "9db250e978e4d4e04e0e9d2c293313f273c9f782",
+      "path": "translation/review-drafts/theta-analytic-biextension-chart-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
+    },
+    {
+      "key": "psiNormalisationRoot",
+      "blob": "32fe6ca607e1e3b7dec67f0419bfd8a81c3959fe",
+      "path": "translation/review-drafts/psi-normalisation-source.tex",
+      "status": "review pending",
+      "scope": "Actual primitive coefficient, unit-generator transport, closed-fibre unit and flat-stalk adic arguments; complete expansion and comparison inputs retained."
     }
   ],
   "root_boundary": {

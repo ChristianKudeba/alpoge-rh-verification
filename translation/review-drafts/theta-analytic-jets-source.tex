@@ -1,0 +1,357 @@
+\subsection{Actual exponential jets and their frame generators}
+\label{subsec:ftb-actual-exponential-jets}
+
+We work at the same complex framed point \(y\), exponential \(e\),
+and analytic frames \(f_j\) as in the preceding comparison.
+More precisely the input is the original \(\mathrm{AnPt}(y,g,\mathrm{ty},\mathrm{el})\).
+Thus \(e:\mathbb C^g\to G_y(\mathbb C)\) is additive and surjective,
+the regular-function evaluations along \(e\) are holomorphic,
+and the nonvanishing \(f_j\) have the actual algebraic line
+transition functions, the specified origin rigidification and
+Appell--Humbert factors.
+For each \(a\in\mathcal O_E\),
+\[
+ e(\mathrm{tyAct}(a)z)=a\,e(z),\qquad
+ H(\mathrm{tyAct}(a)z,w)=H(z,\mathrm{tyAct}(\bar a)w).
+                                                               \tag{AJ1}
+\]
+The derivative in the coordinate direction
+\(e_{\mathrm{el}^{-1}\ell}\) is the original algebraic tangent
+vector \(y.u_\ell\), and these vectors form the actual Lie basis.
+This is an input tuple at this stage; the preceding fixed-fibre
+construction and the relative dictionary are its separate producers.
+
+For a finite set \(I\), put
+\[
+ J_m(I)=\mathbb C[Z_i:i\in I]/(Z_i:i\in I)^{m+1}.
+\]
+Its augmentation ideal is nilpotent and its residue field is
+\(\mathbb C\). It has just one prime ideal: every prime contains
+that nilpotent ideal, and the quotient is a field.
+The constant term detects units:
+\[
+                        u\in J_m(I)^\times
+                         \Longleftrightarrow u(0)\ne0.    \tag{AJ2}
+\]
+For a holomorphic germ \(h\) at \(0\), let \(j_mh\) be its
+Taylor polynomial modulo degree \(m+1\), with the usual factorials.
+Taylor multiplication and the local inverse identity give
+\[
+ j_m(hh')=(j_mh)(j_mh'),\quad
+ j_m(h^{-1})=(j_mh)^{-1}\quad(h(0)\ne0).                   \tag{AJ3}
+\]
+For an integer exponent \(\epsilon\), this also proves
+\(j_m(h^\epsilon)=(j_mh)^\epsilon\).
+All uses of inverse powers below are covered by this nonvanishing
+condition.
+
+\begin{srlemma}[The actual jet points and their linear substitutions]
+\label{lem:ftb-actual-exponential-jet-points}
+There is a unique jet point \(x_m:\operatorname{Spec}J_m(\{0\}\times[g])
+\to G_y\) whose value on every regular function \(a\) on an
+origin chart is
+\[
+                         x_m^*a=j_m(a(e(z))).             \tag{AJ4}
+\]
+It is exactly the source \(\Phi.jx(m)\).
+These points commute with truncation and have augmentation equal
+to the identity. For any \(n\), and any complex linear
+\(T:(\mathbb C^g)^n\to\mathbb C^g\), let \(x_{T,m}\) be the
+point defined by \(j_m(a(e(Tz)))\).
+Then, as actual scheme maps on the same jet algebra,
+\[
+ \begin{aligned}
+ x_{0,m}&=0,&
+ x_{T,m}+x_{T',m}&=x_{T+T',m},\\
+ a\,x_{T,m}&=x_{\mathrm{tyAct}(a)T,m},&
+ x_{\mathrm{pr}_i,m}&=\text{the \(i\)-th copy of }x_m.
+ \end{aligned}                                             \tag{AJ5}
+\]
+In multiplicative notation for the algebraic group, the zeros
+and sums in this display are its identity and products.
+\end{srlemma}
+
+\begin{proof}
+Choose an affine open containing \(e(0)\).
+The map from its coordinate ring in (AJ4) is a ring map by (AJ3).
+If a chart denominator has nonzero value at \(e(0)\), its jet
+has nonzero constant term, hence is invertible by (AJ2).
+The map therefore localizes correctly and is independent of the
+chosen chart. Since the jet spectrum has one point, every
+origin chart contains the whole jet image; equality there
+proves uniqueness as a map to the original scheme.
+Taylor truncation proves compatibility in \(m\), and the
+constant-term map evaluates at \(e(0)=0\).
+
+For the substitution by \(T\), one can identify
+\((\mathbb C^g)^n\) with \(\mathbb C^{ng}\) in the source's
+fixed order, apply (AJ4), and rename the variables by
+\((i,j)\mapsto\operatorname{finProdFinEquiv}(i,j)\).
+The source's map \(\mathrm{renN}\) is precisely this renaming.
+In particular copying the \(i\)-th column sends \(Z_j\) to
+\(Z_{(i,j)}\), with no scaling.
+The chain rule for a linear substitution gives the same result
+as direct Taylor substitution.
+
+Products of the two analytic maps \(e(Tz),e(T'z)\) are
+holomorphic as maps to the actual fibre product:
+on an affine product chart every regular function is a
+local quotient of finite sums of products of functions from
+the two factors. Taylor multiplication proves that its jet
+has the stated two jet points as its two projections.
+The fibre-product universal property identifies this jet with
+their algebraic pair.
+Composing with the algebraic group multiplication and using
+\(e(Tz)e(T'z)=e((T+T')z)\) proves the middle identity of (AJ5).
+The identity and copying statements are direct substitutions.
+The \(\mathcal O_E\)-action statement follows by composing with
+the actual algebraic action and using (AJ1).
+Thus (AJ5) is a statement about actual jets of the given
+exponential, rather than formal points with unrelated tangent
+vectors.
+\end{proof}
+
+\begin{srlemma}[The actual differential and formal-group chart]
+\label{lem:ftb-actual-jet-formal-chart}
+The points \(x_m\), additive formal group law
+\(F_i(Z,W)=Z_i+W_i\), diagonal action
+\(Z_i\mapsto\mathrm{ty}(i)(a)Z_i\), and directions
+\[
+                  u_\ell=e_{\mathrm{el}^{-1}\ell}
+\]
+satisfy the original \(\mathrm{IsChart}\) conditions.
+Moreover the exponential is immersive in the exact
+regular-evaluation sense: for every \(w\ne0\), some regular
+function on an actual identity chart has
+\[
+                         d(a\circ e)_0(w)\ne0.           \tag{AJ6}
+\]
+\end{srlemma}
+
+\begin{proof}
+The augmentation, truncation, group-law and action clauses
+are (AJ4)--(AJ5).
+Evaluating \(x_1\) at
+\(Z_j\mapsto\delta_{ji}\varepsilon\) gives the derivative
+of \(e\) in the \(i\)-th coordinate.
+By the \(\mathrm{AnPt.der}\) clause these are the actual
+\(y.u_\ell\), in exactly the order given by \(\mathrm{el}\).
+The one nonzero coefficient in a coordinate combination is
+therefore the required tangent clause; the coordinate vectors
+give the required basis clause.
+
+To prove (AJ6), suppose all regular-evaluation derivatives
+annihilate \(w\). Then the dual-number point associated to
+\(w\) equals the identity tangent vector: their affine
+coordinate-ring homomorphisms agree, and localization makes
+the statement independent of the affine identity chart.
+For completeness, additivity of \(e\) makes the derivative
+of a sum the product of the corresponding dual-number
+points; scaling \(w\) scales those points.
+Write \(w\) in the ordered coordinate basis.
+Its tangent point is consequently the linear combination
+of the \(y.u_\ell\) with coefficients
+\(w_{\mathrm{el}^{-1}\ell}\).
+The actual Lie-basis uniqueness at \(y\) makes all those
+coefficients zero, so \(w=0\), a contradiction.
+This is the source's \(\mathrm{anPt\_imm}\) argument.
+\end{proof}
+
+\begin{srlemma}[The actual tensor-line generator at the jets]
+\label{lem:ftb-actual-jet-generator}
+Let \(K\) be finite, let \(\epsilon_k\in\mathbb Z\), and suppose
+\(\phi_k=x_{T_k,m}\) as actual maps, with each \(T_k\) complex
+linear as above. The tensor line
+\[
+                        \bigotimes_{k\in K}\phi_k^*L^{\epsilon_k}
+\]
+has a generating section \(\tau\) whose local value is exactly
+\[
+                   \tau_{\mathbf j}
+                       =j_m\!\left(\prod_{k\in K}
+                                      f_{j_k}(T_kz)^{\epsilon_k}\right)
+                                                               \tag{AJ7}
+\]
+on every nonempty simultaneous line chart.
+This is the original \(\mathrm{JetRd}(m,\phi,\epsilon,\tau,T)\).
+\end{srlemma}
+
+\begin{proof}
+A nonempty chart of the jet spectrum is its whole one-point
+spectrum. For each \(k,j\) occurring on such a chart,
+\(f_j(T_k0)\ne0\); hence \(j_m(f_j(T_kz))\) is a unit.
+On two simultaneous charts the analytic frame identity is
+\[
+ f_j(T_kz)=g_{jj'}(e(T_kz))\,f_{j'}(T_kz).
+\]
+Take its Taylor jet, using (AJ3), and then the product with
+integer exponents \(\epsilon_k\).
+The resulting equality is exactly the transition rule for
+the tensor line, so the products in (AJ7) glue to a generator.
+On an empty chart the sections and units have their unique
+empty-open restrictions; this supplies the unused chart
+components without a nonvanishing assertion there.
+This is the source's construction
+\srcid{exists_gen_of_units}.
+In its global choice convention a unit is chosen from the
+nonzero constant term, and the value \(1\) is used on an
+unused chart; the resulting sections on all nonempty charts
+are still literally (AJ7).
+
+Taylor jets of products and negative powers are precisely
+(AJ3), so there is no unspecified scalar in (AJ7).
+The point identifications required by \(\mathrm{JetRd}\)
+are the previously proved (AJ5).
+\end{proof}
+
+In particular use \(K=\mathcal P(\{0,1\})\),
+\(T_I(z_0,z_1)=\sum_{i\in I}z_i\), and
+\(\epsilon_I=(-1)^{2-|I|}\).
+The tensor line in Lemma~\ref{lem:ftb-actual-jet-generator} has
+fibres
+\[
+                L_{z_0+z_1}L_0L_{z_0}^{-1}L_{z_1}^{-1}.
+                                                               \tag{AJ8}
+\]
+For each \(m\), (AJ7) gives a generator \(e_m\) of this exact
+line, with scalar reading \(1\).
+These are the actual \(\mathrm{FrTy}\) and
+\(\mathrm{IsAnE}\) witnesses.
+They are chosen for each \(m\); compatibility of the
+generators \(e_m\) with truncation is not asserted here.
+The later frame-correction argument treats that separate
+condition. The jet points \(x_m\) themselves are already
+compatible.
+
+\begin{srlemma}[Every section has its actual entire reading]
+\label{lem:ftb-actual-section-entire-reading}
+For every integer \(k\), an actual section \(s\) of \(L^k\)
+on \(G_y\) has a unique reading \(\theta_s\), characterized by
+\[
+                       s_j(e(z))=\theta_s(z)f_j(z)^k.     \tag{AJ9}
+\]
+It is entire and satisfies the exact Appell--Humbert
+transformation of weight \(k\).
+These statements use the given analytic frame even if \(k<0\).
+\end{srlemma}
+
+\begin{proof}
+Where \(e(z)\) lies in the \(j\)-th chart set
+\(\theta_s(z)=s_j(e(z))/f_j(z)^k\).
+The section and frame transitions cancel, so the quotients
+agree on every overlap and define one function.
+They are holomorphic and their denominators are nonzero,
+so the function is entire. This also proves uniqueness.
+
+To interpret the formula on the actual pullback group
+\(G_y\), use the point
+\(\widetilde e(z)=(y,e(z))\) of the fibre product.
+It has the specified two projections and is unique with
+these projections. Its regular-function evaluations are
+holomorphic by the same affine product-chart argument used
+in Lemma~\ref{lem:ftb-actual-exponential-jet-points}.
+Thus all evaluations in (AJ9) are evaluations of the
+original algebraic section on its specified pullback,
+as required by \(\mathrm{AnFr.Rd}\).
+A lattice translation leaves \(\widetilde e(z)\) unchanged.
+Substitute the actual frame automorphy into (AJ9) and
+cancel the nonzero \(f_j(z+\lambda)^k\).
+This gives
+\[
+             \theta_s(z+\lambda)
+                 =\left(\chi(\lambda)
+                   e^{\pi H(z,\lambda)+\pi H(\lambda,\lambda)/2}\right)^k
+                       \theta_s(z),
+\]
+including negative integer powers.
+\end{proof}
+
+\begin{srlemma}[Section value at the actual jet point]
+\label{lem:ftb-actual-section-jet-value}
+Let \(k\geq0\), let \(s\) be a section read by \(\theta_s\)
+as above, and let \(s_m\) be its actual pullback to
+\(\operatorname{Spec}J_m\times G_y\).
+Let \(\tau_m\) be a generator of \(x_m^*L^k\) satisfying
+the single-factor form of (AJ7), namely local value
+\(j_m(f_j^k)\). Then
+\[
+                         s_m(x_m)=(j_m\theta_s)\tau_m     \tag{AJ10}
+\]
+as sections on the actual jet spectrum.
+\end{srlemma}
+
+\begin{proof}
+The point-section map of \(x_m\), followed by the base-change
+map, is exactly the jet of \(\widetilde e(z)\): both
+projections agree, by (AJ4) and the fibre-product universal
+property. Pullback of \(s\) therefore has, on a chart
+containing its unique point, value
+\(j_m(s_j(e(z)))\).
+Equation (AJ9) holds on a neighborhood of \(0\); taking
+Taylor jets and applying (AJ3) gives
+\[
+             j_m(s_j(e(z)))=(j_m\theta_s)\,j_m(f_j^k).
+\]
+The last factor is the local value of \(\tau_m\).
+This proves (AJ10) on every nonempty chart and hence as a
+section. Equivalently it is the original
+\(\mathrm{IsValueAt}\) equality, including its actual
+\(\mathrm{IsPullSec}\) comparison.
+
+For the algebraic pullback used here, one can write its
+local sections directly by pulling \(s_j\) along the
+whiskered base-change map. Pullback commutes with the line
+transitions, so they glue, and their local values are the
+ones just used. Thus no section-base-change existence
+package is being substituted for this actual pullback.
+\end{proof}
+
+\paragraph{Frozen-source ledger and exact boundary.}
+All paths below are under
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/},
+at tag \srcid{alpoge-source-7cbf7a0c}.
+The tensor-line generator is
+\srcid{ExistsGeneratorJetReading.lean}
+(\srcid{5cdeef0a109f3b39ba472a5f3cef6dd37451e763}),
+declarations \srcid{exists\_gen\_of\_units},
+\srcid{jetOf\_zpow}, \srcid{exists\_gen\_jetRd}.
+The point and linear-copy identities are
+\srcid{CmFrameJetPointsAreExponentialJets.lean}
+(\srcid{2a8a59c5b32e86c0ca7dd90abcf0af55fc9b791a}),
+especially \srcid{AnFr.jetMap\_copy},
+\srcid{jetMap\_pair}, \srcid{jetMap\_mul},
+\srcid{jetMap\_comp} and \srcid{jetPts\_jetMap}.
+The precise additive-group chart is
+\srcid{CmFrameExponentialJetsIsChart.lean}
+(\srcid{870212bddd61199768c194c5fabf1c0e79d5a3ba});
+immersion is
+\srcid{AnalyticFrameExponentialImmersionAtOrigin.lean}
+(\srcid{4538758fbe3b48b610208aeddc0572a9a42109c6}).
+The actual pair generator (AJ8) is
+\srcid{ExistsAnalyticFrameJetPairIsAnE.lean}
+(\srcid{274006bc74b252eb3062b19c15d13c20306d24eb}),
+declarations \srcid{jetMap\_psum} and \srcid{exists\_isAnE}.
+The section-reading statement for all integer \(k\) is
+\srcid{SectionReadingExistsUniqueIsTheta.lean}
+(\srcid{ba5a7766ee7decf9687c5fadce279aaeedc35c87}).
+The actual section pullback and jet value are
+\srcid{IsValueAtJetPointCmFrameSection.lean}
+(\srcid{06fa42ad80cf3cbd76129e78a46214185b155aaf}),
+declarations \srcid{pullSecLP}, \srcid{isValueAt\_jet}
+and \srcid{isValueAt\_jetPt}.
+
+The tuple and predicates used here, including \(\mathrm{JetMap}\),
+\(\mathrm{JetRd}\), \(\mathrm{AnPt.IsAnE}\), and the ordered
+directions, are defined in
+\srcid{src/Development/AbelianVarietyTheory/Definitions/ThetaValues/ThConst.lean}
+(\srcid{6c3a9a8fe418f7bc2f68c52f28f27562066f1790}).
+The general Taylor-point construction \(\mathrm{jetPt}\) and
+its evaluation/localization rules are its imported holomorphic
+family calculus; (AJ2)--(AJ5) specify the specialization used here.
+The primitive isomorphism, its analytic scalar normalization,
+the two partial biextension laws, symmetry, adjointness, and the
+comparison of its induced line generator with \(\tau_m\) are
+not consequences of an arbitrary choice of generators in (AJ8).
+They are separate next leaves. Likewise, chart independence for
+two arbitrary algebraic \(\mathrm{ChartAt}\)'s remains the
+separate canonical chart-change proof.

@@ -1,0 +1,338 @@
+\subsection{Continuing the actual kernel lattice and coefficient action}
+\label{subsec:ftb-relative-period-kernel-action}
+
+Use the actual relative exponential \(e_b\) of
+Proposition~\ref{prop:ftb-actual-relative-exponential}, on
+an open neighborhood \(B\) of \(b_0\), including its
+\(\mathrm{HasLifts}\) clause and uniform radius \(r>0\).
+In particular \(G/X\) is separated.
+All period vectors in this subsection are vectors in
+the domain of these same actual maps \(e_b\).
+
+\begin{srlemma}[The source's lattice-continuation criterion]
+\label{lem:ftb-kernel-lattice-continuation}
+Let \(L\) be finite free over \(\mathbb Z\), let
+\(K_b\subset\mathbb C^g\) be additive subgroups, and let
+\(P_b:L\to\mathbb C^g\) be additive.
+Assume that on one open neighborhood \(B\) of \(b_0\):
+\[
+\begin{gathered}
+ z\in K_b,\ \|z\|<r\ \Longrightarrow z=0,\quad r>0,\qquad
+ P_b(L)\subset K_b;\\
+ P_{b_0}\text{ is injective},\quad
+ P_{b_0}(L)=K_{b_0},\quad
+                  \operatorname{span}_{\mathbb R}P_{b_0}(L)=\mathbb C^g.
+                                                               \tag{PK1}
+\end{gathered}
+Assume \(b\mapsto P_b(x)\) is continuous at \(b_0\) for every
+\(x\in L\), and the following sequential closedness:
+if \(b_j\to b_0\), \(z_j\to z\), \(z_j\in K_{b_j}\), then
+\(z\in K_{b_0}\).
+Then near \(b_0\),
+\[
+ P_b(L)=K_b,\qquad P_b\text{ is injective},\qquad
+ \operatorname{span}_{\mathbb R}P_b(L)=\mathbb C^g,\qquad
+                         P_b(L)\text{ is discrete}.        \tag{PK2}
+\]
+\end{srlemma}
+\begin{proof}
+The uniform small-vector condition makes each \(P_b(L)\)
+discrete: its intersection with \(B(0,r)\) is \(\{0\}\),
+and translate this open singleton through the subgroup.
+Choose a \(\mathbb Z\)-basis \(a_1,\ldots,a_s\) of \(L\).
+At \(b_0\) its image is a full real lattice, so its rank
+is the real dimension \(2g\).
+Hence \(s=2g\), and the vectors \(P_{b_0}(a_i)\) are a
+real basis.
+Continuity and openness of linear independence keep
+\(P_b(a_i)\) a real basis near \(b_0\).
+They already imply injectivity and real spanning.
+
+Suppose equality of the groups fails arbitrarily near \(b_0\).
+Choose \(b_j\to b_0\) and
+\(z_j\in K_{b_j}\setminus P_{b_j}(L)\), with the preceding
+real-basis property.
+Write \(z_j=\sum_i c_{ji}P_{b_j}(a_i)\).
+For every fixed integral vector \(n=(n_i)\), put
+\[
+ z_{j,n}=\sum_i(\operatorname{fract}(c_{ji})-n_i)P_{b_j}(a_i).
+                                                               \tag{PK3}
+\]
+It is \(z_j\) minus the period with coordinates
+\(\lfloor c_{ji}\rfloor+n_i\).
+Thus \(z_{j,n}\in K_{b_j}\setminus P_{b_j}(L)\).
+
+Pass to a subsequence on which all the fractional parts
+converge to \(c_i\in[0,1]\).
+Then \(z_{j,0}\to z_*=\sum_i c_iP_{b_0}(a_i)\).
+Sequential closedness and (PK1) give \(z_*=P_{b_0}(x)\)
+for some \(x\in L\).
+Let \(n_i\) be the \(\mathbb Z\)-coordinates of this fixed \(x\).
+Now \(z_{j,n}\to0\).
+For large \(j\), the uniform radius in (PK1) makes
+\(z_{j,n}=0\).
+This contradicts the nonmembership assertion following
+(PK3), since \(0\in P_{b_j}(L)\).
+It proves equality and all of (PK2).
+\end{proof}
+
+\begin{srproposition}[Holomorphic continuation of the full actual kernel]
+\label{prop:ftb-holomorphic-full-period-kernel}
+Let \(L\) be finite free over \(\mathbb Z\), and prescribe
+an injective additive \(P_0:L\to\mathbb C^g\) whose image
+is the full kernel of \(e_{b_0}\) and spans \(\mathbb C^g\)
+over \(\mathbb R\).
+After shrinking \(B\), there are additive \(P_b:L\to\mathbb C^g\)
+such that \(P_{b_0}=P_0\), every \(P_b(x)\) is holomorphic
+in \(b\), and (PK2) holds with \(K_b=\ker e_b\).
+\end{srproposition}
+\begin{proof}
+For a fixed \(\mathbb Z\)-basis \(a_i\), apply the actual
+\(\mathrm{HasLifts}\) clause to the identity section, with
+the prescribed central lift \(P_0(a_i)\).
+It gives analytic vectors \(v_i(b)\), with
+\[
+              v_i(b_0)=P_0(a_i),\qquad e_b(v_i(b))=1
+\]
+near \(b_0\).
+There are only finitely many basis vectors.
+Shrink once to enforce these equations and analyticity
+for all of them, and define \(P_b\) by integral linear
+extension.
+Then \(P_{b_0}=P_0\), each \(P_b(x)\) is holomorphic, and
+\(P_b(L)\subset\ker e_b\).
+
+The kernel family has the required sequential closedness.
+If \(e_{b_0}(z)\ne1\), the pair \((b_0,z)\) lies in the
+open inverse image of the complement of the algebraic
+identity section.
+The identity section is closed since \(G/X\) is separated.
+For actual complex points, factoring through that section
+is equivalent to being the identity point in the fibre:
+pull back the closed immersion to the reduced
+\(\operatorname{Spec}\mathbb C\).
+Thus the set \(e_b(z)\ne1\) is open in the actual
+regular-evaluation topology.
+A convergent sequence of kernel points cannot have such
+a limit.
+The common small-kernel radius is supplied by (RE9).
+Lemma~\ref{lem:ftb-kernel-lattice-continuation} now proves
+that these continued basis periods generate the entire
+kernel, with all clauses of (PK2).
+\end{proof}
+
+\begin{srlemma}[Holomorphic lifts of the actual coefficient action]
+\label{lem:ftb-holomorphic-coefficient-action}
+Let \(\mathcal O\) be a commutative ring acting by
+algebraic group endomorphisms on the given \(G/X\).
+There are ring homomorphisms
+\(F_b:\mathcal O\to M_g(\mathbb C)\), with all entries
+holomorphic in \(b\), for which
+\[
+              e_b(F_b(a)v)=[a]e_b(v)
+                       \quad(a\in\mathcal O,\ v\in\mathbb C^g).
+                                                               \tag{PK4}
+\]
+\end{srlemma}
+\begin{proof}
+First fix one algebraic group endomorphism \(f\).
+At any \(b_1\in B\), apply \(\mathrm{HasLifts}\) on
+the parameter space \(B\times\mathbb C^g\) to
+\((b,v)\mapsto f(e_b(v))\), with central lift \(0\)
+at \((b_1,0)\).
+The resulting jointly analytic lift is \(\zeta(b,v)\).
+Its derivative in \(v\) at \(0\),
+\[
+                              A_b=d_v\zeta(b,0),            \tag{PK5}
+\]
+is holomorphic in \(b\), because derivatives of jointly
+analytic maps are analytic.
+
+For a fixed nearby \(b\), the germ \(\zeta_b\) lifts the
+additive map \(v\mapsto f(e_b(v))\).
+Subtract \(\zeta_b(0)\), which belongs to \(\ker e_b\).
+The difference between this germ at \(v+w\) and the sum
+at \(v,w\) lies in \(\ker e_b\) and tends to \(0\).
+The small-kernel radius makes it locally additive.
+The additive-germ argument therefore makes its global
+linear lift equal to the derivative (PK5).
+It follows that
+\[
+                                  e_b(A_bv)=f(e_b(v))
+\]
+for every \(v\).
+A linear lift is unique: the difference of two lifts
+takes values in the discrete subgroup \(\ker e_b\);
+restriction to a real line makes that difference zero.
+Thus lifts constructed near different \(b_1\) agree
+on overlaps.
+They give one holomorphic matrix-valued lift for \(f\).
+
+Apply this to each actual \([a]\), \(a\in\mathcal O\).
+Uniqueness of lifts transfers the algebraic identities
+\([1]=1\), \([a+a']=[a]+[a']\), and
+\([aa']=[a][a']\) into the matrix identities for
+\(F_b\).
+Here addition of endomorphisms is the pointwise group
+product, so additivity of \(e_b\) gives exactly matrix
+addition.
+This proves that \(F_b\) is a ring homomorphism and
+establishes (PK4), including holomorphicity of every entry.
+\end{proof}
+
+\begin{srlemma}[The source's holomorphic simultaneous diagonalization]
+\label{lem:ftb-holomorphic-diagonalization}
+Suppose \(\mathcal O\) is finite as a \(\mathbb Z\)-module
+and \(\mathbb C\otimes_{\mathbb Z}\mathcal O\) is reduced.
+Let \(F_b\) be a holomorphic family of matrix representations.
+Suppose its central value is
+\[
+                        F_{b_0}(a)=D(a)
+                           :=\operatorname{diag}(\tau_i(a))_i
+                                                               \tag{PK6}
+\]
+for ring maps \(\tau_i:\mathcal O\to\mathbb C\).
+There is a holomorphic invertible matrix \(h_b\), with
+\(h_{b_0}=I\), such that
+\[
+                               F_b(a)h_b=h_bD(a)             \tag{PK7}
+\]
+on a neighborhood of \(b_0\).
+Repeated characters \(\tau_i\) are allowed.
+\end{srlemma}
+\begin{proof}
+Put \(C=\mathbb C\otimes_{\mathbb Z}\mathcal O\).
+It is a finite-dimensional reduced commutative
+\(\mathbb C\)-algebra, hence Artinian and semisimple.
+For every character \(\tau:\mathcal O\to\mathbb C\),
+extend it to \(\widehat\tau:C\to\mathbb C\).
+Its kernel is an ideal generated by an idempotent \(f_\tau\).
+Put \(e_\tau=1-f_\tau\).
+Then
+\[
+ \widehat\tau(e_\tau)=1,\qquad
+              (1\otimes a)e_\tau=\tau(a)e_\tau
+                                    \quad(a\in\mathcal O). \tag{PK8}
+\]
+Indeed \((1\otimes a)-\tau(a)\) lies in the kernel
+\((f_\tau)\), and multiplication by \(1-f_\tau\) kills it.
+
+Extend \(F_b\) complex linearly to \(\widehat F_b:C\to M_g(\mathbb C)\).
+Every entry \(\widehat F_b(c)_{ij}\) is holomorphic,
+by writing \(c\) as a finite sum of simple tensors.
+Let the \(j\)-th column of \(h_b\) be
+\[
+                              \widehat F_b(e_{\tau_j})\,\mathbf e_j.
+\]
+At \(b_0\), (PK6) makes this column \(\mathbf e_j\),
+since its \(j\)-th entry is
+\(\widehat\tau_j(e_{\tau_j})=1\).
+Thus \(h_{b_0}=I\), even when some of the characters repeat.
+Apply \(\widehat F_b\) to (PK8) to obtain (PK7)
+column by column.
+Holomorphicity and \(h_{b_0}=I\) allow restriction to the
+open set \(\det h_b\ne0\).
+\end{proof}
+
+\begin{srproposition}[The same kernel with the fixed diagonal action]
+\label{prop:ftb-fixed-diagonal-period-continuation}
+Assume \(L\) is also an \(\mathcal O\)-module, with
+\(\mathcal O\) as in the preceding lemma.
+Prescribe the central diagonal action (PK6), and suppose
+\[
+                     P_0(ax)=D(a)P_0(x).
+\]
+After shrinking to one ball \(C_0\) about \(b_0\), set
+\[
+                  P'_b=h_b^{-1}P_b,\qquad e'_b(v)=e_b(h_bv).
+                                                               \tag{PK9}
+\]
+Then \(P'_{b_0}=P_0\), \(e'_{b_0}=e_0\);
+the periods and exponentials are holomorphic in their
+actual respective variables; and
+\[
+\begin{gathered}
+ \ker e'_b=P'_b(L),\quad P'_b\text{ is injective, discrete
+ and real spanning};\\
+ P'_b(ax)=D(a)P'_b(x),\qquad
+                    e'_b(D(a)v)=[a]e'_b(v).               \tag{PK10}
+\end{gathered}
+The two vertical tangent-bijection clauses hold for \(e'_b\).
+\end{srproposition}
+\begin{proof}
+Choose a ball where the preceding full-kernel and
+diagonalization conclusions hold.
+For each \(a,x\), the continuous vector
+\[
+                         d_b=P_b(ax)-F_b(a)P_b(x)
+\]
+belongs to \(\ker e_b\), by (PK4), and \(d_{b_0}=0\).
+Its norm is either \(0\) or at least \(r\), by the common
+small-kernel condition.
+On the connected ball, the intermediate value theorem
+for this continuous norm forbids a nonzero value:
+otherwise the norm would take the value \(r/2\).
+Hence \(P_b(ax)=F_b(a)P_b(x)\) for every \(a,x\).
+There is no infinite intersection of smaller neighborhoods
+here; connectedness proves each equality on the same ball.
+
+Now use \(F_b(a)h_b=h_bD(a)\) and (PK9) to obtain the two
+identities (PK10).
+Matrix inversion is holomorphic on the nonzero-determinant
+open set, so all \(P'_b(x)\) are holomorphic.
+Composition by \((b,v)\mapsto(b,h_bv)\) proves joint
+regular-evaluation holomorphicity of \(e'_b\).
+The complex linear isomorphism \(h_b\) identifies the old
+and new kernels, preserving injectivity, full real span
+and discreteness.
+The same chain rule and its inverse preserve the two
+tangent-bijection clauses.
+Central equality follows from \(h_{b_0}=I\).
+\end{proof}
+
+For the actual host packet \(\mathcal O=\mathcal O_E\),
+the reducedness premise in the diagonalization lemma holds.
+Indeed \(\mathbb C\otimes_{\mathbb Z}E\) is reduced:
+\(\mathbb Q/\mathbb Z\) is a localization and
+\(E/\mathbb Q\) is finite separable, so the resulting
+formally unramified complex algebra is reduced.
+Flatness of \(\mathbb C\) over \(\mathbb Z\) makes
+\(\mathbb C\otimes\mathcal O_E\to\mathbb C\otimes E\)
+injective; a subring of a reduced ring is reduced.
+For the actual \(D'.L\), finiteness over \(\mathbb Z\)
+follows from finiteness over \(\mathcal O_E\), and its
+integral freeness is the one in the source datum.
+
+\paragraph{Frozen source concordance and remaining transport.}
+The files below are under
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/}
+at \srcid{alpoge-source-7cbf7a0c}.
+The compact fractional-coordinate proof (PK3) is
+\srcid{LatContMapContinuous.lean}
+(\srcid{699599b2518f18b81e3153c10863eaef229a3063}),
+the theorem \srcid{latContinuation}.
+The actual lifting, full-kernel equality and final
+coordinate change are
+\srcid{HolomorphicMapModuliLiftsLocallyToPeriods.lean}
+(\srcid{d24831bc0c201893d335bf4e390212761ac34d21}),
+notably \srcid{LocLift.exists_periods} and the corresponding
+steps in \srcid{LocLift.holomorphic_map_lifts_to_periods}.
+The algebraic identity-section closedness, linear-germ
+lift uniqueness and norm-gap intermediate-value argument
+are in \srcid{ExistsLinearEquivLift.lean}
+(\srcid{41cc1a3d8251322b2e8ac7a2c9b0c1878dac3601}).
+The actual derivative lift (PK5), its overlap uniqueness
+and the ring representation are
+\srcid{ExistsHolLinearLift.lean}
+(\srcid{600ba2a17fe895a89eb8de8c2fa5ddc5e6784cc5}).
+The exact idempotent-column construction (PK8) is
+\srcid{DifferentiableOnComplexExtend.lean}
+(\srcid{eb1cdb3dc7d703cef6026e1330a10afe231f97e9}).
+
+This proves continuation of the actual full period kernel
+and its \(\mathcal O_E\)-action, with the original central
+maps unchanged.
+The integer polarization form, the Weil relations for all
+torsion orders, and the two specified finite-level markings
+are transported in the next step; they have not been
+inferred merely from (PK10).

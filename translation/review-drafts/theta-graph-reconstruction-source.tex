@@ -1,0 +1,239 @@
+\subsection{Reconstructing the actual morphism from bounded graphs}
+\label{subsec:ftb-bounded-graph-reconstruction}
+
+The next lemma records the properness and flatness argument needed
+to turn the reconstructed projective graph into a morphism.
+It is important here that the good primes satisfy
+\eqref{eq:ftb-very-dense-primes}.
+
+\begin{srlemma}[A proper flat fibrewise-isomorphism test]
+\label{lem:ftb-proper-flat-good-fibre-iso}
+Let \(R\) be Noetherian, let \(X/R\) be proper and flat, and
+let \(f:\Gamma\to X\) be proper with \(\Gamma/R\) flat.
+Suppose a very dense set \(P\) has, at each \(p\in P\),
+a field map \(x:R\to K\) with kernel \(p\) for which
+\(f_K\) is an isomorphism.
+Then \(f\) is an isomorphism.
+\end{srlemma}
+\begin{proof}
+We first explain how a property local on the target is
+promoted from neighborhoods over the good primes.
+Let \(W\subset X\) be the union of open sets on which
+that property holds.
+If \(W\ne X\), properness makes the image in
+\(\operatorname{Spec}R\) of the closed complement \(X\setminus W\)
+closed.
+For a point of that image, choose a good prime above it
+by \eqref{eq:ftb-very-dense-primes}, taking \(f=1\)
+there.  The good prime remains in the closed image,
+contradicting the assumed local property over that good
+fibre.
+Thus neighborhoods of all points over the good primes
+suffice.
+
+First apply this argument to finiteness.
+For a point \(z\in X\) over a good prime, pull to the
+given field \(K\).
+Since \(f_K\) is an isomorphism, the fibre over \(z\)
+has at most one point.
+A proper morphism with finite fibre at \(z\) is finite
+over a neighborhood of \(z\).
+Thus the preceding argument makes \(f\) finite.
+
+On a target affine chart, write it as a finite ring map
+\(A\to B\).
+At a point of a good fibre the base-changed map is
+surjective.
+Its finite cokernel \(C=B/A\) has zero fibre there.
+The support criterion for a finite module gives
+\(a\in\operatorname{Ann}_A C\) not vanishing at that
+point.  After inverting \(a\), the ring map is surjective.
+Thus \(f\) is a closed immersion near every point of
+every good fibre, and the preceding argument makes it
+a closed immersion globally.
+
+Now \(I=\ker(A\to B)\) is finite because \(A\) is
+Noetherian.
+The local ring \(B\) is flat over \(R\), since its
+scheme is an open subset of \(\Gamma\).
+Tensoring \(0\to I\to A\to B\to0\) with the field \(K\)
+therefore preserves injectivity on the left.
+Injectivity of the good fibre ring map makes
+\(I\otimes_RK=0\).
+At the chosen point above this fibre, finite generation
+again supplies an annihilator \(a\) not vanishing there.
+The localized map has zero kernel and is already
+surjective; it is an isomorphism.
+A final application of the open-set argument proves
+the lemma.
+The argument uses flatness of the source to remove
+the closed-immersion kernel; properness and good
+set-theoretic fibres alone would not suffice.
+\end{proof}
+
+For a projective coordinate representation
+\((Z_i,M_i,\vartheta_i)\), and a fibre morphism
+\(f:(Z_1)_K\to(Z_2)_K\), define its homogeneous
+\emph{graph ideal} to be the polynomials vanishing on
+every product coordinate vector
+\[
+                  (v_{1,i}v_{2,j})_{(i,j)}
+\]
+obtained on any \(K\)-algebra test scheme from the two
+actual line-section coordinates along \(1\) and \(f\).
+This is the source's \(\mathrm{graphIdeal}\).
+Equivalently it is the homogeneous ideal of the graph
+under the Segre coordinate representation.
+The graph is closed because \(Z_2\) is separated; its
+coordinate line is \(M_1\otimes f^*M_2\) on \((Z_1)_K\).
+
+\begin{srproposition}[The actual same-degree bounded graph producer]
+\label{prop:ftb-morphism-from-bounded-graphs}
+Let \(R\) be reduced and Noetherian.
+Let \(Z_1,Z_2\) be proper \(R\)-schemes with projective
+coordinate representations
+\((M_i,\vartheta_{i,a})\), indexed by finite sets
+\(\Sigma_i\), and assume \(Z_1/R\) smooth.
+Fix a finite label set \(\mathcal H\), vectors
+\(p_{i,h}\in R^{\Sigma_i}\), one degree \(d\), and one
+polynomial \(Q\in\mathbb Q[T]\).
+For each field map \(x:R\to K\), let \(G(K,x)\) be a
+specified collection of \(K\)-morphisms
+\(f:(Z_1)_K\to(Z_2)_K\).
+Assume:
+\[
+ \begin{gathered}
+ \text{every }f\in G(K,x)\text{ has graph ideal satisfying}\\
+ \mathrm{CutBy}\bigl(Q,d,
+        (x(p_{1,h,a}p_{2,h,b}))_{h,(a,b)}\bigr),\\
+ \{p:\exists K,x,f\in G(K,x),\ \ker x=p\}
+                   \text{ is very dense}.
+ \end{gathered}
+ \tag{G1}\label{eq:ftb-bounded-graph-data}
+\]
+Then there is an actual morphism \(F:Z_1\to Z_2\)
+whose pullback is every one of the specified \(f\).
+It uses exactly the same \(d,Q\) and coordinate products
+in \eqref{eq:ftb-bounded-graph-data}.
+\end{srproposition}
+\begin{proof}
+Apply
+Proposition~\ref{prop:ftb-flat-projective-from-bounded-forms}
+to the product vectors
+\((p_{1,h,a}p_{2,h,b})_{(a,b)}\).
+It gives a projective flat finitely presented
+\(\Gamma/R\).
+For every specified \(f\), its fibre is identified with
+the actual graph of \(f\), with the line and all product
+section-coordinate vectors preserved.
+In particular \(\Gamma_K\simeq(Z_1)_K\) for every such
+good field pullback.
+
+The scheme \(\Gamma/R\) is smooth.
+Indeed its nonsmooth locus is closed, and properness
+makes its image in \(\operatorname{Spec}R\) closed.
+It cannot meet a good prime, since at that prime its
+fibre is the smooth scheme \((Z_1)_K\), and a flat
+finitely presented map is smooth at a point if its
+geometric fibre is smooth there.
+If the closed image were nonempty, its stability
+under specialization and very density would force it
+to meet a good prime.
+Thus the nonsmooth locus is empty.
+Since \(R\) is reduced, \(\Gamma\) is reduced.
+
+The two coordinate representations give an actual
+Segre representation of \(Z_1\times_RZ_2\).
+Every homogeneous equation of this product vanishes
+on the product coordinates of the good graph fibres.
+It therefore vanishes on \(\Gamma\).
+Here is the exact density step.
+The inverse image of the good prime set is dense:
+the flat finitely presented map \(\Gamma\to\operatorname{Spec}R\)
+is open, so every nonempty open of \(\Gamma\) maps to
+a nonempty open meeting that prime set.
+A line section which is zero on all geometric points
+over this dense subset is zero on the reduced scheme
+\(\Gamma\), by trivializing the line on affine opens
+and intersecting their prime ideals.
+Apply this to every homogeneous equation.
+Its homogeneous components give the same assertion
+for an arbitrary polynomial.
+Hence the coordinate map of \(\Gamma\) factors through
+the product, giving
+\[
+                              g:\Gamma\longrightarrow Z_1\times_RZ_2.
+ \tag{G2}\label{eq:ftb-bounded-graph-product-map}
+\]
+This is the source's homogeneous-ideal map construction,
+not extension of a generically defined rational map.
+
+The product-coordinate comparison identifies
+\(g_K\) on every good fibre with the graph embedding
+\((1,f)\).
+To check this including the line frames, trivialize
+both \(M_1,M_2\) on an affine test chart.
+Their two coordinate vectors multiply to the Segre
+coordinates.
+The fibre identification with \(\Gamma_K\) preserves
+exactly those products.
+Uniqueness in the projective coordinate functor makes
+the two maps equal on this chart, and these charts
+cover the graph.
+Thus the first projection
+\[
+                              \pi_1:\Gamma\longrightarrow Z_1
+\]
+has the given fibre isomorphism at every good prime;
+the second projection agrees there with \(f\).
+The morphism \(\pi_1\) is proper, since \(\Gamma/R\)
+is proper and \(Z_1/R\) is separated.
+Its source is flat over \(R\), and its target is flat
+because it is smooth.
+Lemma~\ref{lem:ftb-proper-flat-good-fibre-iso} makes
+\(\pi_1\) an isomorphism.
+Set \(F=\pi_2\pi_1^{-1}\).
+The two projection identities on every specified fibre
+give \(F_K=f\), with no change of degree or coordinate
+label set.
+\end{proof}
+
+This is the exact reconstruction used for the addition,
+inversion and specified endomorphisms of the theta family.
+Its input there is still substantive: the source must
+supply the graph-cut degree and polynomial for the same
+torsion labels on every allowed marked abelian fibre.
+The proposition proves the algebraic reconstruction after
+those data are supplied, and does not silently replace
+them by a general extension theorem.
+
+\paragraph{Frozen source concordance.}
+The proper flat fibre-isomorphism proof, including its
+successive finite, closed-immersion and zero-kernel steps,
+is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/%
+ExistsAwaySurjective.lean}
+(\srcid{eeea120cf285c69235785f964d3cbd670ee0bf02}).
+The exact graph coordinate line and product vectors are
+\srcid{ProjRepGraphSegreCoordinatesFibre.lean}
+(\srcid{217b705ffa8697a6d7e4a50f217c84d9e57757fd}),
+with \srcid{SegreCoordinates.lean}.
+The reduced-flat density calculation is
+\srcid{MemIdealOfOfDense.lean}
+(\srcid{8bf90ed7616afc1c732b6cc04f67a292674905e8}).
+The smooth-locus fibre test is
+\srcid{SmoothOfRelativeDimensionAndGeometricallyConnect.lean}
+(\srcid{48490b7e390ca4358f66ba575a56ce730a800357}).
+The full producer is
+\srcid{ExistsFamilyMorphismFromVeryDenseGraphs.lean}
+(\srcid{e49036f9fe2bbc5d7d0d0ccd9dd3616eab8a177d}).
+All paths in this paragraph after the first use the same
+\srcid{ModuliProofs} directory.
+Its actual addition and inversion/endomorphism
+instantiations are
+\srcid{ExistsFamilyAdditionMorphismThetaLevel.lean}
+(\srcid{86214f47598546ec8b9087013eaea319dd9eca90})
+and \srcid{ExistsInversionEndomorphismsThetaLevelFamily.lean}
+(\srcid{4ea47775ca89240f000c207abedcbc460d7ca360});
+their uniform torsion-form suppliers remain the next
+proof obligation in this construction.

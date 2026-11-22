@@ -1,0 +1,299 @@
+\subsection{Comparison with an arbitrary actual uniformization}
+\label{subsec:ftb-arbitrary-complex-uniformization}
+
+Keep the actual complex principally polarized abelian variety \(P\),
+its line bundle \(L\), its rigidification, and its dimension \(g\).
+Assume the five algebraic laws retained in
+Proposition~\ref{prop:ftb-full-fixed-fibre-theta-realization}.
+That proposition gives one uniformization
+\(u_0=(e_0,\Lambda_0,(f_{0,i}))\), its Appell--Humbert data
+\((H_0,\chi_0)\), a perfect integral alternating form
+\(E_0=\operatorname{Im}H_0|_{\Lambda_0}\), and the specified
+bijection between analytic vectors and algebraic tangent vectors.
+In this subsection \(u=(e,\Lambda,(f_i))\) is any
+\(\mathrm{HolUnif}(P,L,g)\).
+In particular \(e:\mathbb C^g\to P(\mathbb C)\) is an additive
+surjection, its kernel is the discrete full lattice \(\Lambda\),
+regular-function evaluations along \(e\) are holomorphic on
+their actual inverse-image opens, and the \(f_i\) are the
+nonvanishing analytic frames of the same algebraic line \(L\).
+These conditions do not initially include a tangent isomorphism
+for \(e\).
+
+\begin{srlemma}[The source's linear lift]
+\label{lem:ftb-holomorphic-linear-lift}
+Let \(A/\mathbb C\) be an abelian variety, and let
+\(e_0:\mathbb C^g\to A(\mathbb C)\) be a supplied
+\(\mathrm{HolUnif}\) with its two tangent-bijection clauses.
+If \(G:\mathbb C^m\to A(\mathbb C)\) is additive and
+regular-evaluation-holomorphic, there is a unique complex
+linear \(F:\mathbb C^m\to\mathbb C^g\) with
+\(e_0F=G\).
+\end{srlemma}
+\begin{proof}
+The proof uses separating regular functions and Baire's theorem;
+it does not assume that \(G\) already has a holomorphic lift.
+Choose an affine open \(U\) containing the identity of \(A\),
+put \(S=U(\mathbb C)\), and use all \(f\in\Gamma(U,\mathcal O_U)\)
+as separating complex-valued functions on \(S\).
+They separate its actual complex points by the affine
+point--ring-homomorphism identification.
+Their inverse-image domains for \(e_0\) and \(G\) are open.
+All their compositions are holomorphic.
+
+Here is the weak openness assertion needed to lift.
+For every neighborhood \(N\) of \(0\) in \(\mathbb C^g\),
+\[
+                 G(z)\in e_0(N)\qquad\text{for all sufficiently small }z.
+                                                               \tag{AU1}
+\]
+Choose \(R>0\) with
+\(\overline B(0,R)\subset N\cap e_0^{-1}(S)\), and put \(r=R/4\).
+Let
+\[
+ T=\{z:\exists w\in\overline B(0,2r),\ e_0(w)=G(z)\}.
+\]
+Then \(T\subset G^{-1}(S)\), and
+\(\overline T\cap G^{-1}(S)\subset T\).
+Indeed, from \(z_j\to z\) and witnesses \(w_j\) in the indicated
+compact ball, extract a convergent subsequence \(w_j\to w\).
+Continuity of every separating regular-function evaluation
+gives \(e_0(w)=G(z)\).
+
+Choose a countable dense sequence \(c_j\) in \(\mathbb C^g\)
+and set
+\[
+ B_j=\{z:\exists w\in B(c_j,r),\ e_0(w)=G(z)\}.
+\]
+Surjectivity of \(e_0\) gives
+\(\bigcup_j\overline{B_j}=\mathbb C^m\).
+Baire's theorem gives a \(j\) for which
+\(\overline{B_j}\) has nonempty interior.
+Choose \(z_0\in B_j\cap\operatorname{int}\overline{B_j}\)
+and a witness \(w_0\in B(c_j,r)\).
+If \(z\in B_j\), subtraction of the witnesses gives
+\(z-z_0\in T\).
+Thus, for \(z\) sufficiently near \(0\),
+\(z+z_0\in\overline{B_j}\), hence \(z\in\overline T\).
+Also \(G(z)\in S\) near \(0\).
+The preceding relative-closedness assertion yields \(z\in T\),
+proving (AU1).
+
+Discreteness of \(\ker e_0\) gives a neighborhood \(W\) of \(0\)
+on which \(e_0\) is injective: take \(W-W\) meeting
+\(\ker e_0\) only at \(0\).
+Let \(s\) be its inverse on \(e_0(W)\).
+Assertion (AU1), applied to arbitrarily small neighborhoods
+inside \(W\), shows that \(h=sG\) is defined near \(0\),
+\(h(0)=0\), and \(h\) is continuous at \(0\).
+Near \((0,0)\),
+\[
+                    h(x+y)-h(x)-h(y)\in\ker e_0.
+\]
+This expression tends to \(0\).
+Discreteness makes it zero on a neighborhood of \((0,0)\).
+The resulting locally additive germ extends uniquely to a
+continuous real linear map \(F_{\mathbb R}\):
+for fixed \(v\) use
+\(2^j h(2^{-j}v)\) for sufficiently large \(j\).
+Local additivity makes this eventually independent of \(j\);
+continuity of the germ makes the resulting additive map continuous.
+The identity \(e_0F_{\mathbb R}=G\) holds near \(0\), hence
+everywhere by additivity and dyadic division.
+
+It remains to prove complex linearity.
+For any \(f\in\Gamma(U,\mathcal O_U)\), write
+\(a_f(w)=f(e_0(w))\), \(b_f(z)=f(G(z))\).
+The real chain rule in \(a_fF_{\mathbb R}=b_f\), together
+with the complex differentiability of \(a_f,b_f\), gives
+\[
+       d a_f(0)\bigl(F_{\mathbb R}(cv)-cF_{\mathbb R}(v)\bigr)=0
+                         \quad(c\in\mathbb C,\ v\in\mathbb C^m).
+                                                               \tag{AU2}
+\]
+The differentials \(da_f(0)\) jointly have zero kernel.
+To see this from the stated hypotheses, associate to a vector \(w\)
+its algebraic dual-number tangent vector by the second
+tangent-bijection clause for \(e_0\).
+If every \(da_f(0)(w)\) vanishes, its dual-number homomorphism
+on the affine chart equals that of the zero tangent vector.
+The first tangent-bijection clause then gives \(w=0\).
+Apply this to (AU2).
+Thus \(F_{\mathbb R}\) is complex linear.
+If two real linear lifts exist, their difference maps every
+real line into the discrete subgroup \(\ker e_0\); continuity
+on that line makes the difference zero.
+This proves the stated uniqueness as well.
+\end{proof}
+
+\begin{srlemma}[A nowhere-zero Appell--Humbert function]
+\label{lem:ftb-trivial-appell-humbert-data}
+Let \(\Lambda\subset\mathbb C^g\) be a discrete full real lattice.
+Let \(B\) be Hermitian, let \(|c_\lambda|=1\), and let \(r\)
+be nowhere-zero entire, with
+\[
+ r(z+\lambda)=c_\lambda
+       \exp\!\left(\pi B(z,\lambda)+\frac{\pi}{2}B(\lambda,\lambda)\right)r(z).
+                                                               \tag{AU3}
+\]
+Then \(B=0\), all \(c_\lambda=1\), and \(r\) is constant.
+\end{srlemma}
+\begin{proof}
+The function
+\[
+       \Phi(z)=|r(z)|\exp\!\left(-\frac{\pi}{2}B(z,z)\right)
+\]
+is continuous, positive and \(\Lambda\)-periodic.
+A compact fundamental parallelepiped bounds both \(\Phi\)
+and \(\Phi^{-1}\).
+Consequently, for constants \(M,M'\),
+\[
+ |r(z)|\le M e^{\pi B(z,z)/2},\qquad
+ |r(z)|^{-1}\le M'e^{-\pi B(z,z)/2}.                         \tag{AU4}
+\]
+If \(B(v,v)<0\), the entire function \(t\mapsto r(tv)\)
+is bounded and tends to \(0\) along real \(t\to+\infty\).
+Liouville's theorem makes it constant, equal to \(0\), a contradiction.
+If \(B(v,v)>0\), apply the same argument to \(t\mapsto r(tv)^{-1}\).
+Thus \(B(v,v)=0\) for every \(v\).
+Expanding at \(x+y\) and \(x+iy\) gives \(B(x,y)=0\), so \(B=0\).
+The first bound in (AU4) now makes \(r\) bounded, hence constant.
+Substitute \(z=0\) in (AU3) and cancel \(r(0)\ne0\)
+to obtain \(c_\lambda=1\).
+\end{proof}
+
+\begin{srproposition}[The supplied frame has the same tangent and integral form]
+\label{prop:ftb-any-uniformization-tangent-perfect}
+For the arbitrary actual \(u\) above there is a unique complex
+linear isomorphism \(F:\mathbb C^g\overset{\sim}\longrightarrow\mathbb C^g\)
+with \(e_0F=e\); it restricts to a lattice isomorphism
+\(\phi:\Lambda\overset{\sim}\longrightarrow\Lambda_0\).
+Every algebraic tangent vector has a unique analytic vector
+for \(u\), and every analytic vector gives a unique algebraic
+tangent vector.
+If the actual frames of \(u\) have Appell--Humbert data
+\((H,\chi)\), then
+\[
+       H_0(Fz,Fw)=H(z,w),\qquad
+       E(a,b)=E_0(\phi a,\phi b)=\operatorname{Im}H(a,b).       \tag{AU5}
+\]
+In particular \(E:\Lambda\to\operatorname{Hom}_{\mathbb Z}(\Lambda,\mathbb Z)\)
+is bijective.
+The tangent correspondence respects the ordered linear
+combinations used in the key datum.
+\end{srproposition}
+\begin{proof}
+Apply Lemma~\ref{lem:ftb-holomorphic-linear-lift} to \(G=e\).
+The kernel identities give
+\[
+                         Fz\in\Lambda_0\iff z\in\Lambda.       \tag{AU6}
+\]
+If \(Fz=0\), every \(tz\), \(t\in\mathbb C\), belongs to
+\(\Lambda\).
+The continuous map \(t\mapsto tz\) into this discrete space
+is constant, so \(z=0\).
+Finite equal complex dimensions make \(F\) invertible.
+Equation (AU6) then gives the asserted lattice isomorphism.
+
+On the inverse-image of a line chart \(U_i\), form
+\[
+                             r_i(z)=\frac{f_{0,i}(Fz)}{f_i(z)}.
+\]
+The same algebraic transition functions occur above and below;
+their evaluated factors cancel on overlaps.
+The \(r_i\) therefore glue to a nowhere-zero entire \(r\).
+Their actual frame automorphy gives (AU3) with
+\[
+ B(z,w)=H(z,w)-H_0(Fz,Fw),\qquad
+ c_\lambda=\chi(\lambda)/\chi_0(F\lambda).
+\]
+Here the semicharacters have norm one.
+Lemma~\ref{lem:ftb-trivial-appell-humbert-data} gives \(B=0\).
+This proves the first identity in (AU5).
+The pullback \(\phi^\vee E_0\phi\) is integral and bijective,
+and its values are the second expression in (AU5).
+
+For a regular function on any actual open containing the
+identity, the identity \(e=e_0F\) and the complex chain rule give
+\[
+                   u.\mathrm{IsDiff}(w,v)
+                      \iff u_0.\mathrm{IsDiff}(Fw,v).          \tag{AU7}
+\]
+The inverse chain rule uses \(F^{-1}\).
+The two tangent-bijection clauses for \(u_0\) therefore
+give both clauses for \(u\).
+Finally, if \(v=\sum_j a_jv_j\) in the algebraic Lie space and
+\(v_j\) corresponds to \(w_j\), then each regular-function
+dual-number derivative of \(v\) is the sum of those of the
+\(a_jv_j\).
+The same is true of the derivative of \(e\) at
+\(\sum_j a_jw_j\).
+Equality of the dual-number homomorphisms on an affine
+identity chart, followed by localization, proves that
+\(v\) corresponds to \(\sum_j a_jw_j\).
+Thus (AU7) is compatible with the actual ordered Lie basis
+and its row-matrix changes, not just with abstract dimensions.
+\end{proof}
+
+For later comparisons the same argument has the exact
+power version used in the source.
+If \(u,u'\) uniformize actual lines \(L,L'\), an algebraic map
+\(f:P\to P'\) is lifted by \(F\), and
+\[
+                         (f^*L')^{\otimes m}\simeq L^{\otimes n},
+\]
+evaluate this line isomorphism in its actual two chart frames.
+Its evaluations \(w_{ij}(e(z))\) satisfy the evaluated
+transition identities, so
+\[
+        r_{ij}(z)=w_{ij}(e(z))
+                      \frac{f'_j(Fz)^m}{f_i(z)^n}
+\]
+glue to a nowhere-zero entire function.
+Apply Lemma~\ref{lem:ftb-trivial-appell-humbert-data} to
+\(B=nH-mF^*H'\) and
+\(c_\lambda=\chi(\lambda)^n/\chi'(F\lambda)^m\).
+It gives, with exactly these tensor-power exponents,
+\[
+                              mH'(Fz,Fw)=nH(z,w).             \tag{AU8}
+\]
+In particular no analytic line comparison has been substituted
+for the given algebraic line isomorphism.
+
+\paragraph{Frozen source and scope.}
+All sources below are at \srcid{alpoge-source-7cbf7a0c}.
+The linear-lift mechanism is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CubicalLineBundles/ExistsUniqueLinearLiftOfHolomorphicAbelianVariet.lean}
+(\srcid{5f25708bfa7aa5609008d34be077a14b4d21af81}),
+in particular \srcid{tendsto_map_nhds_of_separating} and
+\srcid{existsUnique_linear_lift_of_separating}.
+Its real additive-germ extension and discrete-difference uniqueness
+are
+\srcid{src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/ExistsUniqueRealLinearOfEventuallyAddModDiscrete.lean}
+(\srcid{0e6a11a999b466dd1c459c4d2089b0c999350d44}).
+The Gaussian argument is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CubicalLineBundles/AppellHumbertTrivialOfNowhereVanishing.lean}
+(\srcid{63ce58372c5f22dfd3c30c464bd9290d251da6bf}).
+The evaluated line-isomorphism construction, its transition
+cancellation, and (AU8) are
+\srcid{HermFormPullEqOfLbIsoPow.lean}
+(\srcid{8da182d30841698bb02f4773f5df334e7b3396c2})
+in that same directory.
+The actual map/tangent chain rule is
+\srcid{ExistsLinearOfIsMonHom.lean}
+(\srcid{d3df5da8674f36fd9e33ebc871ed5b08454e4daf}).
+The two assembly forms are
+\srcid{HolomorphicUniformizationTangentUnimodularRiemann.lean}
+(\srcid{9e0d2e677fce33d4c5c91b778c4fe70b845c3cad})
+and
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/UnimodularAndTangentOfIsAH.lean}
+(\srcid{a4df7948258a8441bcf1d2ffcd6db4a65fb44846}).
+
+This establishes the actual \srcid{UnimodularAndTangentOfIsAH}
+interface from the five retained algebraic laws and the fixed-fibre
+construction.  It supplies the arbitrary-frame integral form and
+the differential normalization needed for the Gaussian
+archimedean norm calculation.
+It does not construct an algebraic variety from an arbitrary
+period matrix, nor a family of uniformizations; those are separate
+subsequent producers.

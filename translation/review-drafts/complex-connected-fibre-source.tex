@@ -1,0 +1,335 @@
+\subsection{Connected complex fibres in the regular-evaluation topology}
+\label{subsec:ftb-connected-complex-fibres}
+
+For a finite-type complex algebra \(A\), give
+\(\operatorname{Hom}_{\mathbb C\text{-alg}}(A,\mathbb C)\)
+the topology induced by all evaluations \(x\mapsto x(a)\).
+On affine scheme charts this is the topology of the actual
+complex points used in the uniformization construction.
+We record the source's elementary connectedness proof, since it
+is used to make the relative exponential surjective.
+
+\begin{srlemma}[Polynomial growth off a hypersurface]
+\label{lem:ftb-polynomial-growth-off-hypersurface}
+Let \(0\ne q\in\mathbb C[X_1,\ldots,X_d]\).
+If \(f\) is holomorphic on \(q\ne0\) and
+\[
+                 |f(x)|\le C(1+\|x\|)^m \qquad(q(x)\ne0),
+                                                               \tag{CC1}
+\]
+then \(f\) agrees there with a polynomial.
+Also \(q\ne0\) is connected and dense in \(\mathbb C^d\).
+\end{srlemma}
+\begin{proof}
+For the last assertion, restrict \(q\) to the complex affine
+line joining two points where it is nonzero.
+The restriction is a nonzero one-variable polynomial.
+The complement of its finite zero set in \(\mathbb C\)
+is path connected, so a path from parameter \(0\) to \(1\)
+maps to the required path in \(q\ne0\).
+For density, join an arbitrary point \(x\) to a point \(b\)
+where \(q(b)\ne0\).
+The same restriction has only finitely many zeros.
+Nonzero parameters tending to \(0\), avoiding those zeros,
+give points of \(q\ne0\) tending to \(x\).
+
+For the polynomial assertion in one variable, remove the
+roots of \(q\) one at a time.
+Bound (CC1) bounds \(f\) near each deleted root, so the
+removable-singularity theorem extends \(f\) there.
+The polynomial bound persists by continuity.
+The extended entire function is a polynomial of degree at
+most \(m\), by Cauchy's estimates on large circles.
+
+Proceed by induction on \(d\).
+Write the first coordinate as \(t\) and the remaining
+coordinates as \(x'\).
+There are only finitely many \(t\) for which \(q(t,x')\)
+is the zero polynomial in \(x'\): regard \(q\) as a nonzero
+polynomial over \(\mathbb C[X']\), and use its finite root set.
+Choose \(m+1\) distinct good values \(t_0,\ldots,t_m\).
+Induction gives polynomials \(P_j(x')\) agreeing with
+\(f(t_j,x')\) wherever \(q(t_j,x')\ne0\).
+Form the polynomial
+\[
+                 P(t,x')=\sum_{j=0}^m
+                       \ell_j(t)P_j(x'),                    \tag{CC2}
+\]
+where \(\ell_j\) are the Lagrange basis polynomials.
+For a fixed \(x'\) for which all \(q(t_j,x')\ne0\), the
+one-variable assertion applied to \(t\mapsto f(t,x')\)
+gives a polynomial of degree at most \(m\).
+Its \(m+1\) specified values give (CC2).
+The bound needed for both inductions follows from
+\[
+       1+\|(t,x')\|\le(1+|t|)(1+\|x'\|).
+\]
+Finally the nonzero polynomial \(\prod_jq(t_j,x')\)
+has dense nonvanishing set by the first paragraph.
+For any point of \(q\ne0\), perturb \(x'\) toward this set
+along a complex line, keeping \(t\) fixed.
+The perturbation stays in \(q\ne0\) near that point.
+Continuity of \(f\) and \(P\) gives their equality at the
+original point as well.
+\end{proof}
+
+\begin{srlemma}[The connected unramified root cover]
+\label{lem:ftb-connected-unramified-root-cover}
+Let \(p\in\mathbb C[X_1,\ldots,X_d][T]\) be monic and
+irreducible, and let \(q\ne0\) be a polynomial such that
+\(p_x\) has only simple roots whenever \(q(x)\ne0\).
+Then
+\[
+                   Z=\{(x,t):q(x)\ne0,\ p_x(t)=0\}
+                                                               \tag{CC3}
+\]
+is connected.
+\end{srlemma}
+\begin{proof}
+Suppose two nonempty disjoint relatively open sets partition \(Z\).
+For each \(x\), form the monic product of \(T-t\) over the
+roots lying in the first set, and the analogous complementary
+product.
+Simple roots have local analytic continuations, by the
+one-variable derivative and analytic inverse theorem.
+Their membership in either open part is locally constant.
+Thus all coefficients of these two partial products are
+holomorphic on \(q\ne0\).
+
+The roots of a monic polynomial satisfy
+\[
+                   |t|\le 1+\sum_{j<\deg p}|p_j(x)|.
+\]
+Each root therefore has a polynomial bound in \(\|x\|\).
+The elementary-symmetric expressions for coefficients of
+a product of at most \(\deg p\) such roots have a common
+polynomial bound as well.
+Lemma~\ref{lem:ftb-polynomial-growth-off-hypersurface}
+makes each coefficient a polynomial in \(x\).
+Retain coefficients only through degree \(\deg p\); higher
+ones are zero in every partial product.
+We obtain \(A,B\in\mathbb C[X][T]\) with
+\(A_xB_x=p_x\) for \(q(x)\ne0\).
+Density and equality of polynomial evaluations give \(AB=p\).
+A root in each of the two nonempty parts makes both \(A\)
+and \(B\) nonunits: its specialized partial product has that root,
+whereas a unit polynomial over \(\mathbb C[X]\) specializes to
+a nonzero constant.
+This contradicts irreducibility of \(p\).
+The set (CC3) is nonempty, since the monic irreducible \(p\)
+has positive degree and every complex specialization has a root.
+\end{proof}
+
+\begin{srlemma}[Finite integral maps and dense principal opens]
+\label{lem:ftb-complex-principal-open-dense}
+If \(A\) is a finite-type complex domain and \(0\ne f\in A\),
+the points \(x\) with \(x(f)\ne0\) are dense in its complex points.
+\end{srlemma}
+\begin{proof}
+We spell out the finite-map fact used by the source.
+If \(R\hookrightarrow A\) is finite, with both rings domains
+and \(R\) integrally closed, restriction of complex points is
+an open map.
+First, restriction for an integral ring map is proper in
+the evaluation topology.
+For an ultrafilter of points whose restrictions converge,
+a monic integral equation bounds every coordinate \(x(a)\)
+by \(1+\sum|x(c_j)|\).
+The coefficients \(c_j\) on the base are bounded along
+the ultrafilter.
+Compact complex closed balls therefore supply an
+ultrafilter limit for each coordinate.
+The coordinate limits preserve addition, multiplication,
+constants and \(1\); they give a complex algebra homomorphism
+and the required limit point.
+This proves properness, and in particular closedness.
+
+To prove openness, let \(x\) be a point in an open set \(U\).
+There are only finitely many points in its restriction fibre.
+Choose \(a\in A\) with \(x(a)=0\) and \(x'(a)=1\) for
+all points \(x'\) of that fibre outside \(U\).
+Such an \(a\) is constructed from pairwise separating
+functions: if \(e_{x'}(x)=1\), \(e_{x'}(x')=0\), take
+\(a=1-\prod e_{x'}\).
+The image of
+\[
+                        U^c\cap\{x':|x'(a)|\le1/2\}
+\]
+is closed, by properness, and misses the given base point.
+Let \(P\in R[T]\) be the monic minimal polynomial of \(a\)
+over \(\operatorname{Frac}R\); its coefficients lie in \(R\)
+by integral closedness.
+At the given base point \(P(0)=0\).
+At every sufficiently near base point the absolute value
+of its constant coefficient is less than \(2^{-\deg P}\).
+The product formula for the roots of a monic polynomial
+then gives a root \(t\) with \(|t|<1/2\).
+Evaluation \(a\mapsto t\) defines a point of \(R[a]\):
+the kernel of \(R[T]\to R[a]\) is \((P)\), by the
+minimal-polynomial divisibility theorem over an integrally
+closed domain.
+It extends to a point of \(A\) by integral lying over and
+algebraic closedness of \(\mathbb C\).
+A base point also outside the preceding closed image thus
+has a lift in \(U\).
+These two neighborhood conditions prove openness.
+
+Now choose Noether normalization
+\(R=\mathbb C[X_1,\ldots,X_d]\hookrightarrow A\), finite and
+injective.
+Integrality of \(f\ne0\) gives \(0\ne b\in R\cap(f)\):
+use the nonzero constant coefficient of a least-degree
+monic equation, or the corresponding algebraic divisibility
+statement.
+The image of the zero set of \(f\) lies in \(b=0\).
+This hypersurface has real Lebesgue measure zero, by induction
+on \(d\) and Fubini (a nonzero one-variable polynomial has
+finitely many roots).
+Its complement is dense.
+For any nonempty open set of points of \(A\), openness of
+restriction gives a nonempty open set in \(\mathbb C^d\).
+Choose its base point off \(b=0\); any lift in the given
+open set has \(f\ne0\).
+This proves density.
+\end{proof}
+
+\begin{srproposition}[Connectedness of an integral complex fibre]
+\label{prop:ftb-integral-complex-points-connected}
+The complex points of an integral locally finite-type
+complex scheme are connected in the regular-evaluation
+topology.
+Consequently, in the complex points of a smooth
+geometrically connected algebraic group, a subgroup
+containing a neighborhood of the identity described by
+finitely many regular-function tests is the whole group.
+\end{srproposition}
+\begin{proof}
+First let the scheme be \(\operatorname{Spec}A\), with
+\(A\) a finite-type complex domain.
+The source refines Noether normalization to the following
+explicit primitive-element data:
+\[
+ R=\mathbb C[X_1,\ldots,X_d]\hookrightarrow A,\quad a\in A,
+ \quad p=\min_R(a),\quad0\ne q\in R,                       \tag{CC4}
+\]
+where \(A\) is finite over \(R\), \(p\) is monic irreducible,
+\[
+ q\in(p,p')\subset R[T],\qquad
+             qA\subset R[a].                            \tag{CC5}
+\]
+For completeness, the finite fraction-field extension is
+separable in characteristic zero.
+A primitive element can be multiplied by a base
+denominator to lie in \(A\).
+Write finitely many \(R\)-module generators of \(A\) as
+rational polynomials in that element; their common
+denominator gives the second condition of (CC5).
+A Bezout relation between the fraction-field polynomials
+\(p,p'\), with denominators cleared, gives the first.
+Multiplying those two nonzero denominators supplies one \(q\).
+Integral closedness of \(R\) identifies the kernel of
+\(R[T]\to A\) with \((p)\).
+
+The conditions (CC5) identify the points on \(q\ne0\)
+with the root cover \(q(x)\ne0,\ p_x(t)=0\).
+Indeed choose \(r_b(T)\in R[T]\) with \(qb=r_b(a)\);
+the inverse point is
+\[
+                            b\longmapsto r_b(x,t)/q(x).
+                                                               \tag{CC6}
+\]
+Minimal-polynomial divisibility shows that (CC6)
+preserves sums and products and is independent of the
+chosen \(r_b\).
+It is continuous in every evaluation coordinate.
+The Bezout relation in (CC5) makes these roots simple.
+Lemma~\ref{lem:ftb-connected-unramified-root-cover}
+therefore gives a connected principal open.
+
+More generally, for any nonzero \(f\in A\), choose
+\(0\ne q'\in R\) divisible by \(f\) in \(A\), say \(q'=ff'\).
+The same construction with base nonvanishing \(qq'\)
+gives a connected principal open \(D(qf'f)\) inside \(D(f)\).
+It is dense in all points, by
+Lemma~\ref{lem:ftb-complex-principal-open-dense}.
+Hence \(D(f)\), lying between that connected set and its
+closure, is connected.
+Taking \(f=1\) proves the affine assertion.
+
+For an integral locally finite-type scheme, two complex
+points lie in affine opens \(U,V\).
+These opens have nonempty intersection by irreducibility,
+and that nonempty finite-type open contains a complex
+point by the weak Nullstellensatz.
+The connected sets \(U(\mathbb C),V(\mathbb C)\) therefore
+meet and their union connects the two points.
+This proves connectedness in general.
+
+For the last assertion take the actual complex fibre of
+the algebraic group.
+Smoothness and geometric connectedness over the
+algebraically closed field make that fibre integral.
+For a subgroup \(H\) containing the given regular-test
+neighborhood of the identity, membership in \(H\) is
+locally constant: translate that neighborhood by any
+fixed point; points in the resulting neighborhood have
+the same membership as the fixed point.
+Translations are continuous because they are algebraic
+and evaluation is compatible with pullback.
+Connectedness makes this membership constant.
+It holds at the identity, so \(H\) is the whole group.
+\end{proof}
+
+The same affine argument gives a useful finite-type variant:
+any locally constant function on the complex points of
+a finite-type complex scheme has finite image.
+There are finitely many minimal-prime components on an
+affine chart; the function is constant on each corresponding
+integral complex point space.
+A finite affine cover gives finite image globally.
+Nilpotents do not affect complex points.
+
+\paragraph{Frozen source concordance.}
+All paths in the first list have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ToricGeometry/}.
+The hypersurface argument is
+\srcid{IsConnectedAndDenseComplHypersurface.lean}
+(\srcid{c7a30e8c1c08de636533db8f1d17463a42588382}).
+The polynomial extension, using removable singularities
+and the finite interpolation (CC2), is
+\srcid{ExistsMvPolynomialOfPolyBoundOffHypersurface.lean}
+(\srcid{b5df170413a5d462c24189a4132bc4738bb9e632}).
+The partial-root products are
+\srcid{IsConnectedUnramifiedCoverOfIrreducible.lean}
+(\srcid{19755400e2e92e979664c3b03ed114a0942d13ae}).
+The primitive-element and common-denominator construction is
+\srcid{ExistsPrimitiveElementDiscriminantMultiple.lean}
+(\srcid{bf8c8d866c3dfba43b74d7168b6a47d61fbb8212}).
+The actual point formula (CC6) and principal-open reduction
+are
+\srcid{ExistsIsConnectedPrincipalOpen.lean}
+(\srcid{f607bc0b550282ed92207e0dc3e22e3af3f6c25b}),
+\srcid{PrincipalOpenDenseComplexPoints.lean}
+(\srcid{b86e5fc2d14e1b6c6a7fe6b68c304462a9399278}),
+and
+\srcid{IsConnectedBasicOpenComplexPointsOfDense.lean}
+(\srcid{3e09e88d4274d9fd562649d86140f267a2d55ed1}).
+The proper/open integral-map argument is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/ExistsApplyEqZeroAndEqOne.lean}
+(\srcid{ac0ae26397e0083ee3c61fa6d1bd0cbac52acb56});
+its density application is
+\srcid{ExistsNeZeroIsStandardSmoothOfRelativeDimension.lean}
+(\srcid{8272e270db53df9168851be7f7b8da698651807d})
+in that same directory.
+The passage to actual affine scheme points, minimal-prime
+components and finite image is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/FiniteImageOfLocallyConstantOnHolomorphicFamilie.lean}
+(\srcid{6cd65b6f6d687b4dde3adf5384e111ee945bd6bf}).
+The general integral-fibre and subgroup argument is
+\srcid{PreconnectedSpacePtsOfIsIntegral.lean}
+(\srcid{1189a01139efe76d2e9228654d277183847db379})
+in that directory.
+The argument proves the connectedness input of the
+relative exponential; it assumes no PEL uniformization,
+no family of theta frames, and no algebraization of an
+arbitrary complex torus.

@@ -1,0 +1,419 @@
+\subsection{The cover coefficient is the actual finite Fourier transform}
+\label{subsec:ftb-cover-finite-fourier}
+
+This subsection proves the coefficient identity used immediately
+before the root projection. It keeps the algebraic cover and the
+markings of the source. In particular its phase is determined by
+the two actual roots of unity and by the two dual markings.
+
+Write \(d\) for the supplied level-cover datum and \(p=d.pd>0\).
+The two levels have integers \(M,M_2\), with
+\(M_2=pM\) and \(\gcd(p,M)=1\). Put
+\[
+ P_0=\operatorname{Mfr}(l),\quad Q_0=l.\operatorname{Mb},
+ \quad I=d.I,\quad J=\bar I,\quad
+ \mathfrak m=\operatorname{Mfr}(l_2)=P_0J,\quad
+ Q_2=l_2.\operatorname{Mb}=Q_0I.
+\]
+The cover and \(\mathrm{LevTie}\) give
+\[
+ I+J=\mathcal O_E,\quad IJ=(p),\quad
+ P_0+J=\mathcal O_E,\quad
+ \mathfrak m+\bar{\mathfrak m}=\mathcal O_E,\quad
+ (2)+\mathfrak m=\mathcal O_E.                         \tag{CFo1}
+\]
+The rank is the literal \(r=Dw.p+Dw.q\), and \(r\leq n\).
+Let \(D\) be the actual Hermitian level datum. Thus it has
+\(\beta_i\in X.\Lambda\), its subgroup \(D.J\) and character
+\(D.\lambda\), and \(\mathrm{LevTie}\) identifies
+\(D.\mathfrak m=\mathfrak m\) and \(D.w=H.w_0\).
+
+We use the original localized congruence
+\[
+ u\equiv_{\mathfrak a}v
+ \quad\Longleftrightarrow\quad
+ \exists t\in\mathcal O_E,\ (t)+\mathfrak a=\mathcal O_E,\
+                          t(u-v)\in\mathfrak a X.\Lambda .
+                                                               \tag{CFo2}
+\]
+For \(L\in D.\mathrm{lats}\), there is a common denominator,
+prime to \(\mathfrak m\bar{\mathfrak m}\), carrying \(L\) into
+\(X.\Lambda\) and \(X.\Lambda\) into \(L\). Consequently, if
+\(\mathfrak m\subset\mathfrak a\) and \(u-v\in L\), then
+\[
+                  u\equiv_{\mathfrak a}v
+                   \quad\Longleftrightarrow\quad
+                             u-v\in\mathfrak a L.         \tag{CFo3}
+\]
+Indeed multiply the localized equality by the common denominator
+to put it in \(\mathfrak a L\), and then use a Bezout combination
+of that denominator times \(t\) and \(\mathfrak a\) to cancel it.
+The reverse implication is the same denominator clearing.
+This is why the same \(L\in D.\mathrm{lats}\) is required.
+
+Define \(F=\mathrm{datF}(D,P_0,r\leq n)\) literally as follows.
+Its first \(r\) rows must be congruent modulo \(\mathfrak m\)
+to \(\sum_jk'_{ji}\beta_j\), for a lift \(k'\) of some \(k\in D.J\);
+its remaining rows must be congruent to zero modulo \(P_0\).
+On this support \(F\) is \(D.\lambda(k)\), with the choice
+convention of the source; elsewhere it is zero.
+The level tie says that the matrices in \(D.J\) are congruent to
+the identity modulo \(P_0\). Hence
+\[
+ F(y)\ne0\Longrightarrow
+ \begin{cases}
+ y_i\equiv_{P_0}\beta_i,&i<r,\\
+ y_i\equiv_{P_0}0,&i\geq r.
+ \end{cases}                                             \tag{CFo4}
+\]
+Also rowwise congruence modulo \(\mathfrak m\) preserves \(F\):
+the identical reduction witnesses can be used in its definition.
+
+Let \(m,m_2:\mathcal L\to L\) be the two \(\mathrm{IsMark}\)
+maps, with the source compatibility
+\[
+ a\in\mathfrak m\mathcal L
+       \Longrightarrow m_2(a)=m(a)+Mu\quad(u\in L).        \tag{CFo5}
+\]
+Let \(\zeta,\zeta_2\) denote the images of the actual primitive
+\(M\)-th and \(M_2\)-th roots under the compatible coefficient-field
+embeddings. Let \(\delta:\mathcal L\to L\) be the old dual marking:
+\[
+ \zeta^{Dw.EF(x,c_0a)}
+           =e^{-2\pi iEF_X(\delta x,M^{-1}m(a))}
+                                      \quad(a\in P_0\mathcal L),
+                                                               \tag{CFo6}
+\]
+where \(c_0\in P_0,\ c_0-1\in Q_0\) is the source \(cSep(l)\).
+Retain the higher-level dual marking \(\delta_2:\mathcal L\to L\),
+with
+\[
+ \zeta_2^{Dw.EF(x,c_2a)}
+           =e^{-2\pi iEF_X(\delta_2x,M_2^{-1}m_2(a))}
+                                     \quad(a\in\mathfrak m\mathcal L),
+                                                               \tag{CFo7}
+\]
+where \(c_2\in\mathfrak m,\ c_2-1\in Q_2\). Its additional
+properties are exactly
+\[
+ L\subset\delta_2(\mathcal L)+\mathfrak mL,\qquad
+ \delta_2(a)\in\mathfrak mL
+                        \Longleftrightarrow a\in\mathfrak m\mathcal L.
+                                                               \tag{CFo8}
+\]
+These are the output of the actual
+\srcid{dual_half_level_marking_exists_and_match},
+not independent arbitrary dual vectors.
+
+Let \(x^0\in\mathcal L^n\) be the source adapted base class:
+\[
+ p\delta(x^0_i)\equiv_{P_0}\beta_i\ (i<r),\qquad
+                          x^0_i\in P_0\mathcal L\ (i\geq r).
+                                                               \tag{CFo9}
+\]
+The coefficient function \(\mathrm{ph}\) on
+\(\mathcal X=(\mathcal L/J\mathcal L)^n\) is part of the supplied
+\(\mathrm{PhiPin}\), and \(\mathrm{LevTie}\) retains its actual
+compatibility with \(F\): for a map
+\(\delta_J:\mathcal L\to L\) surjective modulo \(J\), there is
+one unit scalar \(t\), of absolute value one, such that
+\[
+ \sigma(\mathrm{ph}([\mathbf a]))
+                      =tF(y)                            \tag{CFo10}
+\]
+whenever \(y_i\equiv_J\delta_J(a_i)\), \(y_i\equiv_{P_0}\beta_i\)
+for \(i<r\), and \(y_i\equiv_{P_0}0\) for \(i\geq r\).
+This explicitly states the common-model compatibility still
+required of the supplied cover.
+
+\begin{srlemma}[The actual auxiliary marking and coefficient representatives]
+\label{lem:ftb-cover-coefficient-reps}
+For \(\delta_J=M\delta_2\),
+\[
+ \delta_J(\mathcal L)\subset P_0L,\quad
+ L\subset\delta_J(\mathcal L)+JL,\quad
+ \delta_J(a)\in JL\Longleftrightarrow a\in J\mathcal L.     \tag{CFo11}
+\]
+Choose any representatives \(a(x_i)\) for \(x_i\in\mathcal L/J\mathcal L\),
+and put
+\[
+                    z_{x,i}=p\delta(x^0_i)+\delta_J(a(x_i)).
+                                                               \tag{CFo12}
+\]
+Then \(z_{x,i}\in L\), and the scalar \(t\) in (CFo10), chosen
+for this \(\delta_J\), satisfies
+\[
+                          \sigma(\mathrm{ph}(x))=tF(z_x).
+                                                               \tag{CFo13}
+\]
+The \(z_x\)'s are distinct modulo \(\mathfrak mL\) row by row.
+Every \(w\) with rows in \(L\) and \(F(w)\ne0\) is congruent
+row by row modulo \(\mathfrak mL\) to some \(z_x\).
+\end{srlemma}
+
+\begin{proof}
+Since \(M\in P_0\), the first assertion of (CFo11) follows.
+Choose integers \(a,b\) with \(ap+bM=1\).
+By (CFo8), \(v=\delta_2(u)+w\), \(w\in\mathfrak mL\), so
+\[
+                 v=\delta_J(bu)+ap\,\delta_2(u)+w.
+\]
+Here \(p\in J\), giving the second assertion.
+If \(\delta_J(u)\in JL\), it also lies in \(P_0L\), so lies
+in \(P_0L\cap JL=P_0JL=\mathfrak mL\).
+Apply (CFo8) to \(Mu\) and cancel \(M\) modulo \(J\), using
+\(ap+bM=1\) and \(p\in J\). This gives \(u\in J\mathcal L\).
+The converse follows from \(\delta_J(\mathcal L)\subset L\).
+
+The vector \(p\delta(x^0_i)\) belongs to \(JL\).
+The second summand of (CFo12) belongs to \(P_0L\).
+Thus (CFo9) and (CFo3) verify all the conditions of (CFo10),
+giving (CFo13). For the lower rows, use the actual
+\(x^0_i\in P_0\mathcal L\), rather than a condition only on
+their reductions.
+
+If \(z_x-z_{x'}\) is rowwise in \(\mathfrak mL\subset JL\),
+the last assertion of (CFo11) gives \(x=x'\).
+Conversely, for a supported \(w\), choose \(a_i\) with
+\(w_i-\delta_J(a_i)\in JL\), by (CFo11).
+Since \(p\delta(x^0_i)\in JL\), the difference
+\(w_i-z_{[a],i}\) is in \(JL\).
+It is in \(P_0L\) by (CFo4), (CFo9), and (CFo3).
+Coprimality \(P_0+J=\mathcal O_E\) now puts it in
+\(P_0L\cap JL=\mathfrak mL\).
+\end{proof}
+
+\begin{srlemma}[The original tensor-quotient reindexing]
+\label{lem:ftb-cover-tensor-reindex}
+Let \(\mathfrak b+\mathfrak m=\mathcal O_E\). Suppose an integral
+\(s\) satisfies \(s-1\in\mathfrak m\),
+\(s\Lambda\subset\mathcal O_E^n\), and
+\(s\mathcal O_E^n\subset\Lambda\).
+Let \(G:\operatorname{Mat}_{n,r}(E)\to\mathbb C\) satisfy
+\[
+ \begin{aligned}
+ &G(y)=G(sy) &&(y\in T(\Lambda,\mathfrak bL));\\
+ &G(w)=G(w')&&
+    (w_i\in L,\ w_i-w'_i\in\mathfrak mL\text{ for all }i).
+ \end{aligned}                                             \tag{CFo14}
+\]
+Suppose \(z_x\) have integral rows, are distinct rowwise modulo
+\(\mathfrak mL\), and meet every supported such congruence class.
+Then
+\[
+ \sum_{c\in T(\Lambda,\mathfrak bL)/
+                    T(\Lambda,\mathfrak b\mathfrak mL)}
+                 G(c_{\mathrm{out}})=\sum_xG(z_x).       \tag{CFo15}
+\]
+\end{srlemma}
+
+\begin{proof}
+Choose \(e\in\mathfrak b,e'\in\mathfrak m\) with \(e+e'=1\).
+A tensor-quotient class of \(y\) is characterized by the row
+classes of \(sy\) modulo \(\mathfrak mL\).
+The forward implication follows by clearing rows of the
+tensor \(y-y'\).
+For the reverse implication let
+\(w=y-y'\in T(\Lambda,\mathfrak bL)\), with
+\(sw_i\in\mathfrak mL\).
+The same rows lie in \(\mathfrak bL\), and coprimality gives
+\(sw_i\in\mathfrak b\mathfrak mL\). As \(se_i\in\Lambda\),
+\[
+                   s^2w\in T(\Lambda,\mathfrak b\mathfrak mL).
+\]
+Also \((s+1)(s-1)w\) is in that tensor group, since
+\(s-1\in\mathfrak m\). Their difference is \(w\), proving
+the characterization.
+
+Assign \(x\) the class \(c_x=[sez_x]\).
+It belongs to the required tensor group because \(se_i\in\Lambda\)
+and \(ez_{x,i}\in\mathfrak bL\).
+Moreover
+\[
+ s^2e-1=(s+1)e(s-1)-e'\in\mathfrak m,
+\]
+so the row class of \(s(sez_x)\) is that of \(z_x\).
+The characterization therefore proves that \(x\mapsto c_x\)
+is injective and that
+\(c=c_x\) exactly when \(sc_{\rm out}-z_x\) is rowwise in
+\(\mathfrak mL\).
+By (CFo14), \(G(c_x)=G(z_x)\).
+Every class with nonzero \(G(c_{\rm out})\) is one of the \(c_x\),
+by the support hypothesis applied to \(sc_{\rm out}\).
+Removing the zero terms gives (CFo15).
+The argument is also the source's \(\mathrm{finsum}\) proof when
+the indexing sets have not yet been equipped with finite
+enumerations.
+\end{proof}
+
+\begin{srproposition}[The actual coefficient Fourier identity]
+\label{prop:ftb-cover-coefficient-fourier}
+For the supplied cover, markings, \(\mathrm{PhiPin}\) and
+\(\mathrm{LevTie}\) above, there is a scalar \(t\) with \(|t|=1\),
+chosen before \(\Lambda,N,Y,q\), such that
+\[
+ \begin{split}
+ \sigma_2(d.w(x^0,q))={}&t
+   \sum_{c\in T(\Lambda,2\bar{\mathfrak m}L)/
+                    T(\Lambda,2\bar{\mathfrak m}\mathfrak mL)}
+    F(c_{\rm out})
+       e^{-2\pi i\sum_iEF_X(c_{{\rm out},i},Y_{q,i})}.
+ \end{split}                                             \tag{CFo16}
+\]
+Here \(\Lambda\in\operatorname{Vset}(E,n,M_2)\),
+\(N\) satisfies \(\mathrm{NOK}(\Lambda,N,M_2)\), and \(Y\)
+satisfies the literal \(\mathrm{IsRoots}(l_2,L,m_2,N,Y)\).
+There is no parity or large-rank restriction in this coefficient
+identity beyond its displayed \(r\leq n\).
+\end{srproposition}
+
+\begin{proof}
+Use the scalar \(t\) from (CFo13), independent of these later
+choices. Put
+\[
+              \mathfrak b=2\bar{\mathfrak m},\qquad
+ G(y)=F(y)\exp\{-2\pi i\sum_iEF_X(y_i,Y_{q,i})\}.
+\]
+Coprimality in (CFo1) gives
+\(\mathfrak b+\mathfrak m=\mathcal O_E\).
+Choose an integer \(s\equiv1\pmod {M_2}\) clearing \(\Lambda\)
+in both directions: if \(h\) in (RP3) is prime to \(M_2\),
+choose \(a,b\in\mathbb Z\) with \(ah+bM_2=1\) and take \(s=ah\).
+Thus \(s-1\in\mathfrak m\), as required in
+Lemma~\ref{lem:ftb-cover-tensor-reindex}.
+
+We verify (CFo14), including the dependence on the actual roots.
+First \(s(y_i-(sy)_i)=-(s-1)(sy)_i\in\mathfrak mL\),
+so denominator clearing and (CFo2) make \(F(y)=F(sy)\).
+For the phase, the root assumptions imply
+\(Q_2Y_{q,i}\subset L\), hence \(M_2Y_{q,i}\in L\).
+If \(a\in E\) has \(sa,Na\) integral, the
+\(Q_2\)-power condition gives \(M_2^jY_{q,i}=2Nu\), \(u\in L\).
+Choose integers \(A,B\) with \(As+BM_2^j=1\).
+Then the exact identity
+\[
+ aM_2Y_{q,i}
+       =A(sa)M_2Y_{q,i}+B(2M_2)(Na)u
+\]
+shows that \(aM_2Y_{q,i}\in L\).
+For \(v\in\Lambda\), both \(sv_i,Nv_i\) are integral.
+Apply this observation to \(a=\bar v_i\), move the coefficient
+by the adjoint formula (RP8), and use selfduality of \(L\).
+On a pure tensor \(v\otimes\ell\), and hence on
+\(y\in T(\Lambda,\mathfrak bL)\), it follows that
+\(EF_X(y_i,M_2Y_{q,i})\in\mathbb Z\).
+Since \(s-1\) is an integer multiple of \(M_2\),
+the phases of \(y\) and \(sy\) agree.
+
+If \(w_i-w'_i\in\mathfrak mL\), congruence invariance
+already gives \(F(w)=F(w')\).
+For \(a\in\mathfrak m\), \(\bar a\in Q_2\), so
+\(\bar aY_{q,i}\in L\).
+The adjoint formula and selfduality give
+\(EF_X(w_i-w'_i,Y_{q,i})\in\mathbb Z\).
+This proves the other phase invariance in (CFo14).
+Lemma~\ref{lem:ftb-cover-coefficient-reps} supplies the integral,
+distinct and supported \(z_x\). Thus (CFo15) applies.
+
+It remains to identify \(G(z_x)\) with the cover coefficient,
+rather than assuming its phase. For this write
+\(a_i\in\mathfrak m\mathcal L\) for the root representative
+of \(q_i\); thus
+\(Y_{q,i}-M_2^{-1}m_2(a_i)\in L\).
+Let \(c_I\in J,\ c_I-1\in I\) be the actual \(cHalf(H,I)\).
+Modulo integral pairings,
+\[
+ \begin{split}
+ EF_X(z_{x,i},Y_{q,i})\equiv{}&
+ EF_X(\delta(x^0_i),M^{-1}m(a_i))\\
+ &+M\,EF_X(\delta_2(a(x_i)),M_2^{-1}m_2(a_i)).
+ \end{split}                                             \tag{CFo17}
+\]
+Indeed discard the integral difference in \(Y\), use
+\(M_2=pM\), expand (CFo12), and use (CFo5) to replace
+\(M^{-1}m_2(a_i)\) by \(M^{-1}m(a_i)\).
+Both discarded pairings have two arguments in \(L\).
+
+The old and new dual identities (CFo6)--(CFo7) consequently give
+\[
+ e^{-2\pi iEF_X(z_{x,i},Y_{q,i})}
+       =\zeta^{Dw.EF(x^0_i,c_0a_i)}
+          (\zeta_2^M)^{Dw.EF(a(x_i),c_2a_i)}.             \tag{CFo18}
+\]
+Let \(\widetilde a_i=\operatorname{levRep}(q_i)\).
+Since \(a_i-\widetilde a_i\in Q_2\mathcal L\subset Q_0\mathcal L\),
+\(c_0(a_i-\widetilde a_i)\in M\mathcal L\); the first exponent
+may therefore use \(\widetilde a_i\).
+For the second one,
+\[
+                   c_2a_i-c_I\widetilde a_i
+                                      \in p\mathcal L.   \tag{CFo19}
+\]
+To check this, \(c_2-c_I\) belongs to \(I\cap J=IJ=(p)\):
+both elements are \(1\) modulo \(I\) and belong to \(J\).
+Also \(c_I(a_i-\widetilde a_i)\in JI\mathcal L\).
+Since \((\zeta_2^M)^p=1\), (CFo19) changes no phase.
+Finally, the source roots of unity give exactly
+\[
+  \zeta_2^M
+       =\sigma_2\!\left(\zeta(M'_2)^{M'_2/p}\right).       \tag{CFo20}
+\]
+This is an equality of the specified powers, obtained from
+\(M_2=pM\) and \(M_2\mid M'_2\).
+
+The last clause of \(\mathrm{PhiPin}\) is literally
+\[
+ \sigma_2(d.eF(d.\phi_\delta(q)))
+   =\sum_{x\in\mathcal X}\sigma(\mathrm{ph}(x))
+      (\zeta_2^M)^{
+             \sum_iDw.EF(a(x_i),c_I\widetilde a_i)}.       \tag{CFo21}
+\]
+By definition \(d.w(x^0,q)\) multiplies this by
+\(\zeta^{\sum_iDw.EF(x^0_i,c_0\widetilde a_i)}\).
+Substituting (CFo13) and (CFo18)--(CFo20) therefore gives
+\[
+                    \sigma_2(d.w(x^0,q))=t\sum_xG(z_x).
+\]
+The quotient reindexing just proved converts this into (CFo16).
+Its sets are finite in this application: \(\mathcal X\) is a
+finite integral-lattice quotient; the tensor quotient is a
+quotient of a finite free abelian group killed by the positive
+integer \(M_2\).
+\end{proof}
+
+\paragraph{Exact frozen-source correspondence.}
+The endpoint is
+\srcid{GlobalTheory.Dict.CoverFourier.w\_eq\_sum}, also exposed as
+\srcid{GlobalTheory.T.coverFourierCoeff\_eq\_finite\_fourier\_sum},
+in
+\srcid{src/Development/AbelianVarietyTheory/Proofs/SiegelThetaTransformation/CoverFourierCoeffEqFiniteFourierSum.lean}
+(\srcid{74576b27f7c3dd7a54f9c4d66edcd5931e6c9cb4}),
+at tag \srcid{alpoge-source-7cbf7a0c}.
+The tensor reindexing is its \srcid{finsum\_tens};
+(CFo11) is its \(\delta_J=M\delta_2\) construction;
+the two denominator-phase arguments are its
+\srcid{root\_mem}, \srcid{root\_mem'}, \srcid{EF\_int\_tens}
+and \srcid{EF\_int\_smul}.
+The exact integral comparison (CFo19) is its \srcid{pd\_dvd},
+and (CFo20) is \srcid{zetaM\_pow}.
+The cover coefficient (CFo21), compatible embeddings, and
+\srcid{PhiPin} are defined in
+\srcid{src/Formalism/LocalToGlobal/ProjectiveLattices/ThShort.lean}
+(\srcid{ba33f03086ab6eb7e86ad7e31fe5d9484953af5e}).
+The localized congruence, \(D.\mathrm{lats}\), and \(D.\mathrm{Red}\)
+are in
+\srcid{src/Development/AbelianVarietyTheory/Definitions/SpanningFamilies/IsSystem.lean}
+(\srcid{ae90008828f2ba0ca764c4a5a36a0625faa93079});
+the marking, root and dual identities are in its sibling
+\srcid{IsStabForm.lean}
+(\srcid{ca69affd0453770815104e7bfc7b4a93c7ef988e}).
+The exact \srcid{LevTie} and adapted base class are in
+\srcid{IsBaseClassLevelAdapted.lean}
+(\srcid{24574b3c56538e14a28fa38ddc4e9b034c240057}).
+The existence of the higher dual marking is the separate
+\srcid{DualHalfLevelMarkingExistsAndMatch.lean}
+(\srcid{ca7df4a980bb13ba448a4268b4ac12dd635d7c9f});
+its output (CFo7)--(CFo8) has been stated explicitly here.
+Thus this subsection proves the downstream coefficient identity
+(RS8) from the actual cover and matching inputs. It does not
+obtain those inputs by naming their interfaces.

@@ -1,0 +1,236 @@
+\subsection{The actual projective theta-coordinate closure}
+\label{subsec:ftb-theta-coordinate-closure}
+
+We begin the fine Siegel family construction at its algebraic
+coordinate step.
+Let \(o\hookrightarrow\mathbb C\) be a Dedekind domain, let
+\(N'>0\), \(n>0\), and put
+\[
+ \mathcal I=(\mathbb Z/N'^2\mathbb Z)^{2g},\qquad
+                              b=\lfloor N'/n\rfloor .
+\]
+In the eventual application \(N'=n^j\), so \(b=n^{j-1}\).
+For a chosen class \(C\) of the source's marked theta objects
+of dimension \(g\) and level \(N'^2\), let \(\mathcal V_C\)
+be the set of their actual theta-coordinate vectors
+\(v:\mathcal I\to\mathbb C\).
+These are the vectors in \(\mathrm{HasTh}\): they are
+computed from the given marked torsion points, symmetric
+theta-group lifts and the specified line section.
+Changing the final local scalar multiplying this coordinate
+reading by \(c\in\mathbb C^\times\) multiplies the whole
+vector by \(c\); all preceding torsion, lift and section
+identities remain unchanged.
+Thus \(\mathcal V_C\) is stable under nonzero scalar
+multiplication.  This is exactly the source's
+\(\mathrm{hasTh\_unit\_mul}\) step.
+
+Define the ideal, with no reduction or closure left implicit,
+\[
+ I_C=\bigcap_{v\in\mathcal V_C}
+       \ker\!\left(o[X_a:a\in\mathcal I]\longrightarrow\mathbb C,
+                                      \ X_a\longmapsto v_a\right).
+ \tag{M1}\label{eq:ftb-theta-vanishing-ideal}
+\]
+For a ring map \(\beta:o\to R\), write \(\mathrm{InMM}(v)\)
+for the conjunction
+\[
+ \begin{split}
+ &F(v)=0\quad(F\in I_C),\\
+ &\text{for every prime }q\subset R\text{ and every }a\in\mathcal I,
+          \text{ some }c\in\mathcal I
+                         \text{ has }v_{a+bc}\notin q.
+ \end{split}
+ \tag{M2}\label{eq:ftb-theta-inmm}
+\]
+All polynomial evaluations use \(\beta\).
+The second clause is the literal coset nonvanishing condition;
+it is stronger than the assertion that \(v\) is not the zero
+vector at each point.
+
+For a line bundle \(M\) with sections \(\vartheta_a\) on a
+scheme \(Z\), a point \(x:\operatorname{Spec}R\to Z\) has
+\emph{section coordinates} \(v\) if there is a generator
+\(\tau\) of \(x^*M\) with
+\[
+                                x^*\vartheta_a=v_a\tau
+                                      \quad(a\in\mathcal I).
+ \tag{M3}\label{eq:ftb-theta-section-coordinates}
+\]
+This includes the actual trivialization of the pulled-back
+line.  A generator and a basis of an unrelated coordinate
+space are not interchangeable in this definition.
+
+\begin{srlemma}[The reduced flat coordinate scheme]
+\label{lem:ftb-theta-mm-pre}
+The ideal \(I_C\) is radical and homogeneous, and
+\(o[X_a]/I_C\) is torsion free over \(o\).
+There are a quasiprojective flat reduced \(o\)-scheme
+\(\mathcal M_0\), a line \(M\) on it and sections
+\(\vartheta_a\), with the following exact property.
+For every \(o\)-algebra \(R\), vectors \(v\) satisfying
+\(\mathrm{InMM}(v)\) have a unique point
+\(x:\operatorname{Spec}R\to\mathcal M_0\) with section
+coordinates \(v\), and every such section-coordinate
+vector satisfies \(\mathrm{InMM}\).
+\end{srlemma}
+\begin{proof}
+Radicality follows directly from
+\eqref{eq:ftb-theta-vanishing-ideal}, because every target
+is a field.
+For homogeneity, if \(F\in I_C\), then for every actual
+coordinate vector \(v\) the polynomial \(F(cv)\) vanishes
+for all \(c\ne0\).
+Its coefficient of \(c^d\) is the evaluation of the
+degree-\(d\) homogeneous part of \(F\).
+An infinite set of roots makes this one-variable
+polynomial zero, so every homogeneous part lies in
+\(I_C\).
+Finally, if \(0\ne r\in o\) and \(rF\in I_C\), evaluate
+at every \(v\).
+The image of \(r\) in \(\mathbb C\) is nonzero, since the
+displayed coefficient embedding is injective.
+Thus \(F(v)=0\) for every \(v\), proving torsion freeness.
+
+Construct the homogeneous closed subscheme
+\(Z\subset\mathbb P_o^{\mathcal I-1}\) defined by \(I_C\).
+Its line \(M_Z\) is the restricted \(\mathcal O(1)\);
+write \(\vartheta_a\) for its actual coordinate sections.
+The standard affine coordinate calculation gives
+\[
+ D(\vartheta_i)\simeq
+ \operatorname{Spec}
+  \bigl(o[X_a]/(I_C+(X_i-1))\bigr).
+ \tag{M4}\label{eq:ftb-theta-dehom-chart}
+\]
+For precision, the map sending \(X_a\) to \(X_a/X_i\) in
+\((o[X_a]/I_C)[X_i^{-1}]\) has kernel
+\(I_C+(X_i-1)\).
+One inclusion follows degree by degree from homogeneity.
+For the other, evaluate the localized ring at \(X_i=1\):
+this is a well-defined retraction because \(X_i\) is
+sent to a unit.
+Its composite with the ratio map is the quotient map.
+This proves the kernel identity and the chart formula,
+including the saturation by powers of \(X_i\) which is
+already implicit in a projective chart.
+Equivalently, a homogeneous form \(F\) vanishes in this
+chart exactly when \(X_i^kF\in I_C\) for some \(k\).
+
+The chart ring in \eqref{eq:ftb-theta-dehom-chart} embeds
+in the displayed localization.
+It is therefore reduced.
+It is also torsion free over \(o\).
+Indeed, if a nonzero \(r\in o\) kills a localized fraction
+\(F/X_i^m\), then some \(X_i^krF\) lies in \(I_C\);
+torsion freeness for \(I_C\) gives \(X_i^kF\in I_C\),
+so the fraction is zero.
+A torsion-free module over a Dedekind domain is flat.
+
+Now take the explicit finite-intersection open
+\[
+ \mathcal M_0=
+      \bigcap_{a\in\mathcal I}
+          \ \bigcup_{c\in\mathcal I}D(\vartheta_{a+bc})
+                                           \ \subset Z.
+ \tag{M5}\label{eq:ftb-theta-coset-open}
+\]
+The index sets are finite, so this is open.
+It is covered by the reduced flat affine charts just
+computed; reducedness and flatness are local.
+The ambient \(Z\) is projective over the Noetherian
+Dedekind domain \(o\); its open \(\mathcal M_0\) is
+quasiprojective.
+
+Here are the full point identities.
+If \(v\) satisfies \eqref{eq:ftb-theta-inmm}, its coordinates
+generate the unit ideal in \(R\): a maximal ideal
+containing all of them would violate the coset condition
+at \(a=0\).
+The ordinary projective coordinate construction therefore
+gives a unique point of projective space with
+\eqref{eq:ftb-theta-section-coordinates}.
+The equations put it in \(Z\).
+At each prime of \(R\), the coset condition and
+\eqref{eq:ftb-theta-section-coordinates} put its image in
+\eqref{eq:ftb-theta-coset-open}.
+It factors uniquely through this open immersion.
+
+Conversely a section-coordinate vector on \(\mathcal M_0\)
+satisfies all equations, by the homogeneous ideal of \(Z\).
+At a prime \(q\), the image of the corresponding point
+belongs to every union in
+\eqref{eq:ftb-theta-coset-open}.
+The line generator in \eqref{eq:ftb-theta-section-coordinates}
+is a unit in each stalk; hence nonvanishing of
+\(\vartheta_{a+bc}\) is exactly \(v_{a+bc}\notin q\).
+This is the full second clause of
+\eqref{eq:ftb-theta-inmm}.
+Uniqueness is inherited from projective coordinates and
+the open immersion.  Pull the actual line and sections
+to \(\mathcal M_0\), which proves the assertion.
+\end{proof}
+
+This constructs the source's \(\mathrm{MMPre}\), not yet
+its universal abelian scheme.
+In particular reducedness and flatness of the coordinate
+closure do not by themselves supply any polarized family
+on that closure.
+The next producer must recover an actual marked theta
+object near each relevant prime, prove uniqueness on
+overlaps, and glue these objects on a suitable open.
+The exact next statements are
+\srcid{exists_generic_object},
+\srcid{exists_tObj_near}, and
+\srcid{iso_unique_of_dense} in the source ledger
+below.
+
+\paragraph{Frozen source concordance and quantifiers.}
+The definition of
+\(\mathcal I,\mathrm{HasTh},I_C,\mathrm{Coset},\mathrm{InMM}\)
+is
+\srcid{src/Development/AbelianVarietyTheory/Definitions/ModuliSpaces/%
+GoodClass.lean}
+(\srcid{1f7f9fe959f1a165b471c16211a3b1290fbdeab8}).
+Section coordinates and the exact \(\mathrm{MMPre}\)
+fields are in
+\srcid{FiniteHomogeneousInf.lean}
+(\srcid{1a1beedf08bb1a0f2369c22fa441010a9df8d31b})
+in the same directory.
+The remaining prefix is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/}.
+The actual ideal proof is
+\srcid{ThetaPointsVanishingIdealRadicalHomogeneous.lean}
+(\srcid{8d8b6ad3c09a9b60f8f95739f59428d949a9f7bc}).
+The projective construction and homogeneous chart kernel
+are
+\srcid{ExistsProjCoordRepresentationHomogeneousIdealFla.lean}
+(\srcid{5b0ceb928553b508f4c65e5c8a63dab7f5ceefdc}),
+\srcid{ExistsNonzeroCoordinateAffineChart.lean}
+(\srcid{dd617586ae8dba48d5326405113f23bdc86eb9b4}),
+and
+\srcid{DehomogenisationIsRadicalAndTorsionFree.lean}
+(\srcid{ab21a5e8d706c8d13251e38044e65adb4db48b96}).
+The pullback and stalk nonvanishing comparisons are
+\srcid{SectionCoordinatesPullIsoNonzeroLocus.lean}
+(\srcid{0799c678994ae1f2ea51199ac6ebd222d6eff3e4}).
+The precise assembly is
+\srcid{NonemptyThetaCoordinateSchemeData.lean}
+(\srcid{1b2990aa07d997e8f510b16185c9a18c28435ebe}).
+
+No analytic separation, generic-object existence, or
+polarized extension assertion was needed in this lemma.
+Those are separate, substantive next producers:
+\srcid{ExistsGenericObjectMinimalPrimeModuliChart.lean}
+(\srcid{d82fe58703626f4a4dfe7def4ba0dc2e88b6247e}),
+\srcid{ExistsThetaObjectNearGoodPrime.lean}
+(\srcid{5694d3c9f8408b96f3cf2535bd140ec9501acea8}),
+and
+\srcid{ThetaLevelIsoUniqueOfDenseCommonFibres.lean}
+(\srcid{1df29797ace199044afe7a78870fd5e45edab58b}).
+In the actual fine-family application \(g\) here is \(8h\)
+and \(C\) is the eighth-power sharp class.
+Its required finite holomorphic lattice-family and
+countable-fibre hypotheses, with \(j_0\) chosen before
+all arithmetic coefficient rings, remain to be supplied
+by the actual sharp-class construction.
