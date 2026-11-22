@@ -17,20 +17,20 @@ jobs:
           curl --fail --location --retry 2 'https://github.com/ChristianKudeba/alpoge-rh-verification/archive/refs/tags/alpoge-source-7cbf7a0c.tar.gz' --output /tmp/rh-frozen-source.tar.gz
           sha256sum /tmp/rh-frozen-source.tar.gz
           tar -xzf /tmp/rh-frozen-source.tar.gz --strip-components=1 -C formal-source
-      - name: Locate the exact saturation and slope producers
+      - name: Locate the original integral-model producers
         run: |
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
           import re
-          pattern=re.compile(r'FlatSat|height_comparison_global_model|SlopeBoundSt|\bN3\b')
+          pattern=re.compile(r'\bPartI\b|\.N3\b|(?:theorem|def|lemma)\s+\w*(?:partI|part_i|n3|N3)\w*')
           hits=[]
           excerpts=[]
           for path in Path("formal-source/src").rglob("*.lean"):
               body=path.read_text(encoding="utf-8")
               matches=[f'{path}:{i}:{line}' for i,line in enumerate(body.splitlines(),1) if pattern.search(line)]
               hits.extend(matches)
-              if ('FlatSat' in body and path.name != 'FlatSat.lean') or re.search(r'(?:def|structure|abbrev)\s+N3\b',body):
+              if False:
                   excerpts.append('\nSOURCE FILE: '+str(path)+'\n'+body)
           report='\n'.join(hits)+'\n'+''.join(excerpts)
           if not hits:
