@@ -1,0 +1,387 @@
+\subsection{Weil sign, positivity, and all tensor-power sections on the same torus}
+\label{subsec:ftb-complex-weil-sections}
+
+Keep exactly the exponential \(e\), lattice \(\Lambda\), frame \(f_i\),
+Hermitian form \(H\), unit-modulus function \(\chi\), and integral form
+\(E=\operatorname{Im}H|_\Lambda\) constructed in
+Proposition~\ref{prop:ftb-actual-appell-humbert-frame}.
+Write
+\[
+ j_\lambda(z)=\chi(\lambda)
+       \exp\{\pi H(z,\lambda)+\pi H(\lambda,\lambda)/2\}.
+\]
+Thus \(f_i(z)=j_\lambda(z)f_i(z+\lambda)\).
+The algebraic inputs for this step are precisely
+\(\mathrm{Out.WeilSt}\), \srcid{Out.WeilNondegSt}, and
+\srcid{Out.GlobalSectionsRankAlgClosed}, in addition to the
+multiplication and cube laws already used.
+The last law says, for every polarised abelian variety over an
+algebraically closed field and every \(n\geq1\),
+\(\dim H^0(P,L^n)=n^g\).
+We do not replace the source's section comparison by a general
+analytic algebraization assertion.
+
+\begin{srlemma}[The actual theta-group scalar and the Weil sign]
+\label{lem:ftb-complex-weil-sign}
+For \(k\geq1\), \(a,b\in\Lambda\), and
+\(x=e(a/k),y=e(b/k)\), the source's algebraic Weil relation is
+\[
+                 e_{L,k}(x,y)=
+                  \exp\{-2\pi i E(a,b)/k\}.                \tag{CW1}
+\]
+In particular \(E:\Lambda\to\operatorname{Hom}(\Lambda,\mathbb Z)\)
+is bijective.
+\end{srlemma}
+
+\begin{proof}
+Take any algebraic theta-group lift over a test scheme, then restrict
+it to a complex point of that test scheme, whose translation is
+\(e(a/k)\).  In two charts for \(L\), write \(A_j(z)\) for the value
+of its algebraic generator of
+\(L_z^k\otimes L_{z+a/k}^{-k}\).  Its transition identity gives
+\[
+       A_j(z)f_{j_1}(z+a/k)^k
+                    =C_a e^{-\pi H(z,a)} f_{j_0}(z)^k      \tag{CW2}
+\]
+for one scalar \(C_a\) independent of both \(j\) and \(z\).
+Here is the source's verification of that scalar.
+The quotient
+\[
+ G_j(z)=
+   \frac{A_j(z)f_{j_1}(z+a/k)^k e^{\pi H(z,a)}}
+        {f_{j_0}(z)^k}
+\]
+is holomorphic, and its denominators are nonzero.
+The generator and frame transition identities make the \(G_j\)
+agree on all overlaps.  Under \(z\mapsto z+\lambda\), their
+automorphy factors cancel because
+\[
+             e^{\pi H(\lambda,a)}=e^{\pi H(a,\lambda)}
+\]
+for \(\lambda,a\in\Lambda\), by integrality of
+\(\operatorname{Im}H(\lambda,a)\).  Hence they glue to a lattice-periodic
+entire function and are constant by the fundamental-parallelepiped
+and Liouville argument.  Rearranging gives (CW2).
+
+Use (CW2) for the \(a\)-lift at \(z\), the \(b\)-lift at \(z+a/k\),
+the \(b\)-lift at \(z\), and the \(a\)-lift at \(z+b/k\).
+Cancel the three nonzero intermediate frame values.
+The ratio between the two compositions is exactly
+\[
+ \frac{e^{-\pi H(z,a)}e^{-\pi H(z+a/k,b)}}
+      {e^{-\pi H(z,b)}e^{-\pi H(z+b/k,a)}}
+       = e^{-2\pi i E(a,b)/k}.                             \tag{CW3}
+\]
+This fixes the negative sign in (CW1).
+
+This calculation proves the required algebraic generator equality,
+not just its value for some chosen lifts.  In the calculation for a
+theta-group lift over a test scheme, first restrict that lift to a
+complex point of the test scheme; (CW2)--(CW3) are then calculations
+on the actual complex variety \(P\).
+For the predicate \(\mathrm{WeilIs}\), the source applies
+\(\mathrm{WeilSt}\) over the base \(S=\operatorname{Spec}\mathbb C\).
+It obtains its lifts and its Weil relation after restriction to an
+open \(V\subset S\).  The space on which the resulting regular
+generator equality is checked is therefore \(V\times_{\mathbb C}P\).
+This space is smooth, reduced and locally of finite type over
+\(\mathbb C\).  Formula (CW3), at all its complex points, determines
+the scalar in that relation.  Equality of the regular functions
+follows on each affine open: their difference lies in every maximal
+ideal of a finitely generated complex algebra, hence in its zero
+nilradical.  No reducedness assertion about a product with an
+arbitrary test scheme is used.
+Restriction, pullback, multiplication of generators and constant
+units all have exactly their evaluated products in this argument.
+This is the source predicate \(\mathrm{WeilIs}\) with scalar (CW1).
+
+To prove perfection, suppose \(k\mid E(a,b)\) for every \(b\in\Lambda\).
+Every \(k\)-torsion point is \(e(b/k)\): lift it to \(w\in V\), so
+\(kw\in\Lambda\), and take \(b=kw\).
+Formula (CW1) therefore says that \(e(a/k)\) pairs trivially with
+all \(k\)-torsion points.  The supplied algebraic nondegeneracy
+\(\mathrm{WeilNondegSt}\) gives \(e(a/k)=0\).
+Thus \(a/k\in\Lambda\), proving
+\[
+ \bigl(k\mid E(a,b)\text{ for every }b\bigr)
+                            \Longrightarrow a\in k\Lambda. \tag{CW4}
+\]
+
+For clarity, the source's integral algebra from (CW4) is as follows.
+The lattice is finite free over \(\mathbb Z\).
+If \(E(a,-)=0\), (CW4) makes every coordinate of \(a\) divisible
+by every positive \(k\), so \(a=0\).  Thus \(E\) is injective.
+Its cokernel has rank zero, since source and target have equal
+finite rank.  For any functional \(\ell\), choose a nonzero integer
+\(c\) and \(x\in\Lambda\) with \(E(x,-)=c\ell\).
+Then \(E(cx,-)=c^2\ell\), so (CW4) gives \(cx=c^2a'\) for some
+\(a'\).  Applying \(E\) and cancelling \(c^2\ne0\) gives
+\(E(a',-)=\ell\).  This proves surjectivity.
+\end{proof}
+
+For \(n\geq0\), let \(\mathcal T_n\) be the vector space of entire
+functions satisfying
+\[
+                    \theta(z+\lambda)=j_\lambda(z)^n\theta(z).
+                                                                    \tag{CW5}
+\]
+The actual section-to-function map is
+\[
+            \theta_s(z)=s_i(e(z))/f_i(z)^n
+                         \quad\text{whenever }e(z)\in U_i. \tag{CW6}
+\]
+It is independent of \(i\), by the matching section and frame
+transition identities.  It is entire because its local denominator
+never vanishes, and (CW5) follows by evaluating at \(z+\lambda\).
+The same nonvanishing proves uniqueness of \(\theta_s\).
+Conversely, two algebraic sections with the same function have the
+same values at every complex point, by surjectivity of \(e\).
+The reduced finite-type argument in the proof of
+Lemma~\ref{lem:ftb-complex-weil-sign}, applied to each section chart,
+therefore makes the two sections equal.  Thus (CW6) is an injective
+linear map \(H^0(P,L^n)\to\mathcal T_n\) for every \(n\).
+
+\begin{srlemma}[Positivity from the source's nonzero theta function]
+\label{lem:ftb-complex-theta-positivity}
+The Hermitian form \(H\) is positive definite.
+\end{srlemma}
+
+\begin{proof}
+The rank law for \(n=1\) supplies a nonzero algebraic section.
+Its function \(\theta\) under (CW6) is nonzero by injectivity.
+The continuous function
+\[
+           |\theta(z)|\exp\{-\pi H(z,z)/2\}
+\]
+is lattice-periodic: \(|\chi|=1\), and the real part of the
+Hermitian automorphy exponent gives the precise quadratic
+difference.  It is bounded on a closed fundamental parallelepiped.
+Consequently, for some real \(C\geq0\),
+\[
+                  |\theta(z)|\leq C e^{\pi H(z,z)/2}.       \tag{CW7}
+\]
+Here \(H(z,z)\) is real.
+
+If \(H(w,w)<0\), then for each fixed \(z\) the entire one-variable
+function \(t\mapsto\theta(z+tw)\) has, by (CW7), a bound
+\[
+ C\exp\{\tfrac\pi2(A+2B|t|-\delta|t|^2)\},
+ \qquad \delta=-H(w,w)>0,\quad B=|H(z,w)|.
+\]
+It tends to zero at infinity.  Liouville's theorem makes it identically
+zero.  Varying \(z\) would give \(\theta=0\), a contradiction.
+Hence \(H\) is positive semidefinite.
+
+The source next removes its possible nullspace using \(E\).
+If \(H(z,z)=0\), positivity of
+\(H(z+isv,z+isv)\) for every real \(s\) gives
+\[
+                 0\leq 2s\,\operatorname{Im}H(z,v)
+                                  +s^2H(v,v).
+\]
+Choose \(s=-c/(d+1)\), where
+\(c=\operatorname{Im}H(z,v)\) and \(d=H(v,v)\geq0\).
+The resulting expression is
+\(-c^2(d+2)/(d+1)^2\), so \(c=0\).
+Choose an integral basis of \(\Lambda\), which is a real basis of
+\(V\).  In these coordinates the last equality for each lattice
+basis vector says that the coordinate row of \(z\) lies in the
+left kernel of the matrix of \(E\).  That matrix has nonzero
+determinant by Lemma~\ref{lem:ftb-complex-weil-sign}; it remains
+invertible over \(\mathbb R\).  Therefore \(z=0\).
+This proves positive definiteness.
+\end{proof}
+
+\begin{srlemma}[The source's finite Fourier detector]
+\label{lem:ftb-complex-theta-fourier-detector}
+For \(n\geq1\), every linearly independent family in
+\(\mathcal T_n\) has at most \(n^g\) members.
+\end{srlemma}
+
+\begin{proof}
+We retain the actual symplectic normal form and its gauge.
+The full lattice has rank \(2g\).  The alternating perfect form
+\(-E\) has an integral symplectic basis \((a_i,b_i)\), so
+\(E(a_i,b_j)=-\delta_{ij}\).
+The source obtains this basis by the following integral elimination.
+Among ideals generated by a value of an alternating form on the
+current submodule, choose a maximal one.  A Bezout combination
+shows that its generator \(d=B(e,f)\) divides \(B(e,y)\),
+\(B(x,f)\), and every value on the common orthogonal complement.
+Subtract the corresponding multiples of \(e,f\) to decompose each
+vector into their span and that complement.  Induction on rank
+gives orthogonal pairs spanning the module.  Their nonzero \(d_i\)
+give linear independence; surjectivity of the form forces each
+\(d_i\) to be a unit by applying it to a basis coordinate functional.
+Rescale the second member of each pair by this unit.  The resulting
+basis is symplectic.  This is applied to \(-E\), explaining the
+sign of \(E(a_i,b_j)\).
+
+Let \(A\) have columns \(a_i\).  The isotropic relation makes
+\(A^tH\overline A=Y\) a real matrix.  It is invertible:
+otherwise a real kernel vector of \(Y\), positivity of \(H\),
+and the pairing with every \(b_j\) would force that vector to be
+zero.  Thus \(A\) is a complex isomorphism.  Write the matrix of
+the second half of the basis as \(A\tau\).
+The pairing equations give
+\[
+             Y>0,\qquad Y\,\operatorname{Im}\tau=1,\qquad
+             \tau^t=\tau,\qquad \operatorname{Im}\tau>0 .
+\]
+The symmetry follows by substituting the zero pairings between
+the \(b_i\)'s, separately in real and imaginary parts.
+
+For appropriate complex linear \(c\) put
+\(Q(z)=\pi z^tYz/2+c(z)\).
+Choose \(c(e_i)=\log\chi(a_i)\).  Direct subtraction of \(Q\)
+under \(z\mapsto z+e_i\) and \(z\mapsto z+\tau e_j\) shows that
+\[
+                   F(z)=\theta(Az)e^{-nQ(z)}
+\]
+is entire, \(1\)-periodic in each coordinate, and
+\[
+          F(z+\tau e_j)=\beta_j^n
+                    e^{-2\pi i n z_j}F(z),\qquad \beta_j\ne0. \tag{CW8}
+\]
+The map \(\theta\mapsto F\) is injective since \(A\) is invertible
+and the gauge exponential never vanishes.
+
+For such an \(F\), define the actual unit-cube Fourier coefficients
+\[
+             c_m(F)=\int_{[0,1]^g}F(x)e^{-2\pi i m\cdot x}\,dx,
+                      \qquad m\in\mathbb Z^g .
+\]
+The source's shift identity is
+\[
+ \int_{[0,1]^g}F(x+w)e^{-2\pi i m\cdot x}\,dx
+                      =e^{2\pi i m\cdot w}c_m(F).           \tag{CW9}
+\]
+Indeed the integral of an entire periodic function over the real
+unit cube is unchanged by a real translation (Haar translation
+on the unit torus).  Differentiation under the integral on this
+compact cube makes the integral an entire function of the complex
+translation.  Real translation invariance then makes it constant.
+Apply this to \(F(z)e^{-2\pi i m\cdot z}\) to get (CW9).
+
+Combining (CW8)--(CW9) gives
+\[
+       \beta_j^n c_{m+ne_j}(F)
+                         =e^{2\pi i m\cdot\tau e_j}c_m(F).  \tag{CW10}
+\]
+Both multipliers are nonzero.  Vanishing of the coefficients
+with \(0\leq m_j<n\) therefore implies vanishing for every
+\(m\in\mathbb Z^g\): use integer division of each coordinate
+by \(n\) and move by the steps \(\pm ne_j\).
+If all coefficients vanish, \(F=0\).  To see this last assertion
+on any complex translate of the real torus, (CW9) says that all
+its Fourier coefficients vanish.  Fourier uniqueness for continuous
+functions on the compact real torus gives zero on that translate,
+in particular at its origin.  The translate was arbitrary.
+
+Thus the \(n^g\) coefficients in the residue box define an injective
+linear map on this function space into \(\mathbb C^{n^g}\).
+Applying this map to a linearly independent family proves the claim.
+\end{proof}
+
+\begin{srproposition}[The full fixed-fibre realization]
+\label{prop:ftb-full-fixed-fibre-theta-realization}
+With the supplied multiplication, cube, Weil, nondegeneracy and
+algebraic section-rank laws, the single tuple
+\((e,\Lambda,f_i,H,\chi,E)\) above satisfies the full
+\(\mathrm{ThetaUnifAV}\) conclusion.  In particular \(H>0\),
+\(E\) is perfect, (CW1) has its displayed negative sign, and for
+every \(n\geq0\) the rule (CW6) is a bijection between the
+algebraic sections of \(L^n\) and \(\mathcal T_n\).
+The tangent comparison, linear endomorphism lifts, original
+rigidification, and exponential are the ones previously constructed.
+\end{srproposition}
+
+\begin{proof}
+For \(n\geq1\), the algebraic rank law supplies \(n^g\) independent
+sections.  Their functions are independent: a zero linear
+combination of functions comes from the same linear combination
+of sections by (CW6), so injectivity gives a zero combination of
+sections.  Lemma~\ref{lem:ftb-complex-theta-fourier-detector}
+then makes these functions span \(\mathcal T_n\).
+Otherwise adjoining one function outside their span would give
+\(n^g+1\) independent functions.  The corresponding linear combination
+of the original algebraic sections gives the required section;
+injectivity proves uniqueness.
+
+For \(n=0\), (CW5) says simply that \(\theta\) is lattice-periodic.
+It is bounded on a fundamental parallelepiped and hence constant
+by Liouville.  The algebraic constant section of \(L^0=\mathcal O_P\)
+has exactly this function.  This also gives uniqueness.
+The remaining conclusions are precisely the preceding lemmas
+and the exponential and frame constructions, whose exponentials
+and lattices were unchanged.
+\end{proof}
+
+\paragraph{Exact frozen-source ledger.}
+Unless otherwise indicated the following paths are under
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ToricGeometry/},
+at tag \srcid{alpoge-source-7cbf7a0c}.
+The scalar comparison (CW2) is
+\srcid{ExistsConstOfCover.lean}
+(\srcid{352bc50a120c49044d56f2cb6d27897e02e9ded2}),
+declaration \srcid{ThetaGroupFrame.thetaGrp\_in\_frame}.
+The four-frame cancellation and algebraic Weil relation are
+\srcid{WeilIsExpRiemannForm.lean}
+(\srcid{1eb1a1affef7a79c6e3ba7d22535430afa9f5930}).
+The divisibility step from nondegeneracy is
+\srcid{RiemannFormBijectiveOfWeilNondeg.lean}
+(\srcid{1f530935aa3e1561f47e7164efbc1e450969a70a});
+the finite-free rank and \(c^2\) argument is
+\srcid{BilinFormBijectiveOfNondegenerateMod.lean}
+(\srcid{996fa526419927f2aa701e51691e6593347aa79e}).
+Equality of regular functions from their complex values uses
+\srcid{EqZeroOfForallAlgHomComplex.lean}
+(\srcid{292d8cb01972525a6c0040b1449efb5090dcca4f}) and
+\srcid{IsReducedSchemeOfSmoothOfIsIntegrallyClosed.lean}
+(\srcid{14b7a75b14c084dda1e8a2b2b06dd4d26a0c3fba}).
+
+Construction and injectivity of (CW6) are
+\srcid{SectionsPowThetaFunctions.lean}
+(\srcid{54dfefb784a86c4772781b543aa65b04d961f540}).
+The nonzero rank-one section and positivity assembly are
+\srcid{ExistsIndepSections.lean}
+(\srcid{fa66eca4089a8ad5a3bf75a329926da7b4bc58d8}) and
+\srcid{IsAHOfPolarisation.lean}
+(\srcid{22ea6df6cd8176d9647db8c52e101b63203fd5a2});
+the periodic metric bound, negative-direction argument and
+nullspace removal are
+\srcid{ReFormPosOfThetaNeZero.lean}
+(\srcid{bda58e9df3981e4de3d25e29bb8531c5f4f93e1e}).
+
+The integral symplectic elimination is
+\srcid{../CovolumeBounds/DualRestrictSurjectiveOfIsTorsionFreeQuotient.lean}
+(\srcid{369a733eead2b44d17430d13ba108b43be4e8f81}).
+Its application, the exact \(-E\) sign, period matrix and gauge are
+\srcid{IsUnitOfLagrangian.lean}
+(\srcid{b2457d0adf49b8651e52f5bf0a955de91cbdefda}),
+declaration \srcid{SiegelNormalForm.exists\_normal\_form}.
+The complex Fourier shift is
+\srcid{FourierCoeffUnitCubeTranslateOfEntirePeriodic.lean}
+(\srcid{90e515c3c1229348b46c587391faf4f2f1dfbedd});
+Fourier uniqueness on translates is
+\srcid{EntirePeriodicEqZeroOfFourierCoeffEqZero.lean}
+(\srcid{ba105521538d00b051b34f19676d77e0f374ca90}).
+The residue-box argument is
+\srcid{CardLePowOfLinearIndependent.lean}
+(\srcid{20085cbe9a9a42f684df9924f67d1e8fcc10a49f});
+the normal-form transport is
+\srcid{CardLePowOfLinearIndependentThetaPrincipal.lean}
+(\srcid{fe36db1b4f2c9d4f78040330571ea9d7ca87ef58}).
+Surjectivity including \(n=0\) is
+\srcid{MemSpanOfCardLe.lean}
+(\srcid{f21dc5ff7a5efc6072c172914c28130acaafe764}).
+Final same-tuple assembly is
+\srcid{ThetaUnifAVOfParts.lean}
+(\srcid{d260f9fb5b92e8635a1893372bb0ad47bdacb5c6}),
+called in the fixed order by
+\srcid{ThetaUnifAVOfLaws.lean}
+(\srcid{3e496ea337ef9e519bbf43dfe91ef52009f6a960}).
+This completes that producer from its five displayed algebraic laws.
+The construction of families of period matrices and the reverse
+construction of an algebraic variety from a given period matrix
+are separate later producers.

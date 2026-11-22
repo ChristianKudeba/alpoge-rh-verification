@@ -175,6 +175,86 @@ Otherwise apply Lemma~\ref{lem:ftb-formal-discriminant-jacobian}
 and the preceding trace and norm identities.
 \end{proof}
 
+\begin{srlemma}[The finite-zero Koszul statement retains multiplicities]
+\label{lem:ftb-koszul-finite-zero}
+Let \(k\) be an algebraically closed field, \(A/k\) the smooth
+\(g\)-dimensional principally polarized abelian variety of the key
+datum, \(n\geq1\), and \(s_1,\ldots,s_g\in H^0(A,L^n)\).
+Suppose only that their common zero \emph{set} is finite.
+For \(l>gn\), the unaugmented section Koszul complex in degrees
+\(H^0(A,L^{l-jn})\) is exact in every positive exterior degree.
+For arbitrary germs \(a_y\in\mathcal O_{A,y}\) at the finitely many
+common zeros, a section of \(L^l\), read in the chosen local frames,
+agrees with \(a_y\) modulo the full ideal \((s_1,\ldots,s_g)\).
+A section whose germs belong to that ideal is a global sum
+\(\sum_i s_it_i\), with \(t_i\in H^0(A,L^{l-n})\).
+The ideals in these statements are not replaced by their radicals.
+\end{srlemma}
+\begin{proof}
+We spell out why finite nonreduced zeros meet the local regularity
+input used by the source.  For a prefix of \(k\) sections let \(W_k\)
+be its closed zero set.  Its dimension is at most \(g-k\).
+Indeed the remaining \(g-k\) sections have affine nonzero
+complements (they are positive powers of an ample line on a proper
+scheme), are locally single equations, and have finite common
+zeros on \(W_k\).  The source's elementary dimension-cut argument
+shows that a closed subset with these properties has dimension
+at most the number of sections.  Here is its prime-chain mechanism:
+a positive-dimensional proper closed subset cannot lie in an affine
+open, since a proper affine scheme over a field is finite; thus
+one can choose a specialization outside the first complement.
+Cutting a prime chain by its local single equation loses at most
+one step, by the principal-ideal chain theorem.
+Repeat on the closed complement with the remaining sections.
+After all cuts the resulting chain lies in a finite closed set,
+whose points are closed because the scheme is Jacobson.
+Such a chain has length zero.  Reversing the cuts bounds the
+original chain by the number of equations.  Apply this to every
+prefix \(W_k\).
+
+On an affine trivializing chart, localize at a maximal ideal.
+Smoothness gives a regular local ring of dimension \(g\).
+If the first \(k\) section coefficients all lie in its maximal
+ideal, the quotient by them has dimension at most \(g-k\),
+by the preceding closed-set dimension bound and localization.
+In a Cohen--Macaulay regular local ring, \(k\) elements in the
+maximal ideal with this codimension form a regular sequence:
+extend them to a system of parameters, whose sequence is regular,
+and take its prefix.
+If a prefix coefficient is a unit, its ideal is already the unit
+ideal; if the next coefficient is a unit, multiplication by it
+is injective on the preceding quotient.
+These cases prove exactly the weak regular sequence condition
+on the affine chart, with no Jacobian or reducedness premise.
+
+Use the same finite affine Cech cube and multiplication maps as
+in Lemma~\ref{lem:ftb-koszul-unit}.
+The weak regularity step says that
+\(s_i a\in(s_1,\ldots,s_{i-1})\) implies
+\(a\in(s_1,\ldots,s_{i-1})\) on each nonempty affine intersection.
+Successive cuts of the Cech cube by these multiplication maps
+therefore preserve exactness modulo the successive image sums.
+All the line exponents \(l-jn\) are positive, so their positive
+Cech cohomology vanishes.
+The elementary cube cut is explicit: lift a boundary modulo the
+new image, take its differential, use weak regularity to lift
+that error to the preceding cube, subtract that lift, and use
+the preceding cube's exactness; the equation \(d^2=0\) makes
+the subtraction consistent.
+Induction over \(i\) proves positive Koszul exactness and gluing
+of local classes modulo the generated ideal.
+
+Finally prescribed germs at finitely many zeros are represented
+on small affine neighbourhoods.  On overlaps their differences
+are in the same ideal after the local quotient classes are fixed;
+the cut-cube gluing gives a single global class.
+Applied to the zero class this is the kernel assertion.
+Throughout, the quotient is by \((s_i)\) itself.
+Nilpotent classes in its finite local quotient are retained by
+all restrictions, lifts and subtractions.
+This proves all three assertions for the full finite zero scheme.
+\end{proof}
+
 \subsection{The actual global-to-formal order}
 Let \(O\) be a complete DVR and let a tuple \(s_i\) on \(A/O\)
 have finite common zero set on the closed fibre.
@@ -200,8 +280,8 @@ as an \(O\)-module; this step precedes any choice of an \(O\)-basis
 of that product.  We give the two completion arguments.
 On the algebraic closure of the residue field, approximate any
 formal series to order \(q\) by a germ in the coordinate
-neighbourhood.  The actual interpolation part of the
-Cech/Koszul argument in Lemma~\ref{lem:ftb-koszul-unit}
+neighbourhood.  The full-ideal interpolation part of
+Lemma~\ref{lem:ftb-koszul-finite-zero}
 produces a single section matching all these germs modulo the
 equations and \((X)^q\).
 Let \(\rho_1,\ldots,\rho_N\) be the images of a basis of \(V_l\).
@@ -234,7 +314,9 @@ is exactly \(\sum_i s_i H^0(A,L^{l-n})\).
 Generic exactness first puts a nonzero multiple of a kernel vector
 in this image.  The image is saturated: if \(\pi v=Du\), reduce
 the degree-two part of \(u\) modulo \(\pi\).
-Positive Koszul exactness in the residue field expresses it as
+The positive-degree exactness of
+Lemma~\ref{lem:ftb-koszul-finite-zero}, transported to the residue
+field by a linear retraction from its algebraic closure, expresses it as
 \(D\bar w\).  Lift \(w\); then \(u-Dw\) is divisible by \(\pi\)
 in the relevant degree, so \(v\) is again a boundary.
 Induct on the power of \(\pi\) in the first nonzero multiple.
@@ -500,3 +582,25 @@ get all-place units, and uses connected families to obtain the
 exponent-one \(\kappa\).
 Those further analytic and family statements are not consequences
 of section independence alone.
+
+\paragraph{Finite-zero exactness source precision.}
+The lemma used in the global-to-formal step is the more general
+\srcid{KoszulSectionsExactAlgClosedPolarisedAV.lean},
+\srcid{koszul\_sections\_exact\_field}
+(\srcid{f0fe7fbf99f791b00095713fd70b93d5f391aec4}):
+its premise is \(\mathrm{FinZ}\), not transverse zeros.
+Its regularity producer is
+\srcid{RingKrullDimLocalizationQuotientLe.lean}
+(\srcid{3c1e8ca388fe83a5265e805d08eed06bf2788d20}),
+using \srcid{TopologicalKrullDimLeOfFiniteCommonZeros.lean}
+(\srcid{fdaf8d3e54271968860ca7ff57b038273c4cc344})
+and \srcid{IsRegularOfFnOfRingKrullDimQuotientAddLe.lean}
+(\srcid{f6e15efe6ea2c1cd4a8d9bbdbebb9f3f3ca8960f}).
+The cut-cube proof is \srcid{CubeCutRegularSequence.lean}
+(\srcid{ec1b32eeaff351e107dfaf7cab2a57dbb9d870ed}).
+Residue exactness transport is \srcid{KosDApplyMap.lean}
+(\srcid{32213dc454266e031b4d69878743e5850f8d72c0}),
+and generic exactness is \srcid{KosDExactGeneric.lean}
+(\srcid{77c29ad29912bd032772f06a74bd4938d6ac4ab9}).
+All these proof files have the same \srcid{ThetaLawProofs/}
+prefix as the other sources in this section.

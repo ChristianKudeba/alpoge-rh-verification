@@ -1,0 +1,510 @@
+\section{The coefficient, kernel and weight-point constructions for preuniformisation}
+\label{sec:faithful-preuniformisation}
+This section follows the original complete-local preuniformisation
+construction.  It proves the coefficient uniqueness and gluing,
+the finite-kernel local argument and the actual passage from compatible
+weight points to the datum \(\mathrm{PreU}\).
+The existence and algebraisation of the formal quotient tower are
+separate producers, specified at the end.  None of the lemmas below
+asserts that an arbitrary formal torus or an arbitrary rational
+trivialisation is the tower of the given family.
+
+\subsection{The normalized even cubical unit}
+Let \(S\) be nonempty and connected, and let \(G/S\) be a nonempty
+connected commutative group
+with the actual torus quotient
+\[
+       1\longrightarrow T_X\xrightarrow{i}G\xrightarrow{q}B
+                      \longrightarrow1.
+ \tag{PUF1}\label{eq:preunif-torus-extension}
+\]
+Here \(X\) is a free abelian group, \(T_X\) is its split torus,
+\(B/S\) is an abelian scheme, and \(q\) is faithfully flat, surjective
+and affine, with its stated kernel square.
+Retain the usual abelian-scheme function theorem in its full
+base-change form: for every \(Z/S\), the pullback map
+\(\Gamma(Z,\mathcal O)\to\Gamma(B\times_S Z,\mathcal O)\)
+is an isomorphism. Thus arbitrary global functions on that
+pullback, not only a preselected fibre-constant class, come from \(Z\).
+All point identities in this subsection are functorial in the test
+scheme over \(S\), including nonreduced test schemes.
+
+\begin{srlemma}[A character family is constant on a connected parameter space]
+\label{lem:preunif-character-family}
+Let \(Y/S\) be nonempty and connected and let
+\(\rho\in\Gamma(T_X\times_S Y,\mathcal O)^\times\) be multiplicative
+in the torus variable.  There is a unique \(\chi\in X\) for which
+\(\rho(t,y)=\chi(t)\) on every test scheme.
+\end{srlemma}
+\begin{proof}
+Locally on an affine open of \(Y\), write the group-like function in
+the group algebra as a finite sum \(\sum_\chi a_\chi e^\chi\).
+The equality between comultiplication of this sum and its tensor
+square says
+\[
+       a_\chi^2=a_\chi,\qquad
+       a_\chi a_{\chi'}=0\ (\chi\ne\chi'),\qquad
+       \sum_\chi a_\chi=1.
+\]
+Thus its coefficients are a partition of the parameter space by
+open-and-closed sets, on each of which a single coefficient is one.
+This argument uses idempotents, so it does not presume the base is
+reduced.  Uniqueness of the group-algebra coefficients identifies the
+characters on intersecting opens.  The resulting locally constant
+map \(Y\to X\) is constant because \(Y\) is connected.
+This is the coefficient content of
+\srcid{existsUnique_character_of_mul}.
+\end{proof}
+
+\begin{srlemma}[The actual normalized even cubical unit is one]
+\label{lem:preunif-even-cubic-unit}
+Let \(u\in\Gamma(G,\mathcal O)^\times\).  Suppose
+\[
+ \begin{gathered}
+ u(1)=1,\qquad u(x^{-1})=u(x),\\
+ u(xyz)u(x)u(y)u(z)=u(xy)u(xz)u(yz)
+ \quad\hbox{for every test scheme and }x,y,z.
+ \end{gathered}
+ \tag{PUF2}\label{eq:preunif-even-cube}
+\]
+Then \(u=1\).
+\end{srlemma}
+\begin{proof}
+Define on \(T_X\times_S G\)
+\[
+       \rho(t,g)=
+            \frac{u(i(t)g)}{u(i(t))u(g)}.
+\]
+Apply the cubical identity to \(i(t),i(t'),g\).
+Cancellation gives
+\(\rho(tt',g)=\rho(t,g)\rho(t',g)\).
+Lemma~\ref{lem:preunif-character-family} gives one character \(\chi\)
+independent of \(g\).  At \(g=1\) the ratio is one, so \(\chi=0\).
+Consequently
+\[
+                       u(i(t)g)=u(i(t))u(g).
+ \tag{PUF3}\label{eq:preunif-split-unit}
+\]
+Restriction of this equality to \(g=i(t')\) makes \(u\circ i\) a
+character \(\psi\) of \(T_X\).  Evenness gives \(\psi=-\psi\).
+The character lattice is torsion free, so \(2\psi=0\) implies
+\(\psi=0\).  Equation~\eqref{eq:preunif-split-unit} therefore makes
+\(u\) invariant under the actual torus kernel action.
+
+Faithfully flat descent now gives a function \(a\) on \(B\):
+on \(G\times_B G\), the two pullbacks of \(u\) agree because the
+kernel square identifies their difference with a torus translation.
+The equalizer description of sections for this faithfully flat
+cover gives \(q^*a=u\).  The abelian function theorem makes \(a\)
+a pullback from \(S\).  Evaluation at the identity section makes that
+base function one.  Thus \(u=1\).  This is precisely the route in
+\srcid{even_cubic_unit_eq_one}: the mixed ratio is a character before
+the restriction of \(u\) itself is made into a character.
+\end{proof}
+
+\subsection{Quotient line isomorphisms and their normalization}
+Let \(N,L,M\) be invertible sheaves on \(Y,A,B\), and let
+\(F:Y\to A\), \(p:Y\to B\).  Suppose the actual generating
+isomorphisms are
+\[
+                       u:N\longrightarrow F^*L,\qquad
+                       v:N\longrightarrow p^*M.
+\]
+For chosen frames of \(N,L,M\), write their scalar coefficients
+\(u_{km}\) and \(v_{jm}\), with \(m\) the intermediate \(N\)-frame.
+
+\begin{srlemma}[The exact quotient coefficient]
+\label{lem:preunif-quotient-coefficient}
+The local units \(v_{jm}u_{km}^{-1}\) define a generating isomorphism
+\(w:F^*L\to p^*M\), characterized by
+\[
+                      v_{jm}=w_{jk}u_{km}.
+ \tag{PUF4}\label{eq:preunif-quotient-coefficient}
+\]
+\end{srlemma}
+\begin{proof}
+On changing the \(N\)-frame, both \(u_{km}\) and \(v_{jm}\)
+are multiplied by the same transition unit.
+Their quotient is unchanged.  The chosen \(N\)-charts cover the
+intersection of the pulled-back \(L\)- and \(M\)-charts, so the
+quotients glue there.  On changing the \(L\)- or \(M\)-frame they
+transform by exactly the transition units of
+\(\operatorname{Hom}(F^*L,p^*M)\).
+They therefore define \(w\).  Every quotient is a unit, so \(w\)
+is generating and invertible.
+Multiplication by \(u_{km}\) gives the characterization.
+This expands \srcid{exists_isQuotIso} and
+\srcid{IsQuotIso.isGen}.
+\end{proof}
+
+Suppose now the three lines carry the specified rigidifications,
+symmetries and cubical generators, and \(u,v\) preserve those data.
+If \(W(x)\) denotes the coefficient of \(w\) at a point \(x\),
+cancellation of the common \(N\)-coefficients gives the identities
+\[
+ \begin{aligned}
+ r_M&=W(1)r_L,\\
+ s_M(px)W(x)&=W(x^{-1})s_L(Fx),\\
+ C_M(px,py,pz)\,W(xy)W(xz)W(yz)W(1)
+   &=W(xyz)W(x)W(y)W(z)\,C_L(Fx,Fy,Fz).
+ \end{aligned}
+ \tag{PUF5}\label{eq:preunif-quotient-cube}
+\]
+Here all coefficients are evaluated in the same local chart system
+on the test scheme.  For the first identity divide the two
+rigidification identities for \(u,v\).  For the second divide their
+symmetry identities.  For the third divide their seven-point
+cubical identities; the intermediate coefficients cancel
+point by point.  This proves \srcid{IsQuotIso.vals} with its factor
+\(W(1)\) in the stated position.
+
+\begin{srlemma}[Uniqueness and compatibility of the normalized coefficients]
+\label{lem:preunif-coefficient-unique}
+For a connected family with the actual quotient
+\eqref{eq:preunif-torus-extension}, two generating maps between the
+same specified cubical rigidified symmetric lines, preserving all
+those structures and lying over the same group map, have the same
+coefficients.
+The quotient coefficients in Lemma~\ref{lem:preunif-quotient-coefficient}
+therefore commute with a transition between two such levels.
+\end{srlemma}
+\begin{proof}
+The quotient of two generating maps glues to a global unit \(a\)
+on the source.  To see this without choosing a global frame, divide
+their coefficients on each pair of source and target charts.
+Both transition factors cancel, so these local ratios agree and
+cover the source.  Dividing their rigidification, symmetry and
+cubical identities gives exactly \eqref{eq:preunif-even-cube}
+for \(a\).  Lemma~\ref{lem:preunif-even-cubic-unit} makes \(a=1\).
+
+For the compatibility assertion, pull the upper-level maps to the
+lower level and compose with the specified source transition.
+They and the given lower-level maps are over the same group map.
+Their cubical comparisons are the pullbacks of the same comparisons;
+uniqueness just proved identifies their coefficients.
+In \eqref{eq:preunif-quotient-coefficient}, cancel the common
+coefficient of the intermediate line to identify the two
+quotient coefficients.  This is \srcid{gw_eq_of_isCPMap}
+followed by \srcid{gw_compat}.
+\end{proof}
+
+\subsection{The finite translation-kernel argument over a local ring}
+\begin{srlemma}[Finite augmented algebra with trivial closed fibre]
+\label{lem:preunif-finite-augmentation}
+Let \((A,\mathfrak m)\) be local, let \(C\) be a finite \(A\)-algebra,
+and let \(\epsilon:C\to A\) be a retraction of its structural map
+\(\phi:A\to C\).  Suppose
+\[
+                    c-\phi(\epsilon c)\in\mathfrak m C
+                    \qquad(c\in C).
+ \tag{PUF6}\label{eq:preunif-augmentation-reduction}
+\]
+Then \(\phi\epsilon=1_C\); in particular \(C\simeq A\).
+\end{srlemma}
+\begin{proof}
+The finite \(A\)-module \(C/\phi(A)\) is generated modulo
+\(\mathfrak m\) by zero, by
+\eqref{eq:preunif-augmentation-reduction}.
+Nakayama's lemma makes it zero.  Thus \(c=\phi(a)\) for some \(a\).
+Applying the retraction gives \(\epsilon c=a\), and hence
+\(\phi(\epsilon c)=c\).
+No flatness of \(C\) is assumed.  This is
+\srcid{ring_retraction}.
+\end{proof}
+
+\begin{srproposition}[The exact closed-fibre translation-kernel deduction]
+\label{prop:preunif-ktriv-local}
+Let \(B/A\) be an abelian scheme over a local Noetherian ring,
+and let \(L\) be the specified relatively ample line.
+Retain the actual closed translation-kernel representation:
+a finite closed subgroup \(j:H\hookrightarrow B\) represents
+\(\operatorname{InK}(B,L)\) on every test scheme.
+If the pullback of \(L\) to the residue-field fibre has trivial
+translation kernel on every test scheme, then
+\(\operatorname{KTriv}(B,L)\) holds over \(A\).
+\end{srproposition}
+\begin{proof}
+The identity translation gives a section \(e:\operatorname{Spec}A
+\to H\).  Because \(H\) is finite, it is \(\operatorname{Spec}C\)
+for a finite \(A\)-algebra.  The section gives the augmentation
+\(\epsilon:C\to A\).
+
+Any point of \(H\) over a residue-field test scheme maps, through
+the Cartesian fibre diagram and \(j\), to a translation preserving
+the special-fibre line.  The hypothesis makes it the identity.
+Since \(j\) is a closed immersion and hence a monomorphism,
+the point of \(H\) itself equals the identity section.
+This assertion is for all test schemes: in particular it applies
+to the universal point of
+\(\operatorname{Spec}(C/\mathfrak mC)\).
+On coordinate rings it is exactly
+\eqref{eq:preunif-augmentation-reduction}.
+Lemma~\ref{lem:preunif-finite-augmentation} makes
+\(H=\operatorname{Spec}A\) with its identity section.
+Every \(\operatorname{InK}\)-point factors through \(H\) and is
+therefore the identity, as required.
+Checking only geometric points of the closed fibre would not
+justify this argument, since it would discard nilpotents.
+
+In the source, the representation is
+\srcid{exists_closed_twist_kernel}, its finiteness is
+\srcid{AmpleStabFinite.isFinite_of_relAmple}, and
+\srcid{inK_iff_trivial_twist} supplies its stated equality with
+\(\operatorname{InK}\).
+This proposition prints their subsequent local deduction,
+\srcid{kTriv_of_closed_fibre}; it retains those representation
+and finiteness producers rather than replacing them by a claim
+about geometric point counts.
+\end{proof}
+
+\subsection{Compatible weight points and their exact algebraisation}
+Let \(R\) now be a Noetherian local domain, complete and separated
+for the proper ideal \(I\), and put \(K=\operatorname{Frac}(R)\).  Put \(R_e=R/I^{e+1}\).
+Let \(G_e\) be the actual pullback of the semiabelian family \(G/R\),
+and suppose the formal quotient tower has quotients
+\(q_e:G_e\to B_e\) by the same character lattice \(X\), cubical lines
+\(M_e\), transitions \(\beta_e:B_e\to B_{e+1}\), and their specified
+Cartesian and torus-compatibility squares.
+Retain its actual algebraisation \(a\): an abelian scheme \(B/R\),
+a relatively ample cubical rigidified symmetric line \(M\), and
+compatible Cartesian maps \(b_e:B_e\to B\).
+Assume \(\operatorname{KTriv}(B,M)\), for example from
+Proposition~\ref{prop:preunif-ktriv-local} with its stated inputs.
+
+The source's representation condition
+\(\operatorname{Rep}(e,\chi,x_e)\) means that \(x_e\) lies over
+\(\operatorname{Spec}R_e\), and the actual translation-ratio line
+\[
+                  K_{x_e}(t)=M_{x_e+t}^{-1}\otimes M_t,
+\]
+pulled through the specified \(b_e q_e\), has a generating section
+with torus weight \(\chi\). The two line exponents are
+\([-1,+1]\), as in the source definitions
+\srcid{Rep} and \srcid{TowerR.Alg.RepWt}.  Its uniqueness uses
+\(\operatorname{KTriv}\), and its existence is the precise
+Picard-zero degeneration input
+\(\operatorname{PicardZeroDegenerationCondition}\).
+In the following theorem that existence input is stated explicitly.
+
+\begin{srlemma}[Algebraising a compatible family of points]
+\label{lem:preunif-adic-points}
+Let \(Y/R\) be a scheme and let
+\(x_e:\operatorname{Spec}R_e\to Y\) be compatible \(R\)-maps.
+There is a unique \(R\)-map \(x:\operatorname{Spec}R\to Y\)
+whose reductions are all the \(x_e\).
+\end{srlemma}
+\begin{proof}
+All closed points of these local schemes have the same image in
+\(Y\).  Choose an affine open \(U\) containing that image.
+The preimage of \(U\) under any \(x_e\) is an open set containing
+the closed point of \(\operatorname{Spec}R_e\), so is the whole
+spectrum.  The compatible coordinate maps therefore give
+\[
+                \Gamma(U,\mathcal O)\longrightarrow
+                  \varprojlim_e R_e=R.
+\]
+This defines \(x\), and compatibility with the structural map
+makes it an \(R\)-map.
+
+For uniqueness, two such maps have the same closed-point image.
+Both factor through the chosen affine \(U\), for the same
+local-spectrum reason.  Their coordinate maps agree modulo every
+\(I^{e+1}\), and separatedness of the \(I\)-adic topology makes
+them equal.  This is the actual local argument behind
+\srcid{existsUnique_over_of_isAdicFamily}.
+\end{proof}
+
+\begin{srproposition}[The additive character-point map]
+\label{prop:preunif-additive-weights}
+Assume that, for each \(e\) and \(\chi\in X\), there exists an
+\(x_{e,\chi}\) satisfying the actual representation condition above.
+Then these points give one additive map
+\[
+                         c:X\longrightarrow B(R)
+\]
+with the source's \(\operatorname{RepWt}(c_\chi,\chi,e)\)
+for every \(e\).
+\end{srproposition}
+\begin{proof}
+Pulling a representing point and its weighted generating section
+through a tower transition preserves its character: this is the
+actual torus-compatibility square.  The two resulting points at
+level \(e\) have the same character representation.
+Their difference is in the translation kernel of \(M\);
+\(\operatorname{KTriv}\) makes them equal.
+Thus the points \(x_{e,\chi}\), after their maps into \(B\), are
+compatible in \(e\).  Lemma~\ref{lem:preunif-adic-points} supplies
+\(c_\chi\).
+
+For additivity use the specified cube.  For points \(a,b,t\), it
+identifies the square line
+\[
+          S_{a,b}(t)
+               =M_{a+b+t}M_tM_{a+t}^{-1}M_{b+t}^{-1}
+\]
+with the constant line \(M_{a+b}M_0M_a^{-1}M_b^{-1}\) from the
+base.  Over the local ring this constant invertible module is
+free.  Choose a generating section, and pull it back to the
+actual torus quotient.  Its torus weight is zero, since the
+quotient map is invariant under the kernel action.
+The tensor identity, with every exponent shown, is
+\[
+                    K_a\otimes K_b\otimes S_{a,b}^{-1}
+                                \simeq K_{a+b}.
+\]
+Indeed its coefficient line is
+\[
+ (M_{a+t}^{-1}M_t)(M_{b+t}^{-1}M_t)
+       (M_{a+b+t}^{-1}M_t^{-1}M_{a+t}M_{b+t})
+                    =M_{a+b+t}^{-1}M_t .
+\]
+Tensor the two weight generators with the inverse square generator.
+Their weights are \(\chi,\chi'\) and zero, so the resulting
+generator has weight \(\chi+\chi'\). This is exactly
+\srcid{triv_square_sections}, \srcid{Square.triv_inv} and
+\srcid{exists_genWt_add}; no character is dualized.
+Therefore \(c_\chi+c_{\chi'}\) and \(c_{\chi+\chi'}\) satisfy the
+same representation condition at every level.
+Uniqueness at every level, followed by the uniqueness part of
+Lemma~\ref{lem:preunif-adic-points}, identifies the two sections.
+This is \srcid{exists_repWt}, \srcid{repWt_add} and
+\srcid{repWt_unique}, giving \srcid{exists_weightPoints}.
+\end{proof}
+
+\subsection{Assembly of the actual preliminary datum}
+Retain the preceding tower and algebraisation, its character map
+\(c\), the specified line \(P\) on \(G\), and an actual generic
+polarized abelian variety \(A/K\) with the fixed group isomorphism
+\[
+                    G_K\simeq A
+\]
+and its specified generating comparison of generic lines.
+Let the source torus-coordinate producer be applied to the actual
+\(q_e\), the actual \(b_e\), and the weight generators just obtained.
+It gives coordinates \(g_e\) with the same torus embedding and the
+same map
+\[
+                        G_e\xrightarrow{q_e}B_e
+                                  \xrightarrow{b_e}B .
+\]
+Its coordinate-compatibility assertion
+\srcid{torusCoordinates_compat_of_torus_compat} identifies the
+generators at consecutive levels, once the quotient maps and the
+torus embeddings agree.
+
+\begin{srproposition}[The source's \(\mathrm{PreU}\) assembly]
+\label{prop:preunif-assembly}
+Under these same tower, algebraisation, kernel, weight and
+coordinate inputs, there are an actual preliminary degeneration
+datum \(D\) and \(\operatorname{PreU}(I,D,A,G)\), whose line on
+\(G\) and generic isomorphism are the originally specified ones.
+\end{srproposition}
+\begin{proof}
+Take \(D.P\) to be \(B\) with line \(M\), its actual
+rigidification, symmetry and cube.  The abelian relative dimension
+is the constant dimension of \(B/R\), since the local base is
+connected.  The relative ampleness and \(\operatorname{KTriv}\)
+are the already specified properties of this algebraisation.
+Take \(D.X=X\) and its point map to be \(c\).
+For each \(\chi\), choose a generic generator of the inverse
+one-dimensional fibre \(M(c_\chi)^{-1}\), over the field \(K\).
+The exponent is \(-1\), exactly as in the source's
+\srcid{DVR.exists_gen_of_local} application.
+This is an initial choice of \(\psi_\chi\), not yet the
+nonzero-theta-normalized choice needed for the full degeneration
+datum.
+
+At level \(e\), let \(P_e\) be the actual pullback of \(P\).
+It has one generating comparison with \(P|_{G_e}\), and its
+descended line has the actual generating comparison with
+\(M\) along \(b_eq_e\).
+Apply Lemma~\ref{lem:preunif-quotient-coefficient} to obtain the
+generating comparison
+\[
+                   P|_{G_e}\longrightarrow (b_eq_e)^*M.
+\]
+Its rigidification, symmetry and cubical values are
+\eqref{eq:preunif-quotient-cube}.
+The quotient maps commute with the tower transitions, by the
+tower equation and \(b_{e+1}\beta_e=b_e\).
+The torus embeddings commute by the original torus-compatibility
+condition.  Thus the \(g_e\) coordinate generators commute, by
+the coordinate producer just specified.
+Finally Lemma~\ref{lem:preunif-coefficient-unique} makes the
+line-comparison coefficients commute too.
+The needed connectedness at each level holds because \(R_e\)
+is local and the semiabelian family is smooth with geometrically
+connected fibres.  We have supplied exactly the maps, generators,
+value identities and level compatibilities in
+\(\operatorname{PreU}\).
+The prescribed line on \(G\) and the prescribed generic
+isomorphism were kept throughout, so their equalities are
+literal.  This is the construction \srcid{exists_preU}.
+\end{proof}
+
+\paragraph{The tower and algebraisation frontier, with its original order.}
+The source obtains the actual \(\operatorname{TowerR}\) as follows.
+Start with the given split extension over \(R/I\), with its free
+finite character lattice \(X\).
+Inductively lift its torus quotient through
+\(R/I^{e+2}\to R/I^{e+1}\), whose kernel is nilpotent.
+At each level, trivialise the cubical biextension first over the
+normal quotient \(R/I\), lift that trivialisation across the
+nilpotent ideal, and use the specified
+\(\operatorname{HypW}\) relation to obtain the even cubical
+trivialisation.  Descent supplies the quotient cubical line.
+Its transition is the descent of the actual compatible torus
+quotient maps.  These are the successive producers
+\srcid{exists_tq_succ}, \srcid{nonempty_biTriv},
+\srcid{exists_even}, and \srcid{exists_isCPPullback} in
+\srcid{NonemptyFormalUniformisationTower}.
+They are not replaced by the assertion that compatible
+quotients of schemes automatically exist.
+
+Next the actual closed-fibre polarization producer proves
+relative ampleness and \(\operatorname{KTriv}\) on each
+field fibre of the first quotient.  The relative-ampleness
+producer over the complete local principal quotient gives
+relative ampleness at level zero.
+The project's \(\operatorname{Ega}\) theorem algebraises this
+ample formal tower to a projective smooth scheme with its line.
+The group multiplication, inverse and identity are algebraised
+from their compatible level maps; equality of the group laws
+is checked on all levels using formal faithfulness.
+The original producer
+\srcid{IsAbelianSchemeOfAbelianThickenings} additionally proves
+geometric connectedness.  Then
+\srcid{exists_cp_alg} algebraises the actual cubical, symmetric
+and rigidified line structures, rather than just its isomorphism
+class.
+This is \srcid{NonemptyAlgebraisationFormalTowerAmple}.
+The local kernel argument above is applied first to the
+initial quotient and then to this actual algebraisation.
+The Picard-zero degeneration input then supplies the
+representing weight points used in
+Proposition~\ref{prop:preunif-additive-weights}.
+
+These lower existence and algebraisation producers are the
+remaining construction inputs of this section.  The full N3
+argument must also replace the initially chosen generic
+\(\psi_\chi\) by the generators obtained from the same nonzero
+theta section, compare with the chosen complete-discrete-
+valuation-ring uniformisation, descend its expansion
+bijections and then construct the actual linear PEL/torsion
+identifications.  Those steps are not consequences of the
+coefficient and local-kernel arguments proved here.
+
+\paragraph{Frozen source correspondence.}
+All the following paths are in
+\srcid{Development/AbelianVarietyTheory/Proofs/} at commit
+\srcid{7cbf7a0c32fca1badf05931879a37c3f8a2b03b4}:
+\srcid{UniformizationProofs/EvenCubicUnitEqOne.lean},
+\srcid{DegenerationProofs/ExistsPreUOfFibres.lean},
+\srcid{DegenerationProofs/KTrivOfClosedFibreLocalRing.lean},
+\srcid{DegenerationProofs/ExistsAdditiveWeightPointsOfTorusTower.lean},
+\srcid{DegenerationProofs/NonemptyFormalUniformisationTower.lean},
+and
+\srcid{DegenerationProofs/NonemptyAlgebraisationFormalTowerAmple.lean}.
+The last paragraph records the exact remaining source producers;
+it is not a claim that all of their proofs have already been
+printed in this section.

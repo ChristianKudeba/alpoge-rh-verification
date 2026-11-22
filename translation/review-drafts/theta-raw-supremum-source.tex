@@ -1,0 +1,387 @@
+\section{The source raw-theta supremum estimate with constant \(9000\)}
+\label{sec:sr-source-raw-sup-9000}
+
+This section translates \srcid{RawThetaSup.homN_raw_le} and
+\srcid{homN_smul_raw_le}.  The absolute constant is chosen before
+the host, cover, weight, lattice, or scalar.  The proof uses the
+orthogonal half-maximum and raw-value estimates of
+Sections~\ref{sec:sr-source-raw-theta-norm} and
+\ref{sec:sr-source-half-maximum}.  Their actual analytic dictionaries
+remain the same dictionaries throughout the following argument.
+
+\subsection{The exact family and its hypotheses}
+Use the source packet \(D:\mathrm{D7}\), \(T:\mathrm{CoreJ}(D)\),
+\(j\in\mathbb N\), and \(Y:\mathrm{Deep}(T,j)\).
+Write
+\[
+ E=D.\mathrm{host}.E,\quad f=D.R.f=\tfrac12[E:\mathbb Q],\quad
+ r=D.R.r,\quad D_w=T.Q.Dw(j),\quad M=Y.d.l_2.M,\quad
+ c=Y.d.c_2 .
+\]
+The actual packet satisfies \(f,r\ge1\).
+For a nonnegative exponent array \(a\) and even \(n\), put
+\[
+ d=\mathrm{DF}(D_w,a),\qquad
+ \kappa=\mathrm{sizeK}(D_w,a,n)
+             =d+\frac n2fr,\qquad \xi=\xi_R(D)>0.
+ \tag{RN1}\label{eq:sr-source-raw-size}
+\]
+The equality for \(\kappa\) will be proved below, rather than
+assumed as an independent normalization.
+
+We retain every clause of the source
+\(\mathrm{CovGmin.Hyp}(D,T,j,Y,e,o,L_b,a,n)\):
+\begin{enumerate}
+\item \(\mathrm{LawsJ}(T)\), \(D_w.p,D_w.q\ge1\),
+\(2<[E:\mathbb Q]/2\), and \(\mathrm{InR}(D,j)\);
+\item the actual \(\mathrm{Good}(Y,e,o)\) datum;
+\item \(L_b\ge1\),
+\(\log M\le30L_b\), \(\mathrm{fieldSz}(E)\le3L_b\),
+\(\log(fr)\le L_b\), and \(o\le391(frL_b)^2\);
+\item \(\mathrm{Dom}(a,n)\), \(\mathrm{Even}(n)\),
+\(8fr+4\le n\), and
+\[
+  n/2<\mathrm{laOf}(D_w,a,n;\tau,k)
+       \quad(\tau\in\Psi,\ k<D_w.p);
+\]
+\item \(\log\kappa\le20L_b\).
+\end{enumerate}
+Here \(\mathrm{Dom}\) is the source's dominant exponent condition,
+not a replacement by positivity of total weight.
+The separate evenness clause and the strict row inequalities are
+kept as they occur in the source.
+
+Fix an actual \(\mathrm{nab}\) satisfying \(\mathrm{IsNab}\) for
+\(Y.d.Xo_2,c\).  Let \(x_0\) be a tuple in
+\(\mathrm{LevQc}(D_w,l_2)\), and let \(\Lambda\) be the actual
+positive coefficient lattice satisfying
+\[
+ \mathrm{Unimod}(\Lambda),\qquad
+ \mathrm{TrivAt}(\Lambda,M),\qquad
+ \mathrm{LevOK}(\Lambda,N,M).
+\]
+Let \(P\in\mathrm{harmL}(c,\Lambda,a)\), with
+\(\mathrm{polyNorm}_c(P)\le\rho\).
+Let \(y\in Y.V(\mathrm{wtZ}(a,n))\), and assume the exact
+\(\mathrm{thLaValAt}\) formula for \(y\), for every source test ring
+and every frame over that test ring, using these same
+\[
+ \mathrm{nab},\quad
+ w=\phiHat_c(\mathrm{indPhi}_c(x_0)),\quad \Lambda,N,P .
+ \tag{RN2}\label{eq:sr-source-raw-all-tests}
+\]
+In particular \(y\) is in the actual cusp space.  The estimate
+does not replace (RN2) by equality at one complex frame.
+
+Set
+\[
+ J_\Lambda=
+ [\Lambda:\Lambda\cap O_E^n],\qquad J=J_\Lambda^r .
+\]
+This is the source index
+\((\Lambda.L_n.\mathrm{addSubgroupOf}\,\Lambda.La).\mathrm{index}\).
+No spanning condition on \(x_0\), or triviality of \(\Lambda\) at
+the additional integer \(\mathrm{badC}(Y)\), is needed for this
+norm implication; those are separate premises of \(\mathrm{thFam}\).
+
+\begin{srproposition}\label{prop:sr-source-raw-sup-9000}
+Under these exact hypotheses, for every coefficient-field
+embedding \(\sigma\) use the source good embedding
+\(\sigma^+=\mathrm{goodOf}(c,\sigma)\) and its actual
+uniformization \(U_{\sigma^+}=Y.U(\sigma^+)\).
+For every frame \(z\) in its frame domain,
+\[
+ \mathrm{homN}_{U_{\sigma^+},\xi,\mathrm{wtZ}(a,n)}(y;z)
+ \le \sqrt J\,\rho\,
+                  \exp\!\bigl(9000(frL_b)^2\kappa\bigr).
+ \tag{RN3}\label{eq:sr-source-raw-sup-9000}
+\]
+The same constant \(9000\) works before all of the displayed
+packet and family choices.
+\end{srproposition}
+
+\subsection{The elementary logarithmic estimate}
+We first give the numerical producer used by the source.
+Let \(f,r,n\) be positive integers with \(r\le n\), let \(d\ge0\)
+be an integer, and let \(L\ge2\), \(b\ge d\), \(t,\lambda>0\),
+\(\mathrm{rd}\ge1\).  Suppose
+\[
+ \log(1+b)\le2L,\quad \log n\le L,\quad \log f\le2L,\quad
+ \log\mathrm{rd}\le2L,\quad
+ \log(\lambda^{-2})\le80L.
+\]
+Put
+\[
+ X=\frac{4\sqrt{2frn}\,(2f^{3/2}n^2\mathrm{rd})}
+                      {\sqrt\pi\,\lambda},\qquad
+ E_d=(\pi e t d)^{d/2},
+\]
+using \(E_0=1\).
+Let \(c_0,p_1,S,v\ge0\), \(\ell\ge0\), with
+\[
+ c_0\le e^{frnL},\quad p_1\le e^\ell,\quad
+ S\le2v,\quad
+ v\le c_0p_1E_d\sqrt2(1+X)^{frn}.
+\]
+Then
+\[
+ \log\!\left(e^{-(d/2)\log(\pi t)}S\right)
+                   \le \ell+10Lb+200frnL .
+ \tag{RN4}\label{eq:sr-source-log-sup}
+\]
+For \(S=0\), the source convention \(\log0=0\) makes the assertion
+immediate, since its right side is nonnegative.
+For \(S>0\), all factors on which logarithms are taken below
+are positive.
+The exact expansion is
+\[
+ \log X=\tfrac72\log2+2\log f+\tfrac12\log r+
+     \tfrac52\log n+\log\mathrm{rd}
+                       -\tfrac12\log\pi-\log\lambda
+                \le\tfrac72\log2+49L.
+\]
+For \(x>0\), \(\log x\le B\), \(B\ge0\), the two cases
+\(x\le1\) and \(x>1\) give
+\(\log(1+x)\le\log2+B\).
+Consequently \(\log(1+X)\le55L\).
+If \(d>0\),
+\[
+ \log E_d-\tfrac d2\log(\pi t)
+       =\tfrac d2(1+\log d)\le10Lb;
+\]
+use \(\log d\le\log(1+b)\le2L\), \(d\le b\), and \(L\ge2\).
+For \(d=0\) the left side is zero.
+Taking logarithms of \(S\le2v\) and the bound for \(v\),
+then using
+\(\log c_0\le frnL\), \(\log p_1\le\ell\), and
+\(frnL\ge2\), gives (RN4); the constant terms
+\(\frac32\log2\) and \(56frnL\) are bounded by \(200frnL\).
+This is the direct calculation of
+\srcid{LogExpMulLeOfGeneratorSupBound}, including its zero case.
+
+\subsection{Weights, a half maximum, and the first minimum}
+\begin{proof}[Proof of Proposition~\ref{prop:sr-source-raw-sup-9000}]
+The actual \(\mathrm{LawsJ}\), \(\mathrm{InR}\), and
+\(\mathrm{Good}\) witnesses give the source
+\srcid{laws_galois_pull} on this same \(Y\).
+Its relevant fields are:
+\(\mathrm{IsUnf}\) for each good embedding,
+\(D_w.p+D_w.q=r\), \(l_2.A=1\), the scalar
+\(|\tau(\xi)|=\xi_R(D)\), and trivial arithmetic character
+for these dominant even weights.
+These are the precise uniformization fields used below; this
+section does not reconstruct their model producer.
+
+Pair the embeddings of \(E\) by complex conjugation.
+Their CM type has \(f\) elements, and the two block
+multiplicities add to \(r\).  The positive rows of
+\(\mathrm{laOf}\) have absolute values \(a(\tau,i)+n/2\);
+the other rows have absolute values
+\(a(\bar\tau,i)+n/2\), in the source's reversed row order.
+Summing these terms gives exactly (RN1).
+It follows that
+\[
+ d\le\kappa,\quad frn\le2\kappa,\quad
+ n\le2\kappa,\quad \kappa>0.
+ \tag{RN5}\label{eq:sr-source-raw-size-inequalities}
+\]
+For each embedding the two endpoints bounding all rows differ
+by at most
+\(\sum_i a(\tau,i)+\sum_i a(\bar\tau,i)+n\).
+The source CM-type relabelling is bijective.  Summing that bound
+therefore gives the actual spread estimate
+\[
+ \sum_\tau\mathrm{spread}(\lambda;\tau)\le d+frn\le3\kappa .
+ \tag{RN6}\label{eq:sr-source-raw-spread}
+\]
+This is \srcid{SumWeightSpreadLeExponentNormAdd.sum_spread_laU_le}.
+
+Let \(S\) be the finite supremum of the actual weighted frame
+norm of the reading of \(y\) in \(U_{\sigma^+}\).
+Its finiteness is the \(\mathrm{holSub}\) conclusion in the
+definition of this cusp space.
+Every weighted point norm is at most \(S\).
+If \(S=0\), (RN3) follows immediately.
+Assume \(S>0\).
+Apply Proposition~\ref{prop:sr-source-orthogonal-halfmax},
+with \(w=3\kappa\), to get an orthogonal frame \(x_f\) in one
+actual component, with
+\[
+ S\le2|\mathrm{ev}_{\sigma^+}(y;x_f)|,\qquad
+ \mathrm{firstMinimumSq}(x_f)
+       \ge2\epsilon_{\rm lev}(3\kappa)/\mathrm{rd}_E^2.
+ \tag{RN7}\label{eq:sr-source-raw-halfmax}
+\]
+This uses a half supremum and the actual Borel
+orthogonalization; it does not require a maximum.
+
+Put \(u=e^{L_b}\ge2\).  The packet bounds give
+\[
+ M\le u^{30},\quad \mathrm{rd}_E\le u^3,\quad
+ \sqrt{D.\mathrm{host}.d}\le u^3,\quad
+ f\le u,\quad 3\kappa\le3u^{20}.
+\]
+For the middle host bound use the source arithmetic comparison
+\(\log(D.\mathrm{host}.d)\le2\log\mathrm{rd}_E\).
+Here \(\log\mathrm{rd}_E\le\mathrm{fieldSz}(E)\le3L_b\).
+Thus \(f(3\kappa)+2\le u^{24}\), and the exact denominator in
+\(\epsilon_{\rm lev}\) satisfies
+\[
+ 2M\sqrt{D.\mathrm{host}.d}\,(3f\kappa+2)\log2
+       \le2u^{57}\le\pi u^{57}.
+\]
+Both entries in the minimum defining \(\epsilon_{\rm lev}\)
+are at least \(u^{-57}\).
+Consequently
+\[
+ \epsilon_{\rm lev}(3\kappa)\ge e^{-57L_b},\qquad
+ \lambda=e^{-40L_b}\ \Longrightarrow\
+      \lambda^2\le\mathrm{firstMinimumSq}(x_f).
+ \tag{RN8}\label{eq:sr-source-raw-lambda}
+\]
+Indeed \(\lambda^2\mathrm{rd}_E^2\le e^{-74L_b}
+\le e^{-57L_b}\le2\epsilon_{\rm lev}(3\kappa)\).
+This is the source's \srcid{inv_pow_le_epStar} substitution.
+
+\subsection{The finite coefficient sum and the absolute constant}
+The harmonic polynomial has degree \(d\).
+There are \(frn\) letters: pairing conjugate embeddings makes
+the total block multiplicity \(fr\), with \(n\) columns.
+Every support exponent is between \(0\) and \(d\).
+Writing \(N_P=|\operatorname{supp}P|\) gives
+\[
+ N_P\le(d+1)^{frn}.
+\]
+For the fixed good embedding put
+\(p_P=\sum_\alpha|\sigma^+(P_\alpha)|\).
+Cauchy--Schwarz and the definition of the polynomial norm give
+\[
+ p_P\le\sqrt{N_P}\,\mathrm{polyNorm}_c(P)
+                                      \le\sqrt{N_P}\,\rho .
+ \tag{RN9}\label{eq:sr-source-raw-polynomial-sum}
+\]
+The polynomial norm is the square root of the sum of coefficient
+squares over all coefficient-field embeddings, so it bounds the
+sum of squares at this one embedding.
+In particular \(\rho\ge0\).
+
+The phase of \(\phiHat(\mathrm{indPhi}(x_0))\) has modulus one
+at every coefficient-field embedding.
+Indeed \(\mathrm{indPhi}\) has exactly one nonzero term,
+and its Fourier value is an integral power of the specified
+root of unity.  This root has nonzero order
+\(l_2.M'=\mathrm{lcm}(1,l_2.M)\), because \(l_2.A=1\).
+Its image under any embedding has modulus one, by raising
+to that nonzero order.
+This checks the coefficient-function premise of the raw-value
+bound without any size assumption on \(x_0\).
+
+Use (RN8) in the exact raw-value estimate
+\eqref{eq:sr-source-raw-value-bound}, with \(t=2\xi\).
+For \(v=|\mathrm{ev}_{\sigma^+}(y;x_f)|\) it reads
+\[
+ v\le\sqrt J\,p_P(\pi e t d)^{d/2}\sqrt2
+ \left(1+\frac{4\sqrt{2frn}\,(2f^{3/2}n^2\mathrm{rd}_E)}
+                        {\sqrt\pi\,e^{-40L_b}}\right)^{frn}.
+ \tag{RN10}\label{eq:sr-source-raw-numeric-input}
+\]
+The same actual connection, frame and all-test-ring equality
+(RN2) supply this formula.
+
+We now apply (RN4) with
+\[
+ L'=21L_b,\quad b=\kappa,\quad \ell=0,\quad
+ c_0=p_1=1,\quad
+ S'=S/(\sqrt J\,p_P),\quad v'=v/(\sqrt J\,p_P).
+\]
+The division is legitimate:
+\(S>0\), \(S\le2v\), and (RN10) force \(\sqrt J\,p_P>0\).
+By (RN5), \(n\le2\kappa\); hence
+\[
+ \log n\le21L_b,\qquad
+ \log(1+\kappa)\le22L_b,\qquad
+ \log f\le L_b,\qquad
+ \log\mathrm{rd}_E\le3L_b.
+\]
+For \(\log(1+\kappa)\), use \(\kappa\ge1/2\) from
+\(frn\ge1\), so \(1+\kappa\le3\kappa\).
+These bounds verify every logarithmic premise at \(L'\).
+Also \(\log(\lambda^{-2})=80L_b\le80L'\).
+The conclusion of (RN4), exponentiated and rescaled, gives
+\[
+ e^{-(d/2)\log(\pi t)}S
+ \le\sqrt J\,p_P
+       \exp\!\left(210L_b\kappa+4200frnL_b\right).
+\]
+Next (RN5) and \(\log(d+1)\le22L_b\) imply
+\(\sqrt{N_P}\le e^{22L_b\kappa}\).
+Using (RN9), then \(frn\le2\kappa\), bounds the preceding
+right side by
+\[
+ \sqrt J\,\rho\,
+ \exp\!\left((210+8400+22)L_b\kappa\right)
+ \le\sqrt J\,\rho\,
+                    e^{9000(frL_b)^2\kappa}.
+ \tag{RN11}\label{eq:sr-source-raw-final-number}
+\]
+The last step uses \(L_b\le(frL_b)^2\).
+
+The exact source Lie factor is
+\[
+ \mathrm{lieFacZ}(D_w,\xi,\mathrm{wtZ}(a,n))
+                 =e^{-(d/2)\log(\pi(2\xi))}.
+\]
+Multiplying the point-norm bound by this factor, and using
+\(t=2\xi\), turns (RN11) into (RN3).
+This proves the original constant \(9000\).
+\end{proof}
+
+\begin{srcorollary}\label{cor:sr-source-smul-raw-sup-9000}
+Retain all preceding data.
+Let \(s\in c.F\), \(B\ge0\), and suppose that for every
+coefficient-field embedding \(\sigma\),
+\[
+                         |\sigma(s)|^2J\le B^2 .
+ \tag{RN12}\label{eq:sr-source-raw-scalar-bound}
+\]
+Then, in every indicated domain frame,
+\[
+ \mathrm{homN}_{U_{\sigma^+},\xi,\mathrm{wtZ}(a,n)}(s\,y;z)
+              \le B\rho\,e^{9000(frL_b)^2\kappa}.
+ \tag{RN13}\label{eq:sr-source-smul-raw-sup-9000}
+\]
+\end{srcorollary}
+\begin{proof}
+The actual reading is semilinear and its frame norm is
+absolutely homogeneous.  Thus
+\(\mathrm{homN}(s\,y;z)=|\sigma^+(s)|\mathrm{homN}(y;z)\).
+Both sides of
+\(|\sigma^+(s)|\sqrt J\le B\) are nonnegative, and their
+squares are ordered by (RN12).
+Multiplying (RN3) by \(|\sigma^+(s)|\) proves (RN13).
+This is \srcid{homN_smul}, followed by
+\srcid{homN_smul_raw_le}; its scalar bound is index-weighted.
+\end{proof}
+
+\paragraph{Frozen-source correspondence and scope.}
+The numerical estimate (RN4) is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/LogExpMulLeOfGeneratorSupBound.lean},
+blob \srcid{89ce9b945e9447d0ed1d20c550115b026e2dd8bb}.
+The spread calculation is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/SumWeightSpreadLeExponentNormAdd.lean}.
+The assembly, including \srcid{sizeK_eq}, \srcid{card_letters},
+\srcid{sum_coeff_le}, \srcid{inv_pow_le_epStar},
+\srcid{numbers}, \srcid{norm_phiHat_indPhi}, and both final
+norm theorems, is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/NormPhiHatIndPhi.lean},
+blob \srcid{b7fb0bf05a120ad2a79381a586e429c8525f82b2}.
+All are read at \srcid{alpoge-source-7cbf7a0c}.
+
+The antecedents retain the actual deep-cover Galois laws,
+the same-model reading and connection, and the geometric
+analytic-fibre/level/vacuum comparisons used by the preceding
+raw-value theorem.  This section proves their exact norm
+implication and its uniform numerical constant.
+It does not assert that these geometric suppliers have been
+constructed by the numerical estimates, or that this norm
+bound alone proves spanning.

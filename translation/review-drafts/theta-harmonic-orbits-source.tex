@@ -1,0 +1,399 @@
+\section{The source harmonic space and its column orbit}
+\label{sec:sr-source-harmonic-orbit}
+
+This section gives the algebraic producer used by the short-family
+construction.  In particular, the assertion that a column orbit spans
+the required harmonic space is proved here, with the source's mixed
+action and its integer equations.
+
+Let \(K\) be a field of characteristic zero, \(T\) a finite set, and
+\(p,q,n\ge0\) with \(p+q\le n\).  Work in the polynomial ring
+\[
+ {\cal P}_K=K[x_{t,a,k},y_{t,b,k}:
+     t\in T,\ 1\le a\le p,\ 1\le b\le q,\ 1\le k\le n].
+\]
+For nonnegative arrays \(c_{t,i}\), \(c'_{t,j}\), set
+\[
+ a_{t,i}=\sum_{h=i}^{p}c_{t,h},\qquad
+ b_{t,j}=\sum_{h=j}^{q}c'_{t,h},\qquad
+ D=\sum_t\left(\sum_i i c_{t,i}+\sum_j j c'_{t,j}\right).
+ \tag{HO1}\label{eq:sr-source-harmonic-degree}
+\]
+Thus \(a_t,b_t\) are antitone and \(D=\sum_{t,i}a_{t,i}
++\sum_{t,j}b_{t,j}\).  Define \({\cal H}_K(c,c')\) by the following
+linear equations:
+\[
+ \Delta_{t,a,b}P=\sum_k
+           \partial_{x_{t,a,k}}\partial_{y_{t,b,k}}P=0;
+ \quad
+ \deg_{x_{t,a,*}}P=a_{t,a},\quad
+ \deg_{y_{t,b,*}}P=b_{t,b};
+ \tag{HO2}\label{eq:sr-source-row-highest}
+\]
+the degree assertions mean that every supported monomial has the
+indicated row degree.  Also require invariance under
+\(x_{t,b,*}\mapsto x_{t,b,*}+s x_{t,a,*}\) for \(a<b\), and the
+same substitutions in the \(y\) block, initially for every
+\(s\in\mathbb Z\).  A polynomial identity in \(s\), over a
+characteristic-zero field, makes this equivalent to invariance for
+every \(s\in K\).  This is the source
+\(\mathrm{rowHighest}(K,c,c')\).
+
+For vectors \(\epsilon_{t,i},\phi_{t,j}\in K^n\), put
+\[
+ X_{t,a}(\epsilon)=\sum_k\epsilon_kx_{t,a,k},\qquad
+ Y_{t,b}(\phi)=\sum_k\phi_ky_{t,b,k},
+\]
+and define the leading-minor product
+\[
+ {\cal M}_{c,c'}(\epsilon,\phi)=
+ \prod_t\left\{
+   \prod_{i=1}^{p}
+       \det(X_{t,a}(\epsilon_{t,h}))_{1\le a,h\le i}^{c_{t,i}}
+   \prod_{j=1}^{q}
+       \det(Y_{t,b}(\phi_{t,h}))_{1\le b,h\le j}^{c'_{t,j}}
+          \right\}.
+ \tag{HO3}\label{eq:sr-source-minor-product}
+\]
+The source column action of \(g=(g_t)\in\prod_t\mathrm{GL}_n(K)\)
+sends coefficient covectors by \(\epsilon\mapsto\epsilon g_t^{-1}\)
+and coefficient vectors by \(\phi\mapsto g_t\phi\).
+Let \(P_0={\cal M}_{c,c'}((e_i)_{i\le p},
+(e_{n+1-j})_{j\le q})\), with these same coordinate vectors in
+each \(t\) block.  In particular \(P_0\) has integer coefficients
+and is nonzero.
+
+\begin{srproposition}\label{prop:sr-source-harmonic-column-orbit}
+For all the displayed choices,
+\[
+ {\cal H}_K(c,c')
+       =\operatorname{span}_K\{gP_0:g\in\textstyle\prod_t
+                                         \mathrm{GL}_n(K)\}.
+ \tag{HO4}\label{eq:sr-source-harmonic-column-orbit}
+\]
+It is also the span of the iterated column operators applied to
+\(P_0\), and it is spanned over \(K\) by the images of
+\({\cal H}_{\mathbb Z}(c,c')\).  Empty blocks and \(n=0\) are
+allowed; if \(n=0\), the inequality \(p+q\le n\) forces
+\(p=q=0\), and the assertion is the statement that constants
+span \(K\).
+\end{srproposition}
+
+\begin{proof}
+We supply the source's finite-dimensional highest-vector argument.
+
+Write, for fixed \(t\),
+\[
+ E_{kl}=\sum_a x_{t,a,k}\partial_{x_{t,a,l}}
+          -\sum_b y_{t,b,l}\partial_{y_{t,b,k}}.
+ \tag{HO5}\label{eq:sr-source-mixed-column-operator}
+\]
+The identity
+\[
+ [z_u\partial_{z_v},z_w\partial_{z_s}]
+       =\delta_{v,w}z_u\partial_{z_s}
+                      -\delta_{s,u}z_w\partial_{z_v}
+\]
+gives \([E_{ij},E_{kl}]=\delta_{j,k}E_{il}
+-\delta_{l,i}E_{kj}\).  Operators for distinct \(t\)'s commute.
+The column action preserves all equations in (HO2), by the
+chain rule and \(g_t^{-1}g_t=1\), and commutes with the two row
+unipotent actions.  These facts also follow by checking each
+variable and then applying the product rule.
+
+The orbit span is stable under every \(E_{kl}\).
+For \(k\ne l\), the substitution for the transvection
+\(g_t=1-s\,e_{lk}\) has first coefficient \(E_{kl}P\);
+coefficient extraction from this vector-valued polynomial in
+\(s\) preserves any subspace containing all its values.
+For \(k=l\), diagonal matrices act on a monomial \(m\) by
+\(u^{w_{t,k}(m)}\), where
+\[
+ w_{t,k}(m)=\sum_a m(x_{t,a,k})-\sum_bm(y_{t,b,k})\in\mathbb Z.
+\]
+Multiplying the finite Laurent sum by a power of \(u\), and
+using polynomial interpolation on \(K^\times\), extracts its
+weight components and their integer-weighted sum.
+That sum is \(E_{kk}P\).
+The base polynomial and every column translate lie in
+\({\cal H}_K\): a contraction differentiating one \(x\) and
+one \(y\) factor has coefficient \(e_i\cdot e_{n+1-j}=0\);
+row degrees and row-unipotent invariance follow directly
+from determinant multilinearity.
+Thus every word in the \(E_{kl}\) applied to \(P_0\) is both
+in the orbit span and in \({\cal H}_K\).
+
+We next prove that every nonzero subspace
+\(W\subseteq{\cal H}_K\) stable under all the \(E_{kl}\)
+contains \(P_0\).  The ambient degree is \(D\), so \(W\) is
+finite dimensional.  The diagonal \(E_{t,kk}\) commute and
+are diagonal on monomials with integer eigenvalues.
+Their finitely many eigenprojections are polynomials in
+these operators; they therefore preserve \(W\).
+There is a nonzero joint eigenvector \(v\in W\), with
+integer weights \(\kappa_{t,k}\), minimizing
+\(\sum_{t,k}k\kappa_{t,k}\) among the weights occurring in
+\(W\).  For \(k<l\), a nonzero \(E_{t,kl}v\) would have this
+height decreased by \(l-k\).  Consequently
+\(E_{t,kl}v=0\) for \(k<l\).
+
+For completeness, these highest weights are antitone.
+Take \(E=E_{t,ij}\), \(F=E_{t,ji}\),
+\(H=E_{t,ii}-E_{t,jj}\), \(i<j\), and
+\(\ell=\kappa_{t,i}-\kappa_{t,j}\).
+The commutators give
+\[
+ H F^kv=(\ell-2k)F^kv,\qquad
+ E F^{k+1}v=(k+1)(\ell-k)F^kv.
+\]
+If \(\ell<0\), induction makes every \(F^kv\) nonzero;
+their distinct \(H\)-weights make them independent, contrary
+to finite dimensionality.  Thus \(\ell\ge0\).
+
+We show directly that \(v\) is a scalar multiple of \(P_0\).
+The following row-degree bound is the first ingredient.
+If a polynomial of row degrees \(a_1,\ldots,a_p\) is invariant
+under adding an earlier row to a later row, then any supported
+monomial \(m\), and any set \(S\) of \(s\) columns, satisfy
+\[
+ \sum_{a,k\in S}m(x_{a,k})\le\sum_{a\le\min(s,p)}a_a.
+ \tag{HO6}\label{eq:sr-source-column-degree-dominance}
+\]
+For \(s\ge p\) this follows from total row degrees.
+For \(s<p\), on the locus where the first \(s\) rows in
+columns \(S\) have nonzero determinant, add their linear
+combinations to later rows to clear those columns.
+These operations commute with scaling the columns \(S\)
+by a variable \(z\).  Invariance makes the coefficient of
+any power of \(z\) greater than the right side vanish on
+that locus.  Let \(R\) be such a coefficient polynomial and
+\(\Delta\) this nonzero determinant.  At every point
+\(R\Delta=0\), including points with \(\Delta=0\);
+polynomial evaluation over the infinite field gives
+\(R\Delta=0\), hence \(R=0\).
+This proves (HO6), including its assertion for each supported
+monomial.
+
+Fix \(t\), suppress it in the notation, and set
+\[
+ \lambda=(a_1,\ldots,a_p,0,\ldots,0,-b_q,\ldots,-b_1).
+\]
+The diagonal eigenvalue equations imply that every monomial
+of \(v\) has column weight \(\kappa\).
+Apply (HO6) to the first \(i\) columns of the \(x\) block
+and the last \(n-i\) columns of the \(y\) block.  Since the
+total \(y\)-degree is \(\sum b_j\), this gives
+\[
+  \sum_{k\le i}\kappa_k\le\sum_{k\le i}\lambda_k,
+       \qquad \sum_k\kappa_k=\sum_k\lambda_k.
+ \tag{HO7}\label{eq:sr-source-prefix-weight-bound}
+\]
+
+The second ingredient is the explicit Casimir identity.
+Let \(R^x_{ab}=\sum_kx_{a,k}\partial_{x_{b,k}}\),
+and similarly \(R^y_{ab}\).
+The product rule and commuting partial derivatives give
+\[
+\begin{split}
+ \sum_{k,l}E_{kl}E_{lk}
+ ={}&\sum_{a,b}R^x_{ab}R^x_{ba}
+           +(n-p)\sum_aR^x_{aa}\\
+ &+\sum_{a,b}R^y_{ab}R^y_{ba}
+           +(n-q)\sum_bR^y_{bb}
+ -2\sum_{a,b}\left(\sum_kx_{a,k}y_{b,k}\right)\Delta_{a,b}.
+\end{split}
+ \tag{HO8}\label{eq:sr-source-capelli-casimir}
+\]
+To verify the unmixed term, expand both sums of compositions.
+Their second-derivative terms are identical after exchanging
+indices, while differentiating a coefficient contributes
+\(n\sum x\partial_x\) on the column side and
+\(p\sum x\partial_x\) on the row side.
+The two mixed terms each give
+\(\sum_{a,b}(\sum_kx_{a,k}y_{b,k})\Delta_{a,b}\).
+This proves (HO8) with the displayed sign.
+
+If \(C(\mu)=\sum_k\mu_k(\mu_k+n+1-2k)\), the highest-column
+equations give Casimir scalar \(C(\kappa)\).
+Indeed, for \(i<j\),
+\(E_{ij}E_{ji}v=[E_{ij},E_{ji}]v
+=(\kappa_i-\kappa_j)v\), whereas \(E_{ji}E_{ij}v=0\).
+The same calculation for the two row actions, using their
+degrees and row-highest equations, and then (HO8) with
+\(\Delta_{a,b}v=0\), gives scalar
+\[
+ \sum_i a_i(a_i+n+1-2i)+
+ \sum_j b_j(b_j+n+1-2j)=C(\lambda).
+\]
+Thus \(C(\kappa)=C(\lambda)\).
+This equality and (HO7) force \(\kappa=\lambda\):
+put \(S_i=\sum_{k\le i}(\lambda_k-\kappa_k)\).
+Then \(S_i\ge0\), \(S_n=0\), and summation by parts gives
+\[
+ C(\lambda)-C(\kappa)
+  =\sum_{i<n}S_i
+    \bigl(\lambda_i+\kappa_i-\lambda_{i+1}-\kappa_{i+1}+2\bigr).
+\]
+Both weights are antitone, so each parenthesis is at least
+\(2\).  Equality forces all \(S_i=0\).
+
+For a monomial of \(v\), the first \(p\) column weights
+now sum to its total \(x\)-degree.  Nonnegative exponents
+therefore force all \(x\)'s outside the first \(p\) columns
+to have exponent zero.  Similarly all \(y\)'s outside the
+last \(q\) columns have exponent zero.
+The highest-column equations reduce to ordinary
+column-unipotent invariance on the \(p\)-square \(x\) block
+and on the \(q\)-square \(y\) block with its columns
+reversed.  In characteristic zero, annihilation by the
+corresponding row-addition derivation is equivalent to
+invariance: for the generic addition \(A(s)\),
+\((A(s)P)'=A(s)(DP)\), so \(DP=0\) makes \(A(s)P\)
+constant.  Conversely, differentiation at zero gives
+\(DP=0\).
+
+A polynomial bi-invariant under earlier-row and
+earlier-column additions, and with row degrees
+\(a_i=\sum_{h\ge i}c_h\), is
+\[
+ Q\prod_i\Delta_i^{c_i},
+ \tag{HO9}\label{eq:sr-source-leading-minor-factor}
+\]
+where \(Q\) is independent of that square block.
+Here is the source's elimination proof.
+If all leading minors are nonzero, successive row and
+column clearings diagonalize the block while preserving
+every bi-invariant function and every leading minor.
+At a diagonal block \(\mathrm{diag}(d_i)\), row degrees
+give the value at the identity block times
+\(\prod_i d_i^{a_i}=\prod_i(d_1\cdots d_i)^{c_i}\).
+Take \(Q\) to be the polynomial obtained by replacing
+this block by the identity.  To extend the resulting
+equality to all blocks, multiply its difference by the
+product of the leading minors and use polynomial
+evaluation over \(K\) as in the proof of (HO6).
+That product is nonzero, so cancellation proves (HO9).
+The argument also works for a square block of size zero.
+
+Apply (HO9) to each of the disjoint \(x\) and reversed
+\(y\) blocks, for every \(t\).  There are no remaining
+variables in \(v\).
+Since the quotient for each block is independent of that
+block and its minor product has value \(1\) at the identity,
+replacing that block gives the identity
+\(v(x)=v(x\text{ with that block replaced by }1)D_{\rm block}(x)\).
+Replacing all these blocks successively by identity
+matrices shows
+\(v=v(x_0)P_0\), where \(P_0(x_0)=1\).
+This proves the claimed uniqueness of the highest vector.
+Since \(v\ne0\), its scalar is nonzero, and \(P_0\in W\).
+
+We finish first over \(\mathbb C\).
+Use the Fock inner product
+\[
+  \langle P,Q\rangle_F=\sum_m m!\,\overline{P_m}Q_m,
+       \qquad m!=\prod_v m(v)! .
+\]
+It is positive definite, and the elementary
+multiplication/derivation adjoint identity gives
+\(E_{kl}^*=E_{lk}\).
+Let \(U\) be the span of all column words applied to
+\(P_0\), and let \(W={\cal H}_{\mathbb C}\cap U^\perp\).
+The adjoint identity makes \(W\) stable under every
+\(E_{kl}\), because \(U\) is stable under its adjoint.
+If \(W\ne0\), the preceding argument puts \(P_0\) in
+\(W\), although \(P_0\in U\), contradicting positivity.
+Thus \(W=0\).  Orthogonal projection onto the finite
+dimensional \(U\) now gives \({\cal H}_{\mathbb C}=U\).
+
+Finally the equations defining \({\cal H}\), and all the
+column words in \(P_0\), have integer coefficients.
+For an extension of fields \(F\subseteq L\), applying
+any \(F\)-linear functional \(L\to F\) coefficientwise
+commutes with these equations.  A basis of \(L/F\)
+expands any individual polynomial into a finite sum
+of such coefficient polynomials.
+Consequently
+\(L\cdot{\cal H}_F={\cal H}_L\).
+An \(F\)-linear functional \(L\to F\) taking \(1\) to
+\(1\) also descends any finite spanning relation for
+a polynomial originally over \(F\).
+Apply this first to \(\mathbb Q\subset\mathbb C\), and
+then to \(\mathbb Q\subset K\).  It proves the same
+column-word spanning assertion over \(K\).
+Those words have integer coefficients, yielding
+the asserted integral spanning as well.
+Since the words lie in the column orbit span and
+that span lies in \({\cal H}_K\), (HO4) follows.
+\end{proof}
+
+We also record the precise orbit parametrization needed below.
+The orbit of \(P_0\) consists of the polynomials (HO3)
+with, for each \(t\), independent covectors
+\(\epsilon_{t,1},\ldots,\epsilon_{t,p}\) and independent
+vectors \(\phi_{t,1},\ldots,\phi_{t,q}\) satisfying
+\(\epsilon_{t,a}\cdot\phi_{t,b}=0\).
+To construct the required \(g_t\), view the
+\(\epsilon\)'s as a surjection \(K^n\to K^p\).
+The independent \(\phi\)'s lie in its kernel.
+Extend them to a kernel basis and choose lifts of the
+coordinate basis of \(K^p\); the resulting adapted basis
+gives \(g_t\) with the required covector and vector
+actions.
+
+Arbitrary, possibly dependent, perpendicular arrays also
+give a scalar multiple of an orbit member.
+Indeed, since \(n-q\ge p\), extend the successive
+covector spans to an independent flag of length \(p\)
+in the annihilator of the original \(\phi\)'s.
+Then, since \(n-p\ge q\), extend the successive original
+vector spans to an independent flag in the annihilator
+of these covectors.
+For each leading determinant, the original leading
+vectors lie in the corresponding new flag space;
+their exterior product is a scalar multiple of its
+basis wedge.  Multiplying those scalars, with the
+exponents \(c,c'\), proves the assertion, including
+a zero scalar when a required leading determinant
+vanishes.  This is the source's flag-extension step,
+so no independence premise will be imposed on the
+finite grid.
+
+\paragraph{Frozen-source correspondence.}
+All paths below have prefix
+\srcid{src/Development/AbelianVarietyTheory/}.
+Definitions:
+\srcid{Definitions/ThetaMetrics/IsWeightedHomogeneousOfMemOrbitSpan.lean}
+(\srcid{c1877771faeabf2142790b50b81479d6d456888f});
+\srcid{Definitions/ThetaValues/ExistsMemRowHighestTotalDegreeEqTwo.lean}
+(\srcid{217fbb7c67c140ae738bd4cdf20ca1d889b544a0}).
+Proofs under \srcid{Proofs/CuspFormEvaluations/}:
+\srcid{SumSmulMemOfSumZpowSmulMem.lean}
+(\srcid{3e061221e4036b034ee0f711d62a6eeac44c0f43});
+\srcid{CommuteRowOpRightMixedOp.lean}
+(\srcid{e5177dd3860b99ec938dcae8ed7e3bfc0fb6b883});
+\srcid{ExistsJointIntEigenvectorOfStable.lean}
+(\srcid{19583793c47ca3dc64c71ea7e82a1d1722e7a6e4});
+\srcid{Sl2NonnegWeightOfHighestWeightVector.lean}
+(\srcid{b7b5a34fe292d0bf1a4914f15a0b81ac91674edf});
+\srcid{EqZeroOfPartialSumsNonneg.lean}
+(\srcid{a0a1d943821745f91e4848a82fa606134a049104});
+\srcid{ColumnDegreeLe.lean}
+(\srcid{6228cdfba74d695455dae9204a0af5f24ceaf21e});
+\srcid{RowAddGenericRowAddTerm.lean}
+(\srcid{a330cf3dec19dd7558c4484d7396d47fcc32baac});
+\srcid{ProdLeadMinorDiagonal.lean}
+(\srcid{2efe5dbb526ffa538caf14b41c1fe4726237cf01});
+\srcid{ExistsEqMulProdMinors.lean}
+(\srcid{aa0719b052a50fa7ca15c2f4d00278833ca702eb});
+\srcid{RowHighestLeSpanColWordComplex.lean}
+(\srcid{6723d08a3376d7658011e5f319b0ee89cf7ef040}).
+The final flag and orbit parametrization is
+\srcid{Proofs/CovolumeBounds/ExistsMinorProdEqSmulColActBasePoly.lean}
+(\srcid{2ad1227e78855888f65ff5874a3bb24bc58f6ff4}).
+The declarations used are
+\srcid{rowHighest_eq_span_colWord},
+\srcid{rowHighest_eq_orbitSpan},
+\srcid{span_map_rowHighest_int},
+\srcid{casimir_value_strict}, and
+\srcid{exists_minorProd_eq_smul_colAct_basePoly}.

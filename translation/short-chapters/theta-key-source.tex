@@ -1,0 +1,3334 @@
+\section{The source integral key invariant and its analytic constancy}
+\label{sec:faithful-theta-key-source}
+These source proofs follow the actual Koszul invariant, including
+finite nonreduced zero schemes, the same section comparisons and
+the same period frames. Their construction-specific inputs are
+stated where used. Integral normalization and the connected
+arithmetic-family descent are separate steps; constancy alone
+does not assert the final exponent-one key unit.
+
+
+\section{The integral Koszul invariant behind the key rule}
+\label{sec:ftb-koszul-key}
+This section translates the algebraic construction used by
+\srcid{ExistsIntegralKeyInvariantRuleCharZero}.
+The construction is independent of a compactification.
+The input is a principally polarized abelian scheme \(A/R\) of
+relative dimension \(g\geq1\), a symmetric ample principal line bundle
+\(L\), a generator of \(L|_0\), a fibrewise nonzero theta section
+\(\vartheta\in H^0(A,L)\), and a basis \(v_1,\ldots,v_g\) of its Lie
+algebra.  This is the source datum \(\operatorname{KeyIn}(R)\).
+In particular the principal polarization has trivial translation
+kernel.  Changing the theta section or Lie basis does not change the
+rigidification.
+
+We use the following abelian-scheme laws with their indicated scope.
+For \(m>0\), \(H^0(A,L^m)\) is free of rank \(m^g\) over a local base
+and its displayed bases commute with base change; positive powers have
+the higher-cohomology vanishing used in their affine Cech complexes.
+For \(m\geq4\) these sections separate points and first-order tangent
+vectors on a field fibre.  Multiplication by \(m\) is finite locally
+free of degree \(m^{2g}\), is etale if \(m\) is invertible, and has
+\(m^{2g}\) points over an algebraically closed field with \(m\ne0\).
+We also use the theorem of the cube, symmetric multiplication
+\([m]^*L\simeq L^{m^2}\), and faithfully flat descent along \([m]\).
+These are precisely the laws used below; a scheme equipped only with
+an ample line bundle would not be sufficient.
+
+\subsection{Squared torsion of the actual augmented complex}
+Let \(C=\bigoplus_{j\geq0}C_j\) be a finite free graded module over a
+commutative ring, with fixed finite bases, and let \(D\) have degree
+\(-1\), \(D^2=0\).
+A contraction is a degree \(+1\) matrix \(h\) with \(Dh+hD=1\).
+When the even and odd basis sets are identified by a bijection \(e\),
+put
+\[
+ \tau(D,h,e)
+  =\det\bigl((D+h)_{\mathrm{even},e(\mathrm{even})}\bigr)^2.
+ \tag{K1}\label{eq:ftb-torsion-square}
+\]
+The square is part of the definition and removes the ordering sign.
+
+\begin{srlemma}[Integral contraction and unique squared torsion]
+\label{lem:ftb-squared-torsion}
+Over a local ring \(R\), if the residue-field complex is exact,
+a contraction exists, the even and odd ranks are equal, and
+\eqref{eq:ftb-torsion-square} is a unit of \(R\).
+It is independent of \(h\) and \(e\).
+\end{srlemma}
+\begin{proof}
+Over a field choose \(G\) with \(DGD=D\), by splitting
+\(\operatorname{im}D\).  Exactness gives
+\(N^2=0\) for \(N=1-(DG+GD)\): \(DN=ND=0\), and the image of
+\(N\), being in \(\ker D=\operatorname{im}D\), is killed by \(N\).
+Thus \(DG+GD\) is invertible.
+Lift \(G\) entry by entry from the residue field to \(H\) over \(R\).
+The matrix \(B=DH+HD\) has unit determinant and commutes with \(D\).
+Then \(h_0=HB^{-1}\) satisfies \(Dh_0+h_0D=1\).
+Keep only the degree \(+1\) entries of \(h_0\).  The degree-zero
+part of the last identity is still \(Dh+hD=1\), and the other
+entries vanish for degree reasons.
+
+The matrix \(D+hDh\) is an involution and exchanges even and odd
+degrees: \(DhD=D\), and
+\(Dh(hD)=0\).  Its two off-diagonal blocks are inverse, proving
+equality of the two finite ranks.
+For independence take two contractions \(h_1,h_2\) and write
+\(k=h_2-h_1\).  Then
+\[
+ Dk+kD=0,\quad (kD)^2=0,\quad
+ (D+h_2)(D+h_1)=1+kD+h_2h_1 .
+\]
+Order the even basis by degree.  This last matrix is block triangular;
+on degree \(j\) its diagonal block is \((1+kD)|_{C_j}\).
+Every such block has determinant one.  For \(j=0\), the block \(kD\)
+is zero.  For successive degrees use
+\(\det(1+XY)=\det(1+YX)\), with
+\(X=k:C_{j-1}\to C_j\) and \(Y=D:C_j\to C_{j-1}\);
+the swapped product is \(-kD|_{C_{j-1}}\).
+Since that product squares to zero, the determinants of
+\(1+kD\) and \(1-kD\) are inverse.  Induction gives determinant one
+on every degree.
+
+Fix the same odd ordering for both contractions.
+If \(a,b\) are the determinants of their even-to-odd blocks, and
+\(c\) the determinant of the odd-to-even block for \(h_1\), the
+previous paragraph gives \(ac=bc=1\).  Hence \(a=b\) and \(a\)
+is a unit.  A different odd ordering changes a determinant only by
+the sign of a permutation.  Squaring proves all assertions.
+\end{proof}
+
+Let \(s_1,\ldots,s_g\in H^0(A,L^n)\).
+For an integer \(l>gn\), choose bases \(b_j\) of
+\(H^0(A,L^{l-jn})\), \(0\leq j\leq g\).
+The source complex has
+\[
+ C_{j+1}=\bigoplus_{|I|=j}H^0(A,L^{l-jn}),
+ \qquad C_0=R^d,
+ \tag{K2}\label{eq:ftb-koszul-complex}
+\]
+with the usual signed multiplication by the \(s_i\) and the final
+evaluation map at \(z_1,\ldots,z_d\).
+In increasing-index exterior coordinates, deletion of \(i\) has
+sign \((-1)^{|\{a\in I:a<i\}|}\).
+This fixes the convention used in the determinant calculations.
+
+The source transverse-zero hypothesis means all of the following:
+the \(z_a\) are sections through pairwise distinct points in
+\emph{every} fibre; their images are exactly the common zeros of
+the \(s_i\); a line-bundle chart is chosen at every \(z_a\);
+\(s_i(z_a)=0\); and
+\[
+ J_a=\det\bigl(D_{v_k}s_i(z_a)\bigr)_{i,k}
+                 \in R^\times .                   \tag{K3}\label{eq:ftb-jac-unit}
+\]
+Values and derivatives here are the coefficients in those chosen
+line-bundle charts.
+
+\begin{srlemma}[The transverse Koszul unit]\label{lem:ftb-koszul-unit}
+Let \(R\) be local Noetherian and let the displayed transverse-zero
+hypothesis hold.  Then the complex
+\eqref{eq:ftb-koszul-complex} is exact on every algebraically closed
+field fibre.  It has a unique squared torsion \(t_l\in R^\times\),
+and
+\[
+                     d=g!\,n^g.                   \tag{K4}\label{eq:ftb-zero-count}
+\]
+\end{srlemma}
+\begin{proof}
+On a field fibre, the Jacobian condition says that the germs of the
+\(s_i\) generate the maximal ideal at each listed zero.
+At other points the zero ideal is the unit ideal.
+The local Koszul complex is therefore exact.
+Here is the source passage to global sections: refine to a finite
+affine cover trivializing \(L\), use its finite-intersection Cech
+cube, and successively cut by the \(s_i\).
+Weak regularity on each affine intersection gives the local
+division step.  The Cech complexes of the powers
+\(L^{l-jn}\) have no positive cohomology because each exponent is
+positive.  Induction through these cuts shows (i) exactness at every
+positive Koszul degree, (ii) interpolation of arbitrary residues at
+the finite zeros, and (iii) that a section vanishing at those zeros
+is \(\sum_i s_i a_i\) with \(a_i\in H^0(A,L^{l-n})\).
+For (ii), first interpolate the prescribed residues separately on
+affine charts; their differences on overlaps lie in the ideal
+\((s_1,\ldots,s_g)\), and the preceding Cech division steps glue
+them.  For (iii), the same division steps glue local expressions
+in that ideal.  These three assertions give exactness of the
+augmented evaluation complex, including its degree-zero term.
+This is the source Cech/Koszul argument, with the exponents
+\(l-jn>0\) retained.
+
+All matrices and evaluation charts commute with field base change.
+Thus exactness over the algebraic closure of the residue field
+descends to the residue field (apply a linear retraction to a
+solution of each finite linear system).
+Lemma~\ref{lem:ftb-squared-torsion} supplies \(t_l\).
+Equality of the even and odd ranks gives
+\[
+ d=\sum_{j=0}^g(-1)^j\binom gj(l-jn)^g=g!\,n^g.
+\]
+The last identity is the \(g\)-th finite difference of \(X^g\);
+lower powers cancel and the leading power contributes \(g!n^g\).
+\end{proof}
+
+\subsection{The split torsion determinant}
+For each positive integer \(m\) choose an integral matrix
+\(\alpha_m\) of order four satisfying
+\(\alpha_m^t\alpha_m=mI_4\).
+It can be chosen for every \(m\): write \(m=a^2+b^2+c^2+d^2\)
+and use
+\[
+ \alpha_m=
+ \begin{pmatrix}
+ a&-b&-c&-d\\ b&a&-d&c\\
+ c&d&a&-b\\d&-c&b&a
+ \end{pmatrix}.
+ \tag{K5}\label{eq:ftb-quaternion}
+\]
+The relation also gives \(\alpha_m\alpha_m^t=mI_4\).
+
+Suppose \(R\) is a local Noetherian principal ideal domain,
+\(N\in R^\times\), and a fibrewise distinct full \(N\)-torsion enumeration
+\(\xi_1,\ldots,\xi_{N^{2g}}\) is supplied, with \(m\mid N\).
+In particular \(m\) is a unit.  In the application \(N=D\),
+which is explicitly assumed invertible.
+The kernel of \(\alpha_m^t:A^4\to A^4\) has
+\(m^{4g}\) elements in a geometric fibre.
+One sees the number by Smith normal form:
+if \(d_i\) are its four invariant factors, then \(d_i\mid m\),
+\(\prod_i d_i=|\det\alpha_m|=m^2\), and the kernel has
+\(\prod_i d_i^{2g}=m^{4g}\) points.
+Choose an enumeration
+\[
+ \zeta_I=(\zeta_{I1},\ldots,\zeta_{I4}),
+ \qquad I\in\{1,\ldots,m^g\}^{\,4}.
+\]
+These are actual tuples of the supplied sections.
+Indeed every such kernel tuple is \(m\)-torsion, since
+\(\alpha_m\alpha_m^t=mI\), and hence is \(N\)-torsion.
+Reduction maps the supplied \(N\)-torsion bijectively to the
+geometric \(N\)-torsion.  A relation true after reduction is true
+over \(R\): two sections of the finite etale \(N\)-torsion scheme
+that agree at the closed point agree on the connected local base.
+Thus
+\[
+ \sum_r\alpha_{m,rc}\zeta_{Ir}=0\quad(c=1,\ldots,4)
+ \tag{K6}\label{eq:ftb-kernel-tuples}
+\]
+and distinct \(I\)'s stay distinct in every fibre.
+
+Let \(a_{Ir}:A^4\to A\) be
+\(a_{Ir}(x)=\sum_c\alpha_{m,rc}x_c+\zeta_{Ir}\).
+The theorem of the cube gives a generator \(w_I\) of
+\[
+ \left(\bigotimes_r a_{Ir}^*L\right)
+       \otimes\left(\bigotimes_c\operatorname{pr}_c^*L^{-m}\right).
+ \tag{K7}\label{eq:ftb-box-generator}
+\]
+For precision, in the Picard group the quadratic law for a symmetric
+line bundle cancels all off-diagonal terms by
+\(\alpha_m^t\alpha_m=mI\).
+The linear cross terms in the translations cancel by
+\eqref{eq:ftb-kernel-tuples}.  Constant line bundles pulled from
+\(\operatorname{Spec}R\) are free because \(R\) is local.
+These are exactly the terms in the source cube calculation.
+
+Normalize a generator
+\(\mu:[m]^*L\otimes L^{-m^2}\simeq\mathcal O_A\)
+at the origin using the chosen rigidification.
+Since each \(\zeta_{Ir}\) is \(m\)-torsion, the product of its
+values and the origin value of \(w_I\) has the same line-bundle
+weight as the rigidification to exponent \(4-4m^3\).
+Their quotient is therefore a unit \(\rho_I\in R^\times\), namely
+\[
+ w_I(0)^{m^2}\prod_r\mu(\zeta_{Ir})
+              =\rho_I\,\operatorname{rig}^{\,4-4m^3}.
+ \tag{K8}\label{eq:ftb-rho-normalization}
+\]
+This identity is an equality of framed values, so is independent of
+the temporary chart used to write it.
+
+For a basis \(b_1,\ldots,b_{m^g}\) of \(H^0(A,L^m)\), divide
+\(\prod_r a_{Ir}^*\vartheta\) by \(w_I\) and expand it in the
+external-product basis.  Denote the coefficient matrix by \(Q_m\):
+\[
+ \prod_r a_{Ir}^*\vartheta
+   =w_I\sum_{I'}(Q_m)_{II'}\prod_c\operatorname{pr}_c^*b_{I'_c}.
+ \tag{K9}\label{eq:ftb-box-matrix}
+\]
+All its coefficients are in \(R\), by the relative basis and
+base-change law.  The source box-product spanning proof obtains this
+basis by affine base change and then one factor at a time.
+
+\begin{srlemma}[Unit determinant, with its actual kernel argument]
+\label{lem:ftb-box-det-unit}
+The determinant of \(Q_m\) is a unit.  Consequently
+\[
+        \lambda_m=(\det Q_m)^{2m^2}\prod_I\rho_I^2
+                         \in R^\times              \tag{K10}\label{eq:ftb-lambda}
+\]
+is defined integrally.
+\end{srlemma}
+\begin{proof}
+It suffices to reduce to an algebraic closure \(k\) of the residue
+field.  Put \(H_m=\ker(\alpha_m:A^4(k)\to A^4(k))\), and choose
+one \(I_0\).  The ratios \(w_{I_0}/w_I\) transform under translation
+by \(H_m\) by characters \(\chi_I\).  The numerator theta products
+in \eqref{eq:ftb-box-matrix} are invariant under \(H_m\), since
+all their arguments are unchanged.  Thus those products multiplied
+by \(w_{I_0}/w_I\) are eigenvectors of characters \(\chi_I\).
+
+The characters are pairwise distinct.  If two agreed, pull their
+invariant ratio back along the \(r\)-th row embedding
+\(A\to A^4\), \(x\mapsto(\alpha_{m,r1}x,\ldots,\alpha_{m,r4}x)\).
+The relation \(\alpha_m\alpha_m^t=mI\) cancels the other rows.
+After a constant trivialization this gives an isomorphism
+\[
+ [m]^*\bigl(t_{\zeta_{Ir}}^*L\otimes
+                     t_{\zeta_{I'r}}^*L^{-1}\bigr)\simeq\mathcal O_A
+\]
+invariant under \(A[m]\).
+Faithfully flat descent along \([m]\) gives
+\(t_{\zeta_{Ir}}^*L\simeq t_{\zeta_{I'r}}^*L\).
+The principal-polarization kernel is trivial, so
+\(\zeta_{Ir}=\zeta_{I'r}\) for every row, hence \(I=I'\).
+
+Each eigenvector is nonzero.  Choose a point where \(\vartheta\)
+is nonzero.  The isogeny \(\alpha_m\) is surjective (its composite
+with \(\alpha_m^t\) is \([m]\)); one can therefore prescribe four
+nonzero theta arguments after the translation.
+Eigenvectors with distinct multiplicative characters are linearly
+independent over a field: in a shortest nontrivial relation,
+translate by a group element distinguishing two characters and
+subtract an appropriate multiple of the relation to shorten it.
+A nonzero left-kernel vector of \(Q_m\), combined with
+\eqref{eq:ftb-box-matrix} and multiplied by \(w_{I_0}/w_I\), would
+contradict this independence.  Thus \(\det Q_m\ne0\) over \(k\).
+A coefficient over the local ring with nonzero residue is a unit.
+Equation~\eqref{eq:ftb-lambda} is now a product of units.
+\end{proof}
+
+\subsection{The exact formula and cancellation of the auxiliary choices}
+Choose \(n,l,l'\) with \(n\geq4\), \(gn<l<l'\), and write
+\[
+ D=\prod_{j=0}^g(l-jn)(l'-jn),\quad s=3g+2,\quad d=g!n^g.
+\]
+Supply split \(D\)-torsion and the transverse tuple above, and assume
+\(D\in R^\times\).  Apply
+Lemma~\ref{lem:ftb-box-det-unit} to every degree \(l-jn,l'-jn\).
+Let \(t_l,t_{l'}\) be the two squared Koszul units,
+\(\lambda_j,\lambda'_j\) the corresponding units
+\eqref{eq:ftb-lambda}, and \(J=\prod_{a=1}^dJ_a\).
+Set
+\[
+ \begin{split}
+ T_l&=t_l^{\,4D^s}
+       \prod_{j=0}^g\lambda_j^{
+          (-1)^j\binom gj(D/(l-jn))^s},\\
+ T_{l'}&=t_{l'}^{\,4D^s}
+       \prod_{j=0}^g(\lambda'_j)^{
+          (-1)^j\binom gj(D/(l'-jn))^s},\\
+ \kappa&=T_l^{\,gn-2l'}T_{l'}^{\,2l-gn}
+                         J^{\,8D^s(l'-l)},\\
+ c&=2D^s\,d(l'-l).
+ \end{split}                                      \tag{K11}\label{eq:ftb-kaform}
+\]
+All negative powers in this formula are powers of units.
+
+\begin{srproposition}[Integral value and its frame law]
+\label{prop:ftb-integral-koszul-invariant}
+The formula \eqref{eq:ftb-kaform} gives a unit of \(R\), and
+commutes with local base change preserving the displayed data.
+Over a characteristic-zero field, it is independent of the bases,
+enumeration and charts of the fixed transverse intersection, and of
+the auxiliary generators used in \eqref{eq:ftb-box-generator}.
+If \(\vartheta\) is replaced by \(a\vartheta\) and the Lie basis by
+the matrix \(M\), its value satisfies
+\[
+              a^{8c}\kappa_{\rm new}
+                         =(\det M)^{4c}\kappa_{\rm old}.
+ \tag{K12}\label{eq:ftb-koszul-homog}
+\]
+Here the tuple \(s_i\) is fixed; independence of \emph{that} tuple
+is a further step, stated separately below.
+\end{srproposition}
+\begin{proof}
+Existence over the stated local principal ideal domain follows from
+the preceding lemmas, which also give \eqref{eq:ftb-zero-count}.
+Base change applies to the actual multiplication and evaluation
+matrices, their contractions, the cubical generators, and determinants;
+the defining identities therefore base change term by term.
+
+We record the determinant calculations, including their signs.
+If a basis in degree \(m\) changes by a matrix of determinant \(b\),
+its fourth external product has determinant \(b^{4m^{3g}}\).
+Thus
+\[
+             \lambda_{\rm new}
+                   =\lambda_{\rm old}b^{-8m^{3g+2}}.
+\]
+Rescaling a cubical generator by a unit \(z_I\) rescales row \(I\)
+of \(Q_m\) by \(z_I^{-1}\), and rescales \(\rho_I\) by
+\(z_I^{m^2}\); these cancel in \eqref{eq:ftb-lambda}.
+A permutation of kernel tuples contributes only a determinant sign,
+removed by the square.  For arbitrary two choices of kernel enumeration, first permute the
+full kernel tuples to agree.  The normalized generators \(\mu\)
+agree: their quotient is a base unit, determined by its origin value.
+On the proper geometrically connected variety \(A^4\), corresponding
+\(w_I\)'s have a constant unit ratio \(z_I\).
+The origin normalization gives
+\(\rho'_I=z_I^{m^2}\rho_I\); uniqueness of the external-product
+coefficients gives the inverse row factor \(z_I^{-1}\) in \(Q_m\).
+These factors cancel as above.  External-product independence follows
+one factor at a time from independence of the original basis, so this
+comparison is valid without choosing an analytic realization.
+
+For a change of bases \(b_j\) with determinants \(b_j\), the squared
+torsion changes by
+\(\prod_jb_j^{2(-1)^j\binom gj}\).
+If the chosen line generator at each zero changes by \(g_a\), set
+\(\gamma=\prod_ag_a\), in the convention that old evaluations are
+\(g_a^l\) times new evaluations in degree \(l\).
+The augmented degree-zero evaluation term then gives
+\[
+ t_{l,\rm new}
+   =t_{l,\rm old}\gamma^{-2l}
+                    \prod_jb_j^{2(-1)^j\binom gj},
+ \qquad J_{\rm new}=J_{\rm old}\gamma^{-gn}.
+\]
+The torsion comparison follows by conjugating the whole graded
+matrix, with these evaluation scalars in degree zero, and taking
+the determinant of the even-to-odd block.  Permuting the zero
+sections again disappears after squaring.
+
+In \(T_l\) the basis exponents cancel term by term:
+\[
+ 4D^s\cdot2(-1)^j\binom gj
+ -(D/m)^s(-1)^j\binom gj\cdot8m^s=0.
+\]
+Hence \(T_{l,\rm new}=T_l\gamma^{-8lD^s}\), and the analogous
+formula holds for \(l'\).
+The remaining exponent of \(\gamma\) in \(\kappa\) is
+\[
+ -8D^s\{l(gn-2l')+l'(2l-gn)+gn(l'-l)\}=0 .
+\]
+This proves the claimed independence for a fixed intersection.
+
+Multiplication of \(\vartheta\) by \(a\) multiplies every row of
+\(Q_m\) by \(a^4\).  There are \(m^{4g}\) rows; thus
+\(\lambda_m\) is multiplied by \(a^{8m^{4g+2}}\).
+The same finite-difference identity as in
+\eqref{eq:ftb-zero-count} gives
+\(T_l\mapsto a^{8D^sd}T_l\), and similarly for \(l'\).
+The total exponent is \(-16D^sd(l'-l)=-8c\).
+Changing the Lie basis multiplies each \(J_a\) by \(\det M\);
+there are \(d\) zeros, giving exponent
+\(8D^sd(l'-l)=4c\).
+These are exactly \eqref{eq:ftb-koszul-homog}.
+\end{proof}
+
+\begin{srlemma}[Numerical data away from a residue prime]
+\label{lem:ftb-key-numerical-data}
+For every \(g\geq1\) and every prime \(p\), choose
+\[
+ n=4p,\qquad l=gn+1,\qquad l'=gn+1+p
+\]
+and the matrices \eqref{eq:ftb-quaternion}.
+Then \(n\geq4\), \(gn<l<l'\), \(D\geq1\), \(c\geq1\),
+and \(p\nmid D\).
+\end{srlemma}
+\begin{proof}
+For \(0\leq j\leq g\),
+\[
+ l-jn=4p(g-j)+1,\qquad
+ l'-jn=p(4(g-j)+1)+1 .
+\]
+Both are positive and congruent to one modulo \(p\).
+Their product \(D\) is therefore positive and prime to \(p\);
+the formula for \(c\) is a product of positive integers.
+\end{proof}
+
+\paragraph{What this construction supplies and what remains.}
+The proposition supplies the actual integral \(\operatorname{KaVal}\)
+from split torsion and split transverse zeros, including the exact
+normalizations and powers.  It does not yet assert a rule independent
+of the chosen sections.  The source next proves this independence by
+DVR specialization along lines, first between algebraically independent
+tuples and then between arbitrary admissible tuples; it then proves
+holomorphy in period coordinates, normalizes the powered rule, and
+descends its exponent to one by connected families.
+Those are separate producer steps.  In particular neither the unit
+determinant in \eqref{eq:ftb-lambda} nor the unit
+\eqref{eq:ftb-kaform} alone is the exponent-one key unit used in the
+carrying section.
+
+\section{Colliding zeros, discriminants, and independence of the key invariant}
+\label{sec:ftb-key-section-independence}
+Retain the actual key datum and numerical parameters of
+Section~\ref{sec:ftb-koszul-key}.  The section tuple is now allowed to
+have nonreduced zeros in the special fibre.  The distinction matters:
+the Jacobian factors need not be units individually.
+The source cancels their common discriminant in the complete formula.
+
+\subsection{The formal complete-intersection calculation}
+\begin{srlemma}[The determinant class in the socle]
+\label{lem:ftb-socle-determinant}
+Let \(k\) be a field, \(S=k[[X_1,\ldots,X_g]]\), and
+\(F_i=\sum_j a_{ij}X_j\).  Suppose every \(X_i^N\) belongs to
+\((F_1,\ldots,F_g)\), for some \(N\).
+Then \(\det(a_{ij})\notin(F_1,\ldots,F_g)\).
+\end{srlemma}
+\begin{proof}
+Write \(X_i^{N+1}=\sum_jb_{ij}F_j\), put \(B=(b_{ij})\),
+and let \(I=(X_i^{N+1}:1\leq i\leq g)\).
+If \(\det a\in(F)\), the adjugate identity for \(B\), applied to
+\(BF=(X_i^{N+1})\), gives \(\det(Ba)\in I\).
+Also
+\[
+ (Ba)X=\operatorname{diag}(X_i^N)X .
+\]
+For a regular sequence \(X_1,\ldots,X_g\), two coefficient matrices
+giving the same product with \(X\) have determinants equal modulo
+the ideal of their common row products.  Here is the elementary
+determinant argument used in the source.  Replace the rows one at
+a time.  The difference row is a syzygy on the \(X_i\).
+Expand the determinant difference against that row; the cofactors
+\(C_j\) satisfy \(C_jX_l-C_lX_j\) in the common-product ideal,
+by the adjugate identity with one row replaced by a coordinate row.
+Induction on the support of a syzygy, using
+\((X_j:j\in T):X_i=(X_j:j\in T)\) for \(i\notin T\), makes
+its scalar product with these cofactors lie in that ideal.
+Thus
+\[
+ \det(Ba)-\prod_iX_i^N\in I .
+\]
+It would follow that \(\prod_iX_i^N\in I\).
+Every coefficient of a series in \(I\) whose exponent in every
+variable is at most \(N\) is zero.  The coefficient of
+\(\prod_iX_i^N\) in that monomial is one, a contradiction.
+The colon identity above follows directly by inspecting coefficients
+of \(pX_i\); it does not use an inverse to \(N!\).
+\end{proof}
+
+\begin{srlemma}[Discriminant and formal Jacobian]
+\label{lem:ftb-formal-discriminant-jacobian}
+Let \(R\) be local, \(S=R[[X_1,\ldots,X_g]]\), and
+\(B=S/(F_1,\ldots,F_g)\) be free of finite rank over \(R\).
+Assume the constant coefficients of the \(F_i\) lie in the maximal
+ideal of \(R\).  For any \(R\)-basis \(b\) of \(B\),
+\[
+ \operatorname{disc}(b)\ \sim\
+       N_{B/R}\!\left(\det(\partial_jF_i)\bmod(F)\right),
+ \tag{K13}\label{eq:ftb-disc-jac}
+\]
+where \(\sim\) means association by an \(R\)-unit.
+\end{srlemma}
+\begin{proof}
+The proof constructs the diagonal element used in the source.
+Let
+\(\mu:S\otimes_R B\to B\) be multiplication.
+Its kernel is generated by
+\(X_j\otimes1-1\otimes\bar X_j\).
+To see this for power series, first write
+\(s=C(s(0))+\sum_jX_js_j\).
+If \(J\) is the ideal generated by those differences and
+\(I\) is generated by \(X_j\otimes1\), this formula gives
+\(\ker\mu\subseteq J+I\ker\mu\).
+The kernel is finitely generated as an \(S\)-module:
+\(B\) has a finite presentation over \(S\), and
+\(S\otimes_R B\) is finite over \(S\).
+The \(X_j\)'s are in the Jacobson radical, also after the finite
+extension \(S\to S\otimes_RB\).
+Nakayama therefore gives \(\ker\mu=J\).
+
+Choose \(a_{ij}\in S\otimes_RB\) with
+\[
+ F_i\otimes1=\sum_j a_{ij}
+              (X_j\otimes1-1\otimes\bar X_j).
+\]
+Map \(\det a\) to \(B\otimes_RB\), obtaining \(\Delta\).
+The adjugate identity shows that
+\[
+       \Delta(z\otimes1-1\otimes z)=0\quad(z\in B).
+ \tag{K14}\label{eq:ftb-diagonal-annihilator}
+\]
+Apply the derivation \(\partial_j\) in the first tensor factor and
+then multiplication.  The Leibniz rule, with all diagonal
+differences zero, gives
+\(\mu(a_{ij})=\overline{\partial_jF_i}\).
+Consequently the multiplication image of \(\Delta\) is
+\[
+                  \delta=\det(\partial_jF_i)\bmod(F).
+\]
+
+Write \(\Delta=\sum_{i,j}M_{ij}b_i\otimes b_j\).
+We verify that \(M\) has unit determinant.
+After reduction modulo the maximal ideal, the ideal generated by
+the \(\bar X_j\)'s in \(B\) is nilpotent.  Indeed these elements
+are in the radical of the base maximal ideal: finiteness over the
+base and the Jacobson property of \(X_j\) give this radical
+containment, and finite generation gives a common power.
+The reduced quotient is thus supported at the origin.
+Set the second tensor factor to its residue at the origin.
+The image of the equations above is a matrix expression
+\(\bar F_i=\sum_j\bar a_{ij}X_j\).
+A common power of each \(X_j\) is in \((\bar F)\).
+Lemma~\ref{lem:ftb-socle-determinant} says that the corresponding
+image of \(\Delta\) is nonzero.
+
+Here is the resulting matrix-unit argument.  Some row
+\(w=\sum_jM_{i_0j}b_j\) has nonzero residue at the origin.
+It is a unit of \(B\): it is a base scalar with nonzero residue
+plus an element whose power lies in the base maximal ideal.
+For any \(t=(t_j)\in R^{\operatorname{rank} B}\), put
+\(y=w^{-1}\sum_jt_jb_j\).
+Apply the linear functional \(b_{i_0}^*\) in the first factor of
+\eqref{eq:ftb-diagonal-annihilator}, after multiplication by \(y\).
+It gives
+\[
+ \sum_{i,j}M_{ij}b_{i_0}^*(b_i y)b_j=\sum_jt_jb_j .
+\]
+Thus right multiplication by \(M\) on row vectors is surjective.
+A square matrix over a commutative ring with this property has unit
+determinant.
+
+Finally \eqref{eq:ftb-diagonal-annihilator}, with the same coordinate
+functional and then summed over the basis index, gives
+\[
+ \sum_{i,j}M_{ij}\operatorname{Tr}_{B/R}(b_i z)b_j
+                           =\delta z\quad(z\in B).
+\]
+If \(H_{ij}=\operatorname{Tr}_{B/R}(b_ib_j)\), the matrix of
+multiplication by \(\delta\) is \(M^tH\).
+Taking determinants yields
+\(N_{B/R}(\delta)=\det(M)\det(H)\).
+Since \(\det(M)\) is a unit, this is
+\eqref{eq:ftb-disc-jac}.
+\end{proof}
+
+\begin{srlemma}[The order inside a split generic algebra]
+\label{lem:ftb-formal-order-discriminant}
+Let \(O\) be a complete DVR and
+\(F=(F_1,\ldots,F_g)\subset O[[X_1,\ldots,X_g]]\).
+Supply finitely many \(O\)-algebra maps \(e_a:O[[X]]\to O\)
+with \(e_a(F_i)=0\) and \(e_a(X_i)\) in the maximal ideal.
+Assume their common kernel is \((F)\), and the evaluation map
+contains \(cO^d\) for a nonzero \(c\in O\).
+Then \(B=O[[X]]/(F)\) has an \(O\)-basis \(\beta_1,\ldots,\beta_d\);
+its point matrix \(P=(e_a(\beta_b))\) has nonzero determinant, and
+\[
+                 (\det P)^2\sim
+                       \prod_a e_a(\det(\partial_jF_i)).
+ \tag{K15}\label{eq:ftb-point-discriminant}
+\]
+\end{srlemma}
+\begin{proof}
+Evaluation embeds \(B\) in \(O^d\) and contains \(cO^d\).
+Thus it is a finite torsion-free module of rank \(d\), hence free.
+After passing to the fraction field the point matrix diagonalizes
+all multiplication maps.
+It follows that
+\(\operatorname{Tr}(z)=\sum_ae_a(z)\) and
+\(N(z)=\prod_ae_a(z)\).
+In particular the trace Gram matrix is \(P^tP\).
+The constant coefficients of \(F_i\) are in the maximal ideal,
+because their value at any \(e_a\) is zero and the \(X_i\)'s
+evaluate in that ideal.  If there are no points, both sides of
+\eqref{eq:ftb-point-discriminant} are one.
+Otherwise apply Lemma~\ref{lem:ftb-formal-discriminant-jacobian}
+and the preceding trace and norm identities.
+\end{proof}
+
+\begin{srlemma}[The finite-zero Koszul statement retains multiplicities]
+\label{lem:ftb-koszul-finite-zero}
+Let \(k\) be an algebraically closed field, \(A/k\) the smooth
+\(g\)-dimensional principally polarized abelian variety of the key
+datum, \(n\geq1\), and \(s_1,\ldots,s_g\in H^0(A,L^n)\).
+Suppose only that their common zero \emph{set} is finite.
+For \(l>gn\), the unaugmented section Koszul complex in degrees
+\(H^0(A,L^{l-jn})\) is exact in every positive exterior degree.
+For arbitrary germs \(a_y\in\mathcal O_{A,y}\) at the finitely many
+common zeros, a section of \(L^l\), read in the chosen local frames,
+agrees with \(a_y\) modulo the full ideal \((s_1,\ldots,s_g)\).
+A section whose germs belong to that ideal is a global sum
+\(\sum_i s_it_i\), with \(t_i\in H^0(A,L^{l-n})\).
+The ideals in these statements are not replaced by their radicals.
+\end{srlemma}
+\begin{proof}
+We spell out why finite nonreduced zeros meet the local regularity
+input used by the source.  For a prefix of \(k\) sections let \(W_k\)
+be its closed zero set.  Its dimension is at most \(g-k\).
+Indeed the remaining \(g-k\) sections have affine nonzero
+complements (they are positive powers of an ample line on a proper
+scheme), are locally single equations, and have finite common
+zeros on \(W_k\).  The source's elementary dimension-cut argument
+shows that a closed subset with these properties has dimension
+at most the number of sections.  Here is its prime-chain mechanism:
+a positive-dimensional proper closed subset cannot lie in an affine
+open, since a proper affine scheme over a field is finite; thus
+one can choose a specialization outside the first complement.
+Cutting a prime chain by its local single equation loses at most
+one step, by the principal-ideal chain theorem.
+Repeat on the closed complement with the remaining sections.
+After all cuts the resulting chain lies in a finite closed set,
+whose points are closed because the scheme is Jacobson.
+Such a chain has length zero.  Reversing the cuts bounds the
+original chain by the number of equations.  Apply this to every
+prefix \(W_k\).
+
+On an affine trivializing chart, localize at a maximal ideal.
+Smoothness gives a regular local ring of dimension \(g\).
+If the first \(k\) section coefficients all lie in its maximal
+ideal, the quotient by them has dimension at most \(g-k\),
+by the preceding closed-set dimension bound and localization.
+In a Cohen--Macaulay regular local ring, \(k\) elements in the
+maximal ideal with this codimension form a regular sequence:
+extend them to a system of parameters, whose sequence is regular,
+and take its prefix.
+If a prefix coefficient is a unit, its ideal is already the unit
+ideal; if the next coefficient is a unit, multiplication by it
+is injective on the preceding quotient.
+These cases prove exactly the weak regular sequence condition
+on the affine chart, with no Jacobian or reducedness premise.
+
+Use the same finite affine Cech cube and multiplication maps as
+in Lemma~\ref{lem:ftb-koszul-unit}.
+The weak regularity step says that
+\(s_i a\in(s_1,\ldots,s_{i-1})\) implies
+\(a\in(s_1,\ldots,s_{i-1})\) on each nonempty affine intersection.
+Successive cuts of the Cech cube by these multiplication maps
+therefore preserve exactness modulo the successive image sums.
+All the line exponents \(l-jn\) are positive, so their positive
+Cech cohomology vanishes.
+The elementary cube cut is explicit: lift a boundary modulo the
+new image, take its differential, use weak regularity to lift
+that error to the preceding cube, subtract that lift, and use
+the preceding cube's exactness; the equation \(d^2=0\) makes
+the subtraction consistent.
+Induction over \(i\) proves positive Koszul exactness and gluing
+of local classes modulo the generated ideal.
+
+Finally prescribed germs at finitely many zeros are represented
+on small affine neighbourhoods.  On overlaps their differences
+are in the same ideal after the local quotient classes are fixed;
+the cut-cube gluing gives a single global class.
+Applied to the zero class this is the kernel assertion.
+Throughout, the quotient is by \((s_i)\) itself.
+Nilpotent classes in its finite local quotient are retained by
+all restrictions, lifts and subtractions.
+This proves all three assertions for the full finite zero scheme.
+\end{proof}
+
+\subsection{The actual global-to-formal order}
+Let \(O\) be a complete DVR and let a tuple \(s_i\) on \(A/O\)
+have finite common zero set on the closed fibre.
+Suppose its generic zero scheme is split, reduced, and enumerated
+by sections \(z_1,\ldots,z_d\), with nonzero generic Jacobians.
+The sections \(z_a\) may coincide on the closed fibre.
+Their distinct closed specializations form a finite set \(Y\).
+Smoothness gives, at every member \(y\in Y\), the actual formal
+coordinate chart \(O[[X_1,\ldots,X_g]]\to A\), obtained from an
+etale coordinate neighbourhood and its completion.
+Choose its coordinate origin to be one of the sections specializing
+to \(y\).  Each \(z_a\) in this block is then evaluation at
+\(X_i\) in the maximal ideal.  The local equations of \(s_i\)
+are \(F_{y,i}\).
+
+For a fixed \(l>gn\), let \(V_l=H^0(A,L^l)\).
+The source first proves that the images of \(V_l\) generate
+\[
+                 B=\prod_{y\in Y}O[[X]]/(F_{y,i})
+ \tag{K16}\label{eq:ftb-local-order}
+\]
+as an \(O\)-module; this step precedes any choice of an \(O\)-basis
+of that product.  We give the two completion arguments.
+On the algebraic closure of the residue field, approximate any
+formal series to order \(q\) by a germ in the coordinate
+neighbourhood.  The full-ideal interpolation part of
+Lemma~\ref{lem:ftb-koszul-finite-zero}
+produces a single section matching all these germs modulo the
+equations and \((X)^q\).
+Let \(\rho_1,\ldots,\rho_N\) be the images of a basis of \(V_l\).
+The descending subspaces
+\[
+ \{v\in k^N:\ \sum_kv_k\rho_k\in(F)+(X)^q\}
+\]
+stabilize.  If they stabilize at \(q\), approximation at \(q+1\)
+gives \((X)^q\subset(F)+(X)^{q+1}\).
+Nakayama in \(k[[X]]\) gives \((X)^q\subset(F)\).
+Thus the same \(\rho_k\)'s generate the exact residue quotient,
+simultaneously in all blocks.
+
+Lift this surjectivity coefficient by coefficient.
+For precision the linear map has domain the product of the \(N\)
+scalar coefficients and all coefficients of \(g\) multiplier series
+in every block; it sends \((v,H_{yi})\) to the coefficients of
+\(\sum_kv_k\rho_{y,k}+\sum_iH_{yi}F_{yi}\).
+It is surjective modulo a uniformizer.
+If the residue field was enlarged, apply a residue-field linear
+projection to the coefficients first, and lift their projected
+values to \(O\).
+Successively correct modulo \(\pi,\pi^2,\ldots\).
+Products of complete coefficient modules are complete, and the
+target is separated; their coefficientwise limits give an exact
+solution.  Consequently the map \(V_l\to B\) is surjective.
+
+The integral kernel of ordinary point evaluation \(V_l\to O^d\)
+is exactly \(\sum_i s_i H^0(A,L^{l-n})\).
+Generic exactness first puts a nonzero multiple of a kernel vector
+in this image.  The image is saturated: if \(\pi v=Du\), reduce
+the degree-two part of \(u\) modulo \(\pi\).
+The positive-degree exactness of
+Lemma~\ref{lem:ftb-koszul-finite-zero}, transported to the residue
+field by a linear retraction from its algebraic closure, expresses it as
+\(D\bar w\).  Lift \(w\); then \(u-Dw\) is divisible by \(\pi\)
+in the relevant degree, so \(v\) is again a boundary.
+Induct on the power of \(\pi\) in the first nonzero multiple.
+Generic surjectivity also shows that the point-evaluation image
+contains \(cO^d\) for one \(c\ne0\), by clearing denominators for
+the finitely many coordinate vectors.
+
+It follows that evaluation \(B\to O^d\) is injective and contains
+\(cO^d\).  Apply
+Lemma~\ref{lem:ftb-formal-order-discriminant} separately to the
+blocks and combine their bases.
+There are matrices \(E_l\) and \(P_l\) over \(O\) such that
+\[
+ \operatorname{ev}_l=P_lE_l,\qquad
+ E_l:V_l\twoheadrightarrow O^d,\qquad \det P_l\ne0,\qquad
+       (\det P_l)^2\sim J,                          \tag{K17}\label{eq:ftb-global-order-factor}
+\]
+where \(J\) is the product of the Jacobians computed in the given
+Lie basis and line charts.
+To compare formal and Lie Jacobians, differentiate the actual
+formal coordinate chart using the square-zero algebra
+\(O\oplus O^g\).
+The matrix of the translated Lie basis in the formal coordinate
+tangents has a right inverse, by the Lie basis property and the
+formal lifting property.  It therefore has unit determinant.
+The chain rule multiplies each formal Jacobian by this unit.
+Changing the local line generator adds a derivative of that generator
+times \(s_i(z_a)=0\), so it only contributes another unit.
+This proves precisely the association in
+\eqref{eq:ftb-global-order-factor}, with no assumption of distinct
+closed specializations.
+
+Replacing the augmentation \(\operatorname{ev}_l\) of the Koszul
+complex by \(E_l\) gives a complex with exact residue fibre.
+Indeed \(E_l\) is surjective.  A residue vector in its kernel lifts
+to an integral vector; subtract integral preimages of its evaluation
+divided by \(\pi\), using a fixed right inverse to \(E_l\).
+Its residue is unchanged and its exact evaluation is zero.
+The saturated kernel calculation above then supplies the
+degree-two preimage.  In higher degrees use the same residue
+Koszul exactness as before.  Thus its squared torsion \(t_l^0\)
+is an \(O\)-unit.  Changing the augmentation from \(E_l\) to
+\(P_lE_l\) multiplies squared torsion by \((\det P_l)^2\).
+This is the source finite-closed-fibre factorization, including
+the integral order, not only the generic reduced zero scheme.
+
+\subsection{Unit cancellation for the full invariant}
+\begin{srproposition}[Finite closed-fibre zeros suffice]
+\label{prop:ftb-key-finite-zeros-unit}
+Let \(O\) be a DVR containing \(\mathbf Q\), and let \(x\) be an
+actual key datum over \(O\).  Let \(s_i\) have a finite common
+zero set on the closed fibre.  Let \(F\) be any field with an
+injective map \(O\to F\), carrying a base change of \(x,s_i\)
+and an actual value \(\kappa\) of
+\eqref{eq:ftb-kaform} on a split transverse generic intersection.
+If \(a\in O\), \(e\in\mathbf Z\setminus\{0\}\), and
+\(\kappa^e=a\) in \(F\), then \(a\in O^\times\).
+\end{srproposition}
+\begin{proof}
+Only finitely many points occur in the generic zero enumeration and
+the two systems of split kernel tuples.
+Descend their coordinates to a finitely generated subfield of \(F\)
+over \(\operatorname{Frac}O\), choose a discrete valuation ring
+dominating \(O\) in that field, and complete it.
+The source dominating-DVR construction applies to an essentially
+finite type field extension of a nonfield DVR.
+Properness of \(A/O\) extends all the descended points to this
+valuation ring.  A common overfield compares its completion with
+\(F\); take the compositum through a maximal ideal of the tensor
+product of the two fields.
+This gives a complete DVR \(O'\), a local injective map \(O\to O'\),
+and an injective map \(O'\to\Omega\), with all required points
+integral and the original generic data preserved.
+The closed-fibre zero set remains finite by quasi-finiteness of
+the reduced finite closed subscheme and base change.
+Because \(O\) contains \(\mathbf Q\), all positive integers,
+in particular every auxiliary \(D\), remain units.
+
+Use \eqref{eq:ftb-global-order-factor} for \(l\) and \(l'\).
+After accounting for the generic line-chart factors, put
+\(\gamma=\prod_a g_a\).
+There are units \(t,t',\eta,\eta'\in O'^\times\) and nonzero
+generic elements \(\delta,\delta'\) such that the two generic
+squared Koszul torsions and the generic Jacobian product are
+\[
+ \begin{aligned}
+ t_l&=t\,\gamma^{-2l}\delta^2,&
+ t_{l'}&=t'\,\gamma^{-2l'}(\delta')^2,\\
+ J_{\rm gen}&=\eta\,\gamma^{-gn}\delta^2
+            =\eta'\,\gamma^{-gn}(\delta')^2 .
+ \end{aligned}                                      \tag{K18}\label{eq:ftb-colliding-factors}
+\]
+Here \(\delta=\det P_l\) and \(\delta'=\det P_{l'}\).
+The cubical determinant units \(\lambda_j,\lambda'_j\) are integral
+units by Lemma~\ref{lem:ftb-box-det-unit}; the prime-to-residue
+kernel tuples are fibrewise distinct, since their multiplication
+maps are etale and \(O'\) is connected.
+
+Now \((\delta')^2=(\eta/\eta')\delta^2\).
+Substitute \eqref{eq:ftb-colliding-factors} into
+\eqref{eq:ftb-kaform}.
+The exponent of \(\gamma\) is the zero expression already computed
+in Proposition~\ref{prop:ftb-integral-koszul-invariant}.
+The exponent of the remaining \(\delta^2\) is
+\[
+ 4D^{3g+2}\{(gn-2l')+(2l-gn)\}
+                    +8D^{3g+2}(l'-l)=0 .
+\]
+Everything left is an \(O'\)-unit.  Uniqueness for the fixed generic
+intersection identifies this unit with the original \(\kappa\).
+Its nonzero integer power \(a\) is therefore a unit in \(O'\).
+A local map reflects units, so \(a\) is a unit in \(O\).
+\end{proof}
+
+\subsection{Constancy along lines and passage to all tuples}
+\begin{srlemma}[Source line argument]\label{lem:ftb-key-line}
+Let \(K\) be algebraically closed of characteristic zero.
+Suppose two transverse tuples \(s_0,s_1\) on a fixed key datum have
+the property that the common zero set of
+\((1-t)s_0+ts_1\) is finite for every \(t\in K\).
+Then their values in \eqref{eq:ftb-kaform} are equal.
+\end{srlemma}
+\begin{proof}
+Work over the parameter line \(K[T]\).
+The transverse data at \(T=a\) lift after a local DVR extension of
+\(K[T]_{(T-a)}\).  Indeed take a complete DVR whose residue field
+contains the finitely many coordinates of the residue zeros and
+prime-to-\(D\) torsion.  The Jacobian criterion makes each zero
+etale; Hensel lifting gives its unique section and unit Jacobian.
+Properness ensures every common zero specializes to a listed
+residue zero; the local etale uniqueness therefore lists all zeros.
+The split etale \(D\)-torsion lifts as well.
+Proposition~\ref{prop:ftb-integral-koszul-invariant} constructs an
+integral unit value there, specializing to the given one.
+
+Field-base-change compatibility and uniqueness descend this generic
+value to \(K(T)\).  Explicitly, two embeddings of an extension field
+over \(K(T)\) give the same value by uniqueness.  The element is
+therefore purely inseparable over \(K(T)\): its simple intermediate
+field has at most one embedding into any common field.
+In characteristic zero it belongs to \(K(T)\) itself.
+Call it \(c(T)\ne0\).
+At every \(T=a\), Proposition~\ref{prop:ftb-key-finite-zeros-unit}
+says that a nonzero integer power of \(c(T)\) lying in the local
+DVR is a unit.  Write \(c=P/Q\) in relatively prime polynomials.
+At a root of \(P\), \(Q\) is nonzero and this criterion applied with
+exponent \(1\) is a contradiction.  At a root of \(Q\), use
+exponent \(-1\).
+Thus \(P,Q\) have no roots in \(K\), so they are constants.
+Specialization of the lifted unit then identifies both endpoint
+values with this same constant.
+\end{proof}
+
+For use in this line argument, the source proves the following
+finiteness statement.  Over an algebraically closed field \(k\),
+let \(s\) have finite common zeros, and replace one section by the
+line towards a section whose coordinates \(T_j\) in a basis of
+\(H^0(L^n)\), \(n\geq4\), are algebraically independent over \(k\).
+After any algebraically closed extension, every member of that
+line still has finite common zeros.
+Here is the proof.  Removing one equation gives a closed set \(X\)
+of dimension at most one: an ample divisor on a positive-dimensional
+proper component has nonempty intersection, and the principal-ideal
+dimension inequality bounds that component by one when its
+intersection with the original equation is finite.
+If an altered zero set were infinite, a curve component would
+supply two distinct closed \(k\)-points \(y_1,y_2\) outside the
+original finite zero set, whose extension fibres lie in it.
+(The curve is geometrically integral after selecting an irreducible
+component over algebraically closed \(k\).)
+Let \(a_\nu\) be the original section values and
+\(\beta_{\nu j}\) the basis-section values, using line generators
+at the two points.  The line equations give
+\[
+ (1-t)a_\nu+t\sum_jT_j\beta_{\nu j}=0 .
+\]
+Take \(y_1\) outside the original zero set, so \(a_1\ne0\).
+Then \(t\ne0\); eliminating \(t\) and using linear independence
+of the \(T_j\)'s gives
+\(a_2\beta_{1j}=a_1\beta_{2j}\) for every \(j\).
+Every section vanishing at \(y_1\) must therefore vanish at \(y_2\).
+This contradicts point separation by \(H^0(L^n)\).
+The argument permits arbitrary \(t\) in the extension field.
+
+\begin{srproposition}[Independence of the auxiliary sections]
+\label{prop:ftb-key-tuple-independent}
+Fix admissible \(g,n,l,l',\alpha\) in characteristic zero.
+For each key datum over an algebraically closed field \(K\), there is
+one value \(\kappa_{n,l,l',\alpha}(x)\in K^\times\) such that
+every actual transverse-intersection construction
+\eqref{eq:ftb-kaform}, after any algebraically closed field
+extension, gives its image.  This value exists on an extension,
+is functorial in the framed key datum, and is independent of the
+auxiliary section tuple.
+\end{srproposition}
+\begin{proof}
+First take two coordinate tuples jointly algebraically independent
+over a field of definition for \(x\) and a basis of \(H^0(L^n)\).
+Generic sections meet transversally.  To verify the latter source
+step, at a proposed zero descend its values and first jets to a field
+of transcendence degree at most \(g\), using the dimension of \(A\).
+Evaluation is one nonzero linear equation on each coefficient row.
+Eliminate one coefficient per row.  The remaining determinant of
+the first jets is a nonzero polynomial: first-jet separation supplies
+one solution of the evaluation equations with nonzero determinant.
+Its evaluation at the remaining generic coefficients is injective.
+Indeed its polynomial ring has transcendence degree at most the
+number of original independent coefficients, while those
+coefficients belong to the image; a nonzero kernel would lower
+that degree.  Thus the generic Jacobian is nonzero at every zero.
+Smoothness makes these zeros isolated; properness makes their set
+finite, and they are rational over the algebraically closed field.
+This is the source transcendence-degree proof of generic
+transversality.
+
+Replace rows of the first generic tuple by rows of the second, one
+at a time.  For each replacement, pass to the algebraic closure of
+the field generated by all the retained rows.
+The incoming row remains algebraically independent over this field.
+The preceding finiteness argument and
+Lemma~\ref{lem:ftb-key-line} give equal values at successive tuples.
+Thus jointly generic tuples give the same value.
+For any two separately generic tuples, adjoin a third independent
+tuple; comparison through it gives the same conclusion.
+
+Choose the universal generic tuple in
+\(\Omega=\overline{K(T_j)}\).
+Every \(K\)-embedding \(\Omega\to\Omega\) takes it to another
+generic tuple, so fixes its invariant.
+Its invariant therefore lies in \(K\).
+For clarity, a nonconstant transcendental element would extend to a
+transcendence basis and could be moved by the embedding replacing
+each basis variable by that variable plus one; an element algebraic
+over algebraically closed \(K\) is already in \(K\).
+
+Finally let \(S_j\) be any tuple over a field extension for which an
+actual transverse value is given.
+Over
+\(\Omega'=\overline{F(U_j)}\), use the complete DVR
+\(\Omega'[[t]]\) and coordinates
+\(S_j+(U_j-S_j)t\).
+They specialize to \(S_j\), and are algebraically independent over
+\(K\), since evaluation at \(t=1\) gives the independent \(U_j\)'s.
+Lift the transverse special-fibre data by the Hensel construction
+in Lemma~\ref{lem:ftb-key-line}.
+Its generic value is the universal generic value; specializing the
+integral unit identifies the original value with it.
+Base change and transport of the framed datum follow by applying
+the already proved matrix base-change law and fixed-intersection
+uniqueness.  Nonzeroness holds because the generic construction is
+a product of units.
+\end{proof}
+
+\paragraph{Remaining key-rule scope.}
+The argument above discharges section independence and the
+finite-closed-fibre unit calculation, relative only to the specified
+abelian-scheme, smooth formal-coordinate, and dominating-DVR laws.
+It supplies an integral algebraic invariant with the positive
+exponent \(c=\operatorname{kaExp}(g,n,l,l')\).
+The source still passes from this auxiliary invariant to its
+normalized analytic value, replaces the auxiliary residue prime to
+get all-place units, and uses connected families to obtain the
+exponent-one \(\kappa\).
+Those further analytic and family statements are not consequences
+of section independence alone.
+
+\paragraph{Finite-zero exactness source precision.}
+The lemma used in the global-to-formal step is the more general
+\srcid{KoszulSectionsExactAlgClosedPolarisedAV.lean},
+\srcid{koszul\_sections\_exact\_field}
+(\srcid{f0fe7fbf99f791b00095713fd70b93d5f391aec4}):
+its premise is \(\mathrm{FinZ}\), not transverse zeros.
+Its regularity producer is
+\srcid{RingKrullDimLocalizationQuotientLe.lean}
+(\srcid{3c1e8ca388fe83a5265e805d08eed06bf2788d20}),
+using \srcid{TopologicalKrullDimLeOfFiniteCommonZeros.lean}
+(\srcid{fdaf8d3e54271968860ca7ff57b038273c4cc344})
+and \srcid{IsRegularOfFnOfRingKrullDimQuotientAddLe.lean}
+(\srcid{f6e15efe6ea2c1cd4a8d9bbdbebb9f3f3ca8960f}).
+The cut-cube proof is \srcid{CubeCutRegularSequence.lean}
+(\srcid{ec1b32eeaff351e107dfaf7cab2a57dbb9d870ed}).
+Residue exactness transport is \srcid{KosDApplyMap.lean}
+(\srcid{32213dc454266e031b4d69878743e5850f8d72c0}),
+and generic exactness is \srcid{KosDExactGeneric.lean}
+(\srcid{77c29ad29912bd032772f06a74bd4938d6ac4ab9}).
+All these proof files have the same \srcid{ThetaLawProofs/}
+prefix as the other sources in this section.
+
+\subsection{Holomorphy of the algebraic key invariant in period coordinates}
+\label{sec:ftb-key-period-holomorphy}
+
+We keep the key datum and the admissible integers \(g,n,l,l'\),
+the matrices \(\alpha_m^t\alpha_m=m1_4\), and the formula
+\eqref{eq:ftb-kaform}.  In this subsection a complex uniformization
+means the actual isomorphism of the polarized complex abelian variety
+and its rigidified line bundle with its theta torus.  In particular it
+identifies algebraic sections of every positive line power with the
+entire functions having the multiplier specified below.  This is the
+source's \(\mathrm{ThetaUnifAV}\) section comparison, together with
+the specified \(\mathrm{HolUnif}\) and \(\mathrm{Wit}\); it is a
+hypothesis on the \emph{same} line bundle and frame, rather than a
+choice of an unrelated analytic metric.
+
+Write
+\[
+ \mathfrak H_g=\{\tau=\tau^t:\operatorname{Im}\tau>0\},\quad
+ [k,n]_\tau=k+\tau n,\quad
+ A_\tau(k,n;z)=
+ \exp\!\left(2\pi i\left(a\cdot k-b\cdot n
+                      -\tfrac12 n^t\tau n-n\cdot z\right)\right).
+ \tag{H1}\label{eq:ftb-level-aut}
+\]
+Here \(a_i,b_i\in\{0,\tfrac12\}\).
+A function of level \(m\) is an entire \(F:\mathbb C^g\to\mathbb C\)
+such that
+\[
+ F(z+[k,n]_\tau)=A_\tau(k,n;z)^mF(z).
+ \tag{H2}\label{eq:ftb-level-fn}
+\]
+In the uniformizing frame \(\mathrm{fr}\), an algebraic section \(s\)
+of the \(m\)-th line power is read as
+\[
+                       s(\exp z)=F(z)\,\mathrm{fr}(z)^m.
+ \tag{H3}\label{eq:ftb-fnpw}
+\]
+The rigidification is the one used in the cubical generators, and
+the ordered Lie basis corresponds to
+\((2\pi i)^{-1}e_1,\ldots,(2\pi i)^{-1}e_g\).
+The parameter domain in the source consists of all complex matrices
+\(p\) with \(\operatorname{Im}((p+p^t)/2)>0\);
+every formula below is pulled back by \(\tau=(p+p^t)/2\).
+This gives the source's open domain without treating the symmetric
+matrices as an open subset of all matrices.
+
+\begin{srlemma}[Theta bases and holomorphic coordinates]
+\label{lem:ftb-holo-level-coordinates}
+For every \(m\geq1\) there are \(m^g\) level-\(m\) functions
+\(B_{m,c}(\tau,z)\), jointly holomorphic in \((\tau,z)\), which form
+a basis at every \(\tau\in\mathfrak H_g\).
+If a jointly holomorphic function belongs at each parameter to the
+span of a finite jointly holomorphic, pointwise independent family,
+its unique coordinates are holomorphic.
+The same assertions hold for external products of the theta bases.
+\end{srlemma}
+\begin{proof}
+With \(c\) running through representatives of
+\((\mathbb Z/m\mathbb Z)^g\), use the source's basis
+\[
+ B_{m,c}(\tau,z)=
+ \theta\!\left(\tfrac cm+a,\,mb;\,mz,m\tau\right),\qquad
+ \theta(u,v;z,\tau)=
+ \sum_{h\in\mathbb Z^g}
+ e^{\,\pi i(h+u)^t\tau(h+u)+2\pi i(h+u)\cdot(z+v)} .
+ \tag{H4}\label{eq:ftb-level-theta-basis}
+\]
+On a compact subset of the period and \(z\) domain the imaginary
+quadratic part is bounded below by a positive multiple of
+\(\lVert h\rVert^2\), while the remaining part is bounded in
+absolute value by a fixed multiple of \(1+\lVert h\rVert\).
+A summable Gaussian therefore dominates the terms, locally
+uniformly.  The same argument after multiplication by any fixed
+polynomial in \(h\) handles derivatives.  Normal convergence gives
+joint holomorphy.  Changing \(h\) by an integer vector gives
+\eqref{eq:ftb-level-fn}.
+
+Here is the source's dimension argument.  First take \(a=b=0\).
+The integer periods give Fourier coefficients \(c_v\), \(v\in\mathbb
+Z^g\); the remaining periods imply, for each coordinate vector,
+\[
+ c_{v+me_j}
+       =\exp(\pi i m\tau_{jj}+2\pi i\,v^t\tau e_j)c_v .
+\]
+Thus the \(m^g\) coefficients with residues \(0\leq v_i<m\)
+determine the function: if they vanish, the recurrence makes all
+Fourier coefficients vanish, and Fourier uniqueness on each real
+torus makes the function zero.  Consequently the dimension is at
+most \(m^g\).  Translations \(z\mapsto z+k/m\) act on the nonzero
+functions in \eqref{eq:ftb-level-theta-basis} by the distinct
+characters \(k\mapsto e^{2\pi i c\cdot k/m}\).
+Distinct character eigenvectors are independent (apply character
+independence to a purported linear relation at each \(z\)).
+There are \(m^g\) of them, so they form a basis.  Multiplication by
+the nonzero exponential and translation
+\[
+ f(z)\longmapsto
+ e^{\,2\pi i m(a^t\tau a/2+a\cdot(z+b))}
+                         f(z+\tau a+b)
+\]
+is an invertible map from level \((0,0)\) to level \((a,b)\);
+it sends the displayed basis to the displayed shifted basis.
+
+For the coordinate assertion, let \(T_1,\ldots,T_N\) be the family,
+and fix a parameter \(p_0\).
+The evaluation vectors \((T_j(p_0,z))_j\) span \(\mathbb C^N\);
+otherwise a nonzero linear functional would be a relation among
+the functions.  Choose finite linear combinations of evaluations
+\(\ell_i\) with \(\ell_i(T_j(p_0,-))=\delta_{ij}\).
+Set \(C_{ij}(p)=\ell_i(T_j(p,-))\) and
+\(b_i(p)=\ell_i(F(p,-))\).  They are holomorphic and \(C(p_0)=1\).
+On \(\det C\ne0\), the coordinate vector is \(C^{-1}b\);
+the adjugate formula proves holomorphy.  Uniqueness patches these
+local expressions.  Independence of external-product functions
+follows one variable at a time.  To obtain their spanning
+assertion, expand in the first variable, use this coordinate
+argument to make the coefficients holomorphic in the remaining
+variables, and iterate.  Their transformation law in the
+remaining variables follows from uniqueness of the first
+expansion.  This is precisely the tensor-expansion argument in
+\srcid{exists\_holomorphic\_coord\_simTheta}.
+\end{proof}
+
+\begin{srlemma}[The holomorphic box determinant]
+\label{lem:ftb-holo-box}
+Fix \(m\geq1\), a level-\(m\) basis \(B_c\), and an integral
+\(\alpha\) with \(\alpha^t\alpha=m1_4\).
+The algebraic unit \(\lambda_m\) of
+\eqref{eq:ftb-lambda}, read in these bases, is a holomorphic
+function of the period.  Its formula is the following.
+Choose integer tuples \((k_I,n_I)\) representing the two lattice
+coordinates of \(\ker(\alpha^t)\), and put
+\[
+ t_{I,r}=\frac1m\sum_c\alpha_{rc}[k_{I,c},n_{I,c}]_\tau,\qquad
+ \Phi_I(y)=
+ \prod_{r=1}^4\theta(a,b;(\alpha y)_r+t_{I,r},\tau)
+             e^{\,2\pi i\sum_c n_{I,c}\cdot y_c}.
+\]
+Write, uniquely,
+\[
+ \Phi_I(y)=\sum_J q_{I,J}(\tau)\prod_cB_{J_c}(\tau,y_c).
+\]
+Then, in the source's row convention,
+\[
+ \lambda_m(\tau)=
+ \frac{\det(q_{I,J}(\tau))^{2m^2}}
+ {\displaystyle
+  \left(\prod_I\prod_r
+ A_\tau\!\left(\sum_c\alpha_{rc}k_{I,c},
+              \sum_c\alpha_{rc}n_{I,c};0\right)\right)^2}.
+ \tag{H5}\label{eq:ftb-holo-lambda}
+\]
+This equality has no undetermined root of unity or scalar.
+\end{srlemma}
+\begin{proof}
+The elementary automorphy calculation using
+\(\alpha^t\alpha=m1\) and the half-characteristic gives
+\[
+ \Phi_I(y_1,\ldots,y_c+[k,n]_\tau,\ldots,y_4)
+             =A_\tau(k,n;y_c)^m\Phi_I(y).
+\]
+The functions are entire and jointly holomorphic in the period.
+Lemma~\ref{lem:ftb-holo-level-coordinates} therefore gives the
+unique holomorphic coefficients \(q_{I,J}\).
+
+We check the algebraic normalization.  Divide an actual cubical
+generator, in each line-bundle chart, by the product of its
+uniformizing frames.  On overlaps both numerator and denominator
+have the same transition function; their ratio is a globally
+defined nowhere-zero entire function of \(y\).
+For the generator \(w_I\), its product with
+\(e^{2\pi i\sum n_{I,c}\cdot y_c}\) is periodic under the full
+product period lattice.  Indeed the translated frame ratios
+are exactly \(A_\tau\), and the exponent cancels the
+similitude cross terms.  An entire function periodic under a full
+real lattice is bounded on a compact fundamental parallelepiped
+and hence constant.  Call this constant \(C_I\ne0\).
+This argument is a quotient of actual local generators;
+it does not extend a generic rational function across a boundary.
+
+The same argument for the multiplication generator \(\mu\) shows
+that its quotient by the multiplication frames is constant.
+Its origin rigidification makes that constant \(1\).
+If \(Q_{I,J}\) are the algebraic box coefficients of
+\eqref{eq:ftb-box-generator}, comparison with the preceding
+formula gives, after the permutation of kernel representatives,
+\[
+ q_{I,J}=C_IQ_{I,J},\qquad
+ \rho_I
+ \prod_r A_\tau\!\left(\sum_c\alpha_{rc}k_{I,c},
+                     \sum_c\alpha_{rc}n_{I,c};0\right)
+                                  =C_I^{m^2}.
+\]
+Insert these into
+\(\lambda_m=(\det Q)^{2m^2}\prod_I\rho_I^2\).
+All \(C_I\)'s cancel.  A row permutation is removed by the even
+determinant exponent.  This proves \eqref{eq:ftb-holo-lambda}.
+Its denominator is an exponential and never vanishes.
+\end{proof}
+
+\begin{srlemma}[Simple zero sections and varying contractions]
+\label{lem:ftb-holo-zeros-torsion}
+Let \(F_1(p,z),\ldots,F_g(p,z)\) be jointly holomorphic level-\(n\)
+functions.  Suppose that at \(p_0\) their common zeros on the
+period torus are precisely \(d\) distinct simple zeros.
+After shrinking to an open neighbourhood \(W\) of \(p_0\),
+there are holomorphic lifts \(z_1(p),\ldots,z_d(p)\) of all these
+zeros, still distinct modulo the periods, and all simple.
+If a finite graded complex \(D(p)\) has holomorphic entries,
+\(D(p)^2=0\), and is contracted at \(p_0\), its squared Koszul
+torsion is a nonzero holomorphic function on a possibly smaller
+neighbourhood.
+\end{srlemma}
+\begin{proof}
+The holomorphic implicit-function theorem supplies one branch at
+each old zero because its \(z\)-Jacobian is invertible.
+To show that they are all the zeros, use real period coordinates
+\(z=x+\tau y\) with \((x,y)\in[0,1]^{2g}\).
+The complement of small neighbourhoods of the old zeros is
+compact.  At each of its points at least one \(F_i(p_0,-)\)
+is nonzero.  A finite subcover and continuity keep at least one
+nonzero for all nearby parameters.  Inside the small
+neighbourhoods implicit-function uniqueness applies.
+The period lattice is discrete in these real coordinates;
+shrinking again keeps the branches distinct modulo periods.
+Their Jacobians remain nonzero by continuity.  Periodicity
+reduces every zero to this compact parallelepiped, proving the
+claimed completeness of the enumeration.
+
+For the contraction assertion fix a degree-\(+1\) matrix \(h_0\)
+with \(D(p_0)h_0+h_0D(p_0)=1\).  Put
+\[
+ A(p)=D(p)h_0+h_0D(p).
+\]
+Near \(p_0\), \(\det A(p)\ne0\).  Since \(D^2=0\), \(D\) commutes
+with \(A\), and hence with \(A^{-1}\).  Thus
+\(h_0A^{-1}\) is a contraction.  Retain only its degree-\(+1\)
+entries to obtain \(h(p)\).  This is still a contraction:
+in the anticommutator only those entries can contribute to
+the degree-zero part, while all other degree parts of \(1\)
+are zero.  Its entries are holomorphic by the adjugate formula.
+Choose once the even--odd enumeration used at \(p_0\).
+The required holomorphic function is
+\[
+             t(p)=\det\bigl((D(p)+h(p))_{\rm even,odd}\bigr)^2.
+ \tag{H6}\label{eq:ftb-holo-torsion}
+\]
+The determinant is nonzero because \(D+h\) is invertible;
+equivalently the graded block elimination in the squared-torsion
+lemma applies.  No assertion \(h(p)^2=0\) is required.
+Uniqueness of squared torsion identifies
+\eqref{eq:ftb-holo-torsion} with any other contraction computation.
+\end{proof}
+
+\begin{srproposition}[The same algebraic value is locally holomorphic]
+\label{prop:ftb-key-holomorphic-period}
+Suppose the algebraic key datum at \(p_0\) has a value
+\(\operatorname{KaVal}\) for the fixed admissible
+\(n,l,l',\alpha\), and is in the normalized theta uniformization
+\eqref{eq:ftb-fnpw}.
+There are an open neighbourhood \(W\) of \(p_0\) and a holomorphic
+function \(V\) on \(W\) such that at each \(p\in W\), \emph{every}
+algebraic key datum with that normalized uniformization has
+a \(\operatorname{KaVal}\) equal to \(V(p)\).
+Consequently the section-independent invariant, once defined at
+every period by the algebraization of its polarized theta torus,
+is holomorphic in period coordinates.
+\end{srproposition}
+\begin{proof}
+Read the initial transverse section tuple as \(F_{i,0}\).
+Expand it in the level-\(n\) basis at \(p_0\), and keep its
+coefficients fixed as \(p\) varies.  This gives the required
+jointly holomorphic \(F_i(p,z)\) of the same level.
+The preceding lemma supplies all their simple zeros \(z_e(p)\).
+
+For \(m_j=l-jn>0\) choose the level bases
+\(B_{m_j,c}(p,z)\), and likewise for \(l'\).
+The products \(F_iB_{m_{j+1},c}\) have level \(m_j\).
+Their multiplication coordinates are holomorphic by
+Lemma~\ref{lem:ftb-holo-level-coordinates}.
+The evaluations \(B_{l,c}(p,z_e(p))\) are holomorphic.
+Thus all entries of the augmented Koszul matrix \(D_l(p)\)
+are holomorphic, and the same holds in degree \(l'\).
+Their differentials square to zero because multiplication
+commutes and the evaluation points are common zeros.
+At \(p_0\) the algebraic exactness already proved supplies
+contractions; apply \eqref{eq:ftb-holo-torsion} in both degrees.
+
+Let \(J(p)\) be the product of the source's normalized Jacobians
+of \(F_i(p,-)\) at \(z_e(p)\); its entries are the first
+\(z\)-derivatives, with the fixed \(2\pi i\) Lie normalization.
+Joint holomorphy implies holomorphy of these derivatives and
+their evaluations, so \(J(p)\) is holomorphic and nonzero.
+Lemma~\ref{lem:ftb-holo-box} supplies the \(\lambda_j(p)\) and
+\(\lambda'_j(p)\).  At \(p_0\) they are nonzero by the algebraic
+box determinant theorem; shrink \(W\) so that they remain so.
+Use \(t_l(p),t_{l'}(p),J(p),\lambda_j(p),\lambda'_j(p)\) in
+\eqref{eq:ftb-kaform}.  Since every factor is holomorphic and
+nonzero, its integer powers give a holomorphic function \(V\).
+
+It remains to verify that this analytic formula computes the
+\emph{actual} algebraic value, with no surviving chart factor.
+The line-power section comparison makes the theta bases
+algebraic bases and makes the \(F_i\) actual algebraic sections.
+If \(U=\prod_e\mathrm{fr}_{j_e}(z_e)\), the algebraic squared
+torsion in degree \(l\) is the analytic squared torsion times
+\(U^{2l}\): this is conjugation of its augmented evaluation
+rows by \(\operatorname{diag}(\mathrm{fr}_{j_e}(z_e)^l)\).
+The corresponding algebraic Jacobian is \(J(p)U^{gn}\).
+The same applies in degree \(l'\).
+The total exponent of \(U\) in \eqref{eq:ftb-kaform} is
+\[
+ 8D^{3g+2}
+ \{l(gn-2l')+l'(2l-gn)+gn(l'-l)\}=0.
+\]
+The box factors agree by \eqref{eq:ftb-holo-lambda}, and the
+squared torsions agree by their uniqueness.  Therefore the
+algebraic value is exactly \(V(p)\).
+Section independence proved in
+Proposition~\ref{prop:ftb-key-tuple-independent} removes the
+particular tuple chosen to construct \(V\).
+On overlapping neighbourhoods, algebraization of a theta torus
+provides a test key datum at each period; both local formulae
+compute its unique algebraic value, so they agree.  This patches
+the holomorphic value function.
+
+The last algebraization clause is explicit: it is the actual
+polarized-theta-torus realization, denoted
+\(\mathrm{TorusAlgebraic}\) in the source.  Neither this clause
+nor the section comparison is deduced from holomorphy of
+\(V\).  Their match with the moduli/uniformization model is
+a separate geometric constructor.
+\end{proof}
+
+\paragraph{Frozen source concordance.}
+The base prefix for the following paths is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+The analytic level-space proof is
+\srcid{CovolumeBounds/EqZeroOfSemicharacterMultiplier.lean}
+(\srcid{d9177a8a8151f010857a1872b029ca293d2ecdd4});
+jointly holomorphic bases are
+\srcid{ThetaLawProofs/ExistsLevBasisReal.lean}
+(\srcid{0acd91467b163727cd9ab45b449a645d19079f73}).
+The fixed-evaluation coordinate proof is
+\srcid{DifferentiableOnCoordOfLinearIndependent.lean}
+(\srcid{bb29ce974ad27e88014fe30ce737b1ff313a9fd8}).
+The tensor expansion and its holomorphic coordinates are
+\srcid{ExistsHolomorphicCoordSimilitudeThetaProduct.lean}
+(\srcid{222a38b04c4c65633ddc63956623b5ebc871d2ae}).
+The actual frame quotient gluing is
+\srcid{ExistsEntireGeneratorDivFrames.lean}
+(\srcid{5115a6c11545e30287524197a677172c8334ee56});
+the full-lattice periodicity calculations are
+\srcid{SimilitudeGeneratorEqExpInFrames.lean}
+(\srcid{767a1a7851d799760d180c9278cc4c1670a5dfe7})
+and \srcid{ThetaGeneratorPullbackMulConstInFrames.lean}
+(\srcid{11d7336e26d26d4ef9f784da8f389ceab34a08c2}).
+The frame automorphy identity, including its extension across the
+zeros of theta by the identity theorem, is
+\srcid{ThetaUniformisationFrameEqAutomorphyMul.lean}
+(\srcid{7e0fe6b56293d92ad64e72bacde8d9aeac55f766}).
+The exact box formula is
+\srcid{ExistsHolomorphicThetaOfLevelBasis.lean}
+(\srcid{fa578ce841cf27bb7ad5bf5c6047b9011a4b49f2}).
+Moving zeros is
+\srcid{SimpleZerosMoveHolomorphically.lean}
+(\srcid{f2458805d37961ce99100633147e62bb53bf388d});
+varying contractions is
+\srcid{ExistsDifferentiableOnTorsSq.lean}
+(\srcid{f93085db0421f99f72c9d2061f17e30b7141acf2}).
+Their exact assembly, including the chart-factor cancellation,
+is \srcid{KoszulInvariantLocallyHolomorphicPeriodMatrix.lean}
+(\srcid{34a2165e6ee4a1b7242efdac1129f8328adcddbe}).
+All unqualified filenames after the first one in this paragraph
+are in \srcid{ThetaLawProofs/}.
+
+\subsection{The source's weight-zero constancy argument}
+\label{sec:ftb-key-weight-zero}
+
+This subsection supplies the weight-zero statement used to normalize
+the holomorphic key invariant.  It follows the frozen source's
+Fourier estimate and rank-one modular curves.  The sole
+one-dimensional modular input is the usual theorem that a
+holomorphic modular form of weight zero for
+\(\mathrm{SL}_2(\mathbb Z)\), bounded at its cusp, is constant.
+It follows, for example, by the removable-singularity theorem and
+the maximum principle on the compactified standard fundamental
+domain.  No higher-dimensional compactification or boundary
+extension theorem is used here.
+
+\begin{srlemma}[Fourier bound on a Siegel cone]
+\label{lem:ftb-ph-koecher}
+Let \(g\geq2\), \(N\geq1\), and let \(F\) be holomorphic on
+\(\mathfrak H_g\).  Suppose
+\[
+ \begin{aligned}
+ F(\tau+NB)&=F(\tau) &&(B=B^t\in M_g(\mathbb Z)),\\
+ F(U\tau U^t)&=F(\tau)
+ &&(U\in\mathrm{SL}_g(\mathbb Z),\ U\equiv1\bmod N).
+ \end{aligned}                                             \tag{W1}\label{eq:ftb-ph-periods}
+\]
+For every \(c>0\) there is a finite real \(K_c\) such that
+\[
+       |F(\tau)|\leq K_c\quad
+          \text{whenever }\operatorname{Im}\tau\geq c1.
+ \tag{W2}\label{eq:ftb-ph-cone-bound}
+\]
+\end{srlemma}
+\begin{proof}
+For clarity we give the source's full-matrix Fourier construction;
+this avoids off-diagonal half-integer conventions.
+Put
+\[
+ \Phi(z)=N(z+z^t),\qquad
+ \mathcal U=\{z\in M_g(\mathbb C):\operatorname{Im}\Phi(z)>0\},
+ \qquad f(z)=F(\Phi(z)).
+\]
+This is an open convex tube.  The function \(f\) has period \(1\)
+in each of its \(g^2\) coordinates, by \eqref{eq:ftb-ph-periods}.
+For \(m\in M_g(\mathbb Z)\), the integral
+\[
+ c_m=\int_{[0,1]^{g^2}}
+ f(x+z)e^{-2\pi i\langle m,x+z\rangle}\,dx
+ \tag{W3}\label{eq:ftb-tube-coeff}
+\]
+is independent of \(z\in\mathcal U\).
+Indeed the integrand is holomorphic and has unit periods.
+Its cube integral is holomorphic in \(z\), by differentiation
+under an integral over a compact cube, and invariant under every
+real translation, by the periodic cube-change formula.
+Its real derivatives vanish; complex differentiability therefore
+makes all its complex derivatives vanish.  Convexity makes it
+constant.  Here \(\langle m,z\rangle=\sum_{ij}m_{ij}z_{ij}\).
+
+Set \(a_m=|c_m|\).
+If a real imaginary slice is bounded by \(M\), its Fourier
+coefficient estimate gives
+\[
+          a_m e^{-2\pi\langle m,Y\rangle}\leq M.
+ \tag{W4}\label{eq:ftb-tube-coeff-bound}
+\]
+At a fixed \(z\), any summable nonnegative majorant \(b_m\) of
+the left side gives \(|f(z)|\leq\sum_m b_m\).
+To justify this last assertion without assuming pointwise Fourier
+convergence, regard \(x\mapsto f(x+z)\) as a continuous function
+on the unit real torus.  Its Fourier coefficients are the
+corresponding expressions in \eqref{eq:ftb-tube-coeff}.
+An absolutely summable coefficient sequence has a uniformly
+convergent Fourier series.  Fourier uniqueness, or the elementary
+approximate-identity argument on that torus, identifies its sum
+with the original continuous function.  Taking norms proves the
+assertion.
+
+The unit periods make \(F\) bounded on each fixed positive
+imaginary slice: reduce the real symmetric entries to a compact
+cube.  Fix \(c>0\), and let \(M\geq0\) bound the slice
+\((c/2)1\).  Set \(s=c/(4N)>0\).
+For every antisymmetric real \(A\), the slice \(Y=s1+A\)
+of \(\mathcal U\) has
+\(N(Y+Y^t)=(c/2)1\); hence
+\[
+ a_m e^{-2\pi\langle m,s1+A\rangle}\leq M.
+ \tag{W5}\label{eq:ftb-anti-test}
+\]
+For every \(U\in\mathrm{SL}_g(\mathbb Z)\) congruent to \(1\bmod N\),
+invariance and conjugation by the integral inverse of \(U\)
+give the same bound on the slice \((c/2)UU^t\).  Thus
+\[
+ a_m e^{-2\pi s\,\operatorname{tr}(U^tmU)}\leq M.
+ \tag{W6}\label{eq:ftb-congruence-test}
+\]
+
+If \(a_m>0\), \eqref{eq:ftb-anti-test} forces \(m=m^t\):
+otherwise choose \(A=t(E_{ij}-E_{ji})\) and let
+\(\langle m,A\rangle\) tend to \(-\infty\).
+Next \(m\) is positive semidefinite.
+If not, continuity gives a rational vector \(x\) with \(x^tmx<0\);
+clear denominators to take \(x\in\mathbb Z^g\).
+Choose \(i\) with \(x_i\ne0\), choose \(j\ne i\), and put
+\(y=x_je_i-x_ie_j\ne0\).
+Then \(y^tx=0\) and
+\[
+ U_k=1+Nkxy^t\in\mathrm{SL}_g(\mathbb Z),\quad
+ U_k\equiv1\bmod N,\quad
+ \operatorname{tr}(U_k^tmU_k)
+ =\operatorname{tr}m+2Nk\,x^tmy
+                 +(Nk)^2(x^tmx)\,y^ty .
+\]
+The determinant formula for a rank-one perturbation proves the
+first assertion.  The last polynomial tends to \(-\infty\).
+It contradicts \eqref{eq:ftb-congruence-test}, because \(a_m>0\).
+Rational vectors are dense, so this proves real positive
+semidefiniteness as well.
+
+For such an \(m\), put \(t=\operatorname{tr}m\geq0\).
+The inequalities obtained by evaluating its quadratic form at
+\(e_i\pm e_j\) give \(|m_{ij}|\leq t\).  Consequently
+\[
+       \sum_{ij}|m_{ij}|\leq g^2t,\qquad
+       \langle m,\operatorname{Im}\tau\rangle\geq ct
+                    \quad(\operatorname{Im}\tau\geq c1).
+\]
+Use \eqref{eq:ftb-tube-coeff-bound} at \(Y=s1\).
+With \(\varepsilon=\pi c/(2Ng^2)>0\) the preceding estimates give
+\[
+ a_m e^{-(\pi/N)\langle m,\operatorname{Im}\tau\rangle}
+       \leq M\exp\!\left(-\varepsilon\sum_{ij}|m_{ij}|\right).
+ \tag{W7}\label{eq:ftb-ph-summable}
+\]
+The same inequality is trivial if \(a_m=0\).
+The right side is summable over \(M_g(\mathbb Z)\): it is a
+finite product of two-sided geometric series.
+Apply the torus Fourier bound at \(z=\tau/(2N)\).
+This proves \eqref{eq:ftb-ph-cone-bound}, with exactly the
+source's summable majorant.
+\end{proof}
+
+\begin{srlemma}[A finite modular family is constant]
+\label{lem:ftb-finite-elliptic-family}
+Let \(\mathcal F\) be a finite set of holomorphic functions on
+the upper half-plane, each bounded as the imaginary part tends
+to infinity.  Suppose precomposition by \(S:z\mapsto-1/z\)
+and \(T:z\mapsto z+1\) takes \(\mathcal F\) into itself.
+Then every function in \(\mathcal F\) is constant.
+\end{srlemma}
+\begin{proof}
+Precomposition is injective, since \(S,T\) are bijections, so it
+permutes the finite set.
+For each \(w\in\mathbb C\),
+\(\prod_{f\in\mathcal F}(w-f(z))\) is therefore a holomorphic
+weight-zero modular function for the full modular group, bounded
+at infinity and hence at all its equivalent cusps.
+The one-dimensional modular input makes it constant.
+Fix \(z_0\).  Taking \(w=f(z)\) in that polynomial identity shows
+that \(f(z)\) belongs to the finite set
+\(\{h(z_0):h\in\mathcal F\}\).
+The upper half-plane is connected; continuity makes \(f\)
+constant.
+\end{proof}
+
+\begin{srproposition}[Holomorphic symplectic invariants have weight-zero constancy]
+\label{prop:ftb-ph-holo}
+If \(g\geq2\) and \(H:\mathfrak H_g\to\mathbb C\) is holomorphic
+and invariant under \(\mathrm{Sp}_{2g}(\mathbb Z)\), then \(H\)
+is constant.
+\end{srproposition}
+\begin{proof}
+The symplectic translations and diagonal symplectic matrices give
+\eqref{eq:ftb-ph-periods} with \(N=1\).
+Lemma~\ref{lem:ftb-ph-koecher} gives a bound on every cone
+\(\operatorname{Im}\tau\geq c1\).
+We use this bound on the following explicit rank-one curves.
+
+Fix a coordinate \(e\), write \(\epsilon=e_e\), and suppose
+\(Z=Z^t\) has zero \(e\)-th column and
+\[
+       \operatorname{Im}Z+yuu^t>0
+                    \quad\text{for all }u_e=1,\ y>0.
+\]
+For real symmetric \(R\) with \(R_{ee}=0\), and real \(u_e=1\),
+put \(C_{R,u}(z)=Z+R+zuu^t\).
+For a fixed integer \(N\geq1\), consider all functions
+\(z\mapsto H(C_{R,u}(z))\) satisfying
+\[
+    Nu_i\in\mathbb Z,\quad NR_{ie}\in\mathbb Z,\quad
+                             N^2R_{ij}\in\mathbb Z.
+ \tag{W8}\label{eq:ftb-curve-denominators}
+\]
+There are only finitely many such \emph{functions}.
+To see this, set \(k_e=0,\ k_i=\lfloor u_i\rfloor\) for \(i\ne e\).
+Conjugation by the integral unimodular rank-one shear
+\(1-k\epsilon^t\) changes the curve parameters to
+\[
+ u_1=u-k,\qquad
+ R_1=R-k(Re)^t-(Re)k^t .
+\]
+It fixes \(Z\), since the \(e\)-th row and column of \(Z\) are zero.
+Subtract the symmetric integral matrix of floors of \(R_1\);
+symplectic translation changes no value of \(H\).
+Now \(u_1\) and the fractional entries of \(R_1\) lie in
+\([-1,1]\), and their denominators divide \(N^2\).
+There are finitely many choices.
+
+Each function is holomorphic and bounded at infinity.
+For the bound, its imaginary part for \(y\geq1\) is at least
+\(\operatorname{Im}Z+uu^t>0\); choose \(c1\) below this fixed
+positive matrix and apply the cone bound.
+The finite family is stable under \(T\), which changes the
+parameters, up to the integral \(\epsilon\epsilon^t\) translation,
+to
+\[
+                         (R+uu^t-\epsilon\epsilon^t,\ u).
+\]
+It is also stable under \(S\).  The symplectic partial inversion
+in coordinate \(e\) gives the parameters
+\[
+ u'=\epsilon+Re,\qquad
+ R'=R-u(\epsilon+Re)^t-(\epsilon+Re)u^t
+                                      +2\epsilon\epsilon^t.
+ \tag{W9}\label{eq:ftb-curve-S}
+\]
+These have \(u'_e=1,\ R'_{ee}=0\), and satisfy
+\eqref{eq:ftb-curve-denominators}: multiply each formula by \(N\)
+or \(N^2\) and use the displayed integrality conditions.
+The partial-inversion identity is checked entry by entry after
+using \(Z e=0,\ u_e=1,\ R_{ee}=0\); it asserts that
+\(H(C_{R,u}(-1/z))=H(C_{R',u'}(z))\).
+Lemma~\ref{lem:ftb-finite-elliptic-family} makes every such
+rational-parameter curve constant.
+
+For real \(u_e=1\) and \(v_e=0\), take
+\(R=\epsilon v^t+v\epsilon^t\).
+Approximate every coordinate of \(u,v\) by
+\(\lfloor(n+1)x\rfloor/(n+1)\).
+The \(e\)-coordinates remain exactly \(1,0\), respectively, and
+the denominator conditions hold with \(N=n+1\).
+Passing to the limit by continuity gives constancy on this
+real-parameter curve as well.
+
+We now exhibit such a curve through every \(\tau=X+iY\).
+Set
+\[
+ h=Y_{ee},\quad u=Ye/h,\quad
+ v=Xe-X_{ee}u,\quad
+ R=\epsilon v^t+v\epsilon^t,\quad
+ Z=\tau-R-\tau_{ee}uu^t .
+\]
+Then \(h>0,\ u_e=1,\ v_e=0,\ Ze=0\) and
+\(\operatorname{Im}Z=Y-(Ye)(Ye)^t/h\).
+For every \(u'_e=1,\ y>0\),
+\[
+                   Y-(Ye)(Ye)^t/h+yu'(u')^t>0.
+\]
+Indeed for \(x\ne0\) put
+\(x'=x-(x^tYe/h)e\).
+Its quadratic value is
+\((x')^tYx'+y(x^tu')^2\).
+If \(x'\ne0\), the first term is positive.
+If \(x'=0\), \(x\) is a nonzero multiple of \(e\) and the second
+term is positive.  Thus the curve has the required domain and
+passes through \(\tau\) at \(z=\tau_{ee}\).
+Its constancy gives
+\[
+                     dH_\tau((Ye)(Ye)^t)=0.
+\]
+Conjugate this assertion by integral unimodular matrices.
+Their \(e\)-th rows range over the primitive integer vectors,
+so it gives
+\(dH_\tau((Yv)(Yv)^t)=0\) for every such \(v\).
+The vectors \(e_i\) and \(e_i+e_j\), \(i\ne j\), are primitive
+rows of unimodular matrices; their outer squares span all complex
+symmetric matrices, by subtracting the diagonal squares.
+Since \(Y\) is invertible, \(dH_\tau\) vanishes on the whole
+symmetric tangent space.
+Finally \(\mathfrak H_g\) is convex.  Integrating along its line
+segments proves that \(H\) is constant.
+\end{proof}
+
+\begin{srcorollary}[Finite symplectic families]
+\label{cor:ftb-finite-sp-family}
+Let \(g\geq2\).  A finite collection of holomorphic functions on
+\(\mathfrak H_g\), permuted by precomposition by every integral
+symplectic transformation, consists of constant functions.
+\end{srcorollary}
+\begin{proof}
+Discard duplicate functions.
+For each \(w\in\mathbb C\) the polynomial
+\(\prod_f(w-f(\tau))\) is holomorphic and symplectic invariant,
+because precomposition is an injective map of this finite set
+and hence a permutation.
+Proposition~\ref{prop:ftb-ph-holo} makes it constant.
+Its roots at a fixed period form a finite set containing every
+value of every \(f\).  Connectedness and continuity conclude
+exactly as in Lemma~\ref{lem:ftb-finite-elliptic-family}.
+\end{proof}
+
+\paragraph{Application to the powered key rule.}
+In this paragraph assume explicitly \(g\geq2\).
+For a field-functorial section-independent rule satisfying
+\eqref{eq:ftb-koszul-homog}, the period construction gives one
+holomorphic value function \(U_{a,b}\) for each half-characteristic.
+The theta transformation formula permutes this finite family.
+More precisely, for \(\delta\in\mathrm{Sp}_{2g}(\mathbb Z)\),
+write \(j=C\tau+D\).  The theta formula gives a nonzero multiplier
+\(r\) with \(r^8=(\det j)^4\); reparametrizing the uniformization
+changes the normal-form data to
+\[
+        \tau'=\delta\tau,\qquad M'=Mj^{-1},\qquad c'=c/r.
+\]
+It preserves
+\[
+                         \frac{(\det M')^4}{(c')^8}
+                             =\frac{(\det M)^4}{c^8}.
+ \tag{W10}\label{eq:ftb-normal-ratio-sp}
+\]
+The Gaussian exponential in the theta formula is incorporated
+in the reparametrized line frame, not discarded.
+The homogeneity law and \eqref{eq:ftb-normal-ratio-sp} show that
+the normal value functions are permuted, with no scalar factor.
+Apply Corollary~\ref{cor:ftb-finite-sp-family}.
+For the zero characteristic there is a constant \(a_0\) such that
+\[
+             \kappa(x)=a_0
+                    \left(\frac{(\det M)^4}{c_0^8}\right)^c
+ \tag{W11}\label{eq:ftb-key-unscaled-constant}
+\]
+whenever \(x\) is in zero-characteristic normal form
+\((\tau,M,c_0)\).
+To pass from the normalized \(M=1,c_0=1\) case to this formula,
+replace the theta section by \(c_0^{-1}\vartheta\) and the Lie
+basis by \(M^{-1}v\), then apply
+\eqref{eq:ftb-koszul-homog}.
+The symplectic transformation formula here is the classical
+Poisson theta transformation with its eighth-power identity;
+its source implementation uses the squared formula and the
+identity theorem to choose \(r\), and then changes the actual
+uniformization frame.
+
+This proves constancy, not yet the rationality or integral unit
+property of \(a_0\), and not yet an exponent-one key rule.
+Those are supplied by the subsequent arithmetic normalization
+and connected-family descent.
+
+\paragraph{Frozen source concordance.}
+All proof paths below have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/}.
+The tube Fourier construction and cone estimate are
+\srcid{NormLeTsumOfCubeFourierCoeffLe.lean}
+(\srcid{958fca26bfcc625698732b1a0dafee0d51889f7b});
+its explicit congruence transvection is
+\srcid{ExistsNatMulQuadraticLt.lean}
+(\srcid{f07ff82f9eaae326e1ce8ca8a834d8f0c40febf0}).
+The finite elliptic family, rational rank-one curves, partial
+inversion, rational approximation, positive Schur complement,
+and spanning of derivatives are
+\srcid{FiniteAbsLeOneMulMemRange.lean}
+(\srcid{a525213fbc51d8331f5cf36529a36e5f4385887a}).
+The final polynomial argument for a finite symplectic family is
+\srcid{ProdCompEqOfFiniteFamily.lean}
+(\srcid{0d643fd13242090c4d63d7543da06e3fab784482}).
+The exact change of theta normal form is
+\srcid{ThetaLawSymplecticNormalForm.lean}
+(\srcid{6950e84acb9e8fa4fc102ec0cb3baef827e74e78}),
+and the rescaling and finite-characteristic-family application
+are \srcid{ExistsRescale.lean}
+(\srcid{193bbb1a07dfd9582c3d8692d5710c88dabb4500}).
+The realization of a testing key datum at each period is
+\srcid{ExistsKeyInNormalAt.lean}
+(\srcid{189fd3b621d2d5c557c11140849fa5f549a6b81c}),
+with its explicit \(\mathrm{TorusAlgebraic}\) hypothesis.
+
+
+\subsection{Arithmetic normalization and a powered rule at every prime}
+\label{sec:ftb-powered-key-all-primes}
+
+The algebraic inputs here are projectivity and finite presentation of
+the polarized abelian scheme; faithful-flat descent of its morphisms,
+line bundles and identities; the origin-normalized theorem of the cube;
+base change of its positive line-power section modules; and finite
+etaleness of multiplication by an invertible integer.  These are the
+same algebraic inputs as in the integral Koszul construction.  We keep
+their applications explicit.
+
+\begin{srlemma}[Countable descent preserving a local principal ideal base]
+\label{lem:ftb-key-countable-descent}
+Let \(R\) be a local principal ideal domain and \(x/R\) a key datum.
+Every countable \(S\subset R\) is contained in a countable local
+principal ideal subring \(R_0\subset R\), local and faithfully flat
+in \(R\), over which \(x\) descends as a key datum.
+Over a characteristic-zero field it descends to a countable subfield.
+\end{srlemma}
+\begin{proof}
+The source constructs subrings as follows.
+For countable \(S'\subset R\), put \(K=\operatorname{Frac}R\), let
+\(K_0\) be the subfield generated by \(S'\), and set \(R_0=R\cap K_0\).
+It is countable.  Divisibility descends: if \(b=ac\) with
+\(a,b\in R_0\), then for \(a\ne0\), \(c=b/a\in R\cap K_0\);
+the case \(a=0\) is immediate.  Units of \(R\) lying in \(R_0\)
+therefore have their inverses in \(R_0\).
+The subring is local and its map to \(R\) is local.
+For an ideal \(I\subset R_0\), choose \(a\in I\) with \(aR\)
+maximal among \(\{bR:b\in I\}\), using Noetherianity of \(R\).
+Divisibility is total in \(R\).  For every \(b\in I\), maximality
+then gives \(a\mid b\) in \(R\), hence in \(R_0\).
+Thus \(I=aR_0\).  Torsion freeness over this principal ideal domain
+makes \(R\) flat over \(R_0\); locality makes it faithfully flat.
+
+Descend a projective presentation and its ample bundle using their
+finite equations and gluing charts.  Descend the identity, inverse,
+multiplication, and theta line bundle using finitely many further
+coefficients.  Enlarge to a subring of the preceding kind.
+The product used for multiplication is the descended product.
+Faithful flatness tests its group identities and descends the
+proper smooth polarized scheme, relative dimension, rigidified
+symmetric ample line and principal polarization.
+Thus the descended object is a polarized abelian scheme.
+
+Over this local principal ideal ring, choose frames of the line at
+the origin, the rank-one theta-section module and the rank-\(g\)
+Lie module.  Their pullbacks differ from the specified data by an
+actual line-bundle identification, a unit scalar and an invertible
+matrix.  Enlarge \(S'\) to include these coefficients and the given
+\(S\); the subring construction also includes the inverses of their
+unit determinants.  Rescaling the frames gives the original datum
+under the source's \(\mathrm{KeyPB}\), including its dual-number
+Lie maps.  If \(R\) is a field, locality reflects every nonzero
+element of \(R_0\) as a unit, so \(R_0\) is a subfield.
+\end{proof}
+
+\begin{srlemma}[Unit realization over a local DVR extension]
+\label{lem:ftb-key-dvr-realization}
+Fix admissible \(n,l,l',\alpha\), with
+\(D=\prod_{j=0}^g(l-jn)(l'-jn)\).
+For a key datum over a DVR \(R\) in which \(D\) is invertible,
+there is an injective local map \(R\to R'\) to a DVR where
+the exact \(\operatorname{KaVal}\) formula
+\eqref{eq:ftb-kaform} is realized by a unit.
+Its value commutes with field base change of that realization.
+\end{srlemma}
+\begin{proof}
+Choose a basis of the level-\(n\) section module.
+Over an algebraic closure of a rational-function extension of the
+residue field choose \(g\) coefficient rows algebraically independent
+over that field.  The preceding generic-section argument makes
+their common zeros transverse.
+Lift these finitely many coefficients after a local DVR extension
+and completion.  Transcendental residue coefficients are obtained
+by \(R[T_1,\ldots,T_b]_{(\pi)}\); further dominating DVR extensions
+and completion permit the finitely many additional residue
+coordinates.  This is the source's
+\srcid{exists\_complete\_discreteValuationRing\_with\_residues}.
+No quantitative extension degree is required.
+
+Enlarge again to define the residue common zeros and the
+\(D\)-torsion.  Multiplication by \(D\) is finite etale, and the
+transverse zero scheme is etale at its zeros.  Hensel lifting over
+the complete DVR supplies their sections with distinct reductions;
+properness and the fixed zero count give all generic zeros.
+The actual split-torsion and split-transverse-zero hypotheses
+of Proposition~\ref{prop:ftb-integral-koszul-invariant} now hold.
+It gives the unit and its termwise base-change identities.
+The extension supplies a realization; it does not change the
+section-independent field value.
+\end{proof}
+
+\begin{srproposition}[Rules away from one integer and field descent]
+\label{prop:ftb-key-away-rule}
+For each \(g\geq1\) and prime \(p\), there are positive integers
+\(c,M\), \(p\nmid M\), and a section-independent rule on
+characteristic-zero fields that is functorial for key base change,
+satisfies
+\[
+                 a^{8c}\kappa_{\rm new}
+                          =(\det B)^{4c}\kappa_{\rm old},
+\]
+has holomorphic normalized-period values for every
+half-characteristic, and is a unit on each DVR where \(M\) is a unit.
+Its unit specializes correctly if the residue field has
+characteristic zero.
+\end{srproposition}
+\begin{proof}
+Take \(n=4p,\ l=gn+1,\ l'=gn+1+p,\ M=D\);
+Lemma~\ref{lem:ftb-key-numerical-data} gives \(p\nmid M\).
+Proposition~\ref{prop:ftb-key-tuple-independent} defines a unique
+nonzero value over algebraically closed fields and every generic
+coefficient extension, agrees with every admissible tuple, and
+gives field functoriality.  Its homogeneity is
+\eqref{eq:ftb-koszul-homog}.
+The preceding DVR lemma supplies a unit realization after a
+local extension.  For a complex datum, descend to a countable
+subfield, choose finitely many algebraically independent complex
+coefficients, and obtain an actual transverse tuple.
+Proposition~\ref{prop:ftb-key-holomorphic-period} supplies and
+patches the local holomorphic value functions.
+
+For an arbitrary characteristic-zero field \(K\), pull the datum
+to \(\overline K\).  Every \(K\)-automorphism fixes its value by
+functoriality and uniqueness.  An algebraic element with this
+property lies in \(K\), since its minimal polynomial is separable.
+This gives the unique descended nonzero value and its functoriality
+under every field map.  To descend the homogeneity identity,
+base change the two specified frames simultaneously and use
+injectivity and the determinant base-change formula.
+
+Let \(z\in\operatorname{Frac}(R)^\times\) be the descended value,
+and \(u\in(R')^\times\) its unit realization.  In a common
+algebraically closed fraction field their images agree.
+Either \(z\in R\) or \(z^{-1}\in R\).
+In the first case its image is \(u\), so the local map \(R\to R'\)
+reflects it as a unit.  The second case applies the same argument
+to \(z^{-1}\).  This descends the unit without requiring a finite
+extension degree.  At a characteristic-zero residue map, pass to
+a common algebraic closure of the residue fields of \(R'\) and
+\(R\).  The actual determinant, cubical and Koszul formula
+specializes there to the residue rule.  Locality makes the
+residue maps factor through the original residue field; its
+injective embedding in that closure proves the required
+specialization equality.
+\end{proof}
+
+\begin{srlemma}[The precisely normalized elliptic test]
+\label{lem:ftb-key-elliptic-discriminant}
+For a smooth Weierstrass curve \(W/R\), the origin line bundle,
+its canonical section and rigidification, and the tangent
+\([\epsilon:-1:0]\), form a one-dimensional key datum.
+For every complex normal form of its base change,
+\[
+                         \frac{M^4}{c_0^8}=s(\Delta_W).
+ \tag{A1}\label{eq:ftb-key-elliptic}
+\]
+\end{srlemma}
+\begin{proof}
+The origin parameter on the dual-number tangent
+\([\epsilon:-1:0]\) has value \(-\epsilon\).
+The rigidified frame has value \(1\) at the origin, so the theta
+function vanishes there and its derivative in that tangent
+direction is \(-1\).
+The three even genus-one half-characteristics give even theta
+functions, by the substitution \(h\mapsto-h-2a\) in the series.
+Their derivative is zero.  Hence the characteristic is the odd
+one \((\tfrac12,\tfrac12)\).
+
+Put \(b=2\pi i/M\).  The actual period lattice on that tangent line
+is \(b(\mathbb Z+\tau\mathbb Z)\), and the derivative assertion says
+\(\theta'[\tfrac12,\tfrac12](0)=-b/c_0\).
+Jacobi's derivative formula in this normalization and the
+Weierstrass period formula are
+\[
+ \theta'[\tfrac12,\tfrac12](0)^8=(2\pi)^8\Delta_{\rm mod}(\tau),
+ \qquad
+ \Delta\bigl(b(\mathbb Z+\tau\mathbb Z)\bigr)
+                       =(2\pi/b)^{12}\Delta_{\rm mod}(\tau).
+\]
+Substitution gives the latter discriminant as
+\((2\pi)^4b^{-4}c_0^{-8}=M^4/c_0^8\), since \(i^4=1\).
+The actual Weierstrass uniformization identifies this lattice
+discriminant with \(s(\Delta_W)\): its coordinate functions
+satisfy the equation of \(W\), with the fixed origin parameter
+\(t(0)=0,t'(0)=1\) and its prescribed leading coordinate limits.
+These determine the same Weierstrass \(g_2,g_3\), equivalently
+the standard periodic-solution uniqueness argument.
+Thus both the tangent scale and the discriminant scale are fixed.
+The analytic inputs are exactly the Jacobi derivative and
+Weierstrass lattice identities displayed here.
+\end{proof}
+
+\begin{srproposition}[A normalized powered rule at every prime]
+\label{prop:ftb-normalized-powered-key}
+For each \(g\geq1\), a positive integer \(N(g)\) and a field-functorial
+rule \(\rho_g\) exist with
+\[
+ \rho_g(x)=
+       \left(\frac{(\det M)^4}{c_0^8}\right)^{N(g)}
+ \tag{A2}\label{eq:ftb-powered-normal-value}
+\]
+in every complex half-characteristic normal form.
+It obeys
+\(a^{8N(g)}\rho_g(x_{\rm new})
+=(\det B)^{4N(g)}\rho_g(x_{\rm old})\).
+For every characteristic-zero DVR key datum its generic value
+is a unit, with the correct specialization whenever the residue
+field has characteristic zero.
+\end{srproposition}
+\begin{proof}
+Choose an away-from-\(M\) rule in dimension \(2g\), exponent \(c>0\).
+The finite-family argument gives the zero-characteristic constant
+\(a_0\) of \eqref{eq:ftb-key-unscaled-constant}.
+Evaluate this rule on \(x^2\).
+Its doubled half-characteristic is even, and an integral symplectic
+transformation takes it to zero.  The transformation preserves
+\((\det M)^4/c_0^8\) by
+\eqref{eq:ftb-normal-ratio-sp}; the square datum squares that ratio.
+The resulting rule in dimension \(g\), exponent \(n=2c\), therefore
+has normal value \(a_0((\det M)^4/c_0^8)^n\) for every
+half-characteristic.  The field and DVR laws pass to the square.
+
+For any integral Weierstrass curve \(W\), take its key datum over
+\(\mathbb Z[\Delta_W^{-1}]\) and then its \(g\)-th power.
+Lemma~\ref{lem:ftb-key-elliptic-discriminant} makes the value
+\(a_0\Delta_W^{gn}\).  The field rule is defined over \(\mathbb Q\);
+dividing its rational value by \(\Delta_W^{gn}\) proves
+\(a_0=r\in\mathbb Q^\times\).
+Whenever \(M\) and \(\Delta_W\) are DVR units, both the rule and
+this discriminant power are units, so \(r\) is a unit there.
+Use the two integral curves \(W_{j=0}\), with discriminant \(-27\),
+and \(W_{j=1728}\), with discriminant \(-64\).
+Both give the same \(r\), because they give the same complex \(a_0\).
+In a local ring either \(3\) or \(1-3=-2\) is a unit.
+One of these two discriminants is therefore a unit.
+Thus \(r\) is a unit at every DVR where \(M\) is a unit.
+Dividing by \(r\) gives exact normal value and preserves unit
+and characteristic-zero specialization laws.
+
+Do this separately for each prime \(p\), using \(M_p\) prime to
+\(p\), and denote the normalized rule and exponent by
+\((\rho_p,n_p)\).
+For any two,
+\[
+                             \rho_p^{n_q}=\rho_q^{n_p}
+ \tag{A3}\label{eq:ftb-powered-cross}
+\]
+on every characteristic-zero field.  Descend a datum to a
+countable subfield and embed it in \(\mathbb C\); the equality
+there is immediate from the exact normal values.
+Functoriality and injectivity descend it.
+
+Fix the rule at \(p=2\), setting \(N(g)=n_2\).
+At a DVR where \(M_2\) is invertible it is already a unit.
+Otherwise the residue field has a prime characteristic \(p\)
+dividing \(M_2\).  The rule \(\rho_p\) is a unit there since
+\(p\nmid M_p\); \eqref{eq:ftb-powered-cross} makes
+\(\rho_2^{n_p}\) a unit.  Its valuation is
+\(n_pv(\rho_2)\); positivity of \(n_p\) forces
+\(v(\rho_2)=0\).
+A characteristic-zero residue field makes every positive integer,
+including \(M_2\), a unit; its specialization is therefore always
+covered by the first case.  No excluded residue prime survives.
+\end{proof}
+
+\paragraph{Frozen source concordance and remaining producer.}
+All paths have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/}.
+The local principal ideal subring is
+\srcid{ExistsCountableLocalPidSubring.lean}
+(\srcid{80f4e931782aab0999790894204dc2b851005194});
+the actual scheme/group/line/frame descent is
+\srcid{KeyDataDescendCountableSubrings.lean}
+(\srcid{d06ec6cf161d65aff27cc78f9f3693252a1b58d2}).
+DVR lifting and the away rule are
+\srcid{ExistsKeyInvariantAfterDvrExtension.lean}
+(\srcid{e9d5f9addb9796136f989270119a664641668639})
+and \srcid{ExistsIntegralKeyInvariantRuleCharZero.lean}
+(\srcid{86b60fd21a1e75dd48b4971ad05dc6e34e3f4228}).
+Field descent and reflection of units are
+\srcid{ExistsKeyPBPair.lean}
+(\srcid{db42d4b4b8b9d8f9cd9a17237b338a72ed354076}).
+The elliptic test is
+\srcid{ExistsEllipticKeyDataValueEqDiscriminant.lean}
+(\srcid{0e56730263497260189223973dbdaec4d38d1b09}).
+Squaring, the rational tests and division by their common unit are
+\srcid{ExistsNormalisedKeyInvariantRuleCharZero.lean}
+(\srcid{e9c21ea730a06bb841cbfc137a7964f8f1c461c2}).
+Cross powers and removal of all bad primes are
+\srcid{ThetaKeyRuleExistsOfAlgebraicInvariants.lean}
+(\srcid{24e1e9047fad6a46b1a8b2f4ecb81f4bbd835610}).
+
+This is a powered rule with \(N(g)>0\), not yet the exponent-one
+rule required by the key section.  Taking an arbitrary root would
+lose field functoriality and specialization.  The source next fixes
+that root by connected algebraic families with a known arithmetic
+point.  The complex uniformization and polarized-torus
+algebraization interfaces retained in the preceding subsection
+also remain in force.
+
+
+\subsection{The chosen root in a connected family}
+\label{sec:ftb-key-connected-root}
+
+For a complex key datum in a normal form \((\tau,M,a,b,c)\), put
+\[
+                            t(x)=\frac{(\det M)^4}{c^8}.
+ \tag{R1}\label{eq:ftb-key-root-value}
+\]
+We first justify that this is a value of the datum, not of the
+chosen normal form.
+
+\begin{srlemma}[Independence of the normal form]
+\label{lem:ftb-key-normal-value-unique}
+With the actual complex theta uniformization and the Poisson theta
+transformation law, \eqref{eq:ftb-key-root-value} is independent of
+the half-characteristic normal form.
+\end{srlemma}
+\begin{proof}
+Two exponential uniformizations of the same complex abelian variety
+differ by a complex linear map \(\phi\); their specified tangent
+isomorphisms determine it.  It maps their period lattices to each
+other.  The quotient of their local line frames glues, by the
+identical transition functions, to a nowhere-zero entire \(e(z)\).
+Both use the same origin rigidification, so \(e(0)=1\).
+The theta identity has the form
+\[
+        c'\theta[a',b'](z,\tau')
+                 =e(z)c\theta[a,b](\phi z,\tau).
+ \tag{R2}\label{eq:ftb-normal-frame-compare}
+\]
+The integer lattice map is symplectic.  Here is the actual
+automorphy check, which avoids assuming that a group isomorphism
+preserves an unspecified polarization.  Write the images of its
+\(2g\) period generators as \(m_s+\tau n_s\).
+The two automorphy laws and \eqref{eq:ftb-normal-frame-compare}
+give the difference equation for the nowhere-zero entire frame
+quotient.  Taking a global holomorphic logarithm on \(\mathbb C^g\)
+gives
+\(q(z+p_s)-q(z)=\ell_s(z)+d_s\), with linear \(\ell_s\);
+the possible \(2\pi i\) multiples are absorbed in \(d_s\).
+Commuting two differences yields
+\(\ell_s(p_t)=\ell_t(p_s)\).
+Substitute the linear terms \(-2\pi i n_s\cdot\phi z\)
+and their primed counterparts from \eqref{eq:ftb-level-aut}.
+The quadratic \(\tau\) terms cancel by symmetry, giving equality
+of the two integral alternating forms
+\(n_s\cdot m_t-n_t\cdot m_s\).
+Thus the integer lattice matrix is symplectic.
+
+Consequently \(\tau'=\delta\tau\) and
+\(\phi z=j^tz\), \(j=C\tau+D\), for that symplectic matrix.
+The theta transformation gives the multiplier \(r\) with
+\(r^8=(\det j)^4\).
+After its Gaussian exponential is absorbed, compare the two
+theta functions at the same period.  The entire quotient \(\varrho\) between these same-period
+functions has sign multipliers on each unit and \(\tau\)-period,
+because both characteristics are half-integral.
+Thus \(\varrho^2\) has every period of the full lattice.
+It is bounded on a compact real period parallelepiped, hence
+bounded on \(\mathbb C^g\), and is constant by Liouville.
+Since \(\varrho\) is nowhere zero, differentiating its constant
+square shows that \(\varrho\) itself is constant.
+All its sign multipliers are therefore \(1\).
+The two characteristics agree modulo integers; our representatives
+\(0,\tfrac12\) make them equal.  Its value at zero then gives
+\(c^8=(c')^8(\det j)^4\).
+The tangent comparison gives \(M=M'j\).
+Taking determinants proves
+\((\det M)^4/c^8=(\det M')^4/(c')^8\).
+\end{proof}
+
+We will use the following analytic family input, with its exact
+scope.  On a small ball of parameters for a smooth proper polarized
+abelian scheme, its relative exponential and the chosen
+dual-number tangent frame admit jointly holomorphic local
+coordinates; a fixed integral symplectic basis of the period
+lattice continues holomorphically; its torsion sections and Weil
+pairing continue with the same labels.  The resulting normalized
+period has positive imaginary part, and the theta section has,
+on each line chart, its actual local nowhere-zero quotient by
+one of the finitely many half-characteristic theta functions.
+These are respectively the source's relative exponential,
+period-continuation, torsion/Weil, and normal-fibre statements.
+We prove the finite-choice and invariant-continuity step below.
+Construction of this family input is distinct from the fixed
+period holomorphy in
+Proposition~\ref{prop:ftb-key-holomorphic-period}.
+
+\begin{srlemma}[The source's circle quotient argument]
+\label{lem:ftb-circle-quotient}
+Let \(f(b,z),\theta(b,z)\) be holomorphic on an open subset of
+finite-dimensional complex parameter and fibre spaces.
+Suppose \(\theta(b_0,-)\) is not the zero germ at \(z_0\).
+If, for parameters in a set \(S\), the fibre function \(f/\theta\)
+extends holomorphically, then near \((b_0,z_0)\) there is a
+holomorphic \(G(b,z)\) satisfying \(G\theta=f\) on parameters
+in \(\overline S\).
+If a quotient \(F\theta=f\) is defined on all fibres and is
+holomorphic in each fibre, then it is jointly holomorphic.
+\end{srlemma}
+\begin{proof}
+Choose a complex direction \(v\) on which the germ of
+\(\theta(b_0,z_0+tv)\) is not identically zero.
+Such a direction can also be obtained by joining \(z_0\) to a
+nearby point where \(\theta\ne0\).
+Its zeros on that line are isolated, so choose a sufficiently
+small \(r>0\) for which theta is nonzero on \(|t|=r\).
+Compactness of the circle and continuity keep it nonzero on
+that same circle for all \((b,z)\) near \((b_0,z_0)\), and
+keep the whole closed disk inside the chart.
+Set
+\[
+ G(b,z)=\frac1{2\pi}\int_0^{2\pi}
+       \frac{f(b,z+re^{iu}v)}{\theta(b,z+re^{iu}v)}\,du .
+ \tag{R3}\label{eq:ftb-circle-average}
+\]
+Its denominator is bounded away from zero locally on the
+compact circle.  Differentiating under that compact integral
+makes \(G\) jointly holomorphic.
+For \(b\in S\), the holomorphic fibre quotient has its value at
+\(z\) equal to this circle average, by the one-variable
+holomorphic mean-value formula.  Thus \(G\theta=f\) there.
+Continuity, applied at each fixed \(z\), extends this equality
+to \(b\in\overline S\).
+In the second assertion the same circle formula equals \(F\)
+on every nearby fibre, proving joint holomorphy.
+No extension by a generic-fibre value is used.
+\end{proof}
+
+\begin{srlemma}[Finite theta choices and the rigidified scalar]
+\label{lem:ftb-finite-frame-continuity}
+Assume the actual local family input just stated.
+The half-characteristic occurring in its normalized theta frames
+is locally constant, and the scalar \(c(b)\) fixed by the
+origin rigidification is continuous.
+Consequently \(t(x_b)\) is continuous.
+\end{srlemma}
+\begin{proof}
+In each line chart let \(f_j(b,z)\) be the actual algebraic
+theta section read on the relative exponential.
+It is holomorphic in both variables.
+For each fibre, its quotient by the selected theta function
+is locally a holomorphic unit.  Nonzero theta is nonzero on
+a dense subset of each fibre by the identity theorem, so
+these local quotients glue uniquely.
+
+Suppose a different member \(k\) of the finite
+half-characteristic set occurs at parameters approaching
+\(b_0\).  Apply Lemma~\ref{lem:ftb-circle-quotient} to
+\(f_j/\theta_k\), and also to its inverse
+\(\theta_k/f_j\), along these parameters.
+At the limiting fibre the two holomorphic quotients multiply
+to \(1\): this equality holds on the dense set where the
+functions are nonzero and then everywhere by continuity.
+Compare with the unit quotient for the characteristic selected
+at \(b_0\).  On overlapping line charts these quotients glue,
+since their transition functions agree; dense nonvanishing
+makes the gluing unique even at theta zeros.
+They give a nowhere-zero entire ratio between theta functions
+of characteristics \(k\) and \(k_0\).
+The characteristic uniqueness in the preceding normal-form
+argument forces \(k=k_0\), a contradiction.
+The fibres of this finite characteristic choice are therefore
+closed locally, hence open locally, proving local constancy.
+
+With that characteristic fixed,
+Lemma~\ref{lem:ftb-circle-quotient} makes the chart quotient
+jointly holomorphic.
+At \(z=0\) its value is \(c(b)\) times the actual line
+rigidification value \(r_j(b)\).
+That value is holomorphic and nonzero.
+Dividing gives continuity of \(c(b)\), including when the
+theta function itself vanishes at the origin.
+
+For completeness, the tangent matrix is continuous as well.
+Let \(P(b)\) be the continued first half of the period basis;
+its inverse \(h(b)\) is holomorphic by the adjugate formula.
+The vector \(W_i(b)\) in exponential coordinates representing
+the \(i\)-th dual-number tangent is holomorphic: choose
+\(g\) local functions whose derivatives give an invertible
+Jacobian at the identity, and solve that finite system.
+Both its coefficients and its tangent evaluations are
+holomorphic in \(b\).  The normal-form matrix has rows
+\(2\pi i\,h(b)W_i(b)\); thus its determinant is continuous.
+It is nonzero, and \(c(b)\ne0\).
+Formula \eqref{eq:ftb-key-root-value} proves continuity of \(t\).
+\end{proof}
+
+\begin{srlemma}[A powered rule on a smooth base is an actual unit]
+\label{lem:ftb-powered-rule-smooth-unit}
+Let \(k\) have characteristic zero, let \(S\) be a smooth integral
+finitely generated \(k\)-algebra, and let \(y/S\) be a key datum.
+The powered rule of
+Proposition~\ref{prop:ftb-normalized-powered-key} is represented
+by a unit \(u\in S^\times\), at every field-valued point of \(S\).
+In particular
+\[
+                         t(y_s)^{N(g)}=s(u)
+ \tag{R4}\label{eq:ftb-family-powered-unit}
+\]
+at all complex points.
+\end{srlemma}
+\begin{proof}
+At every height-one prime the normal ring \(S\) localizes to a DVR.
+The generic rule value and its inverse belong to that DVR
+by its unit law.  The height-one intersection theorem for a
+Noetherian normal domain puts both in \(S\), so they are
+mutual inverses there.  This gives \(u\).
+
+We must still identify its specialization in higher codimension.
+The source proves this over a regular local ring \(A\) by
+induction on its dimension.
+Dimension zero is a field.  Otherwise choose
+\(\pi\in\mathfrak m_A\setminus\mathfrak m_A^2\).
+The quotient \(A/(\pi)\) is a regular local domain of dimension
+one less, and \(A_{(\pi)}\) is a DVR.
+The rule's characteristic-zero DVR specialization identifies
+the generic value on \(A/(\pi)\) with \(u\bmod\pi\).
+Apply the induction hypothesis to that quotient and its closed
+point.  Every field-valued point with kernel \(\mathfrak m_A\)
+factors through its residue field, so field functoriality gives
+the assertion at that point.
+Localizing \(S\) at any prime reduces its point to this case.
+Thus the unit represents the rule at all field-valued points,
+not only generically.
+The exact complex normal value gives \eqref{eq:ftb-family-powered-unit}.
+\end{proof}
+
+\begin{srlemma}[A root cover with two lifted points]
+\label{lem:ftb-key-connected-root-cover}
+Let \(K\) be algebraically closed of characteristic zero,
+\(R/K\) a smooth integral finitely generated algebra, and
+\(u\in R^\times\).  Let \(n\geq1\), \(p_0,p:R\to K\), and
+\(a_0^n=p_0(u)\).
+There is a smooth integral \(K\)-algebra \(B\), a map
+\(\phi:R\to B\), a unit \(r\in B^\times\) with
+\(r^n=\phi(u)\), and lifts \(q_0,q:B\to K\) of \(p_0,p\),
+such that \(q_0(r)=a_0\).
+\end{srlemma}
+\begin{proof}
+Use induction on the prime factors of \(n\).
+For a prime \(l\), if \(u=\rho^l\) in \(R\), take \(B=R\)
+and replace \(\rho\) by
+\((a_0/p_0(\rho))\rho\); its scalar is an \(l\)-th root of
+unity and fixes its \(l\)-th power.
+Otherwise \(X^l-u\) is irreducible over \(\operatorname{Frac}R\).
+Indeed that field contains all \(l\)-th roots of unity; the
+conjugates of a root form an orbit of size \(1\) or \(l\).
+In the first case the root lies in the fraction field, is
+integral over \(R\), and hence lies in \(R\), contrary to the
+case assumption.
+Take \(B=R[X]/(X^l-u)\).  It is a domain.
+Its root is a unit, so its derivative \(lX^{l-1}\) is a unit;
+the algebra is finite etale over \(R\), hence smooth over \(K\).
+Algebraic closedness gives a lift of \(p\), and the specified
+root \(a_0\) gives the desired lift of \(p_0\).
+Apply this step and then the inductive root construction for
+the remaining prime factors.  The specified root at the first
+point is retained at each step.  This is the source's connected
+root-cover construction; an arbitrary disconnected root torsor
+would not give the required integral base.
+\end{proof}
+
+\begin{srlemma}[The root is fixed by one point]
+\label{lem:ftb-root-fixed-by-point}
+Let \(B\) be a smooth integral finitely generated complex algebra,
+\(y/B\) a key datum, \(r\in B^\times\), and \(n\geq1\).
+Suppose the actual normal value satisfies
+\(t(y_q)^n=q(r)^n\) at every complex point \(q\).
+If \(t(y_{q_0})=q_0(r)\) at one point, then
+\(t(y_q)=q(r)\) at every point.
+\end{srlemma}
+\begin{proof}
+The complex points of an integral finite-type complex variety
+are connected.  One standard proof, used in the source, takes
+a Noether-normalization principal open with primitive-element
+unramified description, proves that this open is connected
+using irreducibility and analytic continuation off its
+discriminant, and uses density of that principal open in
+complex points.
+Smooth algebraic charts are complex analytic charts.
+Lemma~\ref{lem:ftb-finite-frame-continuity}, applied in these
+charts, makes \(q\mapsto t(y_q)\) continuous.
+Evaluation \(q\mapsto q(r)\) is continuous and nonzero.
+Their ratio is therefore a continuous map to the finite set
+of \(n\)-th roots of unity.  It is constant on the connected
+space, and its value at \(q_0\) is \(1\).
+\end{proof}
+
+\paragraph{Exact arithmetic-family interface.}
+We call a datum \(x/\mathbb C\) \emph{connected to a known point}
+if there are a number field \(k\), a smooth geometrically
+integral finitely generated \(k\)-algebra \(S\), a key datum
+\(y/S\), maps \(s:S\to\mathbb C\) and \(s_0:S\to k\) with
+\(s_0\) a \(k\)-map, and \(t_0\in k\), such that
+\(x=s^*y\), and for every embedding \(e:k\to\mathbb C\),
+\[
+                         t((e s_0)^*y)=e(t_0).
+ \tag{R5}\label{eq:ftb-connfam}
+\]
+All identifications here are key pullbacks: line bundle,
+rigidification, theta section and ordered Lie frame are included.
+Geometric integrality means \(F\otimes_k S\) is a domain for
+\emph{every} field extension \(F/k\).
+This is the literal source \(\mathrm{ConnFam}\), not just
+path connectedness of an analytic moduli space.
+
+\begin{srproposition}[Known families give equivariance under complex field maps]
+\label{prop:ftb-key-complex-equivariance}
+Assume the local analytic family input above, and that every
+complex key datum is connected to a known point in the exact
+sense \eqref{eq:ftb-connfam}.
+Then for every field map \(f:\mathbb C\to\mathbb C\) and every
+key pullback \(x'=f^*x\),
+\[
+                              t(x')=f(t(x)).
+ \tag{R6}\label{eq:ftb-key-complex-funct}
+\]
+\end{srproposition}
+\begin{proof}
+For the family in \eqref{eq:ftb-connfam} put
+\(e=s|_k\), and base change to
+\(R=\mathbb C\otimes_{k,e}S\).
+It is smooth integral; \(s\) and \(es_0\) give two complex
+points \(p,p_0\).
+Lemma~\ref{lem:ftb-powered-rule-smooth-unit} gives a unit
+\(u\in S^\times\) with \(t^{N(g)}\) equal to its evaluations.
+Apply Lemma~\ref{lem:ftb-key-connected-root-cover} to its
+image in \(R\), choosing the root \(e(t_0)\) at \(p_0\).
+It gives \(B,r,q,q_0\).
+The root-fixed-by-one-point lemma makes \(t(x)=q(r)\).
+
+Now repeat the entire base change by the possibly nonsurjective
+embedding \(f:\mathbb C\to\mathbb C\).
+The algebra \(\mathbb C\otimes_{\mathbb C,f}B\) is smooth and
+integral: a finite-type integral algebra over an algebraically
+closed field is geometrically integral.
+The points \(fq,fq_0\) lift to this base change, and its root
+is the image of \(r\).
+At the lifted \(q_0\), \eqref{eq:ftb-connfam} gives the chosen
+root \(f(e(t_0))\).
+The same root-fixed-by-one-point lemma makes its value at the
+lifted \(q\) equal to \(f(q(r))=f(t(x))\).
+This is the normal value of \(x'\) by
+Lemma~\ref{lem:ftb-key-normal-value-unique}.
+No continuity of the field map \(f\) has been assumed or used.
+\end{proof}
+
+\paragraph{Frozen source concordance and scope.}
+The base prefix is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+Normal-value independence is
+\srcid{ThetaLawProofs/ThetaFrameValueIndependentNormalForm.lean}
+(\srcid{f823bc2749dfa176812b47f1be3902b284c5eada}).
+The circle quotient and closure argument are
+\srcid{ModuliProofs/DifferentiableOnQuotientOfDifferentiableOnSlice.lean}
+(\srcid{efca854eca061af3cefd2f6ce3c9b9f13e6cc61c})
+and \srcid{ModuliProofs/EqOfFiniteOfClosedFibres.lean}
+(\srcid{7f7959eed9e909e48e267a075fa077ab74d989e9}).
+The finite-character and origin-scalar argument is
+\srcid{ThetaLawProofs/ExistsCoordinatesOfRelations.lean}
+(\srcid{6da8aa085884d27e2caacc57952b26d8dd59704a}).
+Its actual family assembly is
+\srcid{ThetaLawProofs/ContinuousOnThetaFrameValueHolomorphicFamily.lean}
+(\srcid{eae569828b1ee42499288b46d7fcf4dd39dc4062}):
+the relative exponential, continued periods, and their
+torsion/Weil compatibility remain the explicit family input
+stated above.  These are produced in
+\srcid{ModuliProofs/ExistsRelativeExpOfParts.lean},
+\srcid{LatContMapContinuous.lean},
+\srcid{TorsionEqAndWeilIsOfIsHolTo.lean}, and
+\srcid{ThetaLawProofs/ExistsNormalOfWeil.lean}.
+The smooth-base unit proof is
+\srcid{ThetaLawProofs/ExistsUnitThetaKeyRuleSmoothBase.lean}
+(\srcid{36413650a428826ff71462b79aded750faaa2d18}).
+Connected root constancy is
+\srcid{ThetaLawProofs/ThetaFrameValueEqUnitSmoothConnectedBase.lean}
+(\srcid{aee5baa0b37f382a5ca6aeb4caca40e115b342aa}).
+The integral root covers, geometric base change and equivariance
+are \srcid{ThetaLawProofs/IsDomainTensorOfIsAlgClosed.lean}
+(\srcid{df53eb7c2f461008fca381d1052984d14cc517d0}).
+The arithmetic \(\mathrm{ConnFam}\) interface is expanded here
+but its construction is a further producer; it is not inferred
+from an arbitrary complex path.
+
+
+\subsection{The arithmetic family containing the prescribed key datum}
+\label{subsec:ftb-arithmetic-key-family}
+
+A key datum \(x=(A,L,\mathrm{rig},\theta,v)\) consists of an abelian
+scheme of positive dimension \(g\), a rigidified symmetric principal
+line bundle, a fibrewise nonzero section of that line bundle, and
+an ordered Lie basis.  A key pullback includes all these data.
+Its complex normal value is \(t(x)=\det(M)^4/c^8\), in the
+normalization of Lemma~\ref{lem:ftb-key-normal-value-unique}.
+Over a number field \(k\), a key datum is \emph{known} if one
+\(t_0\in k\) gives its normal value under every embedding of \(k\)
+in \(\mathbb C\), and for every corresponding key pullback.
+A polarized variety is \emph{potentially known} if, after one
+finite extension, every key datum on every further pullback of
+that polarized variety is known.
+Here the polarization includes the actual line bundle.
+
+We separate two precise moduli inputs from the algebraic family
+construction.  The first is a fine principal Siegel family \(F/K\)
+at an odd level \(k\ge3\), with \(K\) a number field and
+\(\zeta\in K\) a primitive \(k\)-th root.
+It is smooth of relative dimension \(g(g+1)/2\), quasiprojective,
+and has a universal principal polarization biextension and full
+level.  It represents principal Siegel data over reduced bases
+with dense characteristic-zero generic fibres, and separates
+maps from local affine schemes giving the same Siegel datum.
+The second input says that, for
+\(\sigma\zeta=\exp(-2\pi i/k)\), any two complex points with
+standard period-level data lie on the same connected component
+of \(F(\mathbb C)\).
+Their actual lower producers are recorded below; neither input
+is replaced by an unnamed moduli or connectedness theorem.
+
+\begin{srlemma}[A finite \'{e}tale torsion frame cover]
+\label{lem:ftb-torsion-frame-cover}
+For a Noetherian ring \(R\), an abelian scheme \(A/R\) of relative
+dimension \(g\), and \(n\in R^\times\), there is a finite
+\'{e}tale faithfully flat \(R\)-algebra \(R_1\) with
+\[
+             A[n]_{R_1}\simeq(\mathbb Z/n\mathbb Z)^{2g}_{R_1}.
+\]
+In particular the labelled sections list the full torsion,
+without repetitions, after every algebraically closed field
+pullback.
+\end{srlemma}
+\begin{proof}
+The torsion scheme is finite \'{e}tale, and the geometric
+\(d\)-torsion has \(d^{2g}\) elements for every \(d\mid n\).
+These counts show that each geometric \(n\)-torsion group is
+free of rank \(2g\).  Indeed, after choosing \(s<2g\) independent
+generators, let \(m\) be the exponent of the quotient by their
+span, and write \(n=mq\).  Multiplication by \(m\) has an image
+of order \(q^{2g}\).  That image is generated by the images of
+the chosen \(s\) generators: \(mx\) belongs to their span by
+definition of \(m\), and their independence makes its
+coordinates divisible by \(m\).
+Thus \(q^{2g}\le q^s\), so \(q=1\).
+Lift an element of order \(n\) in the quotient to obtain the
+next independent generator.  Induction gives a frame.
+
+In the product of \(2g\) copies of \(A[n]\), remove every
+nonzero-coefficient linear-relation locus.  Each such locus
+is open and closed, since the diagonal of a finite \'{e}tale
+scheme is open and closed.  The remaining subscheme \(W\) is
+finite \'{e}tale and is surjective by the geometric argument.
+It is affine; let \(R_1\) be its coordinate ring.
+Finite flatness and surjectivity give faithful flatness.
+The tautological frame is an isomorphism on every geometric
+fibre, hence an isomorphism of finite \'{e}tale group schemes.
+\end{proof}
+
+\begin{srlemma}[The actual symmetric principal square root]
+\label{lem:ftb-symmetric-principal-root-cover}
+Let \(R\) be a Noetherian \(\mathbb Q\)-algebra and \(P\) a
+principal polarization biextension on an abelian scheme \(A/R\).
+Put \(D=\Delta^*P\).
+After a finite \'{e}tale faithfully flat change of base there
+is a rigidified symmetric relatively ample line \(L\) and an
+actual line-bundle isomorphism
+\[
+                             \lambda_L\simeq P.
+ \tag{F1}\label{eq:ftb-family-actual-square-root}
+\]
+The full \(2\)-torsion is constant on this cover.
+\end{srlemma}
+\begin{proof}
+Apply Lemma~\ref{lem:ftb-torsion-frame-cover} at \(n=2\), and
+write \(C=(\mathbb Z/2\mathbb Z)^{2g}\) for the labelled
+kernel, with basis \(h_i\).
+Biextension additivity and symmetry give, on every test scheme,
+\[
+ D(x+h)=D(x)+D(h),\quad 2D(h)=0,\quad D(-x)=D(x)
+                                                  \quad(2h=0).
+ \tag{F2}\label{eq:ftb-diagonal-two-torsion-pic}
+\]
+Here \(D(x)=x^*[D]\) is a Picard class.
+For example, if \(B(x,y)=(x,y)^*[P]\), then \(D(x)=B(x,x)\);
+the cross terms are \(2B(x,h)=B(x,2h)=0\).
+
+Choose generators \(\psi_i,\tau_i,j_0\) of, respectively,
+\(D-t_{h_i}^*D+D(h_i)\), \(-2D(h_i)\), and \(D-[-1]^*D\).
+Their existence is exactly \eqref{eq:ftb-diagonal-two-torsion-pic}.
+For \(D^{\otimes2}\), set \(v_i=\psi_i^2\tau_i\) and \(j=j_0^2\).
+Then
+\begin{align}
+ v_i\,t_{h_i}^*v_i&=a_i\in R^\times,\\
+ v_i\,t_{h_i}^*v_j&=v_j\,t_{h_j}^*v_i,\\
+ v_i\,t_{h_i}^*j&=j\,[-1]^*v_i.                  \tag{F3}
+ \label{eq:ftb-diagonal-linearization-relations}
+\end{align}
+Here is the source's cancellation, rather than an assumption
+that arbitrary theta-group lifts commute.
+A quotient with zero formal Picard expression is a global unit
+on \(A\), hence a base unit by \(\Gamma(A,\mathcal O_A)=R\).
+Translations and inversion fix that quotient.
+In particular \(\psi_i t_{h_i}^*\psi_i\tau_i\) is fixed by
+\(t_{h_j}\), and
+\[
+ \frac{\psi_i t_{h_i}^*\psi_j}{\psi_j t_{h_j}^*\psi_i}
+\]
+is fixed by \(t_{h_i}\).
+Multiply those two invariance identities and cancel to obtain
+the second equality in \eqref{eq:ftb-diagonal-linearization-relations}.
+For the third, use the invariance under inversion of
+\(\psi_i t_{h_i}^*j_0/(j_0[-1]^*\psi_i)\), and the invariance
+under \(t_{h_i}\) of \(j_0[-1]^*j_0\).
+Their quotient gives the squared identity with its \(\tau_i\)
+factors.  The first equality has zero formal Picard expression.
+
+Adjoin \(b_i^2=a_i\) successively.
+Each polynomial \(X^2-a_i\) is monic, its root is a unit, and
+its derivative \(2b_i\) is a unit.
+These extensions are finite free, \'{e}tale and faithfully flat.
+The \(w_i=v_i/b_i\) are commuting involutions.
+Their ordered products give generators \(u_c\), for \(c\in C\),
+with the actual cocycle identity
+\[
+                           u_{c+c'}=u_c\,t_c^*u_{c'}.
+ \tag{F4}\label{eq:ftb-family-linearization-cocycle}
+\]
+This follows by putting commuting involutions in basis order.
+Their compatibility with \(j\) also persists.
+
+The map \([2]:A\to A\) is finite \'{e}tale and surjective.
+Two points with equal doubles differ \'{e}tale locally by a
+unique labelled element of its kernel.
+Thus \eqref{eq:ftb-family-linearization-cocycle} is a descent
+cocycle on the actual fibre product.
+The source constructs invariant local generators on each finite
+orbit, shrinks the target until they are generators, and
+descends their unit ratios.
+They glue a line \(M\) with
+\[
+                                [2]^*M\simeq D^{\otimes2}.
+ \tag{F5}\label{eq:ftb-family-double-pullback}
+\]
+The equality with \(j\) makes the isomorphism with \([-1]^*M\)
+invariant under the kernel.  Its ratios descend by faithful
+flatness, so \(M\) is symmetric.
+
+To check its polarization, let \(N=\lambda_M-P\) on \(A\times A\).
+It is trivial on both axes; the cube law makes it biadditive.
+Evaluate \eqref{eq:ftb-family-double-pullback} on test points
+to obtain \(N(2x,2y)=0\), and hence \(N(4x,y)=0\).
+One must not divide this equality in the Picard group.
+Instead use the closed triviality locus for this line family
+in the first factor.  It contains the image of \([4]\).
+A closed immersion through which a faithfully flat surjection
+factors is an isomorphism.
+Consequently the line is locally trivial in that factor.
+Its trivialization on the other axis and the equality of
+global functions with those on the base give a global
+trivialization.  This proves \(\lambda_M\simeq P\) as a line
+isomorphism.
+
+Replace \(M\) by \(M-e^*M\).
+It is rigidified and symmetric, with the same polarization.
+The cube law, now using that actual polarization identity,
+identifies its square with \(D\).
+It is relatively ample because \(D\) is; it is principal
+because its polarization is \(P\).
+All torsion labels survive these changes of base.
+\end{proof}
+
+\begin{srlemma}[Keeping both points on one integral component]
+\label{lem:ftb-two-point-etale-integral-component}
+Let \(K,K_1\) be number fields with \(K_1\hookrightarrow\mathbb C\).
+Let \(R\) be a smooth finitely generated \(K\)-algebra and
+\(R\to R_1\) finite \'{e}tale faithfully flat.
+Suppose \(p_1:R_1\to\mathbb C\) and \(q:R\to K_1\) are
+\(K\)-maps, and \(p=p_1|_R\).
+Assume \(p\) and \(q\) agree on all idempotents after extending
+scalars to \(\mathbb C\).
+There exist a number field \(k\supset K_1\), a smooth
+geometrically integral finitely generated \(k\)-algebra \(S\),
+a map \(R_1\to S\), a complex point \(s\), and a \(k\)-point
+\(s_0\), with
+\[
+              s|_{R_1}=p_1,\qquad
+              s_0|_R=(K_1\hookrightarrow k)q .
+ \tag{F6}\label{eq:ftb-two-point-component-maps}
+\]
+\end{srlemma}
+\begin{proof}
+Inside \(\mathbb C\), let \(\overline K\) be an algebraic closure
+of \(K\).  The ring \(\overline K\otimes_KR_1\) is regular.
+Its finitely many irreducible components are disjoint, and
+therefore integral open and closed components.
+Choose the one containing \(p_1\), with idempotent \(e\).
+Its finitely many coefficients descend to a finite extension
+\(k_0/K\).
+The corresponding localization is geometrically integral:
+its extension to \(\overline K\) is a domain, and the
+algebraically closed field test gives geometric integrality.
+
+The image of this component in
+\(\operatorname{Spec}(\overline K\otimes_KR)\) is open and
+closed, by flatness with finite presentation and by finiteness.
+It contains \(p\).  Agreement on idempotents puts \(q\) in
+that image, so \(q\) has a lift on this same component.
+The finitely many coordinates of the lift are algebraic over
+\(K_1\), since \(R_1/R\) is finite.
+Adjoin them and \(k_0\) to \(K_1\), obtaining \(k\).
+The base change of the selected component is \(\operatorname{Spec}S\).
+The selected lift gives \(s_0\), while \(p_1\) gives \(s\).
+Both identities in \eqref{eq:ftb-two-point-component-maps}
+are built into the construction.
+\end{proof}
+
+\begin{srlemma}[Knownness and the actual polarization ambiguity]
+\label{lem:ftb-known-same-polarization}
+A polarized abelian variety over a number field having the
+same principal polarization biextension as a known one is
+potentially known.
+\end{srlemma}
+\begin{proof}
+Over the algebraic closure, identify the two abelian varieties.
+The quotient of their symmetric principal lines is in
+\(\operatorname{Pic}^0[2]\).
+The principal polarization identifies it with a \(2\)-torsion
+point, so the lines differ by translation by that point.
+The point and a line isomorphism descend to one finite
+extension, by adjoining their finitely many coordinates.
+
+The line normalization is essential.
+For the translated key datum its cube/rigidification data
+supplies a unit \(\nu\).
+In an old normal form with \(c=1,M=1\), write the point as
+\((m+\tau n)/2\).
+The half-period theta formula gives the new characteristic
+and scalar \(c'\) with
+\[
+                               (c')^8\nu^2=1.
+\]
+Explicitly, let \(\lambda\) be the value of the translation
+generator at that half period, and let \(d\) be the scalar
+in the theta translation formula.
+The normalized doubling generator has value \(1\).
+Evaluation at the half period and its double gives
+\(\lambda^8=\nu^2d^8\), and \(c'=d/\lambda\).
+Thus translation multiplies the normal value by \(\nu^2\).
+All these identities are over the same finite extension,
+and are preserved by every field embedding.
+
+For arbitrary frames the exact change rule is
+\[
+                    t(a\theta,Bv)=\det(B)^4a^{-8}t(\theta,v).
+ \tag{F7}\label{eq:ftb-known-frame-change}
+\]
+Its multiplier belongs to the field of definition.
+Hence every key frame on every further pullback is known.
+\end{proof}
+
+\begin{srproposition}[The arithmetic connected-family join]
+\label{prop:ftb-connfam-arithmetic-join}
+Under the two stated moduli inputs, with their actual period,
+level and polarization pullback comparisons, every complex key
+datum satisfies \eqref{eq:ftb-connfam}.
+\end{srproposition}
+\begin{proof}
+Fix \(x/\mathbb C\) of dimension \(g\).
+The first input gives \(F/K,k,\zeta,\sigma\).
+Represent the period matrix and standard level of \(x\)
+by \(p:\operatorname{Spec}\mathbb C\to F\).
+For the known point use the \(g\)-fold product of
+\(E:y^2=x^3-x\), of discriminant \(64\).
+The elliptic normalization and product identity give normal
+value \(64^g\).
+After a finite number-field extension \(K_1/K\), all its
+\(k\)-torsion and the compatible level are defined.
+Represent it by \(q:\operatorname{Spec}K_1\to F\).
+The second input puts its complex pullback and \(p\) on the
+same component.
+
+Choose a single affine open \(\operatorname{Spec}R\) containing
+both points.  Quasiprojectivity gives it by a hypersurface
+avoiding their finite set of images.
+It is smooth over \(K\).
+The required agreement on idempotents of
+\(\mathbb C\otimes_KR\) follows from the ambient component
+condition: a smooth Noetherian complex scheme is regular,
+so its irreducible components are disjoint; the intersection
+of any one with the affine open remains irreducible.
+Thus the two points lie on the same component of this
+affine open as well.
+
+Apply Lemma~\ref{lem:ftb-symmetric-principal-root-cover} to the
+universal biextension on \(R\), obtaining \(R_1,Q\), and lift
+\(p\) to \(p_1\).
+The fibre of \(Q\) and the line of \(x\) have the same
+biextension, so their discrepancy is a \(2\)-torsion translate.
+The full \(2\)-torsion is constant over \(R_1\), and the
+required point therefore lifts to a section.
+Translate \(Q\) by that section and rigidify by its value
+there.  The resulting \(Q'\) has the actual line of \(x\)
+at \(p_1\), and its principal biextension is unchanged.
+
+Lemma~\ref{lem:ftb-two-point-etale-integral-component} gives
+\(k,S,s,s_0\).
+The pullback of \(Q'\) has the prescribed polarized fibre
+at \(s\); its fibre at \(s_0\) has the biextension of the
+known product.
+Lemma~\ref{lem:ftb-known-same-polarization} makes that fibre
+potentially known.
+Make its finite constant-field extension now.
+Geometric integrality preserves a smooth integral base;
+the complex embedding extends, and both points lift.
+
+The theta sections form an invertible module, by principal
+polarization cohomology and base change; the Lie module is
+projective of rank \(g\).
+At the two primes defined by \(s,s_0\), both are free over
+the semilocal ring.
+Choose their frames there, clear the finitely many
+denominators, and localize by one element outside both
+primes.  This gives a key datum \(y\) while retaining both
+points.
+Before comparing frames, transport the rigidification of \(x\)
+through the actual polarized line-bundle pullback isomorphism.
+The source's key-on-a-fixed-polarization comparison identifies
+that transported rigidification with the chosen one; its line
+isomorphism is included in this comparison.  The remaining
+parameters are a theta scalar and a Lie matrix.
+To impose exactly the specified frames of \(x\), use
+\[
+                  S'=S[X,X_{ij},(X\det(X_{ij}))^{-1}].
+ \tag{F8}\label{eq:ftb-universal-key-frame-torsor}
+\]
+Multiply the theta section by \(X\), and the Lie frame by
+the invertible matrix \((X_{ij})\).
+At the complex point take the scalar and matrix carrying
+the existing frames to those of \(x\); at the known point
+take \(1,I_g\).
+The new base is smooth and geometrically integral.
+Its complex fibre is the exact key datum \(x\), while the
+known fibre is unchanged.
+Knownness gives one \(t_0\in k\) at every embedding and for
+every corresponding key pullback.
+These are precisely the clauses of \eqref{eq:ftb-connfam}.
+\end{proof}
+
+\paragraph{Frozen source concordance and the separate lower producers.}
+The prefix is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+The torsion frame is
+\srcid{ThetaLawProofs/ExistsFiniteEtaleCoverConstantTorsion.lean}
+(\srcid{f039af8cf45f309722d9c38fdb77e32c50665d19}).
+The actual symmetric root uses, in \srcid{ThetaLawProofs},
+\srcid{ExistsSymmetricLinearisationSquareDiagonalBundle.lean}
+(\srcid{994c2070f67e20bdb9ce54c8efabc9c82511efb9}),
+\srcid{ExistsDescentSymmetricLinearisedBundle.lean}
+(\srcid{b4d02b09f887aa1bc7e23314b3304db2ee82f9d8}),
+\srcid{LamIsoOfDoublingPullbackEqDiagonalSq.lean}
+(\srcid{87e1d8620f1761e05f668291e221f8b66f0c781d}),
+\srcid{ExistsPrincipalPolarizationSymmetricSquareRoot.lean}
+(\srcid{481ca29a56b6d87791856ae5d24b605e3a0cc2d0}),
+and \srcid{ExistsSymmetricSqrtPrincipalSiegelFiniteEtale.lean}
+(\srcid{ad982d88a3039d9157db361c7eb47c1d2158141f}).
+The two-point component argument is
+\srcid{GeomIntegralOfEtaleFaithfullyFlatCover.lean}
+(\srcid{2c3cdb5d68e977f5fcbac8949e3f558d7ceeb1ce}),
+with \srcid{ExistsFiniteExtGeomIntegralLocalization.lean}
+(\srcid{ce4a22acec9b2c4be3162269c3732e106c48ecd4}).
+Knownness is
+\srcid{PotentiallyKnownOfSameLambdaBundle.lean}
+(\srcid{46b881f6de2bcd933fdf0af3f175bf70499ce687}),
+\srcid{ThetaFrameValueKnownOfTwoTorsionTranslate.lean}
+(\srcid{5cbd8eaa06fc6135efd5dcd411fd1f942367eb26}),
+\srcid{ThetaNormalFormTranslateHalfPeriod.lean}
+(\srcid{72dd6206484af0e01b4c33ad7eecbbb917c36da1}),
+\srcid{KeyNormalFormDetRatioTwoTorsionTranslate.lean}
+(\srcid{3429a6c1eec5af7b9062c8490ea52e893ec1aa9d}),
+and \srcid{ThetaFrameValueKnownOfPolarizedPullback.lean}
+(\srcid{391e84ccf8fbd2fe2dfae08549198056345d0a0e}).
+The final frame construction is
+\srcid{ExistsKeyDataNearTwoPrimes.lean}
+(\srcid{b08147dbe77819b1d425e3345501c1fb16b9a1eb})
+and \srcid{ExistsThetaKeyFamilyUniversalFrames.lean}
+(\srcid{8950e79c3f27fed92a98df44b05825d3e1cfdb39}).
+The joins are
+\srcid{PolarizedFamilyOfThetaUniformization.lean}
+(\srcid{6e9fb2cd94e212f61adaaa66272037b6e4195b01})
+and \srcid{KeyDatumConnectedFamilyOfPolarizedArithmeticFami.lean}
+(\srcid{3414212fc4b9f57646d6e2b692d061f799a58244}).
+
+The first still separate moduli producer is
+\srcid{ModuliProofs/NonemptySiegelFamilyOverArithmeticBase.lean}
+(\srcid{c8933879c627986eb6412db2774dfd3f8d998c8b}).
+It constructs the fine family through the actual eighth-power
+sharp theta closure; generic dimension, special tangent
+dimension, universal mapping and principal-Siegel recovery
+are substantive lower lemmas.
+Its number-field specialization is
+\srcid{ThetaLawProofs/ExistsSiegelFamilyOverNumberField.lean}
+(\srcid{a87124f2cc26de113f66ea97d5641108f3ff26c9}).
+The second input is
+\srcid{SiegelFamilyStandardLevelPointsSameComponent.lean}
+(\srcid{26a36ef9ff5a0ee06e4f6ba603ea75f78fbaa829}).
+Its local producer is
+\srcid{SiegelFamilyNearbyPeriodsSameComponent.lean}
+(\srcid{0908e63fa80faff82352cd114d3ce644623a521a}),
+using actual relative periods, level/Weil compatibility,
+uniqueness at a fixed period matrix, and openness of the
+locally injective period chart.
+These and the fixed-fibre complex realization remain
+explicit until their own translations are joined.
+
+
+\subsection{Specialization and the exponent-one algebraic rule}
+\label{subsec:ftb-key-specialization-descent}
+
+In this subsection we assume the exact connected-family and local
+analytic family inputs used in
+Proposition~\ref{prop:ftb-key-complex-equivariance}, together with
+the already constructed normalized powered rule \(\rho\).
+Thus \(N(g)\ge1\), \(\rho\) is functorial on characteristic-zero
+fields, is a unit on every DVR carrying a key datum, and
+\[
+                             \rho(x)=t(x)^{N(g)}
+                                      \quad(x/\mathbb C).
+ \tag{S1}\label{eq:ftb-key-powered-normal-value}
+\]
+The value \(t(x)=\det(M)^4/c^8\) is independent of normal form and
+is equivariant under \emph{all} field maps
+\(\mathbb C\to\mathbb C\).
+These hypotheses retain the outstanding family producers stated
+in the preceding subsection; the argument below does not assert
+their existence a second time.
+
+\begin{srlemma}[Countable avoidance and a smooth curve through a point]
+\label{lem:ftb-countable-smooth-through}
+Let \(R\) be a domain finitely generated over \(\mathbb Z\), with
+a map \(a:R\to\mathbb C\).
+There are a smooth integral finitely generated
+\(\mathbb C\)-algebra \(E\), an injection \(i:R\hookrightarrow E\),
+and a complex point \(e:E\to\mathbb C\), with \(ei=a\).
+One can take \(\dim E\le1\).
+Moreover, if \(E_1\) is any integral finite-type
+\(\mathbb C\)-algebra and \(T\subset E_1\setminus\{0\}\) is
+countable, some complex point of \(E_1\) is nonzero on all of \(T\).
+\end{srlemma}
+\begin{proof}
+First prove the last assertion.
+Noether normalization gives an integral finite inclusion
+\(P=\mathbb C[X_1,\ldots,X_d]\hookrightarrow E_1\).
+For each nonzero \(r\in T\), integrality and the domain
+hypothesis give \(0\ne b_r\in P\cap(r)\).
+For example a monic relation for \(r\) of least degree has
+nonzero constant term, which belongs to \((r)\).
+The nonvanishing set of a nonzero polynomial on \(\mathbb C^d\)
+is open and dense: vanishing on an open polydisc would make
+the polynomial zero.
+The Baire theorem gives \(c\in\mathbb C^d\) at which every
+\(b_r\) is nonzero.
+A maximal ideal of \(E_1\) above the evaluation ideal at \(c\)
+has residue field \(\mathbb C\), by integrality and algebraic
+closedness.  Its evaluation cannot kill any \(r\).
+
+To construct the smooth curve, start with
+\(\mathbb C\otimes_{\mathbb Z}R\) and the evaluation induced by \(a\).
+Flat going down supplies a prime below its evaluation kernel
+whose contraction to \(R\) is zero.
+Its quotient \(B\) is an integral finite-type
+\(\mathbb C\)-algebra, the map \(R\to B\) is injective, and the
+given evaluation descends.
+It remains to choose a curve through this particular point
+without losing that injection.
+
+Choose a finite integral Noether normalization
+\(P=\mathbb C[X_1,\ldots,X_d]\hookrightarrow B\).
+For every nonzero image of an element of \(R\), choose a
+nonzero \(b_r\in P\cap(r)\) as above.
+There are only countably many such \(r\).
+Let \(c_0\in\mathbb C^d\) be the image of the prescribed point,
+and choose \(c_1\) at which all \(b_r\) are nonzero.
+Use the line substitution
+\[
+                        X_j\longmapsto (c_0)_j+
+                                      ((c_1)_j-(c_0)_j)T.
+ \tag{S2}\label{eq:ftb-line-substitution}
+\]
+Its kernel is prime and is contained in the contraction of
+the prescribed maximal ideal.
+Going down for the integral extension from the normal
+polynomial ring supplies a prime \(Q\) of \(B\), below that
+maximal ideal, lying over this line kernel.
+It avoids every \(r\): otherwise \(b_r\) would restrict
+identically to zero on the line, contradicting its value
+at \(c_1\).
+The quotient \(B/Q\) has dimension at most one.
+Indeed its contraction quotient is either \(\mathbb C\)
+or \(\mathbb C[T]\), and integral incomparability prevents
+a longer prime chain upstairs.
+
+Take the integral closure of \(B/Q\) in its fraction field.
+It is finite, since \(B/Q\) is a finite-type curve over a field.
+It is a Noetherian normal domain of dimension at most one,
+hence regular, and is smooth over the perfect field
+\(\mathbb C\).
+The given point lifts by lying over, with residue field
+\(\mathbb C\).
+Its coordinate ring is \(E\); the avoidance of all nonzero
+\(r\) gives the asserted injection \(R\hookrightarrow E\).
+This is the source's line construction and normalization;
+it is not an arbitrary smoothing of the original base.
+\end{proof}
+
+\begin{srlemma}[Finite-coefficient and countable local-PID descent]
+\label{lem:ftb-key-countable-local-pid-specialization}
+Let \(V\) be a characteristic-zero local PID domain.
+A key datum over \(V\), together with a countable set of its
+coefficients, descends to a countable local PID subring
+\(V_0\subset V\).
+The inclusion is a local homomorphism and is faithfully flat.
+If only a finite set of extra coefficients is prescribed and
+\(V\) is Noetherian local, the key datum descends to a domain
+finitely generated over \(\mathbb Z\), contained in \(V\);
+the latter subring need not be local.
+\end{srlemma}
+\begin{proof}
+We first record the ring construction.
+For a countable \(T\subset V\), let \(k_0\) be the subfield
+of \(\operatorname{Frac}V\) generated by \(T\), and put
+\(V_0=V\cap k_0\).
+This is countable.
+Divisibility of its elements is reflected from \(V\):
+if \(b=ac\) in \(V\) and \(a\ne0\), then \(c=b/a\in k_0\),
+so \(c\in V_0\).
+In particular the inclusion reflects units, and \(V_0\)
+is local.
+It is a PID.  For an ideal \(I\subset V_0\), choose among
+the ideals \(aV\), \(a\in I\), a maximal one, using
+Noetherianity of \(V\).
+Total divisibility in the local PID \(V\) shows that its
+chosen \(a\) divides every \(b\in I\) in \(V\).
+Divisibility reflection gives \(I=aV_0\).
+The \(V_0\)-module \(V\) is torsion free, hence flat over
+this PID, and a flat local inclusion is faithfully flat.
+
+Here is the geometric descent used with this construction.
+Choose a very ample projective embedding of the abelian
+scheme, from a sufficiently high polarization power.
+On the finitely many standard affine charts its defining
+ideals have finite sets of polynomial generators.
+Adjoin their coefficients.
+The closed image in projective space over the resulting
+subring pulls back to exactly the original scheme:
+on each chart the ideal is the extension of those generators.
+Adjoin the finitely many coefficients needed for the
+identity, multiplication and inverse maps, and for the
+line's finite transition functions and their inverses.
+These maps are descended on finite affine refinements;
+their polynomial identities are checked after the
+faithfully flat inclusion.
+Thus the group laws descend.
+Flatness, properness, smoothness, the relative dimension,
+the line isomorphisms giving symmetry and rigidification,
+relative ampleness, and the principal polarization
+condition descend by faithful flatness.
+This gives the actual polarized abelian scheme over a
+countable local PID of the displayed kind.
+
+Choose a key frame on that local base.
+Pull it back to \(V\).
+The prescribed key datum differs from it by its line
+isomorphism, a theta scalar \(a\in V^\times\), and a Lie
+matrix \(M\in\operatorname{GL}_g(V)\).
+Adjoin the scalar and matrix entries to the countable
+coefficient set and repeat the intersection construction.
+Unit reflection gives \(a^{-1}\) and
+\(\det(M)^{-1}\) in the new local subring.
+Change the descended frames by these actual parameters.
+The line, its rigidification, the theta section and all
+ordered tangent vectors now pull back to the original
+key datum, as asserted.
+
+For the finite-type assertion, first descend the polarized
+projective data to finitely many coefficients.
+Near the contraction of the closed point choose a
+nonzero theta section and a Lie basis.
+Invert a single element not vanishing there.
+Its image is a unit of \(V\); adjoin its inverse, the
+required theta scalar and inverse, the Lie matrix entries
+and inverse determinant, and the specified finite
+coefficient set.
+The same actual rescaling gives a key datum over this
+finite-type subring.
+This is the finite-coefficient construction in the source,
+not a claim that an arbitrary frame extends before the
+necessary coefficients and inverses are adjoined.
+\end{proof}
+
+\begin{srproposition}[Specialization of the unpowered complex value]
+\label{prop:ftb-key-normal-value-specializes}
+Let \(V\) be a local PID domain with a key datum \(y/V\).
+Let \(f,f':V\to\mathbb C\), with \(f\) injective.
+If \(u\in V\) and \(t(f^*y)=f(u)\), then
+\[
+                                t((f')^*y)=f'(u).
+ \tag{S3}\label{eq:ftb-key-in-families}
+\]
+\end{srproposition}
+\begin{proof}
+Descend \(y,u\) by the finite-type assertion of
+Lemma~\ref{lem:ftb-key-countable-local-pid-specialization}, to a finite-type
+domain \(R\subset V\) and a key datum \(y_R\).
+Apply Lemma~\ref{lem:ftb-countable-smooth-through} to
+\(f'|_R\), obtaining \(i:R\hookrightarrow E\) and \(e:E\to\mathbb C\).
+Write \(z=i^*y_R\).
+The smooth-base powered-unit lemma gives
+\(b\in E^\times\) whose evaluation at every complex point is
+\(t(z_s)^{N(g)}\).
+
+If \(s:E\to\mathbb C\) does not kill any nonzero \(i(r)\),
+then \(si:R\to\mathbb C\) is injective.
+The two injections \(f|_R\) and \(si\) admit embeddings
+\(\alpha,\beta:\mathbb C\to\mathbb C\) into a common
+complex field copy with
+\(\alpha f|_R=\beta si\).
+This follows by extending the two embeddings of the
+countable fraction field, using transcendence bases and
+algebraic closures.
+Equivariance of \(t\) under these possibly discontinuous
+field maps, and its independence of normal form, give
+\[
+                              t(z_s)=s(i(u)).
+\]
+Indeed the two key pullbacks become identical after the
+common extension, and \(\beta\) is injective.
+
+It follows that \(i(u)^{N(g)}=b\) in \(E\).
+If their difference were nonzero, countable avoidance
+would produce a complex point not killing that
+difference or any nonzero \(i(r)\), contradicting the
+last equality and the defining equality for \(b\).
+Hence \(i(u)\) is a unit.
+Choose one of these generic complex points \(s_0\).
+The root-fixed-by-one-point lemma, now on the connected
+smooth integral complex curve \(\operatorname{Spec}E\),
+compares \(t(z_s)\) with \(s(i(u))\) at every point:
+their \(N(g)\)-th powers agree, and their ratio is fixed
+by its value \(1\) at \(s_0\).
+At \(e\) this gives \(t(z_e)=e(i(u))=f'(u)\).
+The fibre \(z_e\) is the prescribed special key pullback,
+so this is \eqref{eq:ftb-key-in-families}.
+\end{proof}
+
+\begin{srtheorem}[The exponent-one field rule and its DVR units]
+\label{thm:ftb-key-rule-exponent-one}
+Under the inputs of this subsection there is a unique
+rule \(\kappa_K(x)\in K^\times\), for every characteristic-zero
+field \(K\) and key datum \(x/K\), which agrees with
+\(t(x)\) over \(\mathbb C\), is functorial under all field
+maps and all key pullbacks, and has
+\[
+                   a^8\kappa(a\theta,Mv)=\det(M)^4\kappa(\theta,v).
+ \tag{S4}\label{eq:ftb-key-rule-exponent-one-homog}
+\]
+For every DVR \(V\), fraction field \(K\) of characteristic
+zero, and key datum \(y/V\), its generic value is the
+image of a unit \(u\in V^\times\).
+For every characteristic-zero residue-field quotient
+\(r:V\twoheadrightarrow k\),
+\[
+                                 \kappa_k(r^*y)=r(u).
+ \tag{S5}\label{eq:ftb-key-rule-exponent-one-unit}
+\]
+For a normalized theta function and the ordered tangent
+frame \((2\pi i)^{-1}e_j\), the value is \(1\).
+\end{srtheorem}
+\begin{proof}
+We first define the value over a countable field \(k\).
+Embed \(k\) in \(\mathbb C\), and pull the key datum to \(x\).
+If \(\alpha\) is any automorphism of \(\mathbb C\) fixing \(k\),
+apply \eqref{eq:ftb-key-in-families} with the local PID
+\(\mathbb C\), \(f=1\), and \(f'=\alpha\).
+It gives the transformed value \(\alpha(t(x))\).
+Because \(\alpha\) fixes \(k\), cancellation of their common
+\(k\)-pullbacks gives an actual key-pullback isomorphism over
+\(1_{\mathbb C}\) between \(\alpha^*x\) and \(x\).
+Apply the same assertion with \(f'=1\) using that isomorphism;
+it gives the value \(t(x)\).
+Thus \(\alpha(t(x))=t(x)\).
+The fixed field of all such automorphisms is \(k\).
+For an element algebraic over \(k\), a distinct conjugate
+extends to an automorphism unless the element lies in \(k\),
+since the characteristic is zero.
+For a transcendental element, changing a transcendence
+basis element and extending to algebraic closures gives
+a nonfixing automorphism.
+Therefore \(t(x)=s(u)\) for a unique \(u\in k\).
+Equation \eqref{eq:ftb-key-in-families}, with \(V=k\), makes
+this same \(u\) work at every embedding of \(k\).
+
+For an arbitrary \(K\), descend the key datum to a
+countable subfield \(k\subset K\), using
+Lemma~\ref{lem:ftb-key-countable-local-pid-specialization} and then taking
+the fraction field.
+Define its value by the preceding \(u\).
+This is independent of descent.
+Indeed put two countable models in one countable
+intermediate field, adjoin the finitely many coefficients
+of their common abelian-variety isomorphism and line
+isomorphism, and descend these isomorphisms.
+Their equality with the given rigidification, section
+and tangent vectors descends by faithful flatness.
+Embed this common countable field in \(\mathbb C\).
+Both proposed values are then the same complex normal
+value; injectivity proves equality before embedding.
+This also proves functoriality, by pushing one countable
+model through a field map.
+The complex normal value is nonzero, so the value belongs
+to \(K^\times\).
+The same descent including \(a,M\) and their inverses
+transfers the complex normal-form identity
+\eqref{eq:ftb-known-frame-change} to \(K\), giving
+\eqref{eq:ftb-key-rule-exponent-one-homog}.
+
+The relation with the powered rule is
+\[
+                             \kappa_K(x)^{N(g)}=\rho_K(x).
+ \tag{S6}\label{eq:ftb-key-root-powered-algebraic}
+\]
+Check it over a countable model embedded in \(\mathbb C\),
+using \eqref{eq:ftb-key-powered-normal-value}, and then
+use functoriality.
+Over the DVR \(V\), the right side is a unit \(b\in V^\times\).
+The element \(\kappa_K(x)\) is integral over \(V\), being
+a root of \(T^{N(g)}-b\).
+Normality of \(V\) puts it in \(V\); its positive power
+being a unit makes it a unit \(u\).
+
+We must also identify the specialization of this chosen
+root, not just its power.
+Descend \(y,u\) to a countable local PID subring
+\(V_0\subset V\), with local faithfully flat inclusion.
+The generic countable fraction field embeds in \(\mathbb C\).
+By the definition and uniqueness of its value, the
+generic complex value is the image of \(u\).
+Equation \eqref{eq:ftb-key-in-families} now identifies the
+value under every map \(V_0\to\mathbb C\), including maps
+factoring through a characteristic-zero residue field.
+It therefore represents the value on that residue
+pullback in the countable definition.
+Pushing to \(k\) proves
+\eqref{eq:ftb-key-rule-exponent-one-unit}.
+For a normalized theta datum, \(M=I,c=1\), so its value
+is \(1\).
+All uniqueness assertions follow by the same common
+countable model argument.
+\end{proof}
+
+\paragraph{Exact scope and source concordance.}
+This theorem gives \(\mathrm{Homog}_1\), \(\mathrm{Funct}\),
+\(\mathrm{UnitSp}\), and \(\mathrm{ThetaOne}\).
+In \(\mathrm{UnitSp}\) the DVR may have positive residue
+characteristic; its unit assertion still holds, while the
+stated value comparison is only for characteristic-zero
+residue fields, exactly as the field rule requires.
+The separate archimedean norm identity is not inferred
+from the algebraic root argument.
+
+The prefix below is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/}.
+The countable avoidance, chosen line and smooth normalization
+are \srcid{ExistsAlgHomNeZeroOfCountable.lean}
+(\srcid{9dc863ab22573a559ae8c249f33d533a7860cf49}),
+\srcid{ExistsDominantComponent.lean}
+(\srcid{8e6078832242f5fd87c9969273e88a9b1a4402df}),
+\srcid{ExistsPrimeDimensionLEOneAvoiding.lean}
+(\srcid{f56c1b74e6815aeea22584eaf146e6252e747ef8}),
+and \srcid{ExistsSmoothNormalisation.lean}
+(\srcid{2e88aff00b5fb1cfda8566ac7c21761fdce68dff}).
+The exact local subring is
+\srcid{ExistsCountableLocalPidSubring.lean}
+(\srcid{80f4e931782aab0999790894204dc2b851005194}).
+Finite projective descent on standard affine charts is
+\srcid{VeryAmpleByDescendsCountableSubring.lean}
+(\srcid{880d25ecad16a9516141cd62e4c9feee229e7b53}).
+Its actual key-data assembly is
+\srcid{KeyDataDescendCountableSubrings.lean}
+(\srcid{d06ec6cf161d65aff27cc78f9f3693252a1b58d2}),
+using finite-coefficient descent for morphisms, line bundles,
+group laws and polarizations.
+Those are ordinary projective finite-presentation and fpqc
+descent operations with the hypotheses stated in the proof;
+no uniform bound for their coefficient fields is needed.
+
+The specialization proof, including the finite-type
+rescaling of the \emph{actual} key datum, is
+\srcid{ExistsSmoothThrough.lean}
+(\srcid{fa1c6cdf3595de268b05d93491d66de7c70a4532}).
+The common-countable-isomorphism argument, invariant field
+definition, root identity and DVR specialization are
+\srcid{ExistsCommonCountable.lean}
+(\srcid{f748a7e68705d47f6d415d95bf2e20e2370d2577}).
+The final wrapper is
+\srcid{../UniformizationProofs/KeyFormulaOfConnFam.lean}
+(\srcid{c6229bc642171a481eef723c9bdfffc7b9f68a55}).
+Its actual connected-family and analytic-continuity
+hypotheses remain precisely those retained above.

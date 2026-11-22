@@ -7,10 +7,14 @@
     "commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4"
   },
   "current_paper": {
-    "source_commit": "ebbefe4a5d5d47c193d285ac96c768eb6a65b9eb",
-    "pages": 541,
+    "source_commit": "06991fb1efad72318cbcedee14365c77790750f2",
+    "pages": 558,
     "complete": false,
-    "artifact": "b6e2fd252a7258fb2fa254fd63f65557"
+    "artifact": "f41a81e53c63e4cba1c29c8f654b2e33",
+    "attachment": "864e6b70b42c4989dcc3efd2eebb2329",
+    "pdf_sha256": "47c46881a2d0414c9bbe49ff44b2fe88f48daf7e7979c49cc017613ad9a7c165",
+    "editor_transport_sha256": "5113cd8124542bb831115b71198392f391fbbad6080ab0f8211996fe2d0287a0",
+    "editor_readback_verified": true
   },
   "exhaustive_dependency_graph": false,
   "status_rules": {
@@ -186,7 +190,7 @@
       "remaining": "Expand exact tied-family fields, match all objects and constant order, then apply existing signed/analytic endpoint."
     }
   ],
-  "last_update_utc": "2026-11-22T01:43:00Z",
+  "last_update_utc": "2026-11-22T02:17:00Z",
   "page_target": 1000,
   "bounded_source_additions": [
     {
@@ -227,9 +231,25 @@
     }
   ],
   "next_reviewed_additions": [
-    "Vertical finite-field/idempotent degree-zero with full free-O premise",
-    "Split-place cusp keys and local three-column distribution vanishing",
-    "Reached-section valuation and exact mixed-translate calculation",
-    "Polylogarithmic removal, subframe determinant and Gram unit extension with actual period/model inputs retained"
+    "split and nonreduced Koszul/key invariant; period holomorphy; weight-zero constancy",
+    "actual fixed-fibre exponential and cubical Hermitian frame"
+  ],
+  "latest_working_source": {
+    "commit": "5b16aaab2454b4aa05feb6d7d389667a6a490ea0",
+    "typesetting_passed": false,
+    "standalone_complete": false,
+    "reviewed_additions": [
+      "actual quotient/Hopf kernel/norm-degree/HFree and stalk transport",
+      "unramified torsion and exact psi-unit clause",
+      "ramified connection/Wick, all-prime trace denominator, weight/carrying",
+      "integral key reading, halfsup, Gaussian, projected/raw norm"
+    ]
+  },
+  "remaining_source_frontier": [
+    "actual integral formal tower, relative ampleness and algebraisation, nonzero theta normalisation and complete-local descent",
+    "full fine Siegel arithmetic/connected family and exponent-one key normalization",
+    "same-family relative complex periods, integral expansion and exact short-series reading",
+    "actual analytic kernel/spanning induction and its same-model tied-family joins",
+    "full geometric section, integral evaluated eigenlattice, height/covolume and common-window assembly"
   ]
 }

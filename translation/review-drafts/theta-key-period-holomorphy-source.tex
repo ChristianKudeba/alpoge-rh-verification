@@ -1,0 +1,375 @@
+\subsection{Holomorphy of the algebraic key invariant in period coordinates}
+\label{sec:ftb-key-period-holomorphy}
+
+We keep the key datum and the admissible integers \(g,n,l,l'\),
+the matrices \(\alpha_m^t\alpha_m=m1_4\), and the formula
+\eqref{eq:ftb-kaform}.  In this subsection a complex uniformization
+means the actual isomorphism of the polarized complex abelian variety
+and its rigidified line bundle with its theta torus.  In particular it
+identifies algebraic sections of every positive line power with the
+entire functions having the multiplier specified below.  This is the
+source's \(\mathrm{ThetaUnifAV}\) section comparison, together with
+the specified \(\mathrm{HolUnif}\) and \(\mathrm{Wit}\); it is a
+hypothesis on the \emph{same} line bundle and frame, rather than a
+choice of an unrelated analytic metric.
+
+Write
+\[
+ \mathfrak H_g=\{\tau=\tau^t:\operatorname{Im}\tau>0\},\quad
+ [k,n]_\tau=k+\tau n,\quad
+ A_\tau(k,n;z)=
+ \exp\!\left(2\pi i\left(a\cdot k-b\cdot n
+                      -\tfrac12 n^t\tau n-n\cdot z\right)\right).
+ \tag{H1}\label{eq:ftb-level-aut}
+\]
+Here \(a_i,b_i\in\{0,\tfrac12\}\).
+A function of level \(m\) is an entire \(F:\mathbb C^g\to\mathbb C\)
+such that
+\[
+ F(z+[k,n]_\tau)=A_\tau(k,n;z)^mF(z).
+ \tag{H2}\label{eq:ftb-level-fn}
+\]
+In the uniformizing frame \(\mathrm{fr}\), an algebraic section \(s\)
+of the \(m\)-th line power is read as
+\[
+                       s(\exp z)=F(z)\,\mathrm{fr}(z)^m.
+ \tag{H3}\label{eq:ftb-fnpw}
+\]
+The rigidification is the one used in the cubical generators, and
+the ordered Lie basis corresponds to
+\((2\pi i)^{-1}e_1,\ldots,(2\pi i)^{-1}e_g\).
+The parameter domain in the source consists of all complex matrices
+\(p\) with \(\operatorname{Im}((p+p^t)/2)>0\);
+every formula below is pulled back by \(\tau=(p+p^t)/2\).
+This gives the source's open domain without treating the symmetric
+matrices as an open subset of all matrices.
+
+\begin{srlemma}[Theta bases and holomorphic coordinates]
+\label{lem:ftb-holo-level-coordinates}
+For every \(m\geq1\) there are \(m^g\) level-\(m\) functions
+\(B_{m,c}(\tau,z)\), jointly holomorphic in \((\tau,z)\), which form
+a basis at every \(\tau\in\mathfrak H_g\).
+If a jointly holomorphic function belongs at each parameter to the
+span of a finite jointly holomorphic, pointwise independent family,
+its unique coordinates are holomorphic.
+The same assertions hold for external products of the theta bases.
+\end{srlemma}
+\begin{proof}
+With \(c\) running through representatives of
+\((\mathbb Z/m\mathbb Z)^g\), use the source's basis
+\[
+ B_{m,c}(\tau,z)=
+ \theta\!\left(\tfrac cm+a,\,mb;\,mz,m\tau\right),\qquad
+ \theta(u,v;z,\tau)=
+ \sum_{h\in\mathbb Z^g}
+ e^{\,\pi i(h+u)^t\tau(h+u)+2\pi i(h+u)\cdot(z+v)} .
+ \tag{H4}\label{eq:ftb-level-theta-basis}
+\]
+On a compact subset of the period and \(z\) domain the imaginary
+quadratic part is bounded below by a positive multiple of
+\(\lVert h\rVert^2\), while the remaining part is bounded in
+absolute value by a fixed multiple of \(1+\lVert h\rVert\).
+A summable Gaussian therefore dominates the terms, locally
+uniformly.  The same argument after multiplication by any fixed
+polynomial in \(h\) handles derivatives.  Normal convergence gives
+joint holomorphy.  Changing \(h\) by an integer vector gives
+\eqref{eq:ftb-level-fn}.
+
+Here is the source's dimension argument.  First take \(a=b=0\).
+The integer periods give Fourier coefficients \(c_v\), \(v\in\mathbb
+Z^g\); the remaining periods imply, for each coordinate vector,
+\[
+ c_{v+me_j}
+       =\exp(\pi i m\tau_{jj}+2\pi i\,v^t\tau e_j)c_v .
+\]
+Thus the \(m^g\) coefficients with residues \(0\leq v_i<m\)
+determine the function: if they vanish, the recurrence makes all
+Fourier coefficients vanish, and Fourier uniqueness on each real
+torus makes the function zero.  Consequently the dimension is at
+most \(m^g\).  Translations \(z\mapsto z+k/m\) act on the nonzero
+functions in \eqref{eq:ftb-level-theta-basis} by the distinct
+characters \(k\mapsto e^{2\pi i c\cdot k/m}\).
+Distinct character eigenvectors are independent (apply character
+independence to a purported linear relation at each \(z\)).
+There are \(m^g\) of them, so they form a basis.  Multiplication by
+the nonzero exponential and translation
+\[
+ f(z)\longmapsto
+ e^{\,2\pi i m(a^t\tau a/2+a\cdot(z+b))}
+                         f(z+\tau a+b)
+\]
+is an invertible map from level \((0,0)\) to level \((a,b)\);
+it sends the displayed basis to the displayed shifted basis.
+
+For the coordinate assertion, let \(T_1,\ldots,T_N\) be the family,
+and fix a parameter \(p_0\).
+The evaluation vectors \((T_j(p_0,z))_j\) span \(\mathbb C^N\);
+otherwise a nonzero linear functional would be a relation among
+the functions.  Choose finite linear combinations of evaluations
+\(\ell_i\) with \(\ell_i(T_j(p_0,-))=\delta_{ij}\).
+Set \(C_{ij}(p)=\ell_i(T_j(p,-))\) and
+\(b_i(p)=\ell_i(F(p,-))\).  They are holomorphic and \(C(p_0)=1\).
+On \(\det C\ne0\), the coordinate vector is \(C^{-1}b\);
+the adjugate formula proves holomorphy.  Uniqueness patches these
+local expressions.  Independence of external-product functions
+follows one variable at a time.  To obtain their spanning
+assertion, expand in the first variable, use this coordinate
+argument to make the coefficients holomorphic in the remaining
+variables, and iterate.  Their transformation law in the
+remaining variables follows from uniqueness of the first
+expansion.  This is precisely the tensor-expansion argument in
+\srcid{exists\_holomorphic\_coord\_simTheta}.
+\end{proof}
+
+\begin{srlemma}[The holomorphic box determinant]
+\label{lem:ftb-holo-box}
+Fix \(m\geq1\), a level-\(m\) basis \(B_c\), and an integral
+\(\alpha\) with \(\alpha^t\alpha=m1_4\).
+The algebraic unit \(\lambda_m\) of
+\eqref{eq:ftb-lambda}, read in these bases, is a holomorphic
+function of the period.  Its formula is the following.
+Choose integer tuples \((k_I,n_I)\) representing the two lattice
+coordinates of \(\ker(\alpha^t)\), and put
+\[
+ t_{I,r}=\frac1m\sum_c\alpha_{rc}[k_{I,c},n_{I,c}]_\tau,\qquad
+ \Phi_I(y)=
+ \prod_{r=1}^4\theta(a,b;(\alpha y)_r+t_{I,r},\tau)
+             e^{\,2\pi i\sum_c n_{I,c}\cdot y_c}.
+\]
+Write, uniquely,
+\[
+ \Phi_I(y)=\sum_J q_{I,J}(\tau)\prod_cB_{J_c}(\tau,y_c).
+\]
+Then, in the source's row convention,
+\[
+ \lambda_m(\tau)=
+ \frac{\det(q_{I,J}(\tau))^{2m^2}}
+ {\displaystyle
+  \left(\prod_I\prod_r
+ A_\tau\!\left(\sum_c\alpha_{rc}k_{I,c},
+              \sum_c\alpha_{rc}n_{I,c};0\right)\right)^2}.
+ \tag{H5}\label{eq:ftb-holo-lambda}
+\]
+This equality has no undetermined root of unity or scalar.
+\end{srlemma}
+\begin{proof}
+The elementary automorphy calculation using
+\(\alpha^t\alpha=m1\) and the half-characteristic gives
+\[
+ \Phi_I(y_1,\ldots,y_c+[k,n]_\tau,\ldots,y_4)
+             =A_\tau(k,n;y_c)^m\Phi_I(y).
+\]
+The functions are entire and jointly holomorphic in the period.
+Lemma~\ref{lem:ftb-holo-level-coordinates} therefore gives the
+unique holomorphic coefficients \(q_{I,J}\).
+
+We check the algebraic normalization.  Divide an actual cubical
+generator, in each line-bundle chart, by the product of its
+uniformizing frames.  On overlaps both numerator and denominator
+have the same transition function; their ratio is a globally
+defined nowhere-zero entire function of \(y\).
+For the generator \(w_I\), its product with
+\(e^{2\pi i\sum n_{I,c}\cdot y_c}\) is periodic under the full
+product period lattice.  Indeed the translated frame ratios
+are exactly \(A_\tau\), and the exponent cancels the
+similitude cross terms.  An entire function periodic under a full
+real lattice is bounded on a compact fundamental parallelepiped
+and hence constant.  Call this constant \(C_I\ne0\).
+This argument is a quotient of actual local generators;
+it does not extend a generic rational function across a boundary.
+
+The same argument for the multiplication generator \(\mu\) shows
+that its quotient by the multiplication frames is constant.
+Its origin rigidification makes that constant \(1\).
+If \(Q_{I,J}\) are the algebraic box coefficients of
+\eqref{eq:ftb-box-generator}, comparison with the preceding
+formula gives, after the permutation of kernel representatives,
+\[
+ q_{I,J}=C_IQ_{I,J},\qquad
+ \rho_I
+ \prod_r A_\tau\!\left(\sum_c\alpha_{rc}k_{I,c},
+                     \sum_c\alpha_{rc}n_{I,c};0\right)
+                                  =C_I^{m^2}.
+\]
+Insert these into
+\(\lambda_m=(\det Q)^{2m^2}\prod_I\rho_I^2\).
+All \(C_I\)'s cancel.  A row permutation is removed by the even
+determinant exponent.  This proves \eqref{eq:ftb-holo-lambda}.
+Its denominator is an exponential and never vanishes.
+\end{proof}
+
+\begin{srlemma}[Simple zero sections and varying contractions]
+\label{lem:ftb-holo-zeros-torsion}
+Let \(F_1(p,z),\ldots,F_g(p,z)\) be jointly holomorphic level-\(n\)
+functions.  Suppose that at \(p_0\) their common zeros on the
+period torus are precisely \(d\) distinct simple zeros.
+After shrinking to an open neighbourhood \(W\) of \(p_0\),
+there are holomorphic lifts \(z_1(p),\ldots,z_d(p)\) of all these
+zeros, still distinct modulo the periods, and all simple.
+If a finite graded complex \(D(p)\) has holomorphic entries,
+\(D(p)^2=0\), and is contracted at \(p_0\), its squared Koszul
+torsion is a nonzero holomorphic function on a possibly smaller
+neighbourhood.
+\end{srlemma}
+\begin{proof}
+The holomorphic implicit-function theorem supplies one branch at
+each old zero because its \(z\)-Jacobian is invertible.
+To show that they are all the zeros, use real period coordinates
+\(z=x+\tau y\) with \((x,y)\in[0,1]^{2g}\).
+The complement of small neighbourhoods of the old zeros is
+compact.  At each of its points at least one \(F_i(p_0,-)\)
+is nonzero.  A finite subcover and continuity keep at least one
+nonzero for all nearby parameters.  Inside the small
+neighbourhoods implicit-function uniqueness applies.
+The period lattice is discrete in these real coordinates;
+shrinking again keeps the branches distinct modulo periods.
+Their Jacobians remain nonzero by continuity.  Periodicity
+reduces every zero to this compact parallelepiped, proving the
+claimed completeness of the enumeration.
+
+For the contraction assertion fix a degree-\(+1\) matrix \(h_0\)
+with \(D(p_0)h_0+h_0D(p_0)=1\).  Put
+\[
+ A(p)=D(p)h_0+h_0D(p).
+\]
+Near \(p_0\), \(\det A(p)\ne0\).  Since \(D^2=0\), \(D\) commutes
+with \(A\), and hence with \(A^{-1}\).  Thus
+\(h_0A^{-1}\) is a contraction.  Retain only its degree-\(+1\)
+entries to obtain \(h(p)\).  This is still a contraction:
+in the anticommutator only those entries can contribute to
+the degree-zero part, while all other degree parts of \(1\)
+are zero.  Its entries are holomorphic by the adjugate formula.
+Choose once the even--odd enumeration used at \(p_0\).
+The required holomorphic function is
+\[
+             t(p)=\det\bigl((D(p)+h(p))_{\rm even,odd}\bigr)^2.
+ \tag{H6}\label{eq:ftb-holo-torsion}
+\]
+The determinant is nonzero because \(D+h\) is invertible;
+equivalently the graded block elimination in the squared-torsion
+lemma applies.  No assertion \(h(p)^2=0\) is required.
+Uniqueness of squared torsion identifies
+\eqref{eq:ftb-holo-torsion} with any other contraction computation.
+\end{proof}
+
+\begin{srproposition}[The same algebraic value is locally holomorphic]
+\label{prop:ftb-key-holomorphic-period}
+Suppose the algebraic key datum at \(p_0\) has a value
+\(\operatorname{KaVal}\) for the fixed admissible
+\(n,l,l',\alpha\), and is in the normalized theta uniformization
+\eqref{eq:ftb-fnpw}.
+There are an open neighbourhood \(W\) of \(p_0\) and a holomorphic
+function \(V\) on \(W\) such that at each \(p\in W\), \emph{every}
+algebraic key datum with that normalized uniformization has
+a \(\operatorname{KaVal}\) equal to \(V(p)\).
+Consequently the section-independent invariant, once defined at
+every period by the algebraization of its polarized theta torus,
+is holomorphic in period coordinates.
+\end{srproposition}
+\begin{proof}
+Read the initial transverse section tuple as \(F_{i,0}\).
+Expand it in the level-\(n\) basis at \(p_0\), and keep its
+coefficients fixed as \(p\) varies.  This gives the required
+jointly holomorphic \(F_i(p,z)\) of the same level.
+The preceding lemma supplies all their simple zeros \(z_e(p)\).
+
+For \(m_j=l-jn>0\) choose the level bases
+\(B_{m_j,c}(p,z)\), and likewise for \(l'\).
+The products \(F_iB_{m_{j+1},c}\) have level \(m_j\).
+Their multiplication coordinates are holomorphic by
+Lemma~\ref{lem:ftb-holo-level-coordinates}.
+The evaluations \(B_{l,c}(p,z_e(p))\) are holomorphic.
+Thus all entries of the augmented Koszul matrix \(D_l(p)\)
+are holomorphic, and the same holds in degree \(l'\).
+Their differentials square to zero because multiplication
+commutes and the evaluation points are common zeros.
+At \(p_0\) the algebraic exactness already proved supplies
+contractions; apply \eqref{eq:ftb-holo-torsion} in both degrees.
+
+Let \(J(p)\) be the product of the source's normalized Jacobians
+of \(F_i(p,-)\) at \(z_e(p)\); its entries are the first
+\(z\)-derivatives, with the fixed \(2\pi i\) Lie normalization.
+Joint holomorphy implies holomorphy of these derivatives and
+their evaluations, so \(J(p)\) is holomorphic and nonzero.
+Lemma~\ref{lem:ftb-holo-box} supplies the \(\lambda_j(p)\) and
+\(\lambda'_j(p)\).  At \(p_0\) they are nonzero by the algebraic
+box determinant theorem; shrink \(W\) so that they remain so.
+Use \(t_l(p),t_{l'}(p),J(p),\lambda_j(p),\lambda'_j(p)\) in
+\eqref{eq:ftb-kaform}.  Since every factor is holomorphic and
+nonzero, its integer powers give a holomorphic function \(V\).
+
+It remains to verify that this analytic formula computes the
+\emph{actual} algebraic value, with no surviving chart factor.
+The line-power section comparison makes the theta bases
+algebraic bases and makes the \(F_i\) actual algebraic sections.
+If \(U=\prod_e\mathrm{fr}_{j_e}(z_e)\), the algebraic squared
+torsion in degree \(l\) is the analytic squared torsion times
+\(U^{2l}\): this is conjugation of its augmented evaluation
+rows by \(\operatorname{diag}(\mathrm{fr}_{j_e}(z_e)^l)\).
+The corresponding algebraic Jacobian is \(J(p)U^{gn}\).
+The same applies in degree \(l'\).
+The total exponent of \(U\) in \eqref{eq:ftb-kaform} is
+\[
+ 8D^{3g+2}
+ \{l(gn-2l')+l'(2l-gn)+gn(l'-l)\}=0.
+\]
+The box factors agree by \eqref{eq:ftb-holo-lambda}, and the
+squared torsions agree by their uniqueness.  Therefore the
+algebraic value is exactly \(V(p)\).
+Section independence proved in
+Proposition~\ref{prop:ftb-key-tuple-independent} removes the
+particular tuple chosen to construct \(V\).
+On overlapping neighbourhoods, algebraization of a theta torus
+provides a test key datum at each period; both local formulae
+compute its unique algebraic value, so they agree.  This patches
+the holomorphic value function.
+
+The last algebraization clause is explicit: it is the actual
+polarized-theta-torus realization, denoted
+\(\mathrm{TorusAlgebraic}\) in the source.  Neither this clause
+nor the section comparison is deduced from holomorphy of
+\(V\).  Their match with the moduli/uniformization model is
+a separate geometric constructor.
+\end{proof}
+
+\paragraph{Frozen source concordance.}
+The base prefix for the following paths is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+The analytic level-space proof is
+\srcid{CovolumeBounds/EqZeroOfSemicharacterMultiplier.lean}
+(\srcid{d9177a8a8151f010857a1872b029ca293d2ecdd4});
+jointly holomorphic bases are
+\srcid{ThetaLawProofs/ExistsLevBasisReal.lean}
+(\srcid{0acd91467b163727cd9ab45b449a645d19079f73}).
+The fixed-evaluation coordinate proof is
+\srcid{DifferentiableOnCoordOfLinearIndependent.lean}
+(\srcid{bb29ce974ad27e88014fe30ce737b1ff313a9fd8}).
+The tensor expansion and its holomorphic coordinates are
+\srcid{ExistsHolomorphicCoordSimilitudeThetaProduct.lean}
+(\srcid{222a38b04c4c65633ddc63956623b5ebc871d2ae}).
+The actual frame quotient gluing is
+\srcid{ExistsEntireGeneratorDivFrames.lean}
+(\srcid{5115a6c11545e30287524197a677172c8334ee56});
+the full-lattice periodicity calculations are
+\srcid{SimilitudeGeneratorEqExpInFrames.lean}
+(\srcid{767a1a7851d799760d180c9278cc4c1670a5dfe7})
+and \srcid{ThetaGeneratorPullbackMulConstInFrames.lean}
+(\srcid{11d7336e26d26d4ef9f784da8f389ceab34a08c2}).
+The frame automorphy identity, including its extension across the
+zeros of theta by the identity theorem, is
+\srcid{ThetaUniformisationFrameEqAutomorphyMul.lean}
+(\srcid{7e0fe6b56293d92ad64e72bacde8d9aeac55f766}).
+The exact box formula is
+\srcid{ExistsHolomorphicThetaOfLevelBasis.lean}
+(\srcid{fa578ce841cf27bb7ad5bf5c6047b9011a4b49f2}).
+Moving zeros is
+\srcid{SimpleZerosMoveHolomorphically.lean}
+(\srcid{f2458805d37961ce99100633147e62bb53bf388d});
+varying contractions is
+\srcid{ExistsDifferentiableOnTorsSq.lean}
+(\srcid{f93085db0421f99f72c9d2061f17e30b7141acf2}).
+Their exact assembly, including the chart-factor cancellation,
+is \srcid{KoszulInvariantLocallyHolomorphicPeriodMatrix.lean}
+(\srcid{34a2165e6ee4a1b7242efdac1129f8328adcddbe}).
+All unqualified filenames after the first one in this paragraph
+are in \srcid{ThetaLawProofs/}.

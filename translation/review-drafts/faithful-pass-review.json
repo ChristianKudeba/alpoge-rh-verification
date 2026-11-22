@@ -1,7 +1,7 @@
 {
   "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
-  "updated_utc": "2026-11-22T02:05:00Z",
-  "current_published_pages": 541,
+  "updated_utc": "2026-11-22T02:26:00Z",
+  "current_published_pages": 558,
   "whole_manuscript_complete": false,
   "entries": [
     {
@@ -163,17 +163,19 @@
     },
     {
       "key": "keyKoszul",
-      "blob": "82f44b0b46d46c4667803bcb0d8434b34b037a28",
+      "blob": "5ca5690e1052af62959e5e634aebec7ad2879471",
       "path": "translation/review-drafts/theta-key-split-koszul-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
     },
     {
       "key": "keyColliding",
-      "blob": "8811f2d5ed3f1232531971d654030ba4abc6314d",
+      "blob": "233a0e75d390d21856ed58a30fa1bcb49f9cce95",
       "path": "translation/review-drafts/theta-key-colliding-zero-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
     },
     {
       "key": "thetaProjectedNorm",
@@ -190,6 +192,142 @@
       "status": "checked",
       "scope": "Actual unramified-torsion unit clause given actual uniformisation and expansion/torsion identification; N3 existence retained.",
       "reviewer": "connected_geometry"
+    },
+    {
+      "key": "keyAnalytic",
+      "blob": "1bb8d6b947a0516db5da27572d1d013a0adc5d5d",
+      "path": "translation/review-drafts/theta-key-period-holomorphy-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "keyConstancy",
+      "blob": "d8941fc62efe4eff12d2b432ce4906981f0aca5e",
+      "path": "translation/review-drafts/theta-key-weight-zero-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "complexExponential",
+      "blob": "1a49aa64ac44e66015d1f45371f88c5890d13c0d",
+      "path": "translation/review-drafts/theta-complex-exponential-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "complexCube",
+      "blob": "9c3637623d47fa6fb0f97ecd48ed10ea7ea27341",
+      "path": "translation/review-drafts/theta-complex-cubical-frame-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "complexFixed",
+      "blob": "5b318ee0efea70dd0a8decea47f6fcd8b6b7a76b",
+      "path": "translation/review-drafts/theta-complex-fixed-fibre-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
+    },
+    {
+      "key": "keyPowered",
+      "blob": "8c8dd7a45f5e17598dbdbcb761582d351a959ff0",
+      "path": "translation/review-drafts/theta-key-powered-rule-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "keyDescent",
+      "blob": "b48c9222ce1164538eadb0671abd609eae1695f4",
+      "path": "translation/review-drafts/theta-key-root-descent-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
+    },
+    {
+      "key": "keyConnFam",
+      "blob": "ecc13d1be9d3c50b15a4328433ce0bb2a1c41a7a",
+      "path": "translation/review-drafts/theta-key-connected-family-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "keySpecialization",
+      "blob": "27b28f31d394f57473dc67f481f8613da5bb14d8",
+      "path": "translation/review-drafts/theta-key-specialization-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
+    },
+    {
+      "key": "thetaRaw9000",
+      "blob": "1b7ff4cb82982425e7b80889f8547157e558d719",
+      "path": "translation/review-drafts/theta-raw-supremum-source.tex",
+      "status": "checked",
+      "reviewer": "root",
+      "scope": "Checked complete original NormPhiHatIndPhi, logarithmic numeric producer and spread bound; actual Galois laws, all-test-ring reading and analytic/model dictionaries retained."
+    },
+    {
+      "key": "thetaOrbit",
+      "blob": "a718163bb46581a7986cf74247d495f89f42af56",
+      "path": "translation/review-drafts/theta-harmonic-orbits-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "thetaGrid",
+      "blob": "536e3536d968b242af39b6e813acecb99e652e71",
+      "path": "translation/review-drafts/theta-short-harmonic-grid-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "thetaReading",
+      "blob": "39d8eb95e44bcc30d6f2c854ab6f12efa84f9404",
+      "path": "translation/review-drafts/theta-short-series-reading-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "preUnifRoot",
+      "blob": "d64d030241a6dffcd4b4107845ffd6aa6fd864df",
+      "path": "translation/review-drafts/preuniformisation-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+    },
+    {
+      "key": "keyArchNorm",
+      "blob": "851a15d38c96c58aa8056c571d414c17543da600",
+      "path": "translation/review-drafts/theta-key-archimedean-normalisation-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
+    },
+    {
+      "key": "keyUnitExtension",
+      "blob": "731cd0644ff51cd747d911a65d7ea6ea8dd46a9b",
+      "path": "translation/review-drafts/theta-key-family-unit-extension-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
+    },
+    {
+      "key": "thetaFourier",
+      "blob": "b09f61d18e4a53733b3b9247292f783129c34190",
+      "path": "translation/review-drafts/theta-root-fourier-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
     }
   ],
   "root_boundary": {

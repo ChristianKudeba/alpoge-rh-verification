@@ -1,0 +1,249 @@
+\subsection{Units on normal families and on normal valued bases}
+\label{subsec:ftb-key-normal-family-units}
+
+We now give the precise extension steps from the field rule and
+its DVR units.  The key datum is always the pullback of the
+displayed model; no assertion that a generic scalar has the
+desired specialization is made before that is proved.
+
+\begin{srlemma}[The source's DVR tests]
+\label{lem:ftb-key-dvr-tests}
+Let \(A\) be a Noetherian domain with fraction field \(F\).
+An element of \(F\) which belongs to every DVR subring of \(F\)
+containing \(A\) is integral over \(A\).
+Moreover, for primes \(q\subsetneq p\) of a Noetherian ring \(S\),
+there are a complete DVR \(O\) and a map \(\alpha:S\to O\) with
+\[
+                 \ker\alpha=q,\qquad
+                 \alpha^{-1}(\mathfrak m_O)=p.
+ \tag{U1}\label{eq:ftb-key-dvr-specialization-test}
+\]
+\end{srlemma}
+\begin{proof}
+We recall the precise one-dimensional overring calculation
+used in the source.
+If \(B\) is a one-dimensional Noetherian domain and
+\(B\subset C\subset\operatorname{Frac}B\), then \(C\) is
+Noetherian of dimension at most one.
+For \(0\ne a\in B\), the ring \(B/aB\) is Artinian.
+The descending ideals
+\[
+                    J_n=((a^nC\cap B)+aB)/aB
+\]
+therefore stabilize.
+The resulting equality \(J_{h+1}=J_{h+2}\), for all
+sufficiently large \(h\), gives the following downward
+step:
+\[
+ a^{h+1}x=a^{h+2}u+v,\ v\in B
+       \quad\Longrightarrow\quad
+ a^hx=a^{h+1}u'+v',\ v'\in B.
+\]
+Indeed replace \(v\), modulo \(aB\), by an element of
+\(a^{h+2}C\cap B\), then cancel \(a\).
+For each \(x\in C\), clear a denominator \(c\in B\setminus\{0\}\).
+Artinianity of \(B/cB\) makes a power of \(a\) divisible
+by its next power in that quotient, and gives the first
+such displayed expression.
+The upward multiplication step and then the downward
+steps bring it to one fixed exponent \(n\).
+Consequently the \(B\)-module
+\[
+                        \{x\in C:a^nx\in B\}
+\]
+surjects onto \(C/aC\).
+Multiplication by \(a^n\) identifies this module with a
+submodule of \(B\), so it is finite; hence \(C/aC\) is
+finite over \(B\).
+Every nonzero ideal \(I\subset C\) meets \(B\) nontrivially,
+by clearing the denominator of a nonzero element of \(I\).
+Choose \(0\ne a\in I\cap B\).
+The preceding finite quotient and the principal submodule
+\(aC\) show that \(I\) is finitely generated.
+Likewise each nonzero prime of \(C\) has a quotient integral
+over a finite quotient of \(B\), whose contracting prime
+is nonzero and therefore maximal.
+That prime of \(C\) is maximal.
+This proves both assertions about the overring \(C\).
+
+If \(z\in F\) is not integral over \(A\), the valuation
+criterion for integral closure supplies a valuation ring
+\(W\subset F\) containing \(A\), with \(z\notin W\).
+Then \(y=z^{-1}\) is nonzero and is a nonunit of \(W\).
+Put \(B=A[y]\subset W\); its fraction field is \(F\),
+and \(y^{-1}\notin B\).
+Choose a prime minimal over \(yB\).
+The principal ideal theorem makes its localization
+one-dimensional and Noetherian.
+A valuation overring dominating this localization, with
+\(y\) a nonunit, exists by the local valuation-ring
+criterion.
+The one-dimensional calculation just proved makes this
+valuation overring Noetherian.
+A Noetherian valuation domain which is not a field is a
+DVR.  It contains \(A\), and \(z\) does not belong to it,
+which proves the first assertion.
+
+For the second assertion replace \(S\) by
+\((S/q)_{p/q}\), a Noetherian local domain of positive
+dimension.  Choose a valuation overring \(W\) dominating
+it.  Let \(x_1,\ldots,x_r\) generate its maximal ideal.
+Choose a nonzero \(y\) among their images having largest
+multiplicative valuation, so each \(x_i/y\in W\).
+Adjoin these finitely many ratios.
+The resulting ring \(B\subset W\) is Noetherian,
+birational, and still has \(y\) as a nonunit.
+The preceding minimal-prime and overring construction
+gives a DVR containing \(B\) in which \(y\) is a nonunit.
+All \(x_i=y(x_i/y)\) are then nonunits, so this DVR
+dominates the original local ring.
+Its completion is again a DVR and the original DVR
+injects into it: the intersection of its maximal-ideal
+powers is zero.
+The completed map is local and injective on
+\((S/q)_{p/q}\).
+Composing with \(S\to(S/q)_{p/q}\) gives exactly
+\eqref{eq:ftb-key-dvr-specialization-test}.
+\end{proof}
+
+\begin{srproposition}[The unit and its values at every model point]
+\label{prop:ftb-key-family-unit}
+Let \(\kappa\) be a field rule with
+\(\mathrm{Funct}\) and \(\mathrm{UnitSp}\).
+For a normal Noetherian characteristic-zero domain \(S\)
+and a key datum \(y/S\), there is a unique \(u\in S^\times\)
+such that, for every characteristic-zero field \(K\), map
+\(f:S\to K\), and actual key pullback \(x=f^*y\),
+\[
+                                      \kappa_K(x)=f(u).
+ \tag{U2}\label{eq:ftb-key-family-all-points}
+\]
+If \(\kappa\) also satisfies exponent-one homogeneity and
+two such key frames differ by theta scalar \(a\) and
+Lie matrix \(M\), their representing values satisfy
+\[
+                                  a^8u'=\det(M)^4u.
+ \tag{U3}\label{eq:ftb-key-family-homog}
+\]
+\end{srproposition}
+\begin{proof}
+Let \(F=\operatorname{Frac}S\), and first evaluate the
+generic key fibre.
+At every height-one prime \(p\), the ring \(S_p\) is a DVR.
+Its unit assertion puts both the generic value and its
+inverse in \(S_p\).
+The height-one intersection identity for the normal
+Noetherian ring \(S\) puts both in \(S\).
+Their product is \(1\) by injection into \(F\), giving
+the unit \(u\).
+Functoriality already proves
+\eqref{eq:ftb-key-family-all-points} for every injective \(f\).
+
+Now let \(p=\ker f\ne0\).
+Use Lemma~\ref{lem:ftb-key-dvr-tests} with \(q=0\), giving
+\(\alpha:S\hookrightarrow O\) centered at \(p\).
+Pull \(y\) to \(O\).
+Its DVR unit \(v\) has the same generic field value as
+\(\alpha(u)\), by functoriality; injectivity into
+\(\operatorname{Frac}O\) makes \(v=\alpha(u)\) in \(O\).
+The residue field of \(O\) has characteristic zero:
+the contraction of its maximal ideal is \(p\), and
+\(S/p\) embeds in the characteristic-zero field \(K\).
+The \(\mathrm{UnitSp}\) specialization therefore gives
+the value \(\overline{\alpha(u)}\) in that residue field.
+
+Both the residue map \(S\to O/\mathfrak m_O\) and \(f\)
+have kernel \(p\).
+They factor through embeddings of
+\(\operatorname{Frac}(S/p)\).
+Compare the key datum over this fraction field with its
+two actual field pullbacks.
+Functoriality and injectivity of its residue-field
+embedding give value \(u\bmod p\) there, and then value
+\(f(u)\) in \(K\).
+This proves \eqref{eq:ftb-key-family-all-points} at every
+point.  Uniqueness follows at the generic point.
+For \eqref{eq:ftb-key-family-homog}, apply the field
+homogeneity identity to the same two generic pullbacks,
+then inject \(S\) into its fraction field.
+\end{proof}
+
+\begin{srproposition}[Normal valued target, with a Noetherian model]
+\label{prop:ftb-key-normal-valued-unit}
+Let \(S\) be Noetherian, \(V\) a normal domain with fraction
+field \(K\) of characteristic zero, \(g:S\to V\), and
+\(y/S\) a key datum.
+For an actual generic key pullback
+\(x=((V\hookrightarrow K)g)^*y\), there is \(u\in V^\times\)
+with
+\[
+                                  \kappa_K(x)=u
+                                  \quad\hbox{in }K.
+ \tag{U4}\label{eq:ftb-key-valued-unit}
+\]
+No Noetherian hypothesis on \(V\) is required.
+\end{srproposition}
+\begin{proof}
+Put \(S_0=S/\ker g\) and \(F_0=\operatorname{Frac}S_0\).
+These are a Noetherian domain and its fraction field;
+\(F_0\) embeds in \(K\).
+Pull \(y\) to \(S_0\) and then to \(F_0\), and let \(b\)
+be its field value.
+For every DVR subring \(W\subset F_0\) containing \(S_0\),
+there is the actual key pullback over \(W\).
+Its DVR unit shows that \(b,b^{-1}\in W\).
+Lemma~\ref{lem:ftb-key-dvr-tests} makes both integral over
+\(S_0\).
+Functoriality identifies their images in \(K\) with
+\(\kappa_K(x)\) and its inverse.
+Transport their monic equations through \(S_0\to V\).
+Both images are integral over \(V\), and normality of
+\(V\) puts them in \(V\).
+Their product is \(1\) by injection into \(K\).
+They therefore give the asserted unit.
+In particular the Noetherian model is used before
+passing to the possibly non-Noetherian valued target.
+\end{proof}
+
+The exponent-one field rule, its exact norm
+\eqref{eq:ftb-key-archnorm}, and these two propositions
+supply the complete family interface
+\(\mathrm{KeyFam}(g\mapsto1)\), once the previously
+retained actual fine-family and analytic-realization
+inputs have been joined.
+The fields, DVRs, normal Noetherian families, and normal
+valued targets in that interface have exactly the scopes
+printed here.
+
+\paragraph{Frozen source concordance.}
+The DVR approximation, one-dimensional overring and
+completion mechanisms are
+\srcid{src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/%
+RangeAlgebraMapEqIInfDiscreteValuationSubring.lean}
+(\srcid{d373da2375cb8f30eae09b8bab0170253dbd79a0}).
+The explicit integrality test is
+\srcid{IsIntegralOfForallMemDiscreteValuationSubring.lean}
+(\srcid{37bf7d4a155cf39f6b2a69dba9a64553e981a429})
+in that directory.
+The remaining prefix is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/}.
+The height-one generic-unit construction is
+\srcid{ExistsUnitThetaKeyRuleSmoothBase.lean}
+(\srcid{36413650a428826ff71462b79aded750faaa2d18}),
+and the every-point DVR test is
+\srcid{IsValueOfGeneric.lean}
+(\srcid{f3f51dfb486c4f00e04e1c527e9d5264b4e386e8}).
+The exact assemblies are
+\srcid{FamUnit.lean}
+(\srcid{fea31937eccfed5f0483942977d688d14d9dc59d}),
+\srcid{FamHomogOfHomog.lean}
+(\srcid{a28c119b27b4f1d6cf94d2c40f04e7f9fb4ef103}),
+\srcid{ValueMemValuationSubring.lean}
+(\srcid{ac1011e3619e36a8541b57dc4c001a258576baeb}),
+\srcid{ThetaKeyRuleValuationUnitOfFunctorial.lean}
+(\srcid{97457f92dcd20abfde83b5eafe6c49c7940481c9}),
+and \srcid{KeyFamOfKeyFormula.lean}
+(\srcid{660b0c8e7c854d703db866755e2f6b4cc423274b}).
+These arguments add no new moduli or auxiliary analytic
+hypothesis to the field rule; the field rule's own
+separate producers remain as stated earlier.

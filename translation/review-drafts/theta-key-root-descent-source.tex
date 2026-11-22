@@ -1,0 +1,384 @@
+\subsection{The chosen root in a connected family}
+\label{sec:ftb-key-connected-root}
+
+For a complex key datum in a normal form \((\tau,M,a,b,c)\), put
+\[
+                            t(x)=\frac{(\det M)^4}{c^8}.
+ \tag{R1}\label{eq:ftb-key-root-value}
+\]
+We first justify that this is a value of the datum, not of the
+chosen normal form.
+
+\begin{srlemma}[Independence of the normal form]
+\label{lem:ftb-key-normal-value-unique}
+With the actual complex theta uniformization and the Poisson theta
+transformation law, \eqref{eq:ftb-key-root-value} is independent of
+the half-characteristic normal form.
+\end{srlemma}
+\begin{proof}
+Two exponential uniformizations of the same complex abelian variety
+differ by a complex linear map \(\phi\); their specified tangent
+isomorphisms determine it.  It maps their period lattices to each
+other.  The quotient of their local line frames glues, by the
+identical transition functions, to a nowhere-zero entire \(e(z)\).
+Both use the same origin rigidification, so \(e(0)=1\).
+The theta identity has the form
+\[
+        c'\theta[a',b'](z,\tau')
+                 =e(z)c\theta[a,b](\phi z,\tau).
+ \tag{R2}\label{eq:ftb-normal-frame-compare}
+\]
+The integer lattice map is symplectic.  Here is the actual
+automorphy check, which avoids assuming that a group isomorphism
+preserves an unspecified polarization.  Write the images of its
+\(2g\) period generators as \(m_s+\tau n_s\).
+The two automorphy laws and \eqref{eq:ftb-normal-frame-compare}
+give the difference equation for the nowhere-zero entire frame
+quotient.  Taking a global holomorphic logarithm on \(\mathbb C^g\)
+gives
+\(q(z+p_s)-q(z)=\ell_s(z)+d_s\), with linear \(\ell_s\);
+the possible \(2\pi i\) multiples are absorbed in \(d_s\).
+Commuting two differences yields
+\(\ell_s(p_t)=\ell_t(p_s)\).
+Substitute the linear terms \(-2\pi i n_s\cdot\phi z\)
+and their primed counterparts from \eqref{eq:ftb-level-aut}.
+The quadratic \(\tau\) terms cancel by symmetry, giving equality
+of the two integral alternating forms
+\(n_s\cdot m_t-n_t\cdot m_s\).
+Thus the integer lattice matrix is symplectic.
+
+Consequently \(\tau'=\delta\tau\) and
+\(\phi z=j^tz\), \(j=C\tau+D\), for that symplectic matrix.
+The theta transformation gives the multiplier \(r\) with
+\(r^8=(\det j)^4\).
+After its Gaussian exponential is absorbed, compare the two
+theta functions at the same period.  The entire quotient \(\varrho\) between these same-period
+functions has sign multipliers on each unit and \(\tau\)-period,
+because both characteristics are half-integral.
+Thus \(\varrho^2\) has every period of the full lattice.
+It is bounded on a compact real period parallelepiped, hence
+bounded on \(\mathbb C^g\), and is constant by Liouville.
+Since \(\varrho\) is nowhere zero, differentiating its constant
+square shows that \(\varrho\) itself is constant.
+All its sign multipliers are therefore \(1\).
+The two characteristics agree modulo integers; our representatives
+\(0,\tfrac12\) make them equal.  Its value at zero then gives
+\(c^8=(c')^8(\det j)^4\).
+The tangent comparison gives \(M=M'j\).
+Taking determinants proves
+\((\det M)^4/c^8=(\det M')^4/(c')^8\).
+\end{proof}
+
+We will use the following analytic family input, with its exact
+scope.  On a small ball of parameters for a smooth proper polarized
+abelian scheme, its relative exponential and the chosen
+dual-number tangent frame admit jointly holomorphic local
+coordinates; a fixed integral symplectic basis of the period
+lattice continues holomorphically; its torsion sections and Weil
+pairing continue with the same labels.  The resulting normalized
+period has positive imaginary part, and the theta section has,
+on each line chart, its actual local nowhere-zero quotient by
+one of the finitely many half-characteristic theta functions.
+These are respectively the source's relative exponential,
+period-continuation, torsion/Weil, and normal-fibre statements.
+We prove the finite-choice and invariant-continuity step below.
+Construction of this family input is distinct from the fixed
+period holomorphy in
+Proposition~\ref{prop:ftb-key-holomorphic-period}.
+
+\begin{srlemma}[The source's circle quotient argument]
+\label{lem:ftb-circle-quotient}
+Let \(f(b,z),\theta(b,z)\) be holomorphic on an open subset of
+finite-dimensional complex parameter and fibre spaces.
+Suppose \(\theta(b_0,-)\) is not the zero germ at \(z_0\).
+If, for parameters in a set \(S\), the fibre function \(f/\theta\)
+extends holomorphically, then near \((b_0,z_0)\) there is a
+holomorphic \(G(b,z)\) satisfying \(G\theta=f\) on parameters
+in \(\overline S\).
+If a quotient \(F\theta=f\) is defined on all fibres and is
+holomorphic in each fibre, then it is jointly holomorphic.
+\end{srlemma}
+\begin{proof}
+Choose a complex direction \(v\) on which the germ of
+\(\theta(b_0,z_0+tv)\) is not identically zero.
+Such a direction can also be obtained by joining \(z_0\) to a
+nearby point where \(\theta\ne0\).
+Its zeros on that line are isolated, so choose a sufficiently
+small \(r>0\) for which theta is nonzero on \(|t|=r\).
+Compactness of the circle and continuity keep it nonzero on
+that same circle for all \((b,z)\) near \((b_0,z_0)\), and
+keep the whole closed disk inside the chart.
+Set
+\[
+ G(b,z)=\frac1{2\pi}\int_0^{2\pi}
+       \frac{f(b,z+re^{iu}v)}{\theta(b,z+re^{iu}v)}\,du .
+ \tag{R3}\label{eq:ftb-circle-average}
+\]
+Its denominator is bounded away from zero locally on the
+compact circle.  Differentiating under that compact integral
+makes \(G\) jointly holomorphic.
+For \(b\in S\), the holomorphic fibre quotient has its value at
+\(z\) equal to this circle average, by the one-variable
+holomorphic mean-value formula.  Thus \(G\theta=f\) there.
+Continuity, applied at each fixed \(z\), extends this equality
+to \(b\in\overline S\).
+In the second assertion the same circle formula equals \(F\)
+on every nearby fibre, proving joint holomorphy.
+No extension by a generic-fibre value is used.
+\end{proof}
+
+\begin{srlemma}[Finite theta choices and the rigidified scalar]
+\label{lem:ftb-finite-frame-continuity}
+Assume the actual local family input just stated.
+The half-characteristic occurring in its normalized theta frames
+is locally constant, and the scalar \(c(b)\) fixed by the
+origin rigidification is continuous.
+Consequently \(t(x_b)\) is continuous.
+\end{srlemma}
+\begin{proof}
+In each line chart let \(f_j(b,z)\) be the actual algebraic
+theta section read on the relative exponential.
+It is holomorphic in both variables.
+For each fibre, its quotient by the selected theta function
+is locally a holomorphic unit.  Nonzero theta is nonzero on
+a dense subset of each fibre by the identity theorem, so
+these local quotients glue uniquely.
+
+Suppose a different member \(k\) of the finite
+half-characteristic set occurs at parameters approaching
+\(b_0\).  Apply Lemma~\ref{lem:ftb-circle-quotient} to
+\(f_j/\theta_k\), and also to its inverse
+\(\theta_k/f_j\), along these parameters.
+At the limiting fibre the two holomorphic quotients multiply
+to \(1\): this equality holds on the dense set where the
+functions are nonzero and then everywhere by continuity.
+Compare with the unit quotient for the characteristic selected
+at \(b_0\).  On overlapping line charts these quotients glue,
+since their transition functions agree; dense nonvanishing
+makes the gluing unique even at theta zeros.
+They give a nowhere-zero entire ratio between theta functions
+of characteristics \(k\) and \(k_0\).
+The characteristic uniqueness in the preceding normal-form
+argument forces \(k=k_0\), a contradiction.
+The fibres of this finite characteristic choice are therefore
+closed locally, hence open locally, proving local constancy.
+
+With that characteristic fixed,
+Lemma~\ref{lem:ftb-circle-quotient} makes the chart quotient
+jointly holomorphic.
+At \(z=0\) its value is \(c(b)\) times the actual line
+rigidification value \(r_j(b)\).
+That value is holomorphic and nonzero.
+Dividing gives continuity of \(c(b)\), including when the
+theta function itself vanishes at the origin.
+
+For completeness, the tangent matrix is continuous as well.
+Let \(P(b)\) be the continued first half of the period basis;
+its inverse \(h(b)\) is holomorphic by the adjugate formula.
+The vector \(W_i(b)\) in exponential coordinates representing
+the \(i\)-th dual-number tangent is holomorphic: choose
+\(g\) local functions whose derivatives give an invertible
+Jacobian at the identity, and solve that finite system.
+Both its coefficients and its tangent evaluations are
+holomorphic in \(b\).  The normal-form matrix has rows
+\(2\pi i\,h(b)W_i(b)\); thus its determinant is continuous.
+It is nonzero, and \(c(b)\ne0\).
+Formula \eqref{eq:ftb-key-root-value} proves continuity of \(t\).
+\end{proof}
+
+\begin{srlemma}[A powered rule on a smooth base is an actual unit]
+\label{lem:ftb-powered-rule-smooth-unit}
+Let \(k\) have characteristic zero, let \(S\) be a smooth integral
+finitely generated \(k\)-algebra, and let \(y/S\) be a key datum.
+The powered rule of
+Proposition~\ref{prop:ftb-normalized-powered-key} is represented
+by a unit \(u\in S^\times\), at every field-valued point of \(S\).
+In particular
+\[
+                         t(y_s)^{N(g)}=s(u)
+ \tag{R4}\label{eq:ftb-family-powered-unit}
+\]
+at all complex points.
+\end{srlemma}
+\begin{proof}
+At every height-one prime the normal ring \(S\) localizes to a DVR.
+The generic rule value and its inverse belong to that DVR
+by its unit law.  The height-one intersection theorem for a
+Noetherian normal domain puts both in \(S\), so they are
+mutual inverses there.  This gives \(u\).
+
+We must still identify its specialization in higher codimension.
+The source proves this over a regular local ring \(A\) by
+induction on its dimension.
+Dimension zero is a field.  Otherwise choose
+\(\pi\in\mathfrak m_A\setminus\mathfrak m_A^2\).
+The quotient \(A/(\pi)\) is a regular local domain of dimension
+one less, and \(A_{(\pi)}\) is a DVR.
+The rule's characteristic-zero DVR specialization identifies
+the generic value on \(A/(\pi)\) with \(u\bmod\pi\).
+Apply the induction hypothesis to that quotient and its closed
+point.  Every field-valued point with kernel \(\mathfrak m_A\)
+factors through its residue field, so field functoriality gives
+the assertion at that point.
+Localizing \(S\) at any prime reduces its point to this case.
+Thus the unit represents the rule at all field-valued points,
+not only generically.
+The exact complex normal value gives \eqref{eq:ftb-family-powered-unit}.
+\end{proof}
+
+\begin{srlemma}[A root cover with two lifted points]
+\label{lem:ftb-key-connected-root-cover}
+Let \(K\) be algebraically closed of characteristic zero,
+\(R/K\) a smooth integral finitely generated algebra, and
+\(u\in R^\times\).  Let \(n\geq1\), \(p_0,p:R\to K\), and
+\(a_0^n=p_0(u)\).
+There is a smooth integral \(K\)-algebra \(B\), a map
+\(\phi:R\to B\), a unit \(r\in B^\times\) with
+\(r^n=\phi(u)\), and lifts \(q_0,q:B\to K\) of \(p_0,p\),
+such that \(q_0(r)=a_0\).
+\end{srlemma}
+\begin{proof}
+Use induction on the prime factors of \(n\).
+For a prime \(l\), if \(u=\rho^l\) in \(R\), take \(B=R\)
+and replace \(\rho\) by
+\((a_0/p_0(\rho))\rho\); its scalar is an \(l\)-th root of
+unity and fixes its \(l\)-th power.
+Otherwise \(X^l-u\) is irreducible over \(\operatorname{Frac}R\).
+Indeed that field contains all \(l\)-th roots of unity; the
+conjugates of a root form an orbit of size \(1\) or \(l\).
+In the first case the root lies in the fraction field, is
+integral over \(R\), and hence lies in \(R\), contrary to the
+case assumption.
+Take \(B=R[X]/(X^l-u)\).  It is a domain.
+Its root is a unit, so its derivative \(lX^{l-1}\) is a unit;
+the algebra is finite etale over \(R\), hence smooth over \(K\).
+Algebraic closedness gives a lift of \(p\), and the specified
+root \(a_0\) gives the desired lift of \(p_0\).
+Apply this step and then the inductive root construction for
+the remaining prime factors.  The specified root at the first
+point is retained at each step.  This is the source's connected
+root-cover construction; an arbitrary disconnected root torsor
+would not give the required integral base.
+\end{proof}
+
+\begin{srlemma}[The root is fixed by one point]
+\label{lem:ftb-root-fixed-by-point}
+Let \(B\) be a smooth integral finitely generated complex algebra,
+\(y/B\) a key datum, \(r\in B^\times\), and \(n\geq1\).
+Suppose the actual normal value satisfies
+\(t(y_q)^n=q(r)^n\) at every complex point \(q\).
+If \(t(y_{q_0})=q_0(r)\) at one point, then
+\(t(y_q)=q(r)\) at every point.
+\end{srlemma}
+\begin{proof}
+The complex points of an integral finite-type complex variety
+are connected.  One standard proof, used in the source, takes
+a Noether-normalization principal open with primitive-element
+unramified description, proves that this open is connected
+using irreducibility and analytic continuation off its
+discriminant, and uses density of that principal open in
+complex points.
+Smooth algebraic charts are complex analytic charts.
+Lemma~\ref{lem:ftb-finite-frame-continuity}, applied in these
+charts, makes \(q\mapsto t(y_q)\) continuous.
+Evaluation \(q\mapsto q(r)\) is continuous and nonzero.
+Their ratio is therefore a continuous map to the finite set
+of \(n\)-th roots of unity.  It is constant on the connected
+space, and its value at \(q_0\) is \(1\).
+\end{proof}
+
+\paragraph{Exact arithmetic-family interface.}
+We call a datum \(x/\mathbb C\) \emph{connected to a known point}
+if there are a number field \(k\), a smooth geometrically
+integral finitely generated \(k\)-algebra \(S\), a key datum
+\(y/S\), maps \(s:S\to\mathbb C\) and \(s_0:S\to k\) with
+\(s_0\) a \(k\)-map, and \(t_0\in k\), such that
+\(x=s^*y\), and for every embedding \(e:k\to\mathbb C\),
+\[
+                         t((e s_0)^*y)=e(t_0).
+ \tag{R5}\label{eq:ftb-connfam}
+\]
+All identifications here are key pullbacks: line bundle,
+rigidification, theta section and ordered Lie frame are included.
+Geometric integrality means \(F\otimes_k S\) is a domain for
+\emph{every} field extension \(F/k\).
+This is the literal source \(\mathrm{ConnFam}\), not just
+path connectedness of an analytic moduli space.
+
+\begin{srproposition}[Known families give equivariance under complex field maps]
+\label{prop:ftb-key-complex-equivariance}
+Assume the local analytic family input above, and that every
+complex key datum is connected to a known point in the exact
+sense \eqref{eq:ftb-connfam}.
+Then for every field map \(f:\mathbb C\to\mathbb C\) and every
+key pullback \(x'=f^*x\),
+\[
+                              t(x')=f(t(x)).
+ \tag{R6}\label{eq:ftb-key-complex-funct}
+\]
+\end{srproposition}
+\begin{proof}
+For the family in \eqref{eq:ftb-connfam} put
+\(e=s|_k\), and base change to
+\(R=\mathbb C\otimes_{k,e}S\).
+It is smooth integral; \(s\) and \(es_0\) give two complex
+points \(p,p_0\).
+Lemma~\ref{lem:ftb-powered-rule-smooth-unit} gives a unit
+\(u\in S^\times\) with \(t^{N(g)}\) equal to its evaluations.
+Apply Lemma~\ref{lem:ftb-key-connected-root-cover} to its
+image in \(R\), choosing the root \(e(t_0)\) at \(p_0\).
+It gives \(B,r,q,q_0\).
+The root-fixed-by-one-point lemma makes \(t(x)=q(r)\).
+
+Now repeat the entire base change by the possibly nonsurjective
+embedding \(f:\mathbb C\to\mathbb C\).
+The algebra \(\mathbb C\otimes_{\mathbb C,f}B\) is smooth and
+integral: a finite-type integral algebra over an algebraically
+closed field is geometrically integral.
+The points \(fq,fq_0\) lift to this base change, and its root
+is the image of \(r\).
+At the lifted \(q_0\), \eqref{eq:ftb-connfam} gives the chosen
+root \(f(e(t_0))\).
+The same root-fixed-by-one-point lemma makes its value at the
+lifted \(q\) equal to \(f(q(r))=f(t(x))\).
+This is the normal value of \(x'\) by
+Lemma~\ref{lem:ftb-key-normal-value-unique}.
+No continuity of the field map \(f\) has been assumed or used.
+\end{proof}
+
+\paragraph{Frozen source concordance and scope.}
+The base prefix is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+Normal-value independence is
+\srcid{ThetaLawProofs/ThetaFrameValueIndependentNormalForm.lean}
+(\srcid{f823bc2749dfa176812b47f1be3902b284c5eada}).
+The circle quotient and closure argument are
+\srcid{ModuliProofs/DifferentiableOnQuotientOfDifferentiableOnSlice.lean}
+(\srcid{efca854eca061af3cefd2f6ce3c9b9f13e6cc61c})
+and \srcid{ModuliProofs/EqOfFiniteOfClosedFibres.lean}
+(\srcid{7f7959eed9e909e48e267a075fa077ab74d989e9}).
+The finite-character and origin-scalar argument is
+\srcid{ThetaLawProofs/ExistsCoordinatesOfRelations.lean}
+(\srcid{6da8aa085884d27e2caacc57952b26d8dd59704a}).
+Its actual family assembly is
+\srcid{ThetaLawProofs/ContinuousOnThetaFrameValueHolomorphicFamily.lean}
+(\srcid{eae569828b1ee42499288b46d7fcf4dd39dc4062}):
+the relative exponential, continued periods, and their
+torsion/Weil compatibility remain the explicit family input
+stated above.  These are produced in
+\srcid{ModuliProofs/ExistsRelativeExpOfParts.lean},
+\srcid{LatContMapContinuous.lean},
+\srcid{TorsionEqAndWeilIsOfIsHolTo.lean}, and
+\srcid{ThetaLawProofs/ExistsNormalOfWeil.lean}.
+The smooth-base unit proof is
+\srcid{ThetaLawProofs/ExistsUnitThetaKeyRuleSmoothBase.lean}
+(\srcid{36413650a428826ff71462b79aded750faaa2d18}).
+Connected root constancy is
+\srcid{ThetaLawProofs/ThetaFrameValueEqUnitSmoothConnectedBase.lean}
+(\srcid{aee5baa0b37f382a5ca6aeb4caca40e115b342aa}).
+The integral root covers, geometric base change and equivariance
+are \srcid{ThetaLawProofs/IsDomainTensorOfIsAlgClosed.lean}
+(\srcid{df53eb7c2f461008fca381d1052984d14cc517d0}).
+The arithmetic \(\mathrm{ConnFam}\) interface is expanded here
+but its construction is a further producer; it is not inferred
+from an arbitrary complex path.

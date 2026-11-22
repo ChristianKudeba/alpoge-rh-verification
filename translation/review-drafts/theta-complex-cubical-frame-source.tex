@@ -1,0 +1,344 @@
+\subsection{From the cubical generator to the actual polarising frame}
+\label{subsec:ftb-cubical-complex-frame}
+
+Keep the actual exponential \(e:V=\mathbb C^g\to P(\mathbb C)\) and
+lattice \(\Lambda\) of
+Proposition~\ref{prop:ftb-actual-complex-exponential}.
+Let \(L\) be the polarising line bundle, with its prescribed
+rigidification at the origin.  The algebraic input in this step is the
+source's \(\mathrm{CubeSt}\), applied to this rigidified \(L\).
+It supplies a nowhere vanishing algebraic generator \(t\) of
+\[
+ \Theta(L)=\bigotimes_{I\subset\{0,1,2\}}
+              s_I^*L^{\,\sigma_I},\qquad
+ s_I(x)=\sum_{a\in I}x_a,\qquad \sigma_I=(-1)^{3-|I|}.        \tag{CF1}
+\]
+Only this particular bundle and generator are used.
+
+Write \(U_i\) for the algebraic charts of \(L\), and \(g_{ij}\) for their
+transition units, in the convention that section coordinates satisfy
+\(s_i=g_{ij}s_j\).  Define
+\[
+ W_i=e^{-1}U_i,\qquad c_{ij}(z)=g_{ij}(e(z)).
+\]
+For a choice \(j=(j_I)_{I\subset\{0,1,2\}}\), let \(T_j(x)\) be the value
+of the \(j\)-coordinate of \(t\) at
+\((e(x_0),e(x_1),e(x_2))\).  The charts \(W_i\) cover \(V\).
+The \(c_{ij}\) are nonzero holomorphic transition functions and
+\[
+ c_{ij}c_{jk}=c_{ik},\qquad
+ T_j(x)=\prod_I c_{j_Ij'_I}(s_Ix)^{\sigma_I}\,T_{j'}(x).    \tag{CF2}
+\]
+Each \(T_j\) is holomorphic and nonzero on the open set where all the
+\(s_Ix\) lie in \(W_{j_I}\).  Moreover \(W_i,c_{ij}\) are
+\(\Lambda\)-periodic, and \(T_j\) is periodic under independent
+\(\Lambda\)-translations of the three variables.
+These assertions follow by evaluating the algebraic transition and
+generator identities: the partial sum of the three points is
+\(e(s_Ix)\), and the cube transition unit evaluates to the product in
+(CF2).  Thus this is the pulled-back algebraic cube, not a separately
+chosen analytic cubical object.
+
+\begin{srlemma}[The source's local third-difference construction]
+\label{lem:ftb-cube-local-third-difference}
+The preceding actual data admit a radius \(r>0\), nonvanishing
+holomorphic functions \(b_i\) on \(W_i\cap B(0,r)\), and a scalar
+\(\kappa\ne0\), such that
+\[
+ b_i=c_{ij}b_j,\qquad
+ T_j(x)=\kappa\prod_I b_{j_I}(s_Ix)^{\sigma_I}                \tag{CF3}
+\]
+for all sufficiently small \(x\) in the relevant cube chart.
+\end{srlemma}
+
+\begin{proof}
+Choose \(i_0\) with \(0\in W_{i_0}\), and put
+\(F(x)=T_{(i_0,\ldots,i_0)}(x)\).
+We first give the actual face and doubling argument.
+On a face \(x_a=0\), every subset term is paired with the subset
+obtained by inserting or deleting \(a\).  The transition products in
+(CF2) cancel in pairs.  Hence the corresponding local \(T_j\)'s glue to
+a single entire function on that face, periodic under a real-spanning
+lattice.  It is constant: choose a real lattice basis, reduce to a
+compact fundamental parallelepiped, and apply Liouville's theorem.
+Its value at zero is \(F(0)\).  Thus \(F(x)=F(0)\) on each small face.
+
+There is one further glued entire periodic quotient.  Its local
+expression is
+\[
+ \frac{T_{j^+}(2x)
+       \prod_I T_{\operatorname{diag}(j_I,j^-_I,j^+_I,i_0)}
+                    (s_Ix,s_Ix,-s_Ix)^{\sigma_I}}
+      {T_j(x)^3T_{j^-}(-x)}.                               \tag{CF4}
+\]
+Here the eight charts of \((z,z,-z)\) use, respectively, charts for
+\(z,-z,2z,0\): its subset sums are
+\(0,z,z,-z,2z,0,0,z\).
+In this order, the transition product of this diagonal cube is
+\(c(z)^3c(-z)c(2z)^{-1}\).  Substitution in (CF2) cancels every
+transition in (CF4).  It is nonzero, entire and lattice-periodic,
+hence constant by the same argument.  Its value at zero gives
+\[
+ F(2x)\prod_I F(s_Ix,s_Ix,-s_Ix)^{\sigma_I}F(0)^3
+                         =F(x)^3F(-x).                    \tag{CF5}
+\]
+
+Near zero take the analytic logarithm
+\(f(x)=\log(F(x)/F(0))\), so \(f(0)=0\).
+The face identities give \(f=0\) whenever one of the three vector
+variables is zero.  The source obtains
+\(f(x)=O(\|x\|^3)\) by applying the one-variable Schwarz estimate
+successively to those three variables.  More explicitly, for a fixed
+small nonzero \(y\), put \(\rho=R/\|y\|>1\) and consider
+\(f(t_0y_0,t_1y_1,t_2y_2)\) on the polydisc
+\(|t_a|<\rho\), where it is bounded by \(1\).
+Divide first by \(t_0\), then by \(t_1\), then by \(t_2\), using
+the face zero and the removable value at zero at each step.
+The successive Schwarz estimates give at \(t_0=t_1=t_2=1\)
+the bound \(\rho^{-3}=\|y\|^3/R^3\).
+
+Set
+\[
+ \phi(z)=f(z,z,-z),\qquad
+ (\mathcal Dk)(x)=\sum_I\sigma_I k(s_Ix).
+\]
+Taking logarithms in (CF5) yields, near zero,
+\[
+       f(2x)+\mathcal D\phi(x)-3f(x)-f(-x)=0.               \tag{CF6}
+\]
+There is no undetermined logarithmic multiple here: the exponential
+of the left side is \(1\), while that side tends to zero.  Shrink so
+its modulus is less than \(2\pi\); its possible value
+\(2\pi i n\) then has \(n=0\).
+
+Solve
+\[
+                    k(2z)-3k(z)-k(-z)=-\phi(z).            \tag{CF7}
+\]
+The source uses a convergent doubling series, not division by formal
+Taylor coefficients.  For a cubic-order analytic \(h\), set
+\[
+ A_0(z)=h(z/2),\quad
+ A_{n+1}(z)=3A_n(z/2)+A_n(-z/2),\quad k=\sum_{n\ge0}A_n.
+\]
+If \(|h(z)|\le C\|z\|^3\) in a ball, then
+\(|A_n(z)|\le2^{-n}C\|z\|^3\) there.
+The series is locally normally convergent and solves
+\(k(2z)-3k(z)-k(-z)=h(z)\) by shifting its summation index.
+Use \(h=-\phi\).  Then \(k(0)=0\) and \(k=O(\|z\|^3)\).
+
+Equations (CF6)--(CF7) show that
+\(G=f-\mathcal Dk\) satisfies
+\(G(2x)=3G(x)+G(-x)\), and \(G=O(\|x\|^3)\).
+For \(M(x)=|G(x)|+|G(-x)|\) this gives
+\[
+ M(x)\le4^n M(2^{-n}x)
+               \le2C\|x\|^3\,2^{-n}.
+\]
+Let \(n\to\infty\).  Therefore \(f=\mathcal Dk\) near zero.
+Define
+\[
+          b_i(z)=c_{ii_0}(z)e^{k(z)},\qquad \kappa=F(0)
+\]
+on a sufficiently small ball contained in \(W_{i_0}\).
+The transition law proves \(b_i=c_{ij}b_j\); exponentiating
+\(f=\mathcal Dk\) and applying (CF2) gives (CF3).
+All these functions are nonzero, and \(F(0)\ne0\).
+\end{proof}
+
+\begin{srlemma}[The actual extension of the frame to all of \(V\)]
+\label{lem:ftb-cube-global-frame}
+The \(b_i\) extend to nonvanishing holomorphic functions on \(W_i\),
+still satisfying their transition law, such that (CF3) holds on every
+cube chart, for all \(x\).
+\end{srlemma}
+
+\begin{proof}
+First extend a local cube identity to the whole region
+\[
+                    \{x:s_Ix\in B(0,r)\text{ for all }I\}.
+\]
+This region is convex.  On its cube-chart cover, the quotient of
+\(T_j\) by the alternating product of the \(b_{j_I}\) is holomorphic
+and agrees on overlaps by (CF2).  Its germ at zero is the constant
+\(\kappa\); the identity theorem on this connected region makes the
+quotient equal to \(\kappa\) everywhere.
+
+One can now double the radius.  For \(w\in B(0,2r)\) put
+\[
+                     h(w)=(w/2,w/2,-w/2),\qquad D=\{0,1\}.
+\]
+The \(D\)-sum is \(w\).  Every other subset sum has norm at most
+\(\|w\|/2<r\), and \(\sigma_D=-1\).
+On a cube chart \(j\), solve (CF3) for the \(D\)-factor and set
+\[
+ b'_i(w)=c_{i,j_D}(w)\,
+      \frac{\kappa\prod_{I\ne D}
+                   b_{j_I}(s_Ih(w))^{\sigma_I}}{T_j(h(w))}. \tag{CF8}
+\]
+The denominator and every numerator factor are nonzero.
+Equations (CF2) and \(c_{ij}c_{jk}=c_{ik}\) show that (CF8) is
+independent of the auxiliary cube chart.  Thus these expressions
+glue holomorphically; they are nonzero and have the same transition
+law.  On \(B(0,r)\), (CF3) proves \(b'_i=b_i\).
+The preceding convex-region argument supplies the cube identity
+on the larger ball.  Iterate over the balls \(B(0,2^nr)\).
+The extensions agree on overlaps, so they glue on all \(W_i\).
+For any fixed cube, one sufficiently large ball contains all its
+eight subset sums, proving the global form of (CF3).
+\end{proof}
+
+\begin{srproposition}[The frame and its exact Appell--Humbert data]
+\label{prop:ftb-actual-appell-humbert-frame}
+On the same \(e,V,\Lambda\) there are a Hermitian form \(H\), an
+integral bilinear form \(E\) on \(\Lambda\), a function
+\(\chi:\Lambda\to\mathbb C\) of modulus \(1\), and nonzero holomorphic
+frame coordinates \(f_i\) on \(W_i\), with
+\[
+ \begin{split}
+ f_i(z)&=c_{ij}(z)f_j(z),\\
+ f_i(z)&=\chi(\lambda)
+       \exp\!\left(\pi H(z,\lambda)+\tfrac{\pi}{2}H(\lambda,\lambda)\right)
+       f_i(z+\lambda),\\
+ E(\lambda,\mu)&=\operatorname{Im}H(\lambda,\mu).             \tag{CF9}
+ \end{split}
+\]
+The \(f_i(0)\) equal the prescribed rigidification coordinates at
+zero.  Positivity of \(H\) and perfection of \(E\) are not asserted in
+this proposition; they are proved from the polarization and Weil
+nondegeneracy in the next step.
+\end{srproposition}
+
+\begin{proof}
+For \(\lambda\in\Lambda\) define, on any chart containing \(z\),
+\[
+                    \alpha_\lambda(z)=b_i(z)/b_i(z+\lambda).
+\]
+Periodicity of \(c_{ij}\) makes this independent of \(i\).
+It is an entire nonzero function.  Compare the global cube identity
+at \(x=(0,y,z)\) and at \(x+(\lambda,0,0)\).
+The cube generator is periodic, and cancellation of its eight
+frame factors gives
+\[
+       \alpha_\lambda(y+z)\alpha_\lambda(0)
+                         =\alpha_\lambda(y)\alpha_\lambda(z). \tag{CF10}
+\]
+An entire multiplicative character \(u\) on the additive vector
+space, with \(u(0)=1\), is \(\exp(du_0(z))\).
+Indeed differentiation of \(u(z+w)=u(z)u(w)\) gives
+\(du_w=u(w)du_0\); the derivative of
+\(u(z)\exp(-du_0(z))\) is zero, and its value at zero is \(1\).
+Therefore
+\[
+ \alpha_\lambda(z)=a(\lambda)e^{B_\lambda(z)},\qquad
+                       a(\lambda)=\alpha_\lambda(0)\ne0,   \tag{CF11}
+\]
+where \(B_\lambda\) is complex linear.
+The quotient identity
+\(\alpha_{\lambda+\mu}(z)=
+ \alpha_\lambda(z)\alpha_\mu(z+\lambda)\)
+gives, after interchanging \(\lambda,\mu\) if necessary,
+\[
+ a(\lambda+\mu)=a(\lambda)a(\mu)e^{B_\lambda(\mu)},\qquad
+              B_{\lambda+\mu}=B_\lambda+B_\mu.              \tag{CF12}
+\]
+For the second identity, equality of exponentials of complex linear
+forms implies equality of the forms by differentiating at zero.
+
+Here is the explicit normal-form calculation.  Extend the additive
+map \(\lambda\mapsto B_\lambda\) real linearly from the full integral
+lattice to \(V\); a lattice basis is also a real basis.
+The skew relation from (CF12) is
+\[
+        B_\lambda(\mu)-B_\mu(\lambda)\in2\pi i\mathbb Z.     \tag{CF13}
+\]
+Its real part vanishes, first on the lattice and then on all of
+\(V\times V\) by real linearity.
+Splitting a real linear map into its complex linear and conjugate
+linear parts therefore writes
+\[
+                   B_\lambda(z)=A(\lambda,z)+K(z,\lambda),
+\]
+where \(A\) is symmetric complex bilinear and \(K\) is Hermitian.
+Explicitly, the splitting uses the values on the real basis vectors
+\(e_j,ie_j\), with coefficients
+\((F(e_j)\mp iF(ie_j))/2\); the real skew identity gives the stated
+symmetries.  Put \(H=K/\pi\).
+Taking imaginary parts in (CF13) shows
+\(\operatorname{Im}H(\lambda,\mu)\in\mathbb Z\), and its additivity
+in both variables defines \(E\).
+
+The map
+\[
+ \lambda\longmapsto
+ \log|a(\lambda)|-\tfrac12\operatorname{Re}A(\lambda,\lambda)
+                 -\tfrac12\operatorname{Re}K(\lambda,\lambda)
+\]
+is additive by (CF12).  Extend it real linearly to \(V\), and write
+this real linear function as \(\operatorname{Re}c(z)\) for a complex
+linear \(c\).  Set
+\[
+ Q(z)=\tfrac12 A(z,z)+c(z),\qquad
+ \chi(\lambda)=a(\lambda)
+   e^{-A(\lambda,\lambda)/2-K(\lambda,\lambda)/2-c(\lambda)} .
+\]
+Its modulus is \(1\).  Substituting these definitions into (CF11)
+gives
+\[
+ a(\lambda)e^{B_\lambda(z)}e^{Q(z)-Q(z+\lambda)}
+       =\chi(\lambda)e^{\pi H(z,\lambda)+\pi H(\lambda,\lambda)/2}.
+\]
+Thus \(b_i(z)e^{Q(z)}\) has the required automorphy and transition
+law.  Notice \(Q(0)=0\).
+
+Finally choose one \(i_0\) with \(0\in W_{i_0}\), and multiply every
+frame coordinate by the single nonzero scalar
+\[
+ \frac{\text{the prescribed rigidification coordinate in }i_0}
+                  {b_{i_0}(0)e^{Q(0)}}.
+\]
+The algebraic rigidification transition identity makes the value in
+every other origin chart correct as well.  This scalar changes
+neither the exponential, the lattice, nor the automorphy in (CF9).
+\end{proof}
+
+\paragraph{Frozen-source ledger and remaining steps.}
+All following files are under
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ToricGeometry/}
+at \srcid{alpoge-source-7cbf7a0c}.
+Actual evaluation of (CF1)--(CF2) is
+\srcid{CubeTrivialisationOnUniformisingSpace.lean}
+(\srcid{94bdcfed693818f0cdc6f7c89ad5cad13958ca40}).
+The periodic face and quotient argument is
+\srcid{CubeSectionFacesAndDoubling.lean}
+(\srcid{e1fbe94e28161601e128fd1024f1b8bf91f012a2});
+it calls the periodic entire-function lemma in
+\srcid{../CovolumeBounds/EntireApplyEqOfPeriodicOfSpanReal.lean}.
+The series solution to (CF7) is
+\srcid{DifferentiableOnDoublingIterate.lean}
+(\srcid{04ea97cf72ae242c74021e29294ee9fb81a9f6e3});
+the homogeneous cubic estimate is
+\srcid{EventuallyEqZeroOfIsBigOCubeOfDoubling.lean}
+(\srcid{4b65b8c1681c1d8ee0924fe3afa20faf0cc6a002});
+the logarithmic, Schwarz and third-difference assembly is
+\srcid{SeriesApplyEqZeroOfFace.lean}
+(\srcid{89bfbd686accf0eebbc48ddd5acefd5a5632b35b}).
+The local coordinates in (CF3) are constructed in
+\srcid{ExistsLocalFrameCompatibleCube.lean}
+(\srcid{5c9dc9db6d8d8b04c16fb0643375c36c6dc22444}).
+The convex-region and successive radius-doubling construction
+(CF8) is \srcid{ExistsGlobalFrameOfLocal.lean}
+(\srcid{3fd0ef6e101051ea7a7f5a83620d81c624974784}).
+Equations (CF10)--(CF12) are
+\srcid{AutomorphyFactorExpLinearOfCube.lean}
+(\srcid{9e2f1f482c740af89dc5a110875fb5c07be897fc});
+the explicit real-linear splitting and gauge are
+\srcid{AppellHumbertNormalFormOfLinearExponent.lean}
+(\srcid{1d1f093ab73ab5ad6edb72b9978e2e96148e08f0}).
+The actual polarising bundle, same-exponential construction and
+origin-rigidification normalization are
+\srcid{ExistsAppellHumbertFrameIsRig.lean}
+(\srcid{16c73490578c5cc5c0939d1bb71d450477e7be78}).
+This proves exactly its Hermitian-frame output.
+The later positivity, Weil/perfect-pairing and section-surjectivity
+producers are still separate from this chunk.

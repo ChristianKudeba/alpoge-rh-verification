@@ -1,0 +1,458 @@
+\section{The source short reading and its common scalar}
+\label{sec:sr-source-short-reading-normalization}
+
+The source comparison is a comparison of the actual framed
+section and the actual lattice theta series.  Its normalizing
+factor is selected in two stages.  A lattice factor is fixed
+before the component; a second factor is fixed on a component
+before the lattice, polynomial, short rule or frame is varied.
+We retain that order in the statements below.
+
+\subsection{The value formula on one analytic fibre}
+Fix the original host \(H\), datum \(D_w\), level \(l\),
+moduli object \(X_o\), coefficient field \(F=c.F\) embedded
+in \(\mathbb C\), and the actual connection \(\mathrm{nab}\)
+with \(\mathrm{IsNab}\).
+Let \(X\) be the original Hermitian data of rank \(r\),
+with symplectic basis \(\mathrm{bas}\), coordinate index
+\(\mathrm{idx}\), and \(x\in X.\mathrm{dom}\).
+Let \(L\) be self-dual for the alternating form of \(X\),
+and let
+\[
+ A:\mathrm{AnFib}(X,\mathrm{bas},\mathrm{idx},e,x,L,y)
+\]
+be the actual analytic fibre of the framed point \(y\).
+Thus its exponential, integral period kernel, differential,
+\(O_E\)-action and local line trivializations are tied to
+that same \(y\).  We use its section-reading relation
+\(A.\mathrm{Reads}\), rather than identifying two line bundles
+by their ranks.
+
+Let \(n\) be even, \(r=D_w.p+D_w.q\), and let \(e_L\) be
+the actual letter bijection satisfying
+\[
+ \mathrm{letterDir}(e_L(\tau,i,b))
+        =e_b\otimes e_{e^{-1}(\tau,i)} .
+ \tag{RS1}\label{eq:sr-source-reading-directions}
+\]
+Take a level-one reading \(\theta\) with
+\(A.\mathrm{Reads}(1,y.s,\theta)\).
+Let \(v\) be an actual normalized lattice vacuum for
+\(O_E^n\otimes L\), with the host semicharacter
+\(w_0+\bar w_0=1\), and suppose
+\[
+       \prod_{b=1}^{n}\theta(z_b)
+            =\kappa_0\,\mathrm{thA}(v,x;z).
+ \tag{RS2}\label{eq:sr-source-level-one-product-reading}
+\]
+For \(n=0\), the products have value \(1\); no extraction
+of an \(n\)-th root is used.
+
+Fix a marking \(\mathrm{mk}\) with \(A.\mathrm{Marked}(\mathrm{mk})\).
+Let \(\Lambda\in\mathrm{Vset}(E,n,l.M)\) and let
+\(\mathrm{NOK}(\Lambda,N,l.M)\) hold, including oddness
+and positivity of \(N\).  Put
+\[
+ z=z_\Lambda(N,r)=\Lambda.\mathrm{zCard}(N,r),\quad
+ m=m_\Lambda(N,r)=\Lambda.\mathrm{mIdx}(N,r),\quad
+ Q_l=\left|\mathrm{LevQ}(D_w,l)^n\right|.
+\]
+These are the actual source indices.  Let \(Y_q\) be
+the actual roots of the marking, satisfying
+\(\mathrm{IsRoots}(l,L,\mathrm{mk},N,Y)\).
+For a finite level weight \(w_q\), set
+\[
+ {\cal G}=\sum_q w_q\,\mathrm{heisG}(Y_q)
+             \mathrm{projA}_{\Lambda\otimes L}v .
+ \tag{RS3}\label{eq:sr-source-reading-gphi}
+\]
+All sums here are finite.
+For \(P\in\mathrm{HHa}(D_w,a,n)\), a short value \(v_0\)
+with the source parameter \(\beta\) satisfies
+\[
+ v_0=\beta^{-1}m^{-1}Q_l^{-1}z\,\kappa_0\,
+     \mathrm{thP}\!\left(
+       {\cal G},\,
+       \mathrm{rename}_{e_L}(\sigma P),x\right).
+ \tag{RS4}\label{eq:sr-source-short-value-normalization}
+\]
+The scalar factors are embedded into \(\mathbb C\) using
+the specified coefficient embedding.
+
+We now prove the calculation in (RS4), stating the precise
+geometric identities it uses.
+The actual even-representative construction supplies
+\(u_1,\ldots,u_z\in\Lambda\otimes L\), distinct modulo
+\(N(O_E^n\otimes L)\), with
+\[
+ N u_{i,b}\in2L,\qquad
+ \sum_i\mathrm{heisG}(u_i)v
+                    =z\,\mathrm{projA}_{\Lambda\otimes L}v,
+       \qquad z,m>0.
+ \tag{RS5}\label{eq:sr-source-even-representatives}
+\]
+To see why doubled representatives exist, if an odd
+integer \(N^2\) annihilates a finite quotient, multiplication
+by \(2\) is bijective on it: \(2((N^2+1)/2)\equiv1\bmod N^2\).
+Choose representatives using this inverse and double them.
+The tensor indices are the powers appearing in \(z\).
+The signed Heisenberg average is the lattice projector;
+the sign of a doubled lattice vector is \(1\), so its
+sum is the unsigned sum in (RS5).
+This is the same finite-group projection argument as in
+Section~\ref{sec:sr-source-raw-theta-norm}.
+
+The analytic-fibre root and isotropic-point identities
+turn \(N^{-1}u_i\) and \(N^{-1}Y_q\) into the geometric
+torsion points of \(\mathrm{ShortValAt}\).
+For each \(q,i,b\), choose its canonical translated
+section \(F_{q,i,b}\).
+The required actual symmetric-lift reading is
+\[
+ A.\mathrm{Reads}\left(N^2,F_{q,i,b},
+   z_b\longmapsto
+   \mathcal F(Y_{q,b})\mathcal F(u_{i,b})\theta(Nz_b)\right),
+ \tag{RS6}\label{eq:sr-source-canonical-translation-reading}
+\]
+where \(\mathcal F\) is the source Fock translation.
+Here the right side denotes the two translations before
+evaluation at \(Nz_b\).
+Their order agrees with
+\(\mathrm{heisG}(Y_q)\mathrm{heisG}(u_i)v\).
+Oddness is used in the symmetric-lift identity; no
+arbitrary lift with the same underlying torsion point
+can replace it.
+
+The second required identity is the actual harmonic
+connection calculation
+\[
+ \sum_\mu P_\mu\prod_b
+          \mathrm{nab}_y(N^2)(F_{q,i,b},\mathrm{colOf}(\mu,b))
+   =P(\partial)\left[
+       \kappa_0\,
+       \mathrm{thA}(\mathrm{heisG}(Y_q)
+                       \mathrm{heisG}(u_i)v,x;Nz)\right]_{z=0},
+ \tag{RS7}\label{eq:sr-source-reading-harmonic-connection}
+\]
+with precisely the directions (RS1).
+It is the specialization of the canonical-connection
+harmonic contraction to the analytic chart of \(A\).
+The formal Wick identity at a supplied chart is one
+ingredient of (RS7); the analytic chart's actual germ
+and its compatibility with \(\mathrm{IsNab}\) are also
+required.
+
+The value definition on this torsion witness is
+\[
+ \beta^{-1}m^{-1}Q_l^{-1}N^{-\deg P}
+    \sum_q w_q\sum_i\sum_\mu P_\mu
+             \prod_b\mathrm{nab}_y(N^2)
+                           (F_{q,i,b},\mathrm{colOf}(\mu,b)).
+\]
+It equals the original short value by uniqueness of
+\(\mathrm{ShortValAt}\), not by a choice of an unrelated
+torsion witness.
+Row homogeneity makes \(P\) homogeneous of degree
+\(d=\mathrm{DF}(D_w,a)\) when \(P\ne0\).
+Thus \(P(\partial)[f(Nz)]_{z=0}=N^dP(\partial)f(0)\);
+if \(P=0\), every term is zero, irrespective of the
+convention for its total degree.
+Use (RS7), commute finite sums and derivatives,
+and apply (RS5).  This supplies exactly
+\(N^d z\kappa_0\mathrm{thP}({\cal G},\sigma P,x)\).
+Since \(N>0\), its \(N^d\) cancels the definition's
+\(N^{-\deg P}\), proving (RS4).
+Renaming letters commutes with polynomial differentiation
+because it bijects the multisets of derivative directions.
+
+\subsection{The geometric Fourier scalar and the lattice factor}
+Retain the source cover \(d:\mathrm{DeltaDat}(X_o,c,n)\),
+its field identification \(d.e_F\), its actual
+\(\mathrm{IsLev}\) witness, and the pinned data
+\((\mathrm{ph},\psi,x_0^{\rm pin})\) satisfying
+\(d.\mathrm{PhiPin}\).
+Use the common classical level \(D\) and the full
+\(\mathrm{LevTie}(d,\sigma,\mathrm{ph},D,r\le n)\).
+The two level coefficient fields embed compatibly:
+\(\sigma_2(d.e_F(t))=\sigma(t)\).
+Fix once and for all actual normalized vacua \(v_0(L)\)
+for the shifted lattices of \(D\).
+
+The finite Fourier computation of the source has the
+following exact shape.  Write
+\[
+ {\cal C}_\Lambda=
+ \frac{\Lambda\otimes(2\bar{\mathfrak m}L)}
+      {\Lambda\otimes(2\bar{\mathfrak m}\mathfrak m L)},
+       \qquad\mathfrak m=D.\mathfrak m,
+ \quad
+ \langle u,Y\rangle=\sum_b EF_X(u_b,Y_b).
+\]
+It first gives a unit scalar \(t_1\), independent of
+\(\Lambda,N,Y,q\), with
+\[
+ \sigma_2(d.w(x_0)(q))
+   =t_1\sum_{c\in{\cal C}_\Lambda}
+       \mathrm{datF}(D,M_{\rm fr},c)\,
+                   e^{-2\pi i\langle c,Y_q\rangle}.
+ \tag{RS8}\label{eq:sr-source-cover-fourier-reading}
+\]
+It also gives the exact finite Heisenberg identity
+\[
+ \sum_q e^{-2\pi i\langle c,Y_q\rangle}
+                         \mathrm{heisG}(Y_q)p
+      =Q_{l_2}\,\mathrm{heisG}(c)\,
+           \mathrm{projA}_{\Lambda\otimes L^{\rm sh}}p ,
+ \tag{RS9}\label{eq:sr-source-roots-finite-fourier}
+\]
+for \(p\) fixed by the signed lattice action of
+\(\Lambda\otimes L\) and \(c\in2\Lambda\otimes\bar{\mathfrak m}L\).
+The quotient, phases, shifted lattice and common
+Heisenberg representation in these equations are part
+of the actual level dictionary.
+Equations (RS8) and (RS9) are the explicit lower identities
+required here; a separate scalar-existence statement
+does not replace them.
+
+The shifted-vacuum projector calculation chooses a
+positive \(\rho_{\rm sh}\) and a real function
+\(s(\Lambda)\) before \(L,\mathrm{mk},\delta\) or the
+vacuum \(v\) is varied.  For each admissible \(L,v\),
+its scalar \(t_2\) has
+\(|t_2|=\rho_{\rm sh}\), and \(s(\Lambda)>0\)
+on the actual \(\mathrm{Vset}(E,n,l_2.M)\).
+Substitute (RS8) into the definition (RS3), exchange
+the two finite sums, use (RS9), and then this
+shifted-vacuum projector identity.  The result is
+\[
+ {\cal G}=
+       t\,s(\Lambda)\,
+        \phi_F(D,M_{\rm fr},v_0,L,\Lambda),
+ \qquad
+ t=t_1Q_{l_2}t_2,\qquad
+ |t|=\rho_1:=Q_{l_2}\rho_{\rm sh}>0.
+ \tag{RS10}\label{eq:sr-source-gphi-phiF-scalar}
+\]
+Finiteness of \({\cal C}_\Lambda\) follows from finite
+generation and an integer annihilating the quotient,
+since \(l_2.M\in\mathfrak m\).
+Every passage is a finite sum; there is no convergence
+interchange in (RS8)--(RS10).
+
+In the source \(\mathrm{shortRule\_value}\), define,
+before \(L,\mathrm{mk},\delta\) are chosen,
+\[
+ u(\Lambda,N)=
+  \sigma_2\!\left(
+      d.e_F(\beta_H(c,\Lambda))^{-1}
+                   m_\Lambda(N,r)^{-1}Q_{l_2}^{-1}
+                   z_\Lambda(N,r)\right)s_+(\Lambda),
+ \quad
+ s_+(\Lambda)=
+  \begin{cases}s(\Lambda),&s(\Lambda)>0,\\1,&\text{otherwise.}\end{cases}
+ \tag{RS11}\label{eq:sr-source-uniform-lattice-reading-factor}
+\]
+The function \(s_+\) simply defines the factor outside
+the admissible set as well.
+For admissible \(\Lambda,N\), \(u(\Lambda,N)\ne0\).
+The indices \(m,z,Q_{l_2}\) are positive.
+The source \(\beta_H\) is also nonzero: its definition
+selects a nonzero witness when such a witness exists
+and otherwise takes \(1\).
+This nonvanishing assertion does not require a
+covolume or absolute-value assertion about \(\beta_H\).
+
+For each admissible \(L\) and the actual marking/dual/
+adaptation ties, the normalized level-one theta factor
+has a norm \(\rho_0>0\) independent of its unit frame.
+This is the literal mean-one identity
+\[
+ \frac{\int_{\mathrm{Fd}}|\theta(z)|^2
+                      e^{-\pi H_x(z,z)}\,dz}
+              {\operatorname{vol}(\mathrm{Fd})}=1
+\]
+together with (RS2).
+It gives
+\[
+ |\kappa_0|=\rho_0=
+ \frac{\left(\sqrt{2^g/\prod_{\tau\in\Psi}X.c_\tau^{\,r}}\right)^{n/2}}
+      {|C_{\rm vac}|},
+ \tag{RS12}\label{eq:sr-source-mean-one-reading-factor}
+\]
+where \(C_{\rm vac}\ne0\) is the same period-coordinate
+vacuum scalar.  In particular the formula includes
+\(n=0\).  Its input includes the actual period-coordinate
+theta expansion; equality of one-dimensional spaces
+alone would not determine (RS12).
+
+Lift the analytic fibre and marking to the actual
+cover, using the given \(\mathrm{IsLev}\) lift, and
+apply (RS4) there.
+The short-rule definition gives
+\(f(y)=d.c_\delta(y_2)v_0\).
+By (RS10) and linearity of \(\mathrm{thP}\) in its
+test function, the common factor at that fibre is
+\[
+ \kappa=d.c_\delta(y_2)\,\kappa_0\,t .
+\]
+The \(\mathrm{UnitC}(d)\) input says
+\(|d.c_\delta(y_2)|=1\).
+Thus \(|\kappa|=\rho_0\rho_1>0\), independently of
+\(\Lambda,N,P,f\), and
+\[
+ f(y)=\kappa\,u(\Lambda,N)\,
+   \mathrm{thP}\!\left(
+      \phi_F(D,M_{\rm fr},v_0,L,\Lambda),\,
+             \mathrm{rename}_{e_L}(\sigma P),x\right)
+ \tag{RS13}\label{eq:sr-source-common-fibre-short-reading}
+\]
+simultaneously for every one of those choices.
+This explains exactly why the scalar can be chosen
+before the lattice and polynomial.
+
+\subsection{The scalar is constant on the frame domain}
+We prove the analytic step used in the source, including
+its simultaneous-family and zero-family cases.
+
+\begin{srlemma}\label{lem:sr-source-common-constant-norm-factor}
+Let \(U\) be a connected open subset of a complex normed
+vector space, let \(R_i,T_i:U\to\mathbb C\) be holomorphic
+for an arbitrary index set \(I\), and let \(\rho>0\).
+Suppose that for every \(x\in U\) there is one scalar
+\(k_x\), with \(|k_x|=\rho\), such that
+\(R_i(x)=k_xT_i(x)\) for every \(i\).
+There is \(C\ne0\) with \(R_i=CT_i\) on \(U\) for
+every \(i\).
+\end{srlemma}
+\begin{proof}
+If every \(T_i\) is zero, the pointwise identity makes
+every \(R_i\) zero; take \(C=\rho\).
+Otherwise choose \(T_j(x_0)\ne0\) and a ball about
+\(x_0\) on which \(T_j\ne0\).
+The holomorphic ratio \(R_j/T_j\) has constant modulus
+\(\rho\), so the maximum-modulus principle makes it
+constant on that ball, with value \(C\ne0\).
+The common pointwise scalar then gives
+\(R_i=CT_i\) there for all \(i\).
+
+Here is an explicit continuation argument which also
+works in a complex normed vector space.
+Let \(S\) be the open set of points at which all these
+identities hold in a neighborhood.
+It is nonempty.
+If \(y\in\overline S\cap U\), choose
+\(B(y,\delta)\subset U\) and
+\(x_1\in S\cap B(y,\delta/4)\).
+For \(z\in B(y,\delta/4)\), the complex line
+\(x_1+t(z-x_1)\), \(|t|<3/2\), lies in
+\(B(y,\delta)\).
+For each \(i\), the holomorphic difference
+\(R_i-CT_i\) on that line vanishes near \(t=0\).
+The one-variable identity theorem makes it zero
+at \(t=1\).
+Thus all the identities hold on \(B(y,\delta/4)\);
+so \(y\in S\).
+The set \(S\) is both open and relatively closed in
+the connected \(U\), and hence is \(U\).
+\end{proof}
+
+For the source frame version, \(U=X.\mathrm{dom}\)
+is open and connected.
+The required extension from unit frames is exact:
+Gram--Schmidt supplies, for every \(x\in U\), an
+upper triangular \(b\) with nonzero diagonal such
+that \(xb\) is a unit frame.
+The two functions in the reading comparison transform
+by the same \(\mathrm{bchar}(\lambda,b)\ne0\).
+Cancel that character from their equality at \(xb\);
+the same pointwise scalar then works at \(x\).
+The preceding lemma therefore applies.
+The openness follows from strict leading-minor
+inequalities; the connectedness and triangular
+orthonormalization are the original frame-domain
+results, with the fixed signature of \(X\).
+
+Apply it, for a fixed component \(k\), to the index
+set of all admissible quadruples
+\((\Lambda,N,P,f)\).
+Let \(g_k\) and the coordinate identification
+\(\mathrm{castFr}\) be the actual component move
+and same-space identification.
+Take
+\[
+ \begin{split}
+ R_{\Lambda,N,P,f}(x)&=\mathrm{rdU}_U(f)(k,x),\\
+ T_{\Lambda,N,P,f}(x)&=u(\Lambda,N)\,
+    \mathrm{thP}\!\left(\phi_F(D,M_{\rm fr},v_0,
+                           g_k\Lambda_k,\Lambda),
+       \mathrm{rename}_{e_L}(\sigma P),
+                    g_k\,\mathrm{castFr}(x)\right).
+ \end{split}
+\]
+The actual section reading and the theta holomorphy
+law give holomorphy and the same Borel character.
+The common analytic fibre supplied by \(UW\), and
+its transported marking, give (RS13) on every unit
+frame, with the same \(\rho_0\rho_1\).
+Consequently there is \(C_k\ne0\) with
+\[
+  \mathrm{rdU}_U(f)(k,x)=C_k\,u(\Lambda,N)\,
+    \mathrm{thP}\!\left(\phi_F(D,M_{\rm fr},v_0,
+                           g_k\Lambda_k,\Lambda),
+       \mathrm{rename}_{e_L}(\sigma P),
+                    g_k\,\mathrm{castFr}(x)\right).
+ \tag{RS14}\label{eq:sr-source-short-reading-global-scalar}
+\]
+The quantifiers are: fix \(u(\Lambda,N)\) first;
+then for each fixed component and its specified
+move/marking, choose \(C_k\); then (RS14) holds for
+every admissible \(\Lambda,N,P,f\) and every
+\(x\in X_k.\mathrm{dom}\).
+There is no choice of \(C_k\) depending on \(P\)
+or on the individual frame.
+
+\paragraph{Frozen-source correspondence and supplier scope.}
+With prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/SiegelThetaTransformation/},
+the value calculation is
+\srcid{ShortThetaValueComplexPointEqClassicalTheta.lean}
+(\srcid{2055ba448bc5ae903a96758e651e9924a44c367a}),
+\srcid{shortValAt_eq_thP};
+the common lattice and fibre factors are
+\srcid{GphiEqSmulPhiF.lean}
+(\srcid{49ecf15b9a7d4565663d55eb915f47c052997523})
+and \srcid{IteratedFDerivSmulAll.lean}
+(\srcid{b8a0c23b041516b9f4dc141eed167e25c3a52504}),
+\srcid{ShortPt.shortRule_value};
+the last analytic argument is
+\srcid{ConstOfNormFactorUnitFr.lean}
+(\srcid{ae99b4fcc02fcee1d1bc16f67e4e521203578ba7})
+and \srcid{ShortSeriesReadingsEqClassicalThetaSeries.lean}
+(\srcid{569e5e7d4b19f957cfd305524b5d6f1207b233ad}),
+\srcid{rdU_short_eq_thP}.
+The explicit lower formulas (RS8), (RS9), and (RS12) are
+respectively
+\srcid{CoverFourierCoeffEqFiniteFourierSum.lean}
+(\srcid{74576b27f7c3dd7a54f9c4d66edcd5931e6c9cb4}),
+\srcid{FourierTranslatesVacuumRootsLevelPoints.lean}
+(\srcid{28fc115f8c46ce96e6f2bbf704fe6c4b1b43aced}),
+and \srcid{ExistsSymplOfSelfDual.lean}
+(\srcid{8dd7dbad6195af626d9c794fa32465204b5ed6a3}).
+The even-representative producer is
+\srcid{ExistsEvenRepsTensorLatticeAndSum.lean}
+(\srcid{502dfc50708b8b3b17831e6f95df62e543aae8cb}).
+
+The calculation in this section is bounded by its displayed
+actual-fibre and finite-Fourier inputs.
+Their complete geometric producers are kept separate:
+the common \(UW/\mathrm{AnFib}\) realization and period
+vacuum expansion; the canonical symmetric-lift reading
+(RS6); the analytic-germ and chart-independence
+compatibility in (RS7); and the exact Fourier
+coefficient/roots identities (RS8)--(RS9).
+In particular, the formal Wick contraction alone has
+not been identified with the full actual
+\(\mathrm{IsNab}\) endpoint.
+The exact latter supplier is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/HarmonicValueCanonicalConnectionEqPolyDeriv.lean}
+(\srcid{92fd264bea303cb5a4f68c59d7a35bb0af8079c9}).

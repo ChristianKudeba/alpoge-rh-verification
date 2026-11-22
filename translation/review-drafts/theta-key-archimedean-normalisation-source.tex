@@ -1,0 +1,277 @@
+\subsection{The exact archimedean constant of the key rule}
+\label{subsec:ftb-key-archimedean-constant}
+
+We use the actual complex uniformization comparison in the following
+form.  If \(x/\mathbb C\) is a key datum and \(u\) any of its
+holomorphic line uniformizations with Appell--Humbert data
+\((H,\chi)\), then \(E=\operatorname{Im}H\) on the period lattice
+\(\Lambda\) is integral and induces an isomorphism
+\(\Lambda\to\Lambda^\vee\).
+Every algebraic tangent vector is the derivative of a unique
+analytic vector and conversely; this comparison respects linear
+combinations.
+This is the precise fixed-fibre input
+\srcid{unimodular_and_tangent_of_isAH}.
+It concerns this actual line bundle and this actual \(u\);
+it is not an assertion about an independently chosen lattice
+or Hermitian form.
+
+For clarity, this comparison transfers from the principal
+uniformization supplied by the fixed-fibre realization to any
+\(u\) as follows.
+The analytic exponential maps have a unique complex-linear lift
+\(F\) between their covers.
+It is injective: if \(Fz=0\), then every \(tz\), \(t\in\mathbb C\),
+belongs to the discrete period lattice; continuity makes \(z=0\).
+It is therefore invertible in equal dimension and identifies
+their lattices.
+The quotient of the two local line frames glues to a nowhere-zero
+entire function.
+The Appell--Humbert triviality calculation applied to this quotient
+identifies the two Hermitian forms after pullback by \(F\).
+Transport the perfect alternating pairing through the resulting
+lattice isomorphism.
+The chain rule transports the tangent comparison.
+These are exactly the two additional comparisons needed when
+the given \(u\) is not the original chosen uniformization.
+Their actual analytic realization is retained with the
+fixed-fibre producer.
+
+\begin{srlemma}[Canonical theta integral]
+\label{lem:ftb-key-canonical-theta-integral}
+Let \(\tau=\tau^t\), \(Y=\operatorname{Im}\tau>0\), and
+\(a,b\in\mathbb R^g\).  For the source normalization
+\[
+ \theta[a,b](z,\tau)=
+ \sum_{n\in\mathbb Z^g}
+ e^{\,\pi i(n+a)^t\tau(n+a)+2\pi i(n+a)^t(z+b)}
+\]
+one has
+\[
+ \int_{[0,1]^{2g}}
+ |\theta[a,b](x+\tau y,\tau)|^2e^{-2\pi y^tYy}\,dx\,dy
+                           =(2^g\det Y)^{-1/2}.
+ \tag{A1}\label{eq:ftb-key-theta-integral}
+\]
+Replacing closed cubes by half-open cubes does not change the
+integral.
+\end{srlemma}
+\begin{proof}
+The Gaussian decay in \(n\) makes the theta series normally
+convergent on compact sets.
+For fixed \(y\), its Fourier coefficients in \(x\), after
+the harmless modulus-one factor \(e^{2\pi i a^tx}\), are
+absolutely summable.
+Parseval, or integration of the absolutely convergent double
+series, therefore gives
+\[
+ \int_{[0,1]^g}|\theta[a,b](x+\tau y,\tau)|^2
+                         e^{-2\pi y^tYy}\,dx
+       =\sum_{n\in\mathbb Z^g}
+                    e^{-2\pi(y+n+a)^tY(y+n+a)}.
+\]
+The terms are nonnegative, so Tonelli applies without a
+prior integrability assertion.
+Unfold the translated unit cubes to \(\mathbb R^g\),
+then translate by \(a\).
+Write \(Y=B^tB\).
+The real Jacobian is \(|\det B|=(\det Y)^{1/2}\);
+the remaining integral is the product of the one-variable
+integrals \(\int_{\mathbb R}e^{-2\pi t^2}dt=2^{-1/2}\).
+This proves \eqref{eq:ftb-key-theta-integral}, including its
+finiteness.
+Cube boundaries have measure zero.
+\end{proof}
+
+\begin{srproposition}[The exact key-rule norm]
+\label{prop:ftb-key-exact-archnorm}
+Let \(x/\mathbb C\) be an actual key datum of dimension \(g\).
+Let \(u\), \(H,\chi\), \(\theta\), and \(W=(W_i)_i\) satisfy:
+\(u\) is its holomorphic uniformization with actual
+Appell--Humbert data \((H,\chi)\), respects its origin
+rigidification, reads its theta section as \(\theta\), and
+has derivative \(W_i\) equal to the \(i\)-th vector of the
+ordered algebraic Lie frame.
+For any additive fundamental domain \(\mathcal F\) for its
+period lattice, set
+\[
+ n_\theta=
+ \frac{\displaystyle\int_{\mathcal F}|\theta(z)|^2
+                           e^{-\pi H(z,z)}\,dz}
+      {\operatorname{vol}\mathcal F},
+ \qquad
+ n_\eta=
+ \frac{\operatorname{vol}\mathcal F}
+      {\pi^g|\det W|^2}.
+\]
+Under the fixed-fibre comparison stated above, the
+exponent-one rule of
+Theorem~\ref{thm:ftb-key-rule-exponent-one} satisfies
+\[
+                       |\kappa_{\mathbb C}(x)|\,
+                                  n_\theta^4n_\eta^2=(2\pi)^{2g}.
+ \tag{A2}\label{eq:ftb-key-archnorm}
+\]
+All factors refer to the displayed \(u,H,\theta,W\) and
+\(\mathcal F\).
+\end{srproposition}
+\begin{proof}
+The tangent comparison makes \(W\) invertible: a relation
+among its rows would give the same relation among an
+algebraic Lie basis, and conversely every analytic
+vector is the derivative of a tangent vector.
+
+Choose a symplectic integral basis \(e_i,f_i\) for \(-E\).
+The full lattice rank is \(2g\), since it is discrete and
+spans \(\mathbb C^g\) over \(\mathbb R\).
+Let \(P\) have columns \(e_i\).
+The Gram matrix \(G=P^tH\overline P\) is real symmetric,
+because \(E(e_i,e_j)=0\), and is positive definite.
+The \(e_i\) are real independent as part of the real
+basis of a full lattice; hence positivity first gives
+positive definiteness over \(\mathbb R\), then over
+\(\mathbb C\).  Thus \(P\) is invertible.
+Put \(\phi(z)=Pz\) and take the columns of \(\tau\) to
+be \(P^{-1}f_i\).
+The symplectic relations give
+\[
+ G\,\operatorname{Im}\tau=I,\qquad
+ \tau=\tau^t,\qquad \operatorname{Im}\tau>0.
+\]
+Indeed the first equality is
+\(\operatorname{Im}H(e_i,f_j)=-\delta_{ij}\);
+the \(f_i,f_j\) isotropy relations then give the
+symmetry of the real part of \(\tau\).
+Consequently, writing \(Y=\operatorname{Im}\tau\),
+\[
+ \phi^{-1}\Lambda=\mathbb Z^g+\tau\mathbb Z^g,
+ \qquad H(\phi z,\phi w)=z^tY^{-1}\overline w.
+ \tag{A3}\label{eq:ftb-key-ah-coordinate-change}
+\]
+
+Symmetry of the actual line makes \(\chi(l)^2=1\).
+Here is the relevant line calculation.
+The inverse-translation automorphy laws first give
+\(\chi(l)\chi(-l)=1\).
+The line isomorphism under inversion gives a nowhere-zero
+entire quotient with multiplier \(\chi(-l)/\chi(l)\).
+These multipliers have modulus one, so the quotient's
+absolute value is full-lattice periodic.
+It is bounded on a compact real period parallelepiped,
+hence the quotient is bounded everywhere and is constant
+by Liouville.
+Thus \(\chi(-l)=\chi(l)\), proving the assertion.
+
+The actual section reading is entire and has the
+Appell--Humbert automorphy law.
+It is nonzero because the section is fibrewise nonzero
+and the exponential covers all complex points.
+Multiplying \(\theta(\phi z)\) by
+\(e^{-\pi z^tY^{-1}z/2}\) changes that law to the classical
+theta law with a sign semicharacter.
+The semicharacter's values on the integral symplectic
+basis give \(a,b\in\{0,\tfrac12\}^g\).
+The unit-period Fourier expansion and the \(\tau\)-period
+recurrence determine every coefficient from one
+coefficient.  Namely the coefficient with index \(n+a\)
+is that coefficient times
+\(e^{\pi i(n+a)^t\tau(n+a)+2\pi i(n+a)^tb}\),
+with the constant coefficient absorbed into the scalar.
+Hence, for some \(c\ne0\),
+\[
+ \theta(\phi z)=
+       c\,e^{\pi z^tY^{-1}z/2}\theta[a,b](z,\tau).
+ \tag{A4}\label{eq:ftb-key-gaussian-gauge}
+\]
+The series is normally convergent, so coefficient comparison
+and the recurrence are valid as identities of entire
+functions.  Change the line frame by the indicated
+Gaussian.  Its value at zero is \(1\), so the given origin
+rigidification is preserved.
+
+Define the rows of \(M\) by
+\[
+                         M_i=2\pi i\,\phi^{-1}(W_i).
+\]
+This is the actual tangent normalization after the
+coordinate and Gaussian frame change.
+It gives \(M\) invertible, and this transformed
+uniformization is a normal form for the same key datum.
+Therefore \(\kappa_{\mathbb C}(x)=\det(M)^4/c^8\).
+
+The real period map
+\((x,y)\mapsto\phi(x+\tau y)\) has determinant
+\(|\det\phi|^2\det Y\): in real and imaginary coordinates
+its matrix is the product of \(\phi\) with the block
+matrix \(\left(\begin{smallmatrix}I&\operatorname{Re}\tau\\0&Y
+\end{smallmatrix}\right)\).
+Thus
+\[
+                    \operatorname{vol}\mathcal F
+                                   =|\det\phi|^2\det Y.
+ \tag{A5}\label{eq:ftb-key-period-volume}
+\]
+To use an arbitrary given fundamental domain, observe
+that \(|\theta(z)|^2e^{-\pi H(z,z)}\) is periodic.
+Its integral on any fundamental domain equals that on
+the period parallelepiped.  Pull back by the real period
+map; the Jacobian divided by
+\(\operatorname{vol}\mathcal F\) is \(1\).
+For \(z=x+\tau y\), the Gaussian in
+\eqref{eq:ftb-key-gaussian-gauge} cancels exactly against
+the Hermitian weight:
+\[
+ |e^{\pi z^tY^{-1}z/2}|^2e^{-\pi z^tY^{-1}\bar z}
+                                     =e^{-2\pi y^tYy}.
+\]
+Lemma~\ref{lem:ftb-key-canonical-theta-integral} now yields
+\[
+ n_\theta=\frac{|c|^2}{\sqrt{2^g\det Y}},\qquad
+ |\det W|=(2\pi)^{-g}|\det M|\,|\det\phi|,
+ \qquad
+ n_\eta=\frac{2^{2g}\pi^g\det Y}{|\det M|^2}.
+\]
+Substitution cancels \(c,M,Y,\phi\) and gives
+\[
+ \frac{|\det M|^4}{|c|^8}
+ \frac{|c|^8}{2^{2g}(\det Y)^2}
+ \frac{2^{4g}\pi^{2g}(\det Y)^2}{|\det M|^4}
+                                      =(2\pi)^{2g}.
+\]
+This proves \eqref{eq:ftb-key-archnorm}.
+\end{proof}
+
+\paragraph{Source concordance.}
+The prefix is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+The exact Parseval--Tonelli--Gaussian calculation is
+\srcid{ThetaLawProofs/LintegralLintegralNormSqRiemannTheta.lean}
+(\srcid{bc5c74e3da3678aebab698a6e0c910788413b4aa}).
+The coordinate, frame and constant calculation is
+\srcid{ThetaLawProofs/NormalFormOfParts.lean}
+(\srcid{7a587b5d72b8e340759219538bd7309c059f67de}).
+Its real Jacobian and arbitrary-domain integral are
+\srcid{VolumeFundamentalDomainPeriodLattice.lean}
+(\srcid{fc3df3e87f65792bcfcd68064ad91c13e4dd9232})
+and \srcid{SetIntegralPeriodLatticeEqVolumeMulCube.lean}
+(\srcid{d0ba53fd9faf1c4a297671e128da7eafd83e0af4}),
+in the same directory.
+The sign-semicharacter calculation is
+\srcid{CubicalLineBundles/SemicharacterSqEqOneOfSymmetric.lean}
+(\srcid{d2d717aec9d26a9ed8ca968455911d6367e362bf}).
+The actual section reading and half-characteristic recurrence
+are \srcid{ThetaLawProofs/IsThetaFnAndNeZeroOfIsFn.lean}
+(\srcid{462438291a306afec2495ae8147069869bdbc63b})
+and \srcid{ExistsEqMulCanonicalThetaOfSignMultiplier.lean}
+(\srcid{7d1ed10a5898cb126a40b8b262e087f0f7bd0bef}).
+The actual arbitrary-uniformization comparison retained in
+the first paragraphs is
+\srcid{UnimodularAndTangentOfIsAH.lean}
+(\srcid{a4df7948258a8441bcf1d2ffcd6db4a65fb44846}).
+The final exact wrapper is
+\srcid{KeyInNormalFormAndArchimedeanConstant.lean}
+(\srcid{478dd63ff81fbea5390a62869ca1dc4e69706e91}).
+The fixed-fibre analytic realization and its actual
+linear-lift/Appell--Humbert comparison must be joined with
+this calculation; the norm formula does not create those
+geometric inputs.

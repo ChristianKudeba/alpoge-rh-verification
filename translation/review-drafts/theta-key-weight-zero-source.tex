@@ -1,0 +1,374 @@
+\subsection{The source's weight-zero constancy argument}
+\label{sec:ftb-key-weight-zero}
+
+This subsection supplies the weight-zero statement used to normalize
+the holomorphic key invariant.  It follows the frozen source's
+Fourier estimate and rank-one modular curves.  The sole
+one-dimensional modular input is the usual theorem that a
+holomorphic modular form of weight zero for
+\(\mathrm{SL}_2(\mathbb Z)\), bounded at its cusp, is constant.
+It follows, for example, by the removable-singularity theorem and
+the maximum principle on the compactified standard fundamental
+domain.  No higher-dimensional compactification or boundary
+extension theorem is used here.
+
+\begin{srlemma}[Fourier bound on a Siegel cone]
+\label{lem:ftb-ph-koecher}
+Let \(g\geq2\), \(N\geq1\), and let \(F\) be holomorphic on
+\(\mathfrak H_g\).  Suppose
+\[
+ \begin{aligned}
+ F(\tau+NB)&=F(\tau) &&(B=B^t\in M_g(\mathbb Z)),\\
+ F(U\tau U^t)&=F(\tau)
+ &&(U\in\mathrm{SL}_g(\mathbb Z),\ U\equiv1\bmod N).
+ \end{aligned}                                             \tag{W1}\label{eq:ftb-ph-periods}
+\]
+For every \(c>0\) there is a finite real \(K_c\) such that
+\[
+       |F(\tau)|\leq K_c\quad
+          \text{whenever }\operatorname{Im}\tau\geq c1.
+ \tag{W2}\label{eq:ftb-ph-cone-bound}
+\]
+\end{srlemma}
+\begin{proof}
+For clarity we give the source's full-matrix Fourier construction;
+this avoids off-diagonal half-integer conventions.
+Put
+\[
+ \Phi(z)=N(z+z^t),\qquad
+ \mathcal U=\{z\in M_g(\mathbb C):\operatorname{Im}\Phi(z)>0\},
+ \qquad f(z)=F(\Phi(z)).
+\]
+This is an open convex tube.  The function \(f\) has period \(1\)
+in each of its \(g^2\) coordinates, by \eqref{eq:ftb-ph-periods}.
+For \(m\in M_g(\mathbb Z)\), the integral
+\[
+ c_m=\int_{[0,1]^{g^2}}
+ f(x+z)e^{-2\pi i\langle m,x+z\rangle}\,dx
+ \tag{W3}\label{eq:ftb-tube-coeff}
+\]
+is independent of \(z\in\mathcal U\).
+Indeed the integrand is holomorphic and has unit periods.
+Its cube integral is holomorphic in \(z\), by differentiation
+under an integral over a compact cube, and invariant under every
+real translation, by the periodic cube-change formula.
+Its real derivatives vanish; complex differentiability therefore
+makes all its complex derivatives vanish.  Convexity makes it
+constant.  Here \(\langle m,z\rangle=\sum_{ij}m_{ij}z_{ij}\).
+
+Set \(a_m=|c_m|\).
+If a real imaginary slice is bounded by \(M\), its Fourier
+coefficient estimate gives
+\[
+          a_m e^{-2\pi\langle m,Y\rangle}\leq M.
+ \tag{W4}\label{eq:ftb-tube-coeff-bound}
+\]
+At a fixed \(z\), any summable nonnegative majorant \(b_m\) of
+the left side gives \(|f(z)|\leq\sum_m b_m\).
+To justify this last assertion without assuming pointwise Fourier
+convergence, regard \(x\mapsto f(x+z)\) as a continuous function
+on the unit real torus.  Its Fourier coefficients are the
+corresponding expressions in \eqref{eq:ftb-tube-coeff}.
+An absolutely summable coefficient sequence has a uniformly
+convergent Fourier series.  Fourier uniqueness, or the elementary
+approximate-identity argument on that torus, identifies its sum
+with the original continuous function.  Taking norms proves the
+assertion.
+
+The unit periods make \(F\) bounded on each fixed positive
+imaginary slice: reduce the real symmetric entries to a compact
+cube.  Fix \(c>0\), and let \(M\geq0\) bound the slice
+\((c/2)1\).  Set \(s=c/(4N)>0\).
+For every antisymmetric real \(A\), the slice \(Y=s1+A\)
+of \(\mathcal U\) has
+\(N(Y+Y^t)=(c/2)1\); hence
+\[
+ a_m e^{-2\pi\langle m,s1+A\rangle}\leq M.
+ \tag{W5}\label{eq:ftb-anti-test}
+\]
+For every \(U\in\mathrm{SL}_g(\mathbb Z)\) congruent to \(1\bmod N\),
+invariance and conjugation by the integral inverse of \(U\)
+give the same bound on the slice \((c/2)UU^t\).  Thus
+\[
+ a_m e^{-2\pi s\,\operatorname{tr}(U^tmU)}\leq M.
+ \tag{W6}\label{eq:ftb-congruence-test}
+\]
+
+If \(a_m>0\), \eqref{eq:ftb-anti-test} forces \(m=m^t\):
+otherwise choose \(A=t(E_{ij}-E_{ji})\) and let
+\(\langle m,A\rangle\) tend to \(-\infty\).
+Next \(m\) is positive semidefinite.
+If not, continuity gives a rational vector \(x\) with \(x^tmx<0\);
+clear denominators to take \(x\in\mathbb Z^g\).
+Choose \(i\) with \(x_i\ne0\), choose \(j\ne i\), and put
+\(y=x_je_i-x_ie_j\ne0\).
+Then \(y^tx=0\) and
+\[
+ U_k=1+Nkxy^t\in\mathrm{SL}_g(\mathbb Z),\quad
+ U_k\equiv1\bmod N,\quad
+ \operatorname{tr}(U_k^tmU_k)
+ =\operatorname{tr}m+2Nk\,x^tmy
+                 +(Nk)^2(x^tmx)\,y^ty .
+\]
+The determinant formula for a rank-one perturbation proves the
+first assertion.  The last polynomial tends to \(-\infty\).
+It contradicts \eqref{eq:ftb-congruence-test}, because \(a_m>0\).
+Rational vectors are dense, so this proves real positive
+semidefiniteness as well.
+
+For such an \(m\), put \(t=\operatorname{tr}m\geq0\).
+The inequalities obtained by evaluating its quadratic form at
+\(e_i\pm e_j\) give \(|m_{ij}|\leq t\).  Consequently
+\[
+       \sum_{ij}|m_{ij}|\leq g^2t,\qquad
+       \langle m,\operatorname{Im}\tau\rangle\geq ct
+                    \quad(\operatorname{Im}\tau\geq c1).
+\]
+Use \eqref{eq:ftb-tube-coeff-bound} at \(Y=s1\).
+With \(\varepsilon=\pi c/(2Ng^2)>0\) the preceding estimates give
+\[
+ a_m e^{-(\pi/N)\langle m,\operatorname{Im}\tau\rangle}
+       \leq M\exp\!\left(-\varepsilon\sum_{ij}|m_{ij}|\right).
+ \tag{W7}\label{eq:ftb-ph-summable}
+\]
+The same inequality is trivial if \(a_m=0\).
+The right side is summable over \(M_g(\mathbb Z)\): it is a
+finite product of two-sided geometric series.
+Apply the torus Fourier bound at \(z=\tau/(2N)\).
+This proves \eqref{eq:ftb-ph-cone-bound}, with exactly the
+source's summable majorant.
+\end{proof}
+
+\begin{srlemma}[A finite modular family is constant]
+\label{lem:ftb-finite-elliptic-family}
+Let \(\mathcal F\) be a finite set of holomorphic functions on
+the upper half-plane, each bounded as the imaginary part tends
+to infinity.  Suppose precomposition by \(S:z\mapsto-1/z\)
+and \(T:z\mapsto z+1\) takes \(\mathcal F\) into itself.
+Then every function in \(\mathcal F\) is constant.
+\end{srlemma}
+\begin{proof}
+Precomposition is injective, since \(S,T\) are bijections, so it
+permutes the finite set.
+For each \(w\in\mathbb C\),
+\(\prod_{f\in\mathcal F}(w-f(z))\) is therefore a holomorphic
+weight-zero modular function for the full modular group, bounded
+at infinity and hence at all its equivalent cusps.
+The one-dimensional modular input makes it constant.
+Fix \(z_0\).  Taking \(w=f(z)\) in that polynomial identity shows
+that \(f(z)\) belongs to the finite set
+\(\{h(z_0):h\in\mathcal F\}\).
+The upper half-plane is connected; continuity makes \(f\)
+constant.
+\end{proof}
+
+\begin{srproposition}[Holomorphic symplectic invariants have weight-zero constancy]
+\label{prop:ftb-ph-holo}
+If \(g\geq2\) and \(H:\mathfrak H_g\to\mathbb C\) is holomorphic
+and invariant under \(\mathrm{Sp}_{2g}(\mathbb Z)\), then \(H\)
+is constant.
+\end{srproposition}
+\begin{proof}
+The symplectic translations and diagonal symplectic matrices give
+\eqref{eq:ftb-ph-periods} with \(N=1\).
+Lemma~\ref{lem:ftb-ph-koecher} gives a bound on every cone
+\(\operatorname{Im}\tau\geq c1\).
+We use this bound on the following explicit rank-one curves.
+
+Fix a coordinate \(e\), write \(\epsilon=e_e\), and suppose
+\(Z=Z^t\) has zero \(e\)-th column and
+\[
+       \operatorname{Im}Z+yuu^t>0
+                    \quad\text{for all }u_e=1,\ y>0.
+\]
+For real symmetric \(R\) with \(R_{ee}=0\), and real \(u_e=1\),
+put \(C_{R,u}(z)=Z+R+zuu^t\).
+For a fixed integer \(N\geq1\), consider all functions
+\(z\mapsto H(C_{R,u}(z))\) satisfying
+\[
+    Nu_i\in\mathbb Z,\quad NR_{ie}\in\mathbb Z,\quad
+                             N^2R_{ij}\in\mathbb Z.
+ \tag{W8}\label{eq:ftb-curve-denominators}
+\]
+There are only finitely many such \emph{functions}.
+To see this, set \(k_e=0,\ k_i=\lfloor u_i\rfloor\) for \(i\ne e\).
+Conjugation by the integral unimodular rank-one shear
+\(1-k\epsilon^t\) changes the curve parameters to
+\[
+ u_1=u-k,\qquad
+ R_1=R-k(Re)^t-(Re)k^t .
+\]
+It fixes \(Z\), since the \(e\)-th row and column of \(Z\) are zero.
+Subtract the symmetric integral matrix of floors of \(R_1\);
+symplectic translation changes no value of \(H\).
+Now \(u_1\) and the fractional entries of \(R_1\) lie in
+\([-1,1]\), and their denominators divide \(N^2\).
+There are finitely many choices.
+
+Each function is holomorphic and bounded at infinity.
+For the bound, its imaginary part for \(y\geq1\) is at least
+\(\operatorname{Im}Z+uu^t>0\); choose \(c1\) below this fixed
+positive matrix and apply the cone bound.
+The finite family is stable under \(T\), which changes the
+parameters, up to the integral \(\epsilon\epsilon^t\) translation,
+to
+\[
+                         (R+uu^t-\epsilon\epsilon^t,\ u).
+\]
+It is also stable under \(S\).  The symplectic partial inversion
+in coordinate \(e\) gives the parameters
+\[
+ u'=\epsilon+Re,\qquad
+ R'=R-u(\epsilon+Re)^t-(\epsilon+Re)u^t
+                                      +2\epsilon\epsilon^t.
+ \tag{W9}\label{eq:ftb-curve-S}
+\]
+These have \(u'_e=1,\ R'_{ee}=0\), and satisfy
+\eqref{eq:ftb-curve-denominators}: multiply each formula by \(N\)
+or \(N^2\) and use the displayed integrality conditions.
+The partial-inversion identity is checked entry by entry after
+using \(Z e=0,\ u_e=1,\ R_{ee}=0\); it asserts that
+\(H(C_{R,u}(-1/z))=H(C_{R',u'}(z))\).
+Lemma~\ref{lem:ftb-finite-elliptic-family} makes every such
+rational-parameter curve constant.
+
+For real \(u_e=1\) and \(v_e=0\), take
+\(R=\epsilon v^t+v\epsilon^t\).
+Approximate every coordinate of \(u,v\) by
+\(\lfloor(n+1)x\rfloor/(n+1)\).
+The \(e\)-coordinates remain exactly \(1,0\), respectively, and
+the denominator conditions hold with \(N=n+1\).
+Passing to the limit by continuity gives constancy on this
+real-parameter curve as well.
+
+We now exhibit such a curve through every \(\tau=X+iY\).
+Set
+\[
+ h=Y_{ee},\quad u=Ye/h,\quad
+ v=Xe-X_{ee}u,\quad
+ R=\epsilon v^t+v\epsilon^t,\quad
+ Z=\tau-R-\tau_{ee}uu^t .
+\]
+Then \(h>0,\ u_e=1,\ v_e=0,\ Ze=0\) and
+\(\operatorname{Im}Z=Y-(Ye)(Ye)^t/h\).
+For every \(u'_e=1,\ y>0\),
+\[
+                   Y-(Ye)(Ye)^t/h+yu'(u')^t>0.
+\]
+Indeed for \(x\ne0\) put
+\(x'=x-(x^tYe/h)e\).
+Its quadratic value is
+\((x')^tYx'+y(x^tu')^2\).
+If \(x'\ne0\), the first term is positive.
+If \(x'=0\), \(x\) is a nonzero multiple of \(e\) and the second
+term is positive.  Thus the curve has the required domain and
+passes through \(\tau\) at \(z=\tau_{ee}\).
+Its constancy gives
+\[
+                     dH_\tau((Ye)(Ye)^t)=0.
+\]
+Conjugate this assertion by integral unimodular matrices.
+Their \(e\)-th rows range over the primitive integer vectors,
+so it gives
+\(dH_\tau((Yv)(Yv)^t)=0\) for every such \(v\).
+The vectors \(e_i\) and \(e_i+e_j\), \(i\ne j\), are primitive
+rows of unimodular matrices; their outer squares span all complex
+symmetric matrices, by subtracting the diagonal squares.
+Since \(Y\) is invertible, \(dH_\tau\) vanishes on the whole
+symmetric tangent space.
+Finally \(\mathfrak H_g\) is convex.  Integrating along its line
+segments proves that \(H\) is constant.
+\end{proof}
+
+\begin{srcorollary}[Finite symplectic families]
+\label{cor:ftb-finite-sp-family}
+Let \(g\geq2\).  A finite collection of holomorphic functions on
+\(\mathfrak H_g\), permuted by precomposition by every integral
+symplectic transformation, consists of constant functions.
+\end{srcorollary}
+\begin{proof}
+Discard duplicate functions.
+For each \(w\in\mathbb C\) the polynomial
+\(\prod_f(w-f(\tau))\) is holomorphic and symplectic invariant,
+because precomposition is an injective map of this finite set
+and hence a permutation.
+Proposition~\ref{prop:ftb-ph-holo} makes it constant.
+Its roots at a fixed period form a finite set containing every
+value of every \(f\).  Connectedness and continuity conclude
+exactly as in Lemma~\ref{lem:ftb-finite-elliptic-family}.
+\end{proof}
+
+\paragraph{Application to the powered key rule.}
+In this paragraph assume explicitly \(g\geq2\).
+For a field-functorial section-independent rule satisfying
+\eqref{eq:ftb-koszul-homog}, the period construction gives one
+holomorphic value function \(U_{a,b}\) for each half-characteristic.
+The theta transformation formula permutes this finite family.
+More precisely, for \(\delta\in\mathrm{Sp}_{2g}(\mathbb Z)\),
+write \(j=C\tau+D\).  The theta formula gives a nonzero multiplier
+\(r\) with \(r^8=(\det j)^4\); reparametrizing the uniformization
+changes the normal-form data to
+\[
+        \tau'=\delta\tau,\qquad M'=Mj^{-1},\qquad c'=c/r.
+\]
+It preserves
+\[
+                         \frac{(\det M')^4}{(c')^8}
+                             =\frac{(\det M)^4}{c^8}.
+ \tag{W10}\label{eq:ftb-normal-ratio-sp}
+\]
+The Gaussian exponential in the theta formula is incorporated
+in the reparametrized line frame, not discarded.
+The homogeneity law and \eqref{eq:ftb-normal-ratio-sp} show that
+the normal value functions are permuted, with no scalar factor.
+Apply Corollary~\ref{cor:ftb-finite-sp-family}.
+For the zero characteristic there is a constant \(a_0\) such that
+\[
+             \kappa(x)=a_0
+                    \left(\frac{(\det M)^4}{c_0^8}\right)^c
+ \tag{W11}\label{eq:ftb-key-unscaled-constant}
+\]
+whenever \(x\) is in zero-characteristic normal form
+\((\tau,M,c_0)\).
+To pass from the normalized \(M=1,c_0=1\) case to this formula,
+replace the theta section by \(c_0^{-1}\vartheta\) and the Lie
+basis by \(M^{-1}v\), then apply
+\eqref{eq:ftb-koszul-homog}.
+The symplectic transformation formula here is the classical
+Poisson theta transformation with its eighth-power identity;
+its source implementation uses the squared formula and the
+identity theorem to choose \(r\), and then changes the actual
+uniformization frame.
+
+This proves constancy, not yet the rationality or integral unit
+property of \(a_0\), and not yet an exponent-one key rule.
+Those are supplied by the subsequent arithmetic normalization
+and connected-family descent.
+
+\paragraph{Frozen source concordance.}
+All proof paths below have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/}.
+The tube Fourier construction and cone estimate are
+\srcid{NormLeTsumOfCubeFourierCoeffLe.lean}
+(\srcid{958fca26bfcc625698732b1a0dafee0d51889f7b});
+its explicit congruence transvection is
+\srcid{ExistsNatMulQuadraticLt.lean}
+(\srcid{f07ff82f9eaae326e1ce8ca8a834d8f0c40febf0}).
+The finite elliptic family, rational rank-one curves, partial
+inversion, rational approximation, positive Schur complement,
+and spanning of derivatives are
+\srcid{FiniteAbsLeOneMulMemRange.lean}
+(\srcid{a525213fbc51d8331f5cf36529a36e5f4385887a}).
+The final polynomial argument for a finite symplectic family is
+\srcid{ProdCompEqOfFiniteFamily.lean}
+(\srcid{0d643fd13242090c4d63d7543da06e3fab784482}).
+The exact change of theta normal form is
+\srcid{ThetaLawSymplecticNormalForm.lean}
+(\srcid{6950e84acb9e8fa4fc102ec0cb3baef827e74e78}),
+and the rescaling and finite-characteristic-family application
+are \srcid{ExistsRescale.lean}
+(\srcid{193bbb1a07dfd9582c3d8692d5710c88dabb4500}).
+The realization of a testing key datum at each period is
+\srcid{ExistsKeyInNormalAt.lean}
+(\srcid{189fd3b621d2d5c557c11140849fa5f549a6b81c}),
+with its explicit \(\mathrm{TorusAlgebraic}\) hypothesis.

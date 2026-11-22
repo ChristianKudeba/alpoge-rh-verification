@@ -1,0 +1,393 @@
+\subsection{Specialization and the exponent-one algebraic rule}
+\label{subsec:ftb-key-specialization-descent}
+
+In this subsection we assume the exact connected-family and local
+analytic family inputs used in
+Proposition~\ref{prop:ftb-key-complex-equivariance}, together with
+the already constructed normalized powered rule \(\rho\).
+Thus \(N(g)\ge1\), \(\rho\) is functorial on characteristic-zero
+fields, is a unit on every DVR carrying a key datum, and
+\[
+                             \rho(x)=t(x)^{N(g)}
+                                      \quad(x/\mathbb C).
+ \tag{S1}\label{eq:ftb-key-powered-normal-value}
+\]
+The value \(t(x)=\det(M)^4/c^8\) is independent of normal form and
+is equivariant under \emph{all} field maps
+\(\mathbb C\to\mathbb C\).
+These hypotheses retain the outstanding family producers stated
+in the preceding subsection; the argument below does not assert
+their existence a second time.
+
+\begin{srlemma}[Countable avoidance and a smooth curve through a point]
+\label{lem:ftb-countable-smooth-through}
+Let \(R\) be a domain finitely generated over \(\mathbb Z\), with
+a map \(a:R\to\mathbb C\).
+There are a smooth integral finitely generated
+\(\mathbb C\)-algebra \(E\), an injection \(i:R\hookrightarrow E\),
+and a complex point \(e:E\to\mathbb C\), with \(ei=a\).
+One can take \(\dim E\le1\).
+Moreover, if \(E_1\) is any integral finite-type
+\(\mathbb C\)-algebra and \(T\subset E_1\setminus\{0\}\) is
+countable, some complex point of \(E_1\) is nonzero on all of \(T\).
+\end{srlemma}
+\begin{proof}
+First prove the last assertion.
+Noether normalization gives an integral finite inclusion
+\(P=\mathbb C[X_1,\ldots,X_d]\hookrightarrow E_1\).
+For each nonzero \(r\in T\), integrality and the domain
+hypothesis give \(0\ne b_r\in P\cap(r)\).
+For example a monic relation for \(r\) of least degree has
+nonzero constant term, which belongs to \((r)\).
+The nonvanishing set of a nonzero polynomial on \(\mathbb C^d\)
+is open and dense: vanishing on an open polydisc would make
+the polynomial zero.
+The Baire theorem gives \(c\in\mathbb C^d\) at which every
+\(b_r\) is nonzero.
+A maximal ideal of \(E_1\) above the evaluation ideal at \(c\)
+has residue field \(\mathbb C\), by integrality and algebraic
+closedness.  Its evaluation cannot kill any \(r\).
+
+To construct the smooth curve, start with
+\(\mathbb C\otimes_{\mathbb Z}R\) and the evaluation induced by \(a\).
+Flat going down supplies a prime below its evaluation kernel
+whose contraction to \(R\) is zero.
+Its quotient \(B\) is an integral finite-type
+\(\mathbb C\)-algebra, the map \(R\to B\) is injective, and the
+given evaluation descends.
+It remains to choose a curve through this particular point
+without losing that injection.
+
+Choose a finite integral Noether normalization
+\(P=\mathbb C[X_1,\ldots,X_d]\hookrightarrow B\).
+For every nonzero image of an element of \(R\), choose a
+nonzero \(b_r\in P\cap(r)\) as above.
+There are only countably many such \(r\).
+Let \(c_0\in\mathbb C^d\) be the image of the prescribed point,
+and choose \(c_1\) at which all \(b_r\) are nonzero.
+Use the line substitution
+\[
+                        X_j\longmapsto (c_0)_j+
+                                      ((c_1)_j-(c_0)_j)T.
+ \tag{S2}\label{eq:ftb-line-substitution}
+\]
+Its kernel is prime and is contained in the contraction of
+the prescribed maximal ideal.
+Going down for the integral extension from the normal
+polynomial ring supplies a prime \(Q\) of \(B\), below that
+maximal ideal, lying over this line kernel.
+It avoids every \(r\): otherwise \(b_r\) would restrict
+identically to zero on the line, contradicting its value
+at \(c_1\).
+The quotient \(B/Q\) has dimension at most one.
+Indeed its contraction quotient is either \(\mathbb C\)
+or \(\mathbb C[T]\), and integral incomparability prevents
+a longer prime chain upstairs.
+
+Take the integral closure of \(B/Q\) in its fraction field.
+It is finite, since \(B/Q\) is a finite-type curve over a field.
+It is a Noetherian normal domain of dimension at most one,
+hence regular, and is smooth over the perfect field
+\(\mathbb C\).
+The given point lifts by lying over, with residue field
+\(\mathbb C\).
+Its coordinate ring is \(E\); the avoidance of all nonzero
+\(r\) gives the asserted injection \(R\hookrightarrow E\).
+This is the source's line construction and normalization;
+it is not an arbitrary smoothing of the original base.
+\end{proof}
+
+\begin{srlemma}[Finite-coefficient and countable local-PID descent]
+\label{lem:ftb-key-countable-local-pid-specialization}
+Let \(V\) be a characteristic-zero local PID domain.
+A key datum over \(V\), together with a countable set of its
+coefficients, descends to a countable local PID subring
+\(V_0\subset V\).
+The inclusion is a local homomorphism and is faithfully flat.
+If only a finite set of extra coefficients is prescribed and
+\(V\) is Noetherian local, the key datum descends to a domain
+finitely generated over \(\mathbb Z\), contained in \(V\);
+the latter subring need not be local.
+\end{srlemma}
+\begin{proof}
+We first record the ring construction.
+For a countable \(T\subset V\), let \(k_0\) be the subfield
+of \(\operatorname{Frac}V\) generated by \(T\), and put
+\(V_0=V\cap k_0\).
+This is countable.
+Divisibility of its elements is reflected from \(V\):
+if \(b=ac\) in \(V\) and \(a\ne0\), then \(c=b/a\in k_0\),
+so \(c\in V_0\).
+In particular the inclusion reflects units, and \(V_0\)
+is local.
+It is a PID.  For an ideal \(I\subset V_0\), choose among
+the ideals \(aV\), \(a\in I\), a maximal one, using
+Noetherianity of \(V\).
+Total divisibility in the local PID \(V\) shows that its
+chosen \(a\) divides every \(b\in I\) in \(V\).
+Divisibility reflection gives \(I=aV_0\).
+The \(V_0\)-module \(V\) is torsion free, hence flat over
+this PID, and a flat local inclusion is faithfully flat.
+
+Here is the geometric descent used with this construction.
+Choose a very ample projective embedding of the abelian
+scheme, from a sufficiently high polarization power.
+On the finitely many standard affine charts its defining
+ideals have finite sets of polynomial generators.
+Adjoin their coefficients.
+The closed image in projective space over the resulting
+subring pulls back to exactly the original scheme:
+on each chart the ideal is the extension of those generators.
+Adjoin the finitely many coefficients needed for the
+identity, multiplication and inverse maps, and for the
+line's finite transition functions and their inverses.
+These maps are descended on finite affine refinements;
+their polynomial identities are checked after the
+faithfully flat inclusion.
+Thus the group laws descend.
+Flatness, properness, smoothness, the relative dimension,
+the line isomorphisms giving symmetry and rigidification,
+relative ampleness, and the principal polarization
+condition descend by faithful flatness.
+This gives the actual polarized abelian scheme over a
+countable local PID of the displayed kind.
+
+Choose a key frame on that local base.
+Pull it back to \(V\).
+The prescribed key datum differs from it by its line
+isomorphism, a theta scalar \(a\in V^\times\), and a Lie
+matrix \(M\in\operatorname{GL}_g(V)\).
+Adjoin the scalar and matrix entries to the countable
+coefficient set and repeat the intersection construction.
+Unit reflection gives \(a^{-1}\) and
+\(\det(M)^{-1}\) in the new local subring.
+Change the descended frames by these actual parameters.
+The line, its rigidification, the theta section and all
+ordered tangent vectors now pull back to the original
+key datum, as asserted.
+
+For the finite-type assertion, first descend the polarized
+projective data to finitely many coefficients.
+Near the contraction of the closed point choose a
+nonzero theta section and a Lie basis.
+Invert a single element not vanishing there.
+Its image is a unit of \(V\); adjoin its inverse, the
+required theta scalar and inverse, the Lie matrix entries
+and inverse determinant, and the specified finite
+coefficient set.
+The same actual rescaling gives a key datum over this
+finite-type subring.
+This is the finite-coefficient construction in the source,
+not a claim that an arbitrary frame extends before the
+necessary coefficients and inverses are adjoined.
+\end{proof}
+
+\begin{srproposition}[Specialization of the unpowered complex value]
+\label{prop:ftb-key-normal-value-specializes}
+Let \(V\) be a local PID domain with a key datum \(y/V\).
+Let \(f,f':V\to\mathbb C\), with \(f\) injective.
+If \(u\in V\) and \(t(f^*y)=f(u)\), then
+\[
+                                t((f')^*y)=f'(u).
+ \tag{S3}\label{eq:ftb-key-in-families}
+\]
+\end{srproposition}
+\begin{proof}
+Descend \(y,u\) by the finite-type assertion of
+Lemma~\ref{lem:ftb-key-countable-local-pid-specialization}, to a finite-type
+domain \(R\subset V\) and a key datum \(y_R\).
+Apply Lemma~\ref{lem:ftb-countable-smooth-through} to
+\(f'|_R\), obtaining \(i:R\hookrightarrow E\) and \(e:E\to\mathbb C\).
+Write \(z=i^*y_R\).
+The smooth-base powered-unit lemma gives
+\(b\in E^\times\) whose evaluation at every complex point is
+\(t(z_s)^{N(g)}\).
+
+If \(s:E\to\mathbb C\) does not kill any nonzero \(i(r)\),
+then \(si:R\to\mathbb C\) is injective.
+The two injections \(f|_R\) and \(si\) admit embeddings
+\(\alpha,\beta:\mathbb C\to\mathbb C\) into a common
+complex field copy with
+\(\alpha f|_R=\beta si\).
+This follows by extending the two embeddings of the
+countable fraction field, using transcendence bases and
+algebraic closures.
+Equivariance of \(t\) under these possibly discontinuous
+field maps, and its independence of normal form, give
+\[
+                              t(z_s)=s(i(u)).
+\]
+Indeed the two key pullbacks become identical after the
+common extension, and \(\beta\) is injective.
+
+It follows that \(i(u)^{N(g)}=b\) in \(E\).
+If their difference were nonzero, countable avoidance
+would produce a complex point not killing that
+difference or any nonzero \(i(r)\), contradicting the
+last equality and the defining equality for \(b\).
+Hence \(i(u)\) is a unit.
+Choose one of these generic complex points \(s_0\).
+The root-fixed-by-one-point lemma, now on the connected
+smooth integral complex curve \(\operatorname{Spec}E\),
+compares \(t(z_s)\) with \(s(i(u))\) at every point:
+their \(N(g)\)-th powers agree, and their ratio is fixed
+by its value \(1\) at \(s_0\).
+At \(e\) this gives \(t(z_e)=e(i(u))=f'(u)\).
+The fibre \(z_e\) is the prescribed special key pullback,
+so this is \eqref{eq:ftb-key-in-families}.
+\end{proof}
+
+\begin{srtheorem}[The exponent-one field rule and its DVR units]
+\label{thm:ftb-key-rule-exponent-one}
+Under the inputs of this subsection there is a unique
+rule \(\kappa_K(x)\in K^\times\), for every characteristic-zero
+field \(K\) and key datum \(x/K\), which agrees with
+\(t(x)\) over \(\mathbb C\), is functorial under all field
+maps and all key pullbacks, and has
+\[
+                   a^8\kappa(a\theta,Mv)=\det(M)^4\kappa(\theta,v).
+ \tag{S4}\label{eq:ftb-key-rule-exponent-one-homog}
+\]
+For every DVR \(V\), fraction field \(K\) of characteristic
+zero, and key datum \(y/V\), its generic value is the
+image of a unit \(u\in V^\times\).
+For every characteristic-zero residue-field quotient
+\(r:V\twoheadrightarrow k\),
+\[
+                                 \kappa_k(r^*y)=r(u).
+ \tag{S5}\label{eq:ftb-key-rule-exponent-one-unit}
+\]
+For a normalized theta function and the ordered tangent
+frame \((2\pi i)^{-1}e_j\), the value is \(1\).
+\end{srtheorem}
+\begin{proof}
+We first define the value over a countable field \(k\).
+Embed \(k\) in \(\mathbb C\), and pull the key datum to \(x\).
+If \(\alpha\) is any automorphism of \(\mathbb C\) fixing \(k\),
+apply \eqref{eq:ftb-key-in-families} with the local PID
+\(\mathbb C\), \(f=1\), and \(f'=\alpha\).
+It gives the transformed value \(\alpha(t(x))\).
+Because \(\alpha\) fixes \(k\), cancellation of their common
+\(k\)-pullbacks gives an actual key-pullback isomorphism over
+\(1_{\mathbb C}\) between \(\alpha^*x\) and \(x\).
+Apply the same assertion with \(f'=1\) using that isomorphism;
+it gives the value \(t(x)\).
+Thus \(\alpha(t(x))=t(x)\).
+The fixed field of all such automorphisms is \(k\).
+For an element algebraic over \(k\), a distinct conjugate
+extends to an automorphism unless the element lies in \(k\),
+since the characteristic is zero.
+For a transcendental element, changing a transcendence
+basis element and extending to algebraic closures gives
+a nonfixing automorphism.
+Therefore \(t(x)=s(u)\) for a unique \(u\in k\).
+Equation \eqref{eq:ftb-key-in-families}, with \(V=k\), makes
+this same \(u\) work at every embedding of \(k\).
+
+For an arbitrary \(K\), descend the key datum to a
+countable subfield \(k\subset K\), using
+Lemma~\ref{lem:ftb-key-countable-local-pid-specialization} and then taking
+the fraction field.
+Define its value by the preceding \(u\).
+This is independent of descent.
+Indeed put two countable models in one countable
+intermediate field, adjoin the finitely many coefficients
+of their common abelian-variety isomorphism and line
+isomorphism, and descend these isomorphisms.
+Their equality with the given rigidification, section
+and tangent vectors descends by faithful flatness.
+Embed this common countable field in \(\mathbb C\).
+Both proposed values are then the same complex normal
+value; injectivity proves equality before embedding.
+This also proves functoriality, by pushing one countable
+model through a field map.
+The complex normal value is nonzero, so the value belongs
+to \(K^\times\).
+The same descent including \(a,M\) and their inverses
+transfers the complex normal-form identity
+\eqref{eq:ftb-known-frame-change} to \(K\), giving
+\eqref{eq:ftb-key-rule-exponent-one-homog}.
+
+The relation with the powered rule is
+\[
+                             \kappa_K(x)^{N(g)}=\rho_K(x).
+ \tag{S6}\label{eq:ftb-key-root-powered-algebraic}
+\]
+Check it over a countable model embedded in \(\mathbb C\),
+using \eqref{eq:ftb-key-powered-normal-value}, and then
+use functoriality.
+Over the DVR \(V\), the right side is a unit \(b\in V^\times\).
+The element \(\kappa_K(x)\) is integral over \(V\), being
+a root of \(T^{N(g)}-b\).
+Normality of \(V\) puts it in \(V\); its positive power
+being a unit makes it a unit \(u\).
+
+We must also identify the specialization of this chosen
+root, not just its power.
+Descend \(y,u\) to a countable local PID subring
+\(V_0\subset V\), with local faithfully flat inclusion.
+The generic countable fraction field embeds in \(\mathbb C\).
+By the definition and uniqueness of its value, the
+generic complex value is the image of \(u\).
+Equation \eqref{eq:ftb-key-in-families} now identifies the
+value under every map \(V_0\to\mathbb C\), including maps
+factoring through a characteristic-zero residue field.
+It therefore represents the value on that residue
+pullback in the countable definition.
+Pushing to \(k\) proves
+\eqref{eq:ftb-key-rule-exponent-one-unit}.
+For a normalized theta datum, \(M=I,c=1\), so its value
+is \(1\).
+All uniqueness assertions follow by the same common
+countable model argument.
+\end{proof}
+
+\paragraph{Exact scope and source concordance.}
+This theorem gives \(\mathrm{Homog}_1\), \(\mathrm{Funct}\),
+\(\mathrm{UnitSp}\), and \(\mathrm{ThetaOne}\).
+In \(\mathrm{UnitSp}\) the DVR may have positive residue
+characteristic; its unit assertion still holds, while the
+stated value comparison is only for characteristic-zero
+residue fields, exactly as the field rule requires.
+The separate archimedean norm identity is not inferred
+from the algebraic root argument.
+
+The prefix below is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/ThetaLawProofs/}.
+The countable avoidance, chosen line and smooth normalization
+are \srcid{ExistsAlgHomNeZeroOfCountable.lean}
+(\srcid{9dc863ab22573a559ae8c249f33d533a7860cf49}),
+\srcid{ExistsDominantComponent.lean}
+(\srcid{8e6078832242f5fd87c9969273e88a9b1a4402df}),
+\srcid{ExistsPrimeDimensionLEOneAvoiding.lean}
+(\srcid{f56c1b74e6815aeea22584eaf146e6252e747ef8}),
+and \srcid{ExistsSmoothNormalisation.lean}
+(\srcid{2e88aff00b5fb1cfda8566ac7c21761fdce68dff}).
+The exact local subring is
+\srcid{ExistsCountableLocalPidSubring.lean}
+(\srcid{80f4e931782aab0999790894204dc2b851005194}).
+Finite projective descent on standard affine charts is
+\srcid{VeryAmpleByDescendsCountableSubring.lean}
+(\srcid{880d25ecad16a9516141cd62e4c9feee229e7b53}).
+Its actual key-data assembly is
+\srcid{KeyDataDescendCountableSubrings.lean}
+(\srcid{d06ec6cf161d65aff27cc78f9f3693252a1b58d2}),
+using finite-coefficient descent for morphisms, line bundles,
+group laws and polarizations.
+Those are ordinary projective finite-presentation and fpqc
+descent operations with the hypotheses stated in the proof;
+no uniform bound for their coefficient fields is needed.
+
+The specialization proof, including the finite-type
+rescaling of the \emph{actual} key datum, is
+\srcid{ExistsSmoothThrough.lean}
+(\srcid{fa1c6cdf3595de268b05d93491d66de7c70a4532}).
+The common-countable-isomorphism argument, invariant field
+definition, root identity and DVR specialization are
+\srcid{ExistsCommonCountable.lean}
+(\srcid{f748a7e68705d47f6d415d95bf2e20e2370d2577}).
+The final wrapper is
+\srcid{../UniformizationProofs/KeyFormulaOfConnFam.lean}
+(\srcid{c6229bc642171a481eef723c9bdfffc7b9f68a55}).
+Its actual connected-family and analytic-continuity
+hypotheses remain precisely those retained above.
