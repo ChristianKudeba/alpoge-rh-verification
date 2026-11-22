@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-21",
+  "scope": "ordinary RH standalone prose translation",
+  "source_baseline": {
+    "tag": "alpoge-source-7cbf7a0c",
+    "commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4"
+  },
+  "current_paper": {
+    "source_commit": "e91c5c8b4951a4ddc93a3f9258e9c0343c990c64",
+    "pages": 499,
+    "complete": false
+  },
+  "exhaustive_dependency_graph": false,
+  "status_rules": {
+    "located": "Exact original source body found; no completed prose claim.",
+    "drafted": "Prose exists; source fidelity and correctness review pending.",
+    "checked": "Independent mathematical/source review complete for exact stated scope.",
+    "integrated": "Checked prose included in current manuscript; not a whole-paper verdict."
+  },
+  "packages": [
+    {
+      "id": "theta_signature_induction",
+      "status": "drafted",
+      "lane": "reviewer",
+      "depends_on": [
+        "existing_theta_matching_convergence_constant_terms_descent"
+      ],
+      "draft_directory": "translation/review-drafts",
+      "drafts": [
+        "theta-line-cusp.tex",
+        "theta-simultaneous-cutoff.tex",
+        "theta-two-step.tex",
+        "theta-adapted-tower.tex",
+        "theta-cuspidal-orthogonality.tex",
+        "theta-endgame.tex"
+      ],
+      "remaining": "Check exact original-source correspondence and all pre-packet constant quantifiers, then integrate."
+    },
+    {
+      "id": "formal_hodge_freeness",
+      "status": "drafted",
+      "lane": "A",
+      "drafts": [
+        "translation/review-drafts/formal-hodge-kernel-repair.tex"
+      ],
+      "source_candidates": [
+        "ProperMultiplicationKernel",
+        "HeightCharFreeGeometric",
+        "AbelianQuotientBilinear",
+        "KernelRankBoundNormValuation"
+      ],
+      "remaining": "Match actual polarized quotient/model data; review cubical pairing kernel argument."
+    },
+    {
+      "id": "formal_frobenius_sequence",
+      "status": "located",
+      "lane": "A",
+      "source_candidates": [
+        "FamilyEx",
+        "CocpMain",
+        "QamCore"
+      ],
+      "remaining": "Resolve exact source paths/declarations; translate injectivity and coordinate/gluing proof."
+    },
+    {
+      "id": "full_integral_model_and_determinant_extension",
+      "status": "drafted",
+      "lane": "A",
+      "source_candidates": [
+        "src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/BirationalGeometry/ToroidalCompactification/UniformisationConclusion.lean",
+        "FlatZero",
+        "FlatFirstFromResolutionAndGaga",
+        "EigenLinePAdicFrame"
+      ],
+      "drafts": [
+        "translation/review-drafts/general-flat-saturation.tex"
+      ],
+      "remaining": "Match all Model.N3 and canonical determinant-extension clauses; generic/unipotent arguments alone do not close the integral identification."
+    },
+    {
+      "id": "integral_point_eigenlattice",
+      "status": "drafted",
+      "lane": "A",
+      "source_candidates": [
+        "src/Development/WeilBound/CoreStatements/PlurisubharmonicCones/AbelianPartIntegralPointBis.lean",
+        "src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ExistsSandwichOfHodgeTateFreeStatement.lean"
+      ],
+      "drafts": [
+        "translation/review-drafts/integral-eigenlattice.tex"
+      ],
+      "remaining": "Integrate corrected dominant-model pullback scope and direct comparison for evaluated coherent point lattices; match starting model."
+    },
+    {
+      "id": "labelled_height_budget",
+      "status": "integrated",
+      "lane": "integrator",
+      "source_candidates": [
+        "src/Development/WeilBound/CoreStatements/PlurisubharmonicCones/HeightComparisonGlobalModel.lean",
+        "src/Development/WeilBound/CoreStatements/PlurisubharmonicCones/ExistsSmulMemOfEig.lean"
+      ],
+      "manuscript": "translation/short-chapters/labelled-height-budget.tex",
+      "scope": "Elementary determinant/index, torus cancellation and numerical absorption under explicitly displayed geometric premises."
+    },
+    {
+      "id": "uniform_theta_spanning_and_denominators",
+      "status": "located",
+      "lane": "B",
+      "source_candidates": [
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/EvenDomainWeightBound.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/PolynomialCoefficientEmbeddingNormLeOfL1Bound.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/NormPhiHatIndPhi.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsBoundedIntegerGoodCoverThetaSeriesIntegral.lean"
+      ],
+      "remaining": "One bounded clearing integer and all-embedding norms for the actual theta family; consolidate valid existing numerical subarguments."
+    },
+    {
+      "id": "short_integral_generators",
+      "status": "located",
+      "lane": "B",
+      "depends_on": [
+        "uniform_theta_spanning_and_denominators"
+      ],
+      "source_candidates": [
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ShortOfInputs.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ShortLatticeSpanningSets.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FlatConstantAbsLeNineExplicit.lean"
+      ],
+      "remaining": "Actual key/flat twists, geometry-of-numbers generator argument and prescribed-weight/window absorption."
+    },
+    {
+      "id": "geometric_section_realization",
+      "status": "located",
+      "lane": "B",
+      "source_candidates": [
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/GeometricOfHyp.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/WeightPositivityPrincipalisationDeep.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ProportionalPositiveVolumes.lean"
+      ],
+      "remaining": "Full cusp lattice, function-field generation and degree/share inequality on same model; match positivity hypotheses."
+    },
+    {
+      "id": "carrying_section",
+      "status": "located",
+      "lane": "B",
+      "source_candidates": [
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsCarryingSectionOrders.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CarryingSectionIntegralFrame.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ReferenceWeightOfDeepGood.lean"
+      ],
+      "remaining": "Same section satisfies weight change, valuations, archimedean norm and total cost."
+    },
+    {
+      "id": "height_volume_covolume_assembly",
+      "status": "located",
+      "lane": "integrator",
+      "depends_on": [
+        "full_integral_model_and_determinant_extension",
+        "integral_point_eigenlattice",
+        "labelled_height_budget",
+        "short_integral_generators",
+        "geometric_section_realization",
+        "carrying_section"
+      ],
+      "source_candidates": [
+        "src/Development/WeilBound/CoreStatements/NefModelVolumes/HeightG.lean",
+        "src/Development/WeilBound/CoreStatements/NefModelVolumes/TopCovolG.lean",
+        "src/Development/WeilBound/CoreStatements/NefModelVolumes/TopCovolSlim2.lean",
+        "src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/CovolumeFromGramAndBounds.lean"
+      ],
+      "remaining": "Exact leading coefficient, component ranks, metrics and eventual uniform threshold."
+    },
+    {
+      "id": "common_window_family_and_RH",
+      "status": "located",
+      "lane": "integrator",
+      "depends_on": [
+        "theta_signature_induction",
+        "height_volume_covolume_assembly",
+        "existing_arithmetic_window_and_analytic_chapters"
+      ],
+      "source_candidates": [
+        "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean"
+      ],
+      "remaining": "Expand exact tied-family fields, match all objects and constant order, then apply existing signed/analytic endpoint."
+    }
+  ]
+}
