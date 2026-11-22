@@ -1,0 +1,318 @@
+\section{Labelled determinants and the numerical height budget}
+\label{sec:sr-labelled-height-budget}
+
+This chapter proves the determinant and numerical deductions in the
+height comparison.  The hypotheses about an actual integral model,
+its labelled lattices and its Hodge metric are stated explicitly.
+In particular, the deductions below do not construct that model,
+prove its Hodge--Tate freeness, or establish its flatness comparison.
+
+Write \(d_E=[E:\mathbb Q]\), \(d_L=[L:\mathbb Q]\), and
+\(R_E=|\operatorname{disc}E|^{1/d_E}\).
+All finite indices are indices of additive groups.
+For two full lattices \(M,M'\) in the same vector space put
+\[
+ \iota(M,M')=
+ \log\#\bigl(M/(M\cap M')\bigr)
+ -\log\#\bigl(M'/(M\cap M')\bigr).
+ \tag{HB1}\label{eq:sr-hb-signed-index}
+\]
+Thus \(\iota(M,M')\) is negative when \(M\) is a proper
+sublattice of \(M'\).  The sign will matter in the torus cancellation.
+
+\subsection{Determinant identities over integer rings}
+
+Let \(M\) be a full \(\mathcal O_L\)-lattice of rank \(n\)
+in an \(L\)-space, equipped with conjugation-compatible positive
+Hermitian forms at the complex embeddings.
+For an \(L\)-basis \(b=(b_1,\ldots,b_n)\), put
+\(M_b=\sum_i\mathcal O_Lb_i\).  Then
+\[
+ \widehat{\deg}_n M
+ =\frac{\iota(M,M_b)
+       -\frac12\sum_{\sigma:L\hookrightarrow\mathbb C}
+                 \log\det\operatorname{Gram}_{\sigma}(b)}
+        {d_L}.
+ \tag{HB2}\label{eq:sr-hb-degree-index}
+\]
+To prove this without assuming a free global lattice, localize
+at a finite prime \(\mathfrak p\).  Both lattices are free over
+the DVR \(\mathcal O_{L,\mathfrak p}\).
+Smith diagonalization writes the first relative to the second
+with elementary divisors \(\varpi^{a_1},\ldots,\varpi^{a_n}\).
+Its contribution to \(\iota\) is
+\(-\sum_i a_i\log N\mathfrak p\).
+These are exactly the valuations of its determinant fractional
+ideal, with the sign in the arithmetic degree.
+Only finitely many primes contribute.
+At infinity the norm of \(b_1\wedge\cdots\wedge b_n\)
+is the square root of the Gram determinant.
+This proves (HB2), including nonprincipal determinant ideals.
+A change of \(b\) cancels between the determinant ideal and
+the archimedean term by the product formula.
+
+Suppose a nonzero integral ideal \(\mathfrak a\) satisfies
+\(\mathfrak a M\subset F\) and \(\mathfrak a F\subset M\).
+At \(\mathfrak p\), the elementary-divisor exponents of \(F\)
+relative to \(M\) are between
+\(-v_{\mathfrak p}(\mathfrak a)\) and
+\(v_{\mathfrak p}(\mathfrak a)\).
+Adding their valuations proves
+\[
+ |\iota(F,M_b)-\iota(M,M_b)|
+                    \le n\log N_{L/\mathbb Q}\mathfrak a.
+ \tag{HB3}\label{eq:sr-hb-commensurable}
+\]
+This argument also proves that \(F\) is full and finitely generated:
+it lies between \(\mathfrak a M\) and \(\mathfrak a^{-1}M\).
+The difference of two signed indices is independent of their
+common comparison lattice, as is also immediate prime by prime.
+
+\subsection{The torus determinant, including the different}
+
+Let \(I\) be a torsion-free finite \(\mathcal O_E\)-module of
+rank \(r\), embedded in an \(L\)-space \(V\) in such a way that
+the induced map \(I\otimes_{\mathbb Z}L\to V\) is injective.
+Assume \(L\) contains every embedding of \(E\), and let \(e_s\)
+be its rational spectral projectors.  Choose
+\(v_1,\ldots,v_r\in I\) such that
+\[
+ I_0=\sum_i\mathcal O_Ev_i\subset I,\qquad H=[I:I_0]<\infty.
+\]
+Let \(T=\mathcal O_L I\), and
+\(T_s=T\cap e_sV\).  The vectors \(e_sv_i\) form an \(L\)-basis
+of \(L T_s=e_s(LI)\); this need not be all of \(e_sV\).  The exact formula is
+\[
+ \frac{\iota(T_s,\sum_i\mathcal O_Le_sv_i)}{d_L}
+                       =-r\log R_E+\frac{\log H}{d_E}.
+ \tag{HB4}\label{eq:sr-hb-torus-index}
+\]
+
+Here is the integral computation.
+For an ideal \(\mathfrak b\) in \(E\), its trace-dual is
+\(\mathfrak b^{-1}\mathfrak D_E^{-1}\).
+If \(a_j\) is an integral basis of \(\mathfrak b\)
+and \(b_j\) its trace-dual basis, then in
+\(E\otimes_{\mathbb Q}L\)
+\[
+                         e_s=\sum_j a_j\otimes s(b_j).
+\]
+Consequently \(x e_s\) belongs to
+\(\mathfrak b\otimes_{\mathbb Z}\mathcal O_L\) precisely when
+\(x\,s(\mathfrak b^{-1}\mathfrak D_E^{-1})
+\subset\mathcal O_L\), or equivalently
+\[
+                         x\in s(\mathfrak D_E\mathfrak b)
+                                               \mathcal O_L.
+ \tag{HB5}
+\]
+This computation uses the rational projector; it makes no claim
+that \(e_s\) is integral at ramified primes.
+
+Choose an ideal pseudo-basis \(I=\bigoplus_i\mathfrak b_i v_i'\).
+Apply (HB5) to each summand, and take its determinant.
+For every fractional ideal \(\mathfrak c\) of \(E\),
+\[
+ \log N_{L/\mathbb Q}(s(\mathfrak c)\mathcal O_L)
+                    =\frac{d_L}{d_E}\log N_{E/\mathbb Q}\mathfrak c.
+\]
+Changing from \(v'\) to \(v\) multiplies the determinant
+by \(s(\det C)\); its norm is accounted for by the same formula
+for principal fractional ideals.
+The determinant ideal of \(I\), relative to \(v\), has norm
+\(H^{-1}\).  The different has norm
+\(|\operatorname{disc}E|\).
+The signed-index formula therefore gives
+\[
+ \iota(T_s,\mathcal O_L e_sv)
+ =-\frac{d_L}{d_E}\bigl(r\log|\operatorname{disc}E|-\log H\bigr),
+\]
+which is (HB4).
+
+\subsection{The labelled degree and its cancellation}
+
+We use the following precise linear data.
+There is a full \(\mathcal O_L\)-lattice \(\Lambda\subset V\),
+stable under \(\mathcal O_E\), and an \(\mathcal O_E\)-stable
+\(\mathbb Z\)-lattice \(I\subset\Lambda\) as above.
+There is an \(L\)-linear map \(f:V\to B_L\), with kernel
+\(L I\), taking \(\Lambda\) into a Hermitian lattice \(B\).
+Its image spans \(B_L\).  The images of distinct \(E\)-eigenspaces
+are orthogonal at every infinite embedding.
+Put
+\[
+ \Lambda_s=\Lambda\cap e_sV,\quad
+ T_s=(\mathcal O_L I)\cap e_sV,\quad
+ M_s=f(\Lambda_s).
+\]
+Assume the integral kernel is exactly
+\(\Lambda\cap LI=\mathcal O_L I\).
+Then
+\(0\to T_s\to\Lambda_s\to M_s\to0\) is exact.
+
+Choose \(q_1,\ldots,q_k\in\Lambda_s\) such that
+\((e_sv_1,\ldots,e_sv_r,q_1,\ldots,q_k)\) is an \(L\)-basis
+of \(e_sV\).  Define
+\[
+ \operatorname{ldeg}_s(F)=\frac1{d_L}
+ \left\{\iota\bigl(F,\mathcal O_L(e_sv,q)\bigr)
+  -\frac12\sum_\sigma
+           \log\det\operatorname{Gram}_{\sigma}(f(q))\right\}.
+ \tag{HB6}
+\]
+At a finite prime choose a basis of the kernel and lift a basis
+of the image.  The relative basis matrix is block triangular.
+Its determinant is the product of its kernel and quotient
+determinants, independently of the chosen lifts.
+Summing these DVR identities and applying (HB2) gives
+\[
+ \operatorname{ldeg}_s(\Lambda_s)
+ =\frac{\iota(T_s,\mathcal O_Le_sv)}{d_L}
+                              +\widehat{\deg}_n M_s.
+ \tag{HB7}
+\]
+Only the quotient has a Hermitian Gram term in this formula.
+
+Let the chosen labels be indexed by a set of size
+\(f_0=d_E/2\).  They need not be all the embeddings.
+For each chosen label suppose an ideal \(\mathfrak a_s\ne0\)
+satisfies
+\[
+ \mathfrak a_sF_s\subset\Lambda_s,\quad
+ \mathfrak a_s\Lambda_s\subset F_s,\quad
+              \frac{\log N\mathfrak a_s}{d_L}\le X.
+ \tag{HB8}
+\]
+Set \(j=r+k\), and define
+\[
+ \Phi=\sum_s\operatorname{ldeg}_s(F_s)
+                   -\tfrac12\log H+\tfrac12f_0r\log(4\pi).
+\]
+Equations (HB3), (HB4) and (HB7) prove
+\[
+ \Phi\le f_0jX-f_0r\log R_E
+            +\sum_s\widehat{\deg}_n M_s
+            +\tfrac12f_0r\log(4\pi).
+ \tag{HB9}\label{eq:sr-hb-parts}
+\]
+In fact, the torus indices contribute
+\(f_0\log H/d_E=\tfrac12\log H\).
+This is the exact cancellation with the term in \(\Phi\).
+Bounding that index separately would lose this cancellation.
+
+\subsection{An explicit small-block slope bound}
+
+The following numerical lemma is the needed abstract deduction
+from slope and conjugate-degree bounds.
+It does not use an unproved geometric height theorem.
+
+\begin{srlemma}\label{lem:sr-hb-small-blocks}
+Let \(B\) be a Hermitian lattice of rank \(m\).
+Suppose its generic space is the orthogonal sum of subspaces
+\(U_s,W_s\), for \(f_0\) pairs.  Use their saturated integral
+intersection lattices in the following degrees.
+Let \(\Lambda_0\ge1\), \(j,n\ge1\), \(C\ge0\), and suppose
+\[
+ \begin{gathered}
+ m\le f_0n\le e^{\Lambda_0},\qquad
+ \operatorname{rk}U_s\le j,\\
+ |\widehat{\deg}_nU_s-\widehat{\deg}_nW_s|
+                                    \le Cn\Lambda_0,\\
+ \mu_{\max}(B)\le C\log(2+m+\max(-\widehat{\deg}_nB,0)).
+ \end{gathered}                                      \tag{HB10}
+\]
+Then, with \(C_a=C(2+\log(3+C))\),
+\[
+              \sum_s\widehat{\deg}_nU_s
+                                \le C_a f_0j\Lambda_0.
+ \tag{HB11}\label{eq:sr-hb-small-bound}
+\]
+\end{srlemma}
+
+\begin{proof}
+Write \(T=\sum_s\widehat{\deg}_nU_s\).
+The direct sum of all the intersection lattices is a full
+sublattice of \(B\); orthogonality makes its degree the sum
+of their degrees.  Its index in \(B\) has nonnegative logarithm.
+Therefore
+\[
+ \widehat{\deg}_nB\ge
+      \sum_s(\widehat{\deg}_nU_s+\widehat{\deg}_nW_s)
+                                  \ge2T-Cf_0n\Lambda_0.
+\]
+If \(T\le0\), the conclusion follows at once.
+Otherwise \(h=\max(-\widehat{\deg}_nB,0)
+\le Cf_0n\Lambda_0\le Ce^{\Lambda_0}\Lambda_0\).
+Thus
+\[
+ \begin{split}
+ \log(2+m+h)
+ &\le\Lambda_0+\log(3+C\Lambda_0)\\
+ &\le2\Lambda_0+\log(3+C)
+ \le(2+\log(3+C))\Lambda_0.
+ \end{split}
+\]
+The middle inequality uses
+\(\Lambda_0\le e^{\Lambda_0}\) and \(1\le e^{\Lambda_0}\).
+By definition of maximal slope, every nonzero saturated
+\(U_s\) has degree at most its rank times \(\mu_{\max}(B)\).
+The same statement is zero for rank zero.
+Since \(T>0\), the maximal slope is positive.
+Summing the rank bounds now gives (HB11).
+\end{proof}
+
+For the application, the spaces \(f(e_sV)\) have integral
+image lattices \(M_s\) contained with finite index in the
+corresponding saturated \(U_s\).
+They have the same induced metrics, so
+\(\widehat{\deg}_nM_s\le\widehat{\deg}_nU_s\).
+The orthogonal \(E\)-action supplies the decomposition used
+in (HB10).  A bound on its conjugate pair degrees and the
+general Hodge maximal-slope bound are the two substantive
+geometric inputs to that lemma; its conclusion follows
+from exactly the displayed inequalities.
+
+\subsection{The final numerical budget}
+
+Suppose \(B_0\ge16\), \(R_E\ge1\), and put
+\[
+ \Lambda_0=\log B_0+\log R_E+|L'(1,\chi_d)/L(1,\chi_d)|.
+\]
+Suppose the prime set \(S\) and the actual labelled comparison
+satisfy, with constants chosen before the host and point,
+\[
+ \sum_{p\in S}\frac{\log p}{p-1}\le C_1\log B_0,\qquad
+ X=2\sum_{p\in S}\frac{\log p}{p-1}+2\log R_E,
+ \tag{HB12}
+\]
+and suppose the small-block hypotheses hold with
+\(f_0n\le B_0\) and the same \(\Lambda_0\).
+Then \(X\le(2C_1+2)\Lambda_0\).
+Moreover \(\log(4\pi)<\log16\le\Lambda_0\), and \(r\le j\).
+Substitute (HB11) in (HB9), discard the nonpositive term
+\(-f_0r\log R_E\), and obtain
+\[
+ \Phi\le(2C_1+2+C_a+\tfrac12)f_0j\Lambda_0
+                     \le C_h f_0j\Lambda_0,\qquad
+                 C_h=2C_1+C_a+3.
+ \tag{HB13}\label{eq:sr-hb-final-budget}
+\]
+Every constant in (HB13) is chosen before \(E,L,B_0\), the
+integral point and the individual label.
+
+For clarity, (HB13) is the full determinant and numerical
+assembly, not a claim that its geometric hypotheses have
+already been discharged.  For the actual model one must
+still establish (HB8), the genuine Hodge-metric identification,
+the integral action on the abelian quotient, the conjugate
+degree bound in (HB10), and the common compactification and
+freeness conditions permitting all these statements to be
+used at the same point.  Their source interfaces are,
+respectively, \srcid{AbelianPartIntegralPoint},
+\srcid{IsLinPtOf}, \srcid{exists_action},
+\srcid{FlatSat}, and the admitted compact-datum intersection
+conditions.  This chapter supplies the elementary conclusions
+called \srcid{phiDeg_le_parts}, \srcid{abel_abstract}, and
+\srcid{small_blocks_numbers} in the
+\srcid{HeightComparisonGlobalModel} assembly.
+It does not infer those model-dependent premises from their names.
