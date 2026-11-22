@@ -7,14 +7,17 @@
     "commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4"
   },
   "current_paper": {
-    "source_commit": "06991fb1efad72318cbcedee14365c77790750f2",
-    "pages": 558,
+    "source_commit": "6be17bf2cd8bf8b790193532ca4d7e4616ba5b45",
+    "pages": 668,
     "complete": false,
-    "artifact": "f41a81e53c63e4cba1c29c8f654b2e33",
-    "attachment": "864e6b70b42c4989dcc3efd2eebb2329",
-    "pdf_sha256": "47c46881a2d0414c9bbe49ff44b2fe88f48daf7e7979c49cc017613ad9a7c165",
-    "editor_transport_sha256": "5113cd8124542bb831115b71198392f391fbbad6080ab0f8211996fe2d0287a0",
-    "editor_readback_verified": true
+    "artifact": "e1511ad803aaceda1003f3553d0afba4",
+    "attachment": "9d7ce36f0d34693480abddcac13f7b78",
+    "pdf_sha256": "d5a04f923f5c685adc616578b4744dfdf4040fba1243db659f0c14076955af9b",
+    "canonical_tex_sha256": "1188a4c958b16370f2692799c18868e7c66870efe54c766ce85c9a7c2e795306",
+    "release_url": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-6be17bf2cd8bf8b790193532ca4d7e4616ba5b45",
+    "pdf_readback_verified": true,
+    "document_render_checks_passed": true,
+    "mathematical_completeness_verified": false
   },
   "exhaustive_dependency_graph": false,
   "status_rules": {
@@ -190,7 +193,7 @@
       "remaining": "Expand exact tied-family fields, match all objects and constant order, then apply existing signed/analytic endpoint."
     }
   ],
-  "last_update_utc": "2026-11-22T02:17:00Z",
+  "last_update_utc": "2026-11-22T02:49:40Z",
   "page_target": 1000,
   "bounded_source_additions": [
     {
@@ -235,15 +238,10 @@
     "actual fixed-fibre exponential and cubical Hermitian frame"
   ],
   "latest_working_source": {
-    "commit": "5b16aaab2454b4aa05feb6d7d389667a6a490ea0",
-    "typesetting_passed": false,
+    "last_math_publication_commit": "6be17bf2cd8bf8b790193532ca4d7e4616ba5b45",
+    "review_checkpoint_commit": "48e1b5de0e218cf5fb59eb5785472a294eefb413",
     "standalone_complete": false,
-    "reviewed_additions": [
-      "actual quotient/Hopf kernel/norm-degree/HFree and stalk transport",
-      "unramified torsion and exact psi-unit clause",
-      "ramified connection/Wick, all-prime trace denominator, weight/carrying",
-      "integral key reading, halfsup, Gaussian, projected/raw norm"
-    ]
+    "later_drafts_integrated_into_pdf": false
   },
   "remaining_source_frontier": [
     "actual integral formal tower, relative ampleness and algebraisation, nonzero theta normalisation and complete-local descent",
@@ -251,5 +249,44 @@
     "same-family relative complex periods, integral expansion and exact short-series reading",
     "actual analytic kernel/spanning induction and its same-model tied-family joins",
     "full geometric section, integral evaluated eigenlattice, height/covolume and common-window assembly"
+  ],
+  "principia_editor_mirror": {
+    "pages": 558,
+    "source_commit": "06991fb1efad72318cbcedee14365c77790750f2",
+    "transport_sha256": "5113cd8124542bb831115b71198392f391fbbad6080ab0f8211996fe2d0287a0",
+    "body_readback_verified": true,
+    "current_source_notice_verified": true,
+    "current_668_source_available_in_release": true,
+    "capacity_constraint": "Project is at 100 source files; five editor inputs contain the earlier 558-page edition."
+  },
+  "workflow": {
+    "status": "paused",
+    "reason": "User requested pause after research-note update and agent checkpoint coordination.",
+    "paused_utc": "2026-11-22T02:49:40Z",
+    "resume_requires_user_request": true
+  },
+  "archive_module_coverage": {
+    "exhaustive": false,
+    "percent": null,
+    "page_count_is_not_module_coverage": true,
+    "deduplicated_module_audit_complete": false
+  },
+  "registered_queue_modules": [
+    {
+      "name": "Development.AbelianVarietyTheory.PublishedTheorems.Divisors₂.TamagawaNumberSU",
+      "version": 1,
+      "translated_by": "ChristianKudeba",
+      "status": "translated",
+      "queue_review_pending": true,
+      "scope": "Definition of a published-theorem proposition; no proof or existence asserted."
+    }
+  ],
+  "pending_saved_blob_references": [
+    {
+      "key": "keyVolume",
+      "blob": "454bbc6f93b108a1b71c06582a4f877d7786dc4e",
+      "status": "review pending",
+      "scope": "Source coloured-Hilbert-volume mechanism; determinant and graph suppliers remain separate."
+    }
   ]
 }

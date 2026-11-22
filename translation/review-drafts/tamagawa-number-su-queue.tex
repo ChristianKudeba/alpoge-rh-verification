@@ -1,0 +1,106 @@
+\begin{definition}[The published special-unitary Tamagawa input]
+Let $F$ and $E$ be number fields, with a specified $F$-algebra structure
+on $E$ and $\sigma\in\operatorname{Aut}_F(E)$ satisfying the imported
+CM-extension condition $\operatorname{IsCMExt}(F,E,\sigma)$.
+Let $M\ge2$, let $J\in M_M(E)$ satisfy
+$\operatorname{IsHermND}(\sigma,J)$, and let
+$\Lambda\subset E^M$ be a finitely generated $\mathcal O_E$-submodule
+with $E\Lambda=E^M$. Put $d=M^2-1$ and
+$G(\mathbb A_F)=\operatorname{SUAdelic}(\sigma,J)$, with its specified
+rational subgroup $\Gamma=\operatorname{SURat}(\sigma,J)$.
+
+The local scalars used in this input are the ones in
+\texttt{GlobalTheory.TamSU.locVol}, with the following precise
+normalization. Let
+\[
+ K_\Lambda=\{h\in G(\mathbb A_F):
+                 h_{\mathrm{fin}}\widehat\Lambda=\widehat\Lambda\}.
+\]
+For a nonzero prime ideal $v\subset\mathcal O_F$ and $k\ge0$ let
+$c_v(k)$ be the source's natural-valued cardinality (\texttt{Nat.card},
+which is zero for an infinite quotient) of the quotient of $K_\Lambda$ by
+\[
+ h\sim_{v,k}h'
+ \quad\Longleftrightarrow\quad
+ (h_{\mathrm{fin}}-h'_{\mathrm{fin}})\widehat\Lambda
+       \subset\widehat{((v^k\mathcal O_E)\Lambda)}.
+\]
+Set $q_v=N_{F/\mathbb Q}(v)$ and
+\[
+ a_v=\operatorname{limUnder}_{k\to\infty}
+                         \frac{c_v(k)}{q_v^{kd}} .
+\]
+Here $\operatorname{limUnder}$ is the exact limit-selection operation
+used by the imported definition; convergence of each sequence is not
+an extra assertion of this module.
+
+Define the integral Lie lattice
+\[
+ \mathfrak g_\Lambda=
+ \{X\in M_M(E):\operatorname{tr}X=0,\ 
+        (\sigma X)^tJ+JX=0,\ X\Lambda\subset\Lambda\}.
+\]
+Choose a finite CM type $\Psi\subset\operatorname{Hom}(E,\mathbb C)$:
+for every $\tau$, $\tau\in\Psi$ if and only if
+$\overline\tau\notin\Psi$.
+Choose maps
+$\theta_\rho:\mathbb A_{F,\infty}\otimes_F E\to\mathbb C$
+for $\rho\in\Psi$ with the imported compatibility
+$\operatorname{IsInfEmb}(\rho,\theta_\rho)$.
+Choose $e_1,\ldots,e_d\in\mathfrak g_\Lambda$ linearly independent
+over $F$. Write $L_e=\sum_i\mathcal O_F e_i$ and
+$I_e=\operatorname{relIndex}(L_e,\mathfrak g_\Lambda)$,
+in the source's order of the two subgroups.
+
+Let $\nu_{\Psi,e}$ be the pushforward of Lebesgue measure on
+$\mathbb R^{\Psi\times\{1,\ldots,d\}}$ by
+\[
+ (c_{\rho i})\longmapsto
+       \left(\sum_{i=1}^d c_{\rho i}\rho(e_{i,ab})\right)_{\rho,a,b}.
+\]
+This is exactly \texttt{SUVol.formLie}; put
+$B_\epsilon=\{X:\lvert X_{\rho,ab}\rvert<\epsilon
+\text{ for every }\rho,a,b\}$.
+For a measure $\mu$ on $G(\mathbb A_F)$,
+$\operatorname{IsTamagawa}(\sigma,J,\Lambda,\Psi,\theta,e,\mu)$
+means that $\mu$ is Haar and, as $\epsilon\downarrow0$,
+\[
+ \frac{\mu\{h\in K_\Lambda:
+       |h_{\rho,ab}-\delta_{ab}|<\epsilon
+                  \text{ for every }\rho,a,b\}}
+      {\nu_{\Psi,e}(B_\epsilon)}
+ \longrightarrow
+ \operatorname{ofReal}\left(
+     |\operatorname{disc}F|^{-d/2} I_e\prod_v' a_v\right).
+\]
+Here $h_\rho$ is the actual archimedean matrix obtained using
+$\theta_\rho$, and the quotient and limit are in $[0,\infty]$,
+as in \texttt{IsTamagawa}.
+
+The proposition \texttt{Published.TamagawaNumberSU} asserts,
+for every $F,E,\sigma,M,J,\Lambda$ above, both:
+\begin{enumerate}
+\item The real family $(a_v-1)_v$, indexed by all nonzero prime
+ideals of $\mathcal O_F$, is summable.
+\item For every $\Psi,\theta,e$ as above, every measure $\mu$
+satisfying this exact $\operatorname{IsTamagawa}$ normalization,
+and every fundamental domain $\mathcal F$ for the specified
+rational subgroup $\Gamma\subset G(\mathbb A_F)$,
+\[
+                              \mu(\mathcal F)=1.
+\]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+This file defines a proposition used as a published-theorem input;
+it contains no proof of that proposition. In particular it does not
+assert existence of a normalized measure or a fundamental domain.
+The finite-place summability clause, the rank restriction $M\ge2$,
+the full-lattice hypothesis, and the displayed Lie-lattice and
+discriminant normalization are part of the input, not optional
+conventions. The auxiliary formulas above were read from
+\texttt{Definitions.Divisors.IsTamagawa} and
+\texttt{PublishedTheorems.Divisors$_2$.EmbGLMemRealSU}.
+\end{remark}
+

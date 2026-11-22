@@ -1,0 +1,369 @@
+\subsection{The graded torsion-zero estimate used by the moduli construction}
+\label{subsec:ftb-torsion-zero-estimate}
+
+We give the graded argument used by the source, including the
+finiteness and projective-point conditions needed in its application.
+All fields in this subsection may have positive characteristic.
+
+For a graded \(K\)-algebra \(T=\bigoplus_{e\ge0}T_e\), finite
+as a module over \(K[x_1,\ldots,x_m]\), where \(x_i\in T_1\),
+and a homogeneous ideal \(I\), write \(P_I\) for the eventual
+polynomial of
+\[
+                  e\longmapsto\dim_K(T/I)_e.
+\]
+When \(\deg P_I\le r\), set
+\[
+                         D_r(I)=r![T^r]P_I(T).
+ \tag{TZ1}\label{eq:ftb-graded-degree}
+\]
+The polynomial and the grading here are those of the actual finite
+graded algebra, not an independently chosen projective embedding.
+
+\begin{lemma}[The graded degree calculation]
+\label{lem:ftb-graded-degree-calculation}
+Suppose \(K\) is a field, \(T\) is as above, and
+\(Q\) is a homogeneous prime with \(\dim(T/Q)=r+1\).
+Then \(P_Q\) has degree \(r\) and \(D_r(Q)\) is a positive
+integer.
+For a homogeneous \(f\notin Q\) of degree \(a\), the
+minimal primes \(Q'\) of \(Q+(f)\) are homogeneous and have
+dimension \(r\); for \(r\ge1\),
+\[
+             \sum_{Q'\in\operatorname{Min}(Q+(f))}
+                        D_{r-1}(Q')\le aD_r(Q).
+ \tag{TZ2}\label{eq:ftb-graded-cut-degree}
+\]
+Finally, if \(\dim_KT_e\le(Ce)^g\) for every \(e\ge1\), then
+\[
+                             D_g(0)\le g!C^g.
+ \tag{TZ3}\label{eq:ftb-graded-growth-degree}
+\]
+\end{lemma}
+\begin{proof}
+The finite module structure over \(K[X_1,\ldots,X_m]\),
+where \(X_i\) acts by \(x_i\), gives finite-dimensional
+graded pieces and their eventual Hilbert polynomial.
+One can obtain this in exactly the form used here by extending
+the grading by zero in negative degrees and applying
+successive multiplication-by-\(X_i\) exact sequences to
+a finite homogeneous module presentation.
+For a homogeneous \(I\) and homogeneous \(f\) of degree \(a\),
+the kernel and cokernel of multiplication by \(f\) give
+\[
+ P_I(T)=P_{I+(f)}(T)+P_{(I:f)}(T-a).
+ \tag{TZ4}\label{eq:ftb-colon-hilbert-identity}
+\]
+Indeed, in degree \(e+a\) this is the dimension formula
+for multiplication \( (T/(I:f))_e\to(T/I)_{e+a}\).
+For prime \(Q\) with \(f\notin Q\), it becomes
+\[
+                   P_{Q+(f)}(T)=P_Q(T)-P_Q(T-a).
+ \tag{TZ5}\label{eq:ftb-prime-hilbert-difference}
+\]
+
+Here are the dimension and coefficient arguments in the source.
+Every quotient is finite over a quotient of the polynomial ring,
+so its dimension is finite.
+If all \(x_i\) lie in \(I\), then \(P_I=0\): its finite
+graded module presentation is then annihilated by every positive
+polynomial variable, and has only finitely many nonzero degrees.
+For homogeneous primes avoiding one \(x_i\), the polynomial
+\(P_Q\) is nonzero, since no power of that \(x_i\) lies in \(Q\).
+Noetherian induction, using \eqref{eq:ftb-colon-hilbert-identity},
+shows that \(\dim(T/I)\le s\) implies \(\deg P_I<s\).
+For the prime induction step choose a degree-one \(x_i\notin Q\)
+and cut by it; for a nonprime ideal choose a homogeneous
+zero divisor witnessing nonprimality, so that both \(I+(f)\)
+and \((I:f)\) strictly contain \(I\).
+The dimension of every minimal component of a nonzero principal
+cut of an affine domain is one less than that of the domain;
+this is the affine finite-type dimension theorem and principal
+ideal theorem, applied to \(T/Q\).
+Using such a component and the inequality
+\(\deg P_J\le\deg P_I\) for \(I\subset J\), the reverse
+induction proves \(\deg P_Q=r\).
+The dimension inequality just mentioned follows directly by
+comparing the eventual dimensions of the quotient pieces.
+
+For completeness, the coefficient comparison does not discard
+multiplicities by assuming reducedness of a cut.
+For any homogeneous \(I\) with \(\deg P_I\le s\),
+Noetherian induction gives
+\[
+       \sum_{Q\in\operatorname{Min}(I)}[T^s]P_Q
+                                     \le[T^s]P_I.
+ \tag{TZ6}\label{eq:ftb-minimal-prime-coefficient}
+\]
+For prime \(I\) this is immediate.
+Otherwise choose homogeneous \(f\) with both overideals
+in \eqref{eq:ftb-colon-hilbert-identity} strictly larger.
+Separate the minimal primes of \(I\) according as they contain
+\(f\); those containing \(f\) are minimal over \(I+(f)\),
+and the others are minimal over \((I:f)\).
+Apply induction to the two collections and use
+\eqref{eq:ftb-colon-hilbert-identity}; translation \(T\mapsto T-a\)
+does not alter the coefficient of degree \(s\).
+This proves \eqref{eq:ftb-minimal-prime-coefficient}.
+The leading coefficient is nonnegative because the polynomial
+is eventually the dimension of a vector space.
+Moreover \(s![T^s]P_I\) is an integer whenever \(\deg P_I\le s\):
+the \(s\)-fold finite difference of the eventual
+integer-valued polynomial has that constant value.
+For a prime of dimension \(s+1\) it is nonzero, hence at least one.
+Equation \eqref{eq:ftb-prime-hilbert-difference}, followed by
+\eqref{eq:ftb-minimal-prime-coefficient}, now gives
+\eqref{eq:ftb-graded-cut-degree}.
+Comparing the eventual polynomial \(P_0(e)\) with \(C^ge^g\)
+gives \eqref{eq:ftb-graded-growth-degree} by leading coefficients.
+\end{proof}
+
+A graded character below means a \(K\)-algebra homomorphism
+\(\phi:T\to K\).  Two such characters are \emph{projectively
+equivalent} if there is \(c\in K\) such that
+\[
+                \phi'(y)=c^e\phi(y)
+                         \quad(y\in T_e,\ e\ge0).
+ \tag{TZ7}\label{eq:ftb-graded-scaling}
+\]
+We only count characters on which some \(x_i\) is nonzero;
+then an equivalence between two counted characters has \(c\ne0\).
+
+\begin{lemma}[The actual graded B\'ezout bound]
+\label{lem:ftb-actual-graded-bezout}
+Let \(K\) be algebraically closed and \(T\) a graded domain
+finite over \(K[x_1,\ldots,x_m]\), \(x_i\in T_1\).
+Suppose \(\dim T=g+1\), \(g\ge1\), and
+\(\dim_KT_e\le(Ce)^g\) for \(e\ge1\).
+Let \(0\ne s\in T_d\) and let \(\mathcal F\subset T_a\).
+Assume that characters annihilating \(\mathcal F\) and nonzero
+on some \(x_i\) have only finitely many equivalence classes
+under \eqref{eq:ftb-graded-scaling}.
+Then the number of distinct such classes annihilating \(s\) is at most
+\[
+                              C^g g!d\,a^{g-1}.
+ \tag{TZ8}\label{eq:ftb-actual-graded-bezout-bound}
+\]
+\end{lemma}
+\begin{proof}
+Choose finitely many representative characters \(\Phi\).
+If a homogeneous prime \(Q\) of dimension at least two
+contained all of \(\mathcal F\), choose
+\[
+                              h=\sum_i t^ix_i\in T_1
+\]
+with \(\psi(h)\ne0\) for every \(\psi\in\Phi\)
+nonzero on some \(x_i\).
+Such \(t\) exists: each corresponding polynomial
+\(\sum_i\psi(x_i)T^i\) is nonzero, and \(K\) is infinite.
+The ideal \(Q+(h)\) is proper, by taking the degree-zero
+part if it contained \(1\).
+A minimal prime \(Q'\) over it has positive dimension:
+if \(h\in Q\), take \(Q'=Q\); otherwise use the
+principal-cut dimension equality.
+Not all \(x_i\) lie in \(Q'\), since finiteness over
+\(K[x_i]\) would otherwise make \(T/Q'\) zero-dimensional.
+The affine Nullstellensatz supplies a character \(\phi\)
+annihilating \(Q'\) but nonzero on one \(x_i\).
+It annihilates \(\mathcal F\), so is equivalent to some
+\(\psi\in\Phi\), with nonzero scaling factor.
+Then \(\phi(h)\ne0\), contradicting \(h\in Q'\).
+Consequently, for every such \(Q\), some \(f\in\mathcal F\)
+lies outside \(Q\).
+
+We next count homogeneous primes containing \(\mathcal F\)
+and avoiding at least one \(x_i\).
+Inside a homogeneous prime \(Q\) of dimension \(k+1\),
+the number in any finite collection of them is at most
+\[
+                               a^kD_k(Q).
+ \tag{TZ9}\label{eq:ftb-count-inside-prime}
+\]
+For \(k=0\) each is \(Q\).
+Indeed, a strict containment gives a homogeneous element
+outside \(Q\); a minimal component of its cut has dimension
+zero and lies under the larger prime, whereas a homogeneous
+prime avoiding some \(x_i\) has positive dimension.
+Thus the collection has size at most one, bounded by \(D_0(Q)\).
+For \(k\ge1\), choose \(f\in\mathcal F\setminus Q\) as above.
+Each prime in the collection contains a minimal prime of
+\(Q+(f)\).
+Apply induction to each such component and sum.
+Equation \eqref{eq:ftb-graded-cut-degree} gives
+\eqref{eq:ftb-count-inside-prime}; overlap only decreases
+the required cardinality.
+
+For a character \(\phi\), put
+\(P_\phi=\bigoplus_e(\ker\phi\cap T_e)\).
+This homogeneous core is prime: the lowest nonzero graded
+terms of two elements in the graded quotient show that
+their product cannot vanish.
+Distinct counted projective classes give distinct cores.
+Indeed, if \(P_\phi=P_{\phi'}\) and \(\phi(x_i)\ne0\),
+the homogeneous relation
+\[
+                    \phi(x_i)^e y-\phi(y)x_i^e\in P_\phi
+\]
+gives
+\(\phi'(y)=(\phi'(x_i)/\phi(x_i))^e\phi(y)\).
+Every core being counted contains \(s\), hence contains
+a minimal prime \(Q'\) of \((s)\).
+Apply \eqref{eq:ftb-count-inside-prime} with \(k=g-1\)
+to these components, then \eqref{eq:ftb-graded-cut-degree}
+to the cut of \(0\) by \(s\), and finally
+\eqref{eq:ftb-graded-growth-degree}.
+The result is
+\(a^{g-1}dD_g(0)\le C^gg!d a^{g-1}\).
+This proves the bound for every finite collection, hence
+for the full finite set of classes.
+\end{proof}
+
+\paragraph{Why the finite graded algebra exists in the application.}
+Let \(X/K\) be integral and \(M\) a line bundle.
+The source constructs its section ring by writing a section of
+\(M^e\) as compatible functions in its actual trivializing charts,
+then placing that family as the coefficient of \(Z^e\)
+in a polynomial ring.
+The transition functions multiply under addition of exponents,
+so these monomials form a graded algebra.
+Restriction to any nonempty chart is injective on each
+homogeneous piece: a section zero on that chart is zero on
+all charts by integrality.
+Mapping its coefficients to one such chart therefore embeds
+the entire graded algebra in a domain of polynomials.
+This proves that the section ring used above is a domain
+with the actual section spaces as its graded pieces.
+
+Suppose \(x_i\in H^0(X,M)\) is a very ample system.
+On the affine chart \(x_i\ne0\), its ratios \(x_j/x_i\)
+generate the coordinate ring.
+For a homogeneous section \(y\) of degree \(e\), express
+\(y/x_i^e\) as a polynomial in these ratios and homogenize:
+\[
+                          yx_i^n=G(x),\qquad\deg G=n+e.
+ \tag{TZ10}\label{eq:ftb-section-ring-clearing}
+\]
+In the actual counting application take the subalgebra
+\(T\) generated by the finitely many \(x_i\), the section
+\(s\), and the finitely many equations of the relevant
+finite fibre.
+Give it their section degrees.
+It is finite over \(S=K[x_i]\), as the following source
+argument shows; this step is not inferred just from finite
+generation as a \(K\)-algebra.
+
+For homogeneous \(y\in T_e\), \eqref{eq:ftb-section-ring-clearing}
+gives \(yx_i^{n_i}\in S\) for every \(i\).
+The ideal
+\[
+                       \{b\in S:yb\in S\}
+\]
+contains a power of each \(x_i\), so contains a power
+\((x_i)^N\) of their finitely generated ideal.
+Let \(V\) be the \(S\)-span of the products of \(N\)
+of the \(x_i\).
+It is finite, nonzero, and faithful because \(T\) is a
+domain and some \(x_i\ne0\).
+The homogeneous component of \(S\) of degree \(e+N\)
+is spanned by products of \(e+N\) of the \(x_i\).
+Splitting each product after its first \(e\) factors
+shows \(yV\subset V\).
+The determinant trick gives a monic equation for \(y\)
+over \(S\).
+Sums of homogeneous integral elements are integral,
+and \(T\) is of finite type over \(S\); hence \(T\) is
+finite over \(S\).
+
+Its dimension is \(g+1\) when the affine chart of \(X\)
+has dimension \(g\).
+Explicitly, let \(C\) be that chart ring, put \(r_i=1\)
+and \(r_j=x_j/x_i\), and map
+\(K[X_j]\to C[Z]\) by \(X_j\mapsto r_jZ\).
+Homogenization shows its kernel equals the kernel of
+\(X_j\mapsto x_j\).
+Its image contains \(Z\), and every element of \(C[Z]\)
+enters the image after multiplication by a power of \(Z\).
+Thus the image and \(C[Z]\) have the same fraction field.
+Finiteness of \(T/S\) now gives
+\(\dim T=\operatorname{trdeg}_K C+1=g+1\).
+The dimensions of the pieces of \(T\) are bounded by
+those of the actual section spaces.
+
+Finally a character of \(T\) nonzero on \(x_i\) gives
+normalized coordinates \(\phi(x_j)/\phi(x_i)\).
+All homogeneous relations hold there.
+Homogenizing arbitrary chart relations yields a
+\(K\)-algebra map from the affine chart ring to \(K\),
+and hence an actual point of \(X(K)\).
+Equation \eqref{eq:ftb-section-ring-clearing} implies
+that its evaluation character is equivalent to \(\phi\)
+on every degree.
+Very ampleness also proves that distinct actual points
+give distinct classes.
+Therefore a finite geometric fibre really does provide
+the finite set \(\Phi\) required in the preceding lemma.
+
+\begin{proposition}[Zeros on prime-to-characteristic torsion]
+\label{prop:ftb-torsion-zero-growth}
+Let \(A/K\) be an abelian variety of dimension \(g\ge1\)
+over an algebraically closed field.
+Let \(M\) be a symmetric line bundle with a specified
+very ample system, and suppose
+\[
+                h^0(A,M^e)\le(Ce)^g\qquad(e\ge1).
+\]
+For \(k\ge1\) prime to \(\operatorname{char}K\) and
+\(0\ne s\in H^0(A,M^d)\),
+\[
+             \#\{x\in A[k](K):s(x)=0\}
+                         \le C^g g!d\,k^{2g-2}.
+ \tag{TZ11}\label{eq:ftb-torsion-zero-bound}
+\]
+\end{proposition}
+\begin{proof}
+Choose an index \(i_0\) with \(x_{i_0}(0)\ne0\).
+The sections
+\[
+                    x_j-\frac{x_j(0)}{x_{i_0}(0)}x_{i_0}
+\]
+have common zero locus precisely the origin, by the affine
+ratios of the very ample system.
+Pull them back by \([k]\).
+Symmetry gives the actual line-bundle isomorphism
+\([k]^*M\simeq M^{k^2}\), so these pullbacks are equations
+of degree \(a=k^2\) with common zero set \(A[k](K)\).
+Their common zero set is finite, of cardinality \(k^{2g}\),
+since \([k]\) is etale of degree \(k^{2g}\).
+Use the finite graded subalgebra and point comparison
+just constructed and apply
+Lemma~\ref{lem:ftb-actual-graded-bezout}.
+This gives \(C^gg!d(k^2)^{g-1}\), as claimed.
+No torsion point outside this same marked fibre or
+different line bundle enters the calculation.
+\end{proof}
+
+\paragraph{Source concordance.}
+The section-ring construction is
+\texttt{ThetaFamilyOrigin/ExistsSectionRing.lean}
+(\texttt{ccbcde80e4e6666c2403ef1fd456ca5377bd4ab3}).
+The clearing, finite-module and dimension arguments are
+\texttt{ExistsMulMemAdjoinOfMemPowRange.lean}
+(\texttt{fb2e32e96e5edc160ce0474fc8a810e096a2b3c3}),
+\texttt{NonemptyGradedAlgebraSubGrading.lean}
+(\texttt{b5b4b0c004dbe53fbf7722321c51fe5ac5f3bb5c}),
+and \texttt{CardZerosOnTorsionCosetLe.lean}
+(\texttt{72d5e39854bcd931cf08432e3f914729fde60834}).
+The Hilbert-degree induction and finite-core counting are
+\texttt{RingKrullDimQuotientOfMemMinimalPrimesSup.lean}
+(\texttt{d1f4d4c443e5ba59b1d7022efe2848460942bc94})
+and \texttt{RingKrullDimQuotientLeOne.lean}
+(\texttt{80400608125d31abc9a5a9cdf23e09cd85097b5e}).
+The final supplied-system application is
+\texttt{ModuliProofs/CardZerosOnTorsionLeOfSymmetricVeryAmple.lean}
+(\texttt{221898a2feed4bb454a82acc68c4e320ac130be9}).
+These are all under
+\texttt{src/Development/AbelianVarietyTheory/Proofs/}.
+The remaining fine-moduli joins are the actual theta
+very-ampleness/periodicity, the ideal Hilbert polynomial,
+and the marked graph systems; this proposition does
+not presume them.

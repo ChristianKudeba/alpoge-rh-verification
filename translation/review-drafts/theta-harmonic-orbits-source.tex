@@ -106,7 +106,9 @@ For \(k\ne l\), the substitution for the transvection
 \(g_t=1-s\,e_{lk}\) has first coefficient \(E_{kl}P\);
 coefficient extraction from this vector-valued polynomial in
 \(s\) preserves any subspace containing all its values.
-For \(k=l\), diagonal matrices act on a monomial \(m\) by
+For \(k=l\), take the diagonal matrix with \(k\)-th entry
+\(u^{-1}\) and all other diagonal entries \(1\).
+Under the displayed mixed action it acts on a monomial \(m\) by
 \(u^{w_{t,k}(m)}\), where
 \[
  w_{t,k}(m)=\sum_a m(x_{t,a,k})-\sum_bm(y_{t,b,k})\in\mathbb Z.
@@ -361,36 +363,36 @@ finite grid.
 
 \paragraph{Frozen-source correspondence.}
 All paths below have prefix
-\srcid{src/Development/AbelianVarietyTheory/}.
+\texttt{src/Development/AbelianVarietyTheory/}.
 Definitions:
-\srcid{Definitions/ThetaMetrics/IsWeightedHomogeneousOfMemOrbitSpan.lean}
-(\srcid{c1877771faeabf2142790b50b81479d6d456888f});
-\srcid{Definitions/ThetaValues/ExistsMemRowHighestTotalDegreeEqTwo.lean}
-(\srcid{217fbb7c67c140ae738bd4cdf20ca1d889b544a0}).
-Proofs under \srcid{Proofs/CuspFormEvaluations/}:
-\srcid{SumSmulMemOfSumZpowSmulMem.lean}
-(\srcid{3e061221e4036b034ee0f711d62a6eeac44c0f43});
-\srcid{CommuteRowOpRightMixedOp.lean}
-(\srcid{e5177dd3860b99ec938dcae8ed7e3bfc0fb6b883});
-\srcid{ExistsJointIntEigenvectorOfStable.lean}
-(\srcid{19583793c47ca3dc64c71ea7e82a1d1722e7a6e4});
-\srcid{Sl2NonnegWeightOfHighestWeightVector.lean}
-(\srcid{b7b5a34fe292d0bf1a4914f15a0b81ac91674edf});
-\srcid{EqZeroOfPartialSumsNonneg.lean}
-(\srcid{a0a1d943821745f91e4848a82fa606134a049104});
-\srcid{ColumnDegreeLe.lean}
-(\srcid{6228cdfba74d695455dae9204a0af5f24ceaf21e});
-\srcid{RowAddGenericRowAddTerm.lean}
-(\srcid{a330cf3dec19dd7558c4484d7396d47fcc32baac});
-\srcid{ProdLeadMinorDiagonal.lean}
-(\srcid{2efe5dbb526ffa538caf14b41c1fe4726237cf01});
-\srcid{ExistsEqMulProdMinors.lean}
-(\srcid{aa0719b052a50fa7ca15c2f4d00278833ca702eb});
-\srcid{RowHighestLeSpanColWordComplex.lean}
-(\srcid{6723d08a3376d7658011e5f319b0ee89cf7ef040}).
+\texttt{Definitions/ThetaMetrics/IsWeightedHomogeneousOfMemOrbitSpan.lean}
+(\texttt{c1877771faeabf2142790b50b81479d6d456888f});
+\texttt{Definitions/ThetaValues/ExistsMemRowHighestTotalDegreeEqTwo.lean}
+(\texttt{217fbb7c67c140ae738bd4cdf20ca1d889b544a0}).
+Proofs under \texttt{Proofs/CuspFormEvaluations/}:
+\texttt{SumSmulMemOfSumZpowSmulMem.lean}
+(\texttt{3e061221e4036b034ee0f711d62a6eeac44c0f43});
+\texttt{CommuteRowOpRightMixedOp.lean}
+(\texttt{e5177dd3860b99ec938dcae8ed7e3bfc0fb6b883});
+\texttt{ExistsJointIntEigenvectorOfStable.lean}
+(\texttt{19583793c47ca3dc64c71ea7e82a1d1722e7a6e4});
+\texttt{Sl2NonnegWeightOfHighestWeightVector.lean}
+(\texttt{b7b5a34fe292d0bf1a4914f15a0b81ac91674edf});
+\texttt{EqZeroOfPartialSumsNonneg.lean}
+(\texttt{a0a1d943821745f91e4848a82fa606134a049104});
+\texttt{ColumnDegreeLe.lean}
+(\texttt{6228cdfba74d695455dae9204a0af5f24ceaf21e});
+\texttt{RowAddGenericRowAddTerm.lean}
+(\texttt{a330cf3dec19dd7558c4484d7396d47fcc32baac});
+\texttt{ProdLeadMinorDiagonal.lean}
+(\texttt{2efe5dbb526ffa538caf14b41c1fe4726237cf01});
+\texttt{ExistsEqMulProdMinors.lean}
+(\texttt{aa0719b052a50fa7ca15c2f4d00278833ca702eb});
+\texttt{RowHighestLeSpanColWordComplex.lean}
+(\texttt{6723d08a3376d7658011e5f319b0ee89cf7ef040}).
 The final flag and orbit parametrization is
-\srcid{Proofs/CovolumeBounds/ExistsMinorProdEqSmulColActBasePoly.lean}
-(\srcid{2ad1227e78855888f65ff5874a3bb24bc58f6ff4}).
+\texttt{Proofs/CovolumeBounds/ExistsMinorProdEqSmulColActBasePoly.lean}
+(\texttt{2ad1227e78855888f65ff5874a3bb24bc58f6ff4}).
 The declarations used are
 \srcid{rowHighest_eq_span_colWord},
 \srcid{rowHighest_eq_orbitSpan},

@@ -372,6 +372,19 @@ inequalities; the connectedness and triangular
 orthonormalization are the original frame-domain
 results, with the fixed signature of \(X\).
 
+For this application retain the source's full hypotheses:
+\(\sigma\) is an actual \(\mathrm{GoodEmb}\), \(U\) satisfies
+\(\mathrm{IsUnf}\), \(1\le r\), the weight has
+\(\mathrm{Dom}(a,n)\), and the given data satisfy
+\(d.\mathrm{IsLev}\), \(\mathrm{IsNab}\),
+\(\mathrm{UnitC}\), and \(\mathrm{PhiPin}\).
+The \(UW\), \(D_c.e\), \(\mathrm{LevTie}\), common-vacuum,
+component-move, marking, dual-marking, and adaptation ties are
+the actual compatible choices used above.
+An admissible quadruple \((\Lambda,N,P,f)\) includes
+\(f\in\mathrm{sec}(X_o,c,a,n)\) and its asserted
+short-rule identity; it is not an arbitrary rule.
+
 Apply it, for a fixed component \(k\), to the index
 set of all admissible quadruples
 \((\Lambda,N,P,f)\).
@@ -413,34 +426,34 @@ or on the individual frame.
 
 \paragraph{Frozen-source correspondence and supplier scope.}
 With prefix
-\srcid{src/Development/AbelianVarietyTheory/Proofs/SiegelThetaTransformation/},
+\texttt{src/Development/AbelianVarietyTheory/Proofs/SiegelThetaTransformation/},
 the value calculation is
-\srcid{ShortThetaValueComplexPointEqClassicalTheta.lean}
-(\srcid{2055ba448bc5ae903a96758e651e9924a44c367a}),
+\texttt{ShortThetaValueComplexPointEqClassicalTheta.lean}
+(\texttt{2055ba448bc5ae903a96758e651e9924a44c367a}),
 \srcid{shortValAt_eq_thP};
 the common lattice and fibre factors are
-\srcid{GphiEqSmulPhiF.lean}
-(\srcid{49ecf15b9a7d4565663d55eb915f47c052997523})
-and \srcid{IteratedFDerivSmulAll.lean}
-(\srcid{b8a0c23b041516b9f4dc141eed167e25c3a52504}),
+\texttt{GphiEqSmulPhiF.lean}
+(\texttt{49ecf15b9a7d4565663d55eb915f47c052997523})
+and \texttt{IteratedFDerivSmulAll.lean}
+(\texttt{b8a0c23b041516b9f4dc141eed167e25c3a52504}),
 \srcid{ShortPt.shortRule_value};
 the last analytic argument is
-\srcid{ConstOfNormFactorUnitFr.lean}
-(\srcid{ae99b4fcc02fcee1d1bc16f67e4e521203578ba7})
-and \srcid{ShortSeriesReadingsEqClassicalThetaSeries.lean}
-(\srcid{569e5e7d4b19f957cfd305524b5d6f1207b233ad}),
+\texttt{ConstOfNormFactorUnitFr.lean}
+(\texttt{ae99b4fcc02fcee1d1bc16f67e4e521203578ba7})
+and \texttt{ShortSeriesReadingsEqClassicalThetaSeries.lean}
+(\texttt{569e5e7d4b19f957cfd305524b5d6f1207b233ad}),
 \srcid{rdU_short_eq_thP}.
 The explicit lower formulas (RS8), (RS9), and (RS12) are
 respectively
-\srcid{CoverFourierCoeffEqFiniteFourierSum.lean}
-(\srcid{74576b27f7c3dd7a54f9c4d66edcd5931e6c9cb4}),
-\srcid{FourierTranslatesVacuumRootsLevelPoints.lean}
-(\srcid{28fc115f8c46ce96e6f2bbf704fe6c4b1b43aced}),
-and \srcid{ExistsSymplOfSelfDual.lean}
-(\srcid{8dd7dbad6195af626d9c794fa32465204b5ed6a3}).
+\texttt{CoverFourierCoeffEqFiniteFourierSum.lean}
+(\texttt{74576b27f7c3dd7a54f9c4d66edcd5931e6c9cb4}),
+\texttt{FourierTranslatesVacuumRootsLevelPoints.lean}
+(\texttt{28fc115f8c46ce96e6f2bbf704fe6c4b1b43aced}),
+and \texttt{ExistsSymplOfSelfDual.lean}
+(\texttt{8dd7dbad6195af626d9c794fa32465204b5ed6a3}).
 The even-representative producer is
-\srcid{ExistsEvenRepsTensorLatticeAndSum.lean}
-(\srcid{502dfc50708b8b3b17831e6f95df62e543aae8cb}).
+\texttt{ExistsEvenRepsTensorLatticeAndSum.lean}
+(\texttt{502dfc50708b8b3b17831e6f95df62e543aae8cb}).
 
 The calculation in this section is bounded by its displayed
 actual-fibre and finite-Fourier inputs.
@@ -454,5 +467,5 @@ In particular, the formal Wick contraction alone has
 not been identified with the full actual
 \(\mathrm{IsNab}\) endpoint.
 The exact latter supplier is
-\srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/HarmonicValueCanonicalConnectionEqPolyDeriv.lean}
-(\srcid{92fd264bea303cb5a4f68c59d7a35bb0af8079c9}).
+\texttt{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/HarmonicValueCanonicalConnectionEqPolyDeriv.lean}
+(\texttt{92fd264bea303cb5a4f68c59d7a35bb0af8079c9}).

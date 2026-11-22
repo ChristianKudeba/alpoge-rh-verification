@@ -1,0 +1,398 @@
+\subsection{The source's columnwise harmonic cancellation}
+\label{subsec:sr-source-harmonic-chart-cancellation}
+
+Fix the same packet, coefficient ring and framed point
+as in Subsection~\ref{subsec:sr-source-frame-truncation}.
+A letter \(\lambda\in\mathrm{Lt1}(D_w)\) has an
+underlying embedding \(\tau_\lambda\); its multiplicity
+index is retained.
+For a multi-index \(\alpha\) write
+\(\alpha!=\prod_\lambda\alpha_\lambda!\).
+The exact exponential-coordinate value is
+\[
+ \mathrm{expVal}(g,\alpha)=
+      \alpha!\,[z^\alpha]g .
+ \tag{HC1}
+\]
+For \(n\ge0\), rename the variables of \(g_b\) into
+column \(b\) and put
+\[
+ {\cal G}(z)=\prod_{b=1}^n g_b(z_b),\qquad
+ \langle P,F\rangle=P(\partial)F(0).
+\]
+The coordinate bijection is precisely
+\((\lambda,b)\leftrightarrow(\tau_\lambda,i_\lambda,b)\)
+of the actual source.  It gives
+\[
+ \langle P,{\cal G}\rangle
+ =\sum_{\mu\in\mathrm{supp}P}P_\mu
+                 \prod_b\mathrm{expVal}(g_b,\mu_b).
+ \tag{HC2}
+\]
+In this and subsequent formulas coefficients of \(P\)
+are mapped from \(c.F\) to \(S\).
+There is no factorial for the number of columns:
+(HC2) uses exactly the product of the coordinate
+factorials.
+
+\begin{srlemma}[The exact finite product-rule cancellation]
+\label{lem:sr-source-quadratic-product-rule-cancellation}
+Let \(S\) be any commutative \(\mathbb Q\)-algebra,
+\(Q\) a homogeneous quadratic polynomial, and let
+\(c_{ij}=\partial_i\partial_jQ\).
+Put
+\[
+                   {\cal D}_cP=\sum_{i,j}c_{ij}
+                                          \partial_i\partial_jP.
+\]
+For every polynomial \(P\) and formal series \(A\),
+\[
+                  \langle P,AQ\rangle
+                         =\tfrac12\langle{\cal D}_cP,A\rangle .
+ \tag{HC3}
+\]
+If \({\cal D}_cP=0\), then for every \(t\in S\)
+and every formal series \(F\),
+\[
+                         \langle P,e^{tQ}F\rangle
+                                      =\langle P,F\rangle. \tag{HC4}
+\]
+\end{srlemma}
+\begin{proof}
+Expand the ordered derivatives defining a monomial
+\(P(\partial)\) on \(AQ\) by the product rule.
+Terms with zero or one derivative applied to \(Q\)
+vanish at the origin because \(Q(0)=dQ(0)=0\).
+Terms with more than two vanish because \(Q\) is
+quadratic.
+Choose the two derivative positions applied to \(Q\).
+The remaining derivatives act on \(A\), and those two
+positions contribute \(c_{ij}\).
+The operator \({\cal D}_c\) counts the two orders of
+each chosen pair; symmetry of \(c\) makes their
+contributions equal.
+Division by \(2\) gives (HC3), including repeated
+derivative indices.
+Extend by coefficient linearity to every \(P\).
+This is the source's \(\mathrm{half\_gen}\) ordered-word
+argument, with its factor \(1/2\).
+
+To obtain (HC4), use the source's factorization
+\[
+ e^{tQ}=1+tQY,\qquad
+                  Y=\sum_{r\ge0}\frac{(tQ)^r}{(r+1)!}.
+ \tag{HC5}
+\]
+All substitutions are legitimate formal substitutions
+since \(Q(0)=0\); only finitely many terms affect any
+specified coefficient.
+Apply (HC3) to \(A=tFY\).
+The extra term in \(\langle P,F(1+tQY)\rangle\)
+is zero because \({\cal D}_cP=0\).
+Thus no analytic convergence or division by a
+nonzero coefficient of \(P\) is used.
+\end{proof}
+
+For \(\beta=(\beta_{\lambda\lambda'})\), put
+\[
+ Q_\beta^{(n)}
+       =\sum_{b=1}^n\sum_{\lambda,\lambda'}
+                     \beta_{\lambda\lambda'}
+                                    z_{\lambda,b}z_{\lambda',b}.
+ \tag{HC6}
+\]
+The matrix \(\beta\) need not be symmetric.
+Its Hessian is
+\[
+ c_{(\lambda,b),(\lambda',b')}
+  =\mathbf1_{b=b'}(\beta_{\lambda\lambda'}
+                                      +\beta_{\lambda'\lambda}).
+ \tag{HC7}
+\]
+This includes both terms and their exact common-column
+condition.
+
+\begin{srproposition}[Cancellation for the literal harmonic space]
+\label{prop:sr-source-actual-column-harmonic-cancellation}
+Let \(P\in\mathrm{harmA}(c,a,n)\), and suppose
+\[
+ \beta_{\lambda\lambda'}\ne0
+               \ \Longrightarrow\
+              \tau_{\lambda'}=\overline{\tau_\lambda}.
+ \tag{HC8}
+\]
+Then for every \(t\in S\),
+\[
+ \sum_\mu P_\mu\prod_b
+        \mathrm{expVal}(g_be^{tQ_\beta^{(1)}},\mu_b)
+       =\sum_\mu P_\mu\prod_b\mathrm{expVal}(g_b,\mu_b).
+ \tag{HC9}
+\]
+The same equality holds if each new column series
+is specified only modulo terms of degree \(D+1\),
+provided every monomial of \(P\) has degree at most \(D\).
+\end{srproposition}
+\begin{proof}
+We first identify the exact harmonic input.
+The definition of \(\mathrm{harmA}\), through its
+identity-matrix Laplacian, gives
+\[
+ \sum_b\partial_{(\tau,i,b)}
+                  \partial_{(\bar\tau,j,b)}P=0
+                                  \qquad(\tau\in\Psi_H).   \tag{HC10}
+\]
+Every conjugate pair has a member in \(\Psi_H\).
+Indeed the host element \(\mathrm{rt}\) has square
+\(-d\) with \(d>0\); the chosen complex square root
+\(\mathrm{rt}_0\) is nonzero and purely imaginary,
+so \(\overline{\mathrm{rt}_0}=-\mathrm{rt}_0\).
+Any embedding sends \(\mathrm{rt}\) to
+\(\mathrm{rt}_0\) or \(-\mathrm{rt}_0\).
+In the second case its conjugate sends it to
+\(\mathrm{rt}_0\).
+This is the literal \(\mathrm{PsiCover}\) argument
+for the actual host, rather than an extra selection
+of embeddings.
+If the first embedding in a conjugate pair is not
+in \(\Psi_H\), use (HC10) in the reverse order and
+commute the two polynomial partial derivatives.
+
+Rename the source letters by the displayed coordinate
+bijection and map coefficients to \(S\).
+Renaming by an injection and coefficient extension
+commute with polynomial partial derivatives.
+Thus for every pair satisfying (HC8),
+\[
+              \sum_b\partial_{\lambda,b}
+                              \partial_{\lambda',b}P=0.   \tag{HC11}
+\]
+Use (HC7).
+For each ordered pair, the term involving
+\(\beta_{\lambda\lambda'}\) is zero by (HC11) if
+that coefficient is nonzero, and is zero directly
+otherwise.
+The term involving \(\beta_{\lambda'\lambda}\)
+is zero by the reversed (HC11).
+Hence \({\cal D}_cP=0\).
+
+The product of the column exponential factors is
+\(e^{tQ_\beta^{(n)}}\), by (HC6) and the formal
+exponential addition law.
+Apply (HC4) to \({\cal G}=\prod_b g_b(z_b)\), and
+use (HC2) on both sides.
+This proves (HC9) with the source's factorials.
+
+For the finite-order assertion, substitution into a
+column and multiplication of finitely many series
+preserve equality modulo \((z)^{D+1}\).
+The pairing with \(P\) reads only coefficients in
+degrees at most \(D\), so it cannot detect any of
+those residual terms.
+This proves the exact finite-jet version as well.
+For \(n=0\), the products are empty products and the
+same proof gives the constant case.
+\end{proof}
+
+We now apply this calculation to an actual chart's
+formal group and canonical gauge, before making any
+comparison with a second chart.
+Let \(\ell_G\) be the actual normalized logarithm in
+(FC2), let \(\varepsilon_G\) be its compositional
+inverse, and set
+\[
+ U(z)=\sum_\lambda u_\lambda z_\lambda,\qquad
+                          \phi(z)=\varepsilon_G(U(z)).
+ \tag{HC12}
+\]
+The inverse exists by the source's recursive formal
+inverse construction: the linear term of \(\ell_G\)
+is \(I\), and after the inverse has been determined
+through degree \(r-1\), the degree-\(r\) error is
+cancelled by its negative, since the unknown
+degree-\(r\) term enters with coefficient \(I\).
+The construction gives the two compositional
+inverse identities coefficientwise.
+It works over the same arbitrary \(S\).
+
+Thus \(\phi(0)=0\), \(d\phi(0)e_\lambda=u_\lambda\),
+and
+\[
+              G(\phi(z),\phi(w))=\phi(z+w),\qquad
+                   A_a\phi(z)=\phi(D_a z).                \tag{HC13}
+\]
+The first follows by applying \(\ell_G\) and then
+its inverse.
+For the second, (FC2) and (FC15) give
+\(\ell_G(A_a\phi(z))=A_a^{(1)}U(z)=U(D_a z)\);
+apply the inverse again.
+These are the exact \(\mathrm{IsExpOf}\) and
+action-equivariance clauses used in the source.
+
+Let \(D_{G,u}\) denote the source invariant derivative,
+whose coefficient vector is \(J(X)u\).
+Differentiate the first identity in (HC13) with respect
+to \(w_\lambda\) at \(w=0\) to get
+\[
+                  \partial_\lambda\phi(z)
+                                      =J(\phi(z))u_\lambda.
+\]
+The formal chain rule therefore gives, for every \(h\),
+\[
+          \partial_\lambda(h\circ\phi)
+                              =(D_{G,u_\lambda}h)\circ\phi.
+ \tag{HC14}
+\]
+Iterating this identity in the source's ordered
+derivative word gives the same assertion for each
+monomial and then by linearity for a polynomial.
+Substitution by the zero-constant \(\phi\) preserves
+the constant coefficient.
+Consequently
+\[
+ (D_{G,u}^{\alpha}h)(0)
+                        =\mathrm{expVal}(h\circ\phi,\alpha).
+ \tag{HC15}
+\]
+The factorial in (HC15) follows by successively using
+\([z^\nu]\partial_i h=(\nu_i+1)[z^{\nu+e_i}]h\).
+This is the actual \(\mathrm{tie\_alg}\) calculation.
+
+For a chart \(C\) with its supplied canonical gauge
+\(h\), write \(h_L(X)=C.B.hL(h,w_0)\), exactly as
+defined by the source graph \((X,A_{w_0}X)\).
+The definition of \(\mathrm{nabVal}\) and (HC15)
+then give
+\[
+ \begin{split}
+ g_b&=(f_b e^{kh_L})\circ\phi,\\
+ \mathrm{chartVal}(C,k,(f_b),P)
+      &=\sum_\mu P_\mu
+                       \prod_b\mathrm{expVal}(g_b,\mu_b).
+ \end{split}                                                   \tag{HC16}
+\]
+This is a formal identity for the actual supplied
+canonical gauge; at this point it asserts no new
+existence of exponential line generators.
+
+\begin{srproposition}[Invariance under the source frame correction]
+\label{prop:sr-source-actual-harmonic-frame-correction}
+Suppose \(B^t=B\) is balanced as in (FC9), and
+\[
+       j_Df'_b=j_D(f_b e^{kQ_B})\quad\text{for every }b.
+\]
+For \(P\in\mathrm{harmA}(c,a,n)\) with all support
+degrees at most \(D\),
+\[
+             \mathrm{chartVal}(C,k,(f'_b),P)
+                         =\mathrm{chartVal}(C,k,(f_b),P).
+ \tag{HC17}
+\]
+This supplies the literal \(\mathrm{HarmInvSt}\).
+\end{srproposition}
+\begin{proof}
+From (HC12)--(HC13) and (FC13),
+\[
+ Q_B(\phi(z))
+   =\sum_{\lambda,\lambda'}
+       \left(u_\lambda^tBu_{\lambda'}\right)
+                \chi_{\lambda'}(w_0)z_\lambda z_{\lambda'}.
+ \tag{HC18}
+\]
+By (FC16) the displayed coefficient matrix satisfies
+(HC8).
+Substitution by \(\phi(0)=0\) preserves the given
+degree-\(D\) jet equality.
+Multiplication by the common \(e^{kh_L}\) and formal
+exponential substitution give
+\[
+ j_D\bigl((f'_be^{kh_L})\circ\phi\bigr)
+        =j_D\bigl(g_b e^{kQ_B\circ\phi}\bigr).
+\]
+Apply the finite-order form of (HC9) with \(t=k\)
+and the matrix in (HC18), and use (HC16).
+This proves (HC17), with no assertion that the
+original pair generators already agree under
+truncation.
+Together with (FC14), it removes the correction
+from each actual harmonic chart value.
+\end{proof}
+
+The same cancellation with \(t=-k\), and with the
+quadratic \(q\) of (GR5), removes the ratio (GR6)
+between two actual exponential gauges on one actual
+exponential chart.
+For precise coefficients, write
+\[
+ q(z)=\sum_{\lambda\le\lambda'}
+            [z_\lambda z_{\lambda'}]q\,
+                                   z_\lambda z_{\lambda'}.
+\]
+Use the upper-triangular coefficient matrix in (HC6);
+there is no duplication or extra factor \(2\) here.
+Its Hessian is still exactly (HC7).
+It has (HC8) by (GR5).
+This is the source's literal
+\(\mathrm{KillAddValSt}\), and its finite-order
+version used in \(\mathrm{HarmInvSt}\).
+
+\paragraph{Frozen source correspondence.}
+With prefix
+\texttt{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/}
+\texttt{TaylorDiscriminants/WickVanishing/},
+(HC3) is \(\mathrm{half\_gen}\) in
+\texttt{FoldrIterateEqTG.lean}
+(\texttt{f78ffd8df71057d7bbfc2d572e72d45e2f125abc});
+its ordered-word splitting supplies the repeated-index
+count and factor \(1/2\).
+(HC5) and the resulting \(\mathrm{kill\_gen}\)
+application are \texttt{KillAdd.lean}
+(\texttt{9d2613f7dec448fbda02d08b983f7ae7fd93265b}).
+The exact Hessian (HC7) is
+\texttt{KillAddQ.lean}
+(\texttt{21c18e91c9c2c5753e554b27c9a618253f4cc029}).
+\texttt{KillAddFin.lean}
+(\texttt{dd02e3e4ef65cda13260d786dd84b767e2c6d1d6})
+is the assembly \(\mathrm{kernel\_additive}\);
+the product-rule argument above supplies its underlying
+proof rather than using that assembly alone.
+
+All following files have prefix
+\texttt{src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/}.
+The exact Laplacian (HC10) and coordinate reindexing are
+\texttt{CIndEncPf.lean}
+(\texttt{52edd9a81392677693c49162dc23274853586166}).
+The actual host \(\Psi\)-coverage is
+\texttt{PsiCover.lean}
+(\texttt{7c2eff14be2863c5d6ba777d3f7bf12ae034b667}).
+The coefficient-factorial and product-of-columns
+identities (HC1)--(HC2), and the explicit Hessian
+annihilation, are \texttt{ConstantCoeffPolyAdd.lean}
+(\texttt{a7bd8d585f47122e5ec3f71e38ffc06d9a0d90cc}).
+The upper-triangular quadratic coefficient matrix and
+ordinary exponential-gauge cancellation are
+\texttt{KillAddVal.lean}
+(\texttt{8400f516d63d26349f192b3d83a8ac8e3c839614}).
+
+The actual formal exponential (HC12) is
+\texttt{ExpOfPf.lean}
+(\texttt{f664907a8e698159c83b34e49a504ac516332ee6});
+the action is \(\mathrm{expActOf}\) using (FC15).
+The chain-rule, ordered-iterate and factorial calculation
+(HC14)--(HC16) is \texttt{ExpTieAlg.lean}
+(\texttt{7edcde1ac562ca6d5944a80930274029ad278b79}),
+\(\mathrm{tie\_alg}\), \(\mathrm{nabVal\_eq\_const}\).
+The logarithm substitution (HC18) is
+\texttt{HarmInvB.lean}
+(\texttt{32c2974b0108fe6014d111c901644035585898c8});
+the finite-jet product step is \texttt{HarmInvC.lean}
+(\texttt{c6552267ccc6f92d2cafbae69323022bd7a87832});
+the actual \(\mathrm{HarmInvSt}\) assembly is
+\texttt{HarmInvPf.lean}
+(\texttt{31abf027367853bef3b186f174937d035375b5e8}).
+
+This section proves the two harmonic cancellation
+suppliers and the formal exponential derivative
+identity.  The actual exponential-gauge construction
+and the equality of actual exponential chart point
+systems remain the two geometric comparisons required
+before arbitrary-chart independence is concluded.

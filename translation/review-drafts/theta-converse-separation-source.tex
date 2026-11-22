@@ -1,0 +1,309 @@
+\subsection{The source theta functions separate points and tangents}
+\label{subsec:ftb-torus-theta-separation}
+
+This starts the converse complex-torus construction.
+It is an analytic argument and assumes no algebraic model of
+the torus.  Let \(\tau=\tau^t\) with
+\(Y=\operatorname{Im}\tau>0\), set
+\(\Lambda_\tau=\mathbb Z^g+\tau\mathbb Z^g\), and write
+\(e_C(w)=\exp(2\pi iw)\).
+Let \(\mathcal T_N(\tau)\) be the entire functions with law
+\[
+ f(z+\tau n+m)=
+ e_C\!\left(-N\{n^t\tau n/2+n^tz\}\right)f(z)
+                       \quad(m,n\in\mathbb Z^g).         \tag{TS1}
+\]
+For \(N\ge1\) its classical basis is
+\[
+ T_{N,c}(z)=
+ \theta_{c/N,0}(Nz,N\tau),
+                     \qquad c\in\{0,\ldots,N-1\}^g .
+ \tag{TS2}
+\]
+We use the already printed Gaussian convergence,
+Fourier coefficient independence and coefficient-detection
+argument: the \(N^g\) functions in (TS2) satisfy (TS1),
+are linearly independent, and span \(\mathcal T_N(\tau)\).
+Here no algebraic section-rank law is used.
+Indeed a theta function, after its usual exponential
+normalization, is integer-periodic; its Fourier coefficients
+are determined by their \(N^g\) residue classes by the
+\(\tau\)-quasi-period equations.
+If those coefficients vanish, the Fourier uniqueness
+argument makes the function zero.
+This bounds the dimension by \(N^g\), and the \(N^g\)
+independent functions (TS2) give the spanning assertion.
+
+Put \(t(z)=\theta_{0,0}(z,\tau)\).
+The case \(N=1\) shows that \(t\) is entire, nonzero, and
+satisfies (TS1) at level one.
+A nonzero entire function on a finite-dimensional complex
+vector space has dense nonzero locus.
+To see this in the form used below, vanishing on an open
+ball would imply vanishing on each complex line from a
+point in that ball to an arbitrary point, by the
+one-variable identity theorem.
+Its nonzero locus is also open, so finitely many such
+nonzero loci have nonempty intersection.
+
+\begin{lemma}[No base points from level two onward]
+\label{lem:ftb-torus-theta-no-base-points}
+For \(N\ge2\) and each \(z\in\mathbb C^g\), some
+\(f\in\mathcal T_N(\tau)\) has \(f(z)\ne0\).
+Consequently the basis in (TS2) has no common zero.
+\end{lemma}
+\begin{proof}
+Write \(N=M+1\) with \(M\ge1\).
+The two entire functions of \(u\),
+\(t(z+u)\) and \(t(z-Mu)\), are nonzero functions:
+translations and multiplication by nonzero \(M\) are onto.
+Choose \(u\) in their common nonzero locus.
+Then
+\[
+                   f(w)=t(w+u)^M t(w-Mu)
+\]
+is nonzero at \(z\).
+The quasi-period laws give the level \(M+1=N\) law:
+the shift contributions \(Mu\) and \(-Mu\) cancel in the
+exponent, leaving
+\(-N(n^t\tau n/2+n^tw)\).
+Thus \(f\in\mathcal T_N(\tau)\).
+Spanning by (TS2) now gives the last assertion.
+\end{proof}
+
+We recall the analytic translate-unit test, proved in the
+course of Lemma~\ref{lem:ftb-actual-half-characteristic}.
+Its proof is independent of the algebraic fibre in that
+lemma:
+\[
+ \begin{gathered}
+  U\text{ an entire unit},\qquad
+  t(z+w)=U(z)t(z)\text{ for all }z\\
+                 \Longrightarrow\quad w\in\Lambda_\tau .
+ \end{gathered}                                           \tag{TS3}
+\]
+More explicitly, cancellation on the dense nonzero locus
+of \(t\) gives
+\(U(z+\tau n+m)=e_C(-n^tw)U(z)\).
+The logarithmic derivative \(U^{-1}dU\) is entire and
+\(\Lambda_\tau\)-periodic.
+The lattice spans the real vector space, so the
+fundamental-parallelepiped bound and Liouville make it
+constant.  Thus \(U(z)=U(0)\exp(\ell(z))\).
+Integer periods give
+\(\ell(e_i)=2\pi i k_i,\ k_i\in\mathbb Z\).
+The \(\tau e_i\) periods then give
+\(w+\tau k\in\mathbb Z^g\), proving (TS3).
+This records the actual translate test rather than an
+assumption about a theta divisor stabilizer.
+
+\begin{proposition}[Point separation]
+\label{prop:ftb-torus-theta-point-separation}
+Let \(N\ge3\).
+If \(z,z'\in\mathbb C^g\) and \(\gamma\in\mathbb C\)
+satisfy
+\[
+             f(z)=\gamma f(z')
+                         \quad\text{for all }f\in\mathcal T_N(\tau),
+                                                               \tag{TS4}
+\]
+then \(z-z'\in\Lambda_\tau\).
+\end{proposition}
+\begin{proof}
+Write \(r=N-3\).
+For all \(a,b,d\), the function
+\[
+ F_{a,b,d}(w)=
+ t(w+a)t(w+b)t(w-(rd+a+b))t(w+d)^r
+\]
+has level \(N\), since the sum of its shifts, with their
+multiplicities, is zero.
+Equation (TS4) therefore gives
+\[
+ \begin{split}
+ &t(z+a)t(z+b)t(z-(rd+a+b))t(z+d)^r\\
+ &\hspace{12mm}=
+ \gamma t(z'+a)t(z'+b)t(z'-(rd+a+b))t(z'+d)^r .
+ \end{split}                                             \tag{TS5}
+\]
+Choose \(d\) with \(t(z+d)t(z'+d)\ne0\), using two dense
+nonzero loci.
+Choose \(a\) with \(t(z+a)\ne0\), and then \(b\) with both
+remaining factors on the left nonzero.
+This proves \(\gamma\ne0\), including \(r=0\).
+
+Set \(\Delta=z-z'\).  For fixed \(b\) define entire functions
+of \(x\) by
+\[
+ \begin{split}
+ D_b(x)&=t(z+b)t(z-(rd+x-z'+b))t(z+d)^r,\\
+ A_b(x)&=\gamma t(z'+b)t(z'-(rd+x-z'+b))t(z'+d)^r.
+ \end{split}
+\]
+Substitute \(a=x-z'\) into (TS5).  It gives
+\[
+                    t(x+\Delta)D_b(x)=t(x)A_b(x).        \tag{TS6}
+\]
+For each \(x\), a choice of \(b\) makes both \(D_b(x)\)
+and \(A_b(x)\) nonzero.
+In detail, the four translated or reflected functions
+of \(b\) occurring here are all nonzero entire functions;
+their open dense nonzero sets have nonempty intersection.
+For any \(b,b'\), (TS6) implies
+\[
+                       A_bD_{b'}=A_{b'}D_b
+\]
+on the dense nonzero set of \(t\), and then everywhere
+by continuity.
+Hence the locally holomorphic ratios \(A_b/D_b\), using
+a \(b\) with nonzero denominator at each point, agree
+on their overlaps.
+Their numerators can be chosen nonzero at that point
+too.  They glue to an entire unit \(U\) with
+\(t(x+\Delta)=U(x)t(x)\).
+The analytic test (TS3) gives \(\Delta\in\Lambda_\tau\).
+\end{proof}
+
+\begin{proposition}[Tangent separation]
+\label{prop:ftb-torus-theta-tangent-separation}
+Let \(N\ge3\).
+If \(z,\xi\in\mathbb C^g\) and \(\gamma\in\mathbb C\)
+satisfy
+\[
+       d f_z(\xi)=\gamma f(z)
+                         \quad\text{for all }f\in\mathcal T_N(\tau),
+                                                               \tag{TS7}
+\]
+then \(\xi=0\).
+\end{proposition}
+\begin{proof}
+Write \(N=m+3\), \(k=m+1\), \(s=Nz\), and
+\(D(a)=d t_a(\xi)\).
+The derivative \(D\) is entire.
+For arbitrary \(a,b\) set \(c=s-a-kb\).
+Apply (TS7) to
+\[
+ x\longmapsto
+ t(x+a-z)t(x+b-z)^k t(x+c-z),
+\]
+whose shifts sum to zero, so it has level \(N\).
+The product rule gives the exact three-term identity
+\[
+ \begin{split}
+ D(a)t(b)^kt(c)
+ &+kt(a)t(b)^{k-1}D(b)t(c)
+       +t(a)t(b)^kD(c)\\
+                         &=\gamma t(a)t(b)^kt(c).        \tag{TS8}
+ \end{split}
+\]
+We first construct an entire \(\psi\) with \(D=\psi t\).
+Near any chosen \(a_0\), choose \(b\) such that
+\(t(b)t(s-a_0-kb)\ne0\); multiplication by \(k\ne0\)
+makes the second translated function nonzero, and dense
+nonvanishing provides the common choice.
+Near \(a_0\), (TS8) can then be solved as
+\[
+ D(a)=
+ \left(\gamma-k\frac{D(b)}{t(b)}
+              -\frac{D(s-a-kb)}{t(s-a-kb)}\right)t(a).
+ \tag{TS9}
+\]
+The right coefficient is holomorphic there.
+Two such local coefficients agree where \(t\ne0\),
+hence on their overlap by continuity.
+They glue to the required entire \(\psi\).
+
+Substitute \(D=\psi t\) into (TS8), and cancel first on
+the common nonzero locus of its three theta factors.
+That locus is dense.  Continuity, first in \(a\) and then
+in \(b\), gives
+\[
+                 \psi(a)+k\psi(b)+\psi(s-a-kb)=\gamma
+                                             \quad(a,b\in\mathbb C^g).
+ \tag{TS10}
+\]
+Compare (TS10) at
+\((a,b)=(y+w,k^{-1}(s-y-w))\) and
+\((y,k^{-1}(s-y-w))\).
+The last arguments are respectively \(0,w\); subtraction
+yields
+\[
+                  \psi(y+w)=\psi(y)+\psi(w)-\psi(0).      \tag{TS11}
+\]
+
+The source now integrates on each complex line, keeping
+track of the entire unit thereby produced.
+Choose an entire primitive \(K\) of
+\(r\mapsto\psi(r\xi)-\psi(0)\), which exists on \(\mathbb C\).
+The derivative of
+\[
+ r\longmapsto
+       t(y+r\xi)\exp\{-r\psi(y)-K(r)\}
+\]
+is zero, using \(D=\psi t\) and (TS11).
+Evaluating at \(r=0\) and \(r=u\) proves
+\[
+ t(y+u\xi)=
+    \exp\{u\psi(y)+K(u)-K(0)\}\,t(y).                    \tag{TS12}
+\]
+For every \(u\in\mathbb C\), the exponential in (TS12)
+is an entire unit as a function of \(y\).
+By (TS3), \(u\xi\in\Lambda_\tau\) for every \(u\).
+The map \(u\mapsto u\xi\), valued in the discrete lattice
+\(\Lambda_\tau\), is continuous.
+Since \(\mathbb C\) is preconnected it is constant.
+Its values at \(0\) and \(1\) give \(\xi=0\).
+\end{proof}
+
+The conclusions have the exact projective interpretation
+used by the source.  For \(N\ge3\),
+\[
+        z\longmapsto[T_{N,c}(z)]_c
+\]
+is defined everywhere, is constant on the lattice cosets,
+separates distinct cosets, and has injective differential
+on the quotient.
+For the last assertion choose one nonzero coordinate at
+\(z\).  A tangent annihilating all its affine coordinate
+ratios has \(dT_{N,c}(\xi)=\gamma T_{N,c}(z)\) for the same
+\(\gamma\) and every \(c\), hence for every level-\(N\)
+theta function by spanning.  Tangent separation gives
+\(\xi=0\).
+At this stage these are analytic assertions about the
+specified theta functions; the algebraic projective model,
+its exact zero locus and its group law are subsequent
+constructions.
+
+\paragraph{Frozen-source correspondence.}
+With prefix
+\texttt{src/Development/AbelianVarietyTheory/Proofs/ToricGeometry/},
+the classical basis and spanning are
+\texttt{ClassicalThetaLevelAndLinearIndependent.lean}
+(\texttt{ddff4de8eb961822383e688c1ffcc27550412858}),
+\texttt{CardLePowOfLinearIndependent.lean}
+(\texttt{20085cbe9a9a42f684df9924f67d1e8fcc10a49f})
+and \texttt{MemSpanThetaOfLevel.lean}
+(\texttt{1301044dc8de1a3eca303cef3a0c9e70e35a9335}).
+The basic theta law is
+\texttt{RiemannThetaLevelOneNeZero.lean}
+(\texttt{8b538b68f2936a221c065ac9f914742b164fc905});
+base-point freeness is
+\texttt{ExistsApplySubSmulNeZeroAndApplyAddNeZero.lean}
+(\texttt{41e334a200dc2f4522939e76d9fe724de5fa0f0b}),
+\srcid{exists_level_apply_ne_zero_of_two_le}.
+The translate test is
+\texttt{MemPeriodLatticeOfThetaTranslateEqUnitMul.lean}
+(\texttt{eed4913226755b63075a8f4dd698a5aa11894c89}).
+The two separation proofs are
+\texttt{LevelThreeSeparatesPoints.lean}
+(\texttt{c68668f77d245fb186e1b7d6998fb0b4bef35f05}),
+\srcid{level_three_separates_points}, and
+\texttt{LevelThreeSeparatesTangentVectors.lean}
+(\texttt{06fd2923a41705ca764c21d1b7528ac7581dfc28}),
+\srcid{exists_unit_of_three_term},
+\srcid{level_three_separates_tangent_vectors}.
+These are the first analytic producers used in
+\texttt{TorusAlgebraicOfSectionsOfVeryAmple.lean}
+(\texttt{649eb8bec5c5c88a5881803e36fd8f8648c8a57b}),
+rather than an invocation of a converse algebraization
+theorem.

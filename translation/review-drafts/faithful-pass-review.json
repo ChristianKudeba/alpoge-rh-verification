@@ -1,7 +1,7 @@
 {
   "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
-  "updated_utc": "2026-11-22T02:35:00Z",
-  "current_published_pages": 558,
+  "updated_utc": "2026-11-22T02:49:40Z",
+  "current_published_pages": 668,
   "whole_manuscript_complete": false,
   "entries": [
     {
@@ -275,27 +275,27 @@
     },
     {
       "key": "thetaOrbit",
-      "blob": "a718163bb46581a7986cf74247d495f89f42af56",
+      "blob": "5faa9bb680d2db8130d5001fe5f2698be11db982",
       "path": "translation/review-drafts/theta-harmonic-orbits-source.tex",
-      "status": "review pending",
-      "reviewer": null,
-      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
     },
     {
       "key": "thetaGrid",
       "blob": "536e3536d968b242af39b6e813acecb99e652e71",
       "path": "translation/review-drafts/theta-short-harmonic-grid-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "generic_character",
       "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
     },
     {
       "key": "thetaReading",
-      "blob": "39d8eb95e44bcc30d6f2c854ab6f12efa84f9404",
+      "blob": "d425f74c27b9316e7e1c74cfa0f9d518d6ebfa78",
       "path": "translation/review-drafts/theta-short-series-reading-source.tex",
-      "status": "review pending",
-      "reviewer": null,
-      "scope": "Exact printed construction and hypotheses only; explicitly retained source inputs remain independent obligations."
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
     },
     {
       "key": "preUnifRoot",
@@ -325,8 +325,8 @@
       "key": "thetaFourier",
       "blob": "b09f61d18e4a53733b3b9247292f783129c34190",
       "path": "translation/review-drafts/theta-root-fourier-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "generic_character",
       "scope": "Only stated same-object source construction and retained hypotheses; not whole-paper certification."
     },
     {
@@ -341,24 +341,24 @@
       "key": "complexConnected",
       "blob": "024c0249169d187bc1b4863792340f75597f1353",
       "path": "translation/review-drafts/complex-connected-fibre-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "connected_geometry",
       "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
     },
     {
       "key": "complexRelativeExp",
       "blob": "5980e382de29aa1592444c1c132898bf0d48ddf8",
       "path": "translation/review-drafts/theta-relative-exponential-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "connected_geometry",
       "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
     },
     {
       "key": "complexPeriods",
       "blob": "e3e422c49d02ff0ff774161bdbe4432e7d2e984e",
       "path": "translation/review-drafts/theta-relative-period-action-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "connected_geometry",
       "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
     },
     {
@@ -389,36 +389,126 @@
       "key": "thetaCoverFourier",
       "blob": "741a80d72a41a8260a1a5d128ec99a83ab157b3a",
       "path": "translation/review-drafts/theta-cover-fourier-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "generic_character",
       "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
     },
     {
       "key": "thetaAnalyticJets",
       "blob": "b7321d5bc30bba5563925bf00f3029e383bd5dfe",
       "path": "translation/review-drafts/theta-analytic-jets-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "generic_character",
       "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
     },
     {
       "key": "thetaAnalyticChart",
       "blob": "9db250e978e4d4e04e0e9d2c293313f273c9f782",
       "path": "translation/review-drafts/theta-analytic-biextension-chart-source.tex",
-      "status": "review pending",
-      "reviewer": null,
+      "status": "checked",
+      "reviewer": "generic_character",
       "scope": "Exact printed frozen-source proof scope, with all named remaining producer boundaries retained."
     },
     {
       "key": "psiNormalisationRoot",
       "blob": "32fe6ca607e1e3b7dec67f0419bfd8a81c3959fe",
       "path": "translation/review-drafts/psi-normalisation-source.tex",
+      "status": "checked",
+      "scope": "Actual primitive coefficient, unit-generator transport, closed-fibre unit and flat-stalk adic arguments; complete expansion and comparison inputs retained.",
+      "reviewer": "connected_geometry"
+    },
+    {
+      "key": "complexPELLift",
+      "blob": "80d05971affb728c00111ceec0f059e5a491bd41",
+      "path": "translation/review-drafts/theta-relative-pel-period-lift-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "complexThetaFamily",
+      "blob": "a5b77fa4da17e4cbb8b7d6c3977dee76af0ebade",
+      "path": "translation/review-drafts/theta-family-frame-source.tex",
       "status": "review pending",
-      "scope": "Actual primitive coefficient, unit-generator transport, closed-fibre unit and flat-stalk adic arguments; complete expansion and comparison inputs retained."
+      "reviewer": null,
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "complexDualMark",
+      "blob": "38ea66361fa2863e44f5c636caa59e4af2a7dd06",
+      "path": "translation/review-drafts/theta-dual-half-level-mark-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "complexConverseSeparation",
+      "blob": "bce4ec9f6445d45f9186752d5b0e6a8744ce31e0",
+      "path": "translation/review-drafts/theta-converse-separation-source.tex",
+      "status": "checked",
+      "reviewer": "connected_geometry",
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "keyUniformRegularity",
+      "blob": "0d875e2ac800f1c184000dbb179b4a24115af5f7",
+      "path": "translation/review-drafts/theta-uniform-regularity-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "keyTorsionZeros",
+      "blob": "1aedccababa82932009ea659fa2d60afd576edb6",
+      "path": "translation/review-drafts/theta-graded-torsion-zeros-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "keyTorsionEquations",
+      "blob": "635c38f1c86d39034b5415827c52e73dbc10e9e0",
+      "path": "translation/review-drafts/theta-torsion-equations-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "keyPeriodicEmbedding",
+      "blob": "dfada44e7bcdf7cc7f1be2c4fc3728d85db2f8b1",
+      "path": "translation/review-drafts/theta-periodic-embedding-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "thetaFrameTruncation",
+      "blob": "bbdada09e4b0bb03668390067e8288a003fd94e8",
+      "path": "translation/review-drafts/theta-frame-truncation-source.tex",
+      "status": "review pending",
+      "reviewer": null,
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "thetaGaugeComparison",
+      "blob": "3af420fd40853e14b67574893126e3f9b415ba6b",
+      "path": "translation/review-drafts/theta-gauge-comparison-source.tex",
+      "status": "checked",
+      "reviewer": "generic_character",
+      "scope": "Only the bounded printed frozen-source construction, with every retained input kept explicit; no whole-manuscript verdict."
+    },
+    {
+      "key": "thetaHarmonicChart",
+      "blob": "06b0124236af69675589ff92656617fa631ff670",
+      "path": "translation/review-drafts/theta-harmonic-chart-source.tex",
+      "status": "review pending",
+      "scope": "Exact printed frame/harmonic finite-jet deduction only; exponential-gauge and chart-system comparison remain separate."
     }
   ],
   "root_boundary": {
     "path": "translation/review-drafts/boundary-unit-source.tex",
     "status": "checked full-rank specialization; actual period/model joins retained"
-  }
+  },
+  "workflow_status": "paused",
+  "archive_coverage_percent": null
 }

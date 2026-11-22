@@ -1,0 +1,478 @@
+\subsection{Repairing the actual formal pair generators}
+\label{subsec:sr-source-frame-truncation}
+
+All rings in this subsection are arbitrary commutative
+\(\mathbb Q\)-algebras.  In particular, none of the
+coefficient comparisons below assumes a reduced ring.
+Fix the source packet \(E,H,D_w,l,X_o,c\), the equality
+\(\star a=H.\mathrm{bar}(a)\) on \(\mathcal O_E\), a
+\(c.F\)-algebra \(S\), an actual framed point \(y\), and
+an actual \(C:\mathrm{ChartAt}(X_o,c,y)\).
+Its formal group is \(G\), its coefficient actions are
+\(A_a\), and its pair generators are \(e_m\).
+Write
+\[
+ J_m^{(s)}=S[Z_{b,i}:1\le b\le s,\ 1\le i\le d]/
+                         (Z)^{m+1},\qquad j_m f=f\bmod(Z)^{m+1}.
+ \tag{FC1}
+\]
+Here \(d=C.d\), and every point, line generator and
+comparison in the argument belongs to this same chart.
+
+\begin{srlemma}[The normalized logarithm used by the correction]
+\label{lem:sr-source-normalized-formal-log}
+There is a formal logarithm \(\ell_G(X)=X+O((X)^2)\) with
+\[
+ \ell_G(G(X,Y))=\ell_G(X)+\ell_G(Y),\qquad
+ \ell_G(A_aX)=A_a^{(1)}\ell_G(X),\quad A_a^{(1)}=dA_a(0).
+ \tag{FC2}
+\]
+A homomorphism from \(G\) to the additive formal group
+with zero constant term is determined by its linear term.
+These assertions hold coefficientwise over \(S\).
+\end{srlemma}
+\begin{proof}
+We give the source's invariant-differential construction.
+Let \(J(X)=\partial_YG(X,0)\), so \(J(0)=I\), and put
+\(\Omega(X)=J(X)^{-1}\).
+Associativity, differentiated in its final variable at
+zero, gives
+\[
+ J(G(X,Y))=\partial_YG(X,Y)J(Y).
+\]
+Inverting \(J\) gives
+\(\Omega(G(X,Y))\partial_YG(X,Y)=\Omega(Y)\).
+Commutativity gives the corresponding identity with
+\(X\) and \(Y\) exchanged.
+Differentiating these identities once more, commuting
+the two partial derivatives and multiplying by the
+invertible \(J(X)\), gives
+\[
+ \sum_jJ_{jb}\partial_a\Omega_{ij}
+       =\sum_j(\partial_j\Omega_{ia})J_{jb}.
+\]
+Multiply on the right by \(J^{-1}\) to obtain
+\(\partial_a\Omega_{ij}=\partial_j\Omega_{ia}\).
+Thus every row of \(\Omega\) is a closed formal one-form.
+
+For a closed form \(\omega=(\omega_i)\), define its
+zero-constant primitive by the following actual coefficient:
+\[
+ [X^\mu]\mathrm{prim}(\omega)=
+ \begin{cases}
+ |\mu|^{-1}\displaystyle\sum_{i:\mu_i>0}
+                    [X^{\mu-e_i}]\omega_i,&|\mu|>0,\\
+ 0,&\mu=0.
+ \end{cases}                                                   \tag{FC3}
+\]
+Closedness and \(\sum_i\mu_i=|\mu|\) show, coefficient
+by coefficient, that
+\(\partial_i\mathrm{prim}(\omega)=\omega_i\).
+For example the coefficient at \(X^\nu\) in the left
+side is \((\nu_i+1)[X^{\nu+e_i}]\mathrm{prim}(\omega)\);
+closedness changes the summand indexed by \(r\) into
+\((\nu_r+\delta_{ri})[X^\nu]\omega_i/(\nu_i+1)\),
+and the sum gives the claimed coefficient.
+All positive integers used here are units in \(S\).
+Set \(\ell_{G,i}=\mathrm{prim}(\Omega_{i,*})\).
+Then \(d\ell_G=\Omega\) and \(d\ell_G(0)=I\).
+The preceding matrix identities make every partial
+derivative of
+\(\ell_G(G(X,Y))-\ell_G(X)-\ell_G(Y)\) zero.
+A formal series over a \(\mathbb Q\)-algebra with all
+partial derivatives zero is constant; evaluate at the
+origin to obtain the first identity in (FC2).
+
+More generally, if \(h(G(X,Y))=h(X)+h(Y)\), differentiation
+in \(Y\) at zero gives
+\(dh(X)J(X)=dh(0)\).
+Thus its differential and, with \(h(0)=0\), all its
+coefficients are determined by \(dh(0)\).
+The maps \(\ell_GA_a\) and \(A_a^{(1)}\ell_G\) are
+homomorphisms with the same differential, proving the
+second identity in (FC2).
+This is also the source's formal-homomorphism uniqueness
+argument.
+\end{proof}
+
+For a matrix \(B\) over \(S\), put
+\[
+ {\cal B}_B(X,Y)=\ell_G(X)^tB\ell_G(Y),\qquad
+ T_B(X,Y)=\exp(-{\cal B}_B(X,Y)).
+ \tag{FC4}
+\]
+The exponential is a formal series: its argument has
+zero constant term, and its reduction to any \(J_m^{(2)}\)
+is a finite sum.  Its inverse is \(\exp({\cal B}_B)\).
+
+\begin{srlemma}[Classification of a finite pair discrepancy]
+\label{lem:sr-source-pair-discrepancy-exponential}
+Let \(U\in(J_m^{(2)})^\times\) satisfy, as identities in
+the indicated truncated polynomial rings,
+\[
+ \begin{split}
+ U(G(X,Y),Z)&=U(X,Z)U(Y,Z),\\
+ U(Y,X)&=U(X,Y),\\
+ U(A_aX,Y)&=U(X,A_{\bar a}Y)\qquad(a\in\mathcal O_E).
+ \end{split}                                                   \tag{FC5}
+\]
+There is a matrix \(b\) with
+\[
+ b^t=b,\qquad (A_a^{(1)})^tb=bA_{\bar a}^{(1)},\qquad
+                         U=j_mT_b.                           \tag{FC6}
+\]
+For \(m=0,1\) one may take \(b=0\).
+\end{srlemma}
+\begin{proof}
+Choose a polynomial representative \(P\) of \(U\).
+Its constant coefficient \(u\) is a unit, by applying
+the augmentation to \(U\).
+The first identity in (FC5) gives \(u=u^2\), hence \(u=1\).
+
+Here is the leading-term argument used by the source.
+If \(P-1\) has no terms of degree below \(j\), its
+degree-\(j\) component \(H_j(X,Z)\), for \(1\le j\le m\),
+satisfies
+\[
+ H_j(X+Y,Z)=H_j(X,Z)+H_j(Y,Z),\qquad H_j(Z,X)=H_j(X,Z).
+ \tag{FC7}
+\]
+Indeed \(G(X,Y)=X+Y+O((X,Y)^2)\), and all products
+of two positive residual terms have degree at least
+\(2j>j\).
+The second assertion makes \(H_j\) additive in its
+second variable as well.
+An additive polynomial over a \(\mathbb Q\)-algebra
+is homogeneous of degree one in that variable:
+put \(Y=X\) in its additivity identity and compare
+homogeneous degrees; \(2^r-2\) is a nonzero rational
+unit for \(r\ne1\).
+Thus a polynomial additive separately in \(X,Z\) has
+bidegree \((1,1)\).
+For \(j=1\) this forces \(H_j=0\).
+For \(j=2\) it gives \(H_2=X^tBZ\), with \(B^t=B\).
+If \(m<2\), the same argument already proves \(U=1\).
+
+Suppose \(m\ge2\).
+Comparison of the degree-two terms in the last identity
+of (FC5) gives
+\[
+                 (A_a^{(1)})^tB=BA_{\bar a}^{(1)}.            \tag{FC8}
+\]
+By (FC2), \({\cal B}_B\) is additive with respect to \(G\)
+in either argument; it is symmetric and has the same
+adjoint balance.
+Consequently \(j_m\exp(-{\cal B}_B)\) satisfies (FC5).
+It begins \(1-X^tBY+O((X,Y)^3)\).
+The product
+\(V=Uj_m\exp(-{\cal B}_B)\) therefore still satisfies
+(FC5) and has no residual term of degree below three.
+For \(j=3,\ldots,m\), apply (FC7) successively:
+a separately additive degree-\(j\) component must be
+zero because it would have total degree two.
+Thus \(V=1\).
+It follows that \(U=j_m\exp({\cal B}_B)=j_mT_{-B}\).
+Take \(b=-B\).
+This proof compares coefficients and cancels units only;
+nilpotent coefficients cause no additional case.
+\end{proof}
+
+\begin{srproposition}[Actual compatible pair generators]
+\label{prop:sr-source-actual-frame-truncation-fix}
+For the actual chart \(C\), there are generators \(e'_m\)
+of its same pair lines and matrices \(C_m\) such that
+\[
+ \begin{gathered}
+ C_0=0,\quad C_m^t=C_m,\quad
+ (A_a^{(1)})^tC_m=C_mA_{\bar a}^{(1)},\\
+                 e'_m=(j_mT_{C_m})e_m.                       \tag{FC9}
+ \end{gathered}
+\]
+The corrected generators satisfy the original first
+and second partial laws, symmetry, adjointness and
+origin rigidification, with the same structure series
+as \(C\); in addition they agree under every truncation.
+This constructs the literal \(\mathrm{FrTruncFixSt}\).
+\end{srproposition}
+\begin{proof}
+First construct the actual discrepancy; it is not a
+freely chosen scalar.
+The chart point identities identify the pullback of
+\(e_{m+1}\) to level \(m\) with the same pair line as
+\(e_m\).  Two generators of the same line differ by
+one global unit \(U_m\in(J_m^{(2)})^\times\):
+on a line chart take their ratio, and use the common
+transition function to glue these local unit ratios.
+Thus
+\[
+                       \rho_m e_{m+1}=U_me_m.               \tag{FC10}
+\]
+This construction is on the entire scheme
+\(\operatorname{Spec}J_m^{(2)}\).
+
+Compare the first partial law at levels \(m+1\) and \(m\).
+The triple chart points agree after truncation, by the
+actual point law.  Pullback of the fixed cubical line
+generator also agrees.
+The two truncations of the same structure series
+\(\mathrm{ph1}\) agree coefficientwise.
+In each stalk cancel these common unit factors and
+the three pair generators.  What remains is exactly
+\[
+                U_m(G(X,Y),Z)=U_m(X,Z)U_m(Y,Z).
+\]
+The same comparison of symmetry and adjointness gives
+the other two identities (FC5).
+Equality in every stalk gives equality of the global
+units.  Comparing complex points alone would not
+justify this step for the allowed \(S\).
+
+Apply Lemma~\ref{lem:sr-source-pair-discrepancy-exponential}
+to obtain symmetric balanced \(b_m\) with \(U_m=j_mT_{b_m}\).
+Define recursively, with the source's signs,
+\[
+                         C_0=0,\qquad C_{m+1}=C_m-b_m.       \tag{FC11}
+\]
+Symmetry and balance survive subtraction.
+Set \(e'_m\) by (FC9).  Then
+\[
+ \rho_m e'_{m+1}
+ =j_mT_{C_{m+1}}U_me_m
+ =j_mT_{C_{m+1}+b_m}e_m=e'_m.                               \tag{FC12}
+\]
+For example the multiplier in the first partial law is
+\[
+ T_{C_m}(G(X,Y),Z)\,
+              T_{C_m}(X,Z)^{-1}T_{C_m}(Y,Z)^{-1}=1.
+\]
+The multiplier for the second partial law is \(1\)
+by additivity in the second argument.
+The symmetry multiplier is \(1\) since \(C_m\) is
+symmetric; the adjoint multiplier is \(1\) by its
+balance and (FC2).
+Thus the same four original structure series still
+witness the four frame laws, not new unrelated series.
+At level zero \(C_0=0\), so the original rigidification
+is unchanged.  This proves all the stated clauses.
+\end{proof}
+
+The source next needs actual section germs for these
+corrected generators.  The following inverse-limit
+argument supplies them with their precise finite-order
+change, even though the matrices \(C_m\) themselves
+need not form a compatible inverse system.
+Define
+\[
+ Q_B(Z)=\ell_G(Z)^tB\ell_G(A_{w_0}Z).                        \tag{FC13}
+\]
+This is the source \(\mathrm{diagL}\).
+The single-line generator is the primitive generator
+multiplied by the pair generator on the graph
+\((Z,A_{w_0}Z)\); hence (FC9) multiplies it by
+\(j_m\exp(-Q_{C_m})\).
+
+\begin{srproposition}[The actual corrected germ and its sign]
+\label{prop:sr-source-actual-frame-germ-fix}
+Let \(k\ge0\), let \(F\) be an actual section of the
+specified \(k\)-th power of the polarizing line, and
+let \(f\) be its actual germ in \(C\).
+There is an actual germ \(f'\) of the same \(F\)
+for the corrected chart, and
+\[
+              j_Df'=j_D\bigl(f\exp(kQ_{C_D})\bigr)
+                                      \qquad(D\ge0).        \tag{FC14}
+\]
+Thus \(\mathrm{GermFixSt}\) is constructed, with its
+quantifier over every section and every order \(D\).
+\end{srproposition}
+\begin{proof}
+We spell out the source's general germ construction for
+a truncation-compatible frame.
+Pull \(F\) to each actual jet base.
+The corrected primitive-times-pair generator is a
+generator of the actual single line there: its tensor
+factors cancel by the actual chart identity, including
+the \(A_{w_0}\)-graph.
+Raise it to the \(k\)-th power.
+On any common line chart divide the pulled section
+coefficient by this unit generator.
+The transition factors cancel, so these local functions
+glue to one global value \(v_m\in\Gamma(\operatorname{Spec}
+J_m^{(1)},\mathcal O)=J_m^{(1)}\).
+The section pullbacks, chart points and corrected
+generators all agree under truncation.
+In every stalk their value equations are therefore the
+same equation with the same unit generator.
+Cancel the unit and use equality of sections detected
+in stalks.  This gives \(\rho_mv_{m+1}=v_m\).
+
+Choose polynomial representatives \(p_m\) of \(v_m\).
+Their coefficients of degree at most \(m\) are independent
+of later representatives, since
+\(p_l-p_m\in(Z)^{m+1}\) for \(l\ge m\).
+Define
+\([Z^\mu]f'=[Z^\mu]p_{|\mu|}\).
+Then \(j_mf'=v_m\) for every \(m\).
+The section pullbacks and generators used to define
+\(v_m\) give exactly the witnesses in the source
+definition of \(\mathrm{IsGerm}\).
+
+To compare with \(f\), use its supplied actual
+pullback-section and value witnesses at level \(D\).
+Equation (FC9) changes its single-line generator by
+\(u_D=j_D\exp(-Q_{C_D})\), and its \(k\)-th power
+generator by \(u_D^k\).
+The coordinate of the same section consequently changes
+by \(u_D^{-k}\).
+Since
+\[
+ j_D\exp(kQ_{C_D})\,u_D^k=1,
+\]
+this coordinate is the right side of (FC14).
+Uniqueness of section pullback, equality of generators
+expressed by \(\mathrm{Corr}\), and uniqueness of a
+value in a unit generator identify it with \(v_D\).
+The exponent in (FC14) is positive; it is forced by
+division by the corrected generator.
+\end{proof}
+
+\begin{srlemma}[The actual eigenvectors and the balanced support]
+\label{lem:sr-source-balanced-correction-conjugate-support}
+For a source letter \(\lambda\in\mathrm{Lt1}(D_w)\),
+write \(\tau_\lambda\) for its underlying embedding.
+Conjugation in the support assertion compares these embeddings,
+with no assertion about the multiplicity index.
+For every actual chart as above,
+\[
+ A_a^{(1)}u_\lambda
+    =\mathrm{embK}_c(\tau_\lambda(a))u_\lambda.                  \tag{FC15}
+\]
+Consequently a balanced matrix \(B\) satisfies
+\[
+ u_\lambda^tBu_{\lambda'}\ne0
+                  \quad\Longrightarrow\quad
+                          \tau_{\lambda'}=\overline{\tau_\lambda}.           \tag{FC16}
+\]
+These are identities over \(S\), including its zero divisors.
+\end{srlemma}
+\begin{proof}
+Let \(D_i\) be the actual dual-number tangent point
+obtained from the \(i\)-th coordinate of the chart.
+The chart's tangent law says that the combination
+\(\sum_i u_{\lambda,i}D_i\) is the supplied framed
+eigentangent \(y.u_\lambda\).
+Differentiating the actual chart action law makes the
+action on these coordinate combinations the matrix
+\(A_a^{(1)}\).
+
+Here is the source's injectivity check for this tangent
+comparison.  The chart basis clause writes any coordinate
+vector uniquely as a combination of the \(u_\lambda\).
+Group its tangent combination by its embedding \(\lambda\).
+Distinct embeddings of \(E\) differ on some
+\(a\in\mathcal O_E\): write any field element as a ratio
+of integral elements to see that equality on
+\(\mathcal O_E\) would imply equality on \(E\).
+Their nonzero difference in \(c.F\) maps to a unit of \(S\).
+If a finite sum of eigentangents is zero, apply
+\([a]-\lambda_2(a)\) to remove one component and induct
+on the finite set of embeddings; the unit differences
+separate the remaining component.
+It follows that each grouped eigentangent is zero.
+The actual basis clause of \(y.u\) within that eigenspace
+then makes all its coefficients zero.
+Together with the chart basis clause this makes the
+coordinate tangent map injective.
+The two expressions for the action on \(y.u_\lambda\)
+therefore give the coordinate equality (FC15).
+
+For \(b=u_\lambda^tBu_{\lambda'}\), balance and (FC15)
+give
+\[
+ \bigl(\mathrm{embK}_c(\tau_\lambda(a))-
+       \mathrm{embK}_c(\tau_{\lambda'}(\bar a))\bigr)b=0
+                                      \quad(a\in\mathcal O_E).
+\]
+If \(\tau_{\lambda'}\ne\overline{\tau_\lambda}\), integral embedding
+separation gives an \(a\) for which the factor is a
+nonzero element of \(c.F\), hence a unit after passage
+to \(S\).
+Cancel it to obtain \(b=0\).
+This proves (FC16) by unit cancellation, without a
+domain hypothesis on \(S\).
+\end{proof}
+
+\paragraph{Frozen source correspondence and exact remaining scope.}
+The normalized-logarithm construction has prefix
+\texttt{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/}
+\texttt{TaylorDiscriminants/WickVanishing/}.
+It follows \texttt{LogInv.lean}
+(\texttt{0c704c3b629b0bde3f30457a87951cacbe00fe15}),
+\texttt{LogClosed.lean}
+(\texttt{364e6ec267ab62e6ebc16173142d239e0025a497}),
+\texttt{LogPoinc.lean}
+(\texttt{9d5c0658df322bbf5ff0ca25e38651b6a6ec953b}),
+and \texttt{PderivSecondEvFirstPointEqZero.lean}
+(\texttt{b7fd0380bc4ed3c9283782a057debc08adc0818e}).
+Formula (FC3) is literally \(\mathrm{prim}\);
+(FC2) is \(\mathrm{logOf\_add}\).
+The homomorphism uniqueness is the coefficient argument
+of \texttt{HomUniq.lean}
+(\texttt{0dd9e559e8470dee9c55401a59524e6929947919}).
+
+The remaining files have prefix
+\texttt{src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/}.
+The actual discrepancy (FC10), including its stalkwise
+three comparisons, is \texttt{FrRatio.lean}
+(\texttt{00628f81e6a1248458637030d61594dd5f1a70f1}),
+\(\mathrm{exists\_ratioU}\), \(\mathrm{frRatio\_holds}\).
+The leading homogeneous argument and balance are
+\texttt{FormalGroupLinearSecond.lean}
+(\texttt{75033f98de459ded476de15ead857773d6612052}),
+\texttt{BalOf.lean}
+(\texttt{ae3e2a62fc1bcf4b76a336e9506551a26a4a1f6e}),
+and \texttt{IsUnitCoeffZero.lean}
+(\texttt{f8fc4377b7b709bd4ddc0207c7a8697f5f77430e}),
+\(\mathrm{fixExp}\).
+The source's actual logarithm is \(X+O(X^2)\), as
+verified in \texttt{LogLowOrderOne.lean}
+(\texttt{721a26bb1ff0b12ba6596e60cfaef6659454b43e}).
+
+Preservation of the two partial laws and of symmetry
+and adjointness is
+\texttt{ConstantCoeffAddSecondThird.lean}
+(\texttt{91009c38cc83a1e0bc139b88ccbb02a61b1b8cfd})
+and \texttt{ConstantCoeffAddFirstSecond.lean}
+(\texttt{b1d210e3eb794f0d359aca47f885bcb20dfb0a76}),
+\(\mathrm{fixTw}\).
+The recursion (FC11) is \(\mathrm{ccOf}\) in
+\texttt{CIndFrFixAsm.lean}
+(\texttt{4155678eb405adf4d0539fc6f2322765e7644a20}).
+
+The actual pullback/value construction and compatible
+coefficients are \texttt{GermDVal.lean}
+(\texttt{a45f227868b66b0d323a9ac91ab71631d20059a6}),
+\texttt{GermDJet.lean}
+(\texttt{0515703d03f57db59ec97f20d43c74eb03193865}),
+and \texttt{GermDPf.lean}
+(\texttt{fc6c753be8c9cdcb999ecea9bb07ccd4a8096977}),
+\(\mathrm{germSt\_holds}\).
+The exact coordinate correction (FC14) is
+\(\mathrm{germ\_order}\), \(\mathrm{germFix\_holds}\)
+in \texttt{EvalSinglePointId.lean}
+(\texttt{228b49fb832031923cb127519a268231f5439ad0}).
+The actual tangent separation is \texttt{LinEig.lean}
+(\texttt{523682e6ce5c5fa038ad07cce17a8720650d2436});
+(FC16) is \(\mathrm{pair\_of\_balanced}\) in
+\texttt{CIndVerbB.lean}
+(\texttt{648a74827aba4ad62881a418f592ec4e62f56390}).
+
+This constructs the actual truncation correction and
+the corresponding actual section germs.
+Full comparison of two different corrected charts still
+requires their exponential-coordinate identification,
+the global primitive-line comparison, and harmonic
+annihilation of the resulting conjugate quadratic term.
+Those are the remaining branches of
+\(\mathrm{chartIndep2\_of\_glob}\); this subsection does
+not replace them by a formal assertion of invariance.

@@ -1,0 +1,474 @@
+\subsection{The actual theta frame on a connected analytic family}
+\label{subsec:ftb-actual-family-theta-frame}
+
+We keep the supplied fine moduli object and the original tuple of
+Proposition~\ref{prop:ftb-actual-local-pel-period-lift}.
+In particular, \(E,H,D,l,X_o,\sigma,g,\mathrm{ty},D',t\) are
+unchanged, \(1\leq D.p+D.q\), \(\sigma(\rho)=H.\mathrm{rt}_0\),
+and \(\mathrm{ty}\) has the prescribed signature.
+Let \(B\subset\mathbb C^m\) be open and preconnected.  On \(B\)
+we have the actual algebraic points \(y_b\), the additive
+surjective exponentials \(e_b:\mathbb C^g\to G_{y_b}(\mathbb C)\),
+and the periods \(P_b:D'.\mathrm{La}\to\mathbb C^g\).
+Keep all the conclusions of that proposition: their full
+period kernels, both tangent-bijection clauses, the fixed
+diagonal \(O_E\)-action, all positive-integer Weil identities
+with the negative sign, both level markings, and joint
+regular-evaluation holomorphy of \(y_b\) and \(e_b(z)\).
+The periods \(P_b(a)\) are holomorphic for every \(a\).
+This subsection uses the five algebraic laws retained in
+Proposition~\ref{prop:ftb-full-fixed-fibre-theta-realization},
+and the following precise additional algebraic
+section/base-change law from \(\mathrm{Out.Laws}\).
+
+For a principally polarized abelian scheme \(A/S\) with its
+actual rigidified symmetric principal line \(L\), and \(S\)
+locally Noetherian, each point of \(S\) has an open neighborhood
+\(V\) on which the sections of \(L\) have a basis of size
+\(1^g=1\), compatible with every affine base change
+\(\operatorname{Spec}R\to V\).
+Here the compatibility asserts that the pulled-back section
+is an \(R\)-basis of the actual module of sections of the
+pulled-back line, including for nonreduced \(R\).
+We use this rank-one instance of
+\(\mathrm{Out.SecBaseChangeSt}\), not merely the dimension of
+the complex fibres.
+
+Choose the source's integral basis
+\[
+ \mathrm{bas}:\mathbb Z^g\oplus\mathbb Z^g
+                  \xrightarrow{\ \sim\ }D'.\mathrm{La},
+ \qquad
+ D'.EF(\mathrm{bas}(v),\mathrm{bas}(w))
+                  =s\,\omega_{\rm std}(v,w),\quad s\in\{1,-1\}.
+ \tag{TF1}
+\]
+Put \(p_i(b)=P_b(\mathrm{bas}(e_i,0))\) and
+\(q_i(b)=P_b(\mathrm{bas}(0,e_i))\).
+Suppose matrices \(h_b,\tau_b\) satisfy
+\[
+ h_bp_i(b)=e_i,\qquad h_bq_i(b)=\tau_be_i,\qquad
+                    \operatorname{Im}\tau_b>0 .
+ \tag{TF2}
+\]
+The function \(\theta_{\alpha,\beta}(z,\tau)\) below is the
+source's classical theta function with characteristic;
+its two characteristic vectors lie in \(\{0,\tfrac12\}^g\).
+
+\begin{lemma}[The half-characteristic on the actual fixed fibre]
+\label{lem:ftb-actual-half-characteristic}
+For each \(b\in B\), there is a unique pair
+\((\alpha_b,\beta_b)\in\{0,\tfrac12\}^g\times
+\{0,\tfrac12\}^g\) with the following property.
+The actual line \(L_{y_b}\) admits nonvanishing holomorphic
+frame coordinates \(f_{b,j}(z)\), on the inverse images under
+\(e_b\) of its original algebraic charts, such that
+\[
+ \begin{split}
+ f_{b,j}(z)&=g_{jj'}(e_b(z))f_{b,j'}(z),\\
+ f_{b,j}(0)&=\text{the value of the given rigidification
+                       in chart \(j\)},\\
+ s_{b,j}(e_b(z))&=
+       \theta_{\alpha_b,\beta_b}(h_bz,\tau_b)f_{b,j}(z)
+ \end{split}
+ \tag{TF3}\label{eq:ftb-actual-family-theta-frame}
+\]
+for one actual algebraic section \(s_b\in H^0(G_{y_b},L_{y_b})\).
+Uniqueness refers to the pair of half-characteristics; it does
+not assert uniqueness of the analytic frame.
+\end{lemma}
+\begin{proof}
+Pull the actual group, cubical line, rigidification and symmetry
+to the fibre \(y_b\).  Properness, relative ampleness and
+triviality of the polarization kernel pull back, so this is
+the principally polarized abelian variety to which
+Proposition~\ref{prop:ftb-full-fixed-fibre-theta-realization}
+applies.  The pullback coordinates and their transition units
+are the original ones: evaluating a pulled-back transition
+at the lifted point gives \(g_{jj'}(e_b(z))\).
+Thus a fibre frame can subsequently be transported back to
+the coordinates in (TF3), including the origin
+rigidification.
+
+Let \(u=(e_u,\Lambda_u,f_{u,j})\) be the resulting good
+uniformization, with its positive Hermitian form \(H_u\),
+semicharacter \(\chi\), and section correspondence.
+The source's linear-lift argument gives a complex linear
+isomorphism \(F\) with \(e_uF=e_b\).
+Indeed \(e_b\) has countable kernel \(P_b(D'.\mathrm{La})\).
+A kernel of the linear lift is a vector subspace contained
+in that countable set and is therefore zero.
+Surjectivity modulo the countable lattice \(\Lambda_u\)
+forces its real cokernel to be zero as well; this is exactly
+the countable-kernel/countable-cokernel step in
+Lemma~\ref{lem:ftb-holomorphic-linear-lift}.
+Consequently
+\[
+ Fz\in\Lambda_u\ \Longleftrightarrow\
+                  z\in P_b(D'.\mathrm{La}).
+\]
+Compare the actual Weil relations for \(e_u\) and \(e_b\)
+through this isomorphism of points and the pulled-back
+line.  For every \(k>0\), their values are respectively
+\(\exp(-2\pi i\,\operatorname{Im}H_u(FP_ba,FP_ba')/k)\)
+and \(\exp(-2\pi i\,D'.EF(a,a')/k)\).
+The two exponents are integers.  They agree for every \(k\),
+so the integers agree: take \(k\) larger than the absolute
+value of their difference.  Hence
+\[
+ \operatorname{Im}H_u(FP_ba,FP_ba')=D'.EF(a,a').       \tag{TF4}
+\]
+
+The first identity in (TF2) makes \(h_b\) invertible.
+In these coordinates
+\[
+ h_bP_b(\mathrm{bas}(m,n))=m+\tau_bn\quad(m,n\in\mathbb Z^g).
+\]
+Pull \(H_u\) through \(Fh_b^{-1}\).
+The first, mixed and last blocks of (TF4), using (TF1),
+are the elementary Riemann-form relations of
+the source's normal-form calculation.
+They show that \(\tau_b\) is symmetric and that this
+positive Hermitian matrix is
+\((\operatorname{Im}\tau_b)^{-1}\).
+For clarity about the sign, the real matrix \(Y\) of that
+form satisfies \(Y\operatorname{Im}\tau_b=-sI\).
+When \(g>0\), positivity of both matrices rules out \(s=1\):
+the same normal-form relations would make
+\(\operatorname{Im}(-\tau_b)\) positive definite.
+Thus \(s=-1\).  In dimension zero all these identities
+are vacuous.  This is the source's
+\(\mathrm{isSymm\_and\_eq\_imInv}\) calculation.
+
+We next obtain signs for the semicharacter of the actual
+symmetric line.  Write its Appell--Humbert multiplier as
+\[
+ J_\lambda(z)=\chi(\lambda)
+    \exp\{\pi H_u(z,\lambda)+\pi H_u(\lambda,\lambda)/2\},
+ \qquad f_{u,j}(z)=J_\lambda(z)f_{u,j}(z+\lambda).
+\]
+The laws for \(\lambda,-\lambda\), applied successively,
+give \(\chi(\lambda)\chi(-\lambda)=1\).
+Evaluate the actual symmetry isomorphism
+\([-1]^*L\simeq L\) in two line charts, obtaining
+holomorphic units \(T_{ij}(z)\).
+The transition law makes
+\[
+             R(z)=T_{ij}(z)\frac{f_{u,j}(z)}{f_{u,i}(-z)}
+\]
+independent of the selected pair of charts.
+It is an entire unit, and its multiplier under \(\lambda\)
+is \(\chi(-\lambda)/\chi(\lambda)\).
+The Hermitian part of this multiplier is zero.
+Lemma~\ref{lem:ftb-trivial-appell-humbert-data}, applied with
+zero Hermitian form, therefore makes this character trivial.
+It follows that \(\chi(-\lambda)=\chi(\lambda)\), and
+\(\chi(\lambda)^2=1\).
+
+Choose \(\alpha_i,\beta_i\in\{0,\tfrac12\}\) whose exponential
+signs are the values of \(\chi\) on the first and second
+integral period generators.  The source verifies the full
+multiplier law from these \(2g\) signs as follows.
+For the desired theta function let \(S\) be the set of lattice
+elements on which that multiplier law holds.
+Nonvanishing of \(J_\lambda\) and its cocycle identity make
+\(S\) an additive subgroup: multiplication proves closure
+under addition, and the laws for \(\lambda,-\lambda\)
+prove closure under negation.
+The explicit theta quasi-period formulas put every basis
+generator in \(S\).  Those generators span the lattice, so
+the law holds for all its elements.
+The Gaussian-normalized function \(\mathrm{canTh}\) is
+therefore an analytic theta function for \((H_u,\chi)\).
+The already proved section correspondence supplies its
+actual algebraic section.
+
+Set
+\[
+ Q(\zeta)=\exp\{\tfrac\pi2\,
+                  \zeta^t(\operatorname{Im}\tau_b)^{-1}\zeta\}.
+\]
+In the source's convention
+\(\mathrm{canTh}(\zeta)=Q(\zeta)
+\theta_{\alpha,\beta}(\zeta,\tau_b)\).
+Thus the frames
+\(Q(h_bz)f_{u,j}(Fz)\) give (TF3).
+Their origin values are the original ones because \(Q(0)=1\).
+
+Here are the uniqueness details, including the unit ambiguity
+in an analytic frame.
+Two nonvanishing frames of the same pulled-back line have a
+nowhere-zero entire ratio \(r\), because their ratios in line
+charts agree by cancellation of \(g_{jj'}\).
+A second characteristic and such a frame yield another
+analytic theta function for \((H_u,\chi)\).
+The Fourier coefficient bound for the principal lattice in
+degree one makes that analytic theta space one dimensional.
+The first theta function is nonzero, so the two are scalar
+multiples; the scalar is nonzero.
+After undoing \(Q\) and the frame ratio this gives
+\[
+ \theta_{\alpha',\beta'}(\zeta,\tau_b)
+                   =U(\zeta)\theta_{\alpha,\beta}(\zeta,\tau_b)
+                                                        \tag{TF5}
+\]
+with \(U\) an entire unit.
+
+The source reduces (TF5), using the theta shift formula, to
+\[
+ \theta_{0,0}(\zeta+w,\tau_b)
+                    =V(\zeta)\theta_{0,0}(\zeta,\tau_b),
+ \quad w=\tau_b(\alpha'-\alpha)+(\beta'-\beta),
+\]
+with another entire unit \(V\).
+We recall its translate test.  The quasi-period formulas and
+cancellation on the nonzero open set of theta, followed by
+the identity theorem, give
+\[
+ V(\zeta+\tau_bn+m)=e^{-2\pi i\,n^tw}V(\zeta).
+\]
+Its logarithmic derivative \(V^{-1}dV\) is an entire
+lattice-periodic linear-form-valued function, hence constant
+by the fundamental-parallelepiped bound and Liouville.
+Integrating the zero derivative of \(V e^{-\ell}\) gives
+\(V(\zeta)=V(0)e^{\ell(\zeta)}\).
+Integer periods imply
+\(\ell(e_i)=2\pi i\,k_i\) with \(k_i\in\mathbb Z\);
+the \(\tau_be_i\) periods then imply
+\(w+\tau_bk\in\mathbb Z^g\).
+Thus \(w\in\mathbb Z^g+\tau_b\mathbb Z^g\).
+Taking imaginary parts in
+\(\tau_b(\alpha'-\alpha)+(\beta'-\beta)=\tau_bn+m\)
+and using invertibility of \(\operatorname{Im}\tau_b\)
+gives \(\alpha'-\alpha=n\).
+Each coordinate difference has absolute value at most
+\(1/2<1\), so \(n=0,\alpha'=\alpha\), and then likewise
+\(m=0,\beta'=\beta\).
+This proves uniqueness without assuming that a frame ratio
+was constant at the outset.
+\end{proof}
+
+\begin{lemma}[A local algebraic section that spans every actual fibre]
+\label{lem:ftb-local-algebraic-theta-section}
+For each parameter \(b_0\), there is an algebraic open
+\(V\subset X_o\) containing \(y_{b_0}\) and a section
+\(s^0=(s^0_j)\) of the actual \(L\) over \(G|_V\) which is
+nonzero on every fibre over \(V\).
+Every algebraic section of \(L_{y_b}\), for \(y_b\in V\),
+is a scalar multiple of this restriction.
+\end{lemma}
+\begin{proof}
+Apply the rank-one section/base-change law stated above.
+On \(G|_V\) its one basis section is initially written in
+the pullback charts.  Transport those coordinates through
+the open immersion \(G|_V\to G\).
+Its stalk maps are isomorphisms, hence injective, so the
+transition identities descend to the original charts and
+give \(s^0\).  Under any affine base change the same
+coordinates are the given basis section: the equality
+is checked on pulled-back chart germs, using the section
+pullback identity.  In particular they span every complex
+fibre.
+
+The section cannot vanish on a fibre over a point \(v\in V\).
+Otherwise all its chart coordinates on that residue-field
+fibre have empty nonzero loci.  The fibre is smooth over
+its residue field and is reduced.  Every such coordinate
+would therefore be zero.  Applying the linear independence
+clause of the rank-one basis after that base change would
+give \(1=0\) in the residue field, a contradiction.
+The resulting nonzero open in the fibre has a complex
+point after a complex base change, by the finite-type
+closed-point theorem.  Thus the restriction is genuinely
+nonzero as a section on each of the actual complex fibres.
+Equivalently, one can use the fibre dimension-one law:
+the value line of all sections has dimension one, and
+evaluation at a point where \(s^0\ne0\) makes its scalar
+nonzero.  Both descriptions give the asserted spanning
+in the original line coordinates.
+\end{proof}
+
+\begin{proposition}[One characteristic and jointly holomorphic frames]
+\label{prop:ftb-actual-family-theta-frame}
+There are fixed \(\alpha,\beta\in\{0,\tfrac12\}^g\), chosen
+once on \(B\), for which (TF3) holds on every fibre, and
+the frame coordinates can be chosen jointly holomorphic
+in \((b,z)\) on their actual inverse-image line charts.
+Their transition functions and their origin values are
+the original transition functions and rigidification.
+Thus this is the source's
+\(\mathrm{IsThetaFrame}\) for the same universal line,
+points and exponentials.
+\end{proposition}
+\begin{proof}
+First the displayed theta functions vary holomorphically.
+If \(M_b\) is the matrix with columns \(p_i(b)\), then
+\(h_bM_b=I\).  The adjugate formula makes \(h_b=M_b^{-1}\)
+holomorphic.  The second identity of (TF2) then makes
+\(\tau_b\) holomorphic.  Local normally convergent theta
+series on the positive-imaginary domain give joint
+holomorphy of every fixed half-characteristic function
+\[
+             \Theta_c(b,z)=\theta_c(h_bz,\tau_b).
+\]
+It is not identically zero on any fibre: theta is nonzero
+and \(h_b\) is onto.  The identity theorem therefore gives
+frequent nonvanishing in every fibre neighborhood,
+including at its zeros.
+
+By Lemma~\ref{lem:ftb-actual-half-characteristic} each fibre
+selects a unique characteristic \(c(b)\) from the finite
+set \(\{0,\tfrac12\}^{2g}\).
+We show that every choice locus is closed relative to \(B\).
+Fix \(b_0\in B\cap\overline{\{b\in B:c(b)=c\}}\).
+Choose \(s^0,V\) as in
+Lemma~\ref{lem:ftb-local-algebraic-theta-section}.
+On an actual line chart around \((b_0,z_0)\) its reading
+\[
+                 f_j(b,z)=s^0_j(e_b(z))
+\]
+is jointly holomorphic.
+At parameters where \(c(b)=c\), fibre spanning gives a
+nonzero scalar \(a_b\) with
+\[
+       f_j(b,z)=a_b^{-1}f_{b,j}(z)\Theta_c(b,z).       \tag{TF6}
+\]
+Consequently both \(f_j/\Theta_c\) and
+\(\Theta_c/f_j\) extend holomorphically in that fibre
+chart and are reciprocal units.
+
+Apply the circle-quotient construction of
+Lemma~\ref{lem:ftb-circle-quotient} in both directions.
+For the first direction use frequent nonvanishing of
+\(\Theta_c(b_0,-)\).
+For the second use the selected frame at \(b_0\):
+its relation
+\(f_j=a_{b_0}^{-1}f_{b_0,j}\Theta_{c(b_0)}\)
+and nonvanishing of \(f_{b_0,j}\) imply frequent
+nonvanishing of \(f_j(b_0,-)\).
+We obtain holomorphic local quotients \(G_1,G_2\) at
+the limiting parameter, with
+\[
+ G_1\Theta_c=f_j,\qquad G_2f_j=\Theta_c .
+\]
+On the frequent nonzero set of \(\Theta_c\) these give
+\(G_2G_1=1\); continuity gives the same identity at the
+chosen zero as well.
+Hence
+\[
+ \rho(z)=G_2(b_0,z)\,a_{b_0}^{-1}f_{b_0,j}(z)
+\]
+is a local holomorphic unit with
+\(\rho\,\Theta_{c(b_0)}=\Theta_c\).
+These local quotients agree on overlaps: cancel the
+frequently nonzero \(\Theta_{c(b_0)}\) and then use
+continuity.  They glue to an entire unit \(\rho\).
+Rescale the selected frame at \(b_0\) by
+\(\rho(0)/\rho(z)\) and its algebraic section by
+\(\rho(0)\).  This gives a frame of the actual same
+line for \(\Theta_c\), preserving the origin
+rigidification.  Uniqueness in
+Lemma~\ref{lem:ftb-actual-half-characteristic} now gives
+\(c(b_0)=c\).
+
+A map to a finite set with these relatively closed fibres
+is locally constant: the complement of any fibre is a
+finite union of the other closed fibres.
+Preconnectedness makes it constant on \(B\).
+If \(B\) is empty choose the zero characteristic and all
+assertions are vacuous.
+
+It remains to make the frames jointly holomorphic; an
+arbitrary fibrewise choice does not by itself do this.
+Choose fibre frames \(f_{b,j}\) for the now fixed
+characteristic, and near \(b_0\) write (TF6) with that
+characteristic and the local section \(s^0\).
+Put \(F_j(b,z)=a_b^{-1}f_{b,j}(z)\).
+Each \(F_j\) is holomorphic in the fibre variable and
+satisfies \(F_j\Theta_c=f_j\).
+The second assertion of
+Lemma~\ref{lem:ftb-circle-quotient} makes it jointly
+holomorphic.
+
+Choose a line chart \(j_0\) containing the identity near
+\(b_0\), and let \(r_{j_0}(b)\ne0\) be the holomorphic
+value of the actual rigidification in that chart.
+Since
+\[
+          F_{j_0}(b,0)=a_b^{-1}r_{j_0}(b)\ne0,
+ \qquad
+          a_b=r_{j_0}(b)/F_{j_0}(b,0),
+\]
+the scalar \(a_b\) is holomorphic near \(b_0\).
+This argument does not divide by theta at the origin,
+which may be zero.
+Therefore \(f_{b,j}=a_bF_j\) is jointly holomorphic.
+The transition, nonvanishing, rigidification and
+actual algebraic fibre-section identities already hold
+for these fibre frames; they give all clauses of
+\(\mathrm{IsThetaFrame}\).
+\end{proof}
+
+\paragraph{Frozen-source correspondence and retained inputs.}
+All paths below have prefix
+\texttt{src/Development/AbelianVarietyTheory/Proofs/}.
+The sign argument is
+\texttt{CubicalLineBundles/SemicharacterSqEqOneOfSymmetric.lean}
+(\texttt{d2d717aec9d26a9ed8ca968455911d6367e362bf}),
+\srcid{semicharacter_sq_eq_one_of_symmetric}.
+The basis-sign construction, multiplier subgroup and
+characteristic uniqueness are
+\texttt{ModuliProofs/ExistsHalfOfSqEqOne.lean}
+(\texttt{23a80692419984a24014f7042cef8bee1ddfed8c}),
+\srcid{exists_half_char}, \srcid{half_char_unique};
+the translate-unit test is
+\texttt{ToricGeometry/MemPeriodLatticeOfThetaTranslateEqUnitMul.lean}
+(\texttt{eed4913226755b63075a8f4dd698a5aa11894c89}).
+The actual fibre-frame and Gaussian transport are
+\texttt{ModuliProofs/ExistsUniqueHalfChar.lean}
+(\texttt{a5b282df7dafc2ba7da9c949db64ff79d4f6a38d}),
+\srcid{exists_unique_half_char}, and
+\texttt{ModuliProofs/ExistsUniqueThetaCharAtPoint.lean}
+(\texttt{3bb3de1f849094a745940ee6c080668be700ceae}),
+\srcid{existsUnique_char_of_triple}.
+Its public wrapper
+\texttt{ModuliProofs/ExistsUniqueThetaCharOfUnif.lean}
+(\texttt{82e1a4972cb06562e49d26f54b88952d80c799fe})
+uses that same producer.
+
+The local section construction is
+\texttt{UnitaryExistence/ExistsNonvanishing.lean}
+(\texttt{b717c3b20851284c2e7162d10270f736f6bf981d}),
+\srcid{PushInv.exists_basisOn},
+\srcid{PushInv.exists_nonvanishing}, and
+\srcid{PushInv.pushInvertible};
+the rank-one fibre value-line comparison is
+\texttt{ModuliProofs/ExistsValuesLineFibre.lean}
+(\texttt{048b56a4292b1ed2c08c8dc28099fda1f3f31a2e});
+and its local nonzero-section wrapper is
+\texttt{ModuliProofs/ExistsSecOnNonvanishing.lean}
+(\texttt{d3c5d67c00d7537db821abd5bd68fbc2958c09ac}).
+The two reciprocal quotients, entire-unit gluing and
+finite closed-fibre test are
+\texttt{ModuliProofs/EqOfFiniteOfClosedFibres.lean}
+(\texttt{7f7959eed9e909e48e267a075fa077ab74d989e9})
+and
+\texttt{ModuliProofs/ExistsFibreFrameOfMemClosure.lean}
+(\texttt{b97e854606513593d3fa2ebbae053163373bd288}),
+including \srcid{exists_fibreFrame_of_mem_closure} and
+\srcid{isThetaFrame_of_fibreFrames}.
+Their final assembly is
+\texttt{ModuliProofs/ExistsThetaFrameOfPreconnected.lean}
+(\texttt{6f0015a5b36bb1ce80e70e405023a80a95159307})
+and \texttt{ModuliProofs/ExistsThetaFrameFamily.lean}
+(\texttt{1e14b15190f65d3d76f3a98fa378b536161565fc}),
+\srcid{exists_thetaFrame_family}.
+
+The conclusion is the actual analytic-family theta-frame
+producer, for the supplied fine moduli object and its
+original universal line.
+It does not by itself construct that moduli object,
+prove the algebraic section/base-change law, algebraize
+an arbitrary positive complex torus, or construct the
+common finite Weil representation and its normalized
+vacuum.  Those are distinct source suppliers.

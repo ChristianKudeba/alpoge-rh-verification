@@ -1,0 +1,337 @@
+\subsection{The actual dual half-level marking and its root representatives}
+\label{subsec:ftb-actual-dual-half-marking}
+
+We reconstruct the source's half-level linear algebra, since the
+marking need not be an isomorphism modulo the whole integer level.
+Let \(R\) be a commutative ring with an involution \(a\mapsto\bar a\),
+let \(I,J\) be ideals and \(m>0\) an integer, and choose \(c\in R\)
+such that
+\[
+ IJ\subset(m),\quad m\in I\cap J,\quad
+ \bar I\subset J,\quad\bar J\subset I,\quad
+                         c\in I,\quad c-1\in J.           \tag{DM1}
+\]
+Let \(A,P\) be \(R\)-modules, with \(P\) projective, and let
+\(C\) and \(B\) be perfect integer-valued bilinear forms on
+\(A\) and \(P\), respectively.
+Perfect means that the maps to their full
+\(\mathbb Z\)-duals are bijective.
+Assume the adjoint rules
+\[
+ B(av,w)=B(v,\bar a w),\qquad
+ C(ax,y)=C(x,\bar a y).                                   \tag{DM2}
+\]
+An \(R\)-linear marking \(f:A\to P\) has the source's two
+half-level properties if
+\[
+ \begin{split}
+ a\in IA,\ f(a)\in mP&\ \Longrightarrow\ a\in mA,\\
+ v\in IP&\ \Longrightarrow\
+        v=f(a)+mu\quad\text{for some }a\in IA,\ u\in P .
+ \end{split}                                             \tag{DM3}
+\]
+These are the only marking injectivity and surjectivity
+assumptions in the argument.
+
+\begin{lemma}[A partial inverse and its adjoint]
+\label{lem:ftb-dual-half-inverse}
+Under (DM1)--(DM3), there is an \(R\)-linear map \(h:P\to A\)
+with
+\[
+                    h(f(a))-a\in mA\qquad(a\in IA).
+                                                               \tag{DM4}
+\]
+For each integer \(k\) there is an \(R\)-linear map
+\(\delta:A\to P\) satisfying
+\[
+          m\mid kC(x,a)+B(\delta x,f(a))
+                         \qquad(x\in A,\ a\in IA).        \tag{DM5}
+\]
+\end{lemma}
+\begin{proof}
+First, \(f(a)\in JP\) implies \(a\in JA\).
+Indeed \(cf(a)\in mP\) by \(IJ\subset(m)\), and \(ca\in IA\).
+The first clause of (DM3) gives \(ca=mb\).
+Then \(a=mb-(c-1)a\in JA\).
+Thus \(A/JA\to P/JP\) induced by \(f\) is injective.
+
+The composite \(A\to P/JP\) is onto.
+For \(v\in P\), apply the second clause of (DM3) to \(cv\)
+to get \(cv=f(a)+mu\).
+Then \(f(a)-v=(c-1)v-mu\in JP\).
+Projectivity of \(P\) lifts its quotient map \(P\to P/JP\)
+through this surjection \(A\to P/JP\), giving \(h:P\to A\)
+with \(f(h(v))-v\in JP\).
+For \(a\in IA\) the preceding injectivity test gives
+\(e=h(f(a))-a\in JA\).
+It also lies in \(IA\), since \(h,f\) are \(R\)-linear.
+Consequently \(ce\in mA\) and \((c-1)e\in mA\);
+subtracting gives \(e\in mA\), proving (DM4).
+This is the source's projective-lifting construction, not
+a choice of a whole-level inverse.
+
+Perfectness of \(B\) supplies the unique adjoint \(h^\dagger\)
+defined by
+\[
+                  B(h^\dagger x,v)=C(x,h(v)).
+\]
+It is additive by perfectness.
+For \(a\in R\), (DM2) gives, for every \(v\),
+\[
+ C(ax,h(v))=C(x,\bar a h(v))
+           =C(x,h(\bar a v))
+           =B(a h^\dagger x,v),
+\]
+so it is \(R\)-linear.
+Set \(\delta=-k h^\dagger\).
+For \(a\in IA\), write \(h(f(a))=a+mb\) by (DM4).
+Then
+\[
+ kC(x,a)+B(\delta x,f(a))=-kmC(x,b),
+\]
+which proves (DM5).
+\end{proof}
+
+\begin{lemma}[Half-level annihilators, dual surjectivity, and matching]
+\label{lem:ftb-dual-half-kernel-match}
+Keep (DM1)--(DM5), assume \(\gcd(k,m)=1\), and suppose \(B\)
+is alternating.
+Then
+\[
+ P=\delta(A)+IP,\qquad
+             \delta(x)\in IP\ \Longleftrightarrow\ x\in IA.       \tag{DM6}
+\]
+If a second pair \(f',\delta'\) satisfies (DM3), (DM5) for
+the same \(k\), and
+\(\delta(x)-\delta'(x)\in IP\) for every \(x\), then
+\[
+                   f(a)-f'(a)\in mP\qquad(a\in IA).        \tag{DM7}
+\]
+\end{lemma}
+\begin{proof}
+We record the annihilator test actually used in the source.
+For either of the perfect forms \(D\) on a module \(Q\),
+\[
+ \left[m\mid D(v,y)\text{ for all }y\in IQ\right]
+                                  \Longrightarrow v\in IQ.      \tag{DM8}
+\]
+The hypothesis applied to \(cy\) says
+\(m\mid D(\bar c v,y)\) for all \(y\in Q\).
+The functional \(y\mapsto D(\bar c v,y)/m\) is integral and
+\(\mathbb Z\)-linear.  Perfectness gives \(z\) with
+\(\bar c v=mz\).
+Thus \(v=mz-\overline{c-1}v\in IQ\).
+We also use
+\[
+                         B(IP,IP)\subset m\mathbb Z,      \tag{DM9}
+\]
+and the corresponding statement for \(C\).
+For a generator \(a u\) in the first \(I\)-module, move
+\(a\) to the second variable using (DM2);
+\(\bar a\,IP\subset JIP\subset mP\).
+Extend by addition.  This proves (DM9) without an
+integral basis diagonalizing \(R\).
+
+If \(\delta x\in IP\), both \(\delta x\) and \(f(a)\) are
+in \(IP\) for \(a\in IA\).
+By (DM5), (DM9) and coprimality,
+\(m\mid C(x,a)\) for all \(a\in IA\).
+The test (DM8) gives \(x\in IA\).
+The reverse implication follows from \(R\)-linearity.
+
+For the first assertion of (DM6), take the adjoint
+\(g:P\to A\) of \(f\), so \(C(gv,a)=B(v,f(a))\).
+Choose integers \(p,q\) with \(pm+qk=1\), and put
+\(x=-qgv\).
+To show \(v-\delta x\in IP\), use (DM8).
+Every \(y\in IP\) has the form \(f(a)+mu\) with \(a\in IA\).
+The \(mu\) term pairs to a multiple of \(m\).
+For the other term, (DM5) gives
+\[
+ B(\delta x,f(a))\equiv-kC(x,a)
+                   =qkB(v,f(a))\pmod m.
+\]
+Hence \(B(v-\delta x,f(a))\equiv
+(1-qk)B(v,f(a))=pmB(v,f(a))\equiv0\pmod m\).
+This proves the required surjectivity.
+
+Finally fix \(a\in IA\) and put \(d=f(a)-f'(a)\in IP\).
+Subtract the two instances of (DM5).
+The term \(B((\delta-\delta')x,f'(a))\) is divisible by
+\(m\), by (DM9).  Thus \(m\mid B(\delta x,d)\).
+Given any \(y\in P\), write \(y=\delta x+v\) with \(v\in IP\)
+by (DM6).  Again (DM9) implies \(m\mid B(y,d)\).
+Alternation gives \(m\mid B(d,y)\) for every \(y\).
+Dividing this integer functional by \(m\) and using
+perfectness gives \(d=mu\), proving (DM7).
+\end{proof}
+
+\begin{proposition}[The actual dual marking of the self-dual lattice]
+\label{prop:ftb-actual-dual-half-marking}
+Let \(E,H,D_w,l,X,L,\mathrm{mk},\zeta\) be the source data:
+\(E\) is a CM number field, \(H\) its host, \(D_w\) its datum,
+\(l\) its actual level, \(X\) its Hermitian data, \(L\) a
+self-dual \(O_E\)-lattice in \(E^r\), \(\mathrm{mk}\) an
+actual \(\mathrm{IsMark}(l,L)\), and \(\zeta\) a primitive
+\(M=l.M\)-th root of unity.
+Write
+\[
+             I=\mathrm{Mfr}(l),\qquad J=l.M_b.
+\]
+There is an \(O_E\)-linear
+\(\delta:D_w.\mathrm{La}\to E^r\) with image in \(L\) and
+the exact source dual-pairing relation
+\[
+ \zeta^{\,D_w.EF(x,c_{\rm Sep}a)}
+   =\exp\!\left\{-2\pi i\,
+       EF_X\bigl(\delta x,M^{-1}\mathrm{mk}(a)\bigr)\right\}
+                         \qquad(a\in I D_w.\mathrm{La}). \tag{DM10}
+\]
+Every such \(\delta\) satisfies
+\[
+ L\subset\operatorname{im}\delta+IL,\qquad
+ \delta a\in IL\ \Longleftrightarrow\
+                         a\in I D_w.\mathrm{La}.          \tag{DM11}
+\]
+If \(\mathrm{mk}',\delta'\) is another such marking/dual pair
+for the same data and \(\delta-\delta'\) has image in \(IL\),
+then
+\(\mathrm{mk}(a)-\mathrm{mk}'(a)\in ML\) for every
+\(a\in I D_w.\mathrm{La}\).
+For \(u\) in the actual unitary group of \(X\),
+\[
+  u\mathrm{mk},u\delta
+\]
+are the corresponding marking and dual marking on \(uL\).
+In addition
+\[
+                      \bar I=J,\qquad IJ=(M).             \tag{DM12}
+\]
+\end{proposition}
+\begin{proof}
+Self-duality of \(L\) supplies a perfect integral alternating
+form \(B\) with
+\[
+                    B(v,w)=EF_X(v,w)\quad(v,w\in L).
+\]
+This is the trace-form duality calculation:
+the coefficient \(X.\kappa_0/2\ne0\), the Hermitian matrix
+is nonsingular, and \(L=L^\sharp\); hence the map from \(L\)
+to its full integer dual is bijective.
+Its adjoint rule is
+\(B(av,w)=B(v,\bar a w)\), obtained by applying the trace
+identity and the host conjugation.
+The datum form \(C=D_w.EF\) is perfect and has the same
+adjoint rule.
+
+The lattice \(L\) is a finite torsion-free \(O_E\)-module.
+Since \(O_E\) is Dedekind it is flat, and its finite
+presentation makes it projective.
+We do not require it to be free over \(O_E\).
+The actual level supplies (DM1) with
+\(m=M,c=c_{\rm Sep}\), including (DM12).
+The properties of \(\mathrm{IsMark}\), after factoring its
+image through \(L\), are exactly (DM3).
+
+Write \(\zeta=\exp(2\pi i k/M)\) with \(\gcd(k,M)=1\).
+For \(a\in I D_w.\mathrm{La}\),
+\((c_{\rm Sep}-1)a\in M D_w.\mathrm{La}\).
+Consequently (DM10) is equivalent, by the primitive-root
+test, to
+\[
+ M\mid kD_w.EF(x,a)+B(\delta x,\mathrm{mk}(a)).          \tag{DM13}
+\]
+Indeed \(EF_X(v,M^{-1}w)=M^{-1}EF_X(v,w)\);
+the replacement of \(c_{\rm Sep}a\) by \(a\) changes the
+integer exponent by a multiple of \(M\).
+Apply Lemma~\ref{lem:ftb-dual-half-inverse} for existence,
+and Lemma~\ref{lem:ftb-dual-half-kernel-match} for all
+the asserted properties of an arbitrary dual marking.
+The equality \(\bar I=J\) follows in both directions from
+the involution and the defining conjugate ideal.
+The product in (DM12) is the actual level product.
+Finally an invertible \(u\) transports lattice membership
+and the two marking properties; if \(u\) is unitary,
+\(EF_X(uv,uw)=EF_X(v,w)\), so it transports (DM10) as well.
+\end{proof}
+
+\begin{lemma}[Actual root representatives with a fixed denominator power]
+\label{lem:ftb-actual-half-level-roots}
+For the same \(L,\mathrm{mk},l\), every \(N>0\) and every
+number of rows \(n\) admit the root representatives in the
+source predicate \(\mathrm{IsRoots}(l,L,\mathrm{mk},N)\).
+More explicitly there are \(t\in O_E,j\ge0\) with
+\[
+       t\equiv1\pmod J,\qquad tJ^j\subset(2N),
+\]
+and, for each row class \(q\in
+D_w.\mathrm{La}/J D_w.\mathrm{La}\), one can use
+\[
+            Y(q)=\frac{t}{M}
+                       \mathrm{mk}(c_{\rm Sep}\operatorname{rep}(q)).
+                                                               \tag{DM14}
+\]
+This is congruent modulo \(L\) to the indicated level lift,
+and
+\[
+                         J^{j+1}Y(q)\subset2NL
+\]
+uniformly in \(q\).
+The same \(t,j\) work for every row; matrices are assembled
+row by row.
+\end{lemma}
+\begin{proof}
+The ring \(O_E/(2N)\) is finite and Artinian.
+The descending sequence
+\(J^j(O_E/(2N))\) stabilizes.
+For a stabilized finite module \(Q=JQ\), the determinant
+trick applied to a finite set of generators gives
+\(t\equiv1\pmod J\) with \(tQ=0\).
+Thus \(tJ^j\subset(2N)\).
+This is the source's Artinian-stabilization and
+Nakayama/determinant-trick step.
+
+For \(a=c_{\rm Sep}\operatorname{rep}(q)\) we have
+\(a\in I D_w.\mathrm{La}\).
+For every \(b\in J\), \(b\,\mathrm{mk}(a)\in ML\), by
+\(JI\subset(M)\), and hence
+\(bM^{-1}\mathrm{mk}(a)\in L\).
+Since \(t-1\in J\), (DM14) has the required congruence
+modulo \(L\).
+The class represented by \(a\) is still \(q\), because
+\(c_{\rm Sep}-1\in J\).
+For \(b\in J^j,d\in J\), first write
+\(dM^{-1}\mathrm{mk}(a)=z\in L\), and then
+\(tb=2Nw\) with \(w\in O_E\).
+Their product is \(2Nwz\in2NL\).
+Additivity over sums of products proves
+\(J^{j+1}Y(q)\subset2NL\), with the same exponent for all
+classes and rows.
+\end{proof}
+
+\paragraph{Frozen-source correspondence.}
+This is the actual producer
+\texttt{src/Development/AbelianVarietyTheory/Proofs/%
+SiegelThetaTransformation/DualHalfLevelMarkingExistsAndMatch.lean}
+(\texttt{ca7df4a980bb13ba448a4268b4ac12dd635d7c9f}),
+at the fixed source tag.
+The displayed mechanism follows, in order,
+\srcid{DualMark.exists_nsmul},
+\srcid{smul_eq_nsmul}, \srcid{exists_adj},
+\srcid{dvd_of_mem}, \srcid{mem_of_dvd},
+\srcid{exists_inv}, \srcid{exists_dual},
+\srcid{mem_of_dual_mem}, \srcid{exists_dual_sub_mem},
+and \srcid{mark_eq_of_dual}.
+The actual lattice specialization is
+\srcid{exists_form}, \srcid{isDual_iff},
+\srcid{conj_half}, \srcid{isMark_map},
+\srcid{isDual_map}, and \srcid{dual_marking}.
+The denominator-power construction is
+\srcid{exists_pow_le} and \srcid{exists_roots}.
+Its exported interface is
+\texttt{DualHalfLevelMarkingExistsAndMatchStatement.lean}
+(\texttt{7f5fac9f3799aaede0436a4225175cb22ce164ab}),
+\srcid{GlobalTheory.T.dual_half_level_marking_exists_and_match}.
+This supplies the actual higher-level dual marking retained
+in the cover-Fourier construction, not only the downstream
+CRT consequences of an assumed dual marking.

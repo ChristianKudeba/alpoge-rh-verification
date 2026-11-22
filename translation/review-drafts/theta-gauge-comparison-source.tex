@@ -1,0 +1,303 @@
+\subsection{The actual global primitive comparison and exponential-gauge ratio}
+\label{subsec:sr-source-exponential-gauge-ratio}
+
+We retain here the literal algebraic global-functions law
+used by the frozen source:
+\[
+ \Gamma(S,\mathcal O_S)\ \xrightarrow{\ p^*\ }\ 
+ \Gamma(A,\mathcal O_A)\quad\hbox{is bijective
+ for every abelian scheme }p:A\to S
+ \hbox{ over every scheme }S.                               \tag{GR1}
+\]
+This is \(\mathrm{Out.GlobalFnsSt}\).
+It is an algebraic all-base assertion; a theorem about
+complex-valued functions on individual fibres does not
+supply (GR1).  The conclusions below are its exact
+applications in the chart comparison.
+
+\begin{srlemma}[Normalized global generators are unique]
+\label{lem:sr-source-normalized-global-generators-unique}
+Let \(p:A\to S\) be an abelian scheme with identity \(o\)
+and assume (GR1) for it.
+Two global generators of the same actual line on \(A\)
+which induce the same generator on \(o\) are equal.
+This applies to the actual primitive generator and to
+the following source line, for each \(a\in\mathcal O_E\):
+\[
+ {\cal L}_{\beta,a}
+ =[1+a\bar a]^*L\otimes([a]^*L)^{-2}
+                 \otimes L^{-1}\otimes[a\bar a]^*L^{-1}.
+                                                               \tag{GR2}
+\]
+Its prescribed generator at the identity is
+\(\mathrm{rig}^{-3}\).
+\end{srlemma}
+\begin{proof}
+The ratio of the two line generators is a global unit
+\(u\) on \(A\).
+Construct it on each line chart by division of their
+unit coefficients.  The transition coefficients cancel,
+so the local unit ratios glue.
+Their common normalization gives \(o^*u=1\), as an
+identity of regular functions on \(S\).
+By (GR1), \(u=p^*v\) for a regular function \(v\) on \(S\).
+Since \(po=\mathrm{id}_S\), it follows that \(v=o^*u=1\),
+and hence \(u=1\).
+This uses no pointwise detection or reducedness assumption.
+For (GR2), the exponent sum at the identity is
+\(1-2-1-1=-3\); the normalization is therefore exactly
+the displayed \(\mathrm{rig}^{-3}\).
+The same ratio argument applies to the primitive line
+\(L_xB(x,[w_0]x)^{-1}\) with its prescribed rigidification.
+\end{proof}
+
+Work now over any \(c.F\)-algebra \(S\), also a
+commutative \(\mathbb Q\)-algebra.
+Let \(x_m\) be one actual source exponential chart with
+coordinates \(z_\lambda\) indexed by
+\(\lambda\in\mathrm{Lt1}(D_w)\).
+Write \(\tau_\lambda\) for the embedding underlying a
+letter; its multiplicity index is retained separately.
+Thus its point law is additive, its \(\mathcal O_E\)
+action is diagonal,
+\[
+                    (D_a z)_\lambda=\chi_\lambda(a)z_\lambda,
+ \qquad
+ \chi_\lambda(a)=\mathrm{embK}_c(\tau_\lambda(a))\in S,             \tag{GR3}
+\]
+and its specified tangent points are the actual \(y.u_\lambda\).
+An actual exponential gauge \(e=(e_m)\) is a family of
+generators of \(x_m^*L\), compatible with truncation and
+the origin rigidification, which also satisfies the
+source's following global cocycle clause.
+For every \(a\), there is a global generator
+\(\beta_a\) of (GR2), normalized by
+\(\mathrm{rig}^{-3}\), such that at every finite order
+\[
+ e_m(D_{1+a\bar a}z)
+   =\beta_a(x_m(z))\,
+            e_m(D_a z)^2 e_m(z)e_m(D_{a\bar a}z).            \tag{GR4}
+\]
+This notation denotes the actual tensor-line
+\(\mathrm{Corr}\) identity; the four line factors and
+their exponents are those of (GR2).
+In particular, a different gauge may initially come
+with a different global \(\beta_a\).
+
+\begin{srproposition}[Classification of the ratio of two actual gauges]
+\label{prop:sr-source-actual-exponential-gauge-ratio}
+Assume (GR1).  Let \(e,e'\) be two actual exponential
+gauges on this same actual exponential chart.
+There is a formal series \(q\), independent of the
+section subsequently evaluated, such that
+\[
+ \begin{gathered}
+ q(0)=0,\qquad [z^\mu]q\ne0\ \Longrightarrow\ |\mu|=2,\\
+ [z_\lambda z_{\lambda'}]q\ne0
+             \ \Longrightarrow\ \tau_{\lambda'}=\overline{\tau_\lambda},\\
+                         e'_m=(j_m\exp q)e_m.              \tag{GR5}
+ \end{gathered}
+\]
+If an actual section of \(L^k\), \(k\ge0\), has
+exponential germs \(g,g'\) in \(e,e'\), respectively,
+then
+\[
+                              g'=g\exp(-kq).               \tag{GR6}
+\]
+Thus the literal \(\mathrm{GaugeUniqSt}\) follows from
+the literal (GR1).
+\end{srproposition}
+\begin{proof}
+Take the actual global unit ratio \(r_m\) of \(e'_m\)
+to \(e_m\) on the affine jet scheme.
+The two truncation identities imply
+\(\rho_mr_{m+1}=r_m\): pull the ratio identity back,
+compare both resulting \(\mathrm{Corr}\) identities,
+and cancel the common unit generator on line charts.
+Compatible finite polynomial representatives define a
+formal series \(r\) with \(j_mr=r_m\), by the coefficient
+construction used for (FC14).
+The common rigidification gives \(r(0)=1\).
+
+For each \(a\), the preceding lemma identifies the
+two normalized global generators \(\beta_a,\beta'_a\).
+Only after that global comparison may they be
+cancelled from the two actual identities (GR4).
+At each finite order this gives
+\[
+ r(D_{1+a\bar a}z)
+                  =r(D_a z)^2r(z)r(D_{a\bar a}z).           \tag{GR7}
+\]
+It holds as a formal identity since it holds at every
+jet order.
+This cancellation is the source's use of global
+primitive-line data; local scalar comparison alone
+would not give (GR7).
+
+Let \(q=\log r\), using the formal logarithm of a
+unit with constant term \(1\).
+Formal exponential and logarithm are inverse on
+zero-constant and constant-one series over any
+\(\mathbb Q\)-algebra.
+Their identities can be verified in each nilpotent
+jet quotient, where the sums are finite; no analytic
+convergence is involved.
+Taking logarithms of (GR7) gives
+\[
+ q(D_{1+a\bar a}z)
+              =2q(D_a z)+q(z)+q(D_{a\bar a}z).              \tag{GR8}
+\]
+Take \(a=1\).  At a degree-\(j\) coefficient \(c\),
+this becomes \((2^j-4)c=0\).
+For \(j\ne2\), \(2^j-4\) is a nonzero rational and
+therefore a unit in \(S\).
+Thus \(q\) is homogeneous of degree two.
+
+We include the source's character calculation, since
+cancellation of a nonzero coefficient is not available
+over the allowed rings.
+For a coefficient \(c=[z_\lambda z_{\lambda'}]q\), set
+\(s=\chi_\lambda\), \(t=\chi_{\lambda'}\).
+Equation (GR8) at that coefficient is exactly
+\[
+ c\{s(a)s(\bar a)+t(a)t(\bar a)-2s(a)t(a)\}=0
+                               \qquad(a\in\mathcal O_E).   \tag{GR9}
+\]
+Write \(F(a)\) for its left side.
+Use (GR9) at \(a,a+1,a^2,a^2+1\).
+Expanding these four identities gives
+\[
+ \begin{split}
+ 2c(s(a)-s(\bar a))(s(a)-t(\bar a))
+  ={}&-\{F(a^2+1)-F(a^2)\}\\
+    &+\{t(a)+s(\bar a)+t(\bar a)-s(a)\}
+                                      \{F(a+1)-F(a)\}.
+ \end{split}                                                   \tag{GR10}
+\]
+The right side is zero; cancel \(2\), a unit.
+
+Here is the exact unit-separation inference.
+Suppose characters \(\sigma,\tau_1,\tau_2\) satisfy
+\[
+        c(\sigma(a)-\tau_1(a))(\sigma(a)-\tau_2(a))=0
+                                                    \quad\forall a
+                                                               \tag{GR11}
+\]
+and distinct character indices can be separated by a
+unit difference at an integral element.
+If \(\sigma\ne\tau_1,\tau_2\), choose \(a_1\) separating
+the first pair and \(a_2\) separating the second.
+At \(a_1\) cancel the first unit to get
+\(c(\sigma(a_1)-\tau_2(a_1))=0\).
+At \(a_2\) cancel the second to get
+\(c(\sigma(a_2)-\tau_1(a_2))=0\).
+Expand (GR11) at \(a_1+a_2\); these two identities
+remove every term except
+\[
+             c(\sigma(a_1)-\tau_1(a_1))
+                       (\sigma(a_2)-\tau_2(a_2))=0.
+\]
+Both factors are units, so \(c=0\).
+Consequently \(c\ne0\) forces
+\(\sigma=\tau_1\) or \(\sigma=\tau_2\).
+
+Apply this to (GR10) and also with \(s,t\) interchanged.
+It gives, for \(c\ne0\),
+\[
+ s=\bar s\ \hbox{or}\ s=\bar t,\qquad
+ t=\bar t\ \hbox{or}\ t=\bar s.                             \tag{GR12}
+\]
+If either second alternative holds, conjugate
+involutivity gives \(t=\bar s\).
+In the remaining case both characters are fixed by
+conjugation.  Equation (GR9) then becomes
+\(c(s(a)-t(a))^2=0\).
+A unit difference forces \(c=0\) unless \(s=t\);
+when \(s=t\), again \(t=\bar s\).
+This also covers the general character version of the
+source lemma, before specializing to CM embeddings.
+
+For our actual embeddings, the required unit separation
+is precisely the integral embedding separation in
+(FC16): a nonzero difference in the field \(c.F\)
+maps to a unit in \(S\).
+For embedding characters,
+\(\chi_{\bar\tau}(a)=\chi_\tau(\bar a)\),
+and conjugation is involutive.
+The conclusion compares the underlying embeddings
+\(\tau_\lambda,\tau_{\lambda'}\), without identifying
+their multiplicity indices.
+The character conclusion therefore proves the
+support assertion in (GR5).
+Since \(r=\exp q\), its frame-ratio assertion follows.
+
+Finally take actual section-pullback and value
+witnesses for \(g,g'\) at order \(m\).
+The two pulled sections are equal by uniqueness.
+Their generators differ by \(r_m^k\), so cancelling
+the original unit generator gives
+\[
+                           j_mg=r_m^k j_mg'.
+\]
+Multiply by \(j_m\exp(-kq)\), using
+\((j_m\exp q)^k j_m\exp(-kq)=1\).
+This proves (GR6) at every order.
+Coefficientwise equality of all jets proves the
+formal-series identity (GR6).
+The same \(q\) works for all \(k\) and all actual
+sections because it was constructed from \(e,e'\)
+before they were chosen.
+\end{proof}
+
+\paragraph{Frozen source correspondence and supplier boundary.}
+The exact all-base law (GR1) is
+\(\mathrm{Out.GlobalFnsSt}\) in
+\texttt{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/}
+\texttt{ExtensionDescent/GlobalSectionsRankAlgClosed.lean}
+(\texttt{372ffae0095db579e74998eb5a086acc55e14f8d}).
+The actual definitions (GR2)--(GR4), including
+\(\mathrm{beta\varepsilon}=(1,-2,-1,-1)\) and the
+\(-3\) rigidification, are
+\texttt{src/Formalism/LocalToGlobal/ProjectiveLattices/IsExpChart.lean}
+(\texttt{f352d7a79e14580fbb6b765c72e4fddf814f8fee}).
+All following files have prefix
+\texttt{src/Formalism/SharpRestriction/Divisibility/GeneratorPowers/}.
+The global ratio and primitive uniqueness are
+\texttt{PrimUniqPf.lean}
+(\texttt{4b27f88033c458bcffadb51a77f861dd5d50d2d2});
+the exact \(\beta\)-uniqueness is
+\texttt{GaugeBeta.lean}
+(\texttt{a014cc8f5289738ff9985fb0e463d74e8f9a6b95}).
+
+The unit-ratio comparisons, inverse-limit coefficients,
+embedding-character transport, and actual section-value
+scaling are respectively
+\texttt{GaugeUniqA.lean}
+(\texttt{525d54081edda65391bbe14f004140f886f0ecfa}),
+\texttt{GaugeUniqB.lean}
+(\texttt{83424abbfb926b029dccf4bd0de7acde1d384cc3}),
+\texttt{GaugeUniqC.lean}
+(\texttt{2b513db9858e2f312fafb6b8e2341568dd196b6a}),
+and \texttt{GaugeUniqD.lean}
+(\texttt{b0957cbea0258f7f987166ce3b6be6b2c912959c}).
+The full actual assembly is
+\texttt{GaugeUniqPf.lean}
+(\texttt{9eec11ab88ee39dba55f932b8300f80bacbdfc0c}),
+\(\mathrm{gaugeUniq\_of\_global}\).
+The logarithm, degree-two and character calculation
+(GR8)--(GR12) are the actual \(\mathrm{gaugeRatio}\)
+proof in
+\texttt{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/}
+\texttt{TaylorDiscriminants/WickVanishing/GaugeRatio.lean}
+(\texttt{e2bed2ce5f561059bab0979ac1d3c276803a8e90}).
+In particular, the unit-separated calculation is retained;
+a domain-only character argument would give a weaker result.
+
+The present section constructs the gauge-comparison
+conclusion from (GR1) for two supplied actual
+exponential gauges.  It does not construct the gauges
+from the original chart and its canonical formal
+connection, or identify two actual exponential chart
+point systems.  Those producers and harmonic
+annihilation are required before this result supplies
+arbitrary-chart independence.
