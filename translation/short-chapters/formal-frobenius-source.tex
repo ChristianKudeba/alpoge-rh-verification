@@ -3012,3 +3012,2987 @@ model, identify its analytic flat frame with a canonical
 determinant extension, or pull arbitrary eigensaturated
 lattices through a nonflat base change.
 Those are separate joins in the flat-saturation producer.
+
+
+\subsection{The finite Hopf-algebra count used by the free-\(O\) producer}
+\label{subsec:faithful-hopf-count}
+
+This subsection translates the finite algebra argument in
+\srcid{PrimitiveDerivationPairing}, together with its five elementary
+producers.  Throughout, \(k\) is an algebraically closed field of
+characteristic a prime \(p\), and \(A\) is a finite-dimensional,
+commutative and cocommutative Hopf \(k\)-algebra.  Write \(\Delta\),
+\(\epsilon\), and \(\iota\) for its comultiplication, counit, and
+antipode.  Its finite dual \(A^\vee=\operatorname{Hom}_k(A,k)\) is
+endowed with convolution.  In particular
+\[
+ (uv)(a)=(u\otimes v)(\Delta a),\qquad
+ 1_{A^\vee}=\epsilon .
+\]
+An \(\epsilon\)-derivation is a \(k\)-linear map \(w:A\to k\) with
+\(w(ab)=w(a)\epsilon(b)+\epsilon(a)w(b)\).  An element \(f\in A\) is
+primitive when \(\Delta f=f\otimes1+1\otimes f\).
+
+\begin{srlemma}[Two finite-algebra choices]\label{lem:faithful-hopf-choices}
+Let \(R\) be a finite-dimensional commutative \(k\)-algebra.
+\begin{enumerate}
+\item If a \(k\)-subspace \(U\subset R\) has the property that every
+\(k\)-algebra homomorphism \(x:R\to k\) is nonzero on some element of
+\(U\), then \(U\) contains a unit.
+\item If \(V\ne0\) is a \(k\)-subspace of \(R\), stable under
+\(f\mapsto f^p\), then it contains a nonzero \(f\) for which
+\(f^p=0\) or \(f^p=f\).
+\end{enumerate}
+\end{srlemma}
+\begin{proof}
+The ring \(R\) is Artinian.  Every maximal-ideal residue field is a
+finite extension of \(k\), hence is \(k\).  In (1), the intersection
+of \(U\) with each maximal ideal is therefore a proper subspace.
+There are finitely many maximal ideals, and \(k\) is infinite.
+A finite union of proper subspaces cannot cover \(U\).  An element
+outside that union belongs to no maximal ideal, and is a unit.
+
+For (2), use strong induction on \(\dim_k(fR)\), beginning with any
+nonzero \(f\in V\).  If \(f\) is nilpotent, take the last nonzero term
+in \(f,f^p,f^{p^2},\ldots\).  Otherwise \(f\) is outside some prime
+ideal, which is maximal.  The corresponding \(x:R\to k\) has
+\(x(f)\ne0\).  Set \(f'=x(f)^{-1}f\) and \(g=(f')^p-f'\).
+Then \(g\in V\) and \(x(g)=0\).  If \(g=0\), use \(f'\).
+If \(g\ne0\), then \(g=fq\) for some \(q\in R\), so \(gR\subset fR\).
+This inclusion is strict: equality would express \(f=ga\), contrary
+to \(x(f)\ne0=x(g)\).  Apply the induction hypothesis to \(g\).
+\end{proof}
+
+\begin{srlemma}[Powers of a nonzero primitive]\label{lem:faithful-primitive-powers}
+If \(0\ne f\in A\) is primitive, the \(p\) elements
+\(1,f,\ldots,f^{p-1}\) are linearly independent.
+\end{srlemma}
+\begin{proof}
+Applying the counit to one tensor factor of the primitive identity
+gives \(\epsilon(f)=0\).  Thus \(f\) and \(1\) are linearly independent.
+Choose a linear functional \(y:A\to k\) with \(y(1)=0\) and \(y(f)=1\).
+Let \(y^{*m}\) denote its \(m\)-fold convolution power, with
+\(y^{*0}=\epsilon\).  The binomial formula gives
+\[
+ \Delta(f^i)=\sum_{l=0}^i {i\choose l}f^l\otimes f^{i-l}.
+\]
+Induction on \(m\) consequently gives
+\[
+ y^{*m}(f^i)=0\quad(i<m),\qquad
+ y^{*m}(f^m)=m!.
+\]
+Indeed, in the convolution step all terms except \(l=1\) vanish:
+the \(l=0\) term uses \(y(1)=0\), and for \(l\ge2\) the other
+convolution factor has exponent less than \(m\).
+Given a linear relation among the displayed \(p\) powers, apply
+\(y^{*m}\) successively with \(m=p-1,p-2,\ldots,0\).
+Since \(m!\ne0\) for \(m<p\), all coefficients vanish.
+\end{proof}
+
+We record the two derivation computations in the precise form used
+below.  For a derivation \(D:R\to R\), put \(C=\ker D\).
+
+\begin{srlemma}[Nilpotent derivation coordinates]
+\label{lem:faithful-nilpotent-derivation}
+Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
+\(D^p=0\), and \(D^{p-1}t\) is a unit for some \(t\in R\).
+Then there is \(z\in R\) with \(Dz=1\), and the map
+\[
+ C^p\longrightarrow R,\qquad (c_0,\ldots,c_{p-1})
+       \longmapsto\sum_{i=0}^{p-1}c_i z^i
+ \tag{HC1}\label{eq:faithful-nilpotent-coordinates}
+\]
+is a \(k\)-linear isomorphism.  In particular
+\(\dim_kR=p\dim_k C\).
+For every \(k\)-algebra map \(e:R\to k\), an \(e\)-derivation
+\(u:R\to k\) which kills \(C\) and \(z\) is zero; moreover \(e(Dz)=1\).
+\end{srlemma}
+\begin{proof}
+Put \(w=D^{p-1}t\).  Since \(Dw=0\), also \(D(w^{-1})=0\), and
+\[
+ z=w^{-1}D^{p-2}t
+\]
+has \(Dz=1\).  This formula includes \(p=2\).
+For \(c\in C\),
+\[
+ D^n(cz^i)=i(i-1)\cdots(i-n+1)c z^{i-n},
+\]
+where a term with \(n>i\) is zero.  The coefficient formula follows
+by induction from Leibniz's rule.  It proves injectivity of
+\eqref{eq:faithful-nilpotent-coordinates}, by applying \(D^{p-1}\)
+to a relation and descending on the largest exponent.
+For surjectivity, prove by induction on \(j\le p\) that
+\(D^ja=0\) implies an expression with exponents \(<j\).
+At the induction step, \(b=D^ja\) lies in \(C\); subtract
+\((j!)^{-1}bz^j\), then apply the assertion for \(j\).
+The factorials in use have \(j<p\).  Taking \(j=p\) proves the claim.
+Finally \(u(z^i)=0\) by induction using its Leibniz rule, and
+\(u(c_i)=0\); the expression in \eqref{eq:faithful-nilpotent-coordinates}
+therefore gives \(u=0\).
+\end{proof}
+
+\begin{srlemma}[Multiplicative derivation coordinates]
+\label{lem:faithful-multiplicative-derivation}
+Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
+\(D^p=D\), and \(z\) is a unit with \(Dz=z\).  Then
+\[
+ C^p\xrightarrow{\ \sim\ }R,\qquad
+ (c_0,\ldots,c_{p-1})\longmapsto\sum_{i=0}^{p-1}c_i z^i .
+ \tag{HC2}\label{eq:faithful-multiplicative-coordinates}
+\]
+Thus \(\dim_kR=p\dim_k C\).  For any \(k\)-algebra map \(e:R\to k\),
+an \(e\)-derivation \(u\) killing \(C\) and \(z\) is zero, and
+\(e(Dz)=e(z)\ne0\).
+\end{srlemma}
+\begin{proof}
+The polynomial \(X^p-X\) has simple roots, exactly the elements of
+\(\mathbf F_p\subset k\).  It annihilates \(D\), so \(R\) is the
+direct sum of its \(D\)-eigenspaces with eigenvalues
+\(0,1,\ldots,p-1\).  Leibniz's rule gives
+\(D(z^i)=i z^i\) and \(D(z^{-i})=-i z^{-i}\).
+Multiplication by \(z^i\) therefore identifies \(C\) with the
+eigenspace of eigenvalue \(i\): its inverse is multiplication by
+\(z^{-i}\).  This proves \eqref{eq:faithful-multiplicative-coordinates}.
+The last assertion follows from the same Leibniz calculation as
+in Lemma~\ref{lem:faithful-nilpotent-derivation}.
+\end{proof}
+
+\begin{srlemma}[A single primitive Hopf quotient]
+\label{lem:faithful-single-primitive-quotient}
+Let \(0\ne f\in A\) be primitive, with \(f^p=0\) or \(f^p=f\).
+Then
+\[
+ \dim_k A=p\dim_k(A/(f)).
+ \tag{HC3}\label{eq:faithful-single-primitive-dimension}
+\]
+Furthermore, the primitive elements in the ideal \((f)\) are
+exactly the scalar multiples of \(f\).
+\end{srlemma}
+\begin{proof}
+On the commutative convolution algebra \(R=A^\vee\), define
+\[
+ (Du)(a)=u(fa).
+\]
+The primitive identity for \(f\) says exactly that \(D\) is a
+derivation.  Its iterates satisfy
+\((D^nu)(a)=u(f^na)\).  Let \(e:R\to k\) be evaluation at \(1_A\);
+then \(e(Du)=u(f)\).
+
+We first obtain one of the two coordinate lemmas.
+If \(f^p=0\), then \(D^p=0\).  The element \(f^{p-1}\) is nonzero
+by Lemma~\ref{lem:faithful-primitive-powers}.  Every algebra map
+\(x:A^\vee\to k\) is evaluation at an invertible element \(g\in A\).
+Here is the exact finite-dual argument: finite-dimensional
+biduality represents \(x\) by \(g\); multiplicativity and unitality
+give \(\Delta g=g\otimes g\) and \(\epsilon(g)=1\); the antipode
+identity gives \(g\iota(g)=1\).
+Choose \(u\in A^\vee\) with \(u(f^{p-1}g)\ne0\).  Then
+\(x(D^{p-1}u)\ne0\).
+Lemma~\ref{lem:faithful-hopf-choices}(1), applied to
+\(\operatorname{im}D^{p-1}\), supplies a unit in that image.
+Lemma~\ref{lem:faithful-nilpotent-derivation} applies.
+
+If \(f^p=f\), then \(D^p=D\).  Set
+\(b=\sum_{i=1}^{p-1}f^i\).
+The equality \(fb=b\) follows from \(f^p=f\), and \(b\ne0\) follows
+from Lemma~\ref{lem:faithful-primitive-powers}.
+For an algebra map \(x\) represented by an invertible \(g\) as above,
+choose \(u\) with \(u(bg)\ne0\).
+The functional \(w(a)=u(ba)\) satisfies \(Dw=w\), and \(x(w)\ne0\).
+Lemma~\ref{lem:faithful-hopf-choices}(1) now supplies a unit in
+the eigenvalue-one subspace of \(D\).
+Lemma~\ref{lem:faithful-multiplicative-derivation} applies.
+
+In either case we have
+\[
+ \dim_kR=p\dim_k\ker D
+ \tag{HC4}\label{eq:faithful-dual-rank}
+\]
+and an element \(z\in R\) such that \(e(Dz)\ne0\), with the following
+property: an \(e\)-derivation killing \(\ker D\) and \(z\) is zero.
+The kernel of \(D\) is the annihilator of the ideal \((f)\) under
+the pairing \(A^\vee\times A\to k\).  Finite-dimensional duality
+identifies its dimension with \(\dim_k A/(f)\), proving
+\eqref{eq:faithful-single-primitive-dimension}.
+
+Let \(g=bf\) be primitive.  Since \(z(f)=e(Dz)\ne0\), set
+\(a=z(g)/z(f)\) and define
+\[
+ u(w)=w(g)-a\,w(f)\qquad(w\in R).
+\]
+The primitive identities for \(g\) and \(f\) make \(u\) an
+\(e\)-derivation.  If \(Dw=0\), then \(w\) annihilates \((f)\),
+so \(u(w)=0\); also \(u(z)=0\) by the choice of \(a\).
+The property just proved forces \(u=0\).
+The perfect pairing then gives \(g=af\).
+Conversely, scalar multiples of \(f\) are primitive.
+\end{proof}
+
+\begin{srproposition}[Primitive--tangent divisibility]
+\label{prop:faithful-primitive-tangent-count}
+Let \(P\subset A\) be a subspace of primitive elements, and
+\(W\subset A^\vee\) a subspace of \(\epsilon\)-derivations, with
+\[
+ w(f)=0\qquad(w\in W,\ f\in P).
+\]
+Then
+\[
+ p^{\dim_kP+\dim_kW}\ \mid\ \dim_k A .
+ \tag{HC5}\label{eq:faithful-primitive-tangent-count}
+\]
+No reducedness, connectedness, or perfect pairing between these
+two subspaces is assumed.
+\end{srproposition}
+\begin{proof}
+Use strong induction on \(\dim_k A\).  We first carry out the step
+when \(P\ne0\).  Enlarge it to
+\[
+ Q=\{f\in A:\ f\text{ is primitive and }w(f)=0
+                    \text{ for every }w\in W\}.
+\]
+This is a nonzero subspace.  It is stable under \(p\)-th powers:
+the primitive identity is preserved by Frobenius, and the
+\(\epsilon\)-derivation rule gives \(w(f^p)=0\).
+Lemma~\ref{lem:faithful-hopf-choices}(2) supplies
+\(0\ne f\in Q\) with \(f^p=0\) or \(f^p=f\).
+
+The ideal \(I=(f)\) is a Hopf ideal.  Indeed \(\epsilon(f)=0\);
+the primitive identity becomes zero after applying the quotient
+to both tensor factors; and \(\iota(f)=-f\), by the antipode
+identity.  These assertions extend from \(f\) to its ideal by
+multiplicativity.  Hence \(B=A/I\) is again a finite commutative
+cocommutative Hopf algebra.  Write \(\pi:A\to B\).
+By Lemma~\ref{lem:faithful-single-primitive-quotient},
+\[
+ \dim_kA=p\dim_kB,\qquad
+ \ker(\pi|_Q)=kf .
+ \tag{HC6}\label{eq:faithful-hopf-induction-dim}
+\]
+In particular \(\dim_kB<\dim_kA\) and
+\(\dim_k\pi(Q)=\dim_kQ-1\).
+
+Every \(w\in W\) kills \(I\): for \(af\in I\), its Leibniz rule
+and \(w(f)=\epsilon(f)=0\) give \(w(af)=0\).
+It therefore descends uniquely to an \(\epsilon_B\)-derivation on
+\(B\).  Let \(W_B\subset B^\vee\) be the space of these descended
+maps.  Pullback by the surjection \(\pi\) identifies \(W_B\) with
+\(W\), so their dimensions agree.  The primitive subspace
+\(P_B=\pi(Q)\) is annihilated by \(W_B\).
+The induction hypothesis gives
+\[
+ p^{\dim_kQ-1+\dim_kW}\mid\dim_kB.
+\]
+Multiplying by \(p\) and using \eqref{eq:faithful-hopf-induction-dim}
+gives the bound with \(Q\) in place of \(P\).
+Since \(P\subset Q\), this implies \eqref{eq:faithful-primitive-tangent-count}.
+
+If \(P=0=W\), the assertion is immediate.  If \(P=0\) but \(W\ne0\),
+pass to the finite dual Hopf algebra \(A^\vee\).  The defining
+Leibniz equality says precisely that the image of \(W\) in
+\(A^\vee\) consists of primitive elements: this follows by testing
+the dual comultiplication against arbitrary \(a\otimes b\).
+Apply the nonzero-primitive induction step just proved to that
+subspace and the zero tangent subspace.  Its induction hypotheses
+are available because all smaller quotient dimensions are smaller
+than \(\dim_kA^\vee=\dim_kA\).
+This yields \(p^{\dim_kW}\mid\dim_kA^\vee=\dim_kA\), as required.
+\end{proof}
+
+\paragraph{Exact source ledger and remaining interface.}
+All source links below refer to the frozen baseline, and each
+listed file was compared byte for byte with its translation input.
+The five elementary producers are
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/FrobeniusStableSubspaceElement.lean}
+{\srcid{FrobeniusStableSubspaceElement}}
+(blob \srcid{15fb69f4ae27a6ab7224fa1bf79bce80e0675cc2}),
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/SubspaceContainsUnit.lean}
+{\srcid{SubspaceContainsUnit}}
+(\srcid{8704c238b26ef7343b77b18851d75a59aee66050}),
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/NilpotentDerivationRank.lean}
+{\srcid{NilpotentDerivationRank}}
+(\srcid{ea20fda1a391f68e58f8727f9f03d43b523e6939}),
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/MultiplicativeDerivationRank.lean}
+{\srcid{MultiplicativeDerivationRank}}
+(\srcid{979dd7f8e24e2ac0afd291416a0ccd017b285dd1}),
+and
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PrimitiveElementPowersIndep.lean}
+{\srcid{PrimitiveElementPowersIndep}}
+(\srcid{51bb9dcde6060dee77bc4d8e4c835a0abc59281b}).
+The assembly is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PrimitiveDerivationPairing.lean}
+{\srcid{PrimitiveDerivationPairing}}
+(\srcid{27d2edd4e342ad3e38cf97e7a3adc841abb3cd48}),
+specifically \srcid{key}, \srcid{stepP},
+\srcid{norm\_index\_count\_bound}, and
+\srcid{primitive\_tangent\_dvd\_finrank}.
+The proofs above retain its primitive quotient and dual-derivation
+induction; they do not substitute a general structure theorem for
+finite group schemes.
+
+The next geometric interface is separate: for the finite kernel
+of multiplication by \(a\), one must construct the injected
+primitive and tangent subspaces, and identify their pairing with
+the actual mixed coefficient of the adjoint cubical frame.
+Proposition~\ref{prop:faithful-primitive-tangent-count} proves the
+finite algebra count once those maps are supplied.  It does not
+itself identify the germ's doubled tangent space with a
+Dieudonn\'e module or establish the free-\(O\) conclusion.
+
+
+\subsection{The actual kernel points and the adjoint-frame coefficient}
+\label{subsec:faithful-geometric-kernel-count}
+
+We retain the geometric hypotheses of
+\srcid{ProperGroupGermFiniteSubscheme}.  Let \(E\) be a CM number
+field, \(H\) its specified host, and \(O=\mathcal O_E\), with
+\(\bar a=H.\mathrm{bar}(a)=a^*\).  Let \(k\) be algebraically closed
+of characteristic the prime \(p\), and let \(t\) be the source's
+polarized semiabelian datum \(\mathrm{SAB}(H,\operatorname{Spec}k)\).
+Assume that its group \(G\) is proper and that its cubical line \(L\)
+satisfies the source predicate \(\mathrm{KTriv}(G,L)\).
+In particular \(G\) is an abelian variety.  Choose an actual
+\(\mathrm{GermAt}(t,1,d)\), denoted \(g\).  Put
+\[
+ R_a=\operatorname{lin}_1(g.B.\mathrm{acta}(a)),\qquad
+ C_a=\operatorname{bil}_{1,1}(g.B.\mathrm{ad}(a)).
+\]
+The doubled formal action is the actual action already fixed:
+\[
+ \rho_H(a)(u,f)=(R_a u,R_{\bar a}^{\,t}f-C_a^{\,t}u).
+ \tag{KG1}\label{eq:faithful-kernel-doubled-action}
+\]
+
+Fix \(a\in O\).  Suppose a finite \(k\)-algebra \(A\), with a map
+\(\kappa:\operatorname{Spec}A\to G\), represents the scheme-theoretic
+kernel of \([a]\).  Thus \([a]\kappa=0\), and every point killed by
+\([a]\) factors uniquely through \(\kappa\), over every test scheme.
+No separability or reducedness of this finite kernel is assumed.
+
+\begin{srlemma}[The geometric primitive and tangent maps]
+\label{lem:faithful-geometric-kernel-pair}
+The multiplication, identity, and inverse of this kernel endow \(A\)
+with a finite commutative cocommutative Hopf algebra structure.
+There are injective linear maps
+\[
+ \begin{split}
+ D:\ker R_a&\longrightarrow\operatorname{Hom}_k(A,k),\\
+ T:\ker R_{\bar a}&\longrightarrow A
+ \end{split}
+\]
+such that \(D(u)\) is an augmentation derivation, \(T(z)\) is
+primitive, and
+\[
+                 D(u)(T(z))=u^tC_a z .
+ \tag{KG2}\label{eq:faithful-actual-mixed-kernel-pair}
+\]
+Here the right side is the mixed coefficient of the chosen actual
+adjoint cubical frame, with no change of its normalization.
+\end{srlemma}
+
+\begin{proof}
+We first give the source's construction of the pairing and its
+nondegeneracy assertion.
+
+Write
+\[
+ \mathcal P(x,y)=L_{x+y}\otimes L_x^{-1}\otimes L_y^{-1}\otimes L_0
+\]
+for the normalized second difference of \(L\).
+The actual germ's frame supplies a global generating section \(w_a\)
+of
+\[
+       \mathcal P(x,[\bar a]y)\otimes
+                         \mathcal P([a]x,y)^{-1}.
+ \tag{KG3}\label{eq:faithful-actual-adjoint-line}
+\]
+This is its \(\mathrm{frame.ad}(a)\) producer.
+The alternating product defining this line is exactly
+\(\mathrm{AdSum}([a],[\bar a])\): on arbitrary multiplicative
+symbols it expands as
+\[
+ h(x+[\bar a]y)h(x)^{-1}h([\bar a]y)^{-1}
+      h([a]x+y)^{-1}h([a]x)h(y).
+\]
+Thus no independent polarization comparison is substituted for
+the actual generator.
+
+On points \(x\in\ker[a]\), \(v\in\ker[\bar a]\), both second
+differences in \eqref{eq:faithful-actual-adjoint-line} have their
+canonical axis trivializations.  Evaluation of \(w_a\) in these
+trivializations gives a unit \(\chi_a(x,v)\), functorial in the
+test algebra.  The value at either axis is \(1\).
+The source proves this by comparing the two axis pullbacks with
+the identity pullback: their ratio is a global function on the
+proper connected group, hence comes from the base, and its value
+at the identity is \(1\), as is the constant coefficient of
+\(g.B.\mathrm{ad}(a)\).
+The same global-function comparison, applied to translation by a
+kernel point, gives
+\[
+ \chi_a(y+x,v)=\chi_a(y,v)\chi_a(x,v)
+              \qquad([a]x=0,\ [\bar a]v=0).
+ \tag{KG4}\label{eq:faithful-kernel-character-law}
+\]
+More explicitly, compare the two pullbacks of \(w_a\) indexed by
+\((y+x,v)\) and \((y,v)\).  Their alternating line expressions
+agree because \([a]x=[\bar a]v=0\); the ratio is constant in the
+proper group variable \(y\), and evaluating at \(y=0\) gives the
+factor \(\chi_a(x,v)\).  These are the source's
+\srcid{pair\_ax} and \srcid{pair\_mul}.
+
+We also need its precise nondegeneracy argument, only in the
+second variable.  If \(R\) is local and \(v\in G(R)\) is killed by
+\([\bar a]\), suppose
+\[
+      \chi_a(x,v)=1
+ \quad\text{for every point }x\in\ker[a]
+ \text{ after every base change over }\operatorname{Spec}R.
+ \tag{KG5}\label{eq:faithful-kernel-pair-trivial}
+\]
+Then \(v=0\).
+First \([a]:G\to G\) is finite, flat, and surjective in this
+situation.  Indeed it is proper; its geometric kernel points
+factor through the finite scheme \(\operatorname{Spec}A\), and
+each geometric fibre is a translate of that kernel.  Thus it is
+locally quasi-finite and proper, hence finite.  The source's
+finite-endomorphism result for a smooth geometrically integral
+proper group gives flatness and surjectivity.  In particular it
+is an fpqc cover, also after base change to \(R\).
+
+On \(G_R\), put \(\mathcal P_v=\mathcal P(-,v)\).
+The inverse of \(w_a(-,v)\) is a generator of
+\([a]^*\mathcal P_v\).  Two points with the same image under
+\([a]\) differ by a kernel point.  Equations
+\eqref{eq:faithful-kernel-character-law} and
+\eqref{eq:faithful-kernel-pair-trivial} therefore say that these
+two pullbacks of that generator agree.  Faithfully flat descent
+of a generating section and its inverse gives a generator of
+\(\mathcal P_v\).  The line \(L_v\otimes L_0^{-1}\) over the local
+base \(\operatorname{Spec}R\) has a generator.  Multiplying it
+with the descended generator gives a generator of
+\(t_v^*L\otimes L^{-1}\) on \(G_R\).
+The stipulated \(\mathrm{KTriv}(G,L)\) now gives \(v=0\).
+This is \srcid{pair\_nondeg}; it is a descent of the actual
+adjoint-frame generator, not an invocation of an unspecified
+duality pairing.
+
+We construct the linear maps in finite bases, as in
+\srcid{ker\_data}.  Choose bases
+\(u_1,\ldots,u_s\) of \(\ker R_a\) and
+\(v_1,\ldots,v_r\) of \(\ker R_{\bar a}\).
+For any \(n\), let
+\[
+     S_n=k\oplus k^n,\qquad (0\oplus k^n)^2=0 .
+\]
+The actual germ sends the coordinate tuple
+\((0,\,(u_j)_l)_{l=1}^d\) to a point over \(S_s\);
+since its linear \([a]\)-image is zero, that point factors
+uniquely through \(\operatorname{Spec}A\).
+In terms of functions this is an algebra map
+\[
+       \psi:A\longrightarrow S_s,\qquad
+       \psi(b)=\bigl(\epsilon(b),(D_j(b))_{j=1}^s\bigr).
+\]
+Its constant component is the identity point \(\epsilon\):
+reduce the point modulo the square-zero ideal and use uniqueness
+of its kernel factorization.  Multiplicativity of \(\psi\)
+therefore gives
+\[
+ D_j(bb')=\epsilon(b)D_j(b')+D_j(b)\epsilon(b').
+ \tag{KG6}\label{eq:faithful-kernel-derivation}
+\]
+A linear relation \(\sum c_jD_j=0\), composed with the map
+\(S_s\to k[\delta]/(\delta^2)\) determined by
+\((e_j)\mapsto c_j\delta\), says that the actual first-order
+point in direction \(\sum c_j u_j\) is zero.
+The actual germ's first-order coordinate injectivity makes that
+direction zero; independence of the \(u_j\) gives all \(c_j=0\).
+
+Likewise the directions \(v_i\) give a point
+\(z\in\ker[\bar a](S_r)\).
+Apply \(\chi_a\) to the universal point
+\(\kappa\in\ker[a](A)\) and this point over
+\(A\otimes_k S_r\).  The resulting unit has the form
+\[
+             c=1+\sum_{i=1}^r f_i\otimes e_i .
+ \tag{KG7}\label{eq:faithful-kernel-character-coefficients}
+\]
+Its constant coefficient is \(1\) by the axis normalization.
+Let \(\Delta:A\to A\otimes_kA\) be obtained by multiplying the
+two universal kernel points.  Formula
+\eqref{eq:faithful-kernel-character-law} gives
+\[
+   (\Delta\otimes1)c=c_{13}c_{23}.
+\]
+Comparison of the square-zero coefficients in \(S_r\) gives
+\[
+                   \Delta(f_i)=f_i\otimes1+1\otimes f_i.
+ \tag{KG8}\label{eq:faithful-kernel-primitives}
+\]
+If \(\sum_i c_i f_i=0\), substitute the direction map
+\(S_r\to k[\delta]/(\delta^2)\) into
+\eqref{eq:faithful-kernel-character-coefficients}.
+The resulting character is identically \(1\), universally on
+\(\ker[a]\).  The nondegeneracy just proved gives that the
+first-order point with direction \(\sum_i c_i v_i\) is zero.
+First-order coordinate injectivity and independence of the
+\(v_i\) show that every \(c_i=0\).
+
+It remains to check the normalization in
+\eqref{eq:faithful-actual-mixed-kernel-pair}.
+Evaluate the adjoint frame on the two first-order points over
+\(S_s\otimes_kS_r\).
+The germ coordinates have zero products within the first
+square-zero block and within the second.  Therefore the formal
+series \(g.B.\mathrm{ad}(a)(X,Y)\) has only its constant, pure
+first-order, and mixed terms at this point.  Its restrictions
+to either axis are \(1\), so the pure terms vanish.
+The coefficient of \(e_j\otimes e_i\) is exactly
+\[
+                    \sum_{l,m}(u_j)_l(C_a)_{lm}(v_i)_m.
+\]
+On the other hand substituting \(\psi\) into
+\eqref{eq:faithful-kernel-character-coefficients} gives that same
+coefficient as \(D_j(f_i)\).
+The actual frame-to-series comparison is
+\srcid{chi\_chart}; the coefficient extraction is
+\srcid{second\_jet\_expansion}.  This proves the equality with
+the actual \(C_a\), including its sign and transpose convention.
+
+Finally the kernel's multiplication, identity, and inverse factor
+uniquely through itself.  On coordinate rings these give
+\(\Delta,\epsilon,\iota\); uniqueness of kernel factorization
+transfers associativity, the identity laws, inversion, and
+commutativity to the Hopf laws.  Equivalently this is the
+source's \srcid{exists\_hopf} construction on the same underlying
+algebra \(A\).  Extend \(u_j\mapsto D_j\) and \(v_i\mapsto f_i\)
+linearly from the chosen bases.  Their independence gives
+injectivity; equations \eqref{eq:faithful-kernel-derivation},
+\eqref{eq:faithful-kernel-primitives}, and the mixed calculation
+give all the asserted identities.
+\end{proof}
+
+\begin{srproposition}[The proper-germ kernel divisibility]
+\label{prop:faithful-proper-germ-kernel-divisibility}
+Under the same hypotheses,
+\[
+       p^{\,\dim_k\ker\rho_H(a)}\mid\dim_k A .
+ \tag{KG9}\label{eq:faithful-proper-germ-kernel-divisibility}
+\]
+\end{srproposition}
+\begin{proof}
+Set
+\[
+ W_a=\{u\in\ker R_a:
+                  z^tC_a^{\,t}u=0\text{ for all }z\in\ker R_{\bar a}\}.
+\]
+Project \(\ker\rho_H(a)\) to its first component.
+If \((u,f)\) lies in this kernel, then \(R_a u=0\) and
+\(C_a^tu=R_{\bar a}^tf\).
+For \(z\in\ker R_{\bar a}\) this gives
+\(z^tC_a^tu=(R_{\bar a}z)^tf=0\), so the projection's image
+is contained in \(W_a\).
+Its kernel injects by the second component into
+\(\ker R_{\bar a}^t\).
+The kernel dimensions of a square matrix and its transpose agree.
+Rank--nullity consequently gives the exact bound used by the source:
+\[
+       \dim_k\ker\rho_H(a)
+             \le \dim_k\ker R_{\bar a}+\dim_k W_a.
+ \tag{KG10}\label{eq:faithful-doubled-kernel-bound}
+\]
+No equality or unproved lifting of a first component is needed.
+
+Apply Lemma~\ref{lem:faithful-geometric-kernel-pair}.
+The primitive subspace \(P=T(\ker R_{\bar a})\) has dimension
+\(\dim_k\ker R_{\bar a}\), and the augmentation-derivation
+subspace \(W=D(W_a)\) has dimension \(\dim_kW_a\).
+Equation \eqref{eq:faithful-actual-mixed-kernel-pair} and the
+definition of \(W_a\) make these spaces orthogonal.
+Proposition~\ref{prop:faithful-primitive-tangent-count} yields
+\[
+ p^{\,\dim_k\ker R_{\bar a}+\dim_kW_a}\mid\dim_kA.
+\]
+Equation \eqref{eq:faithful-doubled-kernel-bound} implies
+\eqref{eq:faithful-proper-germ-kernel-divisibility}.
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+The actual geometric producer is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ProperGroupGermFiniteSubscheme.lean}
+{\srcid{ProperGroupGermFiniteSubscheme}}
+(blob \srcid{3ad2aaa54254d04f8c6931e8c1537377fb2abd13}),
+namely \srcid{ker\_data}, \srcid{assemble},
+\srcid{exists\_hopf}, and \srcid{kerHopf\_geom}.
+Its explicit cubical and scheme-theoretic helpers are in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankMultiplicationCharP.lean}
+{\srcid{KernelRankMultiplicationCharP}}
+(blob \srcid{8692ad93c74b5c1b23bdc6589110ce06b1a56c60}):
+\srcid{pair\_ax}, \srcid{pair\_mul}, \srcid{pair\_nondeg},
+\srcid{pair\_exists}, \srcid{exists\_ker}, \srcid{flat\_surj},
+\srcid{second\_jet\_expansion}, and \srcid{chi\_chart}.
+Here \srcid{chi\_chart} is the chart comparison for its
+\srcid{Chi} predicate in the \srcid{JetKernelRank} namespace;
+its equality is applied to the two actual square-zero coordinate
+points, as above.
+The final bound is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ProperMultiplicationKernel.lean}
+{\srcid{ProperMultiplicationKernel}}
+(blob \srcid{ed9741baf8969ed3e3efda99cbdbce7a51e6dc81}),
+specifically \srcid{finrank\_ker\_rhoH\_le} and
+\srcid{lemF\_ker\_order\_dvd}.
+All three files were checked against the frozen baseline.
+
+The conclusion is for the proper polarized quotient equipped with
+its actual \(\mathrm{KTriv}\) line and actual germ.
+The finite-kernel existence and its norm-degree formula, and the
+transfer from a semiabelian group to its proper quotient, are
+separate producers.  This calculation establishes the exact
+adjoint-frame pairing needed for them; it makes no unproved
+integral identification with a Dieudonn\'e module.
+
+
+\subsection{The two norm calculations in the geometric freeness proof}
+\label{subsec:faithful-free-norm-calculations}
+
+\begin{srlemma}[The integral coefficient lattice]
+\label{lem:faithful-integral-lattice-norm}
+Let \(E\) be a number field and \(O=\mathcal O_E\).
+Let \(\Lambda\) be an \(O\)-module whose underlying abelian group
+is finite free, and put \(s=\operatorname{rank}_O\Lambda\).
+For every \(a\in O\), multiplication \(m_a\) on \(\Lambda\),
+regarded as an integral endomorphism, satisfies
+\[
+ \det_{\mathbb Z}(m_a)=N_{E/\mathbb Q}(a)^s,\qquad
+ \operatorname{charpol}_{\mathbb Z}(m_a)
+                   =\operatorname{charpol}_{\mathbb Z}(a|O)^s .
+ \tag{NN1}\label{eq:faithful-integral-lattice-character}
+\]
+If \(a\ne0\), \(k\) is any field of characteristic the prime \(p\),
+and \(m_{a,k}\) is its base change to \(k\otimes_{\mathbb Z}\Lambda\),
+then
+\[
+ \dim_k\ker m_{a,k}\le s\,v_p(|N_{E/\mathbb Q}(a)|).
+ \tag{NN2}\label{eq:faithful-integral-lattice-kernel}
+\]
+The characteristic polynomial of \(m_{a,k}\) is the image of
+\eqref{eq:faithful-integral-lattice-character} in \(k[T]\).
+In particular \(\dim_k(k\otimes_{\mathbb Z}\Lambda)=[E:\mathbb Q]s\).
+\end{srlemma}
+\begin{proof}
+We follow \srcid{KernelRankNormBound}, without assuming that
+\(\Lambda\) is free over \(O\).
+Choose \(s\) independent elements over \(O\), giving an injective
+\(O\)-linear map \(j:O^s\to\Lambda\).
+Its cokernel is \(O\)-torsion.
+Every nonzero \(b\in O\) divides a nonzero integer: a polynomial
+relation for \(b\) with nonzero constant term gives such a divisor
+by rearranging the relation.
+Consequently the cokernel is also integral torsion, and \(j\)
+is an inclusion of integral lattices of equal rank.
+It intertwines multiplication by \(a\).
+Choose integral bases.  The matrix of \(j\) has nonzero determinant,
+so taking determinants in
+\(j\,m_a|O^s=m_a|\Lambda\,j\) and cancelling that determinant
+shows that the two multiplication determinants agree.
+The determinant on \(O^s\) is \(N(a)^s\).
+This proves the first formula of \eqref{eq:faithful-integral-lattice-character}.
+
+Apply that determinant formula to \(t-a\) for every integer \(t\).
+The characteristic polynomial evaluated at \(t\) is the determinant
+of \(tI-m_a\), so it equals \(N(t-a)^s\).
+The same identity on \(O\) gives the second formula by polynomial
+equality over the infinite ring \(\mathbb Z\).
+
+For completeness, the corank calculation uses the actual Smith
+bases of the image of an injective integral endomorphism \(f\).
+There are an integral basis \(t_i\) of the target and an integral
+basis \(s_i\) of its image with \(s_i=d_i t_i\).
+The map \(f\) is, in these bases, a diagonal matrix
+\(\operatorname{diag}(d_i)\) followed by a unimodular matrix.
+After base change to \(k\), the latter stays invertible.
+The kernel dimension is therefore the number of indices for
+which \(p\mid d_i\).  The corresponding power of \(p\) divides
+\(\prod_i d_i\), and hence divides \(\det f\).
+Thus
+\[
+       \dim_k\ker(f\otimes k)\le v_p(|\det f|).
+\]
+For \(a\ne0\), its multiplication determinant is nonzero by the
+first formula, and this inequality gives
+\eqref{eq:faithful-integral-lattice-kernel}.
+Characteristic polynomials commute with this base change.
+Their degrees give the final rank equality.
+\end{proof}
+
+The next lemma is the arithmetic end of
+\srcid{DegreeMultiplicationNorm}.  It is stated explicitly because
+the formal proof obtains the norm-degree equality from a coordinate
+growth bound; it does not assume that equality as a property of
+the \(O\)-action.
+
+\begin{srlemma}[Multiplicative degree and the integral-coordinate bound]
+\label{lem:faithful-degree-function-norm}
+Let \(O=\mathcal O_E\) have integral basis
+\(b_1,\ldots,b_n\), \(n=[E:\mathbb Q]>0\).
+Let \(d:O\to\mathbb N\), \(e,C\in\mathbb N\), and assume:
+\begin{enumerate}
+\item \(d(ab)=d(a)d(b)\) for nonzero \(a,b\), and
+\(d(a)\ge1\) for \(a\ne0\);
+\item \(d(m)=m^e\) for every positive integer \(m\);
+\item whenever \(a=\sum_i c_i b_i\ne0\) with
+\(|c_i|\le T\), one has \(d(a)\le C T^e\).
+\end{enumerate}
+Then for every \(a\ne0\),
+\[
+                        d(a)^n=|N_{E/\mathbb Q}(a)|^e .
+ \tag{NN3}\label{eq:faithful-degree-function-norm}
+\]
+\end{srlemma}
+\begin{proof}
+First \(d(a^k)=d(a)^k\), including \(k=0\), by (1) and
+\(d(1)=1\).
+Write \(M=|N(a)|\ne0\).
+For every \(k\ge0\), let \(T\) be the least nonnegative integer
+with
+\[
+                    M^k<(T+1)^n.
+\]
+Then \(T^n\le M^k\).
+The quotient \(O/(a^k)\) has \(M^k\) elements.
+The \((T+1)^n\) coordinate vectors
+\((u_i)\in\{0,\ldots,T\}^n\) cannot all have distinct images
+under \((u_i)\mapsto\sum_i u_i b_i\bmod(a^k)\).
+Subtract two distinct vectors with the same image.
+Their difference gives
+\[
+             0\ne x=\sum_i c_i b_i=y a^k,\qquad |c_i|\le T.
+\]
+Independence of the integral basis makes \(x\ne0\), and hence
+\(y\ne0\).
+By (1) and (3),
+\[
+                       d(a)^k\le d(y)d(a)^k=d(x)\le CT^e .
+\]
+Raise this inequality to the \(n\)-th power and use \(T^n\le M^k\):
+\[
+                  (d(a)^n)^k\le C^n(M^e)^k .
+\]
+If \(d(a)^n>M^e\), the ratio of these two positive integer bases
+would have unbounded powers, contradicting this fixed constant
+for all \(k\).  Therefore
+\[
+                          d(a)^n\le M^e .
+ \tag{NN4}\label{eq:faithful-degree-norm-upper}
+\]
+
+The integral ideal \((a)\) contains its absolute norm \(M\).
+Thus \(M=ba\) for some nonzero \(b\in O\).
+By (1)--(2),
+\[
+                  d(b)d(a)=M^e.
+\]
+Taking algebraic norms in \(ba=M\) gives
+\[
+                    |N(b)|M=M^n.
+\]
+Consequently
+\[
+              d(b)^n d(a)^n=|N(b)|^e M^e.
+\]
+Apply \eqref{eq:faithful-degree-norm-upper} to \(b\) and cancel
+the positive factor \(|N(b)|^e\).  This gives
+\(M^e\le d(a)^n\), proving
+\eqref{eq:faithful-degree-function-norm}.
+\end{proof}
+
+\begin{srlemma}[The effective quadratic bound used for degree growth]
+\label{lem:faithful-effective-quadratic-bound}
+Let \(B,P\) be abelian groups and \(S\subset P\) an additive
+submonoid.  Suppose \(q:B\to P\) has \(q(0)=0\) and
+\[
+                q(x+y)+q(x-y)=2q(x)+2q(y).
+\]
+Let \(h\in S\), suppose \(q(x)\in S\) for all \(x\), and suppose
+that for each \(x\) there is \(N\ge0\) with \(Nh-q(x)\in S\).
+For any finite list \(\omega_1,\ldots,\omega_m\in B\) there is
+\(C\ge1\) such that
+\[
+  CT^2h-q\!\left(\sum_{i=1}^m c_i\omega_i\right)\in S
+                    \qquad (|c_i|\le T,\ c_i\in\mathbb Z).
+ \tag{NN5}\label{eq:faithful-effective-quadratic-bound}
+\]
+\end{srlemma}
+\begin{proof}
+The parallelogram identity gives \(q(-x)=q(x)\) and, by
+two-step induction, \(q(nx)=n^2q(x)\) for natural \(n\);
+hence \(q(cx)=c^2q(x)\) for all integers \(c\).
+Induct on the finite list.
+For the empty list take \(C=1\).
+Suppose the tail has constant \(C\), and choose \(N\) with
+\(Nh-q(\omega)\in S\) for the added element.
+For \(|c|\le T\), both
+\(NT^2h-q(c\omega)\) and the tail expression
+\(CT^2h-q(y)\) lie in \(S\): for the first use
+\(q(c\omega)=c^2q(\omega)\) and \(T^2-c^2\ge0\).
+The parallelogram identity gives
+\[
+ (2N+2C)T^2h-q(c\omega+y)
+  =2\bigl(NT^2h-q(c\omega)\bigr)
+   +2\bigl(CT^2h-q(y)\bigr)+q(c\omega-y).
+\]
+All three terms belong to \(S\).
+Use \(2N+2C\) as the new positive constant.
+\end{proof}
+
+\paragraph{Frozen-source ledger and geometric interface.}
+Lemma~\ref{lem:faithful-integral-lattice-norm} is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankNormBound.lean}
+{\srcid{KernelRankNormBound}}
+(blob \srcid{731390fb9ea36fcdfffd4246d81834d09f5b05ab}):
+\srcid{det\_eq\_of\_intertwine}, \srcid{det\_lsmul},
+\srcid{charpoly\_lsmul}, \srcid{corank\_le}, and the final theorem.
+Lemmas~\ref{lem:faithful-degree-function-norm} and
+\ref{lem:faithful-effective-quadratic-bound} are respectively
+\srcid{pow\_eq\_norm} and \srcid{quad\_bound} (with
+\srcid{quad\_nat}, \srcid{quad\_int}, and
+\srcid{le\_of\_pow\_le}) in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/DegreeMultiplicationNorm.lean}
+{\srcid{DegreeMultiplicationNorm}}
+(blob \srcid{09a4b78a396ac292ab8fe3938f653e00cca99a6a}).
+Both source files were checked against the frozen baseline.
+
+The geometric application takes \(d(a)\) to be the constant
+finite-flat rank of \([a]\) on an abelian variety of dimension
+\(g\), with \(e=2g\).
+Its remaining source steps establish finiteness, multiplicativity,
+the integer value \(d(m)=m^{2g}\), and the coordinate growth
+\(CT^{2g}\) by symmetric very ample bundles and section-rank
+sandwiches.  Those steps are not assumed proved by the arithmetic
+lemmas above and are recorded separately in the geometric degree
+producer.
+
+
+\subsection{The finite-flat section sandwich and the actual norm degree}
+\label{subsec:faithful-geometric-norm-degree}
+
+This subsection proves the geometric part of
+\srcid{DegreeMultiplicationNorm}.  In particular it includes
+inseparable multiplication maps: the section comparison is for
+finite flat covers, with no \'etaleness assumption.
+
+\paragraph{Exact classical background for the section input.}
+The coherent background used is Serre's theorem on projective
+space over a Noetherian ring: coherent cohomology is finite,
+and positive cohomology of sufficiently high twists vanishes
+(\href{https://stacks.math.columbia.edu/tag/01YS}{Stacks, Lemma 30.14.1}).
+In our application the base is a field \(k\), and the specified
+very ample sections define a closed immersion
+\(\iota:X\hookrightarrow\mathbb P^m_k\) with
+\(H=\iota^*\mathcal O(1)\).
+Indeed the source chart data say that the nonzero loci cover
+\(X\), are affine, and have coordinate algebras generated by
+the indicated section ratios.  The induced maps on all
+standard projective charts are closed immersions.
+The ideal sheaf \(\mathcal I_X\) is coherent.  Twisting
+\(0\to\mathcal I_X\to\mathcal O\to\iota_*\mathcal O_X\to0\)
+and applying the vanishing of \(H^1(\mathcal I_X(t))\)
+shows that, for all sufficiently large \(t\), every section
+of \(H^t\) is a homogeneous polynomial of degree \(t\) in those
+specified sections.  This is precisely the needed
+\srcid{ExistsHomogeneousFormEqHighPowerSection} interface.
+There is no extra uniformity in \(X\), its embedding, or field
+extension in that assertion.
+
+We also use the ample-sheaf theorem that a finite-type
+quasi-coherent sheaf tensored with sufficiently high powers
+of an ample line is globally generated
+(\href{https://stacks.math.columbia.edu/tag/01Q3}{Stacks, Proposition 28.27.13(7)}).
+For a line \(N\) on a nonempty projective \(X\), it gives a
+nonzero section of \(N\otimes H^a\) for some \(a\).
+This matches the source's
+\srcid{ExistsHighTwistSectionNeZero}, on its actual field
+and projective scheme.
+Both uses have Noetherian base \(k\); neither asserts a result
+over an arbitrary non-Noetherian local model.
+
+\begin{srlemma}[The source section growth]\label{lem:faithful-section-growth}
+Let \(X/k\) be integral and smooth of relative dimension \(g\),
+with specified very ample line \(H\) and sections
+\(s_0,\ldots,s_m\).
+Then \(h(t)=\dim_kH^0(X,H^t)\) is finite for every \(t\ge0\),
+is nondecreasing, and there are integers \(c,C\), \(c\ge1\), with
+\[
+                    t^g\le c h(t),\qquad h(t)\le Ct^g
+                        \quad(t\ge1).
+ \tag{DG1}\label{eq:faithful-section-growth}
+\]
+\end{srlemma}
+\begin{proof}
+We give the source's filtered-coordinate proof.
+For a finitely generated integral \(k\)-algebra \(A\) of
+transcendence degree \(g\), generated by \(r_1,\ldots,r_m\),
+let \(F_tA\) be the image of polynomials of total degree
+at most \(t\) in these generators.
+Noether normalization supplies algebraically independent
+\(y_1,\ldots,y_g\) such that \(A\) is finite over
+\(k[y_1,\ldots,y_g]\); choose module generators \(b_1,\ldots,b_l\).
+Let \(B_D\) be the span of \(y^\alpha b_j\) with
+\(0\le\alpha_i\le D\).
+These spaces exhaust \(A\) and have dimension at most
+\(l(D+1)^g\).
+Choose one \(d\) with all \(r_i b_j\in B_d\), and choose
+\(D_0\) with \(1\in B_{D_0}\).
+Multiplying \(B_D\) by any \(r_i\) lands in \(B_{D+d}\).
+Hence \(F_tA\subset B_{td+D_0}\), giving
+\(\dim F_tA\le C_A t^g\) for \(t\ge1\).
+
+For the reverse inequality, lift each \(y_i\) to a polynomial
+\(q_i(r)\), and put \(E=1+\sum_i\deg q_i\).
+The independent monomials \(y^\alpha\), with
+\(0\le\alpha_i\le\lfloor t/E\rfloor\), belong to \(F_tA\).
+Thus
+\[
+             t^g\le E^g\dim_kF_tA .
+\]
+These are the actual box-span upper and lower arguments in
+\srcid{FinrankTotalDegreeImageGrowth}; no Hilbert-polynomial
+leading coefficient is substituted.
+
+Now choose a nonempty standard open \(D_i=(s_i\ne0)\).
+It is affine, with coordinate algebra generated by
+\(r_j=s_j/s_i\), and \(r_i=1\); this is part of the specified
+very-ample chart data.
+Its transcendence degree is \(g\), since it is a nonempty
+affine in the given smooth integral \(g\)-dimensional scheme.
+The map
+\[
+      H^0(X,H^t)\longrightarrow\Gamma(D_i,\mathcal O),
+                         \qquad \sigma\longmapsto\sigma/s_i^t
+\]
+is injective by integrality.
+Every polynomial in the \(r_j\) of degree at most \(t\)
+is the image of a global section, by homogenizing with the
+variable \(r_i=1\).
+For all sufficiently large \(t\), the exact homogeneous-section
+input stated above gives the reverse inclusion.
+Thus, in large degrees, this section space has exactly the
+filtered-coordinate dimension just bounded.
+
+Multiplication by the fixed nonzero section \(s_i\) is injective
+from \(H^0(H^t)\) to \(H^0(H^{t+1})\), by integrality.
+It gives monotonicity and propagates finiteness from the large
+degrees to every smaller degree.
+Increase \(C\) by the finite sum of these smaller dimensions.
+The filtered-coordinate lower bound holds in every degree
+because the homogenized polynomials always give global sections.
+This proves \eqref{eq:faithful-section-growth}.
+\end{proof}
+
+\begin{srlemma}[The actual finite-flat section sandwich]
+\label{lem:faithful-finite-flat-section-sandwich}
+Let \(X,X'\) be integral \(k\)-schemes, with \(X\) projective,
+and let \(\varphi:X'\to X\) be finite, flat, and surjective of
+constant rank \(\delta\).
+Let \(H\) have the specified finite very-ample chart data on \(X\).
+Then some \(a\ge0\) satisfies, for every \(t\ge0\),
+\[
+ \begin{split}
+  \delta\,h^0(X,H^t)
+       &\le h^0(X',\varphi^*H^{t+a}),\\
+  h^0(X',\varphi^*H^t)
+       &\le \delta\,h^0(X,H^{t+a}).
+ \end{split}
+ \tag{DG2}\label{eq:faithful-finite-flat-sandwich}
+\]
+\end{srlemma}
+\begin{proof}
+All the section spaces are finite by coherent finiteness on
+the projective schemes \(X\) and \(X'\).
+Put \(F=k(X)\), \(F'=k(X')\).  Finite flatness identifies
+\([F':F]=\delta\); choose an \(F\)-basis \(e_1,\ldots,e_\delta\)
+of \(F'\).
+For every nonempty standard open \(D_i=(s_i\ne0)\), put
+\[
+                 A_i=\Gamma(D_i,\mathcal O_X),\qquad
+                 B_i=\Gamma(\varphi^{-1}D_i,\mathcal O_{X'}).
+\]
+They are domains embedded in \(F,F'\), and \(B_i\) is finite
+over \(A_i\).
+Choose \(0\ne c_i\in A_i\) clearing both sets of denominators:
+\[
+ \begin{split}
+          c_i\,\operatorname{coord}_{e_j}(B_i)&\subset A_i,\\
+                              c_i e_j&\in B_i .
+ \end{split}
+ \tag{DG3}\label{eq:faithful-chart-denominators}
+\]
+For the first assertion, clear the finitely many coordinates
+of finite \(A_i\)-module generators of \(B_i\).
+For the second, write each \(e_j\) as a fraction in \(B_i\);
+its denominator is integral over \(A_i\), so it divides a
+nonzero element of \(A_i\).
+Multiply these finitely many denominators.
+This is the source's \srcid{exists\_denominator}.
+
+Fix one rational trivialization of \(H\), and write its
+sections \(s_i\) as \(0\ne\rho_i\in F\).
+Then \(\rho_i/\rho_k\in A_k\).
+On \(D_i\cap D_k\), the function \(c_i\) is regular;
+localization at the function \(\rho_i/\rho_k\) on \(D_k\)
+therefore gives an integer \(m_{ik}\) with
+\[
+                  c_i(\rho_i/\rho_k)^{m_{ik}}\in A_k.
+\]
+Let \(M_i=\sum_k m_{ik}\), let \(a=\sum_iM_i\), and set
+\[
+                           u=\prod_i c_i\rho_i^{M_i}\ne0.
+\]
+For each \(k\),
+\[
+ u=\rho_k^a c_k b_k,\qquad
+       b_k=\prod_{i\ne k}c_i(\rho_i/\rho_k)^{M_i}\in A_k.
+ \tag{DG4}\label{eq:faithful-common-multiple}
+\]
+Increasing an exponent from \(m_{ik}\) to \(M_i\) preserves
+membership because \(\rho_i/\rho_k\in A_k\).
+This is the explicit \srcid{exists\_common\_multiple}
+construction.
+
+Embed sections in their function fields using the chosen
+rational trivialization.  The exact gluing criterion is
+\[
+ \begin{split}
+ V_t&=\{z\in F:z/\rho_i^t\in A_i\text{ for all }i\}
+                         \simeq H^0(X,H^t),\\
+ W_t&=\{z'\in F':z'/\rho_i^t\in B_i\text{ for all }i\}
+                         \simeq H^0(X',\varphi^*H^t).
+ \end{split}
+\]
+These are equalities of images of actual global sections:
+regular local coefficients glue by their common function-field
+value, and restriction is injective on an integral scheme.
+Now the two linear maps are
+\[
+ \begin{aligned}
+ V_t^\delta&\longrightarrow W_{t+a},
+                       &(z_j)&\longmapsto u\sum_j z_j e_j,\\
+ W_t&\longrightarrow V_{t+a}^\delta,
+                       &z'&\longmapsto
+                              (u\,\operatorname{coord}_{e_j}(z'))_j .
+ \end{aligned}
+ \tag{DG5}\label{eq:faithful-sandwich-maps}
+\]
+They land in the indicated section images by
+\eqref{eq:faithful-chart-denominators} and
+\eqref{eq:faithful-common-multiple}.
+For example the first expression divided by \(\rho_i^{t+a}\)
+is \(\sum_j b_i(z_j/\rho_i^t)c_i e_j\in B_i\);
+the second uses \(b_i c_i\operatorname{coord}_{e_j}
+(z'/\rho_i^t)\in A_i\).
+They are injective because \(u\ne0\) and the \(e_j\) are a
+basis.  Their dimensions prove
+\eqref{eq:faithful-finite-flat-sandwich}.
+\end{proof}
+
+\begin{srlemma}[The source growth comparison]
+\label{lem:faithful-degree-growth-comparison}
+Suppose a nondecreasing function \(h:\mathbb N\to\mathbb N\)
+satisfies \eqref{eq:faithful-section-growth}, and \(q\ge1\).
+If
+\[
+         \delta h(t)\le h(q(t+a)),\qquad
+                 h(qt)\le\delta h(t+a)\quad(t\ge0),
+\]
+then \(\delta=q^g\).
+\end{srlemma}
+\begin{proof}
+The lower bound at \(1\) gives \(h(1)\ge1\).
+Induction, using monotonicity and \(q\ge1\), gives
+\[
+ \begin{split}
+ h(q^kt)&\le\delta^k h(t+ka),\\
+ \delta^k&\le h(q^k(1+ka)).
+ \end{split}
+\]
+Applying the two bounds in
+\eqref{eq:faithful-section-growth} yields
+\[
+ \delta^k\le C(q^g)^k(1+ka)^g,\qquad
+       (q^g)^k\le cC\,\delta^k(1+ka)^g .
+\]
+An exponential with ratio greater than \(1\) eventually
+exceeds any fixed polynomial.
+The first inequality gives \(\delta\le q^g\);
+the second gives \(q^g\le\delta\).
+This is the source's \srcid{degree\_eq\_pow\_of\_growth}
+and its \srcid{le\_of\_pow\_le\_poly\_mul\_pow} argument.
+\end{proof}
+
+\begin{srproposition}[The actual nonzero multiplication kernel]
+\label{prop:faithful-proper-multiplication-degree}
+Let \(k\) be algebraically closed, \(B/k\) an abelian variety
+of dimension \(g\), \(E\) a number field, and
+\(\rho:O=\mathcal O_E\to\operatorname{End}(B)\) a unital ring
+action.
+For \(0\ne a\in O\), the map \([a]\) is finite, flat, and
+surjective, and its finite kernel has coordinate algebra
+\(A_a\) with
+\[
+                    (\dim_kA_a)^{[E:\mathbb Q]}
+                             =|N_{E/\mathbb Q}(a)|^{2g}.
+ \tag{DG6}\label{eq:faithful-proper-multiplication-norm-degree}
+\]
+This is valid in positive characteristic when the map is
+inseparable.
+\end{srproposition}
+\begin{proof}
+An abelian variety is projective; the theorem of the cube
+holds for each of its lines
+(\href{https://stacks.math.columbia.edu/tag/0BF9}{Stacks,
+Lemmas 39.9.2 and 39.9.6}).
+Choose a symmetric very ample line \(H\): symmetrize an
+ample line \(H_0\) to \(H_0\otimes[-1]^*H_0\), and
+take a sufficiently high power.
+Write \(h=[H]\) in its Picard group and set
+\[
+                         Q(a)=[a]^*h .
+\]
+The cube identity and symmetry give
+\[
+ Q(0)=0,\qquad Q(a+b)+Q(a-b)=2Q(a)+2Q(b),\qquad
+                         [m]^*H\simeq H^{m^2}.
+ \tag{DG7}\label{eq:faithful-abelian-quadratic-pull}
+\]
+The last identity follows by the two-step quadratic induction,
+including integers divisible by the characteristic.
+
+We first explain the source's finiteness criterion.
+If a morphism from a projective scheme with very ample line
+\(H'\) pulls a line on its separated target back to
+\((H')^D\), \(D\ge1\), it is finite.
+It is proper.  On each fibre the pulled-back line is a
+constant line, so its trivialization makes the \(D\)-th
+powers of the very ample sections into global functions.
+Their basic opens are exactly the inverse images of the
+standard very-ample affine opens, and are affine.
+The fibre is proper over its residue field, so its global
+functions form a finite-dimensional algebra.
+Localizing that finite algebra at each of those functions
+shows that these affine basic opens are finite over the
+residue field.  They cover the fibre, so it is zero-dimensional.
+The morphism is locally quasi-finite and proper, hence finite.
+This is \srcid{IsFiniteOfPullVeryAmpleIsoPow}, including its
+construction of the fibre functions from local line frames.
+
+Apply this with \eqref{eq:faithful-abelian-quadratic-pull}
+to every positive integer multiplication.
+For nonzero \(a\), the integer \(M=|N(a)|\) lies in \((a)\);
+write \(M=ab\).
+Then \([M]=[b][a]\) is finite.
+The factor \([a]\) is finite because \([b]\) is separated.
+Explicitly its graph into the fibre product of the finite
+composite \([M]\) with the target of \([a]\) is a closed
+immersion; the projection of that fibre product is finite
+by base change.  Their composite is \([a]\).
+This is the source's \srcid{IsFinite.of\_comp} with the
+actual endomorphism factor.
+Thus \([a]\) is finite.
+
+We retain the source's actual finite-endomorphism flatness
+mechanism.  A locally quasi-finite map strictly preserves
+strict specialization order: two distinct comparable points
+with the same image would be comparable distinct points
+of one discrete fibre.  A finite group endomorphism \(f\)
+fixes the identity point \(o\).
+On the ordered set of generizations of \(o\), it is therefore
+strictly monotone.
+The generic point \(\eta\) is maximal in that order.
+If \(f(\eta)\ne\eta\), its height is strictly less than
+that of \(\eta\).  Both heights are finite, being bounded
+by the Krull dimension of the Noetherian local ring at \(o\).
+But a strictly monotone self-map cannot decrease height,
+since it maps each strict chain injectively to a strict chain.
+This contradiction proves \(f(\eta)=\eta\).
+
+On an affine neighbourhood of that target generic point,
+\(f\) is a finite algebra over a Noetherian domain.
+After tensoring with its fraction field choose a finite
+vector-space basis.  Clearing denominators in a finite
+presentation makes that algebra module free after
+localizing at a nonzero element.
+Since \(f\) preserves the generic point, the corresponding
+source basic open is nonempty.
+Thus the source obtains a nonempty open of flat points.
+Choose a closed point \(y\) in it; such a point exists
+because the finite-type \(k\)-scheme is Jacobson.
+As \(k\) is algebraically closed it is a \(k\)-point.
+For any closed point \(x\), translation
+\(\alpha(z)=z\,y^{-1}x\) on the source and translation by
+\(f(y^{-1}x)\) on the target are isomorphisms satisfying
+\(f\alpha=\beta f\) and \(\alpha(y)=x\).
+Flatness at \(y\), transported through this square of
+isomorphisms, proves flatness at \(x\).
+Flatness can be tested at closed points in this
+Noetherian finite-presentation setting, so \(f\) is flat.
+Its image is closed and contains the generic point, hence
+is all of the integral \(B\).
+This is \srcid{FlatAndSurjectiveOfIsFiniteAbelianEnd}'s
+\srcid{apply\_genericPoint},
+\srcid{exists\_open\_flat}, and translation argument.
+Its rank is locally constant, and \(B\) is connected, so
+write \(d(a)\ge1\) for its constant finite-flat rank.
+Generic ranks multiply in the function-field tower, giving
+\(d(ab)=d(a)d(b)\) for nonzero \(a,b\).
+
+Apply Lemma~\ref{lem:faithful-finite-flat-section-sandwich}
+to \([m]\).
+The isomorphism \([m]^*H\simeq H^{m^2}\) makes its pulled
+section dimensions \(h(m^2t)\).
+Lemmas~\ref{lem:faithful-section-growth} and
+\ref{lem:faithful-degree-growth-comparison} therefore give
+\[
+                               d(m)=m^{2g}.
+ \tag{DG8}\label{eq:faithful-integer-multiplication-degree}
+\]
+We have obtained this value by the source's section-growth
+argument, rather than taking it as a norm-degree premise.
+
+For an arbitrary finite-flat surjective endomorphism
+\(\varphi\) of rank \(\delta\), suppose
+\(M h-\varphi^*h\) is effective with \(M\ge1\).
+Its nonzero section, raised to the \(t\)-th power, gives an
+injection
+\[
+       H^0(B,\varphi^*H^t)\hookrightarrow H^0(B,H^{Mt}).
+\]
+Let \(a\) be the shift in
+\eqref{eq:faithful-finite-flat-sandwich}.
+At \(t=a+1\), that sandwich and
+\eqref{eq:faithful-section-growth} give
+\[
+ \begin{split}
+ \delta(a+1)^g
+  &\le c\,\delta h(a+1)
+   \le c\,h\bigl(M(2a+1)\bigr)\\
+  &\le cC M^g(2a+1)^g
+   \le cC\,2^g M^g(a+1)^g .
+ \end{split}
+\]
+Cancelling the positive last power yields
+\[
+                         \delta\le C_0 M^g,\qquad C_0=cC2^g.
+ \tag{DG9}\label{eq:faithful-effective-degree-bound}
+\]
+The shift has disappeared from this constant.
+
+The effective Picard classes form an additive monoid:
+products of nonzero sections on the integral \(B\) remain
+nonzero.
+All \(Q(a)\) are effective because \(H\) is globally
+generated.  For each \(a\), some \(Nh-Q(a)\) is effective
+by the high-twist section input stated at the start.
+Apply Lemma~\ref{lem:faithful-effective-quadratic-bound}
+to \(Q\) and an integral basis \(b_i\) of \(O\).
+It gives \(C_1\ge1\) with
+\[
+ C_1T^2h-Q\!\left(\sum_i c_i b_i\right)
+                  \quad\text{effective if }|c_i|\le T.
+\]
+If that element is nonzero, \(T\ge1\).
+Equation \eqref{eq:faithful-effective-degree-bound} gives
+\[
+        d\!\left(\sum_i c_i b_i\right)
+                             \le C_0 C_1^g T^{2g}.
+\]
+Extend \(d\) by any value at \(0\), which none of the
+needed inequalities tests.
+The hypotheses of
+Lemma~\ref{lem:faithful-degree-function-norm} now hold for
+\(d\) and \(e=2g\): multiplicativity, positivity,
+\eqref{eq:faithful-integer-multiplication-degree}, and this
+integral-coordinate bound.
+It yields
+\(d(a)^{[E:\mathbb Q]}=|N(a)|^{2g}\).
+
+Finally the fibre of \([a]\) over the identity is affine
+and finite over \(k\), hence \(\operatorname{Spec}A_a\)
+for a finite \(k\)-algebra.
+Finite flat base change identifies \(\dim_kA_a=d(a)\),
+proving \eqref{eq:faithful-proper-multiplication-norm-degree}.
+For an actual germ of the proper datum, its coordinate
+dimension equals \(g\): both its tangent points and a
+smooth tangent model are bases of the same tangent module.
+Thus this is exactly the \(2d'\) exponent used by
+\srcid{ExistsFiniteKernelNonzero}.
+\end{proof}
+
+\paragraph{Frozen-source ledger.}
+The construction-specific flat-cover proof and norm-degree
+assembly are in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/DegreeMultiplicationNorm.lean}
+{\srcid{DegreeMultiplicationNorm}}
+(blob \srcid{09a4b78a396ac292ab8fe3938f653e00cca99a6a}):
+\srcid{sandwich}, \srcid{finrank\_le},
+\srcid{finrank\_act}, \srcid{dim\_eq},
+\srcid{exists\_fibre}, and \srcid{finrank\_fibre}.
+Its exact wrapper is
+\srcid{ExistsFiniteKernelNonzero}
+(\srcid{01f7547b58db5fa9282aea4a27d62ae1b3540b55}).
+The common denominator, common multiple, and two actual
+linear maps are
+\srcid{UniformizationProofs.ExistsCommonMultiple};
+the chart-to-function-field construction is
+\srcid{UniformizationProofs.FinrankSecPullSandwich.chart\_data}.
+The latter file's final theorem is phrased for \'etale
+covers; the \srcid{sandwich} proof above is the actual
+finite-flat extension in \srcid{DegreeMultiplicationNorm}.
+It uses neither separability of \(F'/F\) nor an \'etale
+assumption.
+
+The filtered-coordinate producers are
+\srcid{AbelianSchemeLawProofs.FinrankTotalDegreeImageGrowth},
+\srcid{AbelianSchemeLawProofs.FiniteOfNotLinearIndependent}
+(\srcid{growth\_of\_veryAmpleBy}), and
+\srcid{UniformizationProofs.FiniteMonotoneGrowth}.
+The numerical iteration is
+\srcid{UniformizationProofs.LeOfPowLePolyMulPow}.
+The generic-flat-open and translation proof is
+\srcid{AbelianSchemeLawProofs.FlatAndSurjectiveOfIsFiniteAbelianEnd}
+(blob \srcid{0a1fb23e45cb9470d7afd3090c9c1e8c3bc80f88}),
+not a replacement by a regular/Cohen--Macaulay flatness criterion.
+The Serre and ample-twist uses have been identified with
+their precise classical statements at the start, so no
+source-specific stronger section interface remains implicit.
+The actual coordinate-growth, section sandwich, and norm
+identification are printed above.
+
+
+\subsection{From the source kernel bounds to an actual free coefficient basis}
+\label{subsec:faithful-kernel-norm-free}
+
+This is the algebraic producer
+\srcid{KernelRankAlgebraicBound}; its conclusion is a basis, not
+merely a dimension assertion.
+
+\begin{srproposition}\label{prop:faithful-kernel-norm-free}
+Let \(E\) be a number field, \(O=\mathcal O_E\), and
+\(b_1,\ldots,b_n\) its specified integral basis, where
+\(n=[E:\mathbb Q]\).  Let \(k\) be algebraically closed of
+characteristic the prime \(p\), let \(W\) be a finite-dimensional
+\(k\)-vector space, and let
+\(\rho:O\to\operatorname{End}_k(W)\) be a unital ring homomorphism.
+Fix \(r\ge0\).  Assume, for every \(a\in O\), that
+\[
+ \operatorname{charpol}(\rho(a))
+  =\left(\operatorname{charpol}(m_a:O\to O)
+                                \bmod k\right)^r,
+ \tag{NF1}\label{eq:faithful-norm-free-charpoly}
+\]
+and, for every \(a\ne0\), that
+\[
+       \dim_k\ker\rho(a)\le
+                       r\,v_p(|N_{E/\mathbb Q}(a)|).
+ \tag{NF2}\label{eq:faithful-norm-free-kernel}
+\]
+Then there exist \(x_1,\ldots,x_r\in W\) such that
+\[
+        \{\rho(b_j)x_l:1\le j\le n,\ 1\le l\le r\}
+ \tag{NF3}\label{eq:faithful-norm-free-basis}
+\]
+is a \(k\)-basis of \(W\).  Equivalently the extended action makes
+\(W\) free of rank \(r\) over \(k\otimes_{\mathbb Z}O\).
+\end{srproposition}
+
+\begin{proof}
+Put \(A=k\otimes_{\mathbb Z}O\).  The rule
+\((c\otimes a)w=c\rho(a)w\) gives the actual \(A\)-module
+structure.  For \(a\in O\), the regular multiplication
+characteristic polynomial on \(A\) is the image in \(k[T]\) of
+the integral multiplication characteristic polynomial.
+Thus \eqref{eq:faithful-norm-free-charpoly} compares the
+characteristic polynomials on \(W\) and on the regular module
+\(A\) for each element \(1\otimes a\).
+Taking degrees gives
+\[
+                         \dim_kW=nr.
+ \tag{NF4}\label{eq:faithful-norm-free-dimension}
+\]
+We keep the source's local-generator argument.
+
+\emph{The two arithmetic elements.}
+For a maximal ideal \(\mathfrak m\subset A\), its residue field
+is \(k\), since it is finite-dimensional over the algebraically
+closed field \(k\).  Choose the corresponding \(k\)-algebra map
+\(\chi_0:A\to k\).
+The restriction \(\psi:O\to k\), \(a\mapsto\chi_0(1\otimes a)\),
+has a nonzero maximal kernel \(\mathfrak w\) containing \(p\).
+Write
+\[
+                      |O/\mathfrak w|=p^f .
+\]
+The source constructs a nonzero \(\pi\in\mathfrak w\) with
+\[
+                       v_p(|N\pi|)=f .
+ \tag{NF5}\label{eq:faithful-norm-free-pi}
+\]
+Here is its ideal calculation.
+The Dedekind two-generator statement gives \(\pi\) such that
+\(\mathfrak w(p)+(\pi)=\mathfrak w\).
+Consequently \((\pi)=\mathfrak w I\) and cancellation of the
+nonzero ideal \(\mathfrak w\) gives \((p)+I=O\).
+The ideal \(I\) is nonzero: otherwise \(p\) would be a unit
+in \(O\), contrary to \(|N(p)|=p^n>1\).
+Thus \(O/I\) is finite, and multiplication by \(p\) in that
+quotient is invertible.  Hence \(p\nmid |O/I|\): otherwise Cauchy's theorem
+would give a nonzero element of additive order \(p\), contradicted
+by that invertibility.
+Taking ideal norms gives
+\(|N\pi|=p^f|O/I|\), proving
+\eqref{eq:faithful-norm-free-pi}, including \(\pi\ne0\).
+
+Factor
+\[
+                  (p)=\mathfrak w^c Q,\qquad
+                  \mathfrak w+Q=O.
+\]
+Choose \(z\in Q\) with \(z\equiv1\bmod\mathfrak w\), choose a
+lift \(g_0\in O\) of a generator of the finite cyclic group
+\((O/\mathfrak w)^\times\), and put \(\theta=g_0z\).
+Its residue is nonzero and generates that multiplicative group.
+For every \(\pi'\in\mathfrak w\),
+\[
+                         (\pi'\theta)^{c+1}\in(p).
+ \tag{NF6}\label{eq:faithful-norm-free-theta}
+\]
+Indeed one factor contributes membership in \(Q\), while \(c\)
+factors of \(\pi'\) contribute membership in \(\mathfrak w^c\).
+
+There are exactly \(f\) embeddings
+\(j:O/\mathfrak w\to k\); finite-field separability gives this
+count.  Extend them to characters
+\[
+ \chi_j:A\to k,\qquad
+                  \chi_j(c\otimes a)=c\,j(a\bmod\mathfrak w).
+\]
+For
+\[
+                 t=1\otimes\theta,\qquad u=1\otimes\pi
+\]
+the \(f\) numbers \(\alpha_j=\chi_j(t)\) are pairwise distinct
+and nonzero: equality on the chosen multiplicative generator
+gives equality of the embeddings.
+Equation \eqref{eq:faithful-norm-free-theta} says \(ut\) is
+nilpotent in \(A\).  Moreover
+\[
+ \dim_k\ker(u:W\to W)\le rf
+ \tag{NF7}\label{eq:faithful-norm-free-total-kernel}
+\]
+by \eqref{eq:faithful-norm-free-kernel} and
+\eqref{eq:faithful-norm-free-pi}.
+
+\emph{The generalized eigenspaces.}
+For each \(j\), let \(G_j(A)\) and \(G_j(W)\) be the maximal
+generalized \(\alpha_j\)-eigenspaces for multiplication by \(t\).
+Set \(d_j=\dim_kG_j(A)\).
+The characteristic-polynomial assumption at \(\theta\) gives
+\[
+                      \dim_kG_j(W)=r d_j .
+ \tag{NF8}\label{eq:faithful-norm-free-eigenspace-size}
+\]
+We justify both \(d_j>0\) and the nilpotence exponent used next.
+
+For any \(v\) in an Artinian commutative ring, stabilization of
+its principal powers supplies \(n,y\) with
+\(v^{n+1}y=v^n\).
+Then
+\[
+             e=1-(vy)^n
+\]
+satisfies \(v^ne=0\), and \(1-e\) is divisible by every power
+\(v^M\).  For the latter assertion use
+\(v^n(vy)^M=v^n\); explicitly
+\(1-e=v^{n+M}y^{n+M}\).
+This is the source's \srcid{fitting} construction.
+Apply it to \(v=t-\alpha_j\).
+The resulting \(e_j\) lies in \(G_j(A)\), and
+\(\chi_j(e_j)=1\), since \(1-e_j\) is divisible by \(t-\alpha_j\).
+Thus \(d_j>0\).
+It also acts as the identity on \(G_j(W)\):
+for any such vector \(w\), choose \(M\) with
+\((t-\alpha_j)^Mw=0\) and use the divisibility of \(1-e_j\).
+
+Since \(\alpha_j\ne0\), the elements \(t\) and \(t-\alpha_j\)
+are coprime.  Because \(ut\) is nilpotent, Bezout applied to
+powers of those two elements shows that \(u\) is nilpotent
+on \(G_j(A)\).  More explicitly, if \((ut)^N=0\) and
+\((t-\alpha_j)^Mv=0\), write
+\(a t^N+b(t-\alpha_j)^M=1\) and multiply by \(u^Nv\).
+Both terms on the right vanish.
+Cayley--Hamilton on this \(d_j\)-dimensional subspace gives
+\[
+                          u^{d_j}G_j(A)=0 .
+\]
+In particular \(u^{d_j}e_j=0\).
+As \(e_j\) acts as the identity on \(G_j(W)\), we obtain
+\[
+                          u^{d_j}G_j(W)=0 .
+ \tag{NF9}\label{eq:faithful-norm-free-nilpotence}
+\]
+
+For a nilpotent endomorphism \(U\) with \(U^d=0\), the elementary
+source bound is
+\[
+                     \dim V\le d\,\dim\ker U.
+ \tag{NF10}\label{eq:faithful-nilpotent-corank}
+\]
+To see its exact mechanism, lift a basis of \(V/UV\), whose
+dimension is \(\dim\ker U\), to \(y_1,\ldots,y_s\).
+Then \(V=\operatorname{span}_k(y_i)+UV\).
+Iteration shows that \(U^q y_i\), \(0\le q<d\), span \(V\).
+This proves \eqref{eq:faithful-nilpotent-corank} without assuming
+a Jordan basis.
+Apply it to \(u|G_j(W)\), using
+\eqref{eq:faithful-norm-free-eigenspace-size} and
+\eqref{eq:faithful-norm-free-nilpotence}.
+As \(d_j>0\),
+\[
+                          \dim_k\ker(u|G_j(W))\ge r.
+\]
+These kernel spaces lie in pairwise independent generalized
+eigenspaces, all within \(\ker(u|W)\).
+There are \(f\) of them.  Equation
+\eqref{eq:faithful-norm-free-total-kernel} therefore forces
+\[
+                       \dim_k\ker(u|G_j(W))=r
+                           \quad\text{for every }j.
+ \tag{NF11}\label{eq:faithful-norm-free-local-corank}
+\]
+
+\emph{Generators modulo the chosen maximal ideal.}
+For the embedding inducing \(\chi_0\), use
+\eqref{eq:faithful-norm-free-local-corank} to lift a basis of
+\(G_j(W)/uG_j(W)\) to \(x_1,\ldots,x_r\in G_j(W)\).
+It follows that
+\[
+       G_j(W)=\operatorname{span}_k(x_1,\ldots,x_r)+uG_j(W).
+\]
+For arbitrary \(w\in W\), the vector \(e_jw\) is in \(G_j(W)\).
+The two remaining terms in the decomposition
+\[
+          w=e_jw+(1-e_j)w
+\]
+are controlled as follows.
+We have \(u\in\ker\chi_0=\mathfrak m\), because \(ut\) is
+nilpotent and \(\chi_0(t)\ne0\); also \(1-e_j\in\mathfrak m\)
+by its divisibility by \(t-\alpha_j\).
+Hence
+\[
+ W=A x_1+\cdots+A x_r+\mathfrak mW .
+ \tag{NF12}\label{eq:faithful-norm-free-local-generators}
+\]
+This is the actual \srcid{core}/\srcid{locmax} conclusion.
+
+\emph{Gluing the generators.}
+The Artinian algebra \(A\) has finitely many maximal ideals.
+For each \(\mathfrak m\), choose \(r\) vectors
+\(y_{\mathfrak m,l}\) as in
+\eqref{eq:faithful-norm-free-local-generators}.
+The Chinese remainder theorem gives \(c_{\mathfrak m}\in A\)
+whose residue is \(1\) at \(\mathfrak m\) and \(0\) at all
+other maximal ideals.
+Set
+\[
+               x_l=\sum_{\mathfrak m}
+                                  c_{\mathfrak m}y_{\mathfrak m,l},
+       \qquad N=\sum_l A x_l.
+\]
+Then \(W=N+\mathfrak mW\) for every maximal \(\mathfrak m\).
+The source's determinant trick proves \(N=W\).
+Indeed, if the ideal
+\(J=\{a\in A:aW\subset N\}\) were proper, choose
+\(\mathfrak m\supset J\).
+The finitely generated equality \(W=N+\mathfrak mW\) gives
+an element \(a\equiv1\bmod\mathfrak m\) with \(aW\subset N\):
+write finitely many module generators in terms of one another
+with coefficients in \(\mathfrak m\), and apply the adjugate
+to the matrix \(I-M\).
+Thus \(a\in J\subset\mathfrak m\), a contradiction.
+Consequently \(1\in J\) and \(W=N\).
+
+The \(A\)-generators \(x_l\) imply that the vectors in
+\eqref{eq:faithful-norm-free-basis} span over \(k\):
+expand an arbitrary element of \(O\) in the integral basis
+\(b_j\), then expand a tensor in \(A\) as a sum of pure tensors.
+There are \(nr\) such vectors, exactly \(\dim_k W\) by
+\eqref{eq:faithful-norm-free-dimension}; they are therefore
+linearly independent.  This proves the desired actual basis.
+\end{proof}
+
+\paragraph{Frozen-source ledger.}
+The complete source is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankAlgebraicBound.lean}
+{\srcid{KernelRankAlgebraicBound}}
+(blob \srcid{ed4a911401a5dc7a2c756d59035b64c06fb41f13}).
+The paragraphs above follow, in order, its
+\srcid{arith\_pi}, \srcid{arith\_theta}, \srcid{count\_hom},
+\srcid{fitting}, \srcid{pow\_finrank\_kill},
+\srcid{finrank\_G}, \srcid{core}, \srcid{locmax},
+\srcid{glue}, and final theorem.
+The nilpotent spanning argument is its imported
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/JordanBasisNilpotent.lean}
+{\srcid{JordanBasisNilpotent}},
+\srcid{exists\_span\_sup\_range} and \srcid{span\_eq\_top};
+its construction is given explicitly in
+\eqref{eq:faithful-nilpotent-corank}.
+The wrapper
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/KernelRankBoundNormValuation.lean}
+{\srcid{KernelRankBoundNormValuation.lemF\_algebra}}
+has exactly the hypotheses and conclusion of this proposition.
+
+This is a closed algebraic implication.
+To apply it to the geometric doubled action one must still
+produce \eqref{eq:faithful-norm-free-kernel}, with the same
+\(r\) as the actual characteristic-polynomial identity.
+The proper-germ divisibility proves one component of that
+kernel bound.  The torus lattice, quotient gauge, and
+norm-degree calculation supply the other components; the
+present proposition does not replace any of them.
+
+
+\subsection{The source torus-to-proper-group constancy argument}
+\label{subsec:faithful-torus-proper-constant}
+
+The quotient-action producer uses the following result from
+\srcid{SplitTorusToAbelianVarietyConst}.  We give its actual
+two-chart and resultant argument.
+
+\begin{srlemma}\label{lem:faithful-torus-proper-constant}
+Let \(K\) be a field and \(B\) a group scheme proper over \(K\).
+Let \(X\) be a finite free abelian group.  Every \(K\)-morphism
+\[
+                         D(X)\longrightarrow B
+\]
+is constant, with value its value at the identity of the split
+torus \(D(X)\).  In particular a group homomorphism is zero.
+The map in the first assertion need not be a homomorphism.
+\end{srlemma}
+\begin{proof}
+We first treat one Laurent variable over any field extension
+\(L/K\).  A morphism
+\(\operatorname{Spec}L[T,T^{-1}]\to B\) extends over
+\(\operatorname{Spec}L[T]\): every local ring of the latter
+regular integral curve is a valuation ring, and the valuative
+criterion for properness extends the map from the function
+field at each point.  Separatedness makes the extensions agree
+on overlaps.  Apply the same construction after \(T\mapsto T^{-1}\).
+We obtain two maps
+\[
+        b,b':\mathbb A^1_L\longrightarrow B,\qquad
+                         b(x)=b'(x^{-1})\quad(x\ne0),
+ \tag{TP1}\label{eq:faithful-torus-two-charts}
+\]
+with this equality after arbitrary field extension.
+
+Here is the source's algebraic neighbourhood calculation.
+Let \(R\) be a \(K\)-algebra with a surjective specialization
+\(e:R\to L\).
+Suppose \(F,G:\mathbb A^1_R\to B\) satisfy the analogue of
+\eqref{eq:faithful-torus-two-charts} on all field-valued points,
+and both specializations have image in an affine open
+\(V\subset B\).
+The closed complement of \(F^{-1}V\) is cut out by an ideal of
+\(R[T]\) whose image in \(L[T]\) is the unit ideal.
+Surjectivity of \(R[T]\to L[T]\) therefore supplies an element
+\(a\) of that ideal with \(e(a)=1\).
+In particular, on any field-valued point where \(F(x)\notin V\),
+one has \(a(x)=0\).
+Likewise choose \(a'\in R[T]\) with \(e(a')=1\) vanishing where
+\(G\) leaves \(V\).
+
+Put \(n=\deg a'\) and
+\[
+                  h(T)=T^{n+1}a'(T^{-1}).
+\]
+This is a polynomial, with \(h(0)=0\).
+Its resultant with \(a\), taken using the indicated degree
+bounds, gives \(g\in R\) with \(e(g)\ne0\).
+Indeed after specialization the first polynomial is \(1\)
+and the second is \(T^{n+1}\), so that resultant is \(1\).
+If \(F(x)\notin V\) over a field, then \(a(x)=0\).
+For \(x\ne0\), the two-chart relation says
+\(G(x^{-1})\notin V\), so \(h(x)=0\); for \(x=0\) the last
+equality holds by its factor \(T\).
+Bezout's resultant identity therefore gives \(g=0\) in that
+field.  Consequently, whenever \(g\) is nonzero in a field
+specialization of \(R\), the whole affine-line image of \(F\)
+lies in \(V\).  Interchanging \(F,G\) gives the same assertion
+for \(G\).  These are the source's
+\srcid{exists\_poly}, \srcid{exists\_elim}, and
+\srcid{exists\_good}.
+
+We next use its specialization at a unit.
+Let \(R\) be a domain, equipped with \(L\to R\) and a surjective
+\(K\)-algebra map \(e:R\to L\).
+Let \(t\in R^\times\) have \(e(t)=1\).
+From the two maps in \eqref{eq:faithful-torus-two-charts} form
+\[
+ \begin{split}
+ F(X)&=b_R(tX)b_R(X)^{-1},\\
+ G(X)&=b'_R(t^{-1}X)b'_R(X)^{-1}.
+ \end{split}
+\]
+They glue under \(X\mapsto X^{-1}\) on field-valued nonzero
+points.  Under \(e\) both become the identity map.
+Choose an affine open \(V\) of \(B\) containing the identity.
+The preceding resultant calculation for \(F,G\) and for \(G,F\)
+gives two elements with nonzero specialization under \(e\).
+They are nonzero in the domain \(R\), so remain nonzero in
+\(Q=\operatorname{Frac}R\).
+It follows that both affine-line maps over \(Q\) factor through
+the same affine open \(V\).
+
+For any regular function \(s\) on \(V\), their pullbacks are
+polynomials \(P_s(X),Q_s(X)\in Q[X]\) with
+\[
+                          P_s(X)=Q_s(X^{-1})\quad\text{in }Q(X).
+\]
+This forces \(P_s\) to be constant.
+For example, multiply the equality by \(X^{\deg Q_s}\);
+the reflected polynomial on the right has degree at most
+\(\deg Q_s\), whereas the nonzero polynomial on the left
+has degree \(\deg P_s+\deg Q_s\).
+The zero case is immediate.
+Thus \(F_Q(1)=F_Q(0)=1\), giving
+\[
+                            b_R(t)=b_R(1)
+\]
+after passing to \(Q\).
+It holds already over \(R\): for a separated target, equality
+of maps from the integral affine scheme can be tested after
+the injective inclusion \(R\hookrightarrow Q\).
+This is \srcid{val\_unit\_eq}.
+
+Take \(R=L[T,T^{-1}]\), \(t=T\), and \(e\) evaluation at \(T=1\).
+The last equality shows that the original morphism from
+\(\mathbb G_{m,L}\) is constant.  Equivalently, evaluating the
+universal equality at any unit gives equality of its values at
+all \(L\)-units.  This proves the one-variable assertion over
+every extension \(L/K\).
+
+Finally take a morphism \(f:D(X)\to B\).
+For every extension field \(L/K\), every torus point \(z\in D(X)(L)\),
+and every cocharacter \(\lambda:\mathbb G_m\to D(X)\), the map
+\[
+                x\longmapsto f\bigl(z\lambda(x)\bigr)
+\]
+is constant by the one-variable assertion.
+A basis of \(X\) and its dual cocharacters express each point
+as a finite product of such cocharacter values.  Successive
+use of that equality gives \(f(z)=f(1)\).
+To obtain equality of morphisms rather than only values, take
+the universal torus point over the domain \(K[X]\), test it in
+its fraction field, and use separatedness to descend the
+equality along \(K[X]\hookrightarrow\operatorname{Frac}K[X]\).
+This is the source's \srcid{eq\_const}.
+A group homomorphism has identity value \(1\), giving the
+last assertion.
+\end{proof}
+
+\paragraph{Frozen-source ledger.}
+The source is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DegenerationProofs/SplitTorusToAbelianVarietyConst.lean}
+{\srcid{SplitTorusToAbelianVarietyConst}}
+(blob \srcid{ba8b522aec7afdd0c9bf4636efd4dff843172d2d}),
+checked against the frozen baseline.
+The argument above follows
+\srcid{exists\_extension}, \srcid{valuationRing\_stalk},
+\srcid{exists\_poly}, \srcid{exists\_elim},
+\srcid{exists\_good}, \srcid{natDegree\_eq\_zero\_of\_inv},
+\srcid{val\_eq\_of\_affine}, \srcid{val\_unit\_eq},
+\srcid{exists\_extension\_line}, \srcid{ev\_eq}, and
+\srcid{eq\_const}.
+The eventual abelian-variety wrapper has the stronger hypotheses
+of an algebraically closed field and an abelian scheme.
+The proof above retains the actual stronger intermediate
+proper-group statement; it does not replace its mechanism by
+an Albanese or no-rational-curves assertion.
+
+
+\subsection{The actual polarized abelian quotient and its \(O\)-action}
+\label{subsec:faithful-actual-abelian-quotient}
+
+We retain the source field hypotheses: \(E\) is a CM number
+field with host \(H\), \(O=\mathcal O_E\) has its specified
+involution \(\bar a\), \(k\) is algebraically closed of
+characteristic a prime \(p\), and \(t\) is a source
+\(\mathrm{SAB}\) datum over \(X\), satisfying
+\(\mathrm{PowFns}(t)\).
+Let \(x:\operatorname{Spec}k\to X\) satisfy
+\(\mathrm{GeomPF}(t,x)\).
+Its witness is an actual torus extension
+\[
+       0\longrightarrow D(C)\stackrel i\longrightarrow G_x
+                       \stackrel q\longrightarrow B\longrightarrow0,
+ \tag{AQ1}\label{eq:faithful-geometric-quotient-extension}
+\]
+where \(C\) is finite free over \(\mathbb Z\), \(B/k\) is
+abelian, \(q\) is a flat surjective quasi-compact group map,
+and \(i\) represents its kernel.  The witness also gives a
+line \(M\) on \(B\), its \(\mathrm{KTriv}\) property, and an
+actual line isomorphism \(L_x\simeq q^*M\).
+There is no \(O\)-action on \(B\) in this witness yet.
+
+\begin{srlemma}[The normalized torus-quotient seesaw]
+\label{lem:faithful-torus-quotient-seesaw}
+Let \(Y/k\) be smooth and geometrically connected with a
+\(k\)-point \(y_0\).  For the extension
+\eqref{eq:faithful-geometric-quotient-extension}, let \(N\) be
+a line on \(B\times Y\).
+If \((q\times1)^*N\) is trivial on \(G_x\times Y\) and
+\(N|_{B\times\{y_0\}}\) is trivial, then \(N\) is trivial.
+\end{srlemma}
+\begin{proof}
+Choose a generating section \(u\) of \((q\times1)^*N\).
+Translation in the \(D(C)\)-variable compares two sections
+of the same pulled-back line; their ratio is a unit
+\[
+             r(\tau,g,y)=u(i(\tau)g,y)/u(g,y).
+\]
+The source's weight calculation shows that
+\(r(\tau,g,y)=\tau(\chi)\) for one fixed \(\chi\in C\).
+Here is that calculation on charts.
+The base \(G_x\times Y\) is smooth and geometrically connected,
+hence reduced and connected.
+On an affine open of this base the torus coordinate ring is
+a Laurent polynomial ring.  An invertible Laurent polynomial
+over a reduced ring is, on each connected component, a unit
+times a single monomial: multiplying it by its inverse and
+comparing extremal terms forces this statement over every
+prime quotient, and the resulting exponents form open-and-closed
+pieces.  Thus the exponent is locally constant.
+These local exponents agree on overlaps, and connectedness
+makes it one fixed \(\chi\).
+The coefficient is \(1\), by evaluating at \(\tau=1\).
+This is the source's \srcid{exists\_weight} calculation; it
+does not assume that the original section \(u\) was invariant.
+
+Choose a generator \(s\) of \(N|_{B\times\{y_0\}}\).
+The ratio of \(u(g,y_0)\) to \(q^*s(g)\) is a global unit
+\(f(g)\) on \(G_x\), and
+\[
+                   f(i(\tau)g)=\tau(\chi)f(g).
+\]
+Consequently \(u(g,y)/f(g)\) is invariant under the torus.
+If two points of \(G_x\times Y\) have the same image under
+\(q\times1\), their \(G_x\)-components differ by a unique
+kernel point after the kernel factorization.
+The corrected generating section therefore has equal
+pullbacks on the fpqc relation.
+Faithfully flat descent of this section and its inverse
+gives a generator of \(N\).
+These are \srcid{exists\_unit\_weight} and
+\srcid{exists\_gen\_of\_weight}.
+\end{proof}
+
+\begin{srproposition}[The actual \(\mathrm{AbQuot}\) datum]
+\label{prop:faithful-actual-abelian-quotient}
+From the displayed hypotheses one constructs:
+\begin{enumerate}
+\item a descended \(O\)-action on \(B\), with
+\(q[a]_{G_x}=[a]_Bq\) for every \(a\in O\);
+\item a rigidified, symmetric, cubical, primitive line \(P\)
+on \(B\), adjoint for this action and its specified involution;
+\item \(\mathrm{KTriv}(B,P)\) and an actual isomorphism
+\(L_x\simeq q^*P\).
+\end{enumerate}
+Together with the original torus extension, these are exactly
+the source's \(\mathrm{AbQuot}(t,x)\) fields.
+\end{srproposition}
+\begin{proof}
+We first descend the action, then the adjoint line comparison,
+and finally normalize the line.  These are the three separate
+constructions in \srcid{AbelianQuotientOfPowerFns}.
+
+For each \(a\in O\), the composite
+\(D(C)\to G_x\stackrel{[a]}\longrightarrow G_x\to B\)
+is zero by Lemma~\ref{lem:faithful-torus-proper-constant}.
+The map \([a]q:G_x\to B\) is therefore constant on \(q\)-fibres.
+Explicitly, if \(g_1q=g_2q\), then
+\(g_1g_2^{-1}\) factors through \(i\); its composite with
+\([a]q\) is zero.  Hence the two values agree.
+The effective-epimorphism property of the flat surjective
+quasi-compact \(q\) gives a unique morphism \([a]_B\) with
+\[
+                         q[a]_B=[a]_{G_x}q
+\]
+in the source's left-to-right composition notation.
+This is \srcid{exists\_desc}.
+It preserves the identity; rigidity for morphisms between
+abelian varieties makes it a group homomorphism.
+The equations for \(1\), products, and sums follow by
+precomposing with the epimorphism \(q\) and using the equations
+on \(G_x\).  Thus it is the actual descended \(O\)-action
+\srcid{exists\_act}.
+
+For the next step write \(m=[M]\) in the Picard group, and
+write \(\lambda_m(u,v)\) for its normalized second difference:
+\[
+ [M_{u+v}]-[M_u]-[M_v]+[M_0].
+\]
+Set, on any test scheme,
+\[
+ D_a(u,v)=\lambda_m([a]_B u,v)
+                   -\lambda_m(u,[\bar a]_Bv).
+\]
+It commutes with pullback, vanishes on either zero axis, and
+\[
+                         D_a(qg,qh)=0,
+ \tag{AQ2}\label{eq:faithful-quotient-adjoint-pull}
+\]
+because \(q^*M\simeq L_x\), the actions commute with \(q\), and
+\(L_x\) has the actual adjoint isomorphism of the original
+\(\mathrm{SAB}\) datum.
+
+Pull this class first to \(B\times G_x\).
+Its pullback along \(q\times1\) is zero by
+\eqref{eq:faithful-quotient-adjoint-pull}; its restriction at
+the zero point of \(G_x\) is zero.
+Lemma~\ref{lem:faithful-torus-quotient-seesaw}, with \(Y=G_x\),
+gives \(D_a(u,qh)=0\).
+Apply that lemma again with \(Y=B\), interchanging the two
+variables.  Its pullback is now zero by the last conclusion,
+and its zero section is again zero.  Hence \(D_a=0\) on
+\(B\times B\).
+This proves the actual adjoint line isomorphism for \(M\).
+It does not assume that pullback on Picard groups under \(q\)
+is injective; the two normalized seesaw applications supply
+exactly the needed conclusion.
+
+We describe the primitive normalization in the source
+\srcid{ExistsPrimitiveNormalisation}.
+Its host element \(w_0\) satisfies
+\[
+                            w_0+\bar w_0=1.
+\]
+The theorem of the cube for the line \(M\) on the abelian
+variety \(B\) makes \(\lambda_m\) symmetric and biadditive.
+Define the line
+\[
+       P=\mathcal P_M(1,[w_0])
+        =[1+[w_0]]^*M\otimes M^{-1}
+                         \otimes[w_0]^*M^{-1}\otimes M_0 .
+ \tag{AQ3}\label{eq:faithful-primitive-normalized-line}
+\]
+Thus its pointwise class is \(\lambda_m(z,[w_0]z)\).
+The source computes its second difference by the cube identity:
+\[
+ \begin{split}
+ \lambda_{[P]}(u,v)
+   &=\lambda_m(u,[w_0]v)+\lambda_m(v,[w_0]u)\\
+   &=\lambda_m(u,[w_0]v)+\lambda_m(u,[\bar w_0]v)\\
+   &=\lambda_m(u,v).
+ \end{split}
+ \tag{AQ4}\label{eq:faithful-primitive-polarization}
+\]
+The middle equality is the adjoint comparison just proved,
+together with symmetry.
+This is the source's \srcid{diff\_2\_quadratic}.
+The same biadditive expansion gives vanishing third difference
+for the class in \eqref{eq:faithful-primitive-normalized-line},
+and its value at \(-z\) is its value at \(z\).
+The defining expression has a canonical identity rigidification.
+Choose a generator of the vanishing third-difference line and
+normalize it at the identity.
+The source's
+\srcid{Cube.exists\_normalised}/\srcid{cubicalOfNormalised}
+uses global functions of the proper connected group to turn
+this normalized generator into the cubical structure:
+the two putative cube compatibility expressions differ by a
+base unit, whose identity value is \(1\).
+The symmetry is the displayed equality at \(-z,z\).
+Finally \eqref{eq:faithful-primitive-polarization}, evaluated at
+\((z,[w_0]z)\), gives
+\[
+                              P\simeq\mathcal P_P(1,[w_0]).
+\]
+This is its primitive isomorphism.
+The adjoint isomorphisms for \(P\) follow from
+\eqref{eq:faithful-primitive-polarization} and those for \(M\).
+
+The same equality of second differences preserves
+\(\mathrm{KTriv}\), as in \srcid{KTrivOfLamEq}.
+Indeed, over a local test base, if the translation difference
+of \(P\) at \(v\) is trivial, divide out its identity-fibre
+constant line to see that \(\lambda_{[P]}(v,-)\) is trivial.
+By \eqref{eq:faithful-primitive-polarization},
+\(\lambda_m(v,-)\) is trivial.  Restoring the constant fibre
+line, which has a generator over the local base, trivializes
+the translation difference of \(M\).  Its given
+\(\mathrm{KTriv}\) property forces \(v=0\).
+
+It remains essential to recover the original pulled-back line.
+The original \(\mathrm{SAB}\) line is already primitive:
+\[
+                         L_x\simeq\mathcal P_{L_x}(1,[w_0]).
+\]
+Using \(q^*M\simeq L_x\) and the descended action,
+\eqref{eq:faithful-primitive-normalized-line} gives
+\[
+              q^*P\simeq\mathcal P_{q^*M}(1,[w_0])
+                       \simeq\mathcal P_{L_x}(1,[w_0])
+                       \simeq L_x .
+\]
+Thus the normalization on \(B\) produces the required
+isomorphism with this same original line.
+Together with \(B\)'s properness, the original \(C,i,q\),
+and all its kernel and flat-cover fields, this is the
+actual \(\mathrm{AbQuot}\) construction.
+\end{proof}
+
+\paragraph{Frozen-source ledger and supplied background.}
+The assembly, including its two seesaw calls, is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/AbelianQuotientOfPowerFns.lean}
+{\srcid{AbelianQuotientOfPowerFns}}
+(blob \srcid{07fc1095576c3a7ac5bb28ede8f6fea274b8ac1c}):
+\srcid{exists\_desc}, \srcid{exists\_act},
+\srcid{adj\_quot}, and \srcid{exists\_abQuot}.
+The normalized weight/descent proof is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PicardClassTrivialBySeesaw.lean}
+{\srcid{PicardClassTrivialBySeesaw}}
+(\srcid{fd2dc8406b863f544fe21342a03896050edfd671}),
+specifically \srcid{exists\_weight},
+\srcid{exists\_unit\_weight}, \srcid{exists\_gen\_of\_weight},
+and \srcid{pic\_inj}.
+The normalization is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/ExistsPrimitiveNormalisation.lean}
+{\srcid{ExistsPrimitiveNormalisation}}
+(\srcid{16bc270f28fe0061b1a6dadd8c5088713eecb271}),
+namely its second-/third-difference identities,
+\srcid{exists\_normalised\_bundle}, and final theorem.
+These files were checked against the frozen baseline.
+
+The geometric background used here has its exact usual scope:
+the theorem of the cube for a line on an abelian variety,
+global functions on a proper geometrically connected smooth
+group, rigidity of an identity-preserving morphism of abelian
+varieties, and fpqc descent of an invertible sheaf with a
+generating section.  They are the imported source producers
+\srcid{ExistsGenThetaOfIsAbelianScheme},
+\srcid{GlobalFnsHolds}, \srcid{AbelianSchemeLawsUnconditional},
+and \srcid{CubicalOfNormalised}; the proof above shows where
+each is used.  It does not invoke a theorem asserting that the
+entire \(\mathrm{AbQuot}\) package exists.
+All constructions are on the given geometric fibre and its
+actual torus quotient; no integral extension or nonflat
+specialization identification is inferred.
+
+
+\subsection{The cocharacter lattice and the actual quotient gauge}
+\label{subsec:faithful-quotient-lattice-gauge}
+
+Keep the field hypotheses and actual
+\(\mathrm{AbQuot}(t,x)\) of
+Proposition~\ref{prop:faithful-actual-abelian-quotient}.
+Write \(G=G_x\), and write \(t_B\) for its proper polarized
+quotient datum.  Choose actual germs \(g,g_B\) of dimensions
+\(d,d'\).  We distinguish the actual quotient map \(q:G\to B\)
+from its formal coordinate series \(Q_s\) and tangent matrix \(P\).
+
+\begin{srproposition}[The actual \(O\)-lattice in the tangent sequence]
+\label{prop:faithful-quotient-cocharacter-lattice}
+There are a finite free abelian group \(\Lambda\), an actual
+\(O\)-module structure on it, a surjective matrix
+\(P:k^d\to k^{d'}\), and an injection
+\[
+                  j:k\otimes_{\mathbb Z}\Lambda\longrightarrow k^d
+\]
+with the following properties:
+\[
+ \begin{split}
+ \ker P&=\operatorname{im}j,\\
+ P R_a&=R_{B,a}P,\\
+ j S_a&=R_a j,\qquad
+ S_a=1\otimes(a|\Lambda).
+ \end{split}
+ \tag{QL1}\label{eq:faithful-quotient-lattice}
+\]
+The columns of \(P\) are precisely the actual first-order
+coordinates of \(q\) in the given germs.
+In particular no unrelated \(O\)-action is assigned to
+\(\Lambda\) by a dimension comparison.
+\end{srproposition}
+\begin{proof}
+Let \(C\) be the character group of the split torus in the
+given extension, and put
+\[
+                         \Lambda=\operatorname{Hom}_{\mathbb Z}(C,\mathbb Z).
+\]
+It is finite free over \(\mathbb Z\).
+The \(O\)-action on \(G\) preserves the torus kernel, since
+\(q\) is equivariant for the actual action on \(B\).
+Kernel factorization gives its induced group endomorphism
+on \(D(C)\) for every \(a\in O\).
+Every such endomorphism is a diagonal map defined by one
+\(h(a):C\to C\): on the group algebra, the pullback of a
+character is a group-like unit.  Comparing its Laurent
+monomials, and then evaluating at the identity, makes it
+a single character with coefficient \(1\).
+Characters distinguish the torus maps, so uniqueness gives
+the equations for the identity, multiplication, and addition.
+This is the source's \srcid{exists\_diagMap} and
+\srcid{exists\_charAct} construction.
+
+Define the action on the cocharacter lattice by
+\[
+                       a\lambda=\lambda\circ h(a).
+ \tag{QL2}\label{eq:faithful-cocharacter-action}
+\]
+Composition reverses the two character endomorphisms;
+commutativity of \(O\) makes this a unital ring action, exactly
+as in \srcid{lamEnd}.  It is not an action recovered merely
+from its characteristic polynomial.
+
+The tangent model of the split torus is
+\(\operatorname{Hom}_{\mathbb Z}(C,k)\):
+a tangent vector \(\delta\) sends a character \(\chi\) to
+\(1+\varepsilon\delta(\chi)\) in the dual numbers.
+The map
+\[
+ k\otimes_{\mathbb Z}\Lambda\longrightarrow
+             \operatorname{Hom}_{\mathbb Z}(C,k),\qquad
+ c\otimes\lambda\longmapsto
+             \bigl(\chi\mapsto c\,\lambda(\chi)\bigr)
+ \tag{QL3}\label{eq:faithful-cocharacter-tangent}
+\]
+is an isomorphism, by a basis of the finite free \(C\).
+The torus action on this tangent model is precomposition
+by \(h(a)\), which is exactly the base change of
+\eqref{eq:faithful-cocharacter-action}.
+
+The actual tangent sequence is
+\[
+       0\longrightarrow\operatorname{Lie}D(C)
+        \stackrel{di}\longrightarrow\operatorname{Lie}G
+        \stackrel{dq}\longrightarrow\operatorname{Lie}B
+        \longrightarrow0 .
+ \tag{QL4}\label{eq:faithful-actual-tangent-quotient}
+\]
+The source proves its first two assertions directly on
+dual-number points.
+The injection follows from the monomorphism \(i\).
+If a tangent point of \(G\) maps to zero under \(q\), the
+kernel pullback factors it uniquely through the torus.
+Its reduction is the identity, again by injectivity of \(i\);
+so this factor is a tangent point of the torus.
+Conversely a torus tangent point maps to zero.
+For surjectivity, \(q\) is smooth: after its flat surjective
+quasi-compact base change by \(q\), it becomes the projection
+\(D(C)\times G\to G\), which is smooth, and smoothness descends.
+Given a dual-number point of \(B\) at the identity, smoothness
+lifts it with the chosen identity reduction in \(G\).
+Concretely the source factors the two points through their
+local stalks, lifts the stalk algebra homomorphism over the
+square-zero ideal of \(k[\varepsilon]/(\varepsilon^2)\), and
+composes with the stalk-to-scheme map.
+Thus it gives an actual tangent point and not only a
+surjection after a field extension.
+
+Choose the tangent-model linear isomorphisms
+\(e_G:\operatorname{Lie}G\simeq k^d\) and
+\(e_B:\operatorname{Lie}B\simeq k^{d'}\) determined by
+the given germ bases.  Put
+\[
+             P=e_B\,dq\,e_G^{-1},\qquad
+             j=e_G\,di\,(\text{map in \eqref{eq:faithful-cocharacter-tangent}}).
+\]
+Equation \eqref{eq:faithful-actual-tangent-quotient} gives
+surjectivity, injectivity, and the kernel equality.
+Differentiating the actual action equations for \(q\) and
+\(i\), and using the character formula in
+\eqref{eq:faithful-cocharacter-tangent}, gives the two
+equivariance identities in \eqref{eq:faithful-quotient-lattice}.
+Finally the germ basis condition identifies the image of
+its \(l\)-th basis tangent point under \(q\) with the \(l\)-th
+column of this same \(P\).  This is the actual
+\(\mathrm{IsDiff}(g,g_B,P)\) field in \srcid{lie\_seq}.
+\end{proof}
+
+\begin{srlemma}[Axis-normalized units on the actual fibre square]
+\label{lem:faithful-quotient-unit-axes}
+If a global unit \(u\) on \(G\times G\) restricts to \(1\)
+on both zero axes, then \(u=1\).
+\end{srlemma}
+\begin{proof}
+The variety \(G\times G\) is integral: it is smooth and
+geometrically connected over the algebraically closed field.
+For the action of the torus on its first factor, compare
+the translated \(u\) with \(u\).
+The same Laurent-unit coefficient argument as in
+Lemma~\ref{lem:faithful-torus-quotient-seesaw} says that
+the ratio is a fixed character of the torus.
+Evaluate at a point of the second zero axis:
+both the original and translated values are \(1\).
+This makes that character trivial.
+Do the same for the torus action in the second factor,
+using the first zero axis.
+Thus \(u\) is invariant under the two torus actions.
+
+The map \(q\times q:G\times G\to B\times B\) is flat,
+surjective, and quasi-compact.  Two points in a fibre
+differ by these two kernel-torus translations.
+The two pullbacks of \(u\) to its fpqc relation agree,
+so \(u\) descends to a global function on \(B\times B\).
+That proper geometrically connected smooth variety has
+global functions \(k\).  The descended function is constant,
+and a zero-axis value makes its constant \(1\).
+This is the actual \srcid{UnitTrivialOnBothAxes} proof.
+\end{proof}
+
+\begin{srproposition}[The actual mixed-coefficient gauge]
+\label{prop:faithful-quotient-mixed-gauge}
+There is one matrix \(Z\in\operatorname{Mat}_d(k)\) such that,
+for every \(a\in O\),
+\[
+          C_a+R_a^t Z-ZR_{\bar a}=P^t C_{B,a}P .
+ \tag{QL5}\label{eq:faithful-quotient-mixed-gauge}
+\]
+It is obtained from the actual line isomorphism
+\(L_x\simeq q^*P_B\) and the two chosen actual formal frames.
+\end{srproposition}
+\begin{proof}
+We follow the finite-jet construction and comparison in
+\srcid{AbelianQuotientBilinear}, retaining its unit normalization.
+
+First the universal coordinates of \(g_B\) express
+\(q\circ g\) at every finite jet order by a unique truncated
+coordinate tuple.  Truncating one such expression gives the
+previous one by uniqueness.  Its constant term is zero,
+since \(q(0)=0\).
+The inverse limit of the compatible coefficients gives
+a tuple of formal series
+\[
+                     Q_s\in k[[X_1,\ldots,X_d]]^{d'},
+                      \qquad Q_s(0)=0 .
+\]
+At every order it represents the actual point \(q\circ g\).
+The first-order uniqueness for the actual germ bases, and
+the last assertion of
+Proposition~\ref{prop:faithful-quotient-cocharacter-lattice},
+give \(D Q_s(0)=P\).
+Applying the actual equivariance of \(q\) to the universal
+jet points and using coordinate uniqueness also gives the
+formal action compatibility
+\[
+             Q_s([a]_gX)=[a]_{g_B}(Q_s(X)).
+ \tag{QL6}\label{eq:faithful-quotient-formal-action}
+\]
+These are the source's
+\srcid{AbelianQuotientGermPowerSeries},
+\srcid{AbelianQuotientDifferentialMatrix}, and
+\srcid{AbelianQuotientGermSubstitution} steps.
+
+Let \(w:L_x\simeq q^*P_B\) be the actual line isomorphism.
+On the two universal jet points, it induces an isomorphism
+of their normalized second-difference lines.
+The chosen frame \(e_G\) and the pullback of \(e_B\) are
+generators of these identified lines, so their ratio is a
+unique unit \(U_m\) in the finite two-point jet algebra.
+Use the source's orientation:
+\[
+               e_G=U_m^{-1}\,\gamma_w\,Q_s^*e_B ,
+ \tag{QL7}\label{eq:faithful-quotient-frame-ratio}
+\]
+where \(\gamma_w\) is the alternating product induced by
+\(w\) on the second difference.
+The source records this as
+\(\mathrm{Tr}(w,e_G,Q_s^*e_B,U_m^{-1})\).
+Restriction of the two actual frames and of \(w\) shows
+that \(U_{m+1}\) truncates to \(U_m\); equality follows
+by the uniqueness of the ratio of generators.
+Thus these units give a formal series
+\[
+                   \lambda(X,Y),\qquad
+                   \lambda(X,0)=\lambda(0,Y)=1 .
+\]
+For the two axis identities, restrict
+\eqref{eq:faithful-quotient-frame-ratio} to that axis.
+Both normalized second-difference generators become the
+canonical axis generator, and the alternating product of
+\(w\) cancels in pairs.  The resulting ratio is \(1\)
+at every jet order.  This is the precise
+\srcid{AbelianQuotientGaugeTransform.exists\_lam}
+construction, including its inverse orientation.
+
+For each \(a\), compare the two actual global adjoint
+generators \(w_{G,a}\) and \(w_{B,a}\) using \(w\).
+Their alternating line expressions coincide because \(q\)
+is a homomorphism and is equivariant for both \(a\) and
+\(\bar a\).  Their ratio is therefore a global unit
+\(u_a\) on \(G\times G\);
+this is \srcid{AbelianQuotientLineBundleGauge}.
+The source checks that it restricts to \(1\) on both axes.
+It first restricts to the actual universal one-point jets.
+The adjoint relation makes both generator values \(1\);
+the alternating product of \(w\) along an axis again
+cancels in pairs, so the pullback of \(u_a\) is \(1\)
+at every order.
+These jet equalities imply the actual axis equality:
+the smooth germ coordinates identify all truncated local
+rings, their intersection is zero by Krull intersection,
+and the restriction of a global function on the integral
+\(G\) to its local ring at the identity is injective.
+No surjectivity of the formal Taylor map is used.
+This is \srcid{AbelianQuotientGaugeUnit}.
+Lemma~\ref{lem:faithful-quotient-unit-axes} now gives
+\(u_a=1\) on the whole fibre square.
+
+Put \(A_a(X,Y)=g.B.\mathrm{ad}(a)\) and
+\(A_{B,a}=g_B.B.\mathrm{ad}(a)\).
+The two adjoint-frame equations and
+\eqref{eq:faithful-quotient-frame-ratio}, with this global
+ratio equal to \(1\), give at every finite jet order
+\[
+ \begin{split}
+ A_{B,a}(Q_s(X),Q_s(Y))\,
+                    \lambda(X,[\bar a]_gY)
+     =\lambda([a]_gX,Y)\,A_a(X,Y).
+ \end{split}
+ \tag{QL8}\label{eq:faithful-quotient-series-gauge}
+\]
+For clarity, the cancellation uses the same four factors
+at each order: the two adjoint-frame equations
+\(w_{G,a}e_{G,\mathrm{left}}=A_a e_{G,\mathrm{right}}\)
+and
+\(w_{B,a}e_{B,\mathrm{left}}=A_{B,a}e_{B,\mathrm{right}}\),
+and \eqref{eq:faithful-quotient-frame-ratio} at the left
+and right substituted point pairs.
+The product induced by \(w\) on the adjoint line is the
+right second-difference product divided by the left one;
+its factors cancel because \(u_a=1\).
+Equation \eqref{eq:faithful-quotient-formal-action} ensures
+that substituting \(Q_s\) before or after either action
+gives the same truncated point.
+The remaining unit identity is exactly
+\eqref{eq:faithful-quotient-series-gauge}.
+Equality at every finite order gives equality of formal
+series, as in \srcid{AbelianQuotientGaugeRelation}.
+
+Set \(Z=\operatorname{bil}_{1,1}\lambda\).
+All four unit series in
+\eqref{eq:faithful-quotient-series-gauge} are \(1\)
+on both axes.  Therefore the mixed coefficient of a product
+is the sum of the mixed coefficients.
+A substitution contributes only its first differential:
+\[
+ \begin{split}
+ \operatorname{bil}\bigl(A_{B,a}(Q_s(X),Q_s(Y))\bigr)
+                                  &=P^t C_{B,a}P,\\
+ \operatorname{bil}\bigl(\lambda(X,[\bar a]_gY)\bigr)
+                                  &=Z R_{\bar a},\\
+ \operatorname{bil}\bigl(\lambda([a]_gX,Y)\bigr)
+                                  &=R_a^t Z.
+ \end{split}
+\]
+Taking mixed coefficients in
+\eqref{eq:faithful-quotient-series-gauge} gives
+\[
+                    P^t C_{B,a}P+Z R_{\bar a}=R_a^t Z+C_a,
+\]
+which is \eqref{eq:faithful-quotient-mixed-gauge}.
+This is one \(Z\), obtained from the single ratio series
+\(\lambda\), for all \(a\).
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+The actual lattice construction is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/AbelianQuotientLattice.lean}
+{\srcid{AbelianQuotientLattice}}
+(blob \srcid{187d2323635424a4d4fc7f2e08fd28c423478a39}):
+\srcid{exists\_dual\_lift}, \srcid{lie\_kernel},
+\srcid{lie\_surjective}, \srcid{exists\_charAct},
+\srcid{tenMap\_bijective}, \srcid{lamEnd}, and
+\srcid{lie\_seq}.
+The mixed-gauge assembly is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/AbelianQuotientBilinear.lean}
+{\srcid{AbelianQuotientBilinear.frame\_gauge}}
+(blob \srcid{c5ea956019648f4e8862164cedc13627b0d6246e}).
+Its actual finite-jet producers, in that same source directory, are
+\srcid{AbelianQuotientGermPowerSeries}
+(\srcid{b8393721074d0e17b4eb268b369cdcd4f32c8f7e}),
+\srcid{AbelianQuotientDifferentialMatrix}
+(\srcid{8bac6126d6aaf9d18aa282463b4bc805bc315bc5}),
+\srcid{AbelianQuotientGermSubstitution}
+(\srcid{7781ab82d410a2d0061107d0a64f4823a7241c88}),
+\srcid{AbelianQuotientGaugeTransform}
+(\srcid{c997b24547de07406ad472c9b9e9846cb88b36ee}),
+\srcid{AbelianQuotientLineBundleGauge}
+(\srcid{c27e04cd714a1cff5fe6806b1347cf0b94dc1f3b}),
+\srcid{AbelianQuotientGaugeUnit}
+(\srcid{3e59e5015dc988a8a5a481a93a11364145b4f5b4}),
+\srcid{UnitTrivialOnBothAxes}
+(\srcid{196eb507e5f9a50a5d4a8ea317ca2cb707deab37}),
+and \srcid{AbelianQuotientGaugeRelation}
+(\srcid{5352d8f5464c4871367b864a9724367ec83dbb75}).
+The assembly, lattice, and eight displayed helper files were checked
+against the frozen baseline.
+The bilinear coefficient step is the actual
+\srcid{FormalBilinearTermProduct} and
+\srcid{SubstitutionBilinearFormTransform} calculation.
+
+The propositions construct the actual lattice, action,
+differential, and gauge on the supplied geometric quotient.
+They do not infer an integral formal-Hodge identification
+from its dimension, nor do they assert that a nonflat
+base change preserves an eigensaturated lattice.
+The remaining geometric input to
+\srcid{HeightCharFreeGeometric} is the finite-kernel
+norm-degree producer for the proper quotient.
+
+
+\subsection{Assembly of the source geometric \(O\)-freeness producer}
+\label{subsec:faithful-geometric-hfree-assembly}
+
+\begin{srtheorem}[The exact geometric freeness conclusion]
+\label{thm:faithful-geometric-hfree}
+Let \(E\) be a CM number field with host \(H\), and equip
+\(O=\mathcal O_E\) with the involution \(a^*=H.\mathrm{bar}(a)\).
+Let \(t\) be the source \(\mathrm{SAB}\) datum over \(X\), with
+\(\mathrm{PowFns}(t)\).
+Let \(k\) be algebraically closed of characteristic the
+prime \(p\), and \(x:\operatorname{Spec}k\to X\) satisfy
+\(\mathrm{GeomPF}(t,x)\).
+For an actual germ \(g\) of dimension \(d\), assume
+\(\mathrm{HChar}(g.B,r)\), namely
+\[
+ \operatorname{charpol}(\rho_H(a))
+   =\bigl(\operatorname{charpol}(a|O)\bmod k\bigr)^r
+                            \qquad(a\in O).
+ \tag{HF1}\label{eq:faithful-hfree-character}
+\]
+Then \(\mathrm{HFree}(g.B,r)\) holds:
+there are \(x_1,\ldots,x_r\in k^d\oplus k^d\) such that
+\(\rho_H(b_j)x_l\), for the specified integral basis \(b_j\)
+of \(O\), form a \(k\)-basis of \(k^d\oplus k^d\).
+\end{srtheorem}
+
+\begin{proof}
+Use Proposition~\ref{prop:faithful-actual-abelian-quotient}
+to construct the actual proper polarized quotient \(t_B\).
+Its proper geometrically connected products have only base
+global functions, so it has \(\mathrm{PowFns}\).
+The actual-germ construction therefore gives a quotient germ
+\(g_B\), of dimension \(d'\).
+Propositions~\ref{prop:faithful-quotient-cocharacter-lattice}
+and \ref{prop:faithful-quotient-mixed-gauge} give the same
+\(O\)-lattice \(\Lambda\), maps \(P,j\), and matrix \(Z\).
+Write \(L_0=k\otimes_{\mathbb Z}\Lambda\) and
+\(S_a=1\otimes(a|\Lambda)\).
+Set \(n=[E:\mathbb Q]>0\) and
+\(s=\operatorname{rank}_O\Lambda\).
+By Lemma~\ref{lem:faithful-integral-lattice-norm},
+\[
+                  \dim_kL_0=ns.
+\]
+The actual tangent sequence and
+\eqref{eq:faithful-hfree-character} give, respectively,
+\[
+                         d=d'+ns,\qquad 2d=nr.
+ \tag{HF2}\label{eq:faithful-hfree-ranks}
+\]
+For the second equality take degrees of the characteristic
+polynomial at \(a=1\).
+The formal cubical identities make \(\rho_H\) a unital ring
+action, as required by
+Proposition~\ref{prop:faithful-kernel-norm-free}.
+
+We reproduce the source's kernel-transfer calculation.
+For matrices \(R,R',C\), put
+\[
+        \mathcal T(R,R',C)(v,f)=(Rv,(R')^tf-C^tv).
+\]
+The invertible shear \(T_Z(v,f)=(v,f+Z^tv)\) satisfies
+\[
+ \mathcal T(R,R',C)T_Z
+        =T_Z\mathcal T(R,R',C+R^tZ-ZR').
+\]
+Thus the kernels have the same dimension.
+By \eqref{eq:faithful-quotient-mixed-gauge}, the latter
+coefficient for \(a\) is \(P^tC_{B,a}P\).
+
+Here is the actual three-step rank bound, so that no
+unconstructed filtration of a formal-Hodge object is needed.
+Let
+\[
+             K=\ker\mathcal T(R_a,R_{\bar a},P^tC_{B,a}P).
+\]
+Choose a right inverse \(U:k^{d'}\to k^d\) of \(P\).
+The map
+\[
+                   c:K\to L_0^\vee,\qquad
+                        c(v,f)(l)=f^tj(l)
+\]
+has image in \(\ker S_{\bar a}^\vee\).
+Indeed the kernel equation says
+\(R_{\bar a}^tf=(P^tC_{B,a}P)^tv\);
+evaluate it on \(j(l)\), use \(Pj=0\), and use
+\(jS_{\bar a}=R_{\bar a}j\).
+The dimensions of the kernels of an endomorphism and its
+dual are equal.
+
+If \(c(v,f)=0\), then \(f\) annihilates \(\ker P\), and
+\[
+                              f=P^tU^tf .
+\]
+To check this, \(z-UPz\in\ker P\) for every \(z\), so
+\(f^tz=f^tUPz\).
+On \(K\cap\ker c\), define
+\[
+                         m(v,f)=(Pv,U^tf).
+\]
+Its image lies in \(\ker\rho_{H,B}(a)\).
+The first component follows from \(PR_a=R_{B,a}P\).
+For the second, multiplication by the injective \(P^t\)
+turns its required equation into the original second
+kernel equation, using \(PR_{\bar a}=R_{B,\bar a}P\)
+and \(f=P^tU^tf\).
+Finally, if also \(m(v,f)=0\), then \(f=0\) and
+\(v=j(l)\) for a unique \(l\in L_0\).
+The first kernel equation and injectivity of \(j\) give
+\(S_a l=0\).
+Applying rank--nullity to \(c\) and then \(m\) gives
+\[
+ \dim_k\ker\rho_H(a)
+ \le \dim_k\ker S_{\bar a}
+       +\dim_k\ker\rho_{H,B}(a)+\dim_k\ker S_a .
+ \tag{HF3}\label{eq:faithful-hfree-kernel-transfer}
+\]
+This is exactly \srcid{HeightCharFreeGeometric.ker\_bound}.
+
+Now fix \(a\ne0\) and put \(M=|N_{E/\mathbb Q}(a)|>0\).
+The proper quotient's finite multiplication kernel has
+coordinate algebra \(A\), by
+Proposition~\ref{prop:faithful-proper-multiplication-degree}.
+Let \(m_A=\dim_kA>0\) and
+\(D=\dim_k\ker\rho_{H,B}(a)\).
+The actual adjoint-frame kernel calculation gives
+\[
+                p^D\mid m_A,\qquad m_A^n=M^{2d'}.
+ \tag{HF4}\label{eq:faithful-hfree-proper-degree}
+\]
+The first assertion is
+Proposition~\ref{prop:faithful-proper-germ-kernel-divisibility};
+it applies to the quotient's actual \(\mathrm{KTriv}\) line
+and actual germ.  The second assertion is its finite-flat
+norm degree, including the inseparable case.
+Consequently
+\[
+                 D\le v_p(m_A),\qquad
+                 n\,v_p(m_A)=2d'\,v_p(M).
+\]
+Multiplying by \(n\) and using
+\eqref{eq:faithful-hfree-ranks} gives
+\[
+ \begin{split}
+ n(2s\,v_p(M)+D)
+   &\le 2ns\,v_p(M)+2d'\,v_p(M)\\
+   &=nr\,v_p(M).
+ \end{split}
+\]
+Cancel \(n>0\) to obtain
+\[
+                         2s\,v_p(M)+D\le r\,v_p(M).
+ \tag{HF5}\label{eq:faithful-hfree-numeric}
+\]
+This is the source's \srcid{numeric} step.
+
+The norm is unchanged by the specified involution:
+it is an integral algebra automorphism of \(O\), so
+\(N(\bar a)=N(a)\).
+Lemma~\ref{lem:faithful-integral-lattice-norm} therefore
+bounds each of \(\dim\ker S_a\) and
+\(\dim\ker S_{\bar a}\) by \(s\,v_p(M)\).
+Combining \eqref{eq:faithful-hfree-kernel-transfer} with
+\eqref{eq:faithful-hfree-numeric} gives
+\[
+                 \dim_k\ker\rho_H(a)\le r\,v_p(M)
+                            \qquad(a\ne0).
+\]
+This is the exact all-nonzero-\(a\) inequality.
+Together with the original
+\eqref{eq:faithful-hfree-character}, it satisfies
+Proposition~\ref{prop:faithful-kernel-norm-free}.
+That proposition constructs the asserted vectors \(x_l\)
+and their integral-coefficient basis.
+\end{proof}
+
+\paragraph{Actual supply from a PEL uniformization at the residue fibre.}
+We record the exact interface with the model lane, without
+constructing a PEL uniformization here.
+Let \(R\) be a local domain, let \(t\) be a source
+\(\mathrm{SAB}\) datum over \(\operatorname{Spec}R\), and
+suppose the actual \(\mathrm{PELUnif}(\mathfrak m_R,t)\)
+datum \(P\) is supplied.
+Let \(\kappa=R/\mathfrak m_R\).
+Then the source proves
+\[
+        \mathrm{GeomPF}
+              \bigl(t,\operatorname{Spec}\kappa\to\operatorname{Spec}R\bigr).
+ \tag{HF6}\label{eq:faithful-pel-residue-geompf}
+\]
+Here is its actual level-zero construction.
+Take \(D=P.D.\mathrm{toPre}\) and the extension
+\(c=P.U.\mathrm{toUnifPre}.\mathrm{gt}(0)\) on
+\(\operatorname{Spec}(R/\mathfrak m_R^{\,1})\).
+Pull it along the canonical map from \(\operatorname{Spec}\kappa\).
+Uniqueness of group pullbacks identifies its group with the
+actual residue fibre of \(t.G\), its abelian quotient with
+the residue fibre of \(D.P.A\), and its split torus with
+the split torus of the same finite free lattice \(D.X\).
+Base change of this actual extension supplies its flat,
+surjective, quasi-compact quotient, its group kernel map,
+and the kernel pullback.
+
+The required line on the abelian quotient is exactly
+\(D.P.L\) pulled to its residue fibre.
+Its \(\mathrm{KTriv}\) property is the base change of
+\(D.P.\mathrm{ktriv}\), transported through the same
+group pullback and identity line comparison.
+The level-zero line comparison is
+\(P.U.\mathrm{toUnifPre}.w(0)\).
+The datum's equality
+\(P.U.\mathrm{toUnifPre}.LG=t.PP\) identifies its left
+side with the actual residue pullback of \(t.PP.L\).
+The two group-pullback identifications and the extension's
+quotient square identify its right side with the pullback
+of the just specified abelian line.
+This supplies the exact line isomorphism in
+\(\mathrm{GeomPF}\), and proves
+\eqref{eq:faithful-pel-residue-geompf}.
+No \(O\)-action on the quotient is presumed in this step:
+Theorem~\ref{thm:faithful-geometric-hfree} constructs that
+action from this witness.
+
+After extending \(\kappa\) to an algebraically closed field,
+the extension and line data remain their actual pullbacks;
+the proved geometric-power-free transport supplies
+\(\mathrm{GeomPF}\) there.
+Theorem~\ref{thm:faithful-geometric-hfree} applies with the
+actual \(\mathrm{HChar}\) identity.
+The exact field descent and local lifting in
+Lemma~\ref{lem:faithful-free-local-descent} return its
+coefficient basis to the relevant local ring.
+For the source's component-generic germ system, the
+\(\mathrm{IsCptGen}\) injection and formal-isomorphism
+transport in
+Section~\ref{subsec:faithful-free-stalk-transport}
+give the fixed same \(r\) at all component stalks.
+Here is the precise valuation-lattice transport.
+For a curve valuation ring \(R_i\) whose centre is \(q\),
+the structural map factors through \(\mathcal O_{X,q}\).
+Base change of its actual coefficient basis is a basis
+over \(R_i\), since its integral coefficient matrix was
+invertible before base change.
+Compare that base-changed actual germ with the chosen
+actual \(g_i\) over \(R_i\), using the actual local
+coordinate and gauge comparison of
+Section~\ref{subsec:faithful-actual-family-construction}.
+Its doubled transformation is an invertible
+\(O\)-equivariant \(R_i\)-linear matrix.
+It therefore transports the basis to \(g_i\).
+Finally the family's generic transformation \(T_i\)
+takes its full \(R_i^{2d}\) lattice to
+\(\mathcal H_i=T_iR_i^{2d}\), and intertwines the
+same \(O\)-action.  Its transported vectors are exactly
+a basis of that \(\mathcal H_i\) of the form
+\(\rho_H(b_j)x_{i,l}\).
+This proves the original fixed-rank coefficient-basis
+premise in
+Proposition~\ref{prop:faithful-character-quotient-degree-zero}
+on these actual curve lattices.
+Only a full free module and invertible integral comparison
+are pulled back here; no eigensaturated submodule is
+asserted to commute with this base change.
+
+\paragraph{Exact source ledger and remaining model scope.}
+The geometric assembly is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/HeightCharFreeGeometric.lean}
+{\srcid{HeightCharFreeGeometric.hfree\_geom}}
+(blob \srcid{fc878d079297c3a245b8bee44983372cafa2a8ce}).
+The proof above includes its \srcid{finrank\_ker\_gauge},
+\srcid{ker\_bound}, \srcid{numeric}, and final assembly,
+using the actual source producers expanded in the preceding
+subsections.
+
+The level-zero supply is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/HodgeTatePoints/CgUnif.lean}
+{\srcid{CgUnif.unif\_pf}}
+(blob \srcid{00745a26038e179254e652d97012dbcf3c23ac85}),
+wrapped by
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PelUniformisedGeometricFree.lean}
+{\srcid{PelUniformisedGeometricFree.geomPF\_closedPoint}}
+(\srcid{965ed7955f305a0d57ff6eeafa4f8d99de1a110a}).
+Their theorem assumes an actual \(\mathrm{PELUnif}\) datum;
+it does not deduce one from semistability.
+The model's transport to such a datum and the chosen geometric
+residue representative is the separate
+\srcid{ModelFibresPowerFree} producer.
+The global \(N3\) construction, the generic
+\(\mathrm{HChar}\) input, and the analytic canonical-extension
+comparison retain their own source hypotheses and proofs.
+None is asserted merely from this geometric freeness theorem,
+and this theorem by itself is not a completion of
+\(\mathrm{FlatSat}\).
+
+
+\subsection{The exact descent of a coefficient basis to component stalks}
+\label{subsec:faithful-free-stalk-transport}
+
+We use \(O=\mathcal O_E\), with the specified integral basis
+\(b_1,\ldots,b_n\).  The basis condition in this subsection means
+that the vectors \(\rho(b_j)x_l\), indexed by the pair \((l,j)\),
+are linearly independent and span the whole underlying module.
+It is the source's \(\mathrm{HFree}\) condition when
+\(\rho=\rho_H\).
+
+\begin{srlemma}[Characteristic-zero coefficient basis]
+\label{lem:faithful-free-charzero}
+Let \(F\) be a field of characteristic zero, let \(W\) be a
+finite-dimensional \(F\)-vector space, and let
+\(\rho:O\to\operatorname{End}_F(W)\) be a ring homomorphism.
+If its multiplication characteristic polynomials are the
+\(r\)-th powers of the regular integral multiplication
+characteristic polynomials, mapped to \(F[T]\), then \(W\) has
+the coefficient basis condition of rank \(r\).
+\end{srlemma}
+\begin{proof}
+The source \srcid{CharZeroFreeModule} chooses an integral
+primitive element \(a\in O\) for \(E/\mathbb Q\).
+To obtain it, multiply a primitive element in \(E\) by a nonzero
+integer so that it becomes integral.
+For every \(b\in O\), clearing denominators in its rational
+polynomial expression in \(a\) gives
+\[
+                    N b=P(a),\qquad
+                    0\ne N\in\mathbb Z,\quad P\in\mathbb Z[T].
+ \tag{ST1}\label{eq:faithful-integral-primitive-generator}
+\]
+The operator \(\rho(a)\) is semisimple.
+Indeed the integral minimal polynomial of \(a\), mapped to \(F[T]\),
+annihilates it.  The minimal polynomial over \(\mathbb Q\) is
+separable, and its mapped polynomial remains separable in
+characteristic zero.  An operator annihilated by a squarefree
+polynomial is semisimple.  This applies also to the regular
+operator on
+\[
+                       V=(F\otimes_{\mathbb Z}O)^r.
+\]
+The characteristic-polynomial assumption at \(a\) says that
+these two semisimple operators have the same characteristic
+polynomial.
+
+Here is the source's comparison of such operators over \(F\),
+which does not require \(F\) to be algebraically closed.
+Regard each space as an \(F[T]\)-module.
+For a simple summand its characteristic polynomial is the monic
+irreducible polynomial \(q\) defining that summand, and the
+summand is \(F[T]/(q)\): the annihilator of a nonzero generator
+is maximal, and its degree equals the vector-space dimension.
+Choose a simple summand on one side.  Its irreducible polynomial
+divides the common characteristic polynomial; on the other
+semisimple side it divides the characteristic polynomial of some
+simple summand, hence that summand is another copy of \(F[T]/(q)\).
+Split both summands off and cancel their monic polynomial.
+Induction on dimension identifies the complements.
+This constructs an \(F\)-linear isomorphism \(e:V\to W\)
+intertwining multiplication by \(a\).
+
+It then intertwines every integral polynomial in \(a\).
+Equation \eqref{eq:faithful-integral-primitive-generator} and the
+invertibility of \(N\) in \(F\) imply that it intertwines every
+\(b\in O\).  Let \(x_l\) be the image of \(1\) in the \(l\)-th
+factor of \(V\).  The images of its regular integral coefficient
+basis are precisely \(\rho(b_j)x_l\), proving the assertion.
+\end{proof}
+
+\begin{srlemma}[Field descent followed by local lifting]
+\label{lem:faithful-free-local-descent}
+Let \(R\) be a commutative local ring, let \(K\) be a field,
+and let \(f:R\to K\) be a local ring homomorphism.
+Let \(I\) be a finite index set and
+\(\rho:O\to\operatorname{Mat}_I(R)\) a ring homomorphism.
+If the base-changed representation on \(K^I\) has the
+coefficient basis condition of rank \(r\), then the representation
+on \(R^I\) has that same condition.
+The map \(f\) is not assumed surjective.
+\end{srlemma}
+\begin{proof}
+Put \(F=R/\mathfrak m_R\).
+Localness gives \(\ker f=\mathfrak m_R\), so \(f\) factors as
+\(R\twoheadrightarrow F\hookrightarrow K\).
+We first descend the basis from \(K\) to \(F\), as in
+\srcid{FreeModuleNakayamaDescent.int\_descent}.
+Write
+\[
+                  B=F\otimes_{\mathbb Z}O,\qquad
+                  S=B\otimes_F K,\qquad M=F^I .
+\]
+The residue representation makes \(M\) a finite \(B\)-module.
+The given coefficient basis on \(K^I\) is exactly an \(S\)-basis
+of rank \(r\): expanding coefficients in the tensor base change
+of the integral basis shows that independence and spanning over
+\(S\) are equivalent to those coefficient conditions over \(K\).
+The canonical base-change identifications give
+\(S\otimes_B M\simeq K\otimes_F M\simeq K^I\).
+
+The algebra \(S\) is faithfully flat over the finite-dimensional
+Artinian \(F\)-algebra \(B\).
+Flatness of \(S\otimes_BM\) over \(S\) descends to flatness of
+\(M\) over \(B\).
+Explicitly, tensor a monomorphism of \(B\)-modules first with
+\(M\), then with the faithfully flat \(S\); its resulting map
+is injective by flatness of \(S\otimes_BM\), and faithful
+flatness detects the original injectivity.
+For every prime of \(B\), choose a prime of \(S\) above it.
+Base change at these primes identifies the fibre ranks, which
+are all \(r\), because the module over \(S\) is free of rank \(r\).
+
+The source now uses its semilocal finite-flat basis theorem.
+In this application \(B\) is Artinian: it is the finite product
+of its local Artinian factors.  The finite flat module on each
+factor is free; its rank is the just computed \(r\).
+The associated orthogonal idempotents combine these local bases
+to a \(B\)-basis of \(M\) of rank \(r\).
+Expanding this basis in the integral tensor basis gives
+\(x_{0,1},\ldots,x_{0,r}\in F^I\) satisfying the coefficient
+basis condition over \(F\).
+This is faithfully flat basis descent, not a choice of
+\(F\)-rational coordinates in an arbitrary nonempty open set.
+
+Lift each coordinate of each \(x_{0,l}\) to \(R\), obtaining
+\(x_l\in R^I\).
+The square matrix whose columns are \(\rho(b_j)x_l\) has
+invertible reduction over \(F\).
+It is square because the residue coefficient basis has
+\(|I|=nr\) elements.
+Its determinant is outside \(\mathfrak m_R\), hence is a unit
+of \(R\).  The adjugate gives an inverse matrix, proving
+both independence and spanning over \(R\).
+This is the source's \srcid{lift\_basis} step.
+\end{proof}
+
+We now spell out the exact formal-germ transport in which the
+preceding lemmas occur.  For a formal cubical germ \(B\) of
+dimension \(d\), use the matrix
+\[
+ M_B(a)=
+ \begin{pmatrix}
+ R_a&0\\
+ -C_a^t&R_{\bar a}^t
+ \end{pmatrix}.
+ \tag{ST2}\label{eq:faithful-free-block-matrix}
+\]
+The canonical isomorphism between the \(2d\) coordinate module
+and its product presentation intertwines \(M_B(a)\) with
+\(\rho_H(a)\).  The action is a ring homomorphism, by the actual
+formal identities.  Consequently its characteristic polynomial
+is the one in \(\mathrm{HChar}\), and its coefficient basis is
+the one in \(\mathrm{HFree}\).
+
+If \(B'\) is the actual coefficient base change of \(B\) along
+\(f:R\to R'\), coefficient extraction gives
+\[
+                         M_{B'}(a)=f(M_B(a)).
+ \tag{ST3}\label{eq:faithful-free-base-change-matrix}
+\]
+Characteristic polynomials therefore commute with base change.
+They also descend along an injective \(f\), by injectivity of
+\(R[T]\to R'[T]\).
+An actual formal coordinate and gauge isomorphism conjugates
+the two doubled actions, using the previously proved matrix
+\(T\); hence it preserves \(\mathrm{HChar}\).
+These are \srcid{hchar\_map}, \srcid{hchar\_of\_map}, and
+\srcid{hchar\_iso}.  The following is the exact local
+case distinction in \srcid{HodgeFreeEveryStalk.at\_point}.
+
+Let \(t\) be the supplied \(\mathrm{SAB}\) datum on \(X\), with
+\(\mathrm{PowFns}(t)\), and let \(z\in X\).
+Choose an actual germ \(g\) over the local ring
+\(R=\mathcal O_{X,z}\), satisfying \(\mathrm{HChar}(g.B,r)\).
+Assume
+\[
+ \text{for every prime }p\text{ with }p=0\text{ in }\kappa(z),
+                         \quad \mathrm{FibPF}(t,z).
+ \tag{ST4}\label{eq:faithful-free-stalk-fibpf}
+\]
+If \(\kappa(z)\) has characteristic zero,
+Lemma~\ref{lem:faithful-free-charzero} gives a coefficient basis
+for the reduced block representation on \(\kappa(z)^{2d}\);
+Lemma~\ref{lem:faithful-free-local-descent} lifts it to \(R\).
+
+If \(\kappa(z)\) has characteristic \(p>0\), use
+\(\mathrm{FibPF}(t,z)\) to choose an algebraically closed
+representative \(x:\operatorname{Spec}k\to X\) centred at \(z\),
+with \(\mathrm{GeomPF}(t,x)\).
+The induced \(R\to k\) is local.
+It has characteristic \(p\): otherwise \(p\) would be a unit
+in \(k\), hence a unit in \(R\) by localness, contradicting its
+zero image in \(\kappa(z)\).
+The actual germ-base-change producer supplies \(g_k\), and
+\eqref{eq:faithful-free-base-change-matrix} transports its
+\(\mathrm{HChar}\) identity.
+The positive-characteristic geometric producer
+\srcid{HeightCharFreeGeometric.hfree\_geom} supplies
+\(\mathrm{HFree}(g_k.B,r)\).
+Lemma~\ref{lem:faithful-free-local-descent} now descends and lifts
+this exact coefficient basis, giving
+\(\mathrm{HFree}(g.B,r)\).
+
+Finally let \(\xi:\operatorname{Spec}\Omega\to X\) be the
+source's component-generic point with \(\operatorname{char}\Omega=0\),
+and assume the actual predicate \(\mathrm{IsCptGen}(\xi)\).
+For its source component index set \(\mathrm{Cpt}(\xi)\),
+this supplies the injective structural maps
+\(\mathcal O_{X,q}\to\Omega\).
+Let \(S\) be the supplied actual \(\mathrm{GermSys}(t,\xi,M)\).
+Its generic germ \(S.g_0\) and each \(S.g_q\) have their actual
+coefficient-base-change and formal-isomorphism comparisons.
+The generic \(\mathrm{HChar}(S.g_0.B,r)\) first transfers through
+that isomorphism and then descends along
+\(\mathcal O_{X,q}\hookrightarrow\Omega\).
+Thus every \(S.g_q\) has the same \(\mathrm{HChar}\) exponent \(r\).
+Apply the preceding local case distinction with
+\eqref{eq:faithful-free-stalk-fibpf} at each such \(q\).
+This is exactly
+\srcid{GermSystemHeightFree.hfree\_at\_component\_stalks}.
+
+\paragraph{Frozen-source ledger and status.}
+The field-descent and lifting producer is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/FreeModuleNakayamaDescent.lean}
+{\srcid{FreeModuleNakayamaDescent}}
+(blob \srcid{988535984bf3c602ecdf1fa614ae8e8c71ccc922}).
+Its characteristic-zero companion is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/CharZeroFreeModule.lean}
+{\srcid{CharZeroFreeModule}}
+(\srcid{b1c6e762bc443d5fddb738cdf5f358c4f031cc96}).
+The exact matrix, local case distinction, and generic-component
+transport are
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/HodgeFreeEveryStalk.lean}
+{\srcid{HodgeFreeEveryStalk}}
+(\srcid{64b7c3a2f5bc38ac43b1990ed38d80ea8c66bb6f}),
+wrapped by
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/GermSystemHeightFree.lean}
+{\srcid{GermSystemHeightFree}}
+(\srcid{56027647fd66f4f01da68e5a6099af999bf3b5f4}).
+All four files were checked against the frozen baseline.
+
+The two algebraic lemmas and the matrix transport above are
+proved here.  The positive-characteristic local application
+uses the separate actual geometric freeness producer; its
+quotient-action, gauge, and degree inputs must be joined before
+that application is declared fully translated.
+Likewise this subsection takes the actual model's
+\(\mathrm{PowFns}\), \(\mathrm{FibPF}\), and
+\(\mathrm{IsCptGen}\) inputs as supplied by their own model
+producers.  It does not infer any of those from semistability,
+rank, or a generic-fibre comparison.

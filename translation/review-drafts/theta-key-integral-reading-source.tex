@@ -41,8 +41,8 @@ the two coefficient families:
 The sum is the source's \(\mathrm{HasSum}\) assertion, not a
 formal multiplication of series.
 \end{enumerate}
-These are exactly \(\mathrm{ModerateCoefficientPositivity}\) and
-\(\mathrm{CoefficientConvolution}\).
+These are exactly \srcid{ModerateCoefficientPositivity} and
+\srcid{CoefficientConvolution}.
 
 \begin{srlemma}\label{lem:sr-source-bdd-cusp-product}
 Under these two Fourier inputs, \(P\in SS_\lambda\) and a bounded
@@ -117,7 +117,7 @@ Write \(G_2=2g_2\), set \(N=|G_2|\), and choose \(B\ge0\) with
 The finite sum of all \(|G_1(\tau,j)|\) is one possible \(B\).
 Set exactly as in the source
 \[
- \begin{split}
+ \begin{aligned}
  t_g&=(B+1)m+(N+1)(m+1),&t&=g_2+t_g,\\
  a_g(\tau,i)&=
  \begin{cases}B+1&i<\operatorname{mult}_{D_w}(\tau),\\0&\text{otherwise},
@@ -126,7 +126,7 @@ Set exactly as in the source
  \begin{cases}G_1(\tau,i)+B+1&i<\operatorname{mult}_{D_w}(\tau),\\
  0&\text{otherwise}.
  \end{cases}
- \end{split}
+ \end{aligned}
  \tag{IR5}\label{eq:sr-source-integer-clearing}
 \]
 The lower bound on \(G_1\) makes \(a\) natural-valued.

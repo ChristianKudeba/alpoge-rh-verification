@@ -235,9 +235,32 @@ For the source's component-generic germ system, the
 transport in
 Section~\ref{subsec:faithful-free-stalk-transport}
 give the fixed same \(r\) at all component stalks.
-That is the original fixed-rank coefficient-basis premise
-in Proposition~\ref{prop:faithful-character-quotient-degree-zero},
-once its actual germ-system and curve maps are used.
+Here is the precise valuation-lattice transport.
+For a curve valuation ring \(R_i\) whose centre is \(q\),
+the structural map factors through \(\mathcal O_{X,q}\).
+Base change of its actual coefficient basis is a basis
+over \(R_i\), since its integral coefficient matrix was
+invertible before base change.
+Compare that base-changed actual germ with the chosen
+actual \(g_i\) over \(R_i\), using the actual local
+coordinate and gauge comparison of
+Section~\ref{subsec:faithful-actual-family-construction}.
+Its doubled transformation is an invertible
+\(O\)-equivariant \(R_i\)-linear matrix.
+It therefore transports the basis to \(g_i\).
+Finally the family's generic transformation \(T_i\)
+takes its full \(R_i^{2d}\) lattice to
+\(\mathcal H_i=T_iR_i^{2d}\), and intertwines the
+same \(O\)-action.  Its transported vectors are exactly
+a basis of that \(\mathcal H_i\) of the form
+\(\rho_H(b_j)x_{i,l}\).
+This proves the original fixed-rank coefficient-basis
+premise in
+Proposition~\ref{prop:faithful-character-quotient-degree-zero}
+on these actual curve lattices.
+Only a full free module and invertible integral comparison
+are pulled back here; no eigensaturated submodule is
+asserted to commute with this base change.
 
 \paragraph{Exact source ledger and remaining model scope.}
 The geometric assembly is
@@ -251,7 +274,8 @@ subsections.
 
 The level-zero supply is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/HodgeTatePoints/CgUnif.lean}
-{\srcid{CgUnif.unif\_pf}},
+{\srcid{CgUnif.unif\_pf}}
+(blob \srcid{00745a26038e179254e652d97012dbcf3c23ac85}),
 wrapped by
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PelUniformisedGeometricFree.lean}
 {\srcid{PelUniformisedGeometricFree.geomPF\_closedPoint}}

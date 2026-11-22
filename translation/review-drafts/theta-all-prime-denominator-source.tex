@@ -34,7 +34,7 @@ For \(r=p_{\rm sig}+q_{\rm sig}\), put
  I_N=[\Lambda_0:NR^n_{\rm st}]^r,\qquad
  J_N=[\Lambda:NR^n_{\rm st}]^r .
 \]
-These are the source's \texttt{mIdx} and \texttt{zCard}.
+These are the source's \srcid{mIdx} and \srcid{zCard}.
 The letter \(p\) in the residue characteristic is unrelated to
 \(p_{\rm sig}\).
 
@@ -193,7 +193,7 @@ the corresponding endomorphism actions.
 Let \(Z_\Lambda(N)\) be the group of \(N^2\)-torsion tuples \(z\)
 annihilated by every integral matrix \(N\mu\) for which
 \(\mu\Lambda\subset R^n\).
-This is the source's \texttt{InZh} group, of cardinal \(J_N\).
+This is the source's \srcid{InZh} group, of cardinal \(J_N\).
 On its \(p\)-primary part the adapted identities give
 \begin{equation}\label{eq:ftb-primary-adapted-kernel}
                 z\in Z_\Lambda(N)\quad\Longleftrightarrow\quad PQz=0 .
@@ -214,9 +214,16 @@ The same proof applies at level \(kN\).
 \label{lem:ftb-primary-trace}
 Let \(\mu=PQ\) be an odd-level similitude with
 \(\mu^*\mu=L^2 1\).
-Assume that its relevant torsion is rational, its \(p\)-primary
-kernel \(W\) is enumerated, and the product Weil pairing is trivial
-on \(W\times W\).
+Assume that there are positive integers \(k_0,M_0,k_1\) and
+\(G_0\in M_n(\mathcal O_E)\) such that
+\[
+ L^2=k_0M_0,\qquad (k_0,p)=(k_1,p)=1,\qquad
+ G_0Q=k_1L1,
+\]
+and that all \(M_0\)-torsion is rational on the same generic fibre
+(the source's \(\mathrm{AllRat}(M_0)\)).
+Assume also that its \(p\)-primary kernel \(W\) is enumerated and
+the product Weil pairing is trivial on \(W\times W\).
 Let \(F=(F_b)\) be a reached tuple of sections of line power \(L^2\),
 fixed by the \(p\)-primary \(L\)-torsion.
 Let \(G_u\) be its normalized symmetric translate by \(u\in W\).
@@ -315,6 +322,16 @@ The resulting base tuple is reached, and is fixed by the
 that kernel, and the coprime translation preserves this property.
 
 Choose the adapted data of Lemma~\ref{lem:ftb-adapted-matrices}.
+The lattice is unimodular and
+\((kN)\mathcal O_E^n\subset\Lambda\), since
+\(N\mathcal O_E^n\subset\Lambda\).
+The exact lattice-pairing theorem
+\srcid{zh\_isotropic\_and\_half\_isotropic}, applied at the odd
+level \(kN\), therefore makes the product Weil pairing trivial
+on these tuples; the adapted-kernel criterion puts them in
+\(Z_\Lambda(kN)\).  Thus the isotropy hypothesis in the primary
+trace lemma is supplied on this very group, with its actual
+polarized pairing.
 Pull the tuples back by the normalized multiplication-by-\(k\)
 map, changing line power to \((kN)^2\).
 It identifies their primary tuples by
@@ -336,9 +353,14 @@ Ring operations preserve this property.
 Unitarity preserves the harmonic Laplacians, and column
 substitution preserves row degrees and row invariance.
 This is the full coefficient argument in
-\texttt{MemRangeOfIsIntegral.map\_pushL\_mem\_FFV}.
+\srcid{MemRangeOfIsIntegral.map\_pushL\_mem\_FFV}.
 
-The primary trace lemma now gives a scalar \(z\), \(v(z)\ge-\rho\).
+For that application its level \(L=kN\) satisfies
+\(L^2=k^2N^2\), with \((k^2,p)=1\) and all \(N^2\)-torsion
+rational by hypothesis; its supplementary matrix is \(kG\),
+since \((kG)Q=k_1(kN)1\).  Every supplementary hypothesis of
+Lemma~\ref{lem:ftb-primary-trace} is now present.
+It gives a scalar \(z\), \(v(z)\ge-\rho\).
 Its kernel factor is
 \[
   \#(Z_p\cap\ker Q)
@@ -347,9 +369,12 @@ Its kernel factor is
 \]
 For the first equality, identify the rational \(N^2\)-torsion with
 the quotient of the integral PEL period lattice by \(N^2\).
-The maps \(Q,G\), with \(GQ=k_1N\), induce inverse maps up to
-prime-to-\(p\) scalars between the primary kernel and the primary
-part of \(\operatorname{coker}Q\).
+Apply the source's primary-kernel count on \(N^2\)-torsion
+with supplementary matrix \(NG\), since
+\((NG)Q=k_1N^2 1\).
+The resulting determinant-index calculation identifies the order
+of the primary kernel with that of the primary part of
+\(\operatorname{coker}Q\).
 Both injectivity and surjectivity follow by cancelling \(k_1\)
 using Bezout.
 On the integral PEL lattice, which is projective of \(R\)-rank \(r\)
@@ -448,10 +473,10 @@ valuation is \(e'v\); every normalized inequality divides by the
 same \(e'\), so the extension causes no loss.
 The existence of this lift with its \(\mathrm{Good3}\) chart is
 the precise geometric hypothesis
-\texttt{EvROfFrMapFromTest.short\_value\_on\_cover}.
+\srcid{EvROfFrMapFromTest.short\_value\_on\_cover}.
 Its geometric producers are
-\texttt{ExistsFiniteExtensionIntegralFramedPointLiftCove} and
-\texttt{ExistsFiniteExtUniformisedChartRationalTorsion}; these must
+\srcid{ExistsFiniteExtensionIntegralFramedPointLiftCove} and
+\srcid{ExistsFiniteExtUniformisedChartRationalTorsion}; these must
 be matched to the root lane's actual N3/model construction.
 The formula itself follows by naturality of framed evaluations,
 faithfully flat theta-value descent, and the same coefficient-field
@@ -539,7 +564,7 @@ is therefore a multiple of
 This proves the assertion directly on the actual torsion point.
 The lemma gives the same bound with \(kd\,v(p)\);
 as \(p^k\mid M\), \(M^d\) clears it.
-This is the source's separate \texttt{factor\_pow} proof; it does
+This is the source's separate \srcid{factor\_pow} proof; it does
 not require \(M\) squarefree.
 
 At primes dividing \(M\), the scalar \(s\) itself has nonnegative
@@ -569,52 +594,52 @@ No choice made at an individual prime alters \(Z\).
 
 \paragraph{Source concordance and geometric boundary.}
 All paths in this paragraph are under
-\texttt{src/Development/AbelianVarietyTheory/Proofs/} at the frozen
+\srcid{src/Development/AbelianVarietyTheory/Proofs/} at the frozen
 source tag.
 The adapted construction is
-\texttt{RingsOfIntegers/ExistsAdaptedSimilitudeDataAtPrime.lean}
-(\texttt{1b6eb2a2be303af09b0fd1507f70b85103ead2a0}),
-using \texttt{ExistsUnitaryOfSelfDual.lean}
-(\texttt{6eb2d1c33613ce009b53f1112abd0b4f5812474d})
-and \texttt{IsPrincipalIdealRingLoc.lean}
-(\texttt{1ad5550fe752c799883e6ebec4eac2e06291c2e7}).
+\srcid{RingsOfIntegers/ExistsAdaptedSimilitudeDataAtPrime.lean}
+(\srcid{1b6eb2a2be303af09b0fd1507f70b85103ead2a0}),
+using \srcid{ExistsUnitaryOfSelfDual.lean}
+(\srcid{6eb2d1c33613ce009b53f1112abd0b4f5812474d})
+and \srcid{IsPrincipalIdealRingLoc.lean}
+(\srcid{1ad5550fe752c799883e6ebec4eac2e06291c2e7}).
 Its Cayley proof is
-\texttt{UnitaryExistence/FiniteNotIsUnitOneAddSmul.lean}
-(\texttt{e7018a2755c0283f6ca79dac084cd681978e09e5}).
+\srcid{UnitaryExistence/FiniteNotIsUnitOneAddSmul.lean}
+(\srcid{e7018a2755c0283f6ca79dac084cd681978e09e5}).
 The determinant and index proofs are
-\texttt{RingsOfIntegers/IndexRangeMatrix.lean}
-(\texttt{0d0ef8c8599afc5bd8f7f818e7428398b008b4ad}),
-\texttt{CardPrimaryTorsionTuplesKilledByMatrix.lean}
-(\texttt{067d9220f5d5567272a1ab2b5adf1532beb6c248}),
+\srcid{RingsOfIntegers/IndexRangeMatrix.lean}
+(\srcid{0d0ef8c8599afc5bd8f7f818e7428398b008b4ad}),
+\srcid{CardPrimaryTorsionTuplesKilledByMatrix.lean}
+(\srcid{067d9220f5d5567272a1ab2b5adf1532beb6c248}),
 and
-\texttt{DivisorProofs/IntersectedLatticeDetIdealTypeNormIntegral.lean}
-(\texttt{05cc2d038e4d187a740c9036f2de72f585fe1890}).
+\srcid{DivisorProofs/IntersectedLatticeDetIdealTypeNormIntegral.lean}
+(\srcid{05cc2d038e4d187a740c9036f2de72f585fe1890}).
 The exact kernel criterion is
-\texttt{RingsOfIntegers/InZhIffKillsAdapted.lean}
-(\texttt{2b2f3604c14f57d3a8f6821ba0c6f803a55594e0}).
+\srcid{RingsOfIntegers/InZhIffKillsAdapted.lean}
+(\srcid{2b2f3604c14f57d3a8f6821ba0c6f803a55594e0}).
 The coefficient substitution is
-\texttt{RingsOfIntegers/MemRangeOfIsIntegral.lean}
-(\texttt{dd3360a4d7aa612b89e83c1cd91707f35cc7f6cf}).
+\srcid{RingsOfIntegers/MemRangeOfIsIntegral.lean}
+(\srcid{dd3360a4d7aa612b89e83c1cd91707f35cc7f6cf}).
 
-The finite-coset proof is \texttt{RingsOfIntegers/SumHvPrimaryKernel.lean};
+The finite-coset proof is \srcid{RingsOfIntegers/SumHvPrimaryKernel.lean};
 its model inputs are kept exactly as in the preceding formal-kernel
 translation.  The scalar refinement is
-\texttt{DivisorProofs/ShortSeriesBoundCoprimeTorsionMul.lean}
-(\texttt{17adcd0e29a6cea26cde4903bc003b21eb3002cd}).
+\srcid{DivisorProofs/ShortSeriesBoundCoprimeTorsionMul.lean}
+(\srcid{17adcd0e29a6cea26cde4903bc003b21eb3002cd}).
 The trivial-lattice determinant/index proof is
-\texttt{RingsOfIntegers/LatticeTrivialAtPrimeIndicesAndUnits.lean}
-(\texttt{2e5f73cdd3ffcbced2cb3c5a5b4e461c4f002579}).
+\srcid{RingsOfIntegers/LatticeTrivialAtPrimeIndicesAndUnits.lean}
+(\srcid{2e5f73cdd3ffcbced2cb3c5a5b4e461c4f002579}).
 The three local applications are
-\texttt{DivisorProofs/ClearingIntegerShortSeriesIntegralCoprimeLevel.lean},
-\texttt{SmulIntZNonnegAway.lean}, and
-\texttt{SmulIntZSqNonnegOfSqDvd.lean}
-(\texttt{ee0c23239d1d51bb4aaa76ee0f7e8c69d47812b9}).
+\srcid{DivisorProofs/ClearingIntegerShortSeriesIntegralCoprimeLevel.lean},
+\srcid{SmulIntZNonnegAway.lean}, and
+\srcid{SmulIntZSqNonnegOfSqDvd.lean}
+(\srcid{ee0c23239d1d51bb4aaa76ee0f7e8c69d47812b9}).
 Their final assembly is
-\texttt{DivisorProofs/ExistsBoundedIntegerGoodCoverThetaSeriesIntegral.lean},
-\texttt{integral\_smul\_thLa}.
+\srcid{DivisorProofs/ExistsBoundedIntegerGoodCoverThetaSeriesIntegral.lean},
+\srcid{integral\_smul\_thLa}.
 The finite-extension comparison is
-\texttt{RingsOfIntegers/EvROfFrMapFromTest.lean}
-(\texttt{26d9b6a33485f0f314af3d908366bc56aa158067}).
+\srcid{RingsOfIntegers/EvROfFrMapFromTest.lean}
+(\srcid{26d9b6a33485f0f314af3d908366bc56aa158067}).
 This subsection proves its numerical, determinant, torsion-count
 and finite-coset consequences.  It does not replace the actual
 same-model lift, integral theta-group action, formal gauge,

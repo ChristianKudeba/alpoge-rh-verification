@@ -2,10 +2,10 @@
 \label{subsec:faithful-torus-proper-constant}
 
 The quotient-action producer uses the following result from
-\texttt{SplitTorusToAbelianVarietyConst}.  We give its actual
+\srcid{SplitTorusToAbelianVarietyConst}.  We give its actual
 two-chart and resultant argument.
 
-\begin{lemma}\label{lem:faithful-torus-proper-constant}
+\begin{srlemma}\label{lem:faithful-torus-proper-constant}
 Let \(K\) be a field and \(B\) a group scheme proper over \(K\).
 Let \(X\) be a finite free abelian group.  Every \(K\)-morphism
 \[
@@ -14,7 +14,7 @@ Let \(X\) be a finite free abelian group.  Every \(K\)-morphism
 is constant, with value its value at the identity of the split
 torus \(D(X)\).  In particular a group homomorphism is zero.
 The map in the first assertion need not be a homomorphism.
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 We first treat one Laurent variable over any field extension
 \(L/K\).  A morphism
@@ -66,8 +66,8 @@ field.  Consequently, whenever \(g\) is nonzero in a field
 specialization of \(R\), the whole affine-line image of \(F\)
 lies in \(V\).  Interchanging \(F,G\) gives the same assertion
 for \(G\).  These are the source's
-\texttt{exists\_poly}, \texttt{exists\_elim}, and
-\texttt{exists\_good}.
+\srcid{exists\_poly}, \srcid{exists\_elim}, and
+\srcid{exists\_good}.
 
 We next use its specialization at a unit.
 Let \(R\) be a domain, equipped with \(L\to R\) and a surjective
@@ -109,7 +109,7 @@ after passing to \(Q\).
 It holds already over \(R\): for a separated target, equality
 of maps from the integral affine scheme can be tested after
 the injective inclusion \(R\hookrightarrow Q\).
-This is \texttt{val\_unit\_eq}.
+This is \srcid{val\_unit\_eq}.
 
 Take \(R=L[T,T^{-1}]\), \(t=T\), and \(e\) evaluation at \(T=1\).
 The last equality shows that the original morphism from
@@ -132,7 +132,7 @@ To obtain equality of morphisms rather than only values, take
 the universal torus point over the domain \(K[X]\), test it in
 its fraction field, and use separatedness to descend the
 equality along \(K[X]\hookrightarrow\operatorname{Frac}K[X]\).
-This is the source's \texttt{eq\_const}.
+This is the source's \srcid{eq\_const}.
 A group homomorphism has identity value \(1\), giving the
 last assertion.
 \end{proof}
@@ -140,16 +140,16 @@ last assertion.
 \paragraph{Frozen-source ledger.}
 The source is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DegenerationProofs/SplitTorusToAbelianVarietyConst.lean}
-{\texttt{SplitTorusToAbelianVarietyConst}}
-(blob \texttt{ba8b522aec7afdd0c9bf4636efd4dff843172d2d}),
+{\srcid{SplitTorusToAbelianVarietyConst}}
+(blob \srcid{ba8b522aec7afdd0c9bf4636efd4dff843172d2d}),
 checked against the frozen baseline.
 The argument above follows
-\texttt{exists\_extension}, \texttt{valuationRing\_stalk},
-\texttt{exists\_poly}, \texttt{exists\_elim},
-\texttt{exists\_good}, \texttt{natDegree\_eq\_zero\_of\_inv},
-\texttt{val\_eq\_of\_affine}, \texttt{val\_unit\_eq},
-\texttt{exists\_extension\_line}, \texttt{ev\_eq}, and
-\texttt{eq\_const}.
+\srcid{exists\_extension}, \srcid{valuationRing\_stalk},
+\srcid{exists\_poly}, \srcid{exists\_elim},
+\srcid{exists\_good}, \srcid{natDegree\_eq\_zero\_of\_inv},
+\srcid{val\_eq\_of\_affine}, \srcid{val\_unit\_eq},
+\srcid{exists\_extension\_line}, \srcid{ev\_eq}, and
+\srcid{eq\_const}.
 The eventual abelian-variety wrapper has the stronger hypotheses
 of an algebraically closed field and an abelian scheme.
 The proof above retains the actual stronger intermediate

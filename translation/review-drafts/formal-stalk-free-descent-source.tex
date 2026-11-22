@@ -8,7 +8,7 @@ are linearly independent and span the whole underlying module.
 It is the source's \(\mathrm{HFree}\) condition when
 \(\rho=\rho_H\).
 
-\begin{lemma}[Characteristic-zero coefficient basis]
+\begin{srlemma}[Characteristic-zero coefficient basis]
 \label{lem:faithful-free-charzero}
 Let \(F\) be a field of characteristic zero, let \(W\) be a
 finite-dimensional \(F\)-vector space, and let
@@ -17,9 +17,9 @@ If its multiplication characteristic polynomials are the
 \(r\)-th powers of the regular integral multiplication
 characteristic polynomials, mapped to \(F[T]\), then \(W\) has
 the coefficient basis condition of rank \(r\).
-\end{lemma}
+\end{srlemma}
 \begin{proof}
-The source \texttt{CharZeroFreeModule} chooses an integral
+The source \srcid{CharZeroFreeModule} chooses an integral
 primitive element \(a\in O\) for \(E/\mathbb Q\).
 To obtain it, multiply a primitive element in \(E\) by a nonzero
 integer so that it becomes integral.
@@ -68,7 +68,7 @@ factor of \(V\).  The images of its regular integral coefficient
 basis are precisely \(\rho(b_j)x_l\), proving the assertion.
 \end{proof}
 
-\begin{lemma}[Field descent followed by local lifting]
+\begin{srlemma}[Field descent followed by local lifting]
 \label{lem:faithful-free-local-descent}
 Let \(R\) be a commutative local ring, let \(K\) be a field,
 and let \(f:R\to K\) be a local ring homomorphism.
@@ -78,13 +78,13 @@ If the base-changed representation on \(K^I\) has the
 coefficient basis condition of rank \(r\), then the representation
 on \(R^I\) has that same condition.
 The map \(f\) is not assumed surjective.
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 Put \(F=R/\mathfrak m_R\).
 Localness gives \(\ker f=\mathfrak m_R\), so \(f\) factors as
 \(R\twoheadrightarrow F\hookrightarrow K\).
 We first descend the basis from \(K\) to \(F\), as in
-\texttt{FreeModuleNakayamaDescent.int\_descent}.
+\srcid{FreeModuleNakayamaDescent.int\_descent}.
 Write
 \[
                   B=F\otimes_{\mathbb Z}O,\qquad
@@ -131,7 +131,7 @@ It is square because the residue coefficient basis has
 Its determinant is outside \(\mathfrak m_R\), hence is a unit
 of \(R\).  The adjugate gives an inverse matrix, proving
 both independence and spanning over \(R\).
-This is the source's \texttt{lift\_basis} step.
+This is the source's \srcid{lift\_basis} step.
 \end{proof}
 
 We now spell out the exact formal-germ transport in which the
@@ -164,9 +164,9 @@ They also descend along an injective \(f\), by injectivity of
 An actual formal coordinate and gauge isomorphism conjugates
 the two doubled actions, using the previously proved matrix
 \(T\); hence it preserves \(\mathrm{HChar}\).
-These are \texttt{hchar\_map}, \texttt{hchar\_of\_map}, and
-\texttt{hchar\_iso}.  The following is the exact local
-case distinction in \texttt{HodgeFreeEveryStalk.at\_point}.
+These are \srcid{hchar\_map}, \srcid{hchar\_of\_map}, and
+\srcid{hchar\_iso}.  The following is the exact local
+case distinction in \srcid{HodgeFreeEveryStalk.at\_point}.
 
 Let \(t\) be the supplied \(\mathrm{SAB}\) datum on \(X\), with
 \(\mathrm{PowFns}(t)\), and let \(z\in X\).
@@ -195,7 +195,7 @@ The actual germ-base-change producer supplies \(g_k\), and
 \eqref{eq:faithful-free-base-change-matrix} transports its
 \(\mathrm{HChar}\) identity.
 The positive-characteristic geometric producer
-\texttt{HeightCharFreeGeometric.hfree\_geom} supplies
+\srcid{HeightCharFreeGeometric.hfree\_geom} supplies
 \(\mathrm{HFree}(g_k.B,r)\).
 Lemma~\ref{lem:faithful-free-local-descent} now descends and lifts
 this exact coefficient basis, giving
@@ -217,26 +217,26 @@ Thus every \(S.g_q\) has the same \(\mathrm{HChar}\) exponent \(r\).
 Apply the preceding local case distinction with
 \eqref{eq:faithful-free-stalk-fibpf} at each such \(q\).
 This is exactly
-\texttt{GermSystemHeightFree.hfree\_at\_component\_stalks}.
+\srcid{GermSystemHeightFree.hfree\_at\_component\_stalks}.
 
 \paragraph{Frozen-source ledger and status.}
 The field-descent and lifting producer is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/FreeModuleNakayamaDescent.lean}
-{\texttt{FreeModuleNakayamaDescent}}
-(blob \texttt{988535984bf3c602ecdf1fa614ae8e8c71ccc922}).
+{\srcid{FreeModuleNakayamaDescent}}
+(blob \srcid{988535984bf3c602ecdf1fa614ae8e8c71ccc922}).
 Its characteristic-zero companion is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/CharZeroFreeModule.lean}
-{\texttt{CharZeroFreeModule}}
-(\texttt{b1c6e762bc443d5fddb738cdf5f358c4f031cc96}).
+{\srcid{CharZeroFreeModule}}
+(\srcid{b1c6e762bc443d5fddb738cdf5f358c4f031cc96}).
 The exact matrix, local case distinction, and generic-component
 transport are
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/HodgeFreeEveryStalk.lean}
-{\texttt{HodgeFreeEveryStalk}}
-(\texttt{64b7c3a2f5bc38ac43b1990ed38d80ea8c66bb6f}),
+{\srcid{HodgeFreeEveryStalk}}
+(\srcid{64b7c3a2f5bc38ac43b1990ed38d80ea8c66bb6f}),
 wrapped by
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/GermSystemHeightFree.lean}
-{\texttt{GermSystemHeightFree}}
-(\texttt{56027647fd66f4f01da68e5a6099af999bf3b5f4}).
+{\srcid{GermSystemHeightFree}}
+(\srcid{56027647fd66f4f01da68e5a6099af999bf3b5f4}).
 All four files were checked against the frozen baseline.
 
 The two algebraic lemmas and the matrix transport above are

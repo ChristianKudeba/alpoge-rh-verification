@@ -324,15 +324,47 @@ This is the source's \srcid{IsFinite.of\_comp} with the
 actual endomorphism factor.
 Thus \([a]\) is finite.
 
-A finite endomorphism of this smooth integral proper
-connected group is surjective and flat.
-Its image is closed of dimension \(g\), hence all of \(B\).
-For flatness use the local finite morphism between the
-regular target and Cohen--Macaulay source of the same
-dimension, with zero-dimensional fibres: the dimension
-criterion for flatness applies.  This is the exact scope
-of the source's
-\srcid{FlatAndSurjectiveOfIsFiniteAbelianEnd}.
+We retain the source's actual finite-endomorphism flatness
+mechanism.  A locally quasi-finite map strictly preserves
+strict specialization order: two distinct comparable points
+with the same image would be comparable distinct points
+of one discrete fibre.  A finite group endomorphism \(f\)
+fixes the identity point \(o\).
+On the ordered set of generizations of \(o\), it is therefore
+strictly monotone.
+The generic point \(\eta\) is maximal in that order.
+If \(f(\eta)\ne\eta\), its height is strictly less than
+that of \(\eta\).  Both heights are finite, being bounded
+by the Krull dimension of the Noetherian local ring at \(o\).
+But a strictly monotone self-map cannot decrease height,
+since it maps each strict chain injectively to a strict chain.
+This contradiction proves \(f(\eta)=\eta\).
+
+On an affine neighbourhood of that target generic point,
+\(f\) is a finite algebra over a Noetherian domain.
+After tensoring with its fraction field choose a finite
+vector-space basis.  Clearing denominators in a finite
+presentation makes that algebra module free after
+localizing at a nonzero element.
+Since \(f\) preserves the generic point, the corresponding
+source basic open is nonempty.
+Thus the source obtains a nonempty open of flat points.
+Choose a closed point \(y\) in it; such a point exists
+because the finite-type \(k\)-scheme is Jacobson.
+As \(k\) is algebraically closed it is a \(k\)-point.
+For any closed point \(x\), translation
+\(\alpha(z)=z\,y^{-1}x\) on the source and translation by
+\(f(y^{-1}x)\) on the target are isomorphisms satisfying
+\(f\alpha=\beta f\) and \(\alpha(y)=x\).
+Flatness at \(y\), transported through this square of
+isomorphisms, proves flatness at \(x\).
+Flatness can be tested at closed points in this
+Noetherian finite-presentation setting, so \(f\) is flat.
+Its image is closed and contains the generic point, hence
+is all of the integral \(B\).
+This is \srcid{FlatAndSurjectiveOfIsFiniteAbelianEnd}'s
+\srcid{apply\_genericPoint},
+\srcid{exists\_open\_flat}, and translation argument.
 Its rank is locally constant, and \(B\) is connected, so
 write \(d(a)\ge1\) for its constant finite-flat rank.
 Generic ranks multiply in the function-field tower, giving
@@ -450,6 +482,10 @@ The filtered-coordinate producers are
 \srcid{UniformizationProofs.FiniteMonotoneGrowth}.
 The numerical iteration is
 \srcid{UniformizationProofs.LeOfPowLePolyMulPow}.
+The generic-flat-open and translation proof is
+\srcid{AbelianSchemeLawProofs.FlatAndSurjectiveOfIsFiniteAbelianEnd}
+(blob \srcid{0a1fb23e45cb9470d7afd3090c9c1e8c3bc80f88}),
+not a replacement by a regular/Cohen--Macaulay flatness criterion.
 The Serre and ample-twist uses have been identified with
 their precise classical statements at the start, so no
 source-specific stronger section interface remains implicit.

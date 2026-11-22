@@ -1,0 +1,1441 @@
+\section{The original integral theta reading and analytic norm estimates}
+\label{sec:faithful-theta-analytic-norms}
+The following source translations retain the actual integral model,
+level data, vacuum and analytic-fibre identifications in their statements.
+They prove the displayed reading, first-minimum, Gaussian and
+projected-norm arguments under those same data. They do not identify an
+arbitrary family with that model, and they do not supply the separate
+analytic spanning theorem.
+
+
+\section{Integer-exponent readings and bounded component multipliers}
+\label{sec:sr-source-integer-reading}
+This section follows the actual negative-exponent clearing argument,
+rather than replacing it by an extension principle.
+We distinguish the Fourier propositions used by the source's
+bounded-section algebra from the algebraic section-reading argument.
+
+\subsection{The bounded-section product}
+Fix the source Hermitian frame datum \(X\), its open frame domain
+\(\mathcal D_X\), and integral row weights \(\lambda,\lambda'\).
+Write
+\[
+ \|P\|_{\lambda,x}=|P(x)|\,n_\lambda(x),\qquad
+ n_\lambda(x)>0,\qquad
+ n_{\lambda+\lambda'}(x)=n_\lambda(x)n_{\lambda'}(x).
+ \tag{IR1}\label{eq:sr-source-reading-nfac}
+\]
+The last equality follows directly from the product of positive
+successive Gram-minor ratios in \(n_\lambda\), using
+\(r^{a+b}=r^ar^b\) for \(r>0\).
+A bounded section means a holomorphic section with the source
+Borel and arithmetic transformation laws and bounded weighted norm.
+The source space \(SS_\lambda\) consists of such sections whose
+zero Fourier coefficient vanishes along every admissible rational
+isotropic direction.
+
+Here are the two exact Fourier inputs used at this point:
+\begin{enumerate}
+\item A nonzero Fourier coefficient of a moderate holomorphic section
+along an admissible isotropic direction has frequency
+\(\nu=(\nu_\tau)\) with \(\nu_\tau\ge0\) for every \(\tau\).
+A bounded section is moderate with exponent \(0\).
+\item The coefficient of a product is the convergent convolution of
+the two coefficient families:
+\[
+ \operatorname{fj}_{\lambda+\lambda'}(PQ;\xi,\nu,x)
+ =\sum_{\nu'}\operatorname{fj}_\lambda(P;\xi,\nu',x)
+       \operatorname{fj}_{\lambda'}(Q;\xi,\nu-\nu',x).
+ \tag{IR2}\label{eq:sr-source-reading-convolution}
+\]
+The sum is the source's \(\mathrm{HasSum}\) assertion, not a
+formal multiplication of series.
+\end{enumerate}
+These are exactly \srcid{ModerateCoefficientPositivity} and
+\srcid{CoefficientConvolution}.
+
+\begin{srlemma}\label{lem:sr-source-bdd-cusp-product}
+Under these two Fourier inputs, \(P\in SS_\lambda\) and a bounded
+section \(Q\) of weight \(\lambda'\) imply \(PQ\in SS_{\lambda+\lambda'}\).
+\end{srlemma}
+\begin{proof}
+Holomorphy is preserved by multiplication.
+Both transformation characters multiply; for the Borel character
+this is the identity
+\(\prod_{\tau,i}b_{\tau,ii}^{\lambda_{\tau,i}+\lambda'_{\tau,i}}
+ =b_\lambda(b)b_{\lambda'}(b)\).
+Every diagonal entry is nonzero.
+Equation~\eqref{eq:sr-source-reading-nfac} gives
+\(\|PQ\|_{\lambda+\lambda',x}
+ =\|P\|_{\lambda,x}\|Q\|_{\lambda',x}\), so the product is bounded.
+
+Apply \eqref{eq:sr-source-reading-convolution} at \(\nu=0\).
+For a nonzero convolution term, the first input gives
+\(\nu'_\tau\ge0\) and \(-\nu'_\tau\ge0\) for every \(\tau\).
+Thus \(\nu'=0\), and the \(P\)-factor is zero by cuspidality.
+Every term is therefore zero.
+Uniqueness of the stated sum proves that the product's zero
+coefficient vanishes. This is
+\srcid{BoundedSectionAlgebra.siegelSpaceAlgebra_of}, at its
+\(SS\)-multiplication clause.
+\end{proof}
+The same argument with the triangle inequality proves that \(SS\)
+is closed under zero, addition and scalar multiplication.
+In taking sums of coefficients, integrability on the finite-volume
+period domain follows from boundedness: real isotropic flow
+preserves all the Gram minors, hence \(n_\lambda\), and the
+Fourier exponential has modulus one.
+Consequently the source's span-defined \(\mathrm{holSub}\) equals
+the space of families whose every component belongs to \(SS\).
+This is \srcid{mem_holSub_model}.
+
+\subsection{The actual integer-exponent reading}
+Use the source \(E,H,D_w,l,X_o,c\) and an actual good complex
+uniformization \(U\).
+Suppose \(p+q\ge1\), a source key section
+\(\kappa\in\mathrm{KeySec}(X_o,c)\) has been supplied, and
+\(G=(G_1,G_2)\) has even \(G_2\) and antitone integer exponent
+rows:
+\[
+ i\le j<\operatorname{mult}_{D_w}(\tau)
+ \ \Longrightarrow\ G_1(\tau,j)\le G_1(\tau,i).
+ \tag{IR3}\label{eq:sr-source-integer-antitone}
+\]
+Let \(f\) be an actual algebraic section in
+\(\mathrm{secZ}(X_o,c,\mathrm{exZ}(D_w,G))\).
+Retain the uniformization's actual reading law for dominant
+natural weights and even tensor degree.
+Also retain the actual nonvanishing section supplier:
+for every \(x_0\in\mathcal D_{U,k}\) there are \(m\ge0\) and
+\[
+ f_0\in\mathrm{sec}(X_o,c,0,2(m+1)),\qquad
+             \operatorname{rd}_U(f_0)_k(x_0)\ne0.
+ \tag{IR4}\label{eq:sr-source-reading-nonvanishing}
+\]
+The source supplies (IR4) by its level-\(3\) eta rule in
+\srcid{UnfoldedIsSecZeroKeySection.exists_sec_rdU_ne_zero}.
+
+\begin{srproposition}\label{prop:sr-source-integer-reading}
+For every component \(k\), the actual reading
+\(\operatorname{rd}_U(f)_k\) is a section of the exact model weight
+\(\operatorname{modelWt}(U,G,k)\).
+\end{srproposition}
+\begin{proof}
+Fix \(x_0\) and choose (IR4).
+Write \(G_2=2g_2\), set \(N=|G_2|\), and choose \(B\ge0\) with
+\(-B\le G_1(\tau,j)\) for every actual row index.
+The finite sum of all \(|G_1(\tau,j)|\) is one possible \(B\).
+Set exactly as in the source
+\[
+ \begin{aligned}
+ t_g&=(B+1)m+(N+1)(m+1),&t&=g_2+t_g,\\
+ a_g(\tau,i)&=
+ \begin{cases}B+1&i<\operatorname{mult}_{D_w}(\tau),\\0&\text{otherwise},
+ \end{cases}&
+ a(\tau,i)&=
+ \begin{cases}G_1(\tau,i)+B+1&i<\operatorname{mult}_{D_w}(\tau),\\
+ 0&\text{otherwise}.
+ \end{cases}
+ \end{aligned}
+ \tag{IR5}\label{eq:sr-source-integer-clearing}
+\]
+The lower bound on \(G_1\) makes \(a\) natural-valued.
+Moreover \(t_g\ge N+1\), so \(t\ge0\).
+Both \(a_g\) and \(a\) are antitone, including the transition
+to the zero entries outside the actual rows.
+
+Let \(\rho=\kappa.\rho\), the specified algebraic unit of key
+exponent, and put
+\[
+                  g=\rho^{B+1}f_0^{B+N+2}.
+ \tag{IR6}\label{eq:sr-source-reading-clearing-section}
+\]
+The exact exponent identities are
+\[
+ \begin{split}
+ \mathrm{exZ}(D_w,\mathrm{wtZ}(a_g,2t_g))
+  &=(B+1)\,\mathrm{keyEx}(D_w)
+      +(B+N+2)\mathrm{exZ}(D_w,\mathrm{wtZ}(0,2(m+1))),\\
+ \mathrm{exZ}(D_w,\mathrm{wtZ}(a,2t))
+  &=\mathrm{exZ}(D_w,G)
+       +\mathrm{exZ}(D_w,\mathrm{wtZ}(a_g,2t_g)).
+ \end{split}
+ \tag{IR7}\label{eq:sr-source-reading-exponent-identities}
+\]
+For the tensor coordinate the first identity is
+\((B+1)(-2)+2(B+N+2)(m+1)=2t_g\);
+the second uses \(G_2=2g_2\).
+For every determinant coordinate they read respectively
+\(B+1=B+1\) and
+\(G_1+B+1=G_1+(B+1)\).
+Multiplication and powers of actual algebraic sections therefore give
+\[
+       g\in\mathrm{sec}(a_g,2t_g),\qquad
+       fg\in\mathrm{sec}(a,2t).
+\]
+The uniformization's given dominant-weight reading law makes their
+readings sections of the corresponding natural model weights.
+
+The model weights add, because both original tensor weights are
+even and their algebraic exponents agree in (IR7).
+Thus, writing \(\mu=\operatorname{modelWt}(U,G,k)\) and
+\(\lambda=\mathrm{laU}(U,a_g,2t_g,k)\), the readings of
+\(fg\) and \(g\) have weights \(\mu+\lambda\) and \(\lambda\).
+
+Their denominator reading at \(x_0\) is nonzero.
+Indeed \(\operatorname{rd}_U(f_0)_k(x_0)\ne0\).
+Multiplicativity then forces the reading of \(1\) to be \(1\)
+there. Since \(\rho\rho^{-1}=1\), the reading of \(\rho\) is
+nonzero there too. Equation (IR6) now gives the assertion.
+Finally,
+\[
+    \operatorname{rd}_U(f)_k\,\operatorname{rd}_U(g)_k
+                     =\operatorname{rd}_U(fg)_k
+\]
+holds on the whole frame domain.
+
+For completeness, the source's local quotient argument gives
+all three section clauses. Near \(x_0\) the denominator stays
+nonzero, so the quotient is holomorphic.
+For an upper triangular invertible \(b\),
+\(b_\lambda(b)\ne0\).
+Evaluate the displayed identity at \(x_0\) and \(x_0b\) and
+cancel \(b_\lambda(b)\operatorname{rd}_U(g)_k(x_0)\);
+this gives the Borel weight \(\mu\).
+For an arithmetic transformation \(\gamma\), the multiplier
+\(\chi_\lambda(\gamma)\) is nonzero, since it has finite order.
+The identical cancellation gives the multiplier
+\(\chi_\mu(\gamma)\).
+Since \(x_0\) was arbitrary, all section clauses hold everywhere.
+These are precisely
+\srcid{IsSecReadingDecreasingIntegerExponents.isSec_of_local_quot}
+and \srcid{isSec_modelWt_rdU}.
+\end{proof}
+
+\subsection{Preservation of the actual component cusp space}
+Let \(Z\) be the source component, and let \(s\) have the same
+hypotheses as \(f\) in the preceding proposition, with weight \(G_0\).
+Assume also
+\[
+ s\in\mathrm{suppOn}(Z),\qquad
+ \forall\sigma\text{ good}\ \exists C_\sigma\
+ \forall z\in\mathrm{framesOn}(U_\sigma,Z):\
+                    \mathrm{homN}(s;z)\le C_\sigma .
+ \tag{IR8}\label{eq:sr-source-component-bdd}
+\]
+All frames and norms here belong to the same supplied
+uniformization. No uniformity in a varying family is being added.
+
+\begin{srproposition}\label{prop:sr-source-component-cusp-multiplier}
+Under the two Fourier inputs above, for every \(G\) with even
+tensor coordinate,
+\[
+      f\in\mathrm{cuspOn}(U,Z,G)
+          \quad\Longrightarrow\quad
+      fs\in\mathrm{cuspOn}(U,Z,G+G_0).
+ \tag{IR9}\label{eq:sr-source-component-cusp-product}
+\]
+\end{srproposition}
+\begin{proof}
+Algebraic section exponents add, and support of \(s\) on \(Z\)
+gives support of \(fs\) there.
+Fix a good \(\sigma\).
+The actual model reading of \(s\) is a section by the preceding
+proposition.
+On \(\mathrm{framesOn}(U_\sigma,Z)\), its weighted norm is at most
+\(C_\sigma/\mathrm{lieFacZ}(D_w,x,G_0)\), whose denominator is
+strictly positive.
+Off those component frames its reading is zero by the support
+condition. It is therefore a bounded section on every component,
+with bound
+\[
+                \max\{0,C_\sigma/\mathrm{lieFacZ}(D_w,x,G_0)\}.
+\]
+The component readings of \(f\) belong to \(SS\).
+The first lemma puts their products in \(SS\) at the sum model
+weight. The equality between \(\mathrm{holSub}\) and componentwise
+\(SS\), followed by the source definition of
+\(\mathrm{cuspW}\) and the already checked support, proves (IR9).
+This is exactly
+\srcid{ExistsUnramPtsDefinite.mul_mem_cuspOn_of_isSec}
+followed by
+\srcid{MulMemCuspFormsOfBoundedSectionComponent.mul_mem_cuspOn_of_bdd}.
+\end{proof}
+
+\paragraph{Frozen-source ledger and retained suppliers.}
+All paths below use \srcid{alpoge-source-7cbf7a0c}.
+In
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/},
+the actual reading proof is
+\srcid{IsSecReadingDecreasingIntegerExponents.lean},
+blob \srcid{b08455118b8cd54243ae8185790eaef6bf4e9382};
+the final bounded component assembly is
+\srcid{MulMemCuspFormsOfBoundedSectionComponent.lean},
+blob \srcid{3a5a50359e5689723974601a420411cab829aa03}.
+The earlier componentwise bounded-product argument is in
+\srcid{src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsUnramPtsDefinite.lean},
+blob \srcid{3cd59129266bb5e4fbc6a994794b40622e259d41}.
+The actual nonvanishing supplier is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/UnfoldedIsSecZeroKeySection.lean},
+blob \srcid{54d610b59fda59d5c0fb5d17e846651747cf1cd4}.
+Its level-\(3\) eta construction and the existence of the key unit
+are separate actual inputs to the reading proposition.
+
+The Fourier product proof is in
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FundamentalDomains/BoundedSectionAlgebra.lean},
+blob \srcid{71f99c21a0d1bc7a47618506aea05641e5cad761}.
+The concrete Fourier suppliers remain
+\srcid{ModerateCoefficientPositivityHolds.lean}
+(blob \srcid{712132fb6d8bf919371842e7a2a95d5f42d1fc57})
+and
+\srcid{CoefficientConvolutionHolds.lean}
+(blob \srcid{dbd4d7e005c93fdc46adbd27159fb35b54cc2fbb})
+in that same directory.
+The latter itself uses
+\srcid{CoefficientConvolutionOfSubCoefficients}
+and \srcid{SublatticeCoefficients}.
+This section proves the actual exponent clearing, local quotient,
+and bounded component multiplication from those precise suppliers;
+it does not substitute an unnamed Koecher principle for them.
+
+\section{The source first-minimum estimate at a half maximum}
+\label{sec:sr-source-half-maximum}
+We keep the source frame datum, weighted norms, and rational
+transvections throughout. The first-minimum estimate is made at
+one actual frame of the same uniformization used by the theta reading.
+
+\subsection{The periodic Schwarz estimate}
+\begin{srlemma}\label{lem:sr-source-periodic-schwarz}
+Let \(M>0\), \(0<t<T\), and let \(g:\mathbb C\to\mathbb C\) be
+\(M\)-periodic, holomorphic on \(\operatorname{Im}z>-T\), and tend
+to zero as \(\operatorname{Im}z\to+\infty\), uniformly in the real
+coordinate in the sense of the source filter
+\(\operatorname{comap}(\operatorname{Im})(+\infty)\).
+If \(|g(z)|\le B\) on \(\operatorname{Im}z=-t\), then
+\[
+                    |g(0)|\le e^{-2\pi t/M}B .
+ \tag{HM1}\label{eq:sr-source-periodic-schwarz}
+\]
+\end{srlemma}
+\begin{proof}
+Use \(q=e^{2\pi iz/M}\). Periodicity gives a single-valued
+holomorphic function \(F(q)\) on the punctured disc of radius
+\(e^{2\pi T/M}\).
+The given limit makes \(F\) bounded near zero with \(F(0)=0\);
+the removable singularity theorem, or its Cauchy coefficient proof,
+makes this a holomorphic extension.
+Set \(R=e^{2\pi t/M}>1\).
+The divided difference \(F(q)/q\), with value \(F'(0)\) at zero,
+is holomorphic on a neighborhood of the closed disc of radius \(R\).
+On its boundary it has norm at most \(B/R\).
+The maximum principle gives \(|F(1)|\le B/R\), which is (HM1).
+This is precisely
+\srcid{PeriodicSchwarzLemma.periodic_schwarz}.
+\end{proof}
+
+\subsection{Decay on the rational isotropic flow}
+The source \(X=\mathrm{DataX}(E,r)\) includes the lattice \(L'\),
+the scalar \(k_0>0\) with
+\[
+                     c_\tau=2|\tau(\xi_0)|=k_0,
+\]
+and an integer \(n_0>0\) sending \(L'\) into the lattice of
+admissible rational isotropic vectors.
+For \(v\in L'\) with \(v\ne0\) and
+\(\langle v,v\rangle=0\), let \(x(\zeta)\) be the source flow
+\(X.\mathrm{flow}(v,(\zeta)_\tau,x_0)\).
+
+We use the exact source Fourier expansion on an admissible
+isotropic direction and its coefficient-positivity statement.
+The latter is the first Fourier input in
+Section~\ref{sec:sr-source-integer-reading}.
+For \(P\in SS_\lambda(X)\), write \(u=n_0v\).
+The square in the rank-one flow matrix gives
+\[
+      x(\zeta)
+        =X.\mathrm{flow}\bigl(u,(\zeta/n_0^2)_\tau,x_0\bigr).
+ \tag{HM2}\label{eq:sr-source-flow-rescale}
+\]
+The source expansion is the convergent sum
+\[
+ P(x(\zeta))=\sum_\nu a_\nu
+       \exp\!\left({4\pi i\zeta\over n_0^2}
+                              \sum_\tau\nu_\tau\right)
+                  \qquad(\operatorname{Im}\zeta\ge0),
+ \tag{HM3}\label{eq:sr-source-isotropic-expansion}
+\]
+where \(a_\nu=X.\mathrm{fj}(\lambda,u,\nu,P,x_0)\).
+Every nonzero \(a_\nu\) has all \(\nu_\tau\ge0\), and
+\(a_0=0\) by the defining zero-coefficient condition of \(SS\).
+Thus every nonzero term has \(\sum_\tau\nu_\tau>0\).
+
+At \(\zeta=0\), the source's \(\mathrm{HasSum}\) in the finite
+dimensional complex target gives \(\sum_\nu|a_\nu|<\infty\).
+For \(\operatorname{Im}\zeta\ge0\), each summand in (HM3) has
+norm at most \(|a_\nu|\), and its norm tends to zero as
+\(\operatorname{Im}\zeta\to+\infty\).
+Dominated convergence for this summable family therefore yields
+\[
+                         P(x(\zeta))\longrightarrow0 .
+ \tag{HM4}\label{eq:sr-source-flow-decay}
+\]
+The argument applies to the source's function equal to
+\(P(x(\zeta))\) on the flow domain and zero elsewhere, since its
+values agree for all sufficiently large imaginary parts.
+This is
+\srcid{MaximumBoundField.flowTermNormDecay.tendsto_zero}.
+It uses the actual Fourier expansion and positive-frequency
+supplier; it does not assume rapid decay for an arbitrary
+holomorphic function.
+
+\subsection{The maximum estimate before host rescaling}
+Set \(f=[E:\mathbb Q]/2\) and
+\[
+ \varepsilon_*=\min\!\left\{1,\,
+ {\pi\over M(fw+2)k_0\log2}\right\}.
+ \tag{HM5}\label{eq:sr-source-epstar}
+\]
+Assume \(M,w>0\), \(P\in SS_\lambda(X)\),
+\(\sum_\tau\operatorname{spread}_\tau(\lambda)\le w\), and that
+the source rational transvections are in the arithmetic group
+with trivial character:
+for every isotropic \(v\in L'\) and every integral
+conjugation-fixed \(b\in E\), there is \(\gamma\in\Gamma_X\)
+such that \(\chi_\lambda(\gamma)=1\) and
+\[
+                  \tau(\gamma)=\mathrm{flowMat}_{v,\tau}
+                                                  (M\tau(b)).
+ \tag{HM6}\label{eq:sr-source-flow-period}
+\]
+Let \(x_0\) be a positive half maximum:
+\[
+ 0<\|P\|_{\lambda,x_0},\qquad
+ \forall x\in\mathcal D_X:\quad
+                 \|P\|_{\lambda,x}\le2\|P\|_{\lambda,x_0}.
+ \tag{HM7}\label{eq:sr-source-half-max}
+\]
+
+\begin{srproposition}\label{prop:sr-source-maxbound}
+For every \(0\ne v\in L'\), there is a good embedding \(\tau\)
+with
+\[
+                 \varepsilon_*
+                  \le\operatorname{maj}_{x_0,\tau}(\tau(v)).
+ \tag{HM8}\label{eq:sr-source-maxbound}
+\]
+\end{srproposition}
+\begin{proof}
+Suppose every displayed majorant \(m_\tau\) is
+less than \(\varepsilon_*\le1\).
+The value \(\langle v,v\rangle\) is integral, and its every
+complex conjugate has absolute value at most \(m_\tau<1\);
+the other half of the embeddings are complex conjugates.
+Its rational norm is therefore an integer of absolute value
+less than one, so it vanishes.
+The source majorant inequality thus makes \(v\) isotropic.
+
+Each \(m_\tau>0\), since \(v\ne0\).
+The explicit source flow-domain criterion is
+\[
+ x(\zeta)\in\mathcal D_X
+      \quad\Longleftrightarrow\quad
+                 1+k_0m_\tau\operatorname{Im}\zeta>0
+                       \quad\text{for every }\tau .
+ \tag{HM9}\label{eq:sr-source-flow-domain}
+\]
+Put \(T=(k_0\varepsilon_*)^{-1}\) and
+\(t=(2k_0\varepsilon_*)^{-1}\), so \(0<t<T\).
+The assumed strict inequalities imply that the flow lies
+in the domain on \(\operatorname{Im}\zeta>-T\).
+The flow matrix is polynomial in \(\zeta\), so
+\(g(\zeta)=P(x(\zeta))\) is holomorphic there.
+Taking \(b=1\) in (HM6), using the flow composition law and
+the section's arithmetic transformation, makes \(g\)
+\(M\)-periodic.
+Equation (HM4) supplies its limit zero at imaginary infinity.
+
+On the line \(\operatorname{Im}\zeta=-t\), all
+\(1+k_0m_\tau\operatorname{Im}\zeta\) lie in \((1/2,1]\).
+The source Gram-minor comparison for the isotropic flow gives
+\[
+ {n_\lambda(x_0)\over n_\lambda(x(\zeta))}
+ \le\prod_\tau
+   \max\{1+k_0m_\tau\operatorname{Im}\zeta,\,
+             (1+k_0m_\tau\operatorname{Im}\zeta)^{-1}\}
+                           ^{\operatorname{spread}_\tau(\lambda)/2}
+ \le2^{w/2}.
+\]
+Together with (HM7), this implies
+\[
+     |g(\zeta)|\le
+           {2\,\|P\|_{\lambda,x_0}\,2^{w/2}\over n_\lambda(x_0)}.
+\]
+Apply (HM1) and multiply by \(n_\lambda(x_0)>0\).
+Since \(g(0)=P(x_0)\) and the half-maximum norm is positive,
+\[
+                  1\le e^{-2\pi t/M}\,2\,2^{w/2}.
+ \tag{HM10}\label{eq:sr-source-maxbound-contradiction}
+\]
+But (HM5) gives
+\(2\pi t/M=\pi/(Mk_0\varepsilon_*)\ge(fw+2)\log2\).
+Since \(f\ge1\) and \(w>0\), the logarithm of the right side
+of (HM10) is at most
+\(-(fw+2)\log2+(1+w/2)\log2<0\).
+This contradicts (HM10).
+The proof is exactly \srcid{MaxBoundPf.maxBound_holds}.
+The flow-domain and Gram-minor comparisons invoked above are the
+source \srcid{FlowDomainCriterionHolds} and \srcid{M3bNormHolds}.
+\end{proof}
+
+\subsection{The host scalar and the root discriminant}
+Write \(d_E=|\operatorname{disc}E|\) and
+\(\mathrm{rd}_E=d_E^{1/[E:\mathbb Q]}\).
+The principal host's two fractional ideals \(A,\bar A\) satisfy
+\[
+                 (\xi_0)A\bar A\,\mathfrak D_E=O_E,\qquad
+                 |\tau(\xi_0)|=x>0\quad\text{for every }\tau .
+ \tag{HM11}\label{eq:sr-source-host-ideal}
+\]
+Here \(\mathfrak D_E\) is the different.
+
+\begin{srlemma}\label{lem:sr-source-small-inverse}
+There is \(b\in E\), \(b\ne0\), such that
+\(bA\subset O_E\) and
+\[
+                        |\tau(b)|^2\le x\,\mathrm{rd}_E^2
+                            \quad\text{for every }\tau.
+ \tag{HM12}\label{eq:sr-source-small-inverse}
+\]
+\end{srlemma}
+\begin{proof}
+First suppose \(N(\bar A)\le N(A)\).
+Taking norms in (HM11), with \([E:\mathbb Q]=2f\), gives
+\[
+                  x^{2f}N(A)N(\bar A)d_E=1,
+       \qquad N(A)^{-1}\le x^f\sqrt{d_E}.
+\]
+Set \(R=\sqrt{x\,\mathrm{rd}_E^2}\).
+For the fractional ideal \(A^{-1}\), the complex-disc version
+of Minkowski's theorem applies with this same radius at every
+infinite place, because
+\[
+ 2^fN(A)^{-1}\sqrt{d_E}
+        \le2^fx^fd_E
+        <\pi^fx^fd_E=\pi^fR^{2f}.
+\]
+It supplies \(0\ne b\in A^{-1}\) with every \(|\tau(b)|<R\).
+This gives (HM12) and \(bA\subset O_E\).
+If the norms have the opposite order, apply this argument with
+\(A,\bar A\) reversed and conjugate \(b\).
+The product identity is unchanged, conjugation exchanges the
+ideals and permutes all embeddings, giving the same conclusion.
+These are the source
+\srcid{FirstMinAtHalfMax.exists_small_inv} and
+\srcid{exists_small_inv_AA}.
+\end{proof}
+
+\subsection{The actual first minimum and the orthogonal half maximum}
+Now fix the actual host packet \(D\), stage \(j\), supplied
+uniformization laws \(\mathrm{Laws}(D,j,X_o,c,U,\mathrm{dict})\),
+a good embedding \(\sigma\), and one component \(k\).
+The source's principal-level construction gives a datum \(X\)
+with this same underlying component, together with
+\[
+ \Lambda=A L',\quad k_0=2\,\xi_R(D),\quad
+ M'=l.M\,N(\mathrm{ccK})\,D.\mathrm{host}.d,\quad
+ M'k_0=2\,l.M\sqrt{D.\mathrm{host}.d},
+ \tag{HM13}\label{eq:sr-source-transvection-data}
+\]
+where \(\Lambda=AL'\) means the actual \(O_E\)-span of
+\(au\), \(a\in A,u\in L'\).
+The transvections in (HM6) hold with \(M'\).
+This precise supplier is
+\srcid{ExistsSelfDualDataTransvectionPrincipalLevel.exists_dataX_transv}.
+It uses the actual perfect trace form and the actual principal
+congruence inclusion, not the abstract lattice alone.
+
+Define
+\[
+ \epsilon_{\rm lev}(w)=
+ \min\!\left\{1,\,
+ {\pi\over2\,l.M\sqrt{D.\mathrm{host}.d}\,
+                    (fw+2)\log2}\right\}.
+ \tag{HM14}\label{eq:sr-source-epslev}
+\]
+Equation (HM13) identifies this with (HM5).
+The source's \(\operatorname{firstMinimumSq}\) is the infimum,
+over nonzero \(v\in\Lambda\), of
+\(\sum_\tau 2\xi_R(D)\operatorname{maj}_{x_0,\tau}(\tau(v))\).
+
+\begin{srproposition}\label{prop:sr-source-first-minimum-halfmax}
+At a positive half maximum of a section with weight spread at
+most \(w>0\) and trivial arithmetic character,
+\[
+ \operatorname{firstMinimumSq}(x_0)
+             \ge {2\,\epsilon_{\rm lev}(w)\over\mathrm{rd}_E^2}.
+ \tag{HM15}\label{eq:sr-source-first-minimum}
+\]
+\end{srproposition}
+\begin{proof}
+Choose \(b\) from (HM12) with \(x=\xi_R(D)\).
+For \(v\in\Lambda\), the exact span in (HM13) and
+\(bA\subset O_E\) give \(bv\in L'\).
+For \(v\ne0\), (HM8) therefore supplies \(\tau_0\) with
+\[
+ \epsilon_{\rm lev}(w)
+       \le\operatorname{maj}_{x_0,\tau_0}(\tau_0(bv))
+       =|\tau_0(b)|^2\operatorname{maj}_{x_0,\tau_0}(\tau_0(v))
+       \le\xi_R(D)\mathrm{rd}_E^2
+                       \operatorname{maj}_{x_0,\tau_0}(\tau_0(v)).
+\]
+Every term in the first-minimum sum is nonnegative.
+Keeping its \(\tau_0\)-term proves the claimed lower bound for
+every nonzero \(v\).
+The lattice spans \(E^r\), and the actual packet has \(r\ge1\),
+so the set defining the infimum is nonempty.
+Taking the infimum proves (HM15).
+This is \srcid{FirstMinAtHalfMax.firstMin_at_halfMax}.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-source-orthogonal-halfmax}
+Suppose a family \(P\) belongs to the actual
+\(\mathrm{holSub}(U_\sigma,\lambda)\), has positive finite
+global supremum \(S\), has trivial arithmetic characters, and
+every component has spread at most the same \(w>0\).
+There are a component \(k\) and an orthogonal frame \(x_f\) in
+its domain such that
+\[
+              S\le2|P_k(x_f)|,\qquad
+ \operatorname{firstMinimumSq}(x_f)
+             \ge {2\,\epsilon_{\rm lev}(w)\over\mathrm{rd}_E^2}.
+ \tag{HM16}\label{eq:sr-source-orthogonal-halfmax}
+\]
+\end{srproposition}
+\begin{proof}
+Since \(0<S<\infty\), the supremum definition gives a frame
+\(x\) in one component with \(S/2<\|P_k\|_{\lambda,x}\).
+All component norms are at most \(S\), so \(x\) is a positive
+half maximum in that component.
+The component belongs to \(SS\), because the source
+\(\mathrm{holSub}\) is the span of such families and \(SS\)
+is a submodule.
+Apply (HM15).
+Use the actual upper triangular orthogonalizing factor \(b(x)\)
+from \srcid{FrameDegreeData.bOf_mem}.
+Right multiplication by it preserves the frame domain, the
+weighted norm, and \(\operatorname{firstMinimumSq}\).
+At the resulting orthogonal frame all successive Gram-minor
+norms are one; its weighted norm is therefore \(|P_k(x_f)|\).
+This gives both inequalities in (HM16).
+It is \srcid{FirstMinAtHalfMax.half_sup_at_ortho}.
+No maximum-attainment or compactness assertion is used.
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+All sources are read at \srcid{alpoge-source-7cbf7a0c}.
+The periodic Schwarz proof is
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FundamentalDomains/PeriodicSchwarzLemma.lean},
+blob \srcid{0f49e1e5cf5bd6b20b73373433d9600b5f02d11f}.
+In that same directory,
+\srcid{MaximumBoundField.lean} is
+\srcid{c7b65dca30b0f3b9a858814b7e5bf9e5f42bb774},
+\srcid{MaxBoundPf.lean} is
+\srcid{dcd344008b85a949193a31cd613956653dddeb08}, and
+\srcid{CuspidalExponentialDecay.lean} is
+\srcid{a05dc166cf19232be5e2c25ba52b9a7713d53d3e}.
+The host-scalar, first-minimum and half-sup proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FirstMinAtHalfMax.lean},
+blob \srcid{63e29ac9732ebfa986c8251e1b2f6917e907e707}.
+The exact principal-level supplier (HM13) is
+\srcid{ExistsSelfDualDataTransvectionPrincipalLevel.lean} in
+that directory, blob \srcid{8a14c6e08bbc4bcc1218f16298c4ed44e1b165d4}.
+
+The source Fourier expansion \srcid{M3bExpHolds}, coefficient
+positivity, flow-domain formula \srcid{FlowDomainCriterionHolds},
+and Gram-minor comparison \srcid{M3bNormHolds} are retained as
+their exact analytic suppliers in the foregoing proof.
+The actual perfect trace-form and principal-congruence
+construction in (HM13), and the same uniformization's Borel
+orthogonalization identities in (HM16), are likewise the
+specified source inputs. The pointwise theorem does not assert
+a bound uniform over independently chosen metrics or frames.
+
+\section{The source Gaussian supremum and derivative estimates}
+\label{sec:sr-source-gaussian-sup}
+We use the source's Euclidean normalization
+\(H(z,w)=\sum_i z_i\overline{w_i}\), Lebesgue measure on
+\(\mathbb C^N\), and Gaussian \(e^{-q\pi\|z\|^2}\).
+The square of the \(L^2\)-norm is denoted \(L_2\), as in the source.
+
+\subsection{The actual lattice and its covolume}
+Let \(Y=\mathrm{GT}(\iota)\), \(N=|\iota|\).
+Its period lattice \(L\subset\mathbb C^N\) is generated by a
+real basis \(b_1,\ldots,b_{2N}\).
+The alternating form \(\operatorname{Im}H\) is integral on \(L\),
+and every \(\mathbb Z\)-linear functional on \(L\) is pairing
+with a point of \(L\). The supplied factor \(k(a)\) has
+\(|k(a)|=1\) for \(a\in L\).
+An actual level-\(q\) section is an entire \(F\) satisfying
+\[
+ F(z+a)=k(a)\exp\{q\pi H(z,a)+q\pi H(a,a)/2\}F(z).
+ \tag{GS1}\label{eq:sr-source-GT-section}
+\]
+Its norm density and the source normalized integral are
+\[
+ h_F(z)=|F(z)|^2e^{-q\pi\|z\|^2},\qquad
+ L_2(F)={1\over\operatorname{vol}D}\int_Dh_F,\qquad
+ \lambda_1=\inf_{0\ne a\in L}\|a\|,
+ \tag{GS2}\label{eq:sr-source-GT-norm}
+\]
+where \(D\) is the half-open basis parallelepiped.
+Equation (GS1) gives \(h_F(z+a)=h_F(z)\) directly.
+
+The source first proves \(\operatorname{vol}D\le1\).
+Let \(B\) be the real basis matrix in orthonormal coordinates
+and \(J\) the orthogonal complex structure representing
+\(\operatorname{Im}H\), with \(|\det J|=1\).
+The alternating Gram matrix is \(G=B^tJ^tB\).
+For each lattice coordinate functional, perfection supplies a
+lattice vector representing it.
+Writing these vectors in the given integral basis produces
+an integer matrix \(C\) with \(CG=I\).
+Thus \(\det C\ne0\), \(|\det C|\ge1\), and
+\[
+                  1=|\det C|\,|\det B|^2,\qquad
+                           \operatorname{vol}D=|\det B|\le1 .
+ \tag{GS3}\label{eq:sr-source-GT-volume}
+\]
+This follows the source
+\srcid{LemmaSA.lemSG_inv}, \srcid{lemS_detM_le},
+and \srcid{lemS_vol_le}.
+In particular the integral over \(D\) is at most \(L_2(F)\).
+For \(N>0\), discreteness of the basis lattice and the existence
+of a nonzero basis vector give \(0<\lambda_1<\infty\).
+
+\subsection{The local Gaussian mean}
+For an entire \(G:\mathbb C^N\to\mathbb C\), \(N>0\),
+\[
+ |G(0)|^2\le {2\over\pi^N}
+       \int_{\|z\|\le\sqrt{2N}}|G(z)|^2e^{-\|z\|^2}\,dz .
+ \tag{GS4}\label{eq:sr-source-gaussian-ball-mean}
+\]
+Here is the source's mean argument.
+For fixed \(z\), the one-variable Cauchy mean and
+Cauchy--Schwarz give
+\(|G(0)|^2\le\int_{|u|=1}|G(uz)|^2\,du\), with probability
+measure on the circle.
+Integrating on a radial ball and using the measure-preserving
+rotations \(z\mapsto uz\) proves
+\[
+ |G(0)|^2\int_{\|z\|\le\sqrt{2N}}e^{-\|z\|^2}
+       \le\int_{\|z\|\le\sqrt{2N}}|G(z)|^2e^{-\|z\|^2}.
+\]
+The total Gaussian mass is \(\pi^N\), and its second moment is
+\(N\pi^N\). On \(\|z\|>\sqrt{2N}\),
+\(1\le\|z\|^2/(2N)\), so that region has mass at most
+\(\pi^N/2\).
+This proves (GS4).
+The source verifies these two moments through the radial
+integrals
+\(\int_0^\infty r^ke^{-r^2}dr=\Gamma((k+1)/2)/2\).
+For \(N=0\) the ball has its single point with mass \(1\);
+(GS4) remains true.
+These are the steps in \srcid{RSubMean.sq_norm_zero_le_gauss_ball}.
+
+For \(q\ge1\), \(v_0\in\mathbb C^N\), put
+\(s=\sqrt{q\pi}\), \(w=z/s\), and
+\[
+ G(z)=F(v_0+w)\exp\{-q\pi H(w,v_0)\}.
+\]
+Then
+\[
+ |G(z)|^2e^{-\|z\|^2}
+              =e^{q\pi\|v_0\|^2}h_F(v_0+w).
+\]
+Changing real \(2N\)-dimensional volume by \(s^{-2N}\) in
+(GS4) gives the exact local estimate
+\[
+ h_F(v_0)\le2q^N
+       \int_{\|u-v_0\|\le\sqrt{2N}/\sqrt{q\pi}}h_F(u)\,du .
+ \tag{GS5}\label{eq:sr-source-local-Gaussian}
+\]
+This is \srcid{LemmaSB.lemS_local}, with its actual square-root
+and \(\pi\) normalization.
+
+\subsection{Packing and the global estimate}
+A finite \(\delta\)-separated subset of a ball of radius \(\rho\)
+in \(\mathbb C^N\) has cardinality at most
+\[
+                         (1+4\rho/\delta)^{2N}.
+ \tag{GS6}\label{eq:sr-source-complex-packing}
+\]
+To match the source's constants, when \(\rho<\delta/2\)
+there is at most one point.
+Otherwise place disjoint open balls of radius \(\delta/2\)
+around the points and compare their real \(2N\)-dimensional
+volumes with the containing ball of radius
+\(\rho+\delta/2\). This gives
+\((1+2\rho/\delta)^{2N}\); the source's
+\(\mathrm{PackingCount}\) bound \( (3\max(\delta,\rho)/\delta)^{2N}\)
+also implies (GS6) in the stated range.
+This is the conversion in \srcid{LemmaS.lemS_pack}.
+
+Let \(\rho=\sqrt{2N}/\sqrt{q\pi}\) and
+\(K=(1+4\rho/\lambda_1)^{2N}\).
+For any fixed \(u\in D\), the lattice translates \(u+a\) lying
+in the closed ball of radius \(\rho\) around \(v_0\) form a
+\(\lambda_1\)-separated set.
+Apply (GS6) to each finite subset; the nonnegative sum of their
+indicators is therefore at most \(K\).
+Unfolding Lebesgue measure over \(D+L\), Tonelli and the
+periodicity of \(h_F\) yield
+\[
+ \int_{\|u-v_0\|\le\rho}h_F(u)\,du
+   \le K\int_Dh_F(u)\,du\le K L_2(F).
+ \tag{GS7}\label{eq:sr-source-ball-cover}
+\]
+The density is continuous and the closure of \(D\) is compact,
+so the latter integral is finite.
+This justifies the conversion from the nonnegative integrals,
+including the finite-measure requirements.
+For \(N=0\) the same estimate is the one-point calculation.
+
+\begin{srproposition}\label{prop:sr-source-gaussian-sup}
+For every actual \(F\in Y.\mathrm{Sec}(q)\), \(q\ge1\),
+\[
+ |F(v)|^2e^{-q\pi\|v\|^2}
+ \le 2q^N
+       \left(1+{4\sqrt{2N}\over\sqrt{q\pi}\lambda_1}\right)^{2N}
+                     L_2(F)\qquad(v\in\mathbb C^N).
+ \tag{GS8}\label{eq:sr-source-gaussian-sup}
+\]
+For \(N=0\), the parenthesized factor is interpreted by the
+separate zero-dimensional calculation.
+\end{srproposition}
+\begin{proof}
+Combine (GS5) and (GS7).
+This is exactly \srcid{LemmaS.lemS_main}, then
+\srcid{gSup} and \srcid{GlobalTheory.sup_le_l2_principal_torus}.
+\end{proof}
+
+\subsection{The source repeated Cauchy estimate}
+Let \(F\) be entire on \(\mathbb C^N\), and suppose
+\[
+                   |F(z)|^2e^{-\pi\|z\|^2}\le S
+                                      \quad\text{for every }z.
+\]
+Necessarily \(S\ge0\).
+For a list of \(d\) coordinate directions,
+\[
+ |D_{i_1}\cdots D_{i_d}F(0)|
+                   \le\sqrt S\,(\pi e d)^{d/2}.
+ \tag{GS9}\label{eq:sr-source-Gaussian-Cauchy}
+\]
+For \(d=0\) the last factor is \(1\).
+The source proves this by repeated one-variable Cauchy estimates.
+If \(|F|\le A\) whenever \(\sum_i|z_i-x_i|\le d\rho\), induction
+on the list gives the derivative bound \(A/\rho^d\).
+In the induction step apply the one-variable Cauchy derivative
+bound on the circle of radius \(\rho\) in the next coordinate;
+each remaining ball stays in the original \(d\rho\)-ball.
+
+For \(d>0\), take \(\rho=(\pi d)^{-1/2}\).
+On that \(d\rho\)-ball about zero,
+\(\|z\|^2\le(\sum_i|z_i|)^2\le d/\pi\).
+The Gaussian hypothesis gives \(|F(z)|\le\sqrt S\,e^{d/2}\).
+Consequently the repeated bound is
+\(\sqrt S\,e^{d/2}(\pi d)^{d/2}\), which is (GS9).
+This is the actual \srcid{RCauchy.iter_step_bound},
+\srcid{cauchy_gauss_le} and \srcid{GCauchy.gCauchy} argument.
+For a homogeneous polynomial \(P\) of degree \(d\), finite
+linearity gives
+\[
+ |P(\partial)F(0)|
+     \le \left(\sum_\alpha|P_\alpha|\right)
+                           \sqrt S\,(\pi e d)^{d/2}.
+ \tag{GS10}\label{eq:sr-source-polynomial-Cauchy}
+\]
+The source polynomial derivative is the sum over monomials of
+the iterated derivative along their actual repeated coordinate
+list; no factorial or divided-power convention is inserted.
+
+\subsection{The exact self-dual short-vector supplier}
+Let \(E\) be CM, \(f=[E:\mathbb Q]/2\), and let
+\(\Lambda\subset E^n\) be a finitely generated \(O_E\)-module
+self-dual for \(h(u,v)=\sum_k u_k\overline{v_k}\).
+The source's rational positive form is
+\[
+ B(u,v)=\operatorname{Tr}_{E/\mathbb Q}h(u,v),\qquad
+ B(u,u)=\sum_\sigma\sum_k|\sigma(u_k)|^2 .
+ \tag{GS11a}\label{eq:sr-source-trace-hermitian}
+\]
+It is symmetric, positive definite and nondegenerate.
+Since \(\Lambda\) is full over \(E\), it is full over \(\mathbb Q\):
+clear an integer denominator in each scalar \(a\in E\), so
+\(a\Lambda\subset\mathbb Q\Lambda\).
+A \(\mathbb Z\)-basis of \(\Lambda\) is therefore a
+\(\mathbb Q\)-basis \(b_1,\ldots,b_M\) of \(E^n\), \(M=2fn\).
+
+For a nonzero vector \(u\) in the \(B\)-dual of this lattice,
+\(B(u,y)\in\mathbb Z\) for all \(y\in\Lambda\).
+Writing \(\mathfrak D\) for the different, testing at
+\(\overline a\,y\), \(a\in O_E\), gives
+\(h(u,y)\in\mathfrak D^{-1}\).
+Hence \(\delta u\in\Lambda\) for every
+\(\delta\in\mathfrak D\), by Hermitian self-duality.
+Put \(\alpha=h(u,u)\ne0\).
+For \(\delta\in\mathfrak D\) and \(a\in O_E\),
+\(a\delta u\in\Lambda\); the trace integrality just obtained,
+together with invariance of trace under conjugation, gives
+\(\operatorname{Tr}(\alpha\delta a)\in\mathbb Z\).
+Thus
+\[
+                  \alpha\mathfrak D\subset\mathfrak D^{-1},
+                    \qquad \alpha\in\mathfrak D^{-2}.
+\]
+The norm of a nonzero element of a fractional ideal is at least
+the ideal norm, since its principal ideal divided by that
+fractional ideal is integral. Consequently
+\(|N_{E/\mathbb Q}\alpha|\ge|\operatorname{disc}E|^{-2}\).
+All conjugates of \(\alpha\) are nonnegative, with positive sum.
+The arithmetic--geometric mean inequality gives
+\[
+                   B(u,u)\ge {2f\over\mathrm{rd}_E^2}.
+ \tag{GS11b}\label{eq:sr-source-trace-dual-min}
+\]
+This is the original
+\srcid{EmbeddingHermSelf.trace_dual_min}, using the fractional
+ideal norm and trace estimate already proved by the trace-dual
+norm lemma.
+
+Apply the source transference bound to this rational Euclidean
+space with \(\lambda=\sqrt{2f}/\mathrm{rd}_E\).
+For clarity, its rational-to-real passage diagonalizes \(B\)
+and embeds the rational space into \(\mathbb R^M\) by multiplying
+the basis coordinates by the square roots of its nonnegative
+diagonal coefficients.
+The images of the \(B\)-dual basis form a real basis:
+pairing with the images of the original basis gives the identity
+matrix. Their integer lattice has minimum at least \(\lambda\)
+by (GS11b). The original Euclidean transference theorem supplies
+an independent family in the dual lattice with lengths at most
+\(M^2/\lambda\). Its integral pairings with that real basis are
+integer coordinates in the original rational basis, so this
+family pulls back to \(v_1,\ldots,v_M\in\Lambda\), independent
+and spanning over \(\mathbb Q\), with
+\(B(v_j,v_j)\le(M^2/\lambda)^2\).
+This is \srcid{TraceHermNondegenerate.transference_rat}, using
+the earlier source \srcid{T0.transference_dual} inequality.
+
+For every embedding \(\tau\), its conjugate is distinct and has
+the same squared-coordinate sum, so
+\(2\sum_k|\tau(v_{j,k})|^2\le B(v_j,v_j)\).
+Substitution of \(M=2fn\) and \(\lambda=\sqrt{2f}/\mathrm{rd}_E\)
+proves
+\[
+ \sum_k|\tau(v_{j,k})|^2
+       \le\{2 f^{3/2}n^2\mathrm{rd}_E\}^2 .
+ \tag{GS11}\label{eq:sr-source-tensor-short-vectors}
+\]
+This proves the actual supplier
+\srcid{TraceHermNondegenerate.exists_short_vectors}, including
+its stronger rational independence and spanning assertion.
+For \(n=0\) the empty family is exactly the asserted family.
+
+\paragraph{The tensor-period minimum used with this estimate.}
+Let \(T\) be the source \(O_E\)-linear positive torus, and
+\(\Lambda\subset E^n\) the actual positive self-dual Hermitian
+coefficient lattice.
+The preceding source short-vector construction gives an
+\(E\)-spanning family \(v_j\in\Lambda\) with (GS11).
+For \(\gamma\) in the actual tensor lattice, contraction by
+\(v_j\) lies in the original period lattice.
+If \(\gamma\ne0\), some such contraction is nonzero:
+otherwise linearity and the spanning property make all
+contractions zero, hence every coordinate of \(\gamma\) zero.
+Cauchy--Schwarz gives
+\[
+ \|\operatorname{contr}_{v_j}\gamma\|
+     \le2 f^{3/2}n^2\mathrm{rd}_E\,\|\operatorname{flat}\gamma\|.
+\]
+Thus, if every nonzero original period has length at least
+\(\lambda>0\), every nonzero tensor period has length at least
+\[
+                  \lambda'={\lambda\over
+                                     2f^{3/2}n^2\mathrm{rd}_E}.
+ \tag{GS12}\label{eq:sr-source-tensor-period-minimum}
+\]
+For \(n=0\) the tensor lattice is zero and the source takes
+\(\lambda'=1\).
+These are the exact contraction steps in
+\srcid{LeMulNormFlatOfSelfDual.le_mul_norm_flat_of_selfDual}
+and \srcid{NormalisedThetaValueBound.exists_min_period}.
+The short-vector construction (GS11) has just been proved from
+the same source transference bound and trace-dual norm estimate.
+
+\paragraph{Frozen-source ledger.}
+All sources use \srcid{alpoge-source-7cbf7a0c}.
+In
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/SquareIntegrability/},
+the relevant files and blobs are
+\begin{itemize}
+\item \srcid{GCauchyStatement.lean},
+\srcid{e53576b249c74c71fcb3af8c66b5d3111df34e04};
+\item \srcid{LemmaSA.lean},
+\srcid{dbdc66e846263d475c90d6c0c9ef0e1c580b845a};
+\item \srcid{RSubMean.lean},
+\srcid{d6dda1e32c137194deb3cf921537bf7c21e6efe4};
+\item \srcid{LemmaSB.lean},
+\srcid{948ae7e2d3bc2acbcf2b3a97ad9b4ceae6fe1609};
+\item \srcid{LemmaS.lean},
+\srcid{1950e4726b3b5ce278491239f53fcab26d875218};
+\item \srcid{RCauchy.lean},
+\srcid{07fa9a67f8ac8ff589a18c3691ec38b76f963408};
+\item \srcid{GCauchy.lean},
+\srcid{22dc8c28fccd0c9fad68fd47686cd6e0a01cef93}.
+\end{itemize}
+The realization of the packing supplier by disjoint ball volumes
+is \srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/SupLeL2PrincipalTorus.lean},
+blob \srcid{89e09ea66f30995d745920d4a3f50db3921618ba}.
+The tensor contraction proof in the same directory is
+\srcid{LeMulNormFlatOfSelfDual.lean},
+blob \srcid{0800466bdb169dc1ddd430812943ca9c4f8f093d};
+the actual normalized tensor-period bound is
+\srcid{NormalisedThetaValueBound.lean},
+blob \srcid{689a12045c213d4d11e73f6660d5ee8a8739f684}.
+The exact short-vector proof in the same directory is
+\srcid{TraceHermNondegenerate.lean},
+blob \srcid{c12f943d2da5d109d91c74539874b853f035eb6b},
+with \srcid{EmbeddingHermSelf.lean},
+blob \srcid{d1edfe1b816a8069a1c99f902b09cbf9f6549fd1}.
+Its fractional-ideal trace and norm supplier is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/FinrankMulDiscrRpowLeSumSqOfMemTraceDual.lean},
+blob \srcid{83942a82c35de9c2751c6b1419702f69ca8ab550}.
+Its Euclidean transference supplier is the already identified
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/HeightTheory/Transference.lean},
+blob \srcid{3b1ced809264736e3140deb8ea437d8aa061580c}.
+The Gaussian statements above are proved for a supplied actual
+\(\mathrm{GT}\); they do not construct the model's analytic
+fibre or identify an algebraic theta reading with its sections.
+
+\section{Projected vacua and the raw-theta index factor}
+\label{sec:sr-source-raw-theta-norm}
+This section follows the source normalized isogeny sum, followed
+by \srcid{JetTranslateProjectedVacuumLe} and
+\srcid{NormRawThetaSeriesIndexBoundLeSqrt}.
+It keeps the same Hermitian ambient space, actual Weil action,
+frame and algebraic theta reading in every comparison.
+
+\subsection{The normalized isogeny sum on two actual tori}
+Use two source Gaussian tori \(Y,Y'\) on the same
+\(\mathbb C^N\), with lattices \(L,L'\), unit factors \(k,k'\),
+and the actual translation
+\[
+ (U_aF)(z)=
+       e^{\pi H(z,a)-\pi H(a,a)/2}F(z-a).
+ \tag{RV1}\label{eq:sr-source-fock-translation}
+\]
+The factors obey their integral semicharacter law and agree on
+\(L\cap L'\).
+Let \(R\subset L'\) be a finite set of unique representatives
+of \(L'/(L\cap L')\), and set
+\[
+                     G_R=\sum_{a\in R}k'(a)U_aF
+                                      \qquad(F\in Y.\mathrm{Sec}(1)).
+ \tag{RV2}\label{eq:sr-source-isogeny-sum}
+\]
+
+\begin{srlemma}\label{lem:sr-source-isogeny-sum-norm}
+The actual sum \(G_R\) belongs to \(Y'.\mathrm{Sec}(1)\), and
+\[
+                           L_{2,Y'}(G_R)=|R|\,L_{2,Y}(F).
+ \tag{RV3}\label{eq:sr-source-isogeny-sum-norm}
+\]
+\end{srlemma}
+\begin{proof}
+The Fock composition law and the semicharacter law say that
+\(k'(a)U_a\) is an additive representation for \(a\in L'\).
+For \(\gamma\in L'\), write
+\(\gamma+a=a'+b\), uniquely with \(a'\in R\) and
+\(b\in L\cap L'\).
+The operator \(k'(b)U_b=k(b)U_b\) fixes \(F\).
+Thus translation by \(\gamma\) permutes the summands in (RV2),
+which is the section condition for \(Y'\).
+Each summand is entire.
+
+The finite representative set supplies a full common sublattice
+\(L_0\subset L\cap L'\): for each real basis vector \(b_i'\)
+of \(L'\), two integer multiples have the same representative
+modulo \(L\), so a nonzero integer multiple \(n_i b_i'\)
+belongs to \(L\); these multiples are still a real basis.
+Integrate on its basis parallelepiped.
+For \(a,a'\in R\), put
+\[
+ h_{a,a'}(z)=U_aF(z)\overline{U_{a'}F(z)}e^{-\pi H(z,z)} .
+\]
+Substitution of (RV1) and the section condition gives exactly
+\[
+ h_{a,a'}(z+x)
+   =e^{2\pi i\,\operatorname{Im}H(x,a-a')}h_{a,a'}(z)
+                                             \qquad(x\in L).
+ \tag{RV4}\label{eq:sr-source-pairing-density}
+\]
+For \(x\in L_0\) this multiplier is one, by integrality in \(L'\).
+For \(a\ne a'\), their difference is not in \(L\).
+Perfection of \(L\) therefore gives some \(x\in L\) for which
+the multiplier in (RV4) is not one.
+Indeed if every such imaginary pairing were integral,
+the resulting integral functional would be represented by
+a point of \(L\); nondegeneracy over the real span would then
+put \(a-a'\) in \(L\).
+The integral of the \(L_0\)-periodic continuous density is
+unchanged by any translation of its fundamental domain.
+Equation (RV4) consequently forces its off-diagonal integral
+to be zero.
+
+On the diagonal,
+\(h_{a,a}(z)=|F(z-a)|^2e^{-\pi\|z-a\|^2}\).
+Its average over a fundamental domain of \(L_0\) equals
+\(L_{2,Y}(F)\), independently of \(a\), by tiling with
+fundamental domains of \(L\).
+Similarly the average of the density of \(G_R\), periodic
+under \(L'\), equals \(L_{2,Y'}(G_R)\).
+Expanding the finite square, all off-diagonal averages vanish
+and each of the \(|R|\) diagonal terms has the indicated value.
+The factors \(k'(a)\) have modulus one.
+All integrals are legitimate because the densities are continuous
+on bounded fundamental parallelepipeds.
+This proves (RV3), by exactly the common-lattice and pairing-density
+argument in
+\srcid{ContinuousThetaSectionPointwiseNormSq.isogeny_sum_mem_and_norm}.
+\end{proof}
+
+\subsection{The normalized tensor jet}
+Let \(T\) be the source \(O_E\)-linear positive torus, with
+level-one semicharacter determined by the fixed integral \(w_0\)
+satisfying \(w_0+\overline{w_0}=1\).
+Let \(s\in T.\mathrm{Sec}(1,1)\), \(s\ne0\).
+For a positive self-dual Hermitian coefficient lattice
+\(\Lambda\subset E^n\), use its actual tensor lattice and
+representatives \(R\) modulo the original product period lattice.
+Both tensor tori carry the same formula
+\[
+ \epsilon_{w_0}(\gamma)
+ =\exp\{\pi i\,\operatorname{Im}
+                         H_C(\gamma,w_0\gamma)\}.
+\]
+They therefore have the required equality of factors on their
+intersection.
+
+The source obtains a real basis of this tensor lattice by
+integer commensurability with the product lattice.
+Integrality and perfection are transported by its contraction
+description: contraction against every coefficient vector in
+\(\Lambda\) lies in the original period lattice.
+The Hermitian self-duality of \(\Lambda\) supplies a finite dual
+family, which reconstructs a tensor from these contractions.
+Thus the tensor object used here is the actual
+\(\mathrm{GT}\), not merely a collection of unrelated norm bounds.
+
+For \(F=s^{\otimes n}\), the product fundamental domain and
+Fubini give \(L_2(F)=L_2(s)^n\).
+Lemma~\ref{lem:sr-source-isogeny-sum-norm} gives
+\[
+                         L_2(G_R)=|R|\,L_2(s)^n .
+ \tag{RV5}\label{eq:sr-source-tensor-sum-norm}
+\]
+Also \(L_2(s)>0\).
+If it were zero, its continuous nonnegative norm density would
+vanish almost everywhere on one fundamental domain, hence
+everywhere there and, by the actual section transformation,
+everywhere; this would imply \(s=0\).
+
+Put \(f=[E:\mathbb Q]/2\), \(g=\dim_\mathbb C T=fr\).
+Suppose the original period lattice has minimum at least
+\(\lambda>0\).
+The exact short-vector and contraction argument in
+Section~\ref{sec:sr-source-gaussian-sup} gives the tensor
+minimum
+\(\lambda'=\lambda/(2f^{3/2}n^2\mathrm{rd}_E)\) for \(n>0\);
+the zero-row case is handled separately as there.
+For a homogeneous polynomial \(P\) of degree \(d\), let
+\(\|P\|_1=\sum_\alpha|P_\alpha|\), and define
+\[
+ {\cal B}(P,d,\lambda)=
+ \|P\|_1(\pi e d)^{d/2}\sqrt2
+ \left(1+
+ {4\sqrt{2gn}\,(2f^{3/2}n^2\mathrm{rd}_E)
+                       \over\sqrt\pi\,\lambda}\right)^{gn}.
+ \tag{RV6}\label{eq:sr-source-normalized-jet-bound}
+\]
+The degree-zero factor is \(1\).
+
+Apply the actual Gaussian supremum bound to \(G_R\) on this
+tensor torus, then the repeated Cauchy estimate to any translate
+\(U_yG_R\). The norm density of \(U_yG_R\) at \(z\) is the
+norm density of \(G_R\) at \(z-y\), so its same global bound
+applies. For coefficients \(|c_j|\le1\), a finite set \(J\),
+and \(|\beta|^2=|R|\), the result is
+\[
+ { \left|\beta^{-1}\sum_{j\in J}c_j
+                         P(\partial)U_{y_j}G_R(0)\right|
+                       \over L_2(s)^{n/2}}
+                  \le |J|\,{\cal B}(P,d,\lambda).
+ \tag{RV7}\label{eq:sr-source-normalized-isogeny-jet}
+\]
+Here \(\beta\ne0\), since \(R\) contains a representative of zero.
+The cancellation is literal:
+the square root of (RV5) is
+\(|\beta|L_2(s)^{n/2}\).
+This is
+\srcid{NormalisedThetaValueBound.normalised_theta_value_bound}.
+No beta factor is chosen independently of the actual index.
+
+\subsection{The actual projected vacuum at an orthogonal frame}
+Keep the source Hermitian datum \(X\), one fixed symplectic
+rational basis \(\mathrm{bas}\), and the corresponding genuine
+Weil and Heisenberg actions.
+Let \(L\subset E^r\) be self-dual for the source alternating
+trace form \(EF_X\), \(n\) even, and let \(v\) be the normalized
+vacuum for \(\mathrm{tens}(O_E^n,L)\).
+For the positive coefficient lattice \(\Lambda\), put
+\[
+ J_\Lambda=[\Lambda:\Lambda\cap O_E^n],\qquad
+                         A_\Lambda=\mathrm{tens}(\Lambda,L).
+\]
+The source tensor-index formula gives a finite representative set
+\(R\subset A_\Lambda\) modulo \(\mathrm{tens}(O_E^n,L)\), with
+\[
+                  |R|=J_\Lambda^r=:J>0,\qquad
+ \mathrm{projA}_{A_\Lambda}v
+       ={1\over J}\sum_{a\in R}\epsilon_{w_0}(a)\,\omega(a)v .
+ \tag{RV8}\label{eq:sr-source-projector-representatives}
+\]
+To identify this with the definition as the mean over distinct
+orbit functions, use the source vacuum orthogonality:
+\(\epsilon(a)\omega(a)v=v\) holds exactly on its original
+self-dual lattice. The Heisenberg composition law then gives
+equality of two orbit functions exactly when their parameters
+differ by that lattice.
+Representatives therefore map bijectively to the distinct
+orbit functions, including their count \(J\).
+This is \srcid{ProjAEqSumReps.projA_eq_sum_reps} and
+\srcid{vac_proj_mean}.
+The tensor-index formula itself is the source
+\srcid{TensorLatticeSelfDualSemicharacterIndex}:
+a pseudobasis of either factor makes the tensor relative index
+the product of the factor indices; fractional ideal multiplication
+does not change each relative index.
+It gives
+\(\operatorname{relIndex}(\Lambda'\otimes L,\Lambda\otimes L)
+ =\operatorname{relIndex}(\Lambda',\Lambda)^r\).
+Self-duality gives the required finite nonzero index and vacuum
+overlap. We retain the source tensor-vacuum construction used
+in this step.
+
+Fix an orthogonal frame \(x\in\mathcal D_X\), and a common
+\(t>0\) with \(X.c_\tau=t\) for every \(\tau\).
+The source constructs the positive torus \(T\) and
+\(\psi:\mathbb C^g\overset{\sim}\longrightarrow V_T\)
+from this same \(X,L,x\).
+In the actual relabelled coordinates,
+\[
+ H_T(\psi z,\psi z')=h_x(z,z'),\qquad
+ \psi(e_j)=\sqrt t\,e_{\epsilon(j)},\qquad
+ \psi(p_v(x,u))\in L_T\ \Longleftrightarrow\ u\in L.
+ \tag{RV9}\label{eq:sr-source-self-torus}
+\]
+For precision, this construction first uses the full lattice
+\(L\), an integer commensurability with \(X.\Lambda\), and a
+real lattice basis of its scaled period image.
+The integral dual of \(L\) represents every lattice functional:
+extend it rationally and invert the nondegenerate \(EF_X\)
+pairing. Self-duality puts the representing vector back in \(L\).
+The torus factor is the sign of
+\(\operatorname{Im}H_T(\gamma,w_0\gamma)\);
+the integer cross-term formula and \(w_0+\overline{w_0}=1\)
+give its semicharacter law.
+Finally \(\psi\) is the explicit coordinate permutation followed
+by multiplication by \(\sqrt t\).
+Uniqueness of the Hermitian form with the given imaginary
+pairing on a full period lattice identifies it with \(h_x\).
+These are the steps in
+\srcid{ExistsTorusOfSelfD.exists_torus_of_selfD}.
+The equality of the period coordinates with the source \(h_x\)
+uses the specified \srcid{HermitianFormAtFrameLaws}.
+
+Let the actual normalized theta function satisfy
+\[
+ \theta\in\mathrm{IsTheta1}(X,x,L),\qquad
+ \mathrm{MeanOne}(\theta),\qquad
+       \prod_b\theta(z_b)=\kappa\,\mathrm{thA}(v,x,z).
+ \tag{RV10}\label{eq:sr-source-theta-vacuum-tie}
+\]
+Under (RV9), \(s(v_1)=\theta(\psi^{-1}v_1)\) is a level-one
+section with \(L_2(s)=1\).
+Indeed substitution in its Fock transformation gives (GS1),
+and the normalized integral is unchanged by the fixed
+real linear coordinate change: its Haar scalar cancels between
+the integral and volume. Any two fundamental domains give the
+same integral of the periodic density.
+Thus \(\mathrm{MeanOne}\) is exactly this \(L_2\)-normalization;
+it is not an unrelated positive scalar.
+
+Write \(\Phi(y)_b=\psi(p_v(x,y_b))\).
+The source proves that \(-\Phi(R)\) is the representative set
+for the tensor torus above,
+\(\epsilon_{w_0}(-\Phi(a))=\epsilon_{w_0}(a)\),
+and Fock translation becomes \(U_{-\Phi(y)}\).
+Consequently the theta function for
+\(\omega(y)\mathrm{projA}_{A_\Lambda}v\) is
+\[
+                  \kappa^{-1}J^{-1}\,G_R\circ\psi^{\,n},
+\]
+with the additional common translation \(U_{-\Phi(y)}\).
+If \(\kappa=0\), the target bound is immediate.
+Otherwise the displayed \(\kappa^{-1}\) cancels its exterior
+\(\kappa\).
+
+Each actual theta-polynomial letter becomes
+\(\sqrt t\) times its Euclidean coordinate direction.
+The relabelling of letters is injective, so it preserves the
+coefficient \(L^1\)-sum.
+Homogeneity gives the derivative factor \(t^{d/2}\).
+Apply (RV7) with one translation and \(\beta=\sqrt J\).
+Since (RV8) divides by \(J\), the exact result is
+\[
+ |\kappa\,\mathrm{thP}(\omega(y)\mathrm{projA}_{A_\Lambda}v,P,x)|
+           \sqrt J
+ \le \|P\|_1(\pi e t d)^{d/2}\sqrt2
+ \left(1+
+ {4\sqrt{2gn}\,(2f^{3/2}n^2\mathrm{rd}_E)
+                       \over\sqrt\pi\,\lambda}\right)^{gn}.
+ \tag{RV11}\label{eq:sr-source-projected-vacuum-jet}
+\]
+Here the minimum assumption is exactly
+\(\lambda^2\le h_x(p_v(x,u),p_v(x,u)).\operatorname{re}\)
+for every \(0\ne u\in L\).
+The source \srcid{hx_ortho} supplies this from the same frame's
+\(\lambda^2\le\mathrm{firstMinimumSq}(x)\).
+Equation (RV11) is
+\srcid{JetTranslateProjectedVacuumLe.jet_projA_le}.
+
+\subsection{The exact raw-theta value}
+Now use the original \(E,H,D_w,l,X_o,c\), good embedding
+\(\sigma:c.F\to\mathbb C\), actual \(\mathrm{IsUnf}\) with
+\(r=p+q\ge1\), and actual \(\mathrm{IsNab}\) connection.
+The row dictionary in the preceding construction has
+\(X.p_0=D_w.q\) and the other block size \(q_0=D_w.p\), exactly
+as in \srcid{ExistsAnalyticDataUnitFrameFramedPoint.exists_setup}.
+The polynomial directions, signatures and \(\psi\) use that
+specified dictionary, including this ordering.
+
+Let \(n\) be even, \(a\) dominant, and let
+\(\Lambda=\mathrm{La}\) be the actual positive coefficient
+lattice with \(\mathrm{Unimod}\),
+\(\mathrm{TrivAt}(l.M)\) and \(\mathrm{LevOK}(N,l.M)\).
+Let \(P\in\mathrm{harmL}(c,\Lambda,a)\) have total degree
+\(d=\mathrm{DF}(D_w,a)\).
+Let \(f\in\mathrm{sec}(X_o,c,a,n)\), and suppose its values on
+every source test ring and every frame satisfy the actual
+\(\mathrm{thLaValAt}\) formula for these same
+\(\Lambda,N,P,\mathrm{nab}\) and coefficient function \(w\).
+Assume \(|\sigma(w(q))|\le1\) for every label \(q\).
+
+The source first extends the equality from test rings to the
+complex frame: actual \(\mathrm{secBaseChange}\) supplies a
+test frame mapping to it; uniqueness and naturality of the
+actual short theta value give the same value after pullback.
+This is \srcid{thLaValAt_evR}.
+It uses all test rings in the premise, not equality at one
+preferred complex point.
+
+At an orthogonal frame \(x\), the supplied analytic fibre,
+marked level data, theta generator and normalized vacuum give
+the exact complex value formula. If
+\[
+ m=\mathrm{mIdx}(\Lambda,N,r),\quad
+ z=\mathrm{zCard}(\Lambda,N,r),\quad
+ Q=|\mathrm{Fin}(n)\to\mathrm{LevQ}(D_w,l)|,\quad
+ J=J_\Lambda^r,
+\]
+its scalar is
+\[
+ {z\over m}\ {1\over Q}\,
+ \kappa\,\mathrm{thP}
+       \left(\sum_q\sigma(w(q))\,
+                  \omega(Y_q)\mathrm{projA}_{A_\Lambda}v,\ P,\ x\right),
+              \qquad z=mJ .
+ \tag{RV12}\label{eq:sr-source-raw-reading-scalar}
+\]
+The exact relation \(z=mJ\) follows by multiplying the finite
+lattice indices through the intersection with \(O_E^n\);
+it is \srcid{zCard_eq}, with \srcid{index_Ln}.
+No normalizing \(\mathrm{betaH}^{-1}\) is inserted in this raw
+formula.
+
+Put \(B_0\) equal to the right side of (RV11).
+Linearity of the actual theta derivative and the triangle
+inequality give a bound \(B_0/\sqrt J\) for the normalized
+\(Q\)-mean in (RV12).
+Combining this with \(z=mJ\) gives
+\[
+ \left|\operatorname{ev}_\sigma(f;x)\right|
+ \le \sqrt{J_\Lambda^r}\,
+       \left(\sum_\alpha|\sigma(P_\alpha)|\right)
+       (\pi e t d)^{d/2}\sqrt2
+ \left(1+
+ {4\sqrt{2frn}\,(2f^{3/2}n^2\mathrm{rd}_E)
+                       \over\sqrt\pi\,\lambda}\right)^{frn}.
+ \tag{RV13}\label{eq:sr-source-raw-value-bound}
+\]
+Algebraically \(|m^{-1}z|\le J\) even in the source's
+zero-denominator convention; the actual finite-index case has
+\(m>0\).
+Likewise an empty-label mean is zero by that convention.
+The actual label group is finite and nonempty.
+This proves exactly
+\srcid{NormRawThetaSeriesIndexBoundLeSqrt.norm_evR_le}
+under the stated actual analytic-fibre/reading suppliers.
+
+\paragraph{Frozen-source ledger and retained geometric comparisons.}
+All sources use \srcid{alpoge-source-7cbf7a0c}.
+In
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/},
+the files are
+\begin{itemize}
+\item \srcid{ContinuousThetaSectionPointwiseNormSq.lean},
+\srcid{9f7ab3413f449c9b93dac642ca2ab0845057ee85};
+\item \srcid{NormalisedThetaValueBound.lean},
+\srcid{689a12045c213d4d11e73f6660d5ee8a8739f684};
+\item \srcid{ProjAEqSumReps.lean},
+\srcid{818dccb76df27daa5ee0a1c63a15a27700ebfaf4};
+\item \srcid{ExistsTorusOfSelfD.lean},
+\srcid{859af98c532c58c34785cd7f6e382a0f49944c71};
+\item \srcid{L2OneEqIntegralFundamentalDomainDivVolume.lean},
+\srcid{34d7c34bb82c87d1f3b0a8a9ea0771ffa8c0d23e};
+\item \srcid{JetTranslateProjectedVacuumLe.lean},
+\srcid{4a358a4e34143451dab2d499357ed33d1e51249d};
+\item \srcid{ExistsAnalyticDataUnitFrameFramedPoint.lean},
+\srcid{903ac3995f8acf7789604f184c54eb7fc7887e45}.
+\end{itemize}
+The tensor lattice and relative-index proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/SiegelThetaTransformation/TensorLatticeSelfDualSemicharacterIndex.lean},
+blob \srcid{4894f884d42f8c17e88ea2604bcf2fc40817b20d}.
+The final raw reading proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/NormRawThetaSeriesIndexBoundLeSqrt.lean},
+blob \srcid{d1817b6beba51a259498dc4ae71cb669cf67c874}.
+
+The remaining construction-specific suppliers at (RV10)--(RV12)
+are exactly the actual
+\srcid{AnalyticFibreUnitFrameUniformisation},
+\srcid{FramedPointGeneratorIsThetaLevelOne},
+\srcid{ProdLevelOneThetaEqVacuumTheta},
+\srcid{DualHalfLevelMarkingExistsAndMatch},
+and
+\srcid{ShortThetaValueComplexPointEqClassicalTheta},
+together with actual \srcid{IsNab}, the symplectic row dictionary,
+and the source tensor-vacuum/Heisenberg laws.
+The preceding arguments prove the Gaussian and index bounds with
+these compatible data; they do not construct separate witnesses
+and identify them merely because they have the same names.

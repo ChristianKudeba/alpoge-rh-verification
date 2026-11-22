@@ -17,6 +17,10 @@ abelian scheme \(B/R\), an invertible sheaf \(L\) on \(B\), its
 rigidification, symmetry and cubical generators, integral sections
 \(c_\chi:\operatorname{Spec}R\to B\) for \(\chi\in X\), and generic
 generators \(\psi_\chi\) of \(c_\chi^*L\).
+Assume explicitly the actual relations \(D.\operatorname{TauBimult}\)
+and \(D.\operatorname{PsiEven}\). They hold for the source's actual
+\(\operatorname{DegData}\); symmetry of \(L\) and an arbitrary
+collection of generic generators would not imply them.
 All the structural generators in this sentence are the specified
 generators of \(D\); replacing one by an arbitrary rational multiple
 would change the question.
@@ -302,8 +306,9 @@ proves the assertion.  This is
 
 \begin{srlemma}[Equal point counts turn those lifts into all generic points]
 \label{lem:psi-etale-count-lifts}
-In Lemma~\ref{lem:psi-etale-finite-lifts}, assume the geometric special
-and generic point sets are finite and have the same cardinality.
+In Lemma~\ref{lem:psi-etale-finite-lifts}, assume the actual \(\Omega\)-point set of the special fibre and
+\(F\)-point set of the generic fibre are finite and have the same
+cardinality.
 There is a discrete valuation subring \(T\subset F\), with the same
 uniformiser as \(A\), over which every generic \(F\)-point of \(Z\)
 extends.
@@ -339,6 +344,8 @@ smooth etale criterion gives etaleness, and its pullback to the
 identity gives the assertion for the kernel.  Separatedness is
 inherited from \(H\).
 The relative dimension \(g\) is constant on this connected base.
+Choose explicitly \(\Omega=\overline{\kappa(A)}\) and let
+\(\rho:A\to\kappa(A)\to\Omega\) be the residue map.
 The classical prime-to-characteristic torsion theorem for abelian
 varieties gives exactly \(k^{2g}\) geometric torsion points in both
 the generic and the special fibres.  This precise background theorem

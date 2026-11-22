@@ -1,7 +1,7 @@
 \subsection{The two norm calculations in the geometric freeness proof}
 \label{subsec:faithful-free-norm-calculations}
 
-\begin{lemma}[The integral coefficient lattice]
+\begin{srlemma}[The integral coefficient lattice]
 \label{lem:faithful-integral-lattice-norm}
 Let \(E\) be a number field and \(O=\mathcal O_E\).
 Let \(\Lambda\) be an \(O\)-module whose underlying abelian group
@@ -24,9 +24,9 @@ then
 The characteristic polynomial of \(m_{a,k}\) is the image of
 \eqref{eq:faithful-integral-lattice-character} in \(k[T]\).
 In particular \(\dim_k(k\otimes_{\mathbb Z}\Lambda)=[E:\mathbb Q]s\).
-\end{lemma}
+\end{srlemma}
 \begin{proof}
-We follow \texttt{KernelRankNormBound}, without assuming that
+We follow \srcid{KernelRankNormBound}, without assuming that
 \(\Lambda\) is free over \(O\).
 Choose \(s\) independent elements over \(O\), giving an injective
 \(O\)-linear map \(j:O^s\to\Lambda\).
@@ -72,12 +72,12 @@ Their degrees give the final rank equality.
 \end{proof}
 
 The next lemma is the arithmetic end of
-\texttt{DegreeMultiplicationNorm}.  It is stated explicitly because
+\srcid{DegreeMultiplicationNorm}.  It is stated explicitly because
 the formal proof obtains the norm-degree equality from a coordinate
 growth bound; it does not assume that equality as a property of
 the \(O\)-action.
 
-\begin{lemma}[Multiplicative degree and the integral-coordinate bound]
+\begin{srlemma}[Multiplicative degree and the integral-coordinate bound]
 \label{lem:faithful-degree-function-norm}
 Let \(O=\mathcal O_E\) have integral basis
 \(b_1,\ldots,b_n\), \(n=[E:\mathbb Q]>0\).
@@ -94,7 +94,7 @@ Then for every \(a\ne0\),
                         d(a)^n=|N_{E/\mathbb Q}(a)|^e .
  \tag{NN3}\label{eq:faithful-degree-function-norm}
 \]
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 First \(d(a^k)=d(a)^k\), including \(k=0\), by (1) and
 \(d(1)=1\).
@@ -152,7 +152,7 @@ the positive factor \(|N(b)|^e\).  This gives
 \eqref{eq:faithful-degree-function-norm}.
 \end{proof}
 
-\begin{lemma}[The effective quadratic bound used for degree growth]
+\begin{srlemma}[The effective quadratic bound used for degree growth]
 \label{lem:faithful-effective-quadratic-bound}
 Let \(B,P\) be abelian groups and \(S\subset P\) an additive
 submonoid.  Suppose \(q:B\to P\) has \(q(0)=0\) and
@@ -168,7 +168,7 @@ For any finite list \(\omega_1,\ldots,\omega_m\in B\) there is
                     \qquad (|c_i|\le T,\ c_i\in\mathbb Z).
  \tag{NN5}\label{eq:faithful-effective-quadratic-bound}
 \]
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 The parallelogram identity gives \(q(-x)=q(x)\) and, by
 two-step induction, \(q(nx)=n^2q(x)\) for natural \(n\);
@@ -194,18 +194,18 @@ Use \(2N+2C\) as the new positive constant.
 \paragraph{Frozen-source ledger and geometric interface.}
 Lemma~\ref{lem:faithful-integral-lattice-norm} is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankNormBound.lean}
-{\texttt{KernelRankNormBound}}
-(blob \texttt{731390fb9ea36fcdfffd4246d81834d09f5b05ab}):
-\texttt{det\_eq\_of\_intertwine}, \texttt{det\_lsmul},
-\texttt{charpoly\_lsmul}, \texttt{corank\_le}, and the final theorem.
+{\srcid{KernelRankNormBound}}
+(blob \srcid{731390fb9ea36fcdfffd4246d81834d09f5b05ab}):
+\srcid{det\_eq\_of\_intertwine}, \srcid{det\_lsmul},
+\srcid{charpoly\_lsmul}, \srcid{corank\_le}, and the final theorem.
 Lemmas~\ref{lem:faithful-degree-function-norm} and
 \ref{lem:faithful-effective-quadratic-bound} are respectively
-\texttt{pow\_eq\_norm} and \texttt{quad\_bound} (with
-\texttt{quad\_nat}, \texttt{quad\_int}, and
-\texttt{le\_of\_pow\_le}) in
+\srcid{pow\_eq\_norm} and \srcid{quad\_bound} (with
+\srcid{quad\_nat}, \srcid{quad\_int}, and
+\srcid{le\_of\_pow\_le}) in
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/DegreeMultiplicationNorm.lean}
-{\texttt{DegreeMultiplicationNorm}}
-(blob \texttt{09a4b78a396ac292ab8fe3938f653e00cca99a6a}).
+{\srcid{DegreeMultiplicationNorm}}
+(blob \srcid{09a4b78a396ac292ab8fe3938f653e00cca99a6a}).
 Both source files were checked against the frozen baseline.
 
 The geometric application takes \(d(a)\) to be the constant

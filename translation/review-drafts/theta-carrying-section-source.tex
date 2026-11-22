@@ -1,8 +1,8 @@
 \section{The source carrying section and its exact cost}
 \label{sec:ftb-carrying-section}
 This section follows the construction in
-\texttt{ExistsCarryingSectionOrders} and
-\texttt{CarryingSectionIntegralFrame}.  It keeps the same component,
+\srcid{ExistsCarryingSectionOrders} and
+\srcid{CarryingSectionIntegralFrame}.  It keeps the same component,
 level and reference weight throughout.  The analytic hypotheses used below
 are the actual estimates for that component; no estimate for a different
 cover or for a larger space is substituted.
@@ -67,20 +67,20 @@ Here is the elementary lattice calculation used in the finite
 theta estimate.  Let \(Y\) be a finitely generated
 \(\mathbf Z\)-module with an \(\mathcal O_E\)-action.  Conjugation
 preserves \(\mathcal O_E\); choose \(w_0\in\mathcal O_E\) with
-\(w_0+\bar w_0=1\).  Let \(\mathscr B\) be the real vector space of
+\(w_0+\bar w_0=1\).  Let \(\mathcal B\) be the real vector space of
 symmetric \(\mathbf Z\)-bilinear forms satisfying
 \(\gamma(ca,b)=\gamma(a,\bar c b)\).
-For positive semidefinite \(\beta\in\mathscr B\), define
+For positive semidefinite \(\beta\in\mathcal B\), define
 \[
  \phi_C(\beta)=
  \inf_{\ell}\ell(\beta),                           \tag{C4}\label{eq:ftb-phic}
 \]
-where \(\ell:\mathscr B\to\mathbf R\) is linear, is integer-valued
+where \(\ell:\mathcal B\to\mathbf R\) is linear, is integer-valued
 on integer-valued forms, and is strictly positive on every nonzero
 positive semidefinite form.  This is the source definition of
 \(\phi_C\); it is not the minimum of a quadratic form.
 
-\begin{lemma}[Spanning and coset minima]\label{lem:ftb-coset-minimum}
+\begin{srlemma}[Spanning and coset minima]\label{lem:ftb-coset-minimum}
 Let \(Q:Y\to\mathbf Z_{\geq0}\) satisfy
 \(\beta(a,a)=2Q(a)\).  Suppose \(m\geq2\), and
 \(y_1,\ldots,y_n\) generate \(Y/m^2Y\) as an
@@ -95,7 +95,7 @@ then
                  \phi_C(\beta)/m^2\leq\sum_i b_i .
  \tag{C5}\label{eq:ftb-coset-minimum}
 \]
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 Choose \(z_i\) minimizing the nonnegative integer
 \(Q(y_i+mz)\).  Let \(X\) be the \(\mathcal O_E\)-span of
@@ -176,7 +176,7 @@ additional claim of this calculation.
 Assume \(5^4\mid M\), and supply the source admissible level-\(5^4\)
 tuple and theta rule \(f\) nonzero on \(Z\).  This nonvanishing input
 is the actual shifted-null-value construction of
-\texttt{exists\_isGenRule\_nonzeroOn}; its scope is retained below.
+\srcid{exists\_isGenRule\_nonzeroOn}; its scope is retained below.
 The admissible tuple generates the full level module.
 Let
 \[
@@ -213,7 +213,7 @@ and
 \]
 Both twisting sections have inverses on \(Z\).
 
-\begin{proposition}[The explicit carrying section]
+\begin{srproposition}[The explicit carrying section]
 \label{prop:ftb-carry-explicit}
 Under these hypotheses put
 \[
@@ -235,7 +235,7 @@ It satisfies \eqref{eq:ftb-infbd}, and its cost is exactly
           \operatorname{cost}(e,t)
                 =\beta/2+\kappa/8-\deg S/8.         \tag{C12}\label{eq:ftb-carry-cost}
 \]
-\end{proposition}
+\end{srproposition}
 \begin{proof}
 The source identity
 \[
@@ -289,7 +289,7 @@ finite sums, so this gives \eqref{eq:ftb-carry-cost} without a
 limiting argument.
 \end{proof}
 
-\begin{lemma}[The numerical cost absorption]\label{lem:ftb-carry-cost-numerical}
+\begin{srlemma}[The numerical cost absorption]\label{lem:ftb-carry-cost-numerical}
 Suppose \(f,r,L\geq1\), \(p,q\geq0\), \(p+q=r\),
 \(|\omega|\leq3L\), and \((frL)^{12}\leq P\).
 Then
@@ -301,7 +301,7 @@ In a common window with \(T\beta\leq C_\beta U\) and \(TP\leq U\),
 the nonnegative number \(c_c=\beta/2+10P\) satisfies
 \(Tc_c\leq(C_\beta+10)U\) and bounds the cost of
 Proposition~\ref{prop:ftb-carry-explicit}.
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 The inequalities \(\log(2\pi)\leq7\) and
 \(-((p-q)\omega/2)\leq3rL/2\) give the upper bound
@@ -333,7 +333,7 @@ the source integral cusp sections.  It uses
 \(v_V(p)=e_0v_w(p)\); dividing by this equality is the definition
 of the \(p\)-normalized depth.  Thus no residue-degree factor is lost.
 
-\begin{proposition}[The same section gives the multiplier datum]
+\begin{srproposition}[The same section gives the multiplier datum]
 \label{prop:ftb-carry-spread}
 Assume \eqref{eq:ftb-ref-budget}.  Assume also the actual valued-frame
 comparison: every recurrent valuation in use admits a finite valued
@@ -352,7 +352,7 @@ the source no-base condition holds: if any cusp section of any weight
 on \(Z\) has finite recurrent valuation, some integral section of
 weight \(G\) has finite valuation.  Consequently these are the
 actual multiplier data of cost at most \(c_c+s\).
-\end{proposition}
+\end{srproposition}
 \begin{proof}
 For every rational integer \(p>0\),
 \[
@@ -396,10 +396,10 @@ The infinite bound and the carrying property use the same
 The construction above translates the carrying and spreading
 calculations, with their expanded inputs.  The source produces
 \eqref{eq:ftb-carry-analytic} from
-\texttt{NormSqThetaConstantSpanningClassesLeExp},
-\texttt{FrameExponentialVolumeLarge},
-\texttt{FrameExponentialVolumeSmall}, and
-\texttt{EtaBoundLengthUnit}.  In the proof the common theta parameter
+\srcid{NormSqThetaConstantSpanningClassesLeExp},
+\srcid{FrameExponentialVolumeLarge},
+\srcid{FrameExponentialVolumeSmall}, and
+\srcid{EtaBoundLengthUnit}.  In the proof the common theta parameter
 is \(P_\eta=\operatorname{EtaAn.p16}(E,r,g_0g_1,m,5,1)\),
 and \(\beta=P_\eta+B_{\rm small}\).
 The theta bound gives \(a\leq\exp(P_\eta/625)\) everywhere and a
@@ -414,9 +414,9 @@ are retained here as inputs until their proofs are translated.
 The finite theta input is the same-model integral expansion,
 primitive normalization and Heisenberg lift construction in
 \eqref{eq:ftb-theta-coset-val}; the recurrent-frame input is
-\texttt{exists_ext_hasPhi}.  The admissible shifted tuple and nonzero theta rule use
-\texttt{CardLevGrpAndSpan}, fpqc descent of the theta expression, and
-\texttt{ExistsShiftNullValNeZero}; the last is an actual theta-value
+\srcid{exists_ext_hasPhi}.  The admissible shifted tuple and nonzero theta rule use
+\srcid{CardLevGrpAndSpan}, fpqc descent of the theta expression, and
+\srcid{ExistsShiftNullValNeZero}; the last is an actual theta-value
 nonvanishing input.  The exponent-one key unit, the
 integer-reading/cusp multiplication theorem, and the finite reference
 budget \eqref{eq:ftb-ref-budget} are also retained with their exact

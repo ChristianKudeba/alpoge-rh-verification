@@ -10,7 +10,7 @@ Its normalized pointwise norm on \(Z\) is a positive constant
 Its valuations satisfy
 \(\rho_w\le v(t)\le\rho'_w\) at every valued point over \(w\);
 both functions have finite support.
-These are all the fields of the source's \texttt{TwSec}.
+These are all the fields of the source's \srcid{TwSec}.
 In particular cusp preservation and the equality of pointwise
 norms are part of this data; they are not inferred solely from the
 existence of a rational section.
@@ -100,7 +100,7 @@ valuations off \(\mathcal B\), and lower degree
                                       \sum_{\tau\in\Psi}w_\tau .
 \end{equation}
 This is the source construction
-\texttt{ExistsTwSecOfConst.twSec\_of\_flat}: tensor the actual
+\srcid{ExistsTwSecOfConst.twSec\_of\_flat}: tensor the actual
 rank-one constant sections with exponents \(w_\tau\), and add
 the finite defect
 \(\sum_\tau(-w_\tau)\operatorname{flDefect}_\tau\).
@@ -119,7 +119,7 @@ It follows from \eqref{eq:ftb-flat-twist-exact-degree} that
 \]
 The flat packet and its integral defect are the exact geometric
 input here.
-The condition \texttt{UnramPts} ensures that the valuations of
+The condition \srcid{UnramPts} ensures that the valuations of
 these constant rules are integral away from \(\mathcal B\), not
 merely rational: it supplies an integral valued point of
 ramification index one off that set.
@@ -216,7 +216,10 @@ therefore those of the target weight on the same model.
 \label{prop:ftb-arbitrary-weight-short-span}
 Let the good-cover packet be the one in
 Proposition~\ref{prop:ftb-integral-span-assembly}.
-Put \(X=frL\), \(f,r,L\ge1\).
+Put \(X=frL\), \(f,r,L\ge1\), and assume
+\(\log(fr)\le L\).  Retain positive signature
+\(p_{\rm sig},q_{\rm sig}\ge1\), \(r=p_{\rm sig}+q_{\rm sig}\),
+from that good-cover packet.
 Suppose its field-size bound is \(o\le391X^2\), and suppose
 \[
  \log\operatorname{rd}E\le3L,\quad
@@ -329,7 +332,7 @@ The field term is at most \(196X^5\), \(1\le X^5\), and
 \(C_BX^2\le C_BX^5\).
 Adding proves the claimed bound with \(11C_G+C_B+500\).
 This is the source's
-\texttt{CovolumeNumericalBoundsCollect.covol\_numerical\_collect}.
+\srcid{CovolumeNumericalBoundsCollect.covol\_numerical\_collect}.
 \end{proof}
 
 \begin{srproposition}[Short generators, with the same window variables]
@@ -380,44 +383,44 @@ For a nonempty family,
         \le1+391X^2+C_bX^3\le CX^3 .
 \]
 This is the full numerical passage in
-\texttt{FlatConstantAbsLeNineExplicit.short\_gen\_comp}.
+\srcid{FlatConstantAbsLeNineExplicit.short\_gen\_comp}.
 Neither the number nor the norm of these generators is obtained
 from a Hilbert--Samuel asymptotic.
 \end{proof}
 
 \paragraph{Exact scope of the two twists.}
 The floor/Minkowski proof is
-\texttt{DivisorProofs/ExistsShortIntegralFlatLineTwistingSection.lean}
-(\texttt{7a5c6eafdd31c9448b7819342562331dac7b4923}).
+\srcid{DivisorProofs/ExistsShortIntegralFlatLineTwistingSection.lean}
+(\srcid{7a5c6eafdd31c9448b7819342562331dac7b4923}).
 The lower-degree identity is
-\texttt{DivisorProofs/ExistsTwSecOfConst.lean}
-(\texttt{3906b3d7afd777e9d6ec9b67a47e3c394e60176e}).
+\srcid{DivisorProofs/ExistsTwSecOfConst.lean}
+(\srcid{3906b3d7afd777e9d6ec9b67a47e3c394e60176e}).
 The multiplicative lattice and norm arguments are
-\texttt{ExistsLinearEquivMulTwistingSectionIntegral.lean}
-(\texttt{398f8190dbac2615bb6e0612cc9890a80c720b02}) and
-\texttt{ExistsSpanningFamilyMulTwistingSection.lean}
-(\texttt{8e96b74a7f66eac17ed4b00ae441a570308494a6}).
+\srcid{ExistsLinearEquivMulTwistingSectionIntegral.lean}
+(\srcid{398f8190dbac2615bb6e0612cc9890a80c720b02}) and
+\srcid{ExistsSpanningFamilyMulTwistingSection.lean}
+(\srcid{8e96b74a7f66eac17ed4b00ae441a570308494a6}).
 The exact large-gap exponents are
-\texttt{ExistsThetaWeightExponentsOfLargeGap.lean}
-(\texttt{af7b06e0d1be0dd845fb0504619cd9b29d6baa52}).
-The full assembly is \texttt{ShortLatticeSpanningSets.lean},
-followed by \texttt{FlatConstantAbsLeNineExplicit.lean}.
+\srcid{ExistsThetaWeightExponentsOfLargeGap.lean}
+(\srcid{af7b06e0d1be0dd845fb0504619cd9b29d6baa52}).
+The full assembly is \srcid{ShortLatticeSpanningSets.lean},
+followed by \srcid{FlatConstantAbsLeNineExplicit.lean}.
 
 The key-power application is
-\texttt{ExistsKeyUnitPowTwistingSectionOnComponent.lean}
-(\texttt{d7dd57cc9990ada2ddb8d85b56d821d4a4b86353}).
+\srcid{ExistsKeyUnitPowTwistingSectionOnComponent.lean}
+(\srcid{d7dd57cc9990ada2ddb8d85b56d821d4a4b86353}).
 It requires the actual exponent-one theta rule \(\kappa\), its
 functorial family-unit theorem, the componentwise fourth root,
 the complex key-norm formula and the finite model-unit/different
 comparison.
 The first of these is supplied in the frozen source by
-\texttt{ThetaLawProofs/KeyFamOne.lean}
-and \texttt{ModuliProofs/ExactKeyFormulaProof.lean}, through
-\texttt{UniformizationProofs/KeyFormulaOfConnFam.lean}.
+\srcid{ThetaLawProofs/KeyFamOne.lean}
+and \srcid{ModuliProofs/ExactKeyFormulaProof.lean}, through
+\srcid{UniformizationProofs/KeyFormulaOfConnFam.lean}.
 The existing component-root/different argument may be reused
 only with those actual inputs and the same N3/N4 models.
 The cusp-preserving clauses of the twists use
-\texttt{MulMemCuspFormsOfBoundedSectionComponent.lean},
+\srcid{MulMemCuspFormsOfBoundedSectionComponent.lean},
 including its key-section and analytic hypotheses.
 These exact producer joins are tracked separately; the elementary
 rounding and weight/numerical deductions above do not by themselves

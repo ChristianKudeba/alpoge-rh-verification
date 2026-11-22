@@ -1,0 +1,519 @@
+\section{The unit clause on the abelian locus from unramified torsion}
+\label{sec:psi-unit-source}
+This section translates the height-one argument in
+\srcid{PsiUnitOnOfFixedOverUnramifiedExtension} and the subsequent
+\srcid{PsiUnitOnAbelianLocusUniformisation}, at the frozen source commit.
+It proves the unit clause of N3 from the actual uniformisation and its
+torsion identification.  It does not construct that uniformisation.
+This distinction matters: good reduction of an arbitrary abelian variety
+would not identify its torsion with the particular degeneration datum
+used here.
+
+\subsection{The objects and the precise integral coefficients}
+Let \(R\) be a normal Noetherian domain of characteristic zero,
+\(K=\operatorname{Frac}(R)\), and \(F=\overline K\).
+The degeneration datum \(D\) has a free character lattice \(X\), an
+abelian scheme \(B/R\), an invertible sheaf \(L\) on \(B\), its
+rigidification, symmetry and cubical generators, integral sections
+\(c_\chi:\operatorname{Spec}R\to B\) for \(\chi\in X\), and generic
+generators \(\psi_\chi\) of \(c_\chi^*L\).
+Assume explicitly the actual relations \(D.\operatorname{TauBimult}\)
+and \(D.\operatorname{PsiEven}\). They hold for the source's actual
+\(\operatorname{DegData}\); symmetry of \(L\) and an arbitrary
+collection of generic generators would not imply them.
+All the structural generators in this sentence are the specified
+generators of \(D\); replacing one by an arbitrary rational multiple
+would change the question.
+
+Write \(\widetilde G_D(F)\) for the group of points of the extension
+attached to the cubical datum, and \(\iota:X\to\widetilde G_D(F)\) for
+its lattice map.  A level-\(k\) point is a pair
+\[
+          p=(y,g),\qquad y\in X,\quad g\in\widetilde G_D(F),
+          \qquad [k]g=\iota(y).
+\]
+Its equivalence is the actual lattice equivalence:
+translation by \(a\in X\) changes the lattice label by \(ka\) and the
+extension point by \(\iota(a)\), with the simultaneous signs determined
+by the chosen direction of the equivalence.  In particular, an
+equivalence between two points with the same label forces \(ka=0\).
+The lattice \(X\) is torsion free.
+
+Choose for every point \(b\in B\) an index \(J_0(b)\) of a chart of
+\(L\) containing \(b\).  If \(P\) is a prime of \(R\), define
+\[
+ a_P(\chi)=\psiLoc(D,\chi,J_0(c_\chi(P)))\in K^\times.
+ \tag{PU1}\label{eq:psi-local-coefficient}
+\]
+This is the generic coefficient of \(\psi_\chi\) in the indicated
+integral chart.  The desired condition
+\(\operatorname{PsiUnitOn}(D,\chi,U)\) says more than the existence of a
+unit in one unrelated frame: in every integral trivialisation on every
+open set contained in \(U\), the corresponding generic coefficient
+extends to an invertible regular function.
+
+\begin{srlemma}[A coefficient which is a local unit gives an actual neighbourhood]
+\label{lem:psi-near-unit}
+If \(a_P(\chi)=r/s\) with \(r,s\in R\setminus P\), then there is an
+open neighbourhood \(V\) of \(P\) on which
+\(\operatorname{PsiUnitOn}(D,\chi,V)\) holds.
+\end{srlemma}
+\begin{proof}
+Intersect \(D(r)\), \(D(s)\), and
+\(c_\chi^{-1}(U_{J_0(c_\chi(P))})\).  In this chart \(r/s\) is an
+invertible regular function.  On an intersection with another chart,
+the coefficient is obtained by multiplication by the corresponding
+integral transition unit, or its inverse according to the coefficient
+convention.  Thus it too is an invertible regular function.
+The two expressions have the same generic value, so they are precisely
+the coefficients of the original generic generator.
+Restriction to any smaller open set preserves this equality.  This is
+the assertion with all chart indices quantified, as in
+\srcid{psiUnitOn_near}.
+\end{proof}
+
+\subsection{Integral evaluation of the cubical identities}
+Fix a height-one prime \(P\).  Then \(A=R_P\) is a discrete valuation
+ring; let \(\pi\) be a uniformiser.  For each \(\chi\), write uniquely
+\[
+             a_P(\chi)=u_\chi\pi^{m(\chi)},\qquad
+             u_\chi\in A^\times,\quad m(\chi)\in\mathbb Z .
+ \tag{PU2}\label{eq:psi-valuations}
+\]
+Let \(T\subset F\) be a discrete valuation ring containing \(A\) locally
+such that the image of \(\pi\) is still a uniformiser.
+Choose a valuation ring \(W\subset F\) dominating \(T\).  Its additive
+valuation takes values in an ordered abelian group \(\Gamma\).
+Set \(\alpha=v_W(\pi)>0\); then the map
+\[
+                   \mathbb Z\longrightarrow\Gamma,\qquad
+                   j\longmapsto j\alpha
+ \tag{PU3}\label{eq:psi-injective-value}
+\]
+is injective.
+
+Here is the frame bookkeeping needed to evaluate the identities.
+Every \(F\)-point of \(B\) extends to a \(W\)-point, by properness.
+If two such extensions have the same generic point, separatedness
+makes them equal.  We may therefore choose the chart of \(L\) at an
+\(F\)-point to be \(J_0\) evaluated at the closed point of its integral
+extension.  This gives a consistent chart choice for every integral
+point simultaneously.  In any tensor combination of pullbacks of \(L\),
+the coefficient of an integral generating section is a unit of \(W\).
+Indeed, every chosen local frame is an integral basis, so the
+coefficient of a generating section in their tensor product is
+invertible.  Negative tensor powers use the inverse unit.  Evaluation
+in \(F\) commutes with this integral evaluation.  These are exactly
+\srcid{exists_good_ext} and \srcid{val_integral}; no boundedness
+assertion about arbitrary rational frames is being used.
+
+For \(g\in\widetilde G_D(F)\) and \(\chi\in X\), denote its coefficient
+in this consistent chart system by \(z_\chi(g)\in F^\times\).
+The cubical addition law has the form
+\[
+ z_\chi(g+h)
+  =z_\chi(g)z_\chi(h)
+     \operatorname{th}(c_\chi,g_B,h_B),
+\]
+where \(\operatorname{th}\) is the coefficient of the specified
+cubical generator, and \(g_B,h_B\) are the points of \(B\).
+All three points in this last evaluation are integral over \(W\).
+Its valuation is therefore zero.  Induction, starting with the
+rigidified value at zero, gives
+\[
+                  v_W(z_\chi([k]g))
+                     =k\,v_W(z_\chi(g)).
+ \tag{PU4}\label{eq:psi-nsmul-value}
+\]
+The specified biextension coefficient \(\tau(y,\chi)\) satisfies
+\[
+ \begin{split}
+ v_W(\tau(y,\chi))
+   &=v_W(a_P(y+\chi))-v_W(a_P(y))-v_W(a_P(\chi))\\
+   &=\{m(y+\chi)-m(y)-m(\chi)\}\alpha .
+ \end{split}
+ \tag{PU5}\label{eq:psi-tau-value}
+\]
+To check the first equality, write the definition of the coefficient
+as the product of the \(\psi_{y+\chi}\) coefficient, the inverses of the
+\(\psi_y,\psi_\chi\) coefficients, and the inverse rigidification
+coefficient.  The latter is an integral unit and has value zero.
+Changing from the generic charts in this expression to the consistent
+\(W\)-charts multiplies each coefficient by an integral transition
+unit, also of value zero.  Thus the equality uses the very
+coefficients in \eqref{eq:psi-valuations}.  This is the source's
+\srcid{w_tau}, not a new pairing chosen to have that valuation.
+
+Finally, the symmetry relation \(\operatorname{PsiEven}\) identifies
+the coefficients at \(-\chi\) and \(\chi\) up to the coefficient of the
+specified integral symmetry generator at \(c_\chi\).
+Consequently
+\[
+                         m(-\chi)=m(\chi).
+ \tag{PU6}\label{eq:psi-even-value}
+\]
+This follows from equality of their values in \(\Gamma\) and the
+injectivity in \eqref{eq:psi-injective-value}.  The same calculation is
+\srcid{w_even}.  The identities just proved also apply to the integral
+extension of any multiple of \(g_B\), which is why
+\eqref{eq:psi-nsmul-value} can be used for arbitrary \(k\).
+
+\begin{srlemma}[The fixed-field step]
+\label{lem:psi-fixed-field}
+If \(x\in F^\times\) is fixed by every automorphism of \(F\) fixing
+\(T\), then
+\[
+                          x=u\pi^v
+                  \quad (u\in T^\times,\ v\in\mathbb Z).
+\]
+\end{srlemma}
+\begin{proof}
+Let \(E=\operatorname{Frac}(T)\subset F\).
+The field \(F\) is algebraic over \(E\), algebraically closed, and has
+characteristic zero.  The fixed field of
+\(\operatorname{Aut}(F/E)\) is therefore \(E\).
+For completeness, if an algebraic \(x\notin E\) were fixed, its
+separable minimal polynomial would have another root in \(F\).
+The \(E\)-embedding of \(E(x)\) sending \(x\) to that root extends to an
+automorphism of the algebraic closure, a contradiction.
+Thus \(x\in E^\times\), where the discrete valuation decomposition is
+exactly a unit times the integral power of the chosen uniformiser.
+\end{proof}
+
+\begin{srlemma}[One level gives divisibility]
+\label{lem:psi-level-divisibility}
+Suppose that \(k\geq1\), and every automorphism of \(F\) fixing \(T\)
+fixes every level-\(k\) point up to the actual lattice equivalence.
+Then
+\[
+       k\mid m(y+\chi)-m(y)-m(\chi)\qquad(y,\chi\in X).
+ \tag{PU7}\label{eq:psi-level-divisibility}
+\]
+\end{srlemma}
+\begin{proof}
+Choose \(p=(y,g)\) with \([k]g=\iota(y)\).
+Such a point exists in the source by the multiplication law
+\(\operatorname{MulNSt}\).  On the actual extension its elementary
+content is as follows: multiplication by \(k\) is surjective on the
+abelian quotient over the algebraically closed field \(F\).
+After lifting a preimage there, the discrepancy is a point of the
+torus; multiplication by \(k\) is surjective on the split torus since
+every nonzero element of \(F\) has a \(k\)-th root.  Correcting by that
+torus point gives the required \(g\).
+
+For an automorphism \(\sigma\) fixing \(T\), the labels of \(p\) and
+\(\sigma p\) are both \(y\).  The asserted lattice equivalence is
+therefore represented by \(a\in X\) with \(ka=0\).
+Since \(X\) is torsion free, \(a=0\), and hence
+\(\sigma g=g\) as an actual extension point.
+The coefficient \(z_\chi(g)\) is now fixed by \(\sigma\).
+Indeed, its defining four pullbacks of \(L\) are at
+\(c_\chi+g_B,c_\chi,g_B,0\); these maps and their chosen chart indices
+are fixed.  Functoriality of evaluation under the field automorphism
+then fixes the coefficient itself.  This verifies
+\srcid{charVal_fixed}, including the frame issue.
+
+Lemma~\ref{lem:psi-fixed-field} gives
+\(z_\chi(g)=u\pi^v\), with \(u\in T^\times\).
+The lattice embedding has coefficient
+\(z_\chi(\iota(y))=\tau(y,\chi)\), in the specified cubical convention.
+Apply valuations to \([k]g=\iota(y)\), and use
+\eqref{eq:psi-nsmul-value} and \eqref{eq:psi-tau-value}.
+The result is
+\[
+       kv\alpha
+          =\{m(y+\chi)-m(y)-m(\chi)\}\alpha .
+\]
+Injectivity of \eqref{eq:psi-injective-value} gives the required
+integer divisibility.  Notice why the extension is unramified in
+exactly the required sense: the uniformiser remains \(\pi\).
+An arbitrary ramified extension would introduce a varying
+ramification factor and would not prove \eqref{eq:psi-level-divisibility}.
+\end{proof}
+
+\begin{srtheorem}[The height-one unit statement]
+\label{thm:psi-height-one-unit}
+Suppose there is \(n\geq2\) such that, for every \(j\geq0\), a discrete
+valuation subring \(T_j\subset F\) as above leaves \(\pi\) a uniformiser
+and makes every level-\(n^j\) point fixed up to lattice equivalence.
+Then \(a_P(\chi)\in R_P^\times\) for every \(\chi\), and each
+\(\psi_\chi\) is a unit on a neighbourhood of \(P\).
+\end{srtheorem}
+\begin{proof}
+Fix \(y,\chi\), and put
+\(\delta=m(y+\chi)-m(y)-m(\chi)\).
+Lemma~\ref{lem:psi-level-divisibility} shows \(n^j\mid\delta\) for
+every \(j\).  Choose \(j\) with \(n^j>|\delta|\); a nonzero multiple of
+\(n^j\) has absolute value at least \(n^j\), so \(\delta=0\).
+Thus \(m\) is additive.  Additivity at \(0+0\) gives \(m(0)=0\).
+Additivity at \(\chi+(-\chi)\), combined with
+\eqref{eq:psi-even-value}, gives \(2m(\chi)=0\), whence \(m(\chi)=0\)
+in \(\mathbb Z\).
+Equation~\eqref{eq:psi-valuations} proves the first assertion.
+Writing this local unit as \(r/s\), with both \(r,s\notin P\), and
+using Lemma~\ref{lem:psi-near-unit} proves the second.
+This is the argument of \srcid{psiUnitOn_of_unramified}; no uniform
+choice of \(T_j\) in \(j\) is needed.
+\end{proof}
+
+\subsection{The source's unramified torsion producer}
+The producer \srcid{exists_unramified_torsion_points} uses lifting of
+finitely many special-fibre points and equality of torsion counts.
+Here are those steps, rather than an assumption that all torsion is
+already unramified.
+
+\begin{srlemma}[Simultaneous integral lifts of an etale finite set]
+\label{lem:psi-etale-finite-lifts}
+Let \(A\) be a discrete valuation ring, \(F\) an algebraically closed
+field containing \(\operatorname{Frac}(A)\), and
+\(\rho:A\to\Omega\) a local map to a field.
+Let \(Z/A\) be etale and separated.  Given finitely many
+\(\Omega\)-points of its special fibre, there are a discrete valuation
+ring \(A'\), a local extension \(A\to A'\), an embedding \(A'\to F\),
+and a compatible local map \(A'\to\Omega\), over which all those
+points lift.  Every uniformiser of \(A\) is still a uniformiser of
+\(A'\).
+\end{srlemma}
+\begin{proof}
+First consider one point.  Choose compatible affine charts around it
+and its image, so its coordinate map is a homomorphism
+\(\epsilon:C\to\Omega\) from an etale \(A\)-algebra.
+Localise \(C\) at \(\mathfrak q=\ker\epsilon\), obtaining \(A'\).
+The map \(A'\to\Omega\) is local: a fraction whose image is nonzero
+has numerator outside \(\mathfrak q\), and is a unit.
+The map \(A\to A'\) is flat, local, essentially of finite type and
+formally unramified.  Hence \(A'\) is a regular local ring of dimension
+one and its maximal ideal is generated by the image of a uniformiser
+of \(A\).  More explicitly, the zero-dimensional etale closed fibre
+has a field as its local ring, so the maximal ideal is
+\(\mathfrak m_AA'\); flatness preserves the nonzero-divisor
+uniformiser, and the regular-local dimension formula gives dimension
+one.  A one-dimensional regular local ring is a discrete valuation
+domain.  Its fraction field is algebraic over
+\(\operatorname{Frac}(A)\), by relative dimension zero.
+It therefore embeds in \(F\) over that field; the embedding restricts
+to the required embedding of \(A'\).
+The coordinate homomorphism supplies the lift of the given point.
+
+For a finite list, repeat this construction for the next point after
+each local extension.  Pull back every previously obtained lift along
+the new extension.  The new residue map remains compatible, the
+generic-field embedding continues the old one, and uniformisers
+remain uniformisers at every step.  Induction on the finite list
+proves the assertion.  This is
+\srcid{exists_lift_one} followed by \srcid{exists_lift_finset}.
+\end{proof}
+
+\begin{srlemma}[Equal point counts turn those lifts into all generic points]
+\label{lem:psi-etale-count-lifts}
+In Lemma~\ref{lem:psi-etale-finite-lifts}, assume the actual \(\Omega\)-point set of the special fibre and
+\(F\)-point set of the generic fibre are finite and have the same
+cardinality.
+There is a discrete valuation subring \(T\subset F\), with the same
+uniformiser as \(A\), over which every generic \(F\)-point of \(Z\)
+extends.
+\end{srlemma}
+\begin{proof}
+Lift the whole finite special point set simultaneously.
+Send each special point to the generic point of its lift.
+This map is injective: if two such generic points agree, their
+sections over the integral ring \(A'\) agree on the dense generic
+point, and separatedness makes the sections equal.  Their special
+values are then equal.  An injection of finite sets of equal
+cardinality is a bijection, so every generic point is one of these
+lifted points.  Replace \(A'\) by its image under its embedding in
+\(F\).  It is isomorphic to \(A'\), is a discrete valuation subring,
+and has all the asserted properties.  This is
+\srcid{exists_subalgebra_of_card}.
+\end{proof}
+
+\begin{srproposition}[Good reduction gives the required actual torsion lifts]
+\label{prop:psi-good-reduction-torsion}
+Let \(H/A\) be an abelian scheme over a discrete valuation ring, and
+let \(k\) be a positive integer invertible in \(A\).
+There is a discrete valuation subring \(T\subset F\), with the same
+uniformiser as \(A\), over which every point of \(H_F[k]\) extends.
+Every automorphism of \(F\) fixing \(T\) fixes these torsion points.
+\end{srproposition}
+\begin{proof}
+The kernel \(Z=H[k]\) is etale and separated over \(A\).
+For the etaleness, the differential of \([k]\) on the relative tangent
+bundle is multiplication by the unit \(k\); translation transports
+this calculation from the identity to every point.  The usual
+smooth etale criterion gives etaleness, and its pullback to the
+identity gives the assertion for the kernel.  Separatedness is
+inherited from \(H\).
+The relative dimension \(g\) is constant on this connected base.
+Choose explicitly \(\Omega=\overline{\kappa(A)}\) and let
+\(\rho:A\to\kappa(A)\to\Omega\) be the residue map.
+The classical prime-to-characteristic torsion theorem for abelian
+varieties gives exactly \(k^{2g}\) geometric torsion points in both
+the generic and the special fibres.  This precise background theorem
+is the source's
+\srcid{card_torsion_points_abelianVariety}; no assertion about
+\(p\)-power torsion in characteristic \(p\) is used.
+Lemma~\ref{lem:psi-etale-count-lifts} applies.
+A point which is the base change of a \(T\)-point is fixed by every
+automorphism fixing \(T\), since its coordinate maps already have
+coefficients in \(T\).  If the point is described through a Cartesian
+generic-fibre diagram, equality can be checked after both
+projections of that diagram, so the same conclusion holds for the
+actual generic-fibre point.  This is the argument
+\srcid{fixed_of_extends}.
+\end{proof}
+
+\subsection{Transport through the actual torsion identification}
+For this step retain the actual uniformisation \(U\) and its actual
+identification
+\[
+       Q_k(D,F)/{\sim}\ \longrightarrow\ H_F[k],
+ \tag{PU8}\label{eq:psi-actual-torsion-id}
+\]
+whose equality fibres are precisely \(\sim\).
+The identification must be the one defined by the theta action and
+the expansion relation of \(U\).  A mere equality of cardinalities
+between the two sets would not suffice.
+
+The required naturality is the exact statement
+\srcid{qkToAkU_iff_of_qkExt}.  Its scalar descent step can be stated
+explicitly.  If \(V_E\to V_F\) is a genuine field extension of vector
+spaces, operators \(S,T\) and \(S',T'\) commute with extension, and
+\[
+                         S'=cT'\quad(c\in F^\times),
+\]
+choose an \(E\)-linear functional \(\ell:F\to E\) with \(\ell(1)=1\)
+and apply the induced coefficient retraction.  It gives
+\(S=\ell(c)T\).  If \(\ell(c)\ne0\), this is the required
+proportionality over \(E\).  If \(\ell(c)=0\), it gives \(S=0\);
+injectivity of extension and \(c\ne0\) then give \(T=0\), so the
+nonzero scalar \(1\) works.  Conversely proportionality over \(E\)
+extends, because the extended images span \(V_F\).
+This proves the source's \srcid{proportional_iff}, including its
+otherwise easy-to-miss zero-operator case.
+
+For the actual identification, the source applies this calculation
+to the theta translation operator on algebraic sections and the
+operator on expanded families.  Pullback of a line-bundle
+isomorphism commutes with its action on sections; evaluation of the
+pulled-back cubical coefficients is the pullback of their evaluation.
+Consequently both operators commute with field extension.
+The expansion equivalence commutes with extension as well, by
+pullback of the actual section identity.  Its family extension is a
+genuine extension of vector spaces: the original images span, and
+the coefficient retractions are defined.  Proportionality is exactly
+the theta-action definition of the relation in
+\eqref{eq:psi-actual-torsion-id}, independent of the choice of a
+generating frame since two such frames differ by a nonzero scalar.
+These facts give, for an embedding \(\sigma:E\to F\), a level point
+\(p'\) obtained from \(p\), and the corresponding actual points,
+\[
+ QkToAk_U(p,x)\ \Longleftrightarrow\
+ QkToAk_U(p',\sigma x).
+ \tag{PU9}\label{eq:psi-equivariance}
+\]
+This paragraph uses the actual expansion equivalence and its
+base-change theorem; it does not construct that equivalence.
+They remain separate uniformisation inputs until their own source
+proofs have been translated.
+
+\begin{srtheorem}[Unit clause on the abelian locus]
+\label{thm:psi-unit-abelian-locus}
+Let \(R\) now be complete local, normal Noetherian of characteristic
+zero, with the source's admitted maximal-ideal data.
+Let \(D\) be its actual degeneration datum and \(U\) an actual
+uniformisation with the torsion identification and expansion
+properties just specified.  Suppose the semiabelian family \(H/R\)
+has open abelian locus \(V\).  Then, for every \(\chi\in X\),
+\[
+                         \operatorname{PsiUnitOn}(D,\chi,V).
+\]
+\end{srtheorem}
+\begin{proof}
+There is an integer \(n\in\{2,3\}\) which is a unit of \(R\).
+Otherwise both \(3\) and \(-2\) would belong to the maximal ideal,
+whereas their sum is \(1\).
+Fix a height-one point \(P\in V\), and set \(A=R_P\).
+Every point of \(\operatorname{Spec}A\) maps to a generalisation of
+\(P\); since \(V\) is open, the entire localised family is an
+abelian scheme.  For each \(j\), \(n^j\) is invertible in \(A\).
+Proposition~\ref{prop:psi-good-reduction-torsion} supplies a
+uniformiser-preserving \(T_j\subset F\) fixing every actual
+\(n^j\)-torsion point.
+
+Apply \eqref{eq:psi-equivariance} to an automorphism fixing \(T_j\).
+The actual torsion image of a level point and that of its conjugate
+are equal.  The equality-fibre assertion in
+\eqref{eq:psi-actual-torsion-id} therefore makes the two level points
+equivalent.  Theorem~\ref{thm:psi-height-one-unit} proves that
+\(\psi_\chi\) is a unit near \(P\).
+
+It remains to pass from height one to all of \(V\); this last step
+uses normality and must be applied to both a coefficient and its
+inverse.  Here is the local argument.  For \(a=b/c\in K\), \(c\ne0\),
+let
+\[
+                    I=(c):(b)=\{s\in R:sb\in cR\}.
+\]
+The element \(a\) is regular at \(Q\) exactly when \(I\not\subset Q\).
+If it is not regular, choose a prime \(\mathfrak p\subset Q\) minimal
+over \(I\).  It is an associated prime of \(R/I\).
+The injection
+\[
+                R/I\ \longrightarrow\ R/(c),\qquad
+                \bar x\longmapsto\overline{xb},
+\]
+then makes \(\mathfrak p\) an associated prime of \(R/(c)\).
+Every such prime has height one in a normal Noetherian domain:
+if its height were at least two, Serre's \(S_2\) condition at
+\(\mathfrak p\), followed by the depth formula for the nonzero divisor
+\(c\), would give positive depth for \(R_{\mathfrak p}/(c)\),
+contrary to being associated.  Its height is not zero since it
+contains \(c\ne0\).
+As \(V\) is open and \(Q\in V\), also \(\mathfrak p\in V\).
+Regularity at this height-one prime supplies
+\(s\notin\mathfrak p\) with \(sa\in R\), or \(s\in I\), contradicting
+\(I\subset\mathfrak p\).
+Thus any rational function regular at every height-one point of
+\(V\) is regular at every point of \(V\).
+
+Apply this argument on the integral trivialising opens for
+\(c_\chi^*L\) to its coefficient \(a\), and again to \(a^{-1}\).
+At every point both admit fractions with denominators outside that
+point; after shrinking, these fractions are regular inverses.
+They agree on overlaps because they agree in \(K\).
+They therefore glue to an invertible regular coefficient on every
+such open.  Lemma~\ref{lem:psi-near-unit}'s transition calculation
+then gives the full chart-independent condition
+\(\operatorname{PsiUnitOn}\).
+This is the source's \srcid{psiUnitOn_of_height_one}, followed by
+\srcid{psiUnitOn_abLocus}.
+\end{proof}
+
+\paragraph{Exact remaining boundary of this source translation.}
+The proofs above discharge the height-one divisibility, local-unit,
+unramified finite-point lifting, fixed-point transport and normal
+extension arguments.  The standard background used in the finite
+point count is the prime-to-characteristic torsion theorem for an
+abelian variety, with its dimension \(g\) and invertibility condition
+specified above; the normality background is Serre's criterion and
+the nonzero-divisor depth formula.
+The actual degeneration datum, its cubical laws, its expansion
+equivalence and torsion equality-fibre theorem, and the construction
+of \(U\) over a complete normal local base are not replaced by those
+background facts.  Their construction remains part of the N3
+translation frontier.  Consequently this section alone does not
+supply all of N3 or the full integral-model package.
+
+\paragraph{Source correspondence.}
+All source paths below are at commit
+\srcid{7cbf7a0c32fca1badf05931879a37c3f8a2b03b4}.
+The valuation identities, fixed-field lemma, lattice-label
+divisibility and integral neighbourhood construction are in
+\srcid{Development/AbelianVarietyTheory/Proofs/DegenerationProofs/PsiUnitOnOfFixedOverUnramifiedExtension.lean}.
+The finite special-point lifting, cardinality injection and
+good-reduction producer are in
+\srcid{Development/AbelianVarietyTheory/Proofs/DegenerationProofs/ExistsUnramifiedExtTorsionPointsGoodReduction.lean}.
+The actual operator comparison is in
+\srcid{Development/AbelianVarietyTheory/Proofs/UniformizationProofs/QkToAkUInvariantUnderFieldEmbedding.lean}.
+The Hartogs step and the assembly over the abelian locus are in
+\srcid{Development/AbelianVarietyTheory/Proofs/DegenerationProofs/PsiUnitOnAbelianLocusUniformisation.lean}.

@@ -1,6 +1,6 @@
 {
   "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
-  "updated_utc": "2026-11-22T01:57:00Z",
+  "updated_utc": "2026-11-22T02:05:00Z",
   "current_published_pages": 541,
   "whole_manuscript_complete": false,
   "entries": [
@@ -27,122 +27,139 @@
     },
     {
       "key": "shortRamified",
-      "blob": "183c60ad44bdeb564a46ec5bb40e7f11f52736ff",
+      "blob": "56ef53c134189ac90ddcd6c88e5c8076e411b59d",
       "path": "translation/review-drafts/theta-ramified-connection-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "shortAdapt",
-      "blob": "2933c41e53c9e1d27efa65ee4dc5265d7e9851b5",
+      "blob": "234314cb34b8780674d166f4dfde5c97be6824fe",
       "path": "translation/review-drafts/theta-all-prime-denominator-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "shortTwist",
-      "blob": "a836acc92e41f601634dcca4798a5b151786959b",
+      "blob": "eed96f0d5505fbc60472b88eac7a064613cc42b4",
       "path": "translation/review-drafts/theta-flat-weight-reduction-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "shortCarry",
       "blob": "7cb4142ec5218301e18f2681cc8c8cecf6fe50b4",
       "path": "translation/review-drafts/theta-carrying-section-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "thetaKeyRead",
       "blob": "2f412e3f1f3b96ba25f660ab87344252f45a0848",
       "path": "translation/review-drafts/theta-key-integral-reading-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "thetaHalf",
       "blob": "215525dfa8154b2803716510539e82118ced5b34",
       "path": "translation/review-drafts/theta-half-sup-first-minimum-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "thetaGaussianNext",
       "blob": "9021a25a1041d85ea03f82fa97480f37fdbe7b6d",
       "path": "translation/review-drafts/theta-gaussian-cauchy-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "frobPrimitive",
       "blob": "e4e0fcb8ae56927a1b49656e592a7e9f0a77e453",
       "path": "translation/review-drafts/formal-primitive-derivation-count-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobProper",
       "blob": "3303cc407674a07667394b54754ad39efcfddb1c",
       "path": "translation/review-drafts/formal-proper-kernel-pairing-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobRankFree",
-      "blob": "8f09180f0936bf0c1c0c08b8c1257c8ede0c2734",
+      "blob": "5ccbac123722aa2395b29ce9d7414bbc15a89ed3",
       "path": "translation/review-drafts/formal-kernel-rank-free-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobStalk",
       "blob": "0b30c88fbba5e176dfdd1cc9291dfe173f63e21e",
       "path": "translation/review-drafts/formal-stalk-free-descent-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobNorm",
       "blob": "1464aaf9ed63ef3d3789991b08c92617ed26147a",
       "path": "translation/review-drafts/formal-torus-norm-count-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobTorus",
       "blob": "40fb0a98973c72fa7d8d72c1cac174b9fb9969be",
       "path": "translation/review-drafts/formal-torus-to-proper-constancy-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobQuotient",
       "blob": "5c49a38da4193fbecca6b7a932026b172ba0c585",
       "path": "translation/review-drafts/formal-polarized-quotient-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobGauge",
       "blob": "2be9af342bbb3b23b53465782cd952ee19be9ea9",
       "path": "translation/review-drafts/formal-quotient-lattice-gauge-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobDegreeNorm",
-      "blob": "de09199e66061c6d0033b88f48bdf0ae481f184d",
+      "blob": "ad9197793dba6b60378e86f0f0e966f468ce5f15",
       "path": "translation/review-drafts/formal-multiplication-norm-degree-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "frobHFree",
-      "blob": "81c700307ea6e7987a80f625adcfe5a536303847",
+      "blob": "803ee98424c29cfb9b4f810b87479c94d22daeb6",
       "path": "translation/review-drafts/formal-geometric-free-assembly-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded frozen-source fidelity review; actual model, published background and same-object comparisons remain as printed.",
+      "reviewer": "connected_geometry"
     },
     {
       "key": "keyKoszul",
@@ -162,15 +179,17 @@
       "key": "thetaProjectedNorm",
       "blob": "acdde4b49cfd014f39a84f17fc704da1c13109b0",
       "path": "translation/review-drafts/theta-projected-raw-norm-source.tex",
-      "status": "review pending",
-      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+      "status": "checked",
+      "scope": "Bounded original-source review of the displayed premises and deduction; actual same-model and analytic dictionaries remain as printed.",
+      "reviewer": "generic_character"
     },
     {
       "key": "psiUnitRoot",
-      "blob": "81b61ba081e805d9c44e0c379dd86063404888de",
+      "blob": "deaa386dcec47c1d414cdb7f0095d366ae2b2cd7",
       "path": "translation/review-drafts/psi-unit-source.tex",
-      "status": "review pending",
-      "scope": "Actual unramified-torsion unit clause given actual uniformisation and expansion/torsion identification; N3 existence retained."
+      "status": "checked",
+      "scope": "Actual unramified-torsion unit clause given actual uniformisation and expansion/torsion identification; N3 existence retained.",
+      "reviewer": "connected_geometry"
     }
   ],
   "root_boundary": {

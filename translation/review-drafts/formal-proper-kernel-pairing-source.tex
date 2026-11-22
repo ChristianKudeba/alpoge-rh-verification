@@ -2,7 +2,7 @@
 \label{subsec:faithful-geometric-kernel-count}
 
 We retain the geometric hypotheses of
-\texttt{ProperGroupGermFiniteSubscheme}.  Let \(E\) be a CM number
+\srcid{ProperGroupGermFiniteSubscheme}.  Let \(E\) be a CM number
 field, \(H\) its specified host, and \(O=\mathcal O_E\), with
 \(\bar a=H.\mathrm{bar}(a)=a^*\).  Let \(k\) be algebraically closed
 of characteristic the prime \(p\), and let \(t\) be the source's
@@ -27,7 +27,7 @@ kernel of \([a]\).  Thus \([a]\kappa=0\), and every point killed by
 \([a]\) factors uniquely through \(\kappa\), over every test scheme.
 No separability or reducedness of this finite kernel is assumed.
 
-\begin{lemma}[The geometric primitive and tangent maps]
+\begin{srlemma}[The geometric primitive and tangent maps]
 \label{lem:faithful-geometric-kernel-pair}
 The multiplication, identity, and inverse of this kernel endow \(A\)
 with a finite commutative cocommutative Hopf algebra structure.
@@ -46,7 +46,7 @@ primitive, and
 \]
 Here the right side is the mixed coefficient of the chosen actual
 adjoint cubical frame, with no change of its normalization.
-\end{lemma}
+\end{srlemma}
 
 \begin{proof}
 We first give the source's construction of the pairing and its
@@ -97,7 +97,7 @@ More explicitly, compare the two pullbacks of \(w_a\) indexed by
 agree because \([a]x=[\bar a]v=0\); the ratio is constant in the
 proper group variable \(y\), and evaluating at \(y=0\) gives the
 factor \(\chi_a(x,v)\).  These are the source's
-\texttt{pair\_ax} and \texttt{pair\_mul}.
+\srcid{pair\_ax} and \srcid{pair\_mul}.
 
 We also need its precise nondegeneracy argument, only in the
 second variable.  If \(R\) is local and \(v\in G(R)\) is killed by
@@ -131,12 +131,12 @@ base \(\operatorname{Spec}R\) has a generator.  Multiplying it
 with the descended generator gives a generator of
 \(t_v^*L\otimes L^{-1}\) on \(G_R\).
 The stipulated \(\mathrm{KTriv}(G,L)\) now gives \(v=0\).
-This is \texttt{pair\_nondeg}; it is a descent of the actual
+This is \srcid{pair\_nondeg}; it is a descent of the actual
 adjoint-frame generator, not an invocation of an unspecified
 duality pairing.
 
 We construct the linear maps in finite bases, as in
-\texttt{ker\_data}.  Choose bases
+\srcid{ker\_data}.  Choose bases
 \(u_1,\ldots,u_s\) of \(\ker R_a\) and
 \(v_1,\ldots,v_r\) of \(\ker R_{\bar a}\).
 For any \(n\), let
@@ -214,8 +214,8 @@ On the other hand substituting \(\psi\) into
 \eqref{eq:faithful-kernel-character-coefficients} gives that same
 coefficient as \(D_j(f_i)\).
 The actual frame-to-series comparison is
-\texttt{chi\_chart}; the coefficient extraction is
-\texttt{second\_jet\_expansion}.  This proves the equality with
+\srcid{chi\_chart}; the coefficient extraction is
+\srcid{second\_jet\_expansion}.  This proves the equality with
 the actual \(C_a\), including its sign and transpose convention.
 
 Finally the kernel's multiplication, identity, and inverse factor
@@ -223,7 +223,7 @@ uniquely through itself.  On coordinate rings these give
 \(\Delta,\epsilon,\iota\); uniqueness of kernel factorization
 transfers associativity, the identity laws, inversion, and
 commutativity to the Hopf laws.  Equivalently this is the
-source's \texttt{exists\_hopf} construction on the same underlying
+source's \srcid{exists\_hopf} construction on the same underlying
 algebra \(A\).  Extend \(u_j\mapsto D_j\) and \(v_i\mapsto f_i\)
 linearly from the chosen bases.  Their independence gives
 injectivity; equations \eqref{eq:faithful-kernel-derivation},
@@ -231,14 +231,14 @@ injectivity; equations \eqref{eq:faithful-kernel-derivation},
 give all the asserted identities.
 \end{proof}
 
-\begin{proposition}[The proper-germ kernel divisibility]
+\begin{srproposition}[The proper-germ kernel divisibility]
 \label{prop:faithful-proper-germ-kernel-divisibility}
 Under the same hypotheses,
 \[
        p^{\,\dim_k\ker\rho_H(a)}\mid\dim_k A .
  \tag{KG9}\label{eq:faithful-proper-germ-kernel-divisibility}
 \]
-\end{proposition}
+\end{srproposition}
 \begin{proof}
 Set
 \[
@@ -279,27 +279,27 @@ Equation \eqref{eq:faithful-doubled-kernel-bound} implies
 \paragraph{Frozen-source ledger and scope.}
 The actual geometric producer is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ProperGroupGermFiniteSubscheme.lean}
-{\texttt{ProperGroupGermFiniteSubscheme}}
-(blob \texttt{3ad2aaa54254d04f8c6931e8c1537377fb2abd13}),
-namely \texttt{ker\_data}, \texttt{assemble},
-\texttt{exists\_hopf}, and \texttt{kerHopf\_geom}.
+{\srcid{ProperGroupGermFiniteSubscheme}}
+(blob \srcid{3ad2aaa54254d04f8c6931e8c1537377fb2abd13}),
+namely \srcid{ker\_data}, \srcid{assemble},
+\srcid{exists\_hopf}, and \srcid{kerHopf\_geom}.
 Its explicit cubical and scheme-theoretic helpers are in
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankMultiplicationCharP.lean}
-{\texttt{KernelRankMultiplicationCharP}}
-(blob \texttt{8692ad93c74b5c1b23bdc6589110ce06b1a56c60}):
-\texttt{pair\_ax}, \texttt{pair\_mul}, \texttt{pair\_nondeg},
-\texttt{pair\_exists}, \texttt{exists\_ker}, \texttt{flat\_surj},
-\texttt{second\_jet\_expansion}, and \texttt{chi\_chart}.
-Here \texttt{chi\_chart} is the chart comparison for its
-\texttt{Chi} predicate in the \texttt{JetKernelRank} namespace;
+{\srcid{KernelRankMultiplicationCharP}}
+(blob \srcid{8692ad93c74b5c1b23bdc6589110ce06b1a56c60}):
+\srcid{pair\_ax}, \srcid{pair\_mul}, \srcid{pair\_nondeg},
+\srcid{pair\_exists}, \srcid{exists\_ker}, \srcid{flat\_surj},
+\srcid{second\_jet\_expansion}, and \srcid{chi\_chart}.
+Here \srcid{chi\_chart} is the chart comparison for its
+\srcid{Chi} predicate in the \srcid{JetKernelRank} namespace;
 its equality is applied to the two actual square-zero coordinate
 points, as above.
 The final bound is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ProperMultiplicationKernel.lean}
-{\texttt{ProperMultiplicationKernel}}
-(blob \texttt{ed9741baf8969ed3e3efda99cbdbce7a51e6dc81}),
-specifically \texttt{finrank\_ker\_rhoH\_le} and
-\texttt{lemF\_ker\_order\_dvd}.
+{\srcid{ProperMultiplicationKernel}}
+(blob \srcid{ed9741baf8969ed3e3efda99cbdbce7a51e6dc81}),
+specifically \srcid{finrank\_ker\_rhoH\_le} and
+\srcid{lemF\_ker\_order\_dvd}.
 All three files were checked against the frozen baseline.
 
 The conclusion is for the proper polarized quotient equipped with

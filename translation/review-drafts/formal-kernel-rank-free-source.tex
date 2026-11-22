@@ -2,10 +2,10 @@
 \label{subsec:faithful-kernel-norm-free}
 
 This is the algebraic producer
-\texttt{KernelRankAlgebraicBound}; its conclusion is a basis, not
+\srcid{KernelRankAlgebraicBound}; its conclusion is a basis, not
 merely a dimension assertion.
 
-\begin{proposition}\label{prop:faithful-kernel-norm-free}
+\begin{srproposition}\label{prop:faithful-kernel-norm-free}
 Let \(E\) be a number field, \(O=\mathcal O_E\), and
 \(b_1,\ldots,b_n\) its specified integral basis, where
 \(n=[E:\mathbb Q]\).  Let \(k\) be algebraically closed of
@@ -32,7 +32,7 @@ Then there exist \(x_1,\ldots,x_r\in W\) such that
 \]
 is a \(k\)-basis of \(W\).  Equivalently the extended action makes
 \(W\) free of rank \(r\) over \(k\otimes_{\mathbb Z}O\).
-\end{proposition}
+\end{srproposition}
 
 \begin{proof}
 Put \(A=k\otimes_{\mathbb Z}O\).  The rule
@@ -71,8 +71,10 @@ The Dedekind two-generator statement gives \(\pi\) such that
 \(\mathfrak w(p)+(\pi)=\mathfrak w\).
 Consequently \((\pi)=\mathfrak w I\) and cancellation of the
 nonzero ideal \(\mathfrak w\) gives \((p)+I=O\).
-In the finite quotient \(O/I\), multiplication by \(p\) is
-invertible.  Hence \(p\nmid |O/I|\): otherwise Cauchy's theorem
+The ideal \(I\) is nonzero: otherwise \(p\) would be a unit
+in \(O\), contrary to \(|N(p)|=p^n>1\).
+Thus \(O/I\) is finite, and multiplication by \(p\) in that
+quotient is invertible.  Hence \(p\nmid |O/I|\): otherwise Cauchy's theorem
 would give a nonzero element of additive order \(p\), contradicted
 by that invertibility.
 Taking ideal norms gives
@@ -141,7 +143,7 @@ satisfies \(v^ne=0\), and \(1-e\) is divisible by every power
 \(v^M\).  For the latter assertion use
 \(v^n(vy)^M=v^n\); explicitly
 \(1-e=v^{n+M}y^{n+M}\).
-This is the source's \texttt{fitting} construction.
+This is the source's \srcid{fitting} construction.
 Apply it to \(v=t-\alpha_j\).
 The resulting \(e_j\) lies in \(G_j(A)\), and
 \(\chi_j(e_j)=1\), since \(1-e_j\) is divisible by \(t-\alpha_j\).
@@ -219,7 +221,7 @@ Hence
  W=A x_1+\cdots+A x_r+\mathfrak mW .
  \tag{NF12}\label{eq:faithful-norm-free-local-generators}
 \]
-This is the actual \texttt{core}/\texttt{locmax} conclusion.
+This is the actual \srcid{core}/\srcid{locmax} conclusion.
 
 \emph{Gluing the generators.}
 The Artinian algebra \(A\) has finitely many maximal ideals.
@@ -260,22 +262,22 @@ linearly independent.  This proves the desired actual basis.
 \paragraph{Frozen-source ledger.}
 The complete source is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankAlgebraicBound.lean}
-{\texttt{KernelRankAlgebraicBound}}
-(blob \texttt{ed4a911401a5dc7a2c756d59035b64c06fb41f13}).
+{\srcid{KernelRankAlgebraicBound}}
+(blob \srcid{ed4a911401a5dc7a2c756d59035b64c06fb41f13}).
 The paragraphs above follow, in order, its
-\texttt{arith\_pi}, \texttt{arith\_theta}, \texttt{count\_hom},
-\texttt{fitting}, \texttt{pow\_finrank\_kill},
-\texttt{finrank\_G}, \texttt{core}, \texttt{locmax},
-\texttt{glue}, and final theorem.
+\srcid{arith\_pi}, \srcid{arith\_theta}, \srcid{count\_hom},
+\srcid{fitting}, \srcid{pow\_finrank\_kill},
+\srcid{finrank\_G}, \srcid{core}, \srcid{locmax},
+\srcid{glue}, and final theorem.
 The nilpotent spanning argument is its imported
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/JordanBasisNilpotent.lean}
-{\texttt{JordanBasisNilpotent}},
-\texttt{exists\_span\_sup\_range} and \texttt{span\_eq\_top};
+{\srcid{JordanBasisNilpotent}},
+\srcid{exists\_span\_sup\_range} and \srcid{span\_eq\_top};
 its construction is given explicitly in
 \eqref{eq:faithful-nilpotent-corank}.
 The wrapper
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/KernelRankBoundNormValuation.lean}
-{\texttt{KernelRankBoundNormValuation.lemF\_algebra}}
+{\srcid{KernelRankBoundNormValuation.lemF\_algebra}}
 has exactly the hypotheses and conclusion of this proposition.
 
 This is a closed algebraic implication.

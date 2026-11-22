@@ -26,8 +26,8 @@ The exact three identities it obeys are
  u_\alpha(0)\iota(\alpha)^k u_\alpha(-\alpha)&=1.
                                                         \label{eq:ftb-unit-sym}
 \end{align}
-These are \texttt{TrUnit.mul}, \texttt{TrUnit.order}, and
-\texttt{TrUnit.sym} in the frozen source.
+These are \srcid{TrUnit.mul}, \srcid{TrUnit.order}, and
+\srcid{TrUnit.sym} in the frozen source.
 
 Here the unit is obtained from the actual integral theta group, not
 by extending a generic phase.
@@ -54,8 +54,8 @@ The source realizes the formal frame as the compatible limit of the
 actual jets, so the multiplier and the action on regular germs use
 the same frame.
 Its model comparison is
-\texttt{ExistsTranslateUnitSymmetricFormalGroupPoint.model\_unit}
-and \texttt{exists\_trUnit}.
+\srcid{ExistsTranslateUnitSymmetricFormalGroupPoint.model\_unit}
+and \srcid{exists\_trUnit}.
 The required integral theta-group and square-model comparisons belong
 to the actual cubical model, not to a pairing specified only on the
 generic fibre.
@@ -123,7 +123,7 @@ The inversion and symmetry identities then give \(\chi^2=1\).
 The product identity gives \(\chi^k=1\).
 As \(k\) is odd, \(\chi=1\), which is the required identity.
 This is the full cancellation mechanism of
-\texttt{ProdSymmetricTranslationUnitsEqKappaRatio.core};
+\srcid{ProdSymmetricTranslationUnitsEqKappaRatio.core};
 no root of unity is discarded.
 \end{proof}
 
@@ -145,11 +145,12 @@ The action is adjoint for complex conjugation.
 In a formal frame a member lifting the tangent direction \(u\) has
 the form \((u,\phi-Su)\), where \(u,\phi\) are integral and
 \(S=\operatorname{sg}_1(h)\) is the gauge's linear correction.
-This describes the source's \texttt{Hset}; the pairing is the
+This describes the source's \srcid{Hset}; the pairing is the
 usual Heisenberg pairing
 \(\beta((u,v),(u',v'))=v'\cdot u-v\cdot u'\).
-The actual chart has an integral basis of tangent eigendirections
-\(u_{\tau,i}\).
+The actual chart supplies integral tangent eigendirections
+\(u_{\tau,i}\), with the prescribed row bases; this does not assert
+that their direct sum is a basis of the whole integral Lie lattice.
 These structures and their compatibility with the canonical
 connection are those of its integral formal biextension.
 
@@ -224,8 +225,8 @@ for the integral--integral, error--integral and integral--error
 pairings.  Eigenprojection and adjointness give the final
 embedding-level vanishing.
 These are the trace-dual and prime-projector operations of
-\texttt{ExistsRamifiedEigenLiftsOfChartDirections} and
-\texttt{HolomorphicFamilies/EigRamLift.eigLiftRam\_core}.
+\srcid{ExistsRamifiedEigenLiftsOfChartDirections} and
+\srcid{HolomorphicFamilies/EigRamLift.eigLiftRam\_core}.
 \end{proof}
 
 Here is the precise contraction count.
@@ -298,7 +299,7 @@ an operator with integral coefficients.
 Thus every word in the operators \(N_{\xi_h}\), applied to
 \(E f(x)\) with \(f\) integral, is \(E\) times an integral series;
 its constant coefficient is integral.
-This is the source's \texttt{ConnectionIntegrality} calculation.
+This is the source's \srcid{ConnectionIntegrality} calculation.
 
 Now write the full lift as \(\xi=\xi_h+(0,\psi)\).
 Order the two sides with all \(+\) operators to the left of all
@@ -389,12 +390,12 @@ original invariant harmonic derivative.  This proves the value comparison as wel
 as the error estimate.
 
 The argument is precisely the chain
-\texttt{ConnectionKillsSeries},
-\texttt{ConnectionSecondOfCommute},
-\texttt{ExpConjConnectionIntegral},
-\texttt{SCWick}, \texttt{SCMain},
-\texttt{LemmaHCols}, \texttt{HarmSecond}, and
-\texttt{ChartValJ}.
+\srcid{ConnectionKillsSeries},
+\srcid{ConnectionSecondOfCommute},
+\srcid{ExpConjConnectionIntegral},
+\srcid{SCWick}, \srcid{SCMain},
+\srcid{LemmaHCols}, \srcid{HarmSecond}, and
+\srcid{ChartValJ}.
 The bound \(2\sum_b\operatorname{pairMin}\le d_a\) now gives
 membership in \(J^{\lfloor d_a/2\rfloor}\).
 Since \(v(J^s)\ge-sc\), it gives the asserted valuation.
@@ -408,7 +409,7 @@ For an actual principal host the arithmetic host data gives
 \(\operatorname{cond}E\), and
 \(\mathfrak p\ne\bar{\mathfrak p}\) over each prime in that support.
 The precise host assertion is
-\texttt{HostFieldGaloisDegreeDiscrConjMovesPrimes.host\_galois\_discr\_moves};
+\srcid{HostFieldGaloisDegreeDiscrConjMovesPrimes.host\_galois\_discr\_moves};
 its last clause is equivalent to the existence of
 \(x\in\mathfrak p\) with \(\bar x\notin\mathfrak p\).
 Applying the ramified estimate, or the unit-discriminant estimate,
@@ -419,7 +420,7 @@ gives for every line power the uniform chart loss
        v(p)\frac{\operatorname{ord}_p\Delta_E}{[E:\mathbb Q]} .
 \end{equation}
 Terms away from the residue characteristic have valuation zero.
-This is \texttt{HarmonicValuationLowerBoundHostFieldAllPlaces.chBound\_host}.
+This is \srcid{HarmonicValuationLowerBoundHostFieldAllPlaces.chBound\_host}.
 It is the chart bound required by
 Proposition~\ref{prop:ftb-mixed-value-bound}.
 
@@ -427,23 +428,23 @@ Proposition~\ref{prop:ftb-mixed-value-bound}.
 The translation-unit construction uses the actual formal line frame
 and integral theta group on the chart model.
 Its producer also uses
-\texttt{FormalGroupCharts/SurjectiveAppTopIntegralModelSquare.lean}
+\srcid{FormalGroupCharts/SurjectiveAppTopIntegralModelSquare.lean}
 to identify the generic and integral-model fibre actions.
 This comparison must be supplied by the same N3/model construction.
 The pure \(\kappa\)-ratio proof is
-\texttt{RingsOfIntegers/ProdSymmetricTranslationUnitsEqKappaRatio.lean}
-(blob \texttt{a17745b704f0f016723223e43b95b2f5a284daf5}).
+\srcid{RingsOfIntegers/ProdSymmetricTranslationUnitsEqKappaRatio.lean}
+(blob \srcid{a17745b704f0f016723223e43b95b2f5a284daf5}).
 The ramified projection calculation is
-\texttt{RingsOfIntegers/ExistsRamifiedEigenLiftsOfChartDirections.lean}
-(blob \texttt{dace979b8644da935cf648e5eef6d90c6ab6688d}),
-with \texttt{HolomorphicFamilies/EigRamLift.lean}
-(blob \texttt{532b04bcef9d8cdeb821bc4b7e792eaa9f9e75fd}).
+\srcid{RingsOfIntegers/ExistsRamifiedEigenLiftsOfChartDirections.lean}
+(blob \srcid{dace979b8644da935cf648e5eef6d90c6ab6688d}),
+with \srcid{HolomorphicFamilies/EigRamLift.lean}
+(blob \srcid{532b04bcef9d8cdeb821bc4b7e792eaa9f9e75fd}).
 The formal normal-ordering identity is
-\texttt{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/PullbackSections/HolomorphicFamilies/ChartValJ.lean}.
-Its source imports the explicit \texttt{WickVanishing.Closed} and
-\texttt{WickVanishing.HarmSecond} calculations.
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/PullbackSections/HolomorphicFamilies/ChartValJ.lean}.
+Its source imports the explicit \srcid{WickVanishing.Closed} and
+\srcid{WickVanishing.HarmSecond} calculations.
 All actual-chart applications require the same integral formal
 biextension and its gauge/eigendirection comparison, supplied by
-\texttt{JetHarmonics/IntegralChartFormalBiext.lean} and
-\texttt{IntegralChartDirectionsAreEigenvectors.lean}.
+\srcid{JetHarmonics/IntegralChartFormalBiext.lean} and
+\srcid{IntegralChartDirectionsAreEigenvectors.lean}.
 These are named model joins, not extra numerical assumptions.

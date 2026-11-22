@@ -2,7 +2,7 @@
 \label{subsec:faithful-hopf-count}
 
 This subsection translates the finite algebra argument in
-\texttt{PrimitiveDerivationPairing}, together with its five elementary
+\srcid{PrimitiveDerivationPairing}, together with its five elementary
 producers.  Throughout, \(k\) is an algebraically closed field of
 characteristic a prime \(p\), and \(A\) is a finite-dimensional,
 commutative and cocommutative Hopf \(k\)-algebra.  Write \(\Delta\),
@@ -17,7 +17,7 @@ An \(\epsilon\)-derivation is a \(k\)-linear map \(w:A\to k\) with
 \(w(ab)=w(a)\epsilon(b)+\epsilon(a)w(b)\).  An element \(f\in A\) is
 primitive when \(\Delta f=f\otimes1+1\otimes f\).
 
-\begin{lemma}[Two finite-algebra choices]\label{lem:faithful-hopf-choices}
+\begin{srlemma}[Two finite-algebra choices]\label{lem:faithful-hopf-choices}
 Let \(R\) be a finite-dimensional commutative \(k\)-algebra.
 \begin{enumerate}
 \item If a \(k\)-subspace \(U\subset R\) has the property that every
@@ -27,7 +27,7 @@ Let \(R\) be a finite-dimensional commutative \(k\)-algebra.
 \(f\mapsto f^p\), then it contains a nonzero \(f\) for which
 \(f^p=0\) or \(f^p=f\).
 \end{enumerate}
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 The ring \(R\) is Artinian.  Every maximal-ideal residue field is a
 finite extension of \(k\), hence is \(k\).  In (1), the intersection
@@ -47,10 +47,10 @@ This inclusion is strict: equality would express \(f=ga\), contrary
 to \(x(f)\ne0=x(g)\).  Apply the induction hypothesis to \(g\).
 \end{proof}
 
-\begin{lemma}[Powers of a nonzero primitive]\label{lem:faithful-primitive-powers}
+\begin{srlemma}[Powers of a nonzero primitive]\label{lem:faithful-primitive-powers}
 If \(0\ne f\in A\) is primitive, the \(p\) elements
 \(1,f,\ldots,f^{p-1}\) are linearly independent.
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 Applying the counit to one tensor factor of the primitive identity
 gives \(\epsilon(f)=0\).  Thus \(f\) and \(1\) are linearly independent.
@@ -76,7 +76,7 @@ Since \(m!\ne0\) for \(m<p\), all coefficients vanish.
 We record the two derivation computations in the precise form used
 below.  For a derivation \(D:R\to R\), put \(C=\ker D\).
 
-\begin{lemma}[Nilpotent derivation coordinates]
+\begin{srlemma}[Nilpotent derivation coordinates]
 \label{lem:faithful-nilpotent-derivation}
 Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
 \(D^p=0\), and \(D^{p-1}t\) is a unit for some \(t\in R\).
@@ -90,7 +90,7 @@ is a \(k\)-linear isomorphism.  In particular
 \(\dim_kR=p\dim_k C\).
 For every \(k\)-algebra map \(e:R\to k\), an \(e\)-derivation
 \(u:R\to k\) which kills \(C\) and \(z\) is zero; moreover \(e(Dz)=1\).
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 Put \(w=D^{p-1}t\).  Since \(Dw=0\), also \(D(w^{-1})=0\), and
 \[
@@ -115,7 +115,7 @@ Finally \(u(z^i)=0\) by induction using its Leibniz rule, and
 therefore gives \(u=0\).
 \end{proof}
 
-\begin{lemma}[Multiplicative derivation coordinates]
+\begin{srlemma}[Multiplicative derivation coordinates]
 \label{lem:faithful-multiplicative-derivation}
 Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
 \(D^p=D\), and \(z\) is a unit with \(Dz=z\).  Then
@@ -127,7 +127,7 @@ Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
 Thus \(\dim_kR=p\dim_k C\).  For any \(k\)-algebra map \(e:R\to k\),
 an \(e\)-derivation \(u\) killing \(C\) and \(z\) is zero, and
 \(e(Dz)=e(z)\ne0\).
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 The polynomial \(X^p-X\) has simple roots, exactly the elements of
 \(\mathbf F_p\subset k\).  It annihilates \(D\), so \(R\) is the
@@ -141,7 +141,7 @@ The last assertion follows from the same Leibniz calculation as
 in Lemma~\ref{lem:faithful-nilpotent-derivation}.
 \end{proof}
 
-\begin{lemma}[A single primitive Hopf quotient]
+\begin{srlemma}[A single primitive Hopf quotient]
 \label{lem:faithful-single-primitive-quotient}
 Let \(0\ne f\in A\) be primitive, with \(f^p=0\) or \(f^p=f\).
 Then
@@ -151,7 +151,7 @@ Then
 \]
 Furthermore, the primitive elements in the ideal \((f)\) are
 exactly the scalar multiples of \(f\).
-\end{lemma}
+\end{srlemma}
 \begin{proof}
 On the commutative convolution algebra \(R=A^\vee\), define
 \[
@@ -212,7 +212,7 @@ The perfect pairing then gives \(g=af\).
 Conversely, scalar multiples of \(f\) are primitive.
 \end{proof}
 
-\begin{proposition}[Primitive--tangent divisibility]
+\begin{srproposition}[Primitive--tangent divisibility]
 \label{prop:faithful-primitive-tangent-count}
 Let \(P\subset A\) be a subspace of primitive elements, and
 \(W\subset A^\vee\) a subspace of \(\epsilon\)-derivations, with
@@ -226,7 +226,7 @@ Then
 \]
 No reducedness, connectedness, or perfect pairing between these
 two subspaces is assumed.
-\end{proposition}
+\end{srproposition}
 \begin{proof}
 Use strong induction on \(\dim_k A\).  We first carry out the step
 when \(P\ne0\).  Enlarge it to
@@ -287,28 +287,28 @@ All source links below refer to the frozen baseline, and each
 listed file was compared byte for byte with its translation input.
 The five elementary producers are
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/FrobeniusStableSubspaceElement.lean}
-{\texttt{FrobeniusStableSubspaceElement}}
-(blob \texttt{15fb69f4ae27a6ab7224fa1bf79bce80e0675cc2}),
+{\srcid{FrobeniusStableSubspaceElement}}
+(blob \srcid{15fb69f4ae27a6ab7224fa1bf79bce80e0675cc2}),
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/SubspaceContainsUnit.lean}
-{\texttt{SubspaceContainsUnit}}
-(\texttt{8704c238b26ef7343b77b18851d75a59aee66050}),
+{\srcid{SubspaceContainsUnit}}
+(\srcid{8704c238b26ef7343b77b18851d75a59aee66050}),
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/NilpotentDerivationRank.lean}
-{\texttt{NilpotentDerivationRank}}
-(\texttt{ea20fda1a391f68e58f8727f9f03d43b523e6939}),
+{\srcid{NilpotentDerivationRank}}
+(\srcid{ea20fda1a391f68e58f8727f9f03d43b523e6939}),
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/MultiplicativeDerivationRank.lean}
-{\texttt{MultiplicativeDerivationRank}}
-(\texttt{979dd7f8e24e2ac0afd291416a0ccd017b285dd1}),
+{\srcid{MultiplicativeDerivationRank}}
+(\srcid{979dd7f8e24e2ac0afd291416a0ccd017b285dd1}),
 and
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PrimitiveElementPowersIndep.lean}
-{\texttt{PrimitiveElementPowersIndep}}
-(\texttt{51bb9dcde6060dee77bc4d8e4c835a0abc59281b}).
+{\srcid{PrimitiveElementPowersIndep}}
+(\srcid{51bb9dcde6060dee77bc4d8e4c835a0abc59281b}).
 The assembly is
 \href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PrimitiveDerivationPairing.lean}
-{\texttt{PrimitiveDerivationPairing}}
-(\texttt{27d2edd4e342ad3e38cf97e7a3adc841abb3cd48}),
-specifically \texttt{key}, \texttt{stepP},
-\texttt{norm\_index\_count\_bound}, and
-\texttt{primitive\_tangent\_dvd\_finrank}.
+{\srcid{PrimitiveDerivationPairing}}
+(\srcid{27d2edd4e342ad3e38cf97e7a3adc841abb3cd48}),
+specifically \srcid{key}, \srcid{stepP},
+\srcid{norm\_index\_count\_bound}, and
+\srcid{primitive\_tangent\_dvd\_finrank}.
 The proofs above retain its primitive quotient and dual-derivation
 induction; they do not substitute a general structure theorem for
 finite group schemes.

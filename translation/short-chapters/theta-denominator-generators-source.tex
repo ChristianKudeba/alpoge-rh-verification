@@ -1352,3 +1352,1959 @@ The mixed-translate and harmonic statements are in the same
 None of these deductions by itself constructs the initial integral
 uniformization or proves the chart harmonic connection bound
 \(\rho\); those are separate producer obligations.
+
+
+\subsection{The normalized translation-unit identity}
+\label{subsec:ftb-translation-unit-identity}
+
+For the same formal biextension let
+\[
+ H(X)=h(X,[w_0]X),\quad
+ \Theta(X,Y,Z)=
+ \exp\bigl(H(X+Y+Z)-H(X+Y)-H(X+Z)-H(Y+Z)
+                         +H(X)+H(Y)+H(Z)\bigr),
+\]
+and
+\(\iota(X)=\exp(H(-X)-H(X))\).
+The sums and negatives here are those of the formal group.
+The canonical-gauge/cubical identities make \(\Theta\) and \(\iota\)
+integral units.  Their constant terms are one.
+
+A normalized symmetric translation by a small \(k\)-torsion point
+\(\alpha\), at odd line power \(k\), is represented by an integral
+unit \(u_\alpha(X)\).
+The exact three identities it obeys are
+\begin{align}
+ u_\alpha(X+Y)u_\alpha(0)
+   &=u_\alpha(X)u_\alpha(Y)\Theta(X,Y,\alpha)^k,
+                                                        \label{eq:ftb-unit-cube}\\
+ (u_\alpha\tau_\alpha^*)^k(1)&=1,             \label{eq:ftb-unit-order}\\
+ u_\alpha(0)\iota(\alpha)^k u_\alpha(-\alpha)&=1.
+                                                        \label{eq:ftb-unit-sym}
+\end{align}
+These are \srcid{TrUnit.mul}, \srcid{TrUnit.order}, and
+\srcid{TrUnit.sym} in the frozen source.
+
+Here the unit is obtained from the actual integral theta group, not
+by extending a generic phase.
+The preimage of the integral point in the theta group is a
+\(\mathbb G_m\)-torsor on \(\operatorname{Spec}V\), hence has a lift
+because \(V\) is local.
+There is a unique odd-order symmetric normalization.
+For example, if \(k=2r+1\), an arbitrary lift \(w\) has central units
+\(a=w^k\) and \(b=w\,\delta(w)\), where \(\delta\) is inversion on
+the symmetric theta group; \(a^2=b^k\).
+The central rescaling \(t=a b^{-(r+1)}\) satisfies
+\(t^k=a^{-1}\), \(t^2=b^{-1}\).
+Thus \(tw\) has the required order and symmetry.
+The same two equations show uniqueness.
+
+Read this integral lift in the formal line-bundle frame.
+Its action is \(f\mapsto u_\alpha\tau_\alpha^*f\), with
+\(u_\alpha\in V[[X]]^\times\).
+The cubical multiplication identity gives
+\eqref{eq:ftb-unit-cube}; its order gives
+\eqref{eq:ftb-unit-order}; inversion gives
+\eqref{eq:ftb-unit-sym}.
+The source realizes the formal frame as the compatible limit of the
+actual jets, so the multiplier and the action on regular germs use
+the same frame.
+Its model comparison is
+\srcid{ExistsTranslateUnitSymmetricFormalGroupPoint.model\_unit}
+and \srcid{exists\_trUnit}.
+The required integral theta-group and square-model comparisons belong
+to the actual cubical model, not to a pairing specified only on the
+generic fibre.
+
+\begin{srlemma}[The product translation unit is exactly the
+\(\kappa\)-ratio]\label{lem:ftb-unit-kappa-ratio}
+Suppose \(\mu^*\mu=k1\), \(k\) is odd, \([\mu]\alpha=0\), and
+\(\kappa=\exp(S([\mu]X)-kS(X))\) is as in
+Lemma~\ref{lem:ftb-kappa}.
+For \(n\) normalized translation units set
+\(U(X)=\prod_bu_{\alpha_b}(X_b)\).
+Then
+\[
+                            U\,\tau_\alpha^*\kappa=\kappa .
+\]
+\end{srlemma}
+\begin{proof}
+All series below belong to the integral domain \(R=V[[X]]\).
+Let \(\psi=\tau_\alpha^*\) and let \(E_0,E_\alpha,E_{-\alpha}\)
+be evaluation at \(0,\alpha,-\alpha\).
+Their values are constants and are fixed by \(\psi\).
+Put
+\[
+ T=\prod_b\Theta(X_b,\alpha_b,\alpha_b)^k,\qquad
+ I=\prod_b\iota(\alpha_b)^k .
+\]
+The definitions of \(\Theta,\iota,\kappa\), and
+\([\mu]\alpha=0\), give
+\[
+ \psi^2\kappa\cdot\kappa\cdot(E_\alpha\kappa)^2T
+       =(\psi\kappa)^2E_\alpha(\psi\kappa),\qquad
+ E_{-\alpha}\kappa\cdot I=E_\alpha\kappa .
+\]
+The first is the third-difference identity for \(S\) at
+\((X,\alpha,\alpha)\); all terms involving
+\(S([\mu]\alpha)\) vanish.
+The second is its inversion identity.
+Also \(E_0\kappa=1\) and \(\psi^k\kappa=\kappa\).
+
+Equations \eqref{eq:ftb-unit-cube}--\eqref{eq:ftb-unit-sym}, multiplied
+over the copies, say
+\[
+ \psi U\cdot E_0U=U\cdot E_\alpha U\cdot T,\quad
+ \prod_{i=0}^{k-1}\psi^iU=1,\quad
+ E_0U\cdot I\cdot E_{-\alpha}U=1 .
+\]
+Define the unit \(\chi\) by
+\(\chi\kappa=U\psi\kappa\).
+Substitution and cancellation in these identities give
+\[
+                 \psi\chi\cdot E_0\chi
+                                  =\chi\cdot E_\alpha\chi,\qquad
+                  \prod_{i=0}^{k-1}\psi^i\chi=1.
+\]
+The first identity says
+\(\psi\chi=(E_\alpha\chi/E_0\chi)\chi\), with constant unit ratio.
+Hence the second has the form \(l\chi^k=1\), with \(l\) a constant
+unit.  Applying \(E_0\) gives \(\chi^k=(E_0\chi)^k\).
+Factor this difference of powers.
+The second factor has nonzero constant term
+\(k(E_0\chi)^{k-1}\); characteristic zero and the domain condition
+therefore imply \(\chi=E_0\chi\).
+In particular \(\psi\chi=\chi\).
+The inversion and symmetry identities then give \(\chi^2=1\).
+The product identity gives \(\chi^k=1\).
+As \(k\) is odd, \(\chi=1\), which is the required identity.
+This is the full cancellation mechanism of
+\srcid{ProdSymmetricTranslationUnitsEqKappaRatio.core};
+no root of unity is discarded.
+\end{proof}
+
+\subsection{The half-degree bound for the harmonic connection}
+\label{subsec:ftb-half-degree-connection}
+
+We record the formal calculation which produces the factor \(1/2\)
+in the discriminant loss.
+The integral formal biextension has an integral first-order module
+\(\mathcal H_V\) with its alternating pairing, an
+\(\mathcal O_E\)-action, and an exact sequence
+\[
+              0\longrightarrow\operatorname{Lie}(\mathcal F)^\vee
+               \longrightarrow\mathcal H_V
+               \longrightarrow\operatorname{Lie}(\mathcal F)
+               \longrightarrow0 .
+\]
+The action is adjoint for complex conjugation.
+In a formal frame a member lifting the tangent direction \(u\) has
+the form \((u,\phi-Su)\), where \(u,\phi\) are integral and
+\(S=\operatorname{sg}_1(h)\) is the gauge's linear correction.
+This describes the source's \srcid{Hset}; the pairing is the
+usual Heisenberg pairing
+\(\beta((u,v),(u',v'))=v'\cdot u-v\cdot u'\).
+The actual chart supplies integral tangent eigendirections
+\(u_{\tau,i}\), with the prescribed row bases; this does not assert
+that their direct sum is a basis of the whole integral Lie lattice.
+These structures and their compatibility with the canonical
+connection are those of its integral formal biextension.
+
+\begin{srlemma}[Ramified eigenlifts, with paired prime support]
+\label{lem:ftb-ramified-eigenlifts}
+Assume \(E/\mathbb Q\) is Galois.
+Let \(p\) be the chart residue characteristic, write
+\(\Delta_E=p^a m\), \(p\nmid m\), and suppose every prime
+\(\mathfrak p\mid p\) is distinct from its conjugate.
+For every tangent eigendirection there is a decomposition of a full
+eigenlift
+\[
+ (u_{\tau,i},\,\phi_{\tau,i}+\psi_{\tau,i}-Su_{\tau,i}),
+ \qquad\phi_{\tau,i}\text{ integral},\qquad
+ v(\psi_{\tau,i,j})\ge-\frac{a}{[E:\mathbb Q]}v(p).
+\]
+There is a partition of the primes above \(p\) into conjugate pairs,
+with a choice of side in each pair, such that all pairings between
+the integral lifts and errors vanish unless their prime colours are
+equal and their sides opposite.
+The full eigenlift has zero pairing with a tangent eigendirection
+except at the conjugate embedding.
+\end{srlemma}
+\begin{proof}
+Every embedding \(E\to F\) sends \(\mathcal O_E\) into \(V\).
+Its residue kernel is a prime \(\mathfrak p\mid p\).
+The finite-algebra product decomposition after completing
+\(\mathcal O_E\otimes V\) gives integral projectors onto these prime
+factors.  Algebraically the same projectors are obtained by Chinese
+remainders on the finite algebra; their idempotents lift over the
+complete local ring.
+Conjugation pairs the factors by the hypothesis
+\(\mathfrak p\ne\bar{\mathfrak p}\).
+The adjoint action makes two factor summands orthogonal unless their
+primes are conjugate.
+
+Choose any integral lift of \(u_{\tau,i}\) in \(\mathcal H_V\), and
+apply its integral prime projector.
+It still lifts the same tangent direction.
+Over \(F\), apply the embedding projector \(e_\tau\).
+If \(\omega_j,\omega_j^\vee\) are an integral basis and its trace-dual
+basis, this projector is
+\[
+                 e_\tau=\sum_j\tau(\omega_j)\,\omega_j^\vee
+\]
+acting on the module.
+This identity follows from trace duality, so its sum over all
+embeddings is \(1\) and its action is the required eigenprojection.
+Choose \(\delta\) in the different with minimal valuation at this
+prime.  Then each \(\delta\omega_j^\vee\) is integral, and the
+coefficients of \(e_\tau\) have denominators dividing \(\tau(\delta)\).
+Since the tangent direction was already an eigenvector, the
+difference between the projected and unprojected lifts is vertical,
+of the form \((0,\psi)\).
+Thus \(\tau(\delta)\psi\) is integral.
+
+The Galois different exponents at primes above \(p\) are equal.
+If their ramification and residue degrees are \(e_p,f_p\), and their
+number is \(g\), the discriminant identity is
+\(a=gf_p d_p\), while \([E:\mathbb Q]=gf_pe_p\).
+It follows that
+\[
+                  v(\tau(\delta))
+                  =d_p\,v(p)/e_p
+                  =a\,v(p)/[E:\mathbb Q].
+\]
+Using the weaker inequality is sufficient if a different element is
+chosen only to attain the minimum of its image ideal.
+This proves the denominator estimate.
+Prime-projector orthogonality proves the three required vanishings
+for the integral--integral, error--integral and integral--error
+pairings.  Eigenprojection and adjointness give the final
+embedding-level vanishing.
+These are the trace-dual and prime-projector operations of
+\srcid{ExistsRamifiedEigenLiftsOfChartDirections} and
+\srcid{HolomorphicFamilies/EigRamLift.eigLiftRam\_core}.
+\end{proof}
+
+Here is the precise contraction count.
+Give every embedding its conjugate-prime colour and its side.
+For a monomial \(m\) in one column, put
+\[
+ \operatorname{pairMin}(m)=
+  \sum_{\text{colours }c}
+   \min\left\{\sum_{\ell\text{ on side }+,\ c(\ell)=c}m_\ell,
+              \sum_{\ell\text{ on side }-,\ c(\ell)=c}m_\ell\right\}.
+\]
+For a monomial in \(n\) columns, sum this number over the columns.
+Twice this sum is at most the total monomial degree, since
+\(2\min(A,B)\le A+B\) in each colour and column.
+For a polynomial of row degrees \(a\), the total degree is \(d_a\).
+Thus its sum of pair minima is at most \(\lfloor d_a/2\rfloor\).
+
+\begin{srlemma}[The paired connection estimate]\label{lem:ftb-paired-connection}
+Under the eigenlift and orthogonality conditions of
+Lemma~\ref{lem:ftb-ramified-eigenlifts}, let
+\(J=\{x\in F:v(x)\ge-c\}\), where
+\(c=a\,v(p)/[E:\mathbb Q]\).
+For every integral input power series and every integral harmonic
+polynomial \(P\) of row degrees \(a_{\tau,i}\), its normalized
+harmonic connection value at any line power belongs to
+\(J^{\lfloor d_a/2\rfloor}\).
+Consequently its valuation is at least \(-c\,d_a/2\).
+\end{srlemma}
+\begin{proof}
+We give the actual connection calculation, including the divided
+contractions.  Write \(x=(x_i)\) for the formal-group coordinates and
+\(z=(z_i)\) for the auxiliary coordinates, and write \(D_u\) for the
+invariant derivative in direction \(u\).  Put
+\[
+ s_i(x)=\operatorname{sgOf}(h)_i,\qquad
+ F_u(x,z)=\sum_i(z_i-s_i(x))u_i .
+\]
+On the doubled power-series ring the source connection is
+\begin{equation}\label{eq:ftb-explicit-connection}
+ N_{u,v}=D_u+\sum_i(D_us_i+v_i)\partial_{z_i}-mF_u .
+\end{equation}
+In particular \(N_{0,\psi}=\sum_i\psi_i\partial_{z_i}\);
+it kills a series depending only on \(x\).
+A direct commutator calculation gives
+\[
+ [N_\xi,N_\eta]=m\beta(\xi,\eta).
+\]
+Indeed invariant derivatives commute,
+\(D_uD_{u'}s_i=D_{u'}D_us_i\), and
+\(V_{u,v}(F_{u'})=\sum_iv_iu_i'\) for the vector-field part \(V\)
+of \(N\).  These identities prove both the commutator and the
+vertical killing assertion without a coordinate change.
+
+Let \(H=h(x,[w_0]x)\) and \(E=\exp(mH)\), with \(E(0)=1\).
+For an integral lift
+\(\xi_h=(u,\phi-Su)\), the canonical-gauge identities say
+\[
+ D_uH+\sum_is_i u_i\in V[[x]],\qquad
+ D_us_i-\sum_jS_{ij}u_j\in V[[x]] .
+\]
+They follow by differentiating the additive, symmetric and adjoint
+gauge-defect identities; \(w_0+\bar w_0=1\) cancels the two linear
+adjoint terms.  Consequently the displayed formula gives
+\[
+ E^{-1}N_{\xi_h}E
+  =D_u+\sum_i(D_us_i+\phi_i-(Su)_i)\partial_{z_i}
+      +m\bigl(D_uH+\sum_is_i u_i-\sum_iz_i u_i\bigr),
+\]
+an operator with integral coefficients.
+Thus every word in the operators \(N_{\xi_h}\), applied to
+\(E f(x)\) with \(f\) integral, is \(E\) times an integral series;
+its constant coefficient is integral.
+This is the source's \srcid{ConnectionIntegrality} calculation.
+
+Now write the full lift as \(\xi=\xi_h+(0,\psi)\).
+Order the two sides with all \(+\) operators to the left of all
+\(-\) operators.  Within a side the required operators commute by
+the pairing vanishings.  Move every vertical error operator through
+the word to the right, where it kills \(E f(x)\).
+Each commutation contributes the scalar
+\[
+ \kappa_{\ell\ell'}
+   =\begin{cases}
+       m\beta((0,\psi_\ell),\xi_{h,\ell'}),
+              &c(\ell)=c(\ell'),\
+                 s(\ell)=+,\ s(\ell')=-,\\
+       0,&\text{otherwise}.
+     \end{cases}
+\]
+It belongs to \(J\): the tangent component of \(\xi_h\) is integral
+and every coordinate of \(\psi\) lies in \(J\).
+The resulting ordered Wick formula replaces a polynomial \(Q\) by
+\[
+       \sum_{j=0}^{\deg Q}
+          \frac{\delta_\kappa^j}{j!}Q,\qquad
+ \delta_\kappa=\sum_{\ell,\ell'}\kappa_{\ell\ell'}
+                         \partial_\ell\partial_{\ell'} .
+\]
+This formula follows by induction on a word: commuting the next
+vertical operator either moves it to the right or selects one
+opposite-side letter for a scalar contraction.
+The choices of \(j\) contractions are exactly the terms in
+\(\delta_\kappa^j/j!\).
+
+This expression introduces no nonintegral coefficient.
+For a monomial \(X^AY^B\), indexed on the two sides, its term with
+a nonnegative matrix \(N=(n_{ij})\), \(\sum n_{ij}=j\), has scalar
+coefficient
+\[
+ \frac{\prod_i A_i!/(A_i-\sum_jn_{ij})!\,
+       \prod_j B_j!/(B_j-\sum_in_{ij})!}
+      {\prod_{ij}n_{ij}!}\ \prod_{ij}\kappa_{ij}^{n_{ij}} .
+\]
+The integer before the product is integral: divide the first
+falling-factorial product by \(\prod_{ij}n_{ij}!\) row by row,
+obtaining multinomial integers, and leave the second product
+unchanged.  Hence every coefficient lies in \(J^j\).
+Each contraction removes one letter from either side of one colour.
+It reduces \(\operatorname{pairMin}\) by one.
+It follows inductively that \(\delta_\kappa^jQ=0\) once \(j\)
+exceeds the maximum pair minimum of a supported monomial.
+The integral-operator assertion above therefore places the
+constant value in the indicated power of \(J\).
+Because \(1\in J\), a term in \(J^j\), \(j\le e\), also belongs
+to \(J^e\).
+
+It remains to justify that the ordered values compute the desired
+harmonic derivative.  Apply the same commutation formula to the
+full lifts, splitting them instead as \((u,0)+(0,v)\).
+The corresponding contraction coefficient vanishes unless the
+embedding labels are conjugate.
+For \(n\) columns its second-order operator is a sum over columns
+of scalar multiples of
+\[
+   \sum_{b=1}^n
+        \partial_{(\tau,i,b)}
+        \partial_{(\bar\tau,j,b)} .
+\]
+Each such operator kills \(P\) by its harmonicity.
+Their sum \(\delta\) therefore kills \(P\), and the finite
+exponential \(\sum_j\delta^j/j!\) applied to \(P\) is just \(P\).
+The columnwise ordered Wick expansions consequently have exactly
+the same total value as the original harmonic connection.
+Formally this uses that the second-order operators in distinct
+columns commute; expand the finite exponential of their sum and
+collect the multinomial coefficients.
+In the horizontal case \(v=0\), substitution
+\(\operatorname{ev}_s:z_i\mapsto s_i(x)\) obeys the exact chain rule
+\[
+               \operatorname{ev}_s N_{u,0}
+                             =D_u\operatorname{ev}_s .
+\]
+The \(\sum_iD_us_i\,\partial_{z_i}\) term is precisely the
+derivative of this substitution, and \(F_u(x,s(x))=0\).
+For a general \((u,v)\), the additional vertical derivative
+\(\sum_iv_i\partial_{z_i}\) remains; it was removed only by the
+preceding Wick and harmonic comparison.
+Since \(s_i(0)=0\), this horizontal substitution preserves constant
+coefficients, proving that the resulting constant value is the
+original invariant harmonic derivative.  This proves the value comparison as well
+as the error estimate.
+
+The argument is precisely the chain
+\srcid{ConnectionKillsSeries},
+\srcid{ConnectionSecondOfCommute},
+\srcid{ExpConjConnectionIntegral},
+\srcid{SCWick}, \srcid{SCMain},
+\srcid{LemmaHCols}, \srcid{HarmSecond}, and
+\srcid{ChartValJ}.
+The bound \(2\sum_b\operatorname{pairMin}\le d_a\) now gives
+membership in \(J^{\lfloor d_a/2\rfloor}\).
+Since \(v(J^s)\ge-sc\), it gives the asserted valuation.
+\end{proof}
+
+At a place where \(\Delta_E\) is a unit, the trace-dual projectors are
+integral; the same argument has \(J=V\), and the connection value is
+integral.
+For an actual principal host the arithmetic host data gives
+\(E/\mathbb Q\) Galois, discriminant support in
+\(\operatorname{cond}E\), and
+\(\mathfrak p\ne\bar{\mathfrak p}\) over each prime in that support.
+The precise host assertion is
+\srcid{HostFieldGaloisDegreeDiscrConjMovesPrimes.host\_galois\_discr\_moves};
+its last clause is equivalent to the existence of
+\(x\in\mathfrak p\) with \(\bar x\notin\mathfrak p\).
+Applying the ramified estimate, or the unit-discriminant estimate,
+gives for every line power the uniform chart loss
+\begin{equation}\label{eq:ftb-host-chart-loss}
+ \rho=\frac{d_a}{2}
+  \sum_{p\mid\operatorname{cond}E}
+       v(p)\frac{\operatorname{ord}_p\Delta_E}{[E:\mathbb Q]} .
+\end{equation}
+Terms away from the residue characteristic have valuation zero.
+This is \srcid{HarmonicValuationLowerBoundHostFieldAllPlaces.chBound\_host}.
+It is the chart bound required by
+Proposition~\ref{prop:ftb-mixed-value-bound}.
+
+\paragraph{Source ledger and exact geometric input.}
+The translation-unit construction uses the actual formal line frame
+and integral theta group on the chart model.
+Its producer also uses
+\srcid{FormalGroupCharts/SurjectiveAppTopIntegralModelSquare.lean}
+to identify the generic and integral-model fibre actions.
+This comparison must be supplied by the same N3/model construction.
+The pure \(\kappa\)-ratio proof is
+\srcid{RingsOfIntegers/ProdSymmetricTranslationUnitsEqKappaRatio.lean}
+(blob \srcid{a17745b704f0f016723223e43b95b2f5a284daf5}).
+The ramified projection calculation is
+\srcid{RingsOfIntegers/ExistsRamifiedEigenLiftsOfChartDirections.lean}
+(blob \srcid{dace979b8644da935cf648e5eef6d90c6ab6688d}),
+with \srcid{HolomorphicFamilies/EigRamLift.lean}
+(blob \srcid{532b04bcef9d8cdeb821bc4b7e792eaa9f9e75fd}).
+The formal normal-ordering identity is
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/PullbackSections/HolomorphicFamilies/ChartValJ.lean}.
+Its source imports the explicit \srcid{WickVanishing.Closed} and
+\srcid{WickVanishing.HarmSecond} calculations.
+All actual-chart applications require the same integral formal
+biextension and its gauge/eigendirection comparison, supplied by
+\srcid{JetHarmonics/IntegralChartFormalBiext.lean} and
+\srcid{IntegralChartDirectionsAreEigenvectors.lean}.
+These are named model joins, not extra numerical assumptions.
+
+
+\subsection{The primary trace and the single clearing integer}
+\label{subsec:ftb-primary-trace-clearing}
+
+We retain the integral model, its canonical formal frame and the
+same-model comparisons specified above.  In this subsection \(V\)
+is a complete discrete valuation ring of characteristic zero with
+finite residue field of characteristic \(p\), \(F=\operatorname{Frac}V\),
+and \(v\) is its additive valuation.  All inequalities may equally
+be divided by any fixed positive normalization integer.
+The chart condition \(\mathrm{Good3}\) means that its formal
+truncations identify the formal group law and that its PEL
+uniformization identifies torsion, including its polarized pairing.
+The connection bound used below is the all-line-power inequality
+\(\mathrm{ChBound}(\rho)\): every integral harmonic chart input of
+the prescribed row degrees has value of valuation at least
+\(-\rho\).  For the principal host it is
+\eqref{eq:ftb-host-chart-loss}.
+
+Put \(R=\mathcal O_E\), \(R^n_{\rm st}=R^n\subset E^n\).
+A lattice \(\Lambda\subset E^n\) is \emph{unimodular} here precisely
+when
+\[
+ \Lambda=\{x:\ \sum_j\bar x_jy_j\in R\text{ for every }y\in\Lambda\}.
+\]
+Write \(\Lambda_0=\Lambda\cap R^n_{\rm st}\).
+The level conditions are that \(N\) is odd, \(M\mid N\), and
+\(NR^n_{\rm st}\subset\Lambda_0\).
+The condition \(\operatorname{TrivAt}(\Lambda,m)\) means that there
+exists \(k\) prime to \(m\) with
+\(k\Lambda\subset R^n_{\rm st}\) and
+\(kR^n_{\rm st}\subset\Lambda\).
+For \(r=p_{\rm sig}+q_{\rm sig}\), put
+\[
+ I_N=[\Lambda_0:NR^n_{\rm st}]^r,\qquad
+ J_N=[\Lambda:NR^n_{\rm st}]^r .
+\]
+These are the source's \srcid{mIdx} and \srcid{zCard}.
+The letter \(p\) in the residue characteristic is unrelated to
+\(p_{\rm sig}\).
+
+For a lattice \(L\), let \(\det L\) denote its determinant fractional
+ideal, generated by determinants of \(n\) vectors in \(L\).
+For the coefficient field \(K\), write
+\[
+  T(L)=\prod_{\tau:E\hookrightarrow\mathbb C}
+               (\tau(\det L)\mathcal O_K)^{r_\tau}.
+\]
+Thus the small scalar of Lemma~\ref{lem:ftb-reflex-small-scalar}
+satisfies
+\begin{equation}\label{eq:ftb-small-scalar-ideal}
+                         (s)T(\Lambda_0)\subset T(\Lambda).
+\end{equation}
+The normalization scalar \(\beta_\Lambda\) satisfies
+\[
+              (\beta_\Lambda)T(\Lambda)=T(\Lambda_0).
+\]
+Only this equality and its nonvanishing are needed in the local
+argument; its complex absolute values were used in the norm bound.
+
+\begin{srlemma}[Adapted matrices at a prime]
+\label{lem:ftb-adapted-matrices}
+Assume that \(E/E^+\) is unramified at every finite prime.
+For a unimodular \(\Lambda\) with the level conditions above, there
+are integers \(k,k_1\) prime to \(2p\), a unitary
+\(\gamma\in\operatorname{GL}_n(E)\), and matrices
+\(P,Q,G\in M_n(R)\), such that
+\[
+ \begin{gathered}
+ k\gamma\Lambda\subset R^n_{\rm st},\qquad
+ kR^n_{\rm st}\subset\gamma\Lambda,\qquad
+ GR^n_{\rm st}\subset\Lambda_0,\qquad
+ k_1\Lambda_0\subset GR^n_{\rm st},\\
+ GQ=k_1N1,\qquad
+                         PQ=kN\gamma .
+ \end{gathered}
+\]
+In particular \((PQ)^*(PQ)=(kN)^2 1\).
+For every valuation of \(K\) above \(p\), with the evident embeddings,
+\begin{align}
+ v_p\!\left(|N_{E/\mathbb Q}\det Q|^r\right)&=v_p(I_N),
+                                                \label{eq:ftb-index-cancel}\\
+ v(T(\Lambda_0))&=v\!\left(\prod_\tau\tau(\det G)^{r_\tau}\right),\\
+ v(T(\Lambda))&=-v\!\left(\prod_\tau\tau(\det\gamma)^{r_\tau}\right).
+\end{align}
+Consequently \eqref{eq:ftb-small-scalar-ideal} implies
+\begin{equation}\label{eq:ftb-adapted-scalar-integral}
+                  v\!\left(s\prod_\tau\tau(\det P)^{r_\tau}\right)
+                         \ge0 .
+\end{equation}
+\end{srlemma}
+\begin{proof}
+We spell out the local unitary step, including the dyadic case.
+Over each completion of \(E^+\), its integral quadratic algebra is
+either split or unramified quadratic.
+A unimodular Hermitian lattice over it has an orthonormal basis.
+In the split case this follows by choosing dual bases for the two
+factors.
+In the unramified field case, reduction is a nondegenerate Hermitian
+space over a quadratic finite-field extension.
+It contains a vector of nonzero norm: otherwise polarization of
+\(h(x+ay,x+ay)\), as \(a\) varies, would force
+\(\operatorname{Tr}(a h(x,y))=0\) for every \(a\), contradicting
+nondegeneracy.
+Lift this vector; its norm is a unit.
+The norm map on units of an unramified quadratic local extension is
+surjective.  On residue units this is the finite-field norm; on
+successive principal-unit quotients the correction is the
+surjective residue trace.  Completeness lifts these corrections.
+This proof works at residue characteristic two.
+Scale the lifted vector to norm one, split its orthogonal
+complement, and induct.
+
+Choose these local unitary frames at the finitely many primes over
+\(2p\).  The source obtains one rational unitary matrix by the
+Cayley approximation argument.
+First multiply each local frame by a norm-one scalar so that
+\(1+U\) is invertible; the excluded scalars are the finitely many
+roots of the determinant polynomial.
+There are infinitely many integral norm-one scalars, for example
+\((1-t\theta)/(1+t\theta)\), with
+\(\bar\theta=-\theta\) and sufficiently small integral \(t\).
+Then \(S=(1-U)(1+U)^{-1}\) is skew-Hermitian.
+Approximate the finitely many local \(S\)'s sufficiently closely by
+a rational skew-Hermitian matrix: approximate entries in \(E\) and
+replace an approximant \(Y\) by the appropriately scaled
+\(Y-Y^*\).
+The inverse Cayley matrix
+\(2(1+S)^{-1}-1\) is unitary.
+Its denominator is nonzero because, at a complex embedding, a
+skew-Hermitian matrix has no eigenvalue \(-1\).
+A sufficiently close approximant carries the two completed
+lattices onto one another.  More explicitly its relative matrix
+has integral entries and is unitary, so its inverse, the adjoint,
+also has integral entries.
+Clearing the remaining denominators gives one integer \(k_2\)
+prime to \(2p\) and a unitary \(\gamma\) with
+\(k_2\gamma\Lambda\subset R^n\) and
+\(k_2R^n\subset\gamma\Lambda\).
+There is no bound on \(k_2\), and none is used.
+
+Localize \(R\) by the rational integers prime to \(2p\).
+It is a semilocal Dedekind domain and hence a principal ideal
+domain: its nonzero prime ideals are precisely the finitely many
+primes over \(2p\), and approximation supplies generators with
+prescribed valuations there.
+The localized \(\Lambda_0\) therefore has a basis.
+Clear its denominators by integers prime to \(2p\), and obtain
+integral columns \(G\) and \(k_1\) prime to \(2p\) with
+\[
+       GR^n\subset\Lambda_0,\qquad k_1\Lambda_0\subset GR^n .
+\]
+Since \(Ne_j\in\Lambda_0\), there is an integral \(Q\) with
+\(GQ=k_1N1\).
+The columns \(k_2\gamma G\) are integral, so set
+\(P=k_2\gamma G\), \(k=k_1k_2\).
+These are the required identities.
+
+For the index calculation, consider
+\[
+ NR^n\subset\Lambda_0,\qquad
+ GQR^n=k_1NR^n\subset GR^n\subset\Lambda_0 .
+\]
+The quotients
+\(NR^n/GQR^n\) and \(\Lambda_0/GR^n\) are killed by \(k_1\);
+their orders are prime to \(p\).
+Multiplicativity of indices consequently shows that
+\([\Lambda_0:NR^n]\) and
+\([GR^n:GQR^n]=[R^n:QR^n]\) have equal \(p\)-adic valuation.
+The last index is \(|N_{E/\mathbb Q}\det Q|\).
+One may see this by restriction of scalars to the free
+\(\mathbb Z\)-module \(R^n\): the determinant is the field norm of
+\(\det Q\).  Raise to \(r\) to get \eqref{eq:ftb-index-cancel}.
+
+At a valuation above \(p\), the same column arguments say that
+\(\det G\) generates the local determinant ideal of \(\Lambda_0\)
+and \((\det\gamma)^{-1}\) generates that of \(\Lambda\);
+all factors \(k,k_1\) are units.
+Moreover
+\(\det P\cdot k_1^n=k^n\det\gamma\det G\).
+Apply the embeddings with multiplicities \(r_\tau\) to this equality.
+The inclusion \eqref{eq:ftb-small-scalar-ideal}, interpreted as an
+inequality of local ideal valuations, is exactly
+\eqref{eq:ftb-adapted-scalar-integral}.
+For fractional ideals, the minimum valuation is attained by one
+of their finitely many generators; products and powers add these
+minimum valuations, which justifies this argument without choosing
+global principal generators.
+\end{proof}
+
+We use additive notation for finite torsion groups in the next two
+arguments.  For a matrix \(U\), its action on a tuple is the sum of
+the corresponding endomorphism actions.
+Let \(Z_\Lambda(N)\) be the group of \(N^2\)-torsion tuples \(z\)
+annihilated by every integral matrix \(N\mu\) for which
+\(\mu\Lambda\subset R^n\).
+This is the source's \srcid{InZh} group, of cardinal \(J_N\).
+On its \(p\)-primary part the adapted identities give
+\begin{equation}\label{eq:ftb-primary-adapted-kernel}
+                z\in Z_\Lambda(N)\quad\Longleftrightarrow\quad PQz=0 .
+\end{equation}
+Indeed \(k\gamma\) is one of its permitted lattice maps, so the
+forward implication follows after cancelling the prime-to-\(p\)
+factor \(k\).
+Conversely, for every permitted \(\mu\), the inclusion
+\(kR^n\subset\gamma\Lambda\) makes
+\(k\mu\gamma^{-1}\) integral.
+It gives an integral left factor of \(PQ\) equal to \(k^2N\mu\).
+Cancelling \(k^2\) proves the required annihilation.
+The adjoint equality for \(PQ\) also gives \(N^2z=0\), after
+cancelling \(k^2\).
+The same proof applies at level \(kN\).
+
+\begin{srlemma}[From the formal trace to all primary torsion]
+\label{lem:ftb-primary-trace}
+Let \(\mu=PQ\) be an odd-level similitude with
+\(\mu^*\mu=L^2 1\).
+Assume that there are positive integers \(k_0,M_0,k_1\) and
+\(G_0\in M_n(\mathcal O_E)\) such that
+\[
+ L^2=k_0M_0,\qquad (k_0,p)=(k_1,p)=1,\qquad
+ G_0Q=k_1L1,
+\]
+and that all \(M_0\)-torsion is rational on the same generic fibre
+(the source's \(\mathrm{AllRat}(M_0)\)).
+Assume also that its \(p\)-primary kernel \(W\) is enumerated and
+the product Weil pairing is trivial on \(W\times W\).
+Let \(F=(F_b)\) be a reached tuple of sections of line power \(L^2\),
+fixed by the \(p\)-primary \(L\)-torsion.
+Let \(G_u\) be its normalized symmetric translate by \(u\in W\).
+If \(t\,P(\mu X)\) is an integral harmonic polynomial, then
+\[
+ t\sum_{u\in W}\operatorname{hv}(G_u,P)
+   =\#W_0\prod_\tau\tau(\det P)^{r_\tau}\,z,\qquad
+                         v(z)\ge-\rho ,
+ \quad W_0=W\cap\ker Q .
+\]
+The hypothesis that \(tP(\mu X)\) is integral includes its
+prescribed harmonic row degrees.
+\end{srlemma}
+\begin{proof}
+Let \(W_1\subset W\) be the subgroup whose points are small formal
+points of the same integral chart.
+It is a subgroup by the integral formal group law; inverses are
+also integral, or may be written as positive powers in this finite
+torsion group.
+For each \(x\in W\), the reached section \(G_x\) is regular by the
+reached-section result.
+Apply the formal trace calculation to its normalized translations
+by \(W_1\).
+Finite height, split kernel and the normalized-unit
+\(\kappa\)-ratio identify precisely this formal subgroup.
+It gives
+\[
+ t\sum_{\alpha\in W_1}\operatorname{hv}(G_{\alpha+x},P)
+       =\#(W_1\cap W_0)
+             \prod_\tau\tau(\det P)^{r_\tau}\,z_x,
+ \qquad v(z_x)\ge-\rho .
+\]
+The simultaneous translation may differ from the composition of the
+chosen individual normalized translations.
+Its \(b\)-th scalar ratio \(r_b\) satisfies \(r_b^{L^2}=1\), and
+the square of \(\prod_b r_b\) is the product Weil commutator.
+Isotropy gives \((\prod_b r_b)^2=1\).
+Oddness then gives \(\prod_b r_b=1\), exactly.
+Multilinearity of the harmonic value therefore removes these
+ratios.  Each ratio is an integral unit, since a root of unity
+is integral together with its inverse.
+
+A point of \(W_0\) is killed by \(k_1L\), because the supplementary
+matrix identity has that scalar product.
+It is \(p\)-primary and \(k_1\) is prime to \(p\), so it is killed
+by \(L\), and fixes \(F\) by hypothesis.
+The preceding normalized-translation calculation implies
+\(\operatorname{hv}(G_{x+w},P)=\operatorname{hv}(G_x,P)\)
+for \(w\in W_0\).
+
+Here is the exact finite-coset cancellation.
+For a function \(f\) on a finite abelian \(W\) constant on
+\(W_0\)-cosets, pass to \(W/W_0\).
+The map \(W_1\to W/W_0\) has kernel \(W_1\cap W_0\).
+Its image sums therefore satisfy
+\[
+ \sum_{\alpha\in W_1} f(\alpha+x)
+   =\#(W_1\cap W_0)
+       \sum_{h\in\operatorname{im}(W_1\to W/W_0)}\bar f(h+\bar x).
+\]
+Cancel this nonzero integer in \(F\), and sum over the quotient of
+\(W/W_0\) by that image.
+Finally the sum on \(W\) is \(\#W_0\) times its quotient sum.
+Thus the required \(z\) is the sum of the corresponding \(z_x\).
+The nonarchimedean inequality keeps \(v(z)\ge-\rho\).
+This cancellation takes place as an equality in \(F\); it makes
+no unsupported assertion that division by a group order preserves
+integrality.
+\end{proof}
+
+\begin{srlemma}[Prime-to-residue translates, with the scalar]
+\label{lem:ftb-coprime-translates-scalar}
+Suppose the level-division tuple \(t_b\) has order prime to \(p\),
+all \(N^2\)-torsion is rational, and \(P\in\operatorname{harmL}(\Lambda,a)\).
+Let \(F_{z,t}\) be the two normalized translates at line power \(N^2\)
+appearing in the theta value.  If
+\eqref{eq:ftb-small-scalar-ideal} holds, then
+\[
+ v\!\left(\frac{s}{I_N N^{\deg P}}
+           \sum_{z\in Z_\Lambda(N)}
+                     \operatorname{hv}(F_{z,t},P)\right)\ge-\rho .
+\]
+\end{srlemma}
+\begin{proof}
+Decompose the finite group \(Z_\Lambda(N)=Z_p\times Z^{(p)}\)
+into its primary and prime-to-primary factors.
+This is a genuine product, obtained by Bezout projection on the
+finite exponent; its primary factor has order
+\(p^{v_p(J_N)}\).
+For each fixed prime-to-\(p\) factor, compose its translation with
+that by \(t\).
+Normalized translations of coprime orders commute, since their
+commutator has both orders and hence equals one.
+The resulting base tuple is reached, and is fixed by the
+\(p\)-primary \(N\)-torsion: multiplication pullback is fixed by
+that kernel, and the coprime translation preserves this property.
+
+Choose the adapted data of Lemma~\ref{lem:ftb-adapted-matrices}.
+The lattice is unimodular and
+\((kN)\mathcal O_E^n\subset\Lambda\), since
+\(N\mathcal O_E^n\subset\Lambda\).
+The exact lattice-pairing theorem
+\srcid{zh\_isotropic\_and\_half\_isotropic}, applied at the odd
+level \(kN\), therefore makes the product Weil pairing trivial
+on these tuples; the adapted-kernel criterion puts them in
+\(Z_\Lambda(kN)\).  Thus the isotropy hypothesis in the primary
+trace lemma is supplied on this very group, with its actual
+polarized pairing.
+Pull the tuples back by the normalized multiplication-by-\(k\)
+map, changing line power to \((kN)^2\).
+It identifies their primary tuples by
+\eqref{eq:ftb-primary-adapted-kernel}; multiplication by \(k\) is
+an automorphism on primary torsion.
+For the polynomial,
+\[
+                 (kN)^{-\deg P}P(PQX)=P(\gamma X).
+\]
+This has integral coefficients.
+Indeed \(\operatorname{symO}(\Lambda)\) is the ring generated by
+algebraic integral constants and
+\(\sum_j\tau(b_j)X_{\tau,i,j}\), \(b\in\Lambda\).
+Substitution by \(\gamma\) sends such a generator to the same
+linear form with \(b\) replaced by \(\gamma b\).
+Its coefficients are integral in \(V\) because \(k\gamma b\) is
+integral and \(k\) is a unit.
+Ring operations preserve this property.
+Unitarity preserves the harmonic Laplacians, and column
+substitution preserves row degrees and row invariance.
+This is the full coefficient argument in
+\srcid{MemRangeOfIsIntegral.map\_pushL\_mem\_FFV}.
+
+For that application its level \(L=kN\) satisfies
+\(L^2=k^2N^2\), with \((k^2,p)=1\) and all \(N^2\)-torsion
+rational by hypothesis; its supplementary matrix is \(kG\),
+since \((kG)Q=k_1(kN)1\).  Every supplementary hypothesis of
+Lemma~\ref{lem:ftb-primary-trace} is now present.
+It gives a scalar \(z\), \(v(z)\ge-\rho\).
+Its kernel factor is
+\[
+  \#(Z_p\cap\ker Q)
+      =p^{\,v_p(|N_{E/\mathbb Q}\det Q|^r)}
+      =p^{v_p(I_N)} .
+\]
+For the first equality, identify the rational \(N^2\)-torsion with
+the quotient of the integral PEL period lattice by \(N^2\).
+Apply the source's primary-kernel count on \(N^2\)-torsion
+with supplementary matrix \(NG\), since
+\((NG)Q=k_1N^2 1\).
+The resulting determinant-index calculation identifies the order
+of the primary kernel with that of the primary part of
+\(\operatorname{coker}Q\).
+Both injectivity and surjectivity follow by cancelling \(k_1\)
+using Bezout.
+On the integral PEL lattice, which is projective of \(R\)-rank \(r\)
+and free over \(\mathbb Z\), restriction of scalars gives
+\[
+            |\det_{\mathbb Z}Q|
+                    =|N_{E/\mathbb Q}\det Q|^r .
+\]
+To avoid choosing an \(R\)-basis globally, choose a free
+full-rank \(R\)-sublattice.  Its inclusion intertwines \(Q\);
+after tensoring with \(\mathbb Q\) the two matrices are conjugate,
+so have the same determinant.
+The determinant-index identity over \(\mathbb Z\) proves the
+displayed count.
+
+The normalized pullback chain rule contributes
+\(\operatorname{Nm}_a(k)=k^{d_a}\).
+The normalizing polynomial contributes \(k^{\deg P}\).
+They, and \(p^{v_p(I_N)}/I_N\), are units in \(V\).
+After cancelling these units the term for this prime-to-primary
+factor is a unit times
+\(s\prod_\tau\tau(\det P)^{r_\tau}z\).
+Its valuation is at least \(-\rho\) by
+\eqref{eq:ftb-adapted-scalar-integral}.
+Sum over the prime-to-primary factor and use the valuation
+inequality.  No bound on the adapted \(k,k_1,\gamma\) occurs.
+\end{proof}
+
+\begin{srlemma}[The level-prime cancellation]
+\label{lem:ftb-level-prime-cancellation}
+Assume \(\operatorname{TrivAt}(\Lambda,p)\).
+Suppose
+\[
+ N=\beta\alpha n',\quad (n',p)=1,\quad
+ \alpha\bar\alpha=A,\quad\beta\bar\beta=B,\quad AB=p^j ,
+\]
+and \([\beta]t_b\) is killed by \(n'^2A\).
+Then
+\[
+ v\!\left(\frac{\operatorname{Nm}_a(\alpha)}
+                     {I_N N^{\deg P}}
+            \sum_{z\in Z_\Lambda(N)}
+                  \operatorname{hv}(F_{z,t},P)\right)\ge-\rho .
+\]
+\end{srlemma}
+\begin{proof}
+An integer \(k\) prime to \(p\) makes both lattice inclusions
+\(k\Lambda\subset R^n\) and \(kR^n\subset\Lambda\) hold.
+Their quotient indices have no \(p\)-part.
+Thus \(v_p(J_N)=v_p(I_N)\).
+It also follows that the determinant ideals of both \(\Lambda\)
+and \(\Lambda_0\) are units above \(p\); hence
+\(v(\beta_\Lambda)=0\).
+The polynomial \(P\) has integral coefficients by the same
+linear-generator argument with \(\gamma=1\).
+
+For a primary \(z\in Z_\Lambda(N)\), the defining lattice maps
+and \(kR^n\subset\Lambda\) imply \(Nz=0\), after cancelling \(k\).
+Consequently the first normalized translate of the
+multiplication-by-\(N\) pullback is unchanged by this primary
+factor.  Symmetric translations of coprime orders commute.
+In the product decomposition \(Z_p\times Z^{(p)}\), the harmonic
+value therefore depends only on the second factor.
+The full sum is exactly \(\#Z_p\) times that smaller sum.
+As \(v_p(\#Z_p)=v_p(I_N)\), the quotient \(\#Z_p/I_N\) is a unit.
+
+The prime-to-\(p\) factor \(z'\), being killed by \(N^2=n'^2p^j\),
+is killed by \(n'^2\).
+The mixed translate-pullback identity of
+Proposition~\ref{prop:ftb-mixed-value-bound} now applies with these
+\(\alpha,\beta,n'\).
+It bounds each remaining term after multiplication by
+\(\operatorname{Nm}_a(\alpha)N^{-\deg P}\).
+Summing, and cancelling the unit \(\#Z_p/I_N\), proves the result.
+\end{proof}
+
+In the same-model application the lift of a valued framed point
+has an exact theta-value formula
+\begin{equation}\label{eq:ftb-local-theta-value}
+ \beta_\Lambda g
+  =\frac{\zeta}{C_M}
+        \sum_q w_q
+         \left(\frac1{I_N N^{\deg P}}
+               \sum_z\operatorname{hv}(F_{z,t(q)},P)\right),
+ \qquad
+ C_M=\#(\operatorname{LevQ}^n)=M^{frn}.
+\end{equation}
+Here \(w_q\) is an algebraic integer and \(\zeta\) is a root of
+unity; for the identity cover it is exactly \(1\).
+The division point satisfies
+\(t_b(q)^N=\operatorname{levPt}(q_b)\) and is killed by some power
+of the half-level ideal \(\mathfrak M\).
+This equality is on the same chart after a finite extension of
+complete DVRs.  If its ramification factor is \(e'\), its
+valuation is \(e'v\); every normalized inequality divides by the
+same \(e'\), so the extension causes no loss.
+The existence of this lift with its \(\mathrm{Good3}\) chart is
+the precise geometric hypothesis
+\srcid{EvROfFrMapFromTest.short\_value\_on\_cover}.
+Its geometric producers are
+\srcid{ExistsFiniteExtensionIntegralFramedPointLiftCove} and
+\srcid{ExistsFiniteExtUniformisedChartRationalTorsion}; these must
+be matched to the root lane's actual N3/model construction.
+The formula itself follows by naturality of framed evaluations,
+faithfully flat theta-value descent, and the same coefficient-field
+embedding; it is not an assertion about a different model lattice.
+
+Let \(d=d_a\), \(\Delta=|\operatorname{disc}E|\), and
+\begin{equation}\label{eq:ftb-one-Z}
+                       Z=C_M\Delta^dM^d,\qquad N_a=Z^2 .
+\end{equation}
+The following is the exact local closure used for the integral
+theta family.
+
+\begin{srproposition}[One denominator at every finite place]
+\label{prop:ftb-one-denominator-all-places}
+Under the same-model chart, reached-section and formal comparison
+conditions above, let \(y\) be a raw theta section from
+\(\Lambda,N,P,x_0\), and let
+\(y_1=sy\) satisfy \eqref{eq:ftb-small-scalar-ideal}.
+Assume \(\operatorname{TrivAt}(\Lambda,M)\).
+Then, for every finite-place valuation in the integral-section
+lattice definition,
+\[
+                              v(Z^2y_1)\ge0 .
+\]
+The integer \(Z\) is independent of \(\Lambda,N,P,x_0,s\) once the
+row degrees, rank and level are fixed.
+In the notation of the size hypothesis,
+\[
+                         \log N_a\le134(frL)^2\kappa .
+\]
+\end{srproposition}
+\begin{proof}
+Put \(g=\beta_\Lambda^{-1}y\); this is the exact identity-cover
+short rule corresponding to the raw theta section.
+Thus \eqref{eq:ftb-local-theta-value} has left side \(y\).
+
+If \(p\nmid M\), the half-level-primary division point \(t(q)\)
+has order prime to \(p\).
+Indeed it is killed by a power of \(\mathfrak M\), hence by a
+power of the integer \(M\).
+Lemma~\ref{lem:ftb-coprime-translates-scalar}, applied separately
+to each \(q\), shows
+\[
+                         v(sy)\ge-v(C_M)-\rho .
+\]
+For the host,
+\(\rho=(d/2)\sum_{l\mid\operatorname{cond}E}
+ v(l)\operatorname{ord}_l\Delta/[E:\mathbb Q]\).
+Only \(l=p\) can contribute.  In particular
+\(\rho\le d\,v(\Delta)\).
+The factors \(C_M\Delta^d\) in \(Z\) clear both losses;
+the factors \(M^d\) and the extra \(Z\) have nonnegative
+valuation.
+
+Suppose \(p\mid M\) but \(p^2\nmid M\).
+Write \(N=p^e n'\), \((n',p)=1\).
+Set \(\alpha=p\), \(\beta=p^{e-1}\), so
+\(A=p^2\), \(B=p^{2e-2}\), \(AB=p^{2e}\).
+The level-point equation says that \(t(q)^N\) is killed by \(M\),
+so \(t(q)\) is killed by \(NM\).
+Write \(M=pm\); from \(M\mid N\) we have \(m\mid n'\).
+Since
+\(\beta n'^2p^2=p^{e+1}n'^2\) is a multiple of
+\(NM=p^{e+1}n'm\), the point \([\beta]t(q)\) is killed by
+\(n'^2p^2\).
+Apply Lemma~\ref{lem:ftb-level-prime-cancellation}.
+Since \(\operatorname{Nm}_a(p)=p^d\), it gives
+\[
+                         v(y)\ge-v(C_M)-d\,v(p)-\rho .
+\]
+As \(p\mid M\), the \(M^d\) factor clears this additional loss.
+
+For completeness, if \(p^2\mid M\), write \(M=p^km\),
+\(N=p^e n'\), \(p\nmid mn'\), \(k\le e\).
+Use \(\alpha=p^k\), \(\beta=p^{e-k}\);
+then \(A=p^{2k}\), \(B=p^{2(e-k)}\).
+The same torsion equations show
+\([\beta]t(q)\) is killed by \(n'^2p^{2k}\).
+More explicitly, \(t^N\) is killed by \(M\), and
+\(m\mid n'\) follows from \(M\mid N\).
+The exponent
+\(p^{e-k}n'^2p^{2k}=p^{e+k}n'^2\)
+is therefore a multiple of
+\(NM=p^{e+k}n'm\).
+This proves the assertion directly on the actual torsion point.
+The lemma gives the same bound with \(kd\,v(p)\);
+as \(p^k\mid M\), \(M^d\) clears it.
+This is the source's separate \srcid{factor\_pow} proof; it does
+not require \(M\) squarefree.
+
+At primes dividing \(M\), the scalar \(s\) itself has nonnegative
+valuation.  In fact \(\operatorname{TrivAt}(\Lambda,p)\)
+makes both local determinant ideals units, so
+\eqref{eq:ftb-small-scalar-ideal} forces \(v(s)\ge0\).
+The preceding two cases thus bound \(v(sy)\) as well.
+The nonarchimedean inequality, the integrality of every \(w_q\),
+and \(v(\zeta)=0\) justify summing \eqref{eq:ftb-local-theta-value}.
+They prove \(v(Zy_1)\ge0\) in each local case where this intermediate
+bound is printed; the source records the uniform conclusion with
+\(Z^2\).
+Multiplying any section of nonnegative valuation by the positive
+integer \(Z\) preserves that inequality, either by the scalar
+valuation formula or by repeated addition.
+Hence the displayed source conclusion follows.
+
+The lattice of integral cusp sections is the intersection of
+these valuation conditions inside the same characteristic-zero
+cusp space.
+Thus \(Z^2y_1\) belongs to it.
+The calculation of
+\(\log Z\le67(frL)^2\kappa\) was proved in the denominator-size
+lemma; taking the square gives \(134\).
+No choice made at an individual prime alters \(Z\).
+\end{proof}
+
+\paragraph{Source concordance and geometric boundary.}
+All paths in this paragraph are under
+\srcid{src/Development/AbelianVarietyTheory/Proofs/} at the frozen
+source tag.
+The adapted construction is
+\srcid{RingsOfIntegers/ExistsAdaptedSimilitudeDataAtPrime.lean}
+(\srcid{1b6eb2a2be303af09b0fd1507f70b85103ead2a0}),
+using \srcid{ExistsUnitaryOfSelfDual.lean}
+(\srcid{6eb2d1c33613ce009b53f1112abd0b4f5812474d})
+and \srcid{IsPrincipalIdealRingLoc.lean}
+(\srcid{1ad5550fe752c799883e6ebec4eac2e06291c2e7}).
+Its Cayley proof is
+\srcid{UnitaryExistence/FiniteNotIsUnitOneAddSmul.lean}
+(\srcid{e7018a2755c0283f6ca79dac084cd681978e09e5}).
+The determinant and index proofs are
+\srcid{RingsOfIntegers/IndexRangeMatrix.lean}
+(\srcid{0d0ef8c8599afc5bd8f7f818e7428398b008b4ad}),
+\srcid{CardPrimaryTorsionTuplesKilledByMatrix.lean}
+(\srcid{067d9220f5d5567272a1ab2b5adf1532beb6c248}),
+and
+\srcid{DivisorProofs/IntersectedLatticeDetIdealTypeNormIntegral.lean}
+(\srcid{05cc2d038e4d187a740c9036f2de72f585fe1890}).
+The exact kernel criterion is
+\srcid{RingsOfIntegers/InZhIffKillsAdapted.lean}
+(\srcid{2b2f3604c14f57d3a8f6821ba0c6f803a55594e0}).
+The coefficient substitution is
+\srcid{RingsOfIntegers/MemRangeOfIsIntegral.lean}
+(\srcid{dd3360a4d7aa612b89e83c1cd91707f35cc7f6cf}).
+
+The finite-coset proof is \srcid{RingsOfIntegers/SumHvPrimaryKernel.lean};
+its model inputs are kept exactly as in the preceding formal-kernel
+translation.  The scalar refinement is
+\srcid{DivisorProofs/ShortSeriesBoundCoprimeTorsionMul.lean}
+(\srcid{17adcd0e29a6cea26cde4903bc003b21eb3002cd}).
+The trivial-lattice determinant/index proof is
+\srcid{RingsOfIntegers/LatticeTrivialAtPrimeIndicesAndUnits.lean}
+(\srcid{2e5f73cdd3ffcbced2cb3c5a5b4e461c4f002579}).
+The three local applications are
+\srcid{DivisorProofs/ClearingIntegerShortSeriesIntegralCoprimeLevel.lean},
+\srcid{SmulIntZNonnegAway.lean}, and
+\srcid{SmulIntZSqNonnegOfSqDvd.lean}
+(\srcid{ee0c23239d1d51bb4aaa76ee0f7e8c69d47812b9}).
+Their final assembly is
+\srcid{DivisorProofs/ExistsBoundedIntegerGoodCoverThetaSeriesIntegral.lean},
+\srcid{integral\_smul\_thLa}.
+The finite-extension comparison is
+\srcid{RingsOfIntegers/EvROfFrMapFromTest.lean}
+(\srcid{26d9b6a33485f0f314af3d908366bc56aa158067}).
+This subsection proves its numerical, determinant, torsion-count
+and finite-coset consequences.  It does not replace the actual
+same-model lift, integral theta-group action, formal gauge,
+uniformization or expansion constructors by generic extension
+principles.
+
+
+\subsection{Integral flat twists and the passage to an arbitrary weight}
+\label{subsec:ftb-flat-twists-weight-reduction}
+
+A componentwise twisting section in this argument consists of
+opposite-weight regular rules \(t,t^{-1}\), supported on one
+component \(Z\), with \(tt^{-1}=e_Z\).
+Multiplication by either rule preserves the indicated cusp spaces.
+Its normalized pointwise norm on \(Z\) is a positive constant
+\(c_\sigma\) at each coefficient-field embedding.
+Its valuations satisfy
+\(\rho_w\le v(t)\le\rho'_w\) at every valued point over \(w\);
+both functions have finite support.
+These are all the fields of the source's \srcid{TwSec}.
+In particular cusp preservation and the equality of pointwise
+norms are part of this data; they are not inferred solely from the
+existence of a rational section.
+Its lower degree is
+\[
+ \deg_{\rm lo}(t)=
+   -\frac1{[K:\mathbb Q]}\sum_{\sigma:K\hookrightarrow\mathbb C}
+                           \log c_\sigma
+   +\sum_w\rho_w\,\frac{\log Nw}{[K:\mathbb Q]} .
+\]
+The product formula makes this unchanged by rescaling \(t\) by
+\(a\in K^\times\), with the corresponding changes in \(c,\rho\).
+
+\begin{srlemma}[Rounding a flat line by one algebraic scalar]
+\label{lem:ftb-round-flat-line}
+Let \(K\) be a number field of degree \(d_K\).
+Let \(c_\sigma>0\) be conjugation invariant, and let \(\rho_w\)
+be real, finitely supported and integral at primes not above a
+finite set \(\mathcal B\) of rational primes.
+Then there is \(a\in K^\times\) with
+\[
+ v_w(a)+\rho_w\ge0\quad\hbox{for every }w
+\]
+and, for every \(\sigma\),
+\[
+ \log(c_\sigma|\sigma a|)
+ \le-\deg(c,\rho)+\tfrac12\log\operatorname{rd}K
+                      +\sum_{p\in\mathcal B}\log p+1 .
+\]
+Here \(\deg(c,\rho)\) is the degree in the preceding display.
+\end{srlemma}
+\begin{proof}
+Set \(b=\prod_{p\in\mathcal B}p\), and let \(S\) contain the support
+of \(\rho\).
+Use the nonzero fractional ideal
+\[
+                 J=(b)\prod_{w\in S}w^{\lfloor-\rho_w\rfloor}.
+\]
+If \(a\ne0\) belongs to \(J\), then
+\(v_w(a)\ge v_w(b)+\lfloor-\rho_w\rfloor\).
+Off \(\mathcal B\), \(\rho_w\) is integral, so this is at least
+\(-\rho_w\).
+At a prime over \(\mathcal B\), \(v_w(b)\ge1\);
+\(1+\lfloor-\rho_w\rfloor>-\rho_w\) proves the same conclusion.
+Moreover
+\[
+ \log NJ
+  =d_K\log b+\sum_{w\in S}\lfloor-\rho_w\rfloor\log Nw
+  \le d_K\left(\log b-
+               \sum_w\rho_w\frac{\log Nw}{d_K}\right).
+\]
+
+Apply Minkowski to the real intervals and complex discs
+\(|x_\sigma|<R/c_\sigma\), where
+\[
+ R=\frac52
+       \left(NJ\,\sqrt{|\operatorname{disc}K|}
+                   \prod_\sigma c_\sigma\right)^{1/d_K}.
+\]
+This is a symmetric convex body in the mixed embedding.
+The covolume of \(J\) is
+\(2^{-r_2}NJ\sqrt{|\operatorname{disc}K|}\).
+The body's interval/disc factor is at least one in the source's
+volume normalization, whereas \((5/2)^{d_K}>2^{d_K}\);
+hence its volume is strictly larger than \(2^{d_K}\) times that
+covolume.
+It contains a nonzero \(a\in J\).
+Thus \(c_\sigma|\sigma a|<R\) simultaneously.
+Taking logarithms, using \(\log(5/2)<1\), and inserting the ideal
+norm bound gives the asserted inequality.
+This proof retains the source's fractional-ideal floor and the
+extra factor \(\prod_{p\in\mathcal B}p\); it does not round at
+different embeddings separately.
+\end{proof}
+
+For a function \(w:\Psi\to\mathbb Z\), let
+\(\operatorname{par}(w)\) denote the weight constant with value
+\(w_\tau\) on every row at the CM embedding \(\tau\).
+The actual flat-section packet used here supplies a twisting
+section of weight
+\(\operatorname{wt}(\operatorname{par}(w),0)\), with integral
+valuations off \(\mathcal B\), and lower degree
+\begin{equation}\label{eq:ftb-flat-twist-exact-degree}
+ \deg_{\rm lo}(t)=
+ \sum_{\tau\in\Psi}w_\tau c_1
+ -q_{\rm sig}(\log\operatorname{rd}E-\log d_{\rm host})
+                                      \sum_{\tau\in\Psi}w_\tau .
+\end{equation}
+This is the source construction
+\srcid{ExistsTwSecOfConst.twSec\_of\_flat}: tensor the actual
+rank-one constant sections with exponents \(w_\tau\), and add
+the finite defect
+\(\sum_\tau(-w_\tau)\operatorname{flDefect}_\tau\).
+The normalized sum of each defect is
+\(q_{\rm sig}(\log\operatorname{rd}E-\log d_{\rm host})\);
+finite support permits exchanging the sums.
+The source's host discriminant bound is
+\[
+ |\log\operatorname{rd}E-\log d_{\rm host}|
+                                      \le\log\operatorname{rd}E .
+\]
+It follows from \eqref{eq:ftb-flat-twist-exact-degree} that
+\[
+ -\deg_{\rm lo}(t)\le
+ (|c_1|+q_{\rm sig}\log\operatorname{rd}E)\sum_\tau|w_\tau|.
+\]
+The flat packet and its integral defect are the exact geometric
+input here.
+The condition \srcid{UnramPts} ensures that the valuations of
+these constant rules are integral away from \(\mathcal B\), not
+merely rational: it supplies an integral valued point of
+ramification index one off that set.
+Applying Lemma~\ref{lem:ftb-round-flat-line} and multiplying by its
+scalar gives an integral twisting section with
+\begin{equation}\label{eq:ftb-flat-twist-short}
+ \log c_\sigma(t)\le
+ (|c_1|+q_{\rm sig}\log\operatorname{rd}E)\sum_\tau|w_\tau|
+ +\sum_{p\in\mathcal B}\log p+\tfrac12\log\operatorname{rd}K+1 .
+\end{equation}
+The degree \(d_K\) cancels before this bound; no polynomial
+estimate in a varying auxiliary degree is substituted for it.
+
+The other twist is the fourth-power theta key unit.
+Its exact source input is an invertible rule \(K_4\) of weight
+\(\operatorname{wt}(0,-4)\), together with an actual key section,
+such that
+\begin{align}
+ 0\le v(K_4)&\le
+       4\sum_\tau r_\tau
+           \operatorname{ord}_w(\tau\mathfrak D_E\mathcal O_K),
+                                                   \label{eq:ftb-key-unit-finite}\\
+ \operatorname{homN}_\sigma(K_4)&=(2\pi)^{2fr}.
+                                                   \label{eq:ftb-key-unit-infinite}
+\end{align}
+These are exactly the weight-four scalar and two-frame
+comparisons of Section~\ref{sec:key-different}.
+For the analytic value, at an orthonormal frame the key formula
+gives
+\[
+ |\kappa|=(2\pi)^{2g}(2\pi\xi)^{2g},\qquad g=fr .
+\]
+Unimodularity of the polarization says that the fundamental
+volume times \(\det H\) is one; the theta generator's normalized
+square integral is one.
+The weight factor is \((2\pi\xi)^{-2g}\), so it cancels and gives
+\eqref{eq:ftb-key-unit-infinite}.
+Moving a general frame to an orthonormal one preserves its
+normalized norm by the weight transformation law.
+At a finite place, if \(D\) is the determinant of the complete
+integral eigenframe in an integral Lie basis, then
+\(K_4=D^4u\), \(u\in V^\times\).
+Trace-dual projectors give
+\(D\mid\prod_\tau\tau(\delta_\tau)^{r_\tau}\) for elements
+\(\delta_\tau\) attaining the local different valuation.
+This gives \eqref{eq:ftb-key-unit-finite}.
+
+Consequently \(t_1=e_ZK_4^m\), with inverse \(e_ZK_4^{-m}\),
+is a twisting section of weight \(\operatorname{wt}(0,-4m)\),
+with nonnegative lower valuations and
+\[
+                \log c_\sigma(t_1)\le m\,2fr\log(2\pi).
+\]
+The inverse and all powers are on the same component; their
+product is \(e_Z\), not \(1\) on the other components.
+
+\begin{srlemma}[Multiplication transports an integral spanning family]
+\label{lem:ftb-twist-span}
+Let \(t\) be a twisting section with nonnegative lower valuations.
+If \(\mathcal S\) is an integral \(K\)-spanning set of cusp forms
+of even weight \(G\), then the products \(e_Z f t\),
+\(f\in\mathcal S\), span the component cusp space of weight
+\(G+\operatorname{wt}(t)\), are integral, and satisfy
+\[
+       \|e_Zft\|_{\sigma,Z}
+                          \le c_\sigma(t)\,\|f\|_{\sigma,Z}.
+\]
+\end{srlemma}
+\begin{proof}
+Multiplication by \(t\) has inverse multiplication by its specified
+inverse, because cusp preservation holds both ways and
+\(e_Z\) acts as the identity on this component.
+It is therefore a \(K\)-linear isomorphism.
+The component projection \(f\mapsto e_Zf\) is surjective.
+Their composite transports the spanning set.
+
+At every valuation over \(w\), the product has valuation at least
+\(v(f)+\rho_w(t)\ge0\).
+The integral lattice is defined by these same inequalities.
+For the norm, on the component the pointwise norm multiplies
+exactly by the positive constant \(c_\sigma(t)\); off the
+component the product is zero.
+Integrate its square with the source's component measure and
+take square roots.
+This gives the displayed inequality (in fact equality whenever
+both sides use precisely the component projection).
+Finiteness is legitimate because a cusp form's pointwise norm is
+bounded and the component measure has mass at most one.
+The norm and integral lattice used after multiplication are
+therefore those of the target weight on the same model.
+\end{proof}
+
+\begin{srproposition}[The source weight reduction and short span]
+\label{prop:ftb-arbitrary-weight-short-span}
+Let the good-cover packet be the one in
+Proposition~\ref{prop:ftb-integral-span-assembly}.
+Put \(X=frL\), \(f,r,L\ge1\), and assume
+\(\log(fr)\le L\).  Retain positive signature
+\(p_{\rm sig},q_{\rm sig}\ge1\), \(r=p_{\rm sig}+q_{\rm sig}\),
+from that good-cover packet.
+Suppose its field-size bound is \(o\le391X^2\), and suppose
+\[
+ \log\operatorname{rd}E\le3L,\quad
+ |c_1|\le9rL,\quad
+ \sum_{p\in\mathcal B}\log p\le C_BX^2 .
+\]
+Retain the actual flat/key twisting sections just described.
+Let \(\lambda_{\tau,1}\ge\cdots\ge\lambda_{\tau,r}\) have
+signature gap at least \(8fr+10\), and put
+\(S=\sum_{\tau,i}|\lambda_{\tau,i}|\), \(\log S\le10L\).
+If the even-domain integral spanning bound has constant \(C_G\),
+then the component cusp lattice of weight
+\(\operatorname{wt}(\lambda,0)\) has an integral \(K\)-spanning
+family with every norm at most
+\[
+                  \exp\{C_2(X^3S+X^5)\},
+                   \qquad C_2=11C_G+C_B+500 .
+\]
+The constants are chosen before all host, component and weight
+data.
+\end{srproposition}
+\begin{proof}
+Set \(m=fr+1\) and \(n=8m\).
+For each CM embedding set
+\[
+       n_{0,\tau}=1+4m-\lambda_{\tau,p_{\rm sig}},\qquad
+       \lambda'=\lambda+\operatorname{par}(n_0).
+\]
+Every entry in the first signature block is strictly greater
+than \(4m\).
+The gap condition says the first entry of the second block is
+at most \(-4m-1\).
+Antitonicity gives this bound for the whole second block.
+Thus the following nonnegative integer rows define theta
+exponents:
+\[
+ a_{\tau,i}=\lambda'_{\tau,i}-4m
+                    \quad(1\le i\le p_{\rm sig}),\qquad
+ a_{\bar\tau,j}=-\lambda'_{\tau,r+1-j}-4m
+                    \quad(1\le j\le q_{\rm sig}),
+\]
+with zero continuation outside these finite rows.
+They are antitone, and \(n\) is even, so
+\(\operatorname{Dom}(a,n)\) holds literally.
+The first-block exponents are positive, as required for the
+cuspidal theta spanning theorem.
+The associated weight is \(\operatorname{laOf}(a,n)=\lambda'\).
+Also \(n=8(fr+1)\ge8fr+4\), the required column threshold.
+
+The triangle inequality gives
+\[
+ N_0:=\sum_\tau|n_{0,\tau}|
+                    \le S+f(4(fr+1)+1),\qquad
+ \kappa:=\operatorname{sizeK}(a,n)
+                    \le(1+r)S+rf(4(fr+1)+1).
+\]
+The second follows from the identity
+\(\kappa=\sum_{\tau,i}|\lambda_{\tau,i}+n_{0,\tau}|\).
+These estimates and \(\log S\le10L\), \(\log(fr)\le L\)
+also give \(\log\kappa\le20L\).
+For instance \(S\ge1\) and \(fr\ge1\), so
+\(\kappa\le 11(fr)^2(S+1)\);
+we have
+\(\log\kappa\le\log22+2\log(fr)+\log S
+               \le\log22+12L\le20L\).
+Here \(S\ge1\), and \(\log22<8\).
+The same estimate is the source's integral-weight logarithm
+calculation.
+Apply the even-domain result: there is an integral spanning
+family at weight
+\(\operatorname{wt}(\lambda',4m)\), of norm
+\(\le\exp(C_GX^2\kappa)\).
+The identification of its section and Petersson norm with
+the theta-exponent notation uses the exact identity of the full
+exponent function; it retains the evenness of \(n\).
+
+Multiply by \(t_1=e_ZK_4^m\) and by the integral flat twist \(t_2\)
+of parallel weight \(-n_0\).
+Their weights add exactly to
+\[
+ \operatorname{wt}(\lambda',4m)+
+ \operatorname{wt}(0,-4m)+
+ \operatorname{wt}(\operatorname{par}(-n_0),0)
+                                  =\operatorname{wt}(\lambda,0).
+\]
+Lemma~\ref{lem:ftb-twist-span} proves both spanning and integrality.
+The logarithm of every resulting norm is at most
+\begin{align*}
+ &(fr+1)2fr\log(2\pi)\\
+ &\quad+(|c_1|+q_{\rm sig}\log\operatorname{rd}E)N_0
+       +C_BX^2+\tfrac12\log\operatorname{rd}K+1
+       +C_GX^2\kappa .
+\end{align*}
+Here \(\log\operatorname{rd}K\le o\le391X^2\).
+We give the actual scalar absorption.
+Since \(fr\le X\), \(rL\le X\), \(X\ge1\), and
+\(\log(2\pi)\le7\), the first term is at most \(28X^5\).
+The middle product is at most
+\[
+                  12X^3S+108X^5 ,
+\]
+because \(|c_1|+q_{\rm sig}\log\operatorname{rd}E\le12rL\)
+and \(N_0\le S+9f(fr)\).
+Finally
+\[
+    \kappa\le2XS+9X^2,\qquad
+    C_GX^2\kappa\le2C_GX^3S+9C_GX^5.
+\]
+The field term is at most \(196X^5\), \(1\le X^5\), and
+\(C_BX^2\le C_BX^5\).
+Adding proves the claimed bound with \(11C_G+C_B+500\).
+This is the source's
+\srcid{CovolumeNumericalBoundsCollect.covol\_numerical\_collect}.
+\end{proof}
+
+\begin{srproposition}[Short generators, with the same window variables]
+\label{prop:ftb-arbitrary-weight-short-generators}
+In the preceding setting, suppose the component cusp lattice
+\(L_\lambda\) is a full \(\mathcal O_K\)-lattice, its Petersson
+norms arise from the same positive Gram frame, and its
+\(K\)-rank \(h\) satisfies \(\log h\le C_bX^3\).
+Then there is a family of \(\mathbb Z\)-generators of \(L_\lambda\)
+with common norm bound \(A\ge1\), and cardinality \(n_{\rm gen}\),
+such that
+\[
+ \log A\le C(X^3S+X^5),\qquad
+ \log n_{\rm gen}\le CX^3,\qquad
+                       C=2000+C_b+C_2 .
+\]
+The zero-rank lattice has the empty generating family, with
+\(A=1\); the second inequality is then interpreted by this
+separate convention.
+\end{srproposition}
+\begin{proof}
+Apply Proposition~\ref{prop:ftb-short-generators} to the integral
+spanning family:
+\[
+ n_{\rm gen}\le2d_Kh,\qquad
+ A\le\max\{1,d_K^4h\operatorname{rd}K
+                         \exp(C_2(X^3S+X^5))\}.
+\]
+The norm hypotheses in that proposition hold for these exact
+Petersson norms: scaling has factor \(|\sigma a|\), nonnegativity
+is immediate, and the triangle inequality is the Euclidean
+triangle inequality after applying the chosen Gram-frame
+isomorphism.
+
+The good-cover size condition gives both
+\(\log d_K\le o\) and \(\log\operatorname{rd}K\le o\), with
+\(o\le391X^2\).
+If the maximum is \(1\), its logarithm is zero.
+Otherwise
+\[
+ \log A\le5o+C_bX^3+C_2(X^3S+X^5)
+          \le(2000+C_b+C_2)(X^3S+X^5),
+\]
+since \(X^2,X^3\le X^5\) and \(5\cdot391<2000\).
+For a nonempty family,
+\[
+ \log n_{\rm gen}\le\log2+\log d_K+\log h
+        \le1+391X^2+C_bX^3\le CX^3 .
+\]
+This is the full numerical passage in
+\srcid{FlatConstantAbsLeNineExplicit.short\_gen\_comp}.
+Neither the number nor the norm of these generators is obtained
+from a Hilbert--Samuel asymptotic.
+\end{proof}
+
+\paragraph{Exact scope of the two twists.}
+The floor/Minkowski proof is
+\srcid{DivisorProofs/ExistsShortIntegralFlatLineTwistingSection.lean}
+(\srcid{7a5c6eafdd31c9448b7819342562331dac7b4923}).
+The lower-degree identity is
+\srcid{DivisorProofs/ExistsTwSecOfConst.lean}
+(\srcid{3906b3d7afd777e9d6ec9b67a47e3c394e60176e}).
+The multiplicative lattice and norm arguments are
+\srcid{ExistsLinearEquivMulTwistingSectionIntegral.lean}
+(\srcid{398f8190dbac2615bb6e0612cc9890a80c720b02}) and
+\srcid{ExistsSpanningFamilyMulTwistingSection.lean}
+(\srcid{8e96b74a7f66eac17ed4b00ae441a570308494a6}).
+The exact large-gap exponents are
+\srcid{ExistsThetaWeightExponentsOfLargeGap.lean}
+(\srcid{af7b06e0d1be0dd845fb0504619cd9b29d6baa52}).
+The full assembly is \srcid{ShortLatticeSpanningSets.lean},
+followed by \srcid{FlatConstantAbsLeNineExplicit.lean}.
+
+The key-power application is
+\srcid{ExistsKeyUnitPowTwistingSectionOnComponent.lean}
+(\srcid{d7dd57cc9990ada2ddb8d85b56d821d4a4b86353}).
+It requires the actual exponent-one theta rule \(\kappa\), its
+functorial family-unit theorem, the componentwise fourth root,
+the complex key-norm formula and the finite model-unit/different
+comparison.
+The first of these is supplied in the frozen source by
+\srcid{ThetaLawProofs/KeyFamOne.lean}
+and \srcid{ModuliProofs/ExactKeyFormulaProof.lean}, through
+\srcid{UniformizationProofs/KeyFormulaOfConnFam.lean}.
+The existing component-root/different argument may be reused
+only with those actual inputs and the same N3/N4 models.
+The cusp-preserving clauses of the twists use
+\srcid{MulMemCuspFormsOfBoundedSectionComponent.lean},
+including its key-section and analytic hypotheses.
+These exact producer joins are tracked separately; the elementary
+rounding and weight/numerical deductions above do not by themselves
+assert their construction.
+
+
+\section{The source carrying section and its exact cost}
+\label{sec:ftb-carrying-section}
+This section follows the construction in
+\srcid{ExistsCarryingSectionOrders} and
+\srcid{CarryingSectionIntegralFrame}.  It keeps the same component,
+level and reference weight throughout.  The analytic hypotheses used below
+are the actual estimates for that component; no estimate for a different
+cover or for a larger space is substituted.
+
+Let \(E\) be the CM host, \(f=|\Psi|\), \(r=p+q\geq1\), and let \(K\)
+be the coefficient field, \(d_K=[K:\mathbf Q]\).
+Fix the good uniformizations \(U_\sigma\), their frame dictionaries, a
+component \(Z\), and the source metric parameter \(x\).
+Write \(H\) for the source Hodge weight, with rows
+\(H_{\tau i}=0\) for \(i<p\) and \(H_{\tau i}=-1\) for \(i\geq p\).
+Thus
+\[
+ u'=u-3rH,\qquad
+ G=\operatorname{wt}(u,0),\quad
+ G_0=\operatorname{wt}(8(u-u'),0)=\operatorname{wt}(24rH,0).
+\]
+All section weights in this section are integer weights.
+The scalar exponent is even wherever the source norm multiplication
+law or the integer-reading law is used.
+
+For a finite-place function \(e=(e_w)\) of finite support and a
+conjugation-invariant function \(t=(t_\sigma)\), put
+\[
+ \operatorname{cost}(e,t)=\frac1{d_K}
+  \left(\sum_w e_w\log Nw+\sum_\sigma t_\sigma\right).
+\]
+For a recurrent valuation \(v\) over \(w\), let
+\[
+ \operatorname{depth}_Z(G,v)
+   =\inf\{v(s):s\in\operatorname{latOn}(U,Z,G)\}.
+\]
+Here \(\operatorname{latOn}\) is the source lattice of integral cusp
+sections supported on \(Z\), not a lattice chosen after \(v\).
+A section \(\theta\) \emph{carries \(u'\) to \(u\)} if it has weight
+\(G_0\), is nonzero at the generic point of \(Z\), and, for every
+\(k\geq0\),
+\[
+ \theta^k\operatorname{cuspOn}(U,Z,\operatorname{wt}(8ku',0))
+ \subseteq
+ \operatorname{cuspOn}(U,Z,\operatorname{wt}(8ku,0)).
+ \tag{C1}\label{eq:ftb-carries}
+\]
+The finite inequality required later is
+\[
+ 8\operatorname{depth}_Z(G,v)
+       \leq v(\theta)+8e_w                         \tag{C2}\label{eq:ftb-finbd}
+\]
+whenever some integral section of weight \(G\) has finite \(v\).
+The infinite inequality is
+\[
+ \operatorname{homN}_{G_0}(\theta;y)^2
+   \leq e^{16t_\sigma}\,
+           \operatorname{Berg}_{Z,G}(y)^8
+ \quad (y\text{ a frame on }Z).                    \tag{C3}\label{eq:ftb-infbd}
+\]
+The Bergman function is that of the specified reference space and frame
+dictionary.  Statements with value \(+\infty\) have the evident
+extended-real interpretation.
+
+\subsection{The finite theta inequality}
+Here is the elementary lattice calculation used in the finite
+theta estimate.  Let \(Y\) be a finitely generated
+\(\mathbf Z\)-module with an \(\mathcal O_E\)-action.  Conjugation
+preserves \(\mathcal O_E\); choose \(w_0\in\mathcal O_E\) with
+\(w_0+\bar w_0=1\).  Let \(\mathcal B\) be the real vector space of
+symmetric \(\mathbf Z\)-bilinear forms satisfying
+\(\gamma(ca,b)=\gamma(a,\bar c b)\).
+For positive semidefinite \(\beta\in\mathcal B\), define
+\[
+ \phi_C(\beta)=
+ \inf_{\ell}\ell(\beta),                           \tag{C4}\label{eq:ftb-phic}
+\]
+where \(\ell:\mathcal B\to\mathbf R\) is linear, is integer-valued
+on integer-valued forms, and is strictly positive on every nonzero
+positive semidefinite form.  This is the source definition of
+\(\phi_C\); it is not the minimum of a quadratic form.
+
+\begin{srlemma}[Spanning and coset minima]\label{lem:ftb-coset-minimum}
+Let \(Q:Y\to\mathbf Z_{\geq0}\) satisfy
+\(\beta(a,a)=2Q(a)\).  Suppose \(m\geq2\), and
+\(y_1,\ldots,y_n\) generate \(Y/m^2Y\) as an
+\(\mathcal O_E\)-module.  If \(b_i\in\mathbf Q\cup\{+\infty\}\)
+satisfy, for every \(q\in\mathbf Q\),
+\[
+ \bigl[q\leq Q(mz+y_i)/m^2\text{ for every }z\in Y\bigr]
+       \ \Longrightarrow\ q\leq b_i,
+\]
+then
+\[
+                 \phi_C(\beta)/m^2\leq\sum_i b_i .
+ \tag{C5}\label{eq:ftb-coset-minimum}
+\]
+\end{srlemma}
+\begin{proof}
+Choose \(z_i\) minimizing the nonnegative integer
+\(Q(y_i+mz)\).  Let \(X\) be the \(\mathcal O_E\)-span of
+\(y_i+mz_i\).  The generation assumption gives \(Y=X+mY\).
+The finitely generated abelian quotient \(A=Y/X\) satisfies \(A=mA\).
+The determinant trick applied to generators of \(A\) supplies a
+nonzero integer \(s\equiv1\pmod m\) with \(sA=0\):
+write each generator as \(m\) times a combination of the generators
+and take the determinant of \(I-mC\).  Its determinant is
+\(1\bmod m\), hence is nonzero.  Thus every element of \(Y\) has a
+positive integer multiple in \(X\).
+
+For \(x_i=y_i+mz_i\) define
+\(\ell(\gamma)=\sum_i\gamma(w_0x_i,x_i)\).
+Symmetry, balance, and \(w_0+\bar w_0=1\) give
+\(2\gamma(w_0a,a)=\gamma(a,a)\).
+The functional \(\ell\) is integer-valued on integral forms.
+It is positive on every nonzero positive semidefinite form:
+if its nonnegative summands all vanish, then
+\(\gamma(x_i,x_i)=0\).  Positivity of
+\(\gamma(nx_i+y,nx_i+y)\) for all integers \(n\) forces
+\(\gamma(x_i,y)=0\).  Balance extends this vanishing to \(X\), and
+the positive-multiple property extends it to \(Y\).  This would give
+\(\gamma=0\).  Thus \(\ell\) occurs in \eqref{eq:ftb-phic}, and
+\[
+ 0\leq\phi_C(\beta)
+ \leq\sum_i\beta(w_0x_i,x_i)=\sum_iQ(x_i).
+\]
+The infimum is bounded below by zero because \(\beta\) is
+positive semidefinite.  The hypothesis at the rational number
+\(Q(x_i)/m^2\), followed by addition, proves \eqref{eq:ftb-coset-minimum}.
+\end{proof}
+
+The geometric input for applying this lemma is precise.  On the actual
+complete-DVR PEL uniformization of an algebraic integral frame, take
+the primitive integral theta section, its expansion of nonnegative
+\(\nu\), the cubically normalized origin value, and the odd-level
+Heisenberg lifts compatible with the full level structure.
+For \(m\) odd the expansion formula and its valuation convergence law
+give
+\[
+ \left[\forall\chi,\ q\leq
+      Q(m\chi+y_a)/m^2\right]
+       \Longrightarrow q\leq v(\vartheta_a) .
+ \tag{C6}\label{eq:ftb-theta-coset-val}
+\]
+Indeed, the normalized theta value is the convergent sum of its
+expansion terms in that coset.  Nonnegative \(\nu\) bounds every
+term below by \(q\); the nonarchimedean sum law bounds the sum below
+by \(q\).  The lifts of a tuple spanning the full level module
+give the \(y_a\)'s spanning \(Y/m^2Y\).
+These are statements about the same integral theta section and its
+normalized values.  Integral expansions or torsion lifts on a
+different model would not suffice.
+
+Apply \eqref{eq:ftb-theta-coset-val} and
+Lemma~\ref{lem:ftb-coset-minimum} with \(m=R^2\).
+An integral linear combination of products of the corresponding
+theta constants has valuation at least \(\phi_C/R^4\).
+Each product has this lower bound, its integer coefficient has
+nonnegative valuation, and the valuation of a finite sum is at least
+the minimum of those bounds.  Finite extension and comparison of the
+two semiabelian models preserve the normalized value.  Consequently
+the source theta rule \(f\), for any tuple spanning the level
+\(R^4\) module, satisfies
+\[
+             v(f)\geq\phi/R^4                       \tag{C7}\label{eq:ftb-tau-bound}
+\]
+at a point carrying the actual source datum \(\operatorname{HasPhi}(\phi)\).
+Here \(\phi\geq0\); if \(f\) vanishes, the assertion holds with
+value \(+\infty\).
+This proves the finite calculation from the explicitly stated
+same-model expansion and normalized-value inputs.  Their geometric
+construction remains the integral-uniformization input, not an
+additional claim of this calculation.
+
+\subsection{The section \(f^{24}KS\)}
+Assume \(5^4\mid M\), and supply the source admissible level-\(5^4\)
+tuple and theta rule \(f\) nonzero on \(Z\).  This nonvanishing input
+is the actual shifted-null-value construction of
+\srcid{exists\_isGenRule\_nonzeroOn}; its scope is retained below.
+The admissible tuple generates the full level module.
+Let
+\[
+ a_\sigma(y)=
+       \operatorname{homN}_{\operatorname{wtZ}(0,2r)}(f^2;y).
+\]
+Retain the following two estimates, uniformly for every such generating
+tuple and its theta rule, on the same component and cover:
+\[
+ a_\sigma(y)\leq A,\qquad
+ a_\sigma(y)^3\leq e^\beta\operatorname{Berg}_{Z,G}(y),
+ \quad \beta\geq0.                                 \tag{C8}\label{eq:ftb-carry-analytic}
+\]
+Their source producers are listed below.
+
+Let \(K_0\) be the \(3r\)-th power of the weight-four key unit,
+viewed as a twisting section.  Its weight is
+\(\operatorname{wt}(0,-12r)\); its finite lower bounds are
+nonnegative, and its constant norm factors satisfy
+\[
+ \log c_{K_0,\sigma}\leq
+ \kappa:=3r\,(2fr\log(2\pi)).
+\]
+Let \(S\) be the flat constant section of weight
+\(\operatorname{wt}(\operatorname{par}(-12r),0)\), with finite
+values \(\rho_w\), positive constant norm factors \(c_{S,\sigma}\),
+and
+\[
+ \deg S
+ =12r\,f\,\frac{p-q}{2}\omega
+ =\frac1{d_K}\left(\sum_w\rho_w\log Nw
+                         -\sum_\sigma\log c_{S,\sigma}\right).
+ \tag{C9}\label{eq:ftb-flat-carry-deg}
+\]
+Both twisting sections have inverses on \(Z\).
+
+\begin{srproposition}[The explicit carrying section]
+\label{prop:ftb-carry-explicit}
+Under these hypotheses put
+\[
+ \theta=f^{24}K_0S,\qquad
+ e_w=-\rho_w/8,\qquad
+ t_\sigma=\beta/2+\kappa/8+\log c_{S,\sigma}/8.
+ \tag{C10}\label{eq:ftb-carry-choice}
+\]
+Then \(\theta\) carries \(u'\) to \(u\).  For every actual
+algebraic integral frame with source
+\(\operatorname{HasPhi}(\phi)\), over \(w\) with ramification
+normalizer \(e_0>0\),
+\[
+ \frac8{2500}\frac{\phi}{e_0}-8e_w
+           \leq v_{\mathrm{norm}}(\theta).          \tag{C11}\label{eq:ftb-carry-finite}
+\]
+It satisfies \eqref{eq:ftb-infbd}, and its cost is exactly
+\[
+          \operatorname{cost}(e,t)
+                =\beta/2+\kappa/8-\deg S/8.         \tag{C12}\label{eq:ftb-carry-cost}
+\]
+\end{srproposition}
+\begin{proof}
+The source identity
+\[
+ 12\,\operatorname{wtZ}(0,2r)
+  +\operatorname{wt}(0,-12r)
+  +\operatorname{wt}(\operatorname{par}(-12r),0)
+       =\operatorname{wt}(24rH,0)
+\]
+gives the required weight.  The generic value is nonzero because
+\(f\) is nonzero and \(K_0,S\) are invertible on \(Z\).
+The rows of this weight are antitone.
+The integer-reading/bounded-section multiplication theorem therefore
+sends any even-weight cusp section supported on \(Z\) to a cusp
+section after multiplication by \(\theta\): its norm is bounded by
+\(A^{12}c_{K_0,\sigma}c_{S,\sigma}\).
+Iteration gives \eqref{eq:ftb-carries}.  This invocation is the actual
+integer-reading theorem, including its key-unit and level-three eta
+nonvanishing inputs; it is not an extension theorem for arbitrary
+rational sections.
+
+At a valued point on \(Z\), \eqref{eq:ftb-tau-bound} gives
+\(v_{\mathrm{norm}}(f)\geq\phi/(625e_0)\).
+The product law and the bounds for \(K_0,S\) give
+\[
+ v_{\mathrm{norm}}(\theta)
+     \geq24\phi/(625e_0)+\rho_w
+     \geq8\phi/(2500e_0)-8e_w .
+\]
+The last inequality uses \(\phi/e_0\geq0\).
+At a point off \(Z\), the factor \(S\), supported on \(Z\), makes
+\(\theta=0\), which also gives the required extended-real inequality.
+
+The exact norm multiplication law is
+\[
+ \operatorname{homN}_{G_0}(\theta;y)
+       =a_\sigma(y)^{12}c_{K_0,\sigma}c_{S,\sigma}.
+\]
+Raise the second inequality of \eqref{eq:ftb-carry-analytic} to
+the eighth power.  Since
+\[
+ e^{16t_\sigma}
+       =(e^\kappa c_{S,\sigma})^2e^{8\beta},
+\]
+it proves \eqref{eq:ftb-infbd}.  The source
+\(\operatorname{goodOf}(\bar\sigma)=\operatorname{goodOf}(\sigma)\)
+law and the constant-norm law for \(S\) imply
+\(t_{\bar\sigma}=t_\sigma\).  Finally substitute
+\eqref{eq:ftb-carry-choice} into the definition of cost and use
+\eqref{eq:ftb-flat-carry-deg}.  The finite and infinite terms are
+finite sums, so this gives \eqref{eq:ftb-carry-cost} without a
+limiting argument.
+\end{proof}
+
+\begin{srlemma}[The numerical cost absorption]\label{lem:ftb-carry-cost-numerical}
+Suppose \(f,r,L\geq1\), \(p,q\geq0\), \(p+q=r\),
+\(|\omega|\leq3L\), and \((frL)^{12}\leq P\).
+Then
+\[
+ \frac{3r(2fr\log(2\pi))}{8}
+ -\frac{12rf((p-q)\omega/2)}8\leq10P.
+\]
+In a common window with \(T\beta\leq C_\beta U\) and \(TP\leq U\),
+the nonnegative number \(c_c=\beta/2+10P\) satisfies
+\(Tc_c\leq(C_\beta+10)U\) and bounds the cost of
+Proposition~\ref{prop:ftb-carry-explicit}.
+\end{srlemma}
+\begin{proof}
+The inequalities \(\log(2\pi)\leq7\) and
+\(-((p-q)\omega/2)\leq3rL/2\) give the upper bound
+\((42/8)fr^2+(18/8)fr^2L\).
+Both \(fr^2\) and \(fr^2L\) are at most \((frL)^2\leq P\);
+the displayed sum is at most \(7.5P\leq10P\).
+The window assertion follows by multiplying by \(T\) and adding
+the two budgets.  This uses the same \(T\) as the analytic estimate.
+\end{proof}
+
+\subsection{Spreading the reference exponents}
+The source reference input has the following exact content.
+There are a finite set \(S_0\) of rational primes, numbers
+\(a(p)\geq0\) supported on \(S_0\), and \(s\geq0\), such that
+\[
+ \sum_{p\in S_0}a(p)\log p\leq s,\qquad
+ \operatorname{refExp}_p(U,1/2500,G)\leq a(p)
+       \quad(p\text{ prime}).                      \tag{C13}\label{eq:ftb-ref-budget}
+\]
+The latter supremum of normalized point depths includes, at every
+algebraic integral point \(y\) over \(w\mid p\) carrying
+\(\operatorname{HasPhi}(\phi)\),
+\[
+ \operatorname{depth}_{\mathrm{all}}(G,y)
+       \leq v_w(p)a(p)+\phi/(2500e_0).              \tag{C14}\label{eq:ftb-ref-point}
+\]
+The depth on the left is the infimum of the normalized valuations of
+the source integral cusp sections.  It uses
+\(v_V(p)=e_0v_w(p)\); dividing by this equality is the definition
+of the \(p\)-normalized depth.  Thus no residue-degree factor is lost.
+
+\begin{srproposition}[The same section gives the multiplier datum]
+\label{prop:ftb-carry-spread}
+Assume \eqref{eq:ftb-ref-budget}.  Assume also the actual valued-frame
+comparison: every recurrent valuation in use admits a finite valued
+extension and an algebraic integral frame carrying
+\(\operatorname{HasPhi}(\phi)\), with the same normalized values
+on sections.  Then
+\[
+                  e'_w=e_w+\sum_{p\in S_0}v_w(p)a(p)
+ \tag{C15}\label{eq:ftb-spread}
+\]
+has finite support and
+\(\operatorname{cost}(e',t)\leq\operatorname{cost}(e,t)+s\).
+With \(\theta\) of Proposition~\ref{prop:ftb-carry-explicit},
+the finite inequality \eqref{eq:ftb-finbd} holds for \(e'\), and
+the source no-base condition holds: if any cusp section of any weight
+on \(Z\) has finite recurrent valuation, some integral section of
+weight \(G\) has finite valuation.  Consequently these are the
+actual multiplier data of cost at most \(c_c+s\).
+\end{srproposition}
+\begin{proof}
+For every rational integer \(p>0\),
+\[
+ \frac1{d_K}\sum_w v_w(p)\log Nw=\log p .
+\]
+This is the ideal norm formula for \(p\mathcal O_K\).
+It proves the cost assertion for \eqref{eq:ftb-spread}; it also
+proves finite support, since an integer has only finitely many
+prime ideal divisors.
+
+Represent a recurrent valuation \(v\) by the specified extended frame.
+Choose the rational prime \(p\) below \(w\).
+If a cusp section on \(Z\) has finite \(v\), its nonzero evaluation
+forces the point to lie on \(Z\).
+For any real \(b\) strictly larger than the right-hand side of
+\eqref{eq:ftb-ref-point}, the definition of infimum chooses an
+integral cusp section with normalized valuation less than \(b\).
+Restrict it to \(Z\); its value at the point is unchanged.
+Letting \(b\) decrease gives
+\[
+ \operatorname{depth}_Z(G,v)\leq
+ B:=v_w(p)a(p)+\phi/(2500e_0)<+\infty .
+\]
+This proves the no-base assertion: if every integral section had
+value \(+\infty\), their infimum could not be at most \(B\).
+Moreover, \eqref{eq:ftb-carry-finite} and
+\(e'_w\geq e_w+v_w(p)a(p)\) imply
+\[
+ v(\theta)\geq8B-8e'_w
+       \geq8\operatorname{depth}_Z(G,v)-8e'_w.
+\]
+Transport back using equality of normalized values, including
+the values of \(\theta\) and of every integral section.
+The infinite bound and the carrying property use the same
+\(\theta,t\) and are unchanged.  If the reference budget is
+\(Ts\leq C_{\mathrm{ref}}U\), addition gives total budget
+\(T(c_c+s)\leq(C_\beta+10+C_{\mathrm{ref}})U\).
+\end{proof}
+
+\paragraph{Exact analytic and geometric frontiers.}
+The construction above translates the carrying and spreading
+calculations, with their expanded inputs.  The source produces
+\eqref{eq:ftb-carry-analytic} from
+\srcid{NormSqThetaConstantSpanningClassesLeExp},
+\srcid{FrameExponentialVolumeLarge},
+\srcid{FrameExponentialVolumeSmall}, and
+\srcid{EtaBoundLengthUnit}.  In the proof the common theta parameter
+is \(P_\eta=\operatorname{EtaAn.p16}(E,r,g_0g_1,m,5,1)\),
+and \(\beta=P_\eta+B_{\rm small}\).
+The theta bound gives \(a\leq\exp(P_\eta/625)\) everywhere and a
+stronger exponent \(a\leq e^z\) in the small-first-minimum regime.
+The respective Bergman lower bounds give \(G_{\rm Berg}\geq e^t\)
+with \(3z\leq P_\eta+B_{\rm small}+t\).
+Hence
+\(a^3\leq e^{P_\eta+B_{\rm small}}G_{\rm Berg}\) in both regimes.
+The length bounds for \(P_\eta\) and \(B_{\rm small}\) add with the
+same window length \(T\).  These four exact producer estimates
+are retained here as inputs until their proofs are translated.
+The finite theta input is the same-model integral expansion,
+primitive normalization and Heisenberg lift construction in
+\eqref{eq:ftb-theta-coset-val}; the recurrent-frame input is
+\srcid{exists_ext_hasPhi}.  The admissible shifted tuple and nonzero theta rule use
+\srcid{CardLevGrpAndSpan}, fpqc descent of the theta expression, and
+\srcid{ExistsShiftNullValNeZero}; the last is an actual theta-value
+nonvanishing input.  The exponent-one key unit, the
+integer-reading/cusp multiplication theorem, and the finite reference
+budget \eqref{eq:ftb-ref-budget} are also retained with their exact
+scope.  The arithmetic lemmas of this section do not by themselves
+assert these geometric and analytic suppliers.
