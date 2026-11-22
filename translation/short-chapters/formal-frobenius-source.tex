@@ -425,3 +425,926 @@ The global-model construction, full polarized Mumford
 uniformization, the free integral \(O\)-basis in (FC8), and
 the analytic flat frame's canonical extension are separate
 joins.  No conclusion about those joins is inferred here.
+
+\subsection{The two formal Frobenius factorizations}
+\label{subsec:faithful-frobenius-formal-factorizations}
+
+This subsection translates the coefficient and Jacobian argument of
+\srcid{CbFrob}, together with
+\srcid{AlphaKernelDerivativeVanishes}.
+It applies over every commutative ring \(R\) of characteristic
+the prime \(p\), to the actual formal biextension datum
+\(B:\mathrm{FB}(R,d,O)\).
+No perfectness, reducedness or field assumption on \(R\)
+is used in these formal lemmas.
+
+Write \(F(X,Y)\) for its commutative formal group law,
+\([m](X)\) for its specified multiplication by \(m\), and
+\(\phi_1(X,Y,Z)\), \(\phi_2(X,Y,Z)\) for the two partial
+multiplication series.
+All substituted points below have zero constant term.
+The group law has \(F(X,0)=F(0,X)=X\).
+The partial multipliers are \(1\) whenever one of their
+three arguments is zero.
+The identities used here, which are fields of the
+source's datum, include
+\[
+ \begin{split}
+ \phi_1(X,Y,Z)&=\phi_1(Y,X,Z),\\
+ \phi_1(X,Y,W)\phi_1(F(X,Y),Z,W)
+   &=\phi_1(Y,Z,W)\phi_1(X,F(Y,Z),W),\\
+ \phi_1(X,Y,Z)\phi_1(X,Y,W)\phi_2(F(X,Y),Z,W)
+   &=\phi_2(X,Z,W)\phi_2(Y,Z,W)
+                                  \phi_1(X,Y,F(Z,W)).
+ \end{split}
+ \tag{FP1}\label{eq:faithful-partial-laws}
+\]
+The second partial associativity identity is also retained
+in the datum, though it is not needed for the first
+Jacobian cancellation below.
+
+Put
+\[
+                P_m(X,Z)=\prod_{\nu=0}^{m-1}
+                                  \phi_1([\nu]X,X,Z).
+ \tag{FP2}\label{eq:faithful-Pm}
+\]
+The empty product is \(1\).
+The formal module laws give \([0]X=0\) and
+\([m+1]X=F([m]X,X)\).
+
+\begin{srlemma}\label{lem:faithful-Pm-identities}
+For every \(m\ge0\),
+\[
+ \begin{split}
+ P_m(F(X,Y),Z)\phi_1(X,Y,Z)^m
+       &=P_m(X,Z)P_m(Y,Z)
+                                \phi_1([m]X,[m]Y,Z),\\
+ P_m(X,Y)P_m(X,Z)\phi_2([m]X,Y,Z)
+       &=\phi_2(X,Y,Z)^m P_m(X,F(Y,Z)).
+ \end{split}
+ \tag{FP3}\label{eq:faithful-Pm-identities}
+\]
+\end{srlemma}
+\begin{proof}
+These are the source's two inductions on \(m\).
+For the first, partial associativity and commutativity give
+the four-term rearrangement
+\[
+ \begin{split}
+ &\phi_1(A,B,Z)\phi_1(C,D,Z)
+                              \phi_1(F(A,B),F(C,D),Z)\\
+ &\hspace{8mm}=
+ \phi_1(A,C,Z)\phi_1(B,D,Z)
+                              \phi_1(F(A,C),F(B,D),Z).
+ \end{split}
+ \tag{FP4}\label{eq:faithful-four-term}
+\]
+To obtain it, compare the two orders of adjoining \(B,C,D\)
+to \(A\) by partial associativity, and use commutativity to
+interchange \(B,C\).
+At \(m=0\), the first identity in (FP3) is the axes identity.
+For the step \(m\mapsto m+1\), expand
+\[
+          P_{m+1}(X,Z)=P_m(X,Z)\phi_1([m]X,X,Z).
+\]
+Use (FP4) with
+\((A,B,C,D)=([m]X,[m]Y,X,Y)\), the induction hypothesis,
+and \([m]F(X,Y)=F([m]X,[m]Y)\).
+The resulting products are precisely the first identity
+at \(m+1\).
+
+For the second identity, the case \(m=0\) is
+\(\phi_2(0,Y,Z)=1\).
+In the interchange identity (FP1), substitute
+\(([m]X,X,Y,Z)\).
+Multiply by \(P_m(X,Y)P_m(X,Z)\).
+The left side becomes the expanded \(m+1\) left side.
+On the right, the induction hypothesis replaces
+\[
+ P_m(X,Y)P_m(X,Z)\phi_2([m]X,Y,Z)
+\]
+by \(\phi_2(X,Y,Z)^mP_m(X,F(Y,Z))\).
+The remaining factor is
+\(\phi_2(X,Y,Z)\phi_1([m]X,X,F(Y,Z))\).
+This gives the second identity at \(m+1\).
+Every factor with constant coefficient \(1\) is a unit,
+so the same computation can equivalently be read by
+cancelling those factors, as in the source's polynomial
+identity verification.
+\end{proof}
+
+\begin{srlemma}\label{lem:faithful-formal-Frobenius-factor}
+There are unique formal series \(V(X)\) and \(g(X,Y)\)
+such that
+\[
+ \begin{gathered}
+ [p](X)=V(X_1^p,\ldots,X_d^p),\qquad V(0)=0,\\
+ P_p(X,Y)=g(X_1^p,\ldots,X_d^p,Y),\\
+                         g(0,Y)=g(X,0)=1.
+ \end{gathered}
+ \tag{FP5}\label{eq:faithful-Frobenius-factorizations}
+\]
+Moreover
+\[
+                       DV(0)=H,\qquad
+                     \operatorname{bil}_{1,1}(g)=A,
+ \tag{FP6}\label{eq:faithful-Frobenius-coefficients}
+\]
+for the matrices in \eqref{eq:faithful-alpha-beta}.
+\end{srlemma}
+\begin{proof}
+We give the source's derivative argument.
+Let
+\[
+                    J(X)_{ij}=
+                           \partial_{Y_j}F_i(X,Y)|_{Y=0}.
+\]
+Its constant matrix is \(I_d\).
+Thus \(\det J(X)\) has constant coefficient \(1\), and
+\(J(X)\) is invertible over \(R[[X]]\).
+
+Differentiate the formal homomorphism identity
+\[
+              [p](F(X,Y))=F([p]X,[p]Y)
+\]
+with respect to \(Y\) and set \(Y=0\).
+Its right side has zero derivative because
+\(D[p](0)=pI_d=0\).
+Hence \(D[p](X)J(X)=0\); invertibility of \(J\) gives
+every partial derivative of every component of \([p]\)
+equal to zero.
+
+Next, both derivatives in the first two arguments of
+\(\phi_1\), evaluated at \((0,0,Z)\), vanish.
+Indeed the corresponding axes restrictions are identically
+\(1\).  Differentiating the finite product (FP2) at \(X=0\)
+therefore gives
+\[
+                             D_XP_m(0,Z)=0
+                                  \quad\text{for every }m.
+ \tag{FP7}\label{eq:faithful-Pm-first-derivative}
+\]
+Differentiate the first identity in (FP3) for \(m=p\)
+with respect to \(Y\), and set \(Y=0\).
+The derivative of \(\phi_1(X,Y,Z)^p\) is zero in
+characteristic \(p\).
+On the other side, the derivative of \(P_p(Y,Z)\)
+is zero by (FP7), and the derivative through \([p]Y\)
+is zero by \(D[p](0)=0\).
+The surviving identity is
+\[
+                            D_XP_p(X,Z)J(X)=0.
+\]
+Cancel \(J(X)\).
+Thus every derivative of \(P_p\) in an \(X\)-variable
+vanishes.
+
+For a scalar series \(f=\sum_\nu c_\nu X^\nu\), this
+derivative condition means that \(c_\nu=0\) unless every
+\(\nu_i\) is divisible by \(p\).
+If \(p\nmid\nu_i\), multiplication by \(\nu_i\) is
+invertible in every ring of characteristic \(p\),
+by Bezout's identity.
+Consequently the only surviving exponents are \(p\)-multiples.
+Reindexing coefficients constructs the unique series
+after substitution \(X\mapsto X^{(p)}\).
+This argument applies componentwise to \([p]\), and
+only in the first block of variables to \(P_p\).
+It proves (FP5).
+The axes identities descend because that substitution
+is coefficientwise injective.
+The coefficient of \(X_j\) in \(V_i\) is the coefficient
+of \(X_j^p\) in \([p]_i\), and the coefficient of \(X_iY_j\)
+in \(g\) is that of \(X_i^pY_j\) in \(P_p\).
+These are exactly (FP6).
+\end{proof}
+
+\subsection{The derivative killed by the kernel of \(\alpha\)}
+\label{subsec:faithful-alpha-kernel-derivative}
+
+For a series \(q\), let \(q^{[p]}\) mean applying
+\(c\mapsto c^p\) to every coefficient.
+This is different from substituting \(p\)-th powers
+for its variables.
+
+\begin{srlemma}\label{lem:faithful-alpha-kernel-derivative}
+With the formal hypotheses above, let \(u\in R^d\) satisfy
+\(\alpha_B(u)=0\), and let \(g\) be the series in (FP5).
+Set
+\[
+                       D_u(Y)=
+                       \sum_i u_i\,\partial_{X_i}g(0,Y).
+ \tag{FP8}\label{eq:faithful-Du}
+\]
+Then every formal partial derivative of \(D_u(Y)\) is zero.
+\end{srlemma}
+\begin{proof}
+The source first rewrites the second identity of (FP3)
+at \(m=p\).
+Substitute \([p]X=V(X^{(p)})\) and
+\(P_p(X,Y)=g(X^{(p)},Y)\).
+The coefficient Frobenius identity
+\[
+                 \phi_2(X,Y,Z)^p
+                   =\phi_2^{[p]}(X^{(p)},Y^{(p)},Z^{(p)})
+\]
+holds term by term.
+Substitution in the first variable block by \(p\)-th
+powers is injective, so it can be cancelled.
+One obtains the source's identity
+\[
+ \begin{split}
+ g(X,Y)g(X,Z)\phi_2(V(X),Y,Z)
+  =\phi_2^{[p]}(X,Y^{(p)},Z^{(p)})\,g(X,F(Y,Z)).
+ \end{split}
+ \tag{FP9}\label{eq:faithful-germKill-identity}
+\]
+This cancellation takes place in a power-series ring
+and does not require Frobenius on \(R\) to be injective.
+
+Apply \(\sum_i u_i\partial_{X_i}\), then set \(X=0\).
+The axes identities make all undifferentiated factors \(1\).
+The term from differentiating \(V(X)\) vanishes because
+\(DV(0)u=Hu=0\), which is the first component of
+\(\alpha_B(u)=0\).
+Thus
+\[
+ D_u(Y)+D_u(Z)
+   =E_u(Y^{(p)},Z^{(p)})+D_u(F(Y,Z)),
+ \tag{FP10}\label{eq:faithful-germKill-additive}
+\]
+where
+\[
+             E_u(Y,Z)=
+                 \sum_i u_i\partial_{X_i}
+                                      \phi_2^{[p]}(0,Y,Z).
+\]
+Differentiate (FP10) with respect to \(Z_j\) and set \(Z=0\).
+The derivative of \(E_u(Y^{(p)},Z^{(p)})\) is zero.
+The chain rule therefore gives, for every \(j\),
+\[
+   \sum_k\partial_{Y_k}D_u(Y)\,J(Y)_{kj}
+                                =\partial_{Y_j}D_u(0).
+ \tag{FP11}\label{eq:faithful-germKill-Jacobian}
+\]
+By (FP6),
+\[
+                         \nabla D_u(0)=A^tu=0,
+\]
+the second component of \(\alpha_B(u)=0\).
+The same Jacobian \(J(Y)\) used above is invertible.
+Multiplying the row in (FP11) by its inverse proves
+\(\partial_{Y_k}D_u=0\) for every \(k\).
+This is the source's \srcid{germKill}; in particular no
+assumption that \(\alpha\) is already injective has entered.
+\end{proof}
+
+\paragraph{Frozen-source scope and provenance.}
+The lemmas above prove the formal-series part needed for
+\srcid{CocpMain.cocycle\_p}.
+They do not yet construct its global line generator or
+deduce \(\mathrm{TanPF}\).
+Their proof follows the same four steps as the frozen
+source: the four-term induction, Jacobian cancellation,
+coefficient reindexing, and the second Jacobian cancellation
+for \(D_u\).
+The source paths and checked blob hashes are
+\[
+\begin{array}{ll}
+ \srcid{FirstPowerEqProdAt.lean}&
+ \srcid{a8017b9ca8fc5ef04275c554343b57c74aabc657},\\
+ \srcid{CbFrob.lean}&
+ \srcid{575199c90bc9fec8a2509cc9f12c04ef6b492c3d},\\
+ \srcid{CoeffEvPowOne.lean}&
+ \srcid{01e43128ed3127558875f327af3d998e289c59b0},\\
+ \srcid{AlphaKernelDerivativeVanishes.lean}&
+ \srcid{5042e8658e3c7cf3417b9ebe62af86336fa43f0f}.
+\end{array}
+\]
+The first three lie under
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/};
+the last lies under
+\srcid{src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/}.
+The formal data and identities are those of
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/BirationalGeometry/ToroidalCompactification/CocycleRightZeroThd.lean}.
+All are read at \srcid{alpoge-source-7cbf7a0c}.
+
+\subsection{The source's Taylor map and function-field \(p\)-th root}
+\label{subsec:faithful-taylor-function-field-root}
+
+This is the route used in
+\srcid{JetOfMono.taylor} and \srcid{CgTaylor.fibre\_taylor}.
+In particular, the function-field root is obtained through
+Kahler differentials and the source's derivation criterion,
+not by an unstated comparison with a completed de Rham module.
+
+\begin{srlemma}\label{lem:faithful-field-derivation-root}
+Let \(K\) be any field of characteristic the prime \(p\).
+If \(f\in K\) satisfies \(D(f)=0\) for every
+\(\mathbb Z\)-derivation \(D:K\to K\), then \(f=h^p\)
+for some \(h\in K\).
+\end{srlemma}
+\begin{proof}
+We reproduce the source's maximal-subfield argument.
+Suppose \(f\notin K^p\).
+By Zorn's lemma choose a maximal subfield \(M\subset K\)
+which contains \(K^p\) and does not contain \(f\).
+The union of a nonempty chain of such subfields has the
+same properties, which verifies the chain condition.
+
+For every \(z\notin M\), its minimal polynomial over \(M\) is
+\[
+                              X^p-z^p.
+ \tag{FT1}\label{eq:faithful-pure-minpoly}
+\]
+Indeed this polynomial annihilates \(z\), and it is
+irreducible: a \(p\)-th root in \(M\) of \(z^p\) would equal
+\(z\), by injectivity of Frobenius in \(K\).
+The prime-degree irreducibility criterion for
+\(X^p-c\) therefore applies.
+Thus \([M(z):M]=p\).
+
+Maximality implies \(f\in M(z)\) for every \(z\notin M\):
+otherwise adjoining \(z\) would produce a larger permitted
+subfield.  Both \(M(f)\) and \(M(z)\) have degree \(p\),
+so \(M(f)=M(z)\).
+It follows that \(K=M(f)\).
+
+The surjection \(M[X]\to K,\ X\mapsto f\), has kernel
+\((X^p-f^p)\).
+Polynomial differentiation preserves this ideal because
+\((X^p-f^p)'=0\) in characteristic \(p\).
+It descends to an \(M\)-derivation \(K\to K\) carrying
+\(f\) to \(1\).
+Restricting scalars gives a \(\mathbb Z\)-derivation,
+contradicting the hypothesis.
+\end{proof}
+
+\begin{srlemma}\label{lem:faithful-local-series-root}
+Let \(k\) be a perfect field of characteristic the prime \(p\).
+Let \(A\) be a local integral \(k\)-algebra essentially of
+finite type, with maximal ideal \(\mathfrak m\).
+Let
+\[
+                   j:A\longrightarrow k[[X_1,\ldots,X_d]]
+\]
+be a \(k\)-algebra map, and put
+\(\mathfrak q=(X_1,\ldots,X_d)\).
+Assume the two precise approximation properties
+\[
+ \begin{split}
+ j(a)\in\mathfrak q^m
+             &\iff a\in\mathfrak m^m
+                                  &&(a\in A,\ m\ge0),\\
+ \forall m\ge0,\ \forall s\in k[[X]],\quad
+ \exists a\in A:\quad j(a)-s&\in\mathfrak q^m .
+ \end{split}
+ \tag{FT2}\label{eq:faithful-Taylor-properties}
+\]
+If every formal partial derivative of \(j(f)\) is zero,
+then \(f\) has a \(p\)-th root in \(\operatorname{Frac}A\).
+\end{srlemma}
+\begin{proof}
+Vanishing derivatives imply that every nonzero coefficient
+of \(j(f)\) has exponent divisible by \(p\) in each variable.
+Since \(k\) is perfect, take the unique \(p\)-th root of
+each such coefficient.  Reindexing the exponents gives
+\(g\in k[[X]]\) with
+\[
+                                 g^p=j(f).
+\]
+This is the source's
+\srcid{exists\_pow\_eq\_of\_pderiv\_eq\_zero}.
+
+For each \(m\ge0\), use (FT2) to choose \(a\in A\) with
+\(j(a)-g\in\mathfrak q^{m+1}\).
+Then
+\[
+        j(a^p-f)=(j(a)-g)^p\in\mathfrak q^{m+1},
+            \qquad a^p-f\in\mathfrak m^{m+1}.
+ \tag{FT3}\label{eq:faithful-Taylor-p-approximation}
+\]
+Let \(\Omega=\Omega_{A/k}\) and \(d:A\to\Omega\).
+The Leibniz rule gives
+\[
+                          d(\mathfrak m^{m+1})
+                                     \subset\mathfrak m^m\Omega.
+\]
+This inclusion follows by induction: differentiate a
+product of one element of \(\mathfrak m^m\) and one of
+\(\mathfrak m\), and use additivity.
+Since \(d(a^p)=0\), (FT3) puts \(df\) in
+\(\mathfrak m^m\Omega\) for every \(m\).
+
+The ring \(A\) is Noetherian and \(\Omega\) is a finite
+\(A\)-module because \(A\) is essentially of finite type
+over \(k\).
+Krull intersection for this finite module over the local
+ring gives \(\bigcap_m\mathfrak m^m\Omega=0\).
+Therefore \(df=0\).
+
+Put \(K=\operatorname{Frac}A\).
+Every \(\mathbb Z\)-derivation \(D:K\to K\) kills the
+image of \(k\): each \(c\in k\) is a \(p\)-th power in \(k\),
+and the Leibniz formula gives \(D(c)=0\).
+Its restriction to \(A\) is a \(k\)-derivation.
+The universal property of \(\Omega_{A/k}\) and \(df=0\)
+then give \(D(f)=0\).
+Lemma~\ref{lem:faithful-field-derivation-root} supplies
+the required \(p\)-th root in \(K\).
+\end{proof}
+
+\begin{srlemma}\label{lem:faithful-universal-jets-taylor}
+Let \(k\) be a perfect field of characteristic the prime \(p\).
+Let \(\pi:Z\to\operatorname{Spec}k\) be an integral scheme
+locally of finite type, and let \(e\in Z(k)\).
+Suppose there are compatible maps
+\[
+ x_m:\operatorname{Spec}J_m\longrightarrow Z,\qquad
+ J_m=k[X_1,\ldots,X_d]/(X_1,\ldots,X_d)^{m+1},
+\]
+reducing to \(e\), with the following universal property:
+for every augmented \(k\)-algebra \(B\to k\) whose
+augmentation ideal has \((m+1)\)-st power zero,
+every \(k\)-morphism \(\operatorname{Spec}B\to Z\)
+reducing to \(e\) factors uniquely through \(x_m\),
+compatibly with its augmentation.
+For every open \(U\) containing \(e\) and every
+\(f\in\Gamma(U,\mathcal O_Z)\), there is
+\(F\in k[[X_1,\ldots,X_d]]\) whose truncation to \(J_m\)
+is \(x_m^*f\), for every \(m\).
+It satisfies
+\[
+ \begin{split}
+ F=0&\Longrightarrow f=0,\\
+ \partial_{X_i}F=0\ \text{for all }i
+   &\Longrightarrow
+       \exists r\in K_Z:\ r^p=f\text{ in }K_Z .
+ \end{split}
+ \tag{FT4}\label{eq:faithful-Taylor-function-field}
+\]
+\end{srlemma}
+\begin{proof}
+Let \(A=\mathcal O_{Z,e}\).
+The residue field is \(k\).
+Each \(J_m\) is local, with nilpotent augmentation ideal,
+so \(x_m\) factors through the canonical monomorphism
+\(\operatorname{Spec}A\to Z\).
+This gives an augmented map \(\tau_m:A\to J_m\).
+We verify the exact statements
+\[
+          \tau_m\text{ is surjective},\qquad
+                         \ker\tau_m=\mathfrak m^{m+1}.
+ \tag{FT5}\label{eq:faithful-stalk-jet-quotient}
+\]
+The inclusion \(\mathfrak m^{m+1}\subset\ker\tau_m\)
+follows from the augmentation.
+Apply universal jets to
+\(\operatorname{Spec}(A/\mathfrak m^{m+1})\to Z\);
+the result is a map
+\(\psi:J_m\to A/\mathfrak m^{m+1}\).
+The monomorphism \(\operatorname{Spec}A\to Z\) implies
+\(\psi\tau_m\) is the quotient map.
+If \(\tau'_m:A/\mathfrak m^{m+1}\to J_m\) is induced
+by \(\tau_m\), uniqueness in the universal property for
+\(\operatorname{Spec}J_m\to Z\) gives
+\(\tau'_m\psi=\mathrm{id}\).
+Surjectivity of the quotient map also gives
+\(\psi\tau'_m=\mathrm{id}\).
+Thus \(\tau'_m\) is an isomorphism, proving (FT5).
+This is the source's \srcid{jet\_of\_mono} argument.
+
+The \(\tau_m\) commute with truncation: the resulting
+maps into \(\operatorname{Spec}A\) have the same composite
+to \(Z\), so are equal.
+A compatible sequence of truncated polynomials determines
+a unique formal power series, coefficient by coefficient.
+Applying this to \((\tau_m(a))_m\) constructs a
+\(k\)-algebra map \(j:A\to k[[X]]\).
+Its algebra laws follow by checking every truncation.
+Equation (FT5) gives the first assertion in (FT2).
+Surjectivity of each \(\tau_m\) gives the approximation
+assertion there, by lifting the truncation of any series.
+
+Apply \(j\) to the germ of \(f\) at \(e\).
+This gives \(F\), with the required truncations.
+If \(F=0\), (FT2) puts the germ of \(f\) in every
+\(\mathfrak m^m\).
+The local ring is Noetherian, so Krull intersection
+makes that germ zero.
+On an integral scheme the map from sections on a
+nonempty open to any stalk in that open is injective;
+hence \(f=0\).
+For the derivative assertion, apply
+Lemma~\ref{lem:faithful-local-series-root}, and transport
+the resulting root along
+\(\operatorname{Frac}(\mathcal O_{Z,e})\simeq K_Z\).
+\end{proof}
+
+\paragraph{Application to the actual semiabelian fibre.}
+Let \(t,x,g\) have the geometric hypotheses in
+\eqref{eq:faithful-fibre-inj-target}, with \(k\)
+algebraically closed.
+The fibre \(Z=G_x\) is smooth over \(k\) and geometrically
+connected, hence integral.
+Its local rings are regular and therefore normal.
+The fibre is locally of finite type, and \(k\) is perfect.
+The actual germ maps \(g.x_m\), after passage to \(Z\),
+satisfy precisely the universal jet property above.
+In the source this is obtained from
+\srcid{CdUniv.germ\_univ}: the compatible formal coordinates
+are the universal parameters, their differential is the
+specified tangent basis, and inverse coordinates are unique.
+Pullback uniqueness identifies these maps with the
+\(\tau_m\) used in (FT5).
+Their compatibility and zero-section equations are the
+truncation and zero clauses of the actual germ.
+Thus \srcid{CgTaylor.fibre\_taylor} supplies (FT4) on
+every open containing the identity.
+
+This last paragraph uses the source's actual
+\srcid{GermAt} and its universal-coordinate theorem.
+It is not an assertion that arbitrary formal group data
+come from an algebraic fibre.
+The proofs of the coordinate theorem and the formal
+group's construction are retained as dependencies of the
+actual germ construction; the field-root step above is
+fully proved once that actual germ is supplied.
+
+\paragraph{A finite-jet derivative test.}
+The source also uses the following coefficient fact.
+If \(F,f\in k[[X_1,\ldots,X_d]]\), all derivatives of
+\(f\) are zero, and for every \(m\) there is \(v_m\in J_m\)
+with
+\[
+                           F\bmod(X)^{m+1}
+                                  =v_m^p-f\bmod(X)^{m+1},
+ \tag{FT6}\label{eq:faithful-jet-derivative-test}
+\]
+then all derivatives of \(F\) are zero.
+To verify a coefficient of \(\partial_{X_i}F\) indexed
+by \(\nu\), use \(m=|\nu|+1\), lift \(v_m\) to a polynomial
+\(P\), and compare the coefficient indexed by
+\(\nu+\mathbf e_i\) in \(F+f-P^p\).
+It vanishes because that expression is zero modulo
+\((X)^{m+1}\).
+The derivatives of both \(f\) and \(P^p\) are zero,
+so this is the desired derivative coefficient of \(F\).
+This reproduces
+\srcid{PderivZeroOfJetPthPowerDiff.pderiv\_eq\_zero\_of\_jet\_pow\_sub}.
+
+\paragraph{Frozen-source ledger.}
+The field derivation proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/UnramifiedDepth/ExistsPthRootOfDerivationZero.lean}
+(blob \srcid{2c23c05250df5f7899c3be0fafd48c516142fe1d}).
+The local differential/Krull proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/UnramifiedDepth/ExistsPowEqFractionRingOfPderivEqZero.lean}
+(blob \srcid{261542edc4e53a309f6d0f23d8b3e73c32243079}).
+The actual stalk-jet and Taylor construction is
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/JetOfMono.lean}
+(blob \srcid{f760cf4a69b739bfffb5979fd5638dc545657642}),
+followed by \srcid{CgTaylor.lean}
+(blob \srcid{fe0e799a60a74b234b78760406bf9b8e8abf0e25}).
+The coefficient test is
+\srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PderivZeroOfJetPthPowerDiff.lean}
+(blob \srcid{cf8670ce38f1132e93262f544a8f6b54bcaa90a9}).
+All hashes were checked against the frozen baseline tag.
+
+The next join is the source's global cubical \(p\)-fold
+generator and its exact finite-jet value.
+That join, rather than the purely formal derivative
+calculation alone, is what permits applying
+Lemma~\ref{lem:faithful-qam-first-order}.
+
+\subsection{The actual cubical \(p\)-fold generator}
+\label{subsec:faithful-pfold-generator}
+
+We now translate \srcid{CaNfold.nfold\_law} and
+\srcid{Coc.Pf.pfold}, including the generator's finite-jet
+value.  The family \(t\), its actual cubical line \(L\),
+and its actual germ \(g\) are those in
+\eqref{eq:faithful-fibre-inj-target}.
+At this step \(k\) is any field of characteristic the prime \(p\).
+
+For points of the group write the group law additively.
+Set
+\[
+ \mathcal B_L(u,z)
+       =L_{u+z}\otimes L_u^{-1}\otimes L_z^{-1}\otimes L_0.
+\]
+The cubical structure of the given line supplies the
+normalized multiplication comparison for \(\mathcal B_L\).
+Multiplying its cube section at
+\(([\nu]u,u,z)\), for \(0\le\nu<n\), gives a generator
+\[
+ \kappa_n\quad\hbox{of}\quad
+            \mathcal B_L([n]u,z)\otimes
+                                     \mathcal B_L(u,z)^{-n}.
+ \tag{FG1}\label{eq:faithful-kappa-line}
+\]
+Indeed the consecutive factors
+\(\mathcal B_L([\nu+1]u,z)/\mathcal B_L([\nu]u,z)\)
+telescope.  The remaining factors are
+\(\mathcal B_L(u,z)^{-n}\).
+The factor at \(\nu=0\) and the restriction at \(u=0\)
+are the cubical axes trivializations.
+This is the source's \srcid{exists\_kappa}, obtained by
+taking the same finite product of its cubical generators.
+
+Write \(e(u,z)\) for the actual axes-normalized formal
+frame of \(\mathcal B_L(u,z)\) in the germ.
+Its first partial multiplication identity is exactly
+\[
+ \phi_1(u,v,z)
+  =\gamma(u,v,z)\,
+             \frac{e(u,z)e(v,z)}{e(u+v,z)},
+\]
+where \(\gamma\) denotes the cubical section in those
+line frames.
+Multiplying at \(([\nu]u,u,z)\) yields
+\[
+              P_n(u,z)
+                 =\kappa_n(u,z)\,
+                               \frac{e(u,z)^n}{e([n]u,z)}.
+ \tag{FG2}\label{eq:faithful-kappa-frame}
+\]
+This is an identity on every actual finite jet.
+It proves the generator correspondence in
+\srcid{CaNfold.nfold\_law}; it does not define a new
+generator from generic-fibre data.
+
+Put \(R_p=k[\delta]/(\delta^{p+1})\).
+Let \(y\in G_x(R_p)\) reduce to zero and satisfy \([p]y=0\).
+There is a generator \(\tau\) of
+\[
+                              y^*L\otimes0^*L^{-1}
+ \tag{FG3}\label{eq:faithful-tau-line}
+\]
+whose reduction is the cancellation generator \(1\).
+To construct it as in the source, choose one chart of \(L\)
+containing the common image of \(y\) and \(0\); the spectrum
+of \(R_p\) has just one point.
+Use the ratio of its two chart frames.
+On an arbitrary mixed chart \((i,j)\), its expression is
+\[
+                       y^*g_{i b}\,(0^*g_{j b})^{-1}.
+\]
+The transition cocycle for \(L\) proves these expressions
+are a generator, and on reduction \(y=0\) their ratio is \(1\).
+This is \srcid{LineBundleSectionDifferenceGenerator.jetPair\_gen}.
+
+On \(Y_p=G_x\times_k\operatorname{Spec}R_p\), let
+\(a_y(z,\delta)=z+y(\delta)\) and \(b(z,\delta)=z\).
+Since \([p]y=0\), the first factor in (FG1) is canonically
+trivial.
+Pull \(\kappa_p\) back along \((y,z)\), and pull \(\tau\)
+back from \(\operatorname{Spec}R_p\).
+The product
+\[
+                             C=\kappa_p(y,z)^{-1}\tau^p
+ \tag{FG4}\label{eq:faithful-C-generator}
+\]
+is a generator of
+\[
+                   (a_y^*L\otimes b^*L^{-1})^{\otimes p}.
+\]
+The line identity is explicit:
+\(\kappa_p^{-1}\) generates \(\mathcal B_L(y,z)^p\);
+multiplication by \((L_yL_0^{-1})^p\) leaves
+\((L_{y+z}L_z^{-1})^p\).
+Thus this is the actual translation-difference line used
+in \eqref{eq:faithful-tanpf}.
+At \(\delta=0\), the axes normalization of \(\kappa_p\)
+and the normalization of \(\tau\) both give \(1\);
+hence \(C|_{G_x}=1\).
+These are exactly the construction and normalization in
+\srcid{FrobeniusTorsionGeneratorRelation.exists\_gen\_pfold}
+and \srcid{FrobeniusGeneratorCorrespondence.red\_one}.
+
+\begin{srlemma}\label{lem:faithful-pfold-jet-value}
+Suppose \(y\) is the actual germ point with formal
+coordinates \(w\delta=(w_1\delta,\ldots,w_d\delta)\).
+Let \(u=(w_i^p)_i\), and let \(g_0\) be the series of
+\eqref{eq:faithful-Frobenius-factorizations}.
+Set \(D_u(Z)=\sum_i u_i\partial_{X_i}g_0(0,Z)\).
+For every \(m\ge0\), put
+\[
+ B_m=k[Z_1,\ldots,Z_d]/(Z)^{m+1},\qquad
+ Q_m=B_m[\delta]/(\delta^{p+1}).
+\]
+Choose a chart of \(L\) containing the identity.
+On the pullback of that chart along the actual germ
+test \((w\delta,Z)\), there is \(v_m\in B_m\) for which
+the generator in (FG4) has the exact expression
+\[
+                  1+\delta^p\bigl(v_m^p-D_u\bmod(Z)^{m+1}\bigr).
+ \tag{FG5}\label{eq:faithful-pfold-jet-value}
+\]
+The expression concerns the actual generator \(C\), with
+the same chart used in its \(\delta\)-coefficient expansion.
+\end{srlemma}
+\begin{proof}
+Use the source's substitution map
+\[
+ q_m:
+ k[X,Z]/(X,Z)^{p+m+2}\longrightarrow Q_m,\qquad
+                         X_i\mapsto w_i\delta,\quad Z_i\mapsto Z_i.
+\]
+It is defined because a monomial of total degree at least
+\(p+m+2\) must have either \(\delta\)-degree at least \(p+1\)
+or \(Z\)-degree at least \(m+1\).
+All the finite jets of the actual germs and frames commute
+with this map, by their truncation and substitution clauses.
+
+Let \(\nu_m\) be the image under \(q_m\) of the unit whose
+underlying series is \(P_p\).
+The factorization \(P_p(X,Z)=g_0(X^{(p)},Z)\) and the
+axes identity \(g_0(0,Z)=1\) give
+\[
+                \nu_m
+                =1+\delta^p\bigl(D_u\bmod(Z)^{m+1}\bigr).
+ \tag{FG6}\label{eq:faithful-nu-jet}
+\]
+Indeed every term of degree at least two in \(X^{(p)}\)
+contains \(\delta^{2p}=0\).
+The surviving linear terms are
+\(\delta^p\sum_iw_i^p\partial_{X_i}g_0(0,Z)\).
+This is precisely
+\srcid{GermJetQuotientFormula.jq\_psJet\_ptPow}.
+
+Let \(e_m\) be the actual chart expression of \(e(y,Z)\),
+and let \(\tau_m\) be the expression of the pullback of
+\(\tau\).
+Their reductions under \(\delta\mapsto0\) are both \(1\).
+For \(e_m\), this is the actual frame's first axes identity;
+for \(\tau_m\), it is (FG3)'s normalization.
+The source verifies these equalities on the chosen chart
+before taking their product.
+By (FG2), \([p]y=0\), and the other axes identity,
+the chart value of \(\kappa_p(y,Z)\) is
+\(\nu_m e_m^{-p}\).
+Thus the chart expression of (FG4) is
+\[
+                              \nu_m^{-1}(e_m\tau_m)^p.
+ \tag{FG7}\label{eq:faithful-C-local-product}
+\]
+
+For any \(b\in B_m[\delta]/(\delta^{p+1})\) with
+\(b|_{\delta=0}=1\), write
+\(b=1+\delta(c+\delta h)\).
+Characteristic \(p\) and \(\delta^{2p}=0\) imply
+\[
+                              b^p=1+\delta^pc^p.
+\]
+This is the source's
+\srcid{JetAugmentationOnePthPower.pow\_eq\_one\_add};
+it requires no reducedness of \(B_m\).
+Apply it to \(b=e_m\tau_m\), obtaining some \(v_m\in B_m\).
+Finally, the ideal generated by \(\delta^p\) has square zero,
+so (FG6)--(FG7) give
+\[
+ \begin{split}
+ (1+\delta^pD_u)^{-1}(1+\delta^pv_m^p)
+                         &=1+\delta^p(v_m^p-D_u).
+ \end{split}
+\]
+This is (FG5).
+All expressions are taken in the same actual chart.
+Their identities on germs of sections imply equality
+of the chart sections, which is the final stalkwise
+verification in \srcid{Pf.pfold}.
+\end{proof}
+
+\subsection{From the kernel vector to a global first-order generator}
+\label{subsec:faithful-cocp-main}
+
+\begin{srproposition}\label{prop:faithful-cocycle-p}
+Let \(E,H_E,O,t,x,g\) have the precise geometric and
+formal-germ meanings in
+\eqref{eq:faithful-fibre-inj-target}.
+Assume \(k\) is algebraically closed of characteristic
+the prime \(p\).
+For \(w\in k^d\), put \(u=(w_i^p)_i\).
+If \(\alpha_{g.B}(u)=0\), then the first-order actual point
+\(y_1\), with coordinates \(w\delta\), satisfies
+\[
+                         t_{y_1}^*L\otimes L^{-1}
+                              \text{ has a global generator}.
+ \tag{FG8}\label{eq:faithful-cocycle-p-conclusion}
+\]
+This is the source's \srcid{CocpMain.cocycle\_p}.
+\end{srproposition}
+\begin{proof}
+Let \(y\in G_x(R_p)\) be the actual germ point with coordinates
+\(w\delta\); its reduction is zero.
+By \([p](X)=V(X^{(p)})\), its \(p\)-multiple has coordinates
+\(V(u\delta^p)\).
+Since \(V(0)=0\) and \(\delta^{2p}=0\), these are
+\(\delta^p Hu\), which vanish by \(\alpha(u)=0\).
+Thus \([p]y=0\).
+This is the source's \srcid{pt\_of\_vec} calculation using
+the actual jet maps, not an assertion only about tangent vectors.
+
+Construct \(C\) by (FG4).
+It is a normalized global generator of the \(p\)-th power
+translation-difference line.
+Choose a chart \(V_{j_0}\) of \(L\) containing the identity.
+Every actual finite germ jet has underlying point the
+identity, so all these jets lie in \(U_{j_0}=G_x\cap V_{j_0}\).
+This open is nonempty.
+Write \(h_{j_0}\) for the coefficient of \(\delta^p\)
+in the \(\delta\)-expansion of \(C\) on this chart.
+
+The actual Taylor construction of
+Lemma~\ref{lem:faithful-universal-jets-taylor} gives a series
+\(F\) for \(h_{j_0}\).
+Pullback commutes with the finite free expansion in
+\(1,\delta,\ldots,\delta^p\).
+Therefore its coefficient of \(\delta^p\), after the
+\(m\)-th actual germ test, is the truncation of \(F\).
+Comparing with (FG5) gives, for every \(m\),
+\[
+                  F\bmod(Z)^{m+1}
+                       =v_m^p-D_u\bmod(Z)^{m+1}.
+ \tag{FG9}\label{eq:faithful-C-top-Taylor}
+\]
+This is the source's \srcid{DeltaExpansionRestriction.coef\_pull}:
+the commuting pullback square identifies the two coefficient
+maps, and uniqueness of the \(\delta\)-expansion identifies
+their top coefficients.
+
+Lemma~\ref{lem:faithful-alpha-kernel-derivative} gives
+\(\partial D_u=0\).
+The finite-jet test \eqref{eq:faithful-jet-derivative-test},
+applied to (FG9), gives \(\partial F=0\).
+The Taylor/function-field result
+\eqref{eq:faithful-Taylor-function-field} supplies a
+\(p\)-th root of \(h_{j_0}\) in the function field of \(G_x\).
+The fibre \(G_x\) is integral and normal, as established
+in the actual Taylor construction.
+Apply Lemma~\ref{lem:faithful-qam-first-order}.
+It gives a global generator of the translation-difference
+line restricted to \(Y_1\), which is exactly (FG8).
+\end{proof}
+
+\begin{srcorollary}\label{cor:faithful-tanpf-injectivity}
+With the same actual data, if
+\(\mathrm{TanPF}(t,x,p)\) holds, then
+\(\alpha_{g.B}\) is injective.
+\end{srcorollary}
+\begin{proof}
+Let \(\alpha(u)=0\).
+Since \(k\) is algebraically closed, choose \(w_i\in k\)
+with \(w_i^p=u_i\).
+The proof above constructs \(y\in G_x(R_p)\) reducing to
+zero, with \([p]y=0\), and gives a global generator for
+the translation-difference line of \(y_1\).
+The exact definition \eqref{eq:faithful-tanpf} implies
+\(y_1=0\).
+The first-order formal coordinates are unique and have
+the given tangent basis, so \(y_1=0\) forces every \(w_i=0\).
+Therefore \(u=0\).
+This is \srcid{IsPullbackWhisker.tanpf\_inj\_of}, and
+with the preceding proposition it is
+\srcid{CocpMain.tanpf\_inj}.
+\end{proof}
+
+\paragraph{Source and remaining scope.}
+The construction follows the frozen source's ordered
+choices: the global cubical \(\kappa_p\), the normalized
+section \(\tau\), their product \(C\), the chart values
+\(e_m,\tau_m\), the quotient unit \(\nu_m\), and the
+nilpotent identity (FG7).
+It uses no new alternate construction.
+
+The main source files, under
+\srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/},
+are \srcid{LineBundleGeneratorCorrespondence.lean},
+\srcid{FrobeniusTorsionGeneratorRelation.lean},
+\srcid{FrobeniusGeneratorCorrespondence.lean},
+\srcid{LineBundleSectionDifferenceGenerator.lean},
+\srcid{GermJetUnitOnChart.lean},
+\srcid{JetSectionGeneratorValue.lean},
+\srcid{GermFrobeniusTorsionSection.lean},
+\srcid{GermJetQuotientFormula.lean},
+\srcid{JetAugmentationOnePthPower.lean},
+\srcid{DeltaExpansionRestriction.lean}, and
+\srcid{UnitsMulRelationRearrangeCommRing.lean}.
+Their last assembly file has frozen blob
+\srcid{a780e8172520dc0915889c567ce4977f9ad3b70e}.
+The cubical induction and final injectivity are in
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/CaNfold.lean}
+(blob \srcid{f16af35a98aa6f8756679ee6de758eaedc2e8480})
+and \srcid{CocpMain.lean}
+(blob \srcid{7aa25c6f73a189836a204c10956ead5c10783308}).
+All were checked against the frozen baseline.
+
+This proves the \(\mathrm{TanPF}\)-to-injectivity step.
+The subsequent \(\mathrm{GeomPF}\)-to-\(\mathrm{TanPF}\)
+descent, arbitrary-residue-field transport,
+construction of the actual family over the arithmetic
+curve, and integral splitting/gluing of (FC6)
+are separate subsequent steps.
+It supplies no independent model, quotient action,
+or local free \(O\)-basis.

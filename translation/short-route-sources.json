@@ -1028,6 +1028,12 @@
     "replaced_for_fidelity": [
       "Earlier alternative theta-two-step and simultaneous nonvanishing drafts"
     ],
-    "preserved_alternative_drafts": true
+    "preserved_alternative_drafts": true,
+    "additional_reviewed_subsections": [
+      "Formal Frobenius Jacobian and coefficient calculations, all characteristic-p commutative rings",
+      "Taylor/function-field root via source universal jets and Kahler/Krull argument",
+      "Actual cubical p-fold generator and TanPF-to-injectivity join",
+      "Reflex-ideal determinant scalar and finite-coefficient local regularity descent"
+    ]
   }
 }

@@ -70,7 +70,18 @@ jobs:
           cd "$RUNNER_TEMP/rh-short-route"
           compile rh-short-route.tex
           pdftotext -layout rh-short-route.pdf "$RUNNER_TEMP/short-standalone.txt"
-          cmp "$RUNNER_TEMP/short-distributed.txt" "$RUNNER_TEMP/short-standalone.txt"
+          if ! cmp "$RUNNER_TEMP/short-distributed.txt" "$RUNNER_TEMP/short-standalone.txt"; then
+            python3 - <<'PY'
+          import difflib, os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])
+          left=(root/"short-distributed.txt").read_text().splitlines()
+          right=(root/"short-standalone.txt").read_text().splitlines()
+          diff=list(difflib.unified_diff(left,right,fromfile="distributed",tofile="flattened",n=5))
+          print("\n".join(diff[:180]))
+          PY
+            exit 1
+          fi
           cp "$GITHUB_WORKSPACE/translation/short-route-sources.json" .
           pdfinfo rh-short-route.pdf | grep '^Pages:' >> "$GITHUB_STEP_SUMMARY"
       - name: Render every page and inspect the page boundaries

@@ -375,3 +375,263 @@ The component triangle inequality used when applying it is proved by
 writing its good Gram norm as an ordinary Euclidean norm; conjugation
 transfers the assertion to the other embedding in each pair
 (\srcid{PeterssonNormComponentAddLeOfGramFrame}).
+
+\subsection{The scalar which cancels the lattice index}
+\label{subsec:ftb-reflex-small-scalar}
+
+We retain the two determinant lattices
+\(\Lambda_n=\Lambda\cap\mathcal O_E^n\subset\Lambda\), and put
+\(I=[\Lambda:\Lambda_n]\).  For an \(\mathcal O_E\)-lattice \(L\)
+let \(\det L)\) denote its determinant fractional ideal in the fixed
+one-dimensional determinant space, and let \(\det_\tau L\) be its
+extension to \(\mathcal O_K\) through the coefficient-field embedding
+associated with \(\tau:E\hookrightarrow\mathbb C\).
+
+\begin{srlemma}[The exact reflex-ideal scalar]
+\label{lem:ftb-reflex-small-scalar}
+Suppose \(K\) is the source's coefficient field, hence totally complex,
+and the two lattices have finite index \(I>0\).
+There is \(s\in K^\times\) such that
+\begin{align}
+ (s)\prod_\tau(\det_\tau\Lambda_n)^{r_\tau}
+       &\subset\prod_\tau(\det_\tau\Lambda)^{r_\tau},
+                  \label{eq:ftb-scalar-ideal}\\
+ |\sigma(s)|^2 I^r
+       &\le\exp(\operatorname{fieldSz}(K))^2
+         \quad(\sigma:K\hookrightarrow\mathbb C).
+                  \label{eq:ftb-scalar-index}
+\end{align}
+Here
+\(\operatorname{fieldSz}(K)=\log d+\log\Delta_K/d\), where
+\(d=[K:\mathbb Q]\) and \(\Delta_K=|\operatorname{disc}K|\).
+\end{srlemma}
+\begin{proof}
+The ideal
+\(\mathfrak a=(\det\Lambda_n)(\det\Lambda)^{-1}\) is integral,
+and \(N_E\mathfrak a=I\).
+To check this directly, localize at every nonzero prime of
+\(\mathcal O_E\).  Smith normal form writes the inclusion as
+\(\operatorname{diag}(\pi^{e_1},\ldots,\pi^{e_n})\), with \(e_i\ge0\).
+Both the determinant-ideal exponent and the length of the quotient are
+\(\sum_i e_i\); multiplying residue-field cardinalities gives the norm
+identity.  In particular \(\mathfrak a\ne0\).
+
+Let
+\[
+ \mathfrak B=\prod_{\tau:E\hookrightarrow\mathbb C}
+          (\mathfrak a\mathcal O_K)_\tau^{\,r_\tau}.
+\]
+Then the two type-norm determinant ideals in
+\eqref{eq:ftb-scalar-ideal} have quotient \(\mathfrak B\).
+Write \(d=2c\).  Extension of ideals has norm
+\(N_K((\mathfrak a\mathcal O_K)_\tau)=
+ I^{[K:E]}\).  Since
+\(\sum_\tau r_\tau=fr\) and \([E:\mathbb Q]=2f\),
+\[
+                 N_K\mathfrak B=I^{rc}.
+\]
+These are the norm and determinant calculations in the source's
+\srcid{ExistsSmallScalarReflexIdealSelfDualLattice}.
+
+Set \(R=\exp(\operatorname{fieldSz}(K))^2\), and embed \(K\) in
+\(\mathbb C^c\) by one embedding from each conjugate pair.
+The lattice \(\mathfrak B^{-1}\) has covolume
+\(2^{-c}\sqrt{\Delta_K}\,I^{-rc}\).
+The product of disks of squared radius \(R/I^r\) has volume
+\(\pi^c R^c I^{-rc}\).
+It is larger than \(2^{2c}\) times that covolume:
+\(\Delta_K\ge1\),
+\(\Delta_K\le R^c\), and
+\(2^c\sqrt{\Delta_K}<\pi^cR^c\).
+Minkowski therefore gives a nonzero
+\(s\in\mathfrak B^{-1}\) with
+\(|\sigma(s)|^2<R/I^r\) for one embedding from each pair,
+and consequently for all embeddings.
+This is \eqref{eq:ftb-scalar-index}.
+The inclusion \(s\mathfrak B\subset\mathcal O_K\) gives
+\eqref{eq:ftb-scalar-ideal}.
+Thus the same scalar supplies the determinant-ideal integrality
+condition and the index-compensating archimedean inequality.
+\end{proof}
+
+\subsection{What nonnegative expansion valuation means}
+\label{subsec:ftb-expansion-regularity}
+
+Here is the integral expansion statement used in
+\srcid{ReachedSectionRegularOnIntegralModel}; it is separate from the
+existence of the polarized Mumford model.
+Let \(V\) be a complete DVR of characteristic zero, \(K_0=\operatorname{Frac}V\),
+and \(\varpi\) a uniformizer.  Take the actual polarized degeneration
+datum and its uniformization over \(V\), with proper abelian quotient
+\(B\), a cubical line bundle \(\mathcal L_B\), period lattice \(X\),
+period map \(c:X\to B(V)\), and its quadratic valuation \(Q:X\to\mathbb Z\).
+For \(k\ge1\) the coefficient bundle indexed by \(\chi\in X\) is
+\[
+ \mathcal M_{k,\chi}=
+  \mathcal L_B^{\,k-1}\otimes t_{c(\chi)}^*\mathcal L_B
+       \otimes c(\chi)^*\mathcal L_B^{-1}
+       \otimes 0^*\mathcal L_B .
+\]
+The last two factors are constant line bundles pulled back from \(V\).
+This is exactly \(\srcid{fam}\varphi_B(\chi)\) with exponents
+\((k-1,1,-1,1)\), not a choice of a new coefficient bundle.
+
+After a valued algebraic extension \(F/K_0\), write
+\(V_{\ge b}(t)\) for the following assertion about a coefficient
+\(t\in H^0(B_F,\mathcal M_{k,\chi,F})\):
+it is a finite sum
+\[
+                         t=\sum_i a_i t_i
+\]
+of scalar extensions of integral sections \(t_i\), with
+\(v(a_i)\ge b\) for every \(i\).
+For a quasi-periodic family \(\Theta=(\Theta_\chi)_{\chi\in X}\),
+the source condition \(\nu(\Theta)\ge r\) means
+\begin{equation}\label{eq:ftb-nuge-definition}
+ V_{\ge r+Q(\chi)/k}(\Theta_\chi)
+                          \quad\hbox{for every }\chi\in X.
+\end{equation}
+The valuation is normalized by \(v(\varpi)=1\).
+This definition records finite linear combinations of integral
+sections; it is stronger and more precise than a bound on chosen
+scalar Fourier coefficients.
+
+The uniformization data used below includes its expansion
+correspondence: a generic section admits an expansion after clearing
+one nonzero element of \(V\); the integral expansion of such a cleared
+section agrees on every thickening modulo \(\varpi^m\) with a locally
+finite sum of its coefficient sections.  The coefficient sums and
+line-bundle identifications are those of this same uniformization.
+This is the part of the actual model construction used here.
+The proof below does not manufacture that correspondence from an
+arbitrary formal series.
+
+\begin{srlemma}[A finite valued-coefficient retraction]
+\label{lem:ftb-valued-retraction}
+Let \(F/K_0\) carry an extension of the normalized valuation.
+If \(a_1,\ldots,a_t\in F\) have nonnegative valuation, there is a
+\(K_0\)-linear map \(\ell:F\to K_0\) with
+\(\ell(1)=1\) and \(\ell(a_i)\in V\) for every \(i\).
+\end{srlemma}
+\begin{proof}
+The finite \(V\)-module
+\(M=V\cdot1+\sum_iV a_i\) is torsion free, hence free.
+Every member of \(M\) has nonnegative valuation.
+The coordinate vector of \(1\) in a \(V\)-basis of \(M\) has a unit
+coordinate.  Otherwise \(1=\varpi m\) for some \(m\in M\), contradicting
+\(0=v(1)=1+v(m)\).
+Choose such a coordinate functional and divide it by its value at
+\(1\).  It maps \(M\) into \(V\) and sends \(1\) to \(1\).
+The chosen \(V\)-basis remains independent over \(K_0\), so extend this
+functional from its \(K_0\)-span to \(F\).
+This proves the assertion.
+\end{proof}
+
+\begin{srlemma}[Descent of a nonnegative coefficient]
+\label{lem:ftb-coefficient-descent}
+Let \(t\in H^0(B_{K_0},\mathcal M_{k,\chi,K_0})\).
+If its scalar extension to \(F\) satisfies \(V_{\ge0}\), then \(t\)
+is the generic restriction of an integral section of
+\(\mathcal M_{k,\chi}\).
+\end{srlemma}
+\begin{proof}
+Choose a finite representation
+\(t_F=\sum_i a_i(t_i)_F\) with \(v(a_i)\ge0\) and integral \(t_i\).
+Apply Lemma~\ref{lem:ftb-valued-retraction} to the \(a_i\).
+Scalar extension of sections commutes with the coefficient functional:
+on a finite affine trivializing cover it applies coefficientwise to
+the same gluing equations.  Since \(\ell(1)=1\), this gives
+\[
+                        t=\sum_i\ell(a_i)t_i .
+\]
+Every coefficient belongs to \(V\), so the sum is integral.
+This is the finite-coefficient argument in
+\srcid{SectionRegularOnModelOfNuNonneg.vge\_descend}.
+\end{proof}
+
+\begin{srlemma}[Divisibility detected on the same thickening]
+\label{lem:ftb-expansion-divisibility}
+Suppose an integral section \(\sigma\) of the uniformized line bundle
+has its integral expansion on the thickening modulo \(\varpi^m\),
+and every coefficient section is divisible by \(\varpi^m\).
+Then \(\sigma\) is divisible by \(\varpi^m\) as an integral section.
+\end{srlemma}
+\begin{proof}
+On a local line-bundle trivialization of that thickening, the expansion
+formula is a finite sum, each term being a coefficient section times
+the prescribed invertible transition factor.  Each coefficient
+vanishes modulo \(\varpi^m\), so the restriction of \(\sigma\) is zero.
+The underlying group scheme is flat over \(V\).  Thus multiplication
+by \(\varpi^m\) on its line bundle is injective, and the kernel of
+restriction to the thickening is exactly its image.
+The local quotients glue uniquely, yielding the desired section.
+This is the argument of
+\srcid{JetHarmonics/ExistsDivOfExpandsAt.exists\_div\_of\_expandsAt}.
+\end{proof}
+
+\begin{srproposition}[The precise expansion-to-regularity implication]
+\label{prop:ftb-expansion-regularity}
+With this actual uniformization and its expansion correspondence, a
+generic section whose expansion over \(F\) satisfies
+\(\nu\ge0\) extends as an integral section of the same model.
+\end{srproposition}
+\begin{proof}
+The positive quadratic valuation in the polarized degeneration has
+\(Q(\chi)\ge0\).  Hence \eqref{eq:ftb-nuge-definition} implies
+\(V_{\ge0}\) for every coefficient.
+One may first take the generic expansion over \(K_0\) and then extend
+to \(F\); the expansion identities and uniqueness ensure that this is
+the expansion under consideration.
+Lemma~\ref{lem:ftb-coefficient-descent} makes every coefficient integral
+over \(V\).
+
+Choose a common nonzero \(r\in V\) such that \(r\sigma\) is integral
+and its integral expansion is \(r\Theta\); write \(r=u\varpi^m\).
+Each coefficient of this integral expansion is divisible by
+\(\varpi^m\).  Lemma~\ref{lem:ftb-expansion-divisibility} gives an
+integral section \(\tau\) with
+\(r\sigma=\varpi^m\tau\).
+Thus \(\sigma=u^{-1}\tau\) is integral.
+The source implements the clearing, coefficient descent, division,
+and unit removal in
+\srcid{ExistsIntOfVgeZero.main} and
+\srcid{SectionRegularOnModelOfNuNonneg.exists\_extension}.
+The remaining cartesian line-bundle comparisons simply transport this
+integral section to the chart's \(\srcid{Regular}\) predicate.
+They do not assert an extension of a new generic section over an
+unrelated model.
+\end{proof}
+
+\paragraph{Exact boundary to the model construction.}
+Proposition~\ref{prop:ftb-expansion-regularity} uses the actual
+uniformization's expansion correspondence and its compatible
+identifications with the chart's line bundle.
+Existence of those data is the model input, and is not proved merely
+by the finite-valued-coefficient lemma.
+The additional assertion that every \emph{reached} section has
+\(\nu\ge0\) requires the generator, normalized CM pullback, and
+symmetric-torsion-translation calculations; it is recorded separately
+in the source and is not part of the implication proved here.
+
+\paragraph{Source ledger.}
+All paths below have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/}.
+The small scalar is
+\srcid{DivisorProofs/ExistsSmallScalarReflexIdealSelfDualLattice.lean}
+(blob \srcid{000df27c7a6e8db0a9255e6d5f7871a0a5152c38}).
+The valuation/regularity definitions are
+\srcid{Definitions/PlaceAdaptation/AdaptStd.lean} (relative instead to
+\srcid{src/Development/AbelianVarietyTheory/}).
+The finite functional and coefficient descent are
+\srcid{RingsOfIntegers/SectionRegularOnModelOfNuNonneg.lean}
+(blob \srcid{7df6dd75a9036946ff91ffd6577e266b7a3f923e}).
+Its integral coefficient step is
+\srcid{RingsOfIntegers/ExistsIntOfVgeZero.lean}
+(blob \srcid{13a90482f19569314e6b1ce248dcd6923f26644e});
+the thickening division is
+\srcid{JetHarmonics/ExistsDivOfExpandsAt.lean}
+(blob \srcid{42e20e8aaac619d94d1f8a27afd63b01ff0551a2}).
+The coefficient bundles and expansion relation are defined in
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/ExtensionDescent/DegExp.lean};
+\(\nu\) is defined in the corresponding
+\srcid{DiscreteValuationRings/ValuationMultiplicationInvariance.lean}.
