@@ -1,0 +1,453 @@
+\section{Algebraizing the analytic flat frame on its actual line}
+\label{sec:faithful-flat-line-extension}
+
+The formal flat-frame construction uses three separate operations:
+extend the analytic coefficient as a unit in the prescribed line,
+algebraize that section, and descend its generator through the
+coefficient extension and the resolution.  We give the line arguments
+here in the order used by \srcid{GagaLineGeneratorComplex},
+\srcid{GagaLineGeneratorEmbedding}, and
+\srcid{ProperPullbackLineBundle}.  These arguments do not construct the
+integral moduli model or prove its boundary growth estimates.
+
+We use the following ordinary background form of GAGA: on a proper
+smooth complex algebraic scheme, holomorphic sections of an algebraic
+line bundle are precisely the analytifications of its algebraic
+sections.  For the projective form see
+\href{https://numdam.org/articles/10.5802/aif.59/}
+{J.-P. Serre, \emph{G\'eom\'etrie alg\'ebrique et g\'eom\'etrie analytique},
+Ann. Inst. Fourier 6 (1956), 1--42}.
+The source calls its proper-scheme section formulation
+\srcid{GagaSections}.  No assertion that an arbitrary analytic function
+on an open variety is algebraic is being used.
+
+\subsection{The line, its local generators, and the extension condition}
+
+Let \(X_0\) be a smooth integral component of a proper smooth scheme
+over a field \(K\) of characteristic zero, and let
+\(\Omega=K(X_0)\).  An invertible lattice in \(\Omega\) means an
+invertible subsheaf \(\mathcal L\) of the constant sheaf \(\Omega\).
+Thus, locally, there is \(T\in\Omega^\times\) with
+\[
+                         \mathcal L_x=T\mathcal O_{X_0,x}.
+ \tag{F1}\label{eq:faithful-line-generator}
+\]
+This is the rank-one case of the source's \(\srcid{Lat}\) and
+\(\srcid{IsVB}\) conditions.  Saying that \(t\) generates at \(x\)
+means \(t\ne0\) and
+\(\mathcal L_x=t\mathcal O_{X_0,x}\).
+The two generators \(T,t\) then satisfy
+\[
+             t/T\in\mathcal O_{X_0,x}^{\times}.
+ \tag{F2}\label{eq:faithful-line-unit-ratio}
+\]
+Indeed, writing \(t=uT\) and \(T=vt\) gives \(uv=1\) after
+cancelling \(T\ne0\).  Conversely, (F2) implies equality of the
+two principal lattices.  Both the ratio and its inverse are needed.
+
+Suppose \(W\subset X_0\) is a nonempty open and \(1\) generates
+\(\mathcal L\) at every point of \(W\).
+For an embedding \(\sigma:K\hookrightarrow\mathbb C\), let \(F\)
+be a complex-valued function on the \(\sigma\)-complex points of \(W\).
+The extension condition at \(x\in X_0(\mathbb C)\) is the following:
+there is a rational local generator \(t\) of \(\mathcal L\) at \(x\)
+such that, in every holomorphic coordinate chart through \(x\),
+\(F/t\), initially defined on the inverse image of \(W\), extends
+holomorphically near \(x\), with nonzero value at \(x\).
+The extended function can be restricted to a smaller neighborhood
+where it is everywhere nonzero.
+This is \srcid{ExtendsUnitAt}; it includes a unit assertion.
+A bound on the norm of \(F\), without this coefficient statement in
+the specified line, would be insufficient.
+
+Here and below a rational expression is evaluated only where it is
+regular.  In particular \(t\) is a regular unit on
+\(W\) near \(x\) whenever both \(t\) and \(1\) generate the line.
+The source's \srcid{ValAt} notation keeps these evaluations explicit.
+
+\begin{srlemma}[Regularity and local generators]
+\label{lem:faithful-line-local-units}
+Let \(T\) generate \(\mathcal L\) throughout an open \(U\).
+If \(t\) generates at \(x\in U\), then, after shrinking to
+\(N\subset U\) containing \(x\), there is a unit
+\(v\in\Gamma(N,\mathcal O)^\times\) whose rational value is \(t/T\).
+If a rational function is regular at every point of an open, it has
+a unique regular section on that open; if its inverse is also regular
+everywhere, this section is a unit.
+\end{srlemma}
+\begin{proof}
+At \(x\), both \(t/T\) and \(T/t\) belong to the local ring by (F2).
+Represent them by regular sections on neighborhoods of \(x\).
+On a common smaller neighborhood their product is \(1\), because
+it is \(1\) in the function field and the structure sheaf embeds
+in that field.  These sections give \(v,v^{-1}\).
+For the second assertion choose a representative of the given
+rational function around every point.
+On intersections the representatives have the same rational value,
+so are equal by injectivity into the function field.
+The sheaf axiom glues them, and proves uniqueness.
+Apply the same construction to the inverse and multiply to get \(1\).
+This also proves the source's transition-unit construction without
+an additional gluing assumption.
+\end{proof}
+
+\begin{srlemma}[The transition units of the actual lattice]
+\label{lem:faithful-line-transition-units}
+Choose open sets \(U_i\) covering \(X_0\), and generators
+\(T_i\in\Omega^\times\) of \(\mathcal L|_{U_i}\).
+There are unique transition units \(g_{ij}\) on \(U_i\cap U_j\)
+with rational values \(T_j/T_i\).  They satisfy
+\[
+                   g_{ii}=1,\qquad g_{ij}g_{jk}=g_{ik}.
+ \tag{F3}\label{eq:faithful-line-cocycle}
+\]
+A collection of regular, or holomorphic, coefficients \(h_i\)
+defines a section of this same line exactly when
+\(h_i=g_{ij}h_j\) on every overlap.
+\end{srlemma}
+\begin{proof}
+At every point of the overlap the ratio \(T_j/T_i\) and its inverse
+are regular by (F2).  Apply the preceding lemma.
+The identities (F3) hold in \(\Omega\), hence for the unique sections.
+Finally \(h_iT_i=h_jT_j\) is precisely
+\(h_i=(T_j/T_i)h_j\), which gives the asserted convention.
+The source extends this cover by the complement of the chosen
+component and sets all its coefficients to zero there.
+This causes no mixed-overlap conditions: a component of a smooth
+locally noetherian scheme is open and closed.
+\end{proof}
+
+\subsection{From local analytic units to an algebraic generator}
+
+\begin{srproposition}[The complex generator, \srcid{gaga_rat_C}]
+\label{prop:faithful-complex-flat-generator}
+Let \(K=\mathbb C\) in the preceding setup, and assume the stated
+proper GAGA section theorem.  Suppose \(F\) satisfies the extension
+condition at every complex point of \(X_0\).
+There is \(f\in\Omega^\times\), generating \(\mathcal L\) at every
+point of \(X_0\), with
+\[
+                           f(y)=F(y)\quad(y\in W(\mathbb C)).
+ \tag{F4}\label{eq:faithful-complex-flat-generator}
+\]
+\end{srproposition}
+\begin{proof}
+Fix \(i\) and a point \(x\in U_i(\mathbb C)\).
+Take the generator \(t\) in the extension condition and the local
+unit \(v=t/T_i\) of Lemma~\ref{lem:faithful-line-local-units}.
+In a chart through \(x\), let \(h'\) be the holomorphic unit extending
+\(F/t\).  Shrink the chart so that \(h'\) remains nonzero.
+Then
+\[
+                              H=h'\,v
+ \tag{F5}\label{eq:faithful-hchart}
+\]
+is a nonvanishing holomorphic function there.
+On the part of the chart lying in \(W\), it satisfies
+\(H\,T_i=F\).
+This is exactly the construction
+\srcid{exists_hChart_of_extendsUnitAt}.
+
+Any nonempty open subset of a holomorphic coordinate chart on
+\(X_0(\mathbb C)\) meets \(W(\mathbb C)\).
+To justify this density, the complement of \(W\) is a proper
+algebraic closed subset of the integral component.
+If it contained a chart-open set, its defining regular equations
+would vanish on an analytic open.  The identity theorem for
+holomorphic functions would make them vanish on the component,
+contrary to properness of that closed subset.
+Equivalently one can use the source's
+\srcid{smooth_algebra_eq_zero_of_vanish_open} chart criterion.
+
+On two overlapping charts the constructions of \(H\) agree after
+the coordinate change on their dense intersection with \(W\).
+Their holomorphic continuations agree everywhere by continuity.
+This proves uniqueness of the coefficient in the fixed frame
+\(T_i\), so all charts glue to a holomorphic function \(h_i\)
+on \(U_i(\mathbb C)\).
+In the source, \srcid{HChart.chart.factor} provides the coordinate
+change and \srcid{overlapping_analytic_charts_ratio} performs this
+same dense-set comparison.
+
+For different algebraic frames the dense-set identity is
+\[
+                      h_i=(T_j/T_i)h_j.
+ \tag{F6}\label{eq:faithful-hchart-transition}
+\]
+The transition ratio is the regular unit of (F3).
+The same chart argument extends (F6) across the complement of \(W\).
+The functions \(h_i\) are holomorphic in every coordinate chart,
+not merely continuous: locally they are the functions (F5)
+composed with holomorphic coordinate changes.
+They therefore give a holomorphic section \(s\) of
+\(\mathcal L^{\mathrm{an}}\), nonvanishing at every complex point.
+
+Proper GAGA algebraizes \(s\).
+Its algebraic coefficient on each \(U_i\) has nonzero value at
+every complex point, so is a unit.
+For otherwise its zero locus on a finite-type complex affine
+subopen would be nonempty, and a maximal ideal of its coordinate
+ring would give a complex closed point where it vanishes.
+Consequently the algebraic section generates the line everywhere.
+Its value at the generic point is \(f\in\Omega^\times\).
+Since its coefficient in \(T_i\) is \(h_i\), the identity
+\(h_iT_i=F\) on \(W\) proves (F4).
+The source's complex theorem permits a nonzero scalar \(\kappa\)
+and supplies the particular value \(\kappa=1\).
+\end{proof}
+
+\subsection{The coefficient-by-coefficient descent used by the source}
+
+The next lemma records the actual algebraic descent, rather than
+assuming that an arbitrary complex generator is defined over \(K\).
+For subrings \(S_i\subset\Omega\) containing \(K\), the notation
+\(S_i\otimes_K C\) below means its image in
+\(\Omega\otimes_K C\).  Membership means a finite sum of tensors
+\(a\otimes c\) with \(a\in S_i\).
+
+\begin{srlemma}[Tensor coefficient descent, \srcid{descent_core}]
+\label{lem:faithful-flat-tensor-descent}
+Let \(K\subset\Omega\) and \(K\subset C\) be fields and assume
+\(\Omega\otimes_K C\ne0\).  Let \(S_i\subset\Omega\) contain \(K\),
+and fix \(e_i\in\Omega^\times\).  Suppose
+\(\tau,\upsilon\in\Omega\otimes_K C\) satisfy
+\[
+ \tau\upsilon=1,\qquad
+ \tau=e_i x_i,\qquad e_i\upsilon=y_i,\qquad
+ x_i,y_i\in S_i\otimes_K C \quad\hbox{for every }i.
+ \tag{F7}\label{eq:faithful-descent-local-tensors}
+\]
+Assume the following two precise scalar properties:
+\[
+ \begin{split}
+ a\ne0,\ a\in\bigcap_iS_i
+     &\Longrightarrow a\in K,\\
+ t\ne0,\ t/e_i,e_i/t\in S_i\ (\hbox{all }i),\
+                 u/e_i\in S_i\ (\hbox{all }i)
+     &\Longrightarrow u\in Kt .
+ \end{split}                                      \tag{F8}
+ \label{eq:faithful-descent-scalar-properties}
+\]
+Then there exist \(t\in\Omega^\times\), \(c\in C\), such that
+\[
+            t/e_i,e_i/t\in S_i\quad(\hbox{all }i),
+                   \qquad \tau=t\otimes c.
+ \tag{F9}\label{eq:faithful-descent-result}
+\]
+\end{srlemma}
+\begin{proof}
+Choose a \(K\)-basis \((b_j)\) of \(C\).
+It gives an \(\Omega\)-basis \((1\otimes b_j)\) of
+\(\Omega\otimes_K C\).  Every tensor has a finite expansion in
+this basis.  If \(z\in S_i\otimes_K C\), all its coefficients
+belong to \(S_i\): this holds for a simple tensor by expanding its
+second factor in the \(K\)-basis, and is preserved by finite sums.
+
+Write the coefficients of \(\tau\) as \(t_j\), and those of
+\(\upsilon\) as \(u_j\).  Equation (F7) gives, for all \(i,j\),
+\[
+                         t_j/e_i\in S_i,\qquad
+                         e_i u_j\in S_i .
+ \tag{F10}\label{eq:faithful-descent-coefficients}
+\]
+Because \(\tau\upsilon=1\ne0\), neither tensor is zero.
+Choose \(j_0,k_0\) with \(t=t_{j_0}\ne0\) and \(u=u_{k_0}\ne0\).
+Multiplying the two memberships in (F10) shows that \(tu\)
+belongs to every \(S_i\).  The first property in (F8) therefore
+gives \(tu=\kappa\in K^\times\).
+It follows that
+\[
+                   e_i/t=(e_i u)\kappa^{-1}\in S_i.
+\]
+Together with (F10), this proves that \(t\) is a unit multiple
+of every \(e_i\) in the corresponding ring.
+
+The second property in (F8) now applies to every \(t_j\),
+and gives \(t_j=c_jt\) with \(c_j\in K\).
+Only the finitely many \(t_j\) in the support of \(\tau\)
+are needed.  With \(c=\sum_jc_jb_j\in C\), bilinearity gives
+\(\tau=t\otimes c\).
+This proves every assertion of (F9), including the inverse
+membership.  The proof does not assume that the chosen basis
+of \(C/K\) is finite.
+\end{proof}
+
+For a proper integral \(K\)-scheme with \(K\) algebraically closed
+in its function field \(\Omega\), a rational function regular
+everywhere is in \(K\).
+One proof, matching the source's regular-everywhere step, is as follows.
+A regular rational function is a global section by the sheaf
+argument above.  The algebra of global functions on a proper
+finite-type scheme over \(K\) is finite dimensional over \(K\).
+Multiplication by that section is a linear operator on this
+nonzero finite-dimensional algebra.
+Its characteristic polynomial annihilates the operator and,
+on applying to \(1\), annihilates the section.
+Thus the section is algebraic over \(K\), and the assumed
+constant-field condition puts it in \(K\).
+This proves the first property of (F8) for
+\(S_i=\mathcal O_{X_0,x_i}\), indexed by all points.
+The second follows by applying this to \(u/t\), because
+\((u/e_i)(e_i/t)\) is regular everywhere.
+The case \(u=0\) gives the scalar \(0\).
+This is the field-base specialization of
+\srcid{LineLatticeGenericSections.mem_lat_genFibre_iff_const_mul}.
+
+\begin{srproposition}[Descent of the generator]
+\label{prop:faithful-flat-generator-descent}
+Let \(X_0\) be proper integral over a characteristic-zero field \(K\),
+with function field \(\Omega\), and assume \(K\) is algebraically
+closed in \(\Omega\).
+Let \(C/K\) be a field extension such that \(\Omega\otimes_K C\)
+is a domain, and let \(\Omega'\) be its fraction field.
+Suppose \(t'\in\Omega'^\times\) generates the pullback of an
+invertible lattice \(\mathcal L\subset\Omega\) everywhere on
+\(X_0\times_K C\).
+Then there are a generator \(t\in\Omega^\times\) of
+\(\mathcal L\) everywhere on \(X_0\), and \(c\in C^\times\),
+such that \(t'=ct\) in \(\Omega'\).
+\end{srproposition}
+\begin{proof}
+Choose affine neighborhoods \(U_i\) with rational generators \(e_i\)
+of \(\mathcal L\); their rings embed in \(\Omega\).
+Their base changes are affine, with rings
+\(\Gamma(U_i,\mathcal O)\otimes_K C\), embedded in
+\(\Omega\otimes_K C\) by flatness over the field \(K\).
+Since both \(t'\) and \(e_i\) generate the pulled line,
+\(t'/e_i\) and \(e_i/t'\) are regular everywhere on \(U_{i,C}\).
+The sheaf argument makes them elements of its coordinate ring.
+Taking any one nonempty \(U_i\) shows that \(t'\) and \(t'^{-1}\)
+actually lie in \(\Omega\otimes_K C\), despite their initially
+being specified in its fraction field.
+Call these tensors \(\tau,\upsilon\).
+Their product is \(1\), since their images in the fraction field
+have product \(1\).
+
+At each point \(x\) take a local generator \(e_x\) defined on an
+affine neighborhood and set \(S_x=\mathcal O_{X_0,x}\).
+The preceding affine calculation gives (F7) in
+\(S_x\otimes_K C\).  The proper constant-field argument gives
+(F8).  Lemma~\ref{lem:faithful-flat-tensor-descent} produces
+\(t\) with \(t/e_x,e_x/t\in S_x\), hence a generator everywhere,
+and \(t'=ct\).
+Since \(t'\) and \(t\) are nonzero, \(c\ne0\).
+This is the coefficient argument in
+\srcid{ProperModelGenericFibreCompare.exists_gen_of_extension};
+the more general source statement allows a domain base
+and restricts to its generic fibre.
+\end{proof}
+
+For the application \(C=\mathbb C\) with its fixed embedding
+\(\sigma:K\hookrightarrow\mathbb C\), the source constructs
+\(\Omega'=\operatorname{Frac}(\Omega\otimes_{K,\sigma}\mathbb C)\).
+In characteristic zero the constant-field condition makes
+\(\Omega/K\) regular; the source uses
+\srcid{alg_closed_tensor_isDomain} for the asserted domain
+property.  The maps of generic points and the stalk maps commute
+with this base change.
+Local generators, their unit ratios, and the analytic extension
+condition pull back: the ratio is evaluated through the same
+stalk homomorphism, and uniqueness of a rational function's
+regular value identifies the two evaluations.
+Thus Proposition~\ref{prop:faithful-complex-flat-generator}
+applies upstairs.
+If it gives \(f'\) with \(f'(y)=\kappa F(y)\), and
+\(f'=ct\) is the descent just proved, then
+\[
+                           t(y)=(\kappa/c)F(y).
+ \tag{F11}\label{eq:faithful-flat-generator-scalar}
+\]
+Both scalars are nonzero.  This recovers exactly the conclusion
+of \srcid{GagaLineGeneratorEmbedding.gaga_rat}.
+
+\subsection{Descent through the proper resolution}
+
+\begin{srlemma}[The normal proper pushdown of a generator]
+\label{lem:faithful-flat-proper-pushdown}
+Let \(X_0\) be normal integral and locally noetherian,
+let \(f:X'\to X_0\) be proper and birational on the chosen
+generic component, and identify their function fields \(\Omega\).
+Let \(\mathcal L\subset\Omega\) be an invertible lattice in a
+neighborhood of \(x\in X_0\).
+Suppose \(t\in\Omega\) generates \(f^*\mathcal L\) at every
+point of the chosen component of \(X'\) whose image is a
+generization of \(x\).
+Then \(t\) generates \(\mathcal L\) at \(x\).
+\end{srlemma}
+\begin{proof}
+The generic point is among the points in the hypothesis, so \(t\ne0\).
+Shrink to a neighborhood of \(x\) on which \(e\ne0\) generates
+\(\mathcal L\), and set \(r=t/e\).
+It suffices to prove \(r,r^{-1}\in\mathcal O_{X_0,x}\).
+
+Let \(q\) be any codimension-one point generizing \(x\).
+Normality and local noetherianity make
+\(V=\mathcal O_{X_0,q}\) a discrete valuation ring with fraction
+field \(\Omega\).
+The chosen generic point of \(X'\), together with
+\(\operatorname{Spec}V\to X_0\), gives the valuative diagram
+for the proper map \(f\).
+The valuative criterion supplies a lift
+\(\operatorname{Spec}V\to X'\); its closed point \(q'\) lies
+over \(q\) on the chosen component.
+By hypothesis \(t\) generates the pullback line there,
+while \(e\) also generates there by pullback.
+Consequently \(r,r^{-1}\) belong to
+\(\mathcal O_{X',q'}\), and the lift maps them into \(V\).
+The induced map on fraction fields is the fixed identity,
+so these are the original rational functions \(r,r^{-1}\).
+Thus both belong to every such height-one localization.
+
+A noetherian normal local domain is the intersection of its
+height-one localizations in its fraction field.
+Apply this intersection statement to
+\(\mathcal O_{X_0,x}\).
+It gives \(r,r^{-1}\in\mathcal O_{X_0,x}\), as required.
+If this local ring has dimension zero it is the function
+field and the conclusion is immediate.
+This is the source proof: its \srcid{exists_over} supplies
+\(q'\), and \srcid{line_lattice_generator_codim_one}
+makes the last intersection step.
+No arbitrary specialization of a quotient is used.
+\end{proof}
+
+\subsection{Where these arguments enter the geometric construction}
+
+In \srcid{EigenFramesAnalytic} one first takes the nonempty generic
+open where the chosen eigenlattice bases are frames.
+The line to which the preceding results apply is the actual
+wedge-ratio lattice, formed from the two conjugate eigenspaces;
+its generators are ratios of top exterior products of those frames.
+The source's \srcid{ExistsResolutionGenericFibre} supplies a proper
+smooth resolution, an isomorphism on this open, and a simple
+normal-crossing complement.  The pullback wedge-ratio lattice is
+locally free of rank one there, including along that complement.
+
+The construction-specific local assertion is
+\srcid{EigenFrameFunctionCompare}:
+the analytic flat function \(\Phi\), after expression in any
+local wedge frame, extends as a nonvanishing holomorphic function.
+Its producer \srcid{AffineChartBundleSections} uses the actual
+boundary chart, the actual eigenvectors and their pullbacks,
+and \srcid{BoundaryChartFrameGrowth}.
+Once this precise local assertion is proved, the steps printed
+above algebraize its section and descend the generator through
+the proper resolution to the normal generic-fibre model.
+\srcid{WedgeEigenLineGenerator} then turns that generator into the
+frame function \(\varphi\).
+The comparison \srcid{FrameFunctionsFlatAgree} is made on this
+same line: two such generators have ratio regular and invertible
+everywhere, hence a scalar in the coefficient field by the
+constant-field argument.  Determinants of basis changes transfer
+the equality to every adapted frame.
+
+For clarity, none of the preceding line arguments supplies
+\srcid{Model.N3}, its polarized uniformization or torsion pairing,
+or the boundary-chart unit assertion just identified.
+Nor do they identify a generic eigenspace with a free integral
+eigenmodule at a ramified special point.
+Those are separate construction-specific premises.
+The completed results of this section are the transition and
+analytic-unit gluing, algebraization, coefficient descent, and
+normal proper pushdown, with their precise hypotheses.
+Their use does not conceal one of those remaining model inputs.

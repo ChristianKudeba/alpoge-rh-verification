@@ -1,0 +1,377 @@
+\section{The fixed theta denominator and the passage to short generators}
+\label{sec:ftb-denominator-generators}
+
+This section follows the frozen source at
+\srcid{7cbf7a0c32fca1badf05931879a37c3f8a2b03b4}.
+The numerical estimates and the lattice argument below are independent
+of the analytic theta spanning theorem.  The latter is used only
+through the explicit spanning and pointwise norm statements recorded
+at the end of this section.
+
+Let \(E\) be the CM host, \(\Psi\) its chosen CM type,
+\(f=[E:\mathbb Q]/2\), and let the signature be \((p,q)\), with
+\(r=p+q\).  Let \(K\) be the coefficient number field, \(M\ge3\) the odd
+level, \(n\) an even positive integer, and
+\(a=(a_{\tau,i})\) the nonnegative integral row degrees of a harmonic
+polynomial.  Put
+\[
+ d_a=\sum_{\tau:E\hookrightarrow\mathbb C}
+             \sum_{0\le i<r_\tau}a_{\tau,i},\qquad
+ \kappa=d_a+fr\,\frac n2,\qquad
+ \Delta_E=|\operatorname{disc}E|.
+\]
+Here \(r_\tau=p\) on \(\Psi\) and \(r_\tau=q\) on its conjugate.
+The corresponding algebraic weight is
+\[
+ \lambda_{\tau,k}=
+ \begin{cases}
+ a_{\tau,k}+n/2,&0\le k<p,\\
+ -a_{\bar\tau,r-1-k}-n/2,&p\le k<r .
+ \end{cases}
+\]
+Thus \(\kappa=\sum_{\tau\in\Psi,k}|\lambda_{\tau,k}|\).
+The source writes these quantities as
+\srcid{DF}, \srcid{sizeK}, and \srcid{laOf}.
+
+The exact integer used for all theta vectors with these row degrees is
+\begin{equation}\label{eq:ftb-intZ}
+ Z=M^{frn+d_a}\Delta_E^{d_a},\qquad N_a=Z^2.
+\end{equation}
+The factor \(M^{frn}\) is the cardinality of the finite Fourier-label
+group \((\operatorname{LevQ})^n\).  In particular \(Z\) is chosen before
+the Fourier label, the auxiliary Hermitian lattice, its denominator,
+the harmonic polynomial, the vector represented by the theta rule,
+or the determinant-balancing scalar.
+
+\begin{srlemma}[The numerical denominator bound]\label{lem:ftb-intZ-size}
+Suppose \(f,r,L\ge1\),
+\(\log M\le30L\), and \(\log\Delta_E\le7fL\).
+Then \(Z>0\) and
+\[
+ \log Z\le67(frL)^2\kappa,\qquad
+ \log N_a\le134(frL)^2\kappa .
+\]
+In the source's good-cover packet the discriminant inequality follows
+from \(\operatorname{fieldSz}(E)\le3L\) and \([E:\mathbb Q]=2f\);
+the bound \(7fL\) is retained exactly as used there.
+\end{srlemma}
+\begin{proof}
+The discriminant and \(M\) are nonzero integers, so \(Z>0\).
+Evenness of \(n\) and nonnegativity of the row degrees give
+\(d_a\le\kappa\) and \(frn+d_a\le2\kappa\).  Consequently
+\[
+ \log Z=(frn+d_a)\log M+d_a\log\Delta_E
+ \le60L\kappa+7fL\kappa
+ \le67fL\kappa
+ \le67(frL)^2\kappa .
+\]
+The last inequality uses \(f,r,L\ge1\).  Since \(N_a=Z^2\), its logarithm
+is twice that of \(Z\).  This is the argument in
+\srcid{LogShortThetaSeriesDenominatorBoundLe.intZ\_log\_le}.
+\end{proof}
+
+We next give in full the arithmetic lattice step used after the theta
+spanning family has been made integral.
+
+\begin{srlemma}[The source's Euclidean transference estimate]
+\label{lem:ftb-euclidean-transference}
+Let \(\Lambda\) be a full lattice in a Euclidean space of dimension
+\(d\).  Suppose every nonzero member of \(\Lambda\) has length at least
+\(\lambda>0\).  Its Euclidean dual contains \(d\) linearly independent
+vectors, each of length at most \(d^2/\lambda\).
+\end{srlemma}
+\begin{proof}
+First the dual has a nonzero vector of length at most \(d/\lambda\).
+In orthonormal coordinates, Minkowski's theorem for cubes says that a
+lattice with covolume \(D<t^d\) has a nonzero vector of coordinate
+supremum norm less than \(t\); the weak inequality follows by applying
+the closed-cube version.  Since Euclidean length is at most
+\(\sqrt d\) times the coordinate supremum norm, the minimum hypothesis
+implies
+\[
+ \operatorname{covol}(\Lambda)\ge(\lambda/\sqrt d)^d.
+\]
+The dual has reciprocal covolume, so the closed-cube version supplies a
+nonzero dual vector with coordinate norm at most \(\sqrt d/\lambda\),
+hence Euclidean length at most \(d/\lambda\).
+
+We prove the asserted independent-family estimate by induction on
+\(d\); the zero-dimensional assertion is empty.  Divide the nonzero
+dual vector just obtained by the positive greatest common divisor of
+its integral pairings with a lattice basis.  The result \(y_0\) remains
+in the dual, has no larger length, and has a lattice vector \(x_u\)
+with \(\langle y_0,x_u\rangle=1\).
+The homomorphism \(v\mapsto\langle y_0,v\rangle\) maps \(\Lambda\) onto
+\(\mathbb Z\).  Its kernel
+\(\Lambda_W=\Lambda\cap y_0^\perp\) is a full lattice in \(y_0^\perp\):
+indeed \(v-\langle y_0,v\rangle x_u\) lies in this kernel, and these
+vectors, as \(v\) runs through a basis of \(\Lambda\), span
+\(y_0^\perp\).  Its nonzero lengths are still at least \(\lambda\).
+
+Write \(d=m+1\).  The induction hypothesis gives independent vectors
+\(w_1,\ldots,w_m\) in the dual of \(\Lambda_W\), of length at most
+\(m^2/\lambda\).  Regard them as vectors in \(y_0^\perp\), and put
+\[
+ u_i=w_i-
+  \bigl(\langle w_i,x_u\rangle-
+             \operatorname{round}\langle w_i,x_u\rangle\bigr)y_0 .
+\]
+For \(v\in\Lambda\), let \(k=\langle y_0,v\rangle\in\mathbb Z\) and
+\(v_0=v-kx_u\in\Lambda_W\).  Then
+\[
+ \langle u_i,v\rangle
+ =\langle w_i,v_0\rangle+
+           k\,\operatorname{round}\langle w_i,x_u\rangle\in\mathbb Z.
+\]
+Thus \(u_i\) belongs to the full dual.  Orthogonal projection onto
+\(y_0^\perp\) proves that \(y_0,u_1,\ldots,u_m\) are independent.
+Since the rounding error has absolute value at most \(1/2\),
+\[
+ \|u_i\|^2
+ \le \frac{m^4+(m+1)^2/4}{\lambda^2}
+ \le \frac{(m+1)^4}{\lambda^2}.
+\]
+Also \(\|y_0\|\le(m+1)/\lambda\le(m+1)^2/\lambda\).
+This proves the induction.  These are precisely the cube,
+primitivity, hyperplane-lattice, and rounding arguments in
+\srcid{TransferenceA}, \srcid{TransferenceB}, and
+\srcid{Transference.gtE\_main}.
+\end{proof}
+
+\begin{srlemma}[Short independent algebraic integers]
+\label{lem:ftb-short-integers}
+Let \(K\) be a number field of degree \(d\), with
+\(\Delta_K=|\operatorname{disc}K|\).
+There are algebraic integers \(\omega_1,\ldots,\omega_d\), linearly
+independent over \(\mathbb Q\), such that
+\[
+ |\sigma(\omega_i)|\le d^3\Delta_K^{1/d}
+ \quad\hbox{for every }\sigma:K\hookrightarrow\mathbb C
+ \hbox{ and every }i .
+\]
+\end{srlemma}
+\begin{proof}
+List all \(d\) complex embeddings, including both members of every
+nonreal conjugate pair, and put
+\[
+ \Phi_\pm(x)=
+       \bigl(\operatorname{Re}\sigma(x)
+                   \pm\operatorname{Im}\sigma(x)\bigr)_\sigma .
+\]
+Conjugate terms cancel the mixed products, so
+\[
+ \langle\Phi_+(x),\Phi_-(y)\rangle
+       =\operatorname{Tr}_{K/\mathbb Q}(xy),\qquad
+ \|\Phi_\pm(x)\|^2=\sum_\sigma|\sigma(x)|^2 .
+\]
+The trace form is nondegenerate; these maps identify the real
+extensions of \(K\) with \(\mathbb R^d\).
+An integral basis and its trace-dual basis therefore identify the
+Euclidean dual of
+\(\Phi_-(\mathfrak D_K^{-1})\) with \(\Phi_+(\mathcal O_K)\).
+
+For a nonzero \(x\in\mathfrak D_K^{-1}\), the integral ideal
+\((x)\mathfrak D_K\) has norm at least one.  Hence
+\(|N_{K/\mathbb Q}x|\ge\Delta_K^{-1}\).
+Applying arithmetic--geometric mean to
+\((|\sigma(x)|^2)_\sigma\) gives
+\[
+ \sum_\sigma|\sigma(x)|^2
+       \ge d\,\Delta_K^{-2/d}\ge\Delta_K^{-2/d}.
+\]
+Thus the nonzero vectors of
+\(\Phi_-(\mathfrak D_K^{-1})\) have length at least
+\(\Delta_K^{-1/d}\).  Lemma~\ref{lem:ftb-euclidean-transference}
+supplies \(d\) independent vectors in its dual with lengths at most
+\(d^2\Delta_K^{1/d}\).  They are \(\Phi_+(\omega_i)\) for
+\(\omega_i\in\mathcal O_K\).
+Each \(|\sigma(\omega_i)|\) is at most
+\(\|\Phi_+(\omega_i)\|\), and \(d^2\le d^3\).
+This proves the source's stated, deliberately weaker, bound.
+\end{proof}
+
+\begin{srproposition}[A bounded integral spanning set gives short
+\(\mathbb Z\)-generators]\label{prop:ftb-short-generators}
+Let \(V\) be a finite-dimensional \(K\)-vector space, and \(L\subset V\)
+a finitely generated \(\mathcal O_K\)-submodule.
+For every embedding \(\sigma:K\hookrightarrow\mathbb C\), let
+\(N_\sigma:V\to\mathbb R_{\ge0}\) satisfy
+\[
+ N_\sigma(av)=|\sigma(a)|N_\sigma(v),\qquad
+ N_\sigma(v+w)\le N_\sigma(v)+N_\sigma(w).
+\]
+Suppose a subset \(S\subset L\) spans \(V\) over \(K\), and
+\(N_\sigma(s)\le A\) for every \(s\in S\) and every \(\sigma\).
+Put \(m=\dim_KV\), \(d=[K:\mathbb Q]\).
+Then \(L\) has at most \(2dm\) generators as a \(\mathbb Z\)-module,
+all of whose \(N_\sigma\)-norms are at most
+\[
+ A_{\rm gen}=\max\{1,d^4m\Delta_K^{1/d}A\}.
+\]
+In particular \(A_{\rm gen}\ge1\).
+\end{srproposition}
+\begin{proof}
+Choose a \(K\)-basis \(v_1,\ldots,v_m\) from \(S\), and the independent
+integers of Lemma~\ref{lem:ftb-short-integers}.
+Then \(E_{ij}=\omega_i v_j\) is a \(\mathbb Q\)-basis of \(V\), lies in
+\(L\), and has all its norms at most
+\(C=d^3\Delta_K^{1/d}A\).
+
+For \(x\in V\), write \(x=\sum_{i,j}q_{ij}E_{ij}\) with
+\(q_{ij}\in\mathbb Q\), and define
+\[
+ \operatorname{red}(x)
+       =\sum_{i,j}(q_{ij}-\lfloor q_{ij}\rfloor)E_{ij}.
+\]
+Then
+\(x-\operatorname{red}(x)\in\sum_{i,j}\mathbb Z E_{ij}\), while the
+triangle inequality and \(0\le q-\lfloor q\rfloor<1\) give
+\[
+ N_\sigma(\operatorname{red}(x))\le dmC .
+\]
+As a finite torsion-free \(\mathbb Z\)-module, \(L\) has a
+\(\mathbb Z\)-basis \(b_1,\ldots,b_t\), with \(t\le dm\):
+its members are independent over \(\mathbb Q\) in \(V\).
+Every \(\operatorname{red}(b_\nu)\) belongs to \(L\), since \(b_\nu\)
+and \(b_\nu-\operatorname{red}(b_\nu)\) do.
+The \(dm+t\) vectors
+\[
+ \{E_{ij}\}_{i,j}\ \cup\
+       \{\operatorname{red}(b_\nu)\}_{\nu=1}^t
+\]
+generate \(L\) over \(\mathbb Z\), because they generate each \(b_\nu\).
+Their norms are at most \(dmC=d^4m\Delta_K^{1/d}A\).
+The case \(m=0\) uses the empty family and bound \(1\).
+This proves every clause of the source predicate
+\srcid{CompHt.IsShortGen}: equality with the \(\mathbb Z\)-span,
+the bound at every embedding, and a bound at least one.
+\end{proof}
+
+\subsection{The exact good-cover input packet}
+\label{subsec:ftb-good-cover-packet}
+
+For use with the actual theta construction, retain a source core
+\(T\) with its laws, an index \(j\) in the prescribed rank interval,
+and a good deep cover \(Y\), with coefficient field \(K\) and level
+\(M\).  Its numerical bounds are
+\[
+ p,q\ge1,\quad f>2,\quad L\ge1,\quad
+ \log M\le30L,\quad \operatorname{fieldSz}(E)\le3L,\quad
+ \log(fr)\le L,\quad o\le391(frL)^2 .
+\]
+The good-cover bound used below is the single inequality
+\[
+ \operatorname{fieldSz}(K)
+  =\log[K:\mathbb Q]+\frac{\log|\operatorname{disc}K|}{[K:\mathbb Q]}
+                                                       \le o .
+\]
+In particular it bounds each of the two nonnegative summands.
+The remaining theta-weight conditions are
+\[
+ n\ {\rm even},\quad n\ge8fr+4,\quad
+ i\longmapsto a_{\tau,i}\text{ is antitone for every }\tau,\quad
+ \lambda_{\tau,k}>n/2\ (k<p),\quad
+ \log\kappa\le20L .
+\]
+The source predicate \(\srcid{Dom}(a,n)\) is exactly antitonicity
+of every row together with evenness of \(n\); the displayed repetition
+of evenness follows the source's input packet.
+The good-cover laws retain the same harmonic differential and frame
+dictionary as the theta family;
+their geometric construction is not a consequence of the inequalities.
+This is the full conjunction named \srcid{CovGmin.Hyp} in
+\srcid{ThFamMono}.
+
+For clarity, the three substantive statements used by
+\srcid{EvenDomainWeightBound.gmin\_good\_cover} have the following
+joint quantifier order.  Their constants \(C_A,C_B,C_C\ge0\) precede
+the host, rank, core, cover, field, level, row degrees, and \(n\).
+For this fixed datum write \(Q=(frL)^2\) and \(\kappa=\operatorname{sizeK}\).
+\begin{enumerate}
+\item The raw theta family of polynomial norm at most
+\(\exp(C_AQ\kappa)\) spans the cusp space over \(K\).
+A member comes with a generating level-label tuple \(x_0\), a positive
+definite unimodular Hermitian lattice \(\Lambda\), an odd denominator
+\(N\), and an integral harmonic polynomial \(P\) of row degrees \(a\).
+The lattice is standard at the source's bad integer
+\(Q_SqdM\), hence also at \(M\), and satisfies the source level
+inclusions at \(N\).
+\item For each such lattice there is a nonzero determinant-balancing
+scalar \(s\in K\) with
+\[
+ (s)\prod_\tau\det_\tau(\Lambda\cap\mathcal O_E^n)^{r_\tau}
+       \subset \prod_\tau\det_\tau(\Lambda)^{r_\tau},\qquad
+ |\sigma(s)|^2 I_\Lambda^r
+             \le\exp(\operatorname{fieldSz}(K))^2,\qquad
+ I_\Lambda=[\Lambda:\Lambda\cap\mathcal O_E^n].
+\]
+The raw estimate has the precise premise
+\(|\sigma(s)|^2I_\Lambda^r\le B^2\) at every embedding and conclusion
+\(\operatorname{homN}(s\,y)\le B\rho\exp(C_BQ\kappa)\), where
+\(\rho\) bounds the polynomial norm.
+Take \(B=\exp(\operatorname{fieldSz}(K))\).
+For that same scalar, every pointwise normalized frame norm of
+\(s\,y\) is therefore at most
+\[
+ \exp(C_AQ\kappa)\exp(C_BQ\kappa)
+                          \exp(391Q\kappa).
+\]
+Here \(\operatorname{fieldSz}(K)\le o\le391Q\) and
+\(\kappa\ge1\).  The factor \(I_\Lambda^{r/2}\) in the raw estimate is
+cancelled by this same determinant-balancing scalar; a bound on
+\(|\sigma(s)|\) alone would not suffice.
+\item The single integer \(N_a=Z^2\) of \eqref{eq:ftb-intZ} makes
+\(N_a s\,y\) belong to the integral cusp lattice for every raw theta
+vector and every determinant-balancing scalar.  Its logarithm is at
+most \(C_CQ\kappa\); the explicit denominator proof allows \(C_C=134\).
+\end{enumerate}
+The first two items are the analytic spanning/norm interface.
+The final item is the local-integrality conclusion; its geometric
+valuation producers must be proved for the actual model before this
+application is unconditional.
+
+\begin{srproposition}[Assembly with the same integer and scalar]
+\label{prop:ftb-integral-span-assembly}
+Under these three statements there is a subset of the integral cusp
+lattice spanning the cusp space over \(K\), all of whose global and
+component Petersson norms at every embedding are at most
+\[
+ \exp\bigl((C_A+C_B+C_C+391)Q\kappa\bigr).
+\]
+\end{srproposition}
+\begin{proof}
+The pointwise normalized frame bound implies the same global and
+component Petersson bound: the defining integrals are \(L^2\)-norms
+against measures of mass at most one.  Points outside the frame
+domain contribute zero.  Multiplication by the positive integer
+\(N_a\) multiplies each such norm by exactly \(N_a\), at every
+embedding.  Since \(N_a\le\exp(C_CQ\kappa)\), the three exponential
+factors and the scalar/field factor multiply to the displayed bound.
+The resulting vectors are integral by item 3.
+For each raw vector \(y\), its replacement is \(N_a s\,y\), a nonzero
+scalar multiple.  Replacing every member of a spanning family in this
+way preserves its \(K\)-span.  Both the scalar and the integer used in
+the norm bound are therefore exactly those used for integrality.
+\end{proof}
+
+\paragraph{Source ledger.}
+The numerical denominator is
+\srcid{IsIntegralFourierCoeffClassIndicatorLevelPoint.intZ}
+and \srcid{LogShortThetaSeriesDenominatorBoundLe.intZ\_log\_le}.
+The integral assembly is
+\srcid{ExistsBoundedIntegerGoodCoverThetaSeriesIntegral.integral\_smul\_thLa}.
+The packet and family are \srcid{ThFamMono.Hyp} and \srcid{ThFamMono.thFam}.
+The final spanning assembly is
+\srcid{EvenDomainWeightBound.gmin\_good\_cover}.
+The independent-integer argument is
+\srcid{Proofs/CuspFormEvaluations/ExistsShortIndependentIntegers.lean},
+using
+\srcid{Proofs/CovolumeBounds/FinrankMulDiscrRpowLeSumSqOfMemTraceDual.lean}
+and
+\srcid{ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/HeightTheory/Transference[A,B].lean}.
+The generator construction is
+\srcid{ExistsShortGeneratorsOfShortSpanningFamily.exists\_isShortGen\_of\_short\_span}.
+The component triangle inequality used when applying it is proved by
+writing its good Gram norm as an ordinary Euclidean norm; conjugation
+transfers the assertion to the other embedding in each pair
+(\srcid{PeterssonNormComponentAddLeOfGramFrame}).

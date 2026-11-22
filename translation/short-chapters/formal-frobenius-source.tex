@@ -1,0 +1,427 @@
+\section{The formal Frobenius sequence: source targets and the cocycle step}
+\label{sec:faithful-frobenius-cocycle}
+
+All source references in this section are to the frozen tag
+\srcid{alpoge-source-7cbf7a0c}, whose source revision is
+\srcid{7cbf7a0c32fca1badf05931879a37c3f8a2b03b4}.
+The proof mechanism below is the one in the source: finite jets,
+the first partial biextension law, a normal-scheme cocycle root,
+and changes of integral formal coordinates.  No identification
+with a crystalline or Dieudonne module is used here.
+
+\subsection{The exact targets and their inputs}
+\label{subsec:faithful-frobenius-targets}
+
+Write \(O=\mathcal O_E\), with its specified involution.
+A formal biextension datum \(B\) of dimension \(d\) consists
+of the source's formal group law, its \(O\)-action, and the
+two partial multiplication, symmetry and adjoint series,
+with the identities called \srcid{FB} in the source.
+We retain that datum; the identities used in each proof
+are written at their use.
+For a one-variable vector series \(f\) and a two-variable
+scalar series \(c\), set
+\[
+ \begin{split}
+ \operatorname{lin}_m(f)_{ij}&=[X_j^m]f_i(X),\\
+ \operatorname{bil}_{m,n}(c)_{ij}&=[X_i^mY_j^n]c(X,Y).
+ \end{split}
+\]
+Let \(R_a=\operatorname{lin}_1(B.\mathrm{act}(a))\),
+\(S=\operatorname{bil}_{1,1}(B.\mathrm{sy})\), and
+\(C_a=\operatorname{bil}_{1,1}(B.\mathrm{ad}(a))\).
+The source's full formal module is the vector space
+\(H_B=k^d\oplus(k^d)^\vee\), in the displayed standard
+coordinates, with action
+\[
+       \rho_H(a)(v,f)=(R_av,R_{\bar a}^{\,t}f-C_a^{\,t}v).
+ \tag{FC1}\label{eq:faithful-formal-H-action}
+\]
+For a prime \(p=\operatorname{char}k\), put
+\[
+ \begin{split}
+ P_B(X,Y)&=\prod_{\nu=0}^{p-1}
+       B.\mathrm{ph1}([\nu]X,X,Y),\\
+ H&=\operatorname{lin}_p([p]),\qquad
+ A=\operatorname{bil}_{p,1}(P_B),\\
+ \alpha_B(u)&=(Hu,A^tu),\\
+ \beta_B(v,f)&=H^tf-(A-H^tS)v .
+ \end{split}
+ \tag{FC2}\label{eq:faithful-alpha-beta}
+\]
+Thus the predicate \srcid{ConjInj B p} means precisely
+that the \(k\)-linear map \(\alpha_B\) is injective.
+The sign in \(\beta_B\) is the source's sign.
+
+Here are the precise geometric hypotheses in
+\srcid{FamilyEx.fib\_inj}.
+Let \(E\) be a CM number field with host \(H_E\), and identify
+the involution on \(O\) with \(H_E.\mathrm{bar}\).
+Let \(t\) be the source's polarized semiabelian \(O\)-family
+\(\mathrm{SAB}(H_E,X)\).
+The condition \(\mathrm{PowFns}(t)\) says that for every
+\(n\ge0\) the pullback
+\[
+       \Gamma(X,\mathcal O_X)\longrightarrow
+                  \Gamma(G^n_X,\mathcal O_{G^n_X})
+\]
+is bijective.
+For a field-valued point \(x:\operatorname{Spec}k\to X\),
+\(\mathrm{GeomPF}(t,x)\) is the existence of a torus extension
+\[
+          1\longrightarrow T\longrightarrow G_x
+                     \stackrel q\longrightarrow B_0\longrightarrow1
+\]
+and a line \(M\) on its abelian quotient, with the source's
+\(\mathrm{KTriv}(B_0,M)\), and an isomorphism
+\(t.\mathrm{PP}.L|_{G_x}\simeq q^*M\).
+The predicate \(\mathrm{FibPF}(t,z)\) asks for such a
+presentation at some algebraically closed field-valued
+point whose image is \(z\).
+These are hypotheses about the actual family; this
+section does not manufacture them from semistability.
+
+For every field \(k\) of characteristic \(p\), every
+\(x:\operatorname{Spec}k\to X\), and every actual formal
+germ \(g\) of \(t\) at \(x\), the source target is
+\[
+ \mathrm{PowFns}(t)\ \land\
+ \mathrm{FibPF}\bigl(t,x(\operatorname{closedPoint}k)\bigr)
+                  \quad\Longrightarrow\quad
+                         \alpha_{g.B}\text{ is injective}.
+ \tag{FC3}\label{eq:faithful-fibre-inj-target}
+\]
+The prime \(2\) is included.
+The germ here contains its actual finite-jet maps to \(G\),
+the tangent basis, compatible line frames at all jet orders,
+their truncation and axes identities, and the formal
+biextension datum \(g.B\).  It is not merely an abstract
+formal group equipped with matrices.
+
+The source also uses the intermediate property
+\(\mathrm{TanPF}(t,x,p)\).
+Put \(R_m=k[\delta]/(\delta^{m+1})\).
+For every \(y\in G_x(R_p)\) reducing to the identity,
+it requires
+\[
+ [p]y=0,\qquad
+ t_{y_1}^*L\otimes L^{-1}\text{ has a global generator}
+                   \quad\Longrightarrow\quad y_1=0,
+ \tag{FC4}\label{eq:faithful-tanpf}
+\]
+where \(y_1\) is its restriction to \(R_1\).
+This is exactly the source's translation-difference line
+on \(G_{x,R_1}\), not just a line on its formal completion.
+
+For the family conclusion, let \(p\) be prime and let
+\(K\) be a field of characteristic \(p\).
+The source uses an abstract arithmetic curve \(C\) over
+this \(K\): an index set \(I_C\),
+integer-valued multiplicative valuations \(v_i\), weights
+\(w_i\in\mathbb N\), finite support of \(v_i(a)\ne1\) for
+every \(a\ne0\), and the weighted product formula.
+Write \(R_i=\{a:v_i(a)\le1\}\).
+A lattice bundle is a collection of \(R_i\)-lattices with
+local bases, equal to one fixed basis lattice outside a
+finite set.  A short exact sequence of such bundles means
+both exactness over \(K\) and exactness of the indicated
+lattices at every \(i\).
+For a curve in the actual family, \srcid{FamilyEx.family\_ex}
+constructs generic formal data \(B\), integral data \(B_i\)
+over \(R_i\), their residue data, and compatible generic
+isomorphisms
+\[
+                   (\varphi_i,\psi_i,\lambda_i):
+                                  B_{i,K}\longrightarrow B.
+\]
+Here \(\varphi_i,\psi_i\) are inverse formal coordinate
+changes and \(\lambda_i\) is the axes-normalized
+biextension gauge.  The residue \(\alpha\) is injective,
+and the coefficients of their linear and mixed terms
+are integral outside a finite set.
+Assuming \(I_C\ne\varnothing\), the ensuing target is
+\[
+ \begin{gathered}
+ \mathcal L_i=D\varphi_i(0)\,R_i^d,\qquad
+ \mathcal H_i=T_i(R_i^d\oplus R_i^d),\\
+ T_i(v,f)=\bigl(P_iv,Q_i^t(f+Z_i^tv)\bigr),\\
+ P_i=D\varphi_i(0),\quad Q_i=D\psi_i(0),\quad
+ Z_i=\operatorname{bil}_{1,1}(\lambda_i),
+ \end{gathered}
+ \tag{FC5}\label{eq:faithful-family-lattices}
+\]
+and the two exact lattice sequences
+\[
+ \begin{split}
+ 0&\longrightarrow\mathcal L^\vee
+       \stackrel{f\mapsto(0,f)}\longrightarrow\mathcal H
+       \stackrel{(v,f)\mapsto v}\longrightarrow\mathcal L
+       \longrightarrow0,\\
+ 0&\longrightarrow F^*\mathcal L
+       \stackrel\alpha\longrightarrow\mathcal H
+       \stackrel\beta\longrightarrow F^*(\mathcal L^\vee)
+       \longrightarrow0.
+ \end{split}
+ \tag{FC6}\label{eq:faithful-two-sequences-target}
+\]
+The \(O\)-action on the dual is conjugated, as expressed by
+\[
+ \rho_H(a)(0,f)=(0,R_{\bar a}^{\,t}f),\quad
+ \alpha(R_a^{(p)}u)=\rho_H(a)\alpha(u),\quad
+ \beta(\rho_H(a)y)=(R_{\bar a}^{\,t})^{(p)}\beta(y).
+ \tag{FC7}\label{eq:faithful-frobenius-equivariance}
+\]
+Here \(F^*\) is the lattice span of coordinatewise \(p\)-th
+powers, not an assumption that \(K\) is perfect.
+
+The final degree target is
+\srcid{SplitHermitianGeneratorsExist.deg\_quot\_eq\_zero}.
+In addition to (FC6)--(FC7), its hypotheses are:
+every integral multiplication characteristic polynomial
+of \(O\) splits over \(K\); a character \(\chi:O\to K\);
+and, for one fixed \(r\), at every \(i\) a free
+\(O\otimes R_i\)-basis of \(\mathcal H_i\).
+Precisely, if \(b_1,\ldots,b_{[E:\mathbb Q]}\) is the
+specified integral basis of \(O\), there are \(x_1,\ldots,x_r\)
+such that all \(\rho_H(b_j)x_l\) are \(K\)-linearly independent
+and their \(R_i\)-span is \(\mathcal H_i\).
+With the source's quotient lattice, the target is
+\[
+ \deg_C\!\left(
+ \mathcal H\Big/
+   \sum_{a\in O}\operatorname{im}(\rho_H(a)-\chi(a))
+                    \right)=0.
+ \tag{FC8}\label{eq:faithful-character-degree-target}
+\]
+The local freeness in this statement is a separate input;
+neither (FC3) nor (FC6) asserts it.
+
+\subsection{Roots of the additive overlap cocycle}
+\label{subsec:faithful-cech-p-root}
+
+\begin{srlemma}\label{lem:faithful-cech-p-root}
+Let \(Z\) be an integral normal scheme with function field
+\(K_Z\) of characteristic \(p>0\), where \(p\) is prime.
+Let \(U_j\) be arbitrary open subsets, and choose
+\[
+ h_j\in\Gamma(U_j,\mathcal O_Z),\qquad
+ n_{jj'}\in\Gamma(U_j\cap U_{j'},\mathcal O_Z)
+\]
+such that
+\[
+                         n_{jj'}^p=h_j-h_{j'}.
+ \tag{FC9}\label{eq:faithful-p-root-overlap}
+\]
+Restrictions to intersections are understood.
+Suppose some \(U_{j_0}\ne\varnothing\) and some
+\(r\in K_Z\) satisfies \(r^p=h_{j_0}\) in the function field.
+Then there are \(s_j\in\Gamma(U_j,\mathcal O_Z)\) with
+\(n_{jj'}=s_j-s_{j'}\).
+No cover or connectedness hypothesis on the index set
+is needed.
+\end{srlemma}
+\begin{proof}
+Every two nonempty opens of an integral scheme intersect,
+and restriction of a section on a nonempty open to the
+function field is injective.
+For nonempty \(U_j\), form in \(K_Z\)
+\[
+                         r_j=r+n_{j j_0}.
+\]
+By (FC9) and characteristic \(p\),
+\(r_j^p=h_{j_0}+h_j-h_{j_0}=h_j\).
+At every point of \(U_j\), the element \(r_j\) is integral
+over the local ring, since it solves the monic equation
+\(T^p-h_j=0\).
+Normality puts it in that local ring.
+The local sections so obtained have the same function-field
+germ, hence agree on overlaps and glue to a section \(s_j\).
+This is the source's \srcid{exists\_section\_of\_pow} step.
+For an empty \(U_j\), take its unique section.
+
+On a nonempty \(U_j\cap U_{j'}\), the images in \(K_Z\) satisfy
+\[
+                    (s_j-s_{j'})^p=h_j-h_{j'}=n_{jj'}^p.
+\]
+Frobenius is injective in the field \(K_Z\), so their
+function-field images are equal.
+Injectivity of restriction gives the claimed equality
+of sections.  On an empty intersection it is automatic.
+\end{proof}
+
+\subsection{The first-order consequence of a \(p\)-fold generator}
+\label{subsec:faithful-qam-core}
+
+The following is the source's \srcid{QamCore.core\_firstOrder},
+with its thickenings and transition functions written out.
+
+\begin{srlemma}\label{lem:faithful-qam-first-order}
+Let \(X\) be a scheme, \(G\to X\) a scheme over \(X\),
+\(k\) a field of characteristic \(p>0\), and
+\(x:\operatorname{Spec}k\to X\).
+Assume \(Z=G_x\) is integral and normal.
+Put
+\(Y_m=Z\times_k\operatorname{Spec}k[\delta]/(\delta^{m+1})\),
+with projection \(b_m:Y_m\to G\) and zero section
+\(\iota_m:Z\to Y_m\).
+Let \(L\) be an invertible sheaf on \(G\).
+Suppose \(a:Y_p\to G\) satisfies
+\(a\iota_p=b_p\iota_p:Z\to G\), and suppose
+\[
+                    (a^*L\otimes b_p^*L^{-1})^{\otimes p}
+\]
+has a generator \(C\) whose restriction to \(Z\) is \(1\)
+under the induced cancellation.
+
+Take any trivializing cover \(V_j\) of \(L\), and put
+\(U_j=Z\cap V_j\).
+The coefficient of \(\delta^p\) in the local expression
+of \(C\) on \(Y_p|_{U_j}\) is denoted \(h_j\).
+Assume there is \(j_0\) with \(U_{j_0}\ne\varnothing\)
+and a \(p\)-th root of \(h_{j_0}\) in \(K_Z\).
+Then, after restriction to \(Y_1\),
+\(a^*L\otimes b_1^*L^{-1}\) has a global generator.
+\end{srlemma}
+\begin{proof}
+A nilpotent thickening has the same underlying topological
+space as its closed subscheme.
+Hence \(a\) and \(b_p\) have the same point map, and both
+pull back \(V_j\) to the open \(Y_p|_{U_j}\).
+Sections there have unique expansions
+\[
+                     \sum_{\nu=0}^{p}c_\nu\delta^\nu,
+                \qquad c_\nu\in\Gamma(U_j,\mathcal O_Z).
+ \tag{FC10}\label{eq:faithful-thick-expansion}
+\]
+For an affine open this is the tensor-product basis
+\(1,\delta,\ldots,\delta^p\) of
+\(k[\delta]/(\delta^{p+1})\).
+On arbitrary opens, affine uniqueness makes the
+coefficients agree under restriction and thus glue.
+This is exactly the affine-basis and restriction argument
+of \srcid{PowerSeriesExpansionInDeltaUnique.sections\_thick}.
+
+Write \(g_{jj'}\) for the transition units of \(L\).
+The line \(a^*L\otimes b_p^*L^{-1}\) has transition ratio
+\[
+ R_{jj'}=\frac{a^*g_{jj'}}{b_p^*g_{jj'}}
+        =1+\sum_{\nu=1}^p n_{jj',\nu}\delta^\nu.
+ \tag{FC11}\label{eq:faithful-thick-transition}
+\]
+The constant is \(1\) because \(a\) and \(b_p\) agree on \(Z\).
+The local expressions of the given generator are
+\[
+                C_j=1+\sum_{\nu=1}^p c_{j,\nu}\delta^\nu,
+                 \qquad C_j=R_{jj'}^p C_{j'} .
+ \tag{FC12}\label{eq:faithful-generator-overlap}
+\]
+The coefficient \(c_{j,p}\) is \(h_j\).
+
+Here is the source's coefficient comparison, including
+the case \(p=2\).
+In characteristic \(p\), with \(\delta^{p+1}=0\),
+\[
+ R_{jj'}^p=1+n_{jj',1}^p\delta^p:
+\]
+every exponent \(\nu p\) with \(\nu\ge2\) is at least \(p+1\).
+Multiplication by a series with constant coefficient \(1\)
+leaves this new \(\delta^p\)-coefficient unchanged.
+Uniqueness in (FC10), applied to (FC12), gives
+\[
+                            h_j=h_{j'}+n_{jj',1}^p.
+ \tag{FC13}\label{eq:faithful-thick-top-coefficient}
+\]
+Apply Lemma~\ref{lem:faithful-cech-p-root}.
+There are \(s_j\in\Gamma(U_j,\mathcal O_Z)\) such that
+\(n_{jj',1}=s_j-s_{j'}\).
+
+On \(Y_1|_{U_j}\) the elements
+\[
+                         t_j=1+\delta s_j
+\]
+are units, with inverses \(1-\delta s_j\).
+Since \(\delta^2=0\), (FC11) becomes
+\[
+  R_{jj'}=1+\delta(s_j-s_{j'})
+                 =(1+\delta s_j)(1-\delta s_{j'}).
+\]
+Thus \(t_j=R_{jj'}t_{j'}\), which is the generator
+compatibility relation on the diagonal trivializing charts.
+To see that this is a generator of the actual line
+on its full pullback cover, use the following explicit
+extension, as in \srcid{exists\_gen\_of\_units}.
+On a mixed chart \(a^{-1}V_i\cap b_1^{-1}V_j\), put
+\[
+                         a^*g_{ij}\,t_j.
+\]
+The two cocycle relations for \(g\), together with
+\(t_j=R_{jj'}t_{j'}\), verify compatibility on every
+mixed-chart intersection.
+All these expressions are units, so they form a global
+nowhere vanishing generator.
+\end{proof}
+
+\subsection{Exact dependency ledger for the next steps}
+\label{subsec:faithful-frobenius-initial-ledger}
+
+The two lemmas just proved are bounded source lemmas.
+They do not yet prove (FC3), (FC6), or (FC8).
+The remaining source route is:
+\[
+ \begin{gathered}
+ \srcid{CbFrob.first\_power\_char\_p}
+ \quad+\quad
+ \srcid{AlphaKernelDerivativeVanishes.germKill}\\
+ \Longrightarrow
+ \srcid{CocpMain.cocycle\_p}
+ \Longrightarrow
+ \srcid{CocpMain.tanpf\_inj}\\
+ \Longrightarrow
+ \srcid{FamilyEx.fib\_inj},\ \srcid{FamilyEx.family\_ex}\\
+ \Longrightarrow
+ \srcid{FamilyGivesConjugateLieData.family\_conj}
+ \Longrightarrow
+ \srcid{FamilyHodgeLatticeData.family\_conj\_H\_eq}\\
+ \Longrightarrow
+ \srcid{SplitHermitianGeneratorsExist.deg\_quot\_eq\_zero}.
+ \end{gathered}
+\]
+The first arrow also uses the actual \(p\)-fold cubical
+generator \srcid{Pf.pfold}, the actual germ Taylor expansion,
+and the normal function-field criterion
+\srcid{pderiv\_zero\_of\_jet\_pth\_power\_diff}.
+The second requires (FC4).
+The third uses geometric-to-tangent power freeness,
+base change of actual germs, common algebraically closed
+points, and local affine germ existence.
+The exact-sequence arrows require both formal coordinate
+and gauge transformation identities, residue injectivity,
+and integral local matrix splittings.
+The last arrow retains the local free \(O\)-basis hypothesis
+in (FC8) and uses the source's finite-field idempotent and
+ideal-filtration argument.
+
+For reproducibility, the frozen source paths and blob hashes
+for this chunk are:
+\begin{itemize}
+\item \srcid{src/Development/AutomorphicSpectrum/Definitions/GlobalGeometry/ToFirst.lean}:
+\srcid{e71c62079d11a8a5cf77513bf553601f0db05e76}.
+\item \srcid{src/Development/AutomorphicSpectrum/Definitions/CommutativeAlgebra/GermComp1ZeroPointLeft.lean}:
+\srcid{dac7d8db6b3addd6f6f8c112a17f50defc1ee274}.
+\item \srcid{src/Development/AbelianVarietyTheory/Proofs/UnramifiedDepth/ExistsSectionOfPow.lean}:
+\srcid{68fee6bc061158ef86e3065c1ad31d657447ac76}.
+\item \srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ArtinSchreierCocycleRoot.lean}:
+the wrapper invokes the preceding normal-stalk construction.
+\item \srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/QamCore.lean}:
+\srcid{485616b11de8936fc073cf07462deb9f84fa455e}.
+\item \srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PowerSeriesExpansionInDeltaUnique.lean}:
+\srcid{3c57e495af93702da7f43bb550275016bfc15eec}.
+\item \srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/TruncatedExpansionPthPowerCoeff.lean}:
+\srcid{fa9613feb577badff61581e9dae49879ec6e7149}.
+\item \srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/LineBundleCocyclePullbackTransform.lean}:
+\srcid{a181938c65d1c8edc97bf19c8a49aabd1eef075e}.
+\end{itemize}
+The global-model construction, full polarized Mumford
+uniformization, the free integral \(O\)-basis in (FC8), and
+the analytic flat frame's canonical extension are separate
+joins.  No conclusion about those joins is inferred here.

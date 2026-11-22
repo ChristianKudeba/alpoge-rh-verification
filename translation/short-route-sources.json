@@ -1004,5 +1004,30 @@
     "exceptional_estimate": "prop:sr-nontrivial-final-assembly",
     "polynomial_plus_height": "cor:sr-principal-plus-height-proved",
     "proof_status": "Printed and internally reviewed; no separate Lean verification or independent refereeing of this prose."
+  },
+  "faithful_source_pass": {
+    "date": "2026-11-21",
+    "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+    "independent_review": "Six bounded additions accepted; no whole-manuscript or full-project verdict.",
+    "chapters": [
+      "translation/short-chapters/theta-source-nonvanishing.tex",
+      "translation/short-chapters/theta-source-contraction.tex",
+      "translation/short-chapters/theta-source-line-cusp.tex",
+      "translation/short-chapters/formal-frobenius-source.tex",
+      "translation/short-chapters/theta-denominator-generators-source.tex",
+      "translation/short-chapters/flat-line-extension-source.tex"
+    ],
+    "retained_inputs": [
+      "Actual local theta spanning/norm and common-denominator integrality producers",
+      "KeyTwo/KeyThree local producers, Whittaker detection and concrete cusp/staged-quotient identities",
+      "Actual FamilyEx/exact integral lattice and degree-zero producers",
+      "Model.N3 with full PEL uniformization/torsion pairing",
+      "BoundaryChartFrameGrowth and the actual ExtendsUnitAt comparison",
+      "Final same-window height/covolume assembly"
+    ],
+    "replaced_for_fidelity": [
+      "Earlier alternative theta-two-step and simultaneous nonvanishing drafts"
+    ],
+    "preserved_alternative_drafts": true
   }
 }

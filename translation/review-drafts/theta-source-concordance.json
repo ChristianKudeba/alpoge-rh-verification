@@ -1,0 +1,138 @@
+{
+  "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "tag": "alpoge-source-7cbf7a0c",
+  "scope": "Source-concordance ledger for three bounded source-faithful replacements. The chunks translate named conditional assemblies; retained upstream inputs are not certified by re-export.",
+  "replacements": {
+    "two-step": "277c81f280091225a491b8df990288d283e98734",
+    "nonzero": "0058dc69527fd550b74480c1032efb0d4cdddce3",
+    "line-cusp": "295907ba895a8fc4c0677d9d7dc775d6f075ead0"
+  },
+  "sources": [
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/ConvCont.lean",
+      "git_blob": "5e0aea870a3a99df7f7eff837a68d58e5d3c0b95",
+      "declarations": [
+        "Bump.zero",
+        "kill"
+      ],
+      "used_by": "277c81f280091225a491b8df990288d283e98734",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/ConvCont.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/SpanPairIff.lean",
+      "git_blob": "ad7d4443476aa8a81c23da452bba42d51ad16033",
+      "declarations": [
+        "two_orders",
+        "two_kill"
+      ],
+      "used_by": "277c81f280091225a491b8df990288d283e98734",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/SpanPairIff.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/TwoStepOf.lean",
+      "git_blob": "c3d97bb26592625fdf9b4999b4d3acacd5142e6b",
+      "declarations": [
+        "twoStep_of'",
+        "twoStep_of"
+      ],
+      "used_by": "277c81f280091225a491b8df990288d283e98734",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/TwoStepOf.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/SigSplitOf.lean",
+      "git_blob": "8f2045f20977ecd7eea772608914b6d38e7162fb",
+      "declarations": [
+        "sigMod_of",
+        "sigSplit_of"
+      ],
+      "used_by": "277c81f280091225a491b8df990288d283e98734",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/SigSplitOf.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/AeFacts.lean",
+      "git_blob": "4b68e4018ab9afa15808366c0d8600552bc557e1",
+      "declarations": [
+        "ae_facts"
+      ],
+      "used_by": "277c81f280091225a491b8df990288d283e98734",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/SignatureSplitting/AeFacts.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/PlaneRemovalConfiguration.lean",
+      "git_blob": "4452349e121af6a7623071cba3839a1fa975c6ec",
+      "declarations": [
+        "Cfg",
+        "IsLow",
+        "TwoStep"
+      ],
+      "used_by": "277c81f280091225a491b8df990288d283e98734",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/PlaneRemovalConfiguration.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/LatticeBasics/NonZero.lean",
+      "git_blob": "b3b9d94399364dbb94b92a1c7b354f446c9f5995",
+      "declarations": [
+        "big_of",
+        "small_of",
+        "nonZeroAn_of"
+      ],
+      "used_by": "0058dc69527fd550b74480c1032efb0d4cdddce3",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/LatticeBasics/NonZero.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/CuspOfLineOfKeys.lean",
+      "git_blob": "99c555cf952add942c55e3d9c5fbb89da595d424",
+      "declarations": [
+        "isChar",
+        "isWh",
+        "wh_two",
+        "wh_ne",
+        "sig_mod",
+        "cuspOfLine_of_keys"
+      ],
+      "used_by": "295907ba895a8fc4c0677d9d7dc775d6f075ead0",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/CuspOfLineOfKeys.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/KillCoef.lean",
+      "git_blob": "e88eaf90111af504d4c6c08a59ed75f920049632",
+      "declarations": [
+        "kill_coef"
+      ],
+      "used_by": "295907ba895a8fc4c0677d9d7dc775d6f075ead0",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/KillCoef.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/AvLine.lean",
+      "git_blob": "b7d82f44b54f4ab9e9c0a2f88d0de786aa3f5d4c",
+      "declarations": [
+        "Ctx.int_zero"
+      ],
+      "used_by": "295907ba895a8fc4c0677d9d7dc775d6f075ead0",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/AvLine.lean"
+    },
+    {
+      "path": "src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/KeyThree.lean",
+      "git_blob": "ba3ed5492ada9a842989fcb1c3a289c693b9bda0",
+      "declarations": [
+        "KeyTwo",
+        "KeyThree",
+        "LocTwo",
+        "LocThree",
+        "VacBar",
+        "Places"
+      ],
+      "used_by": "295907ba895a8fc4c0677d9d7dc775d6f075ead0",
+      "url": "https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/KeyThree.lean"
+    }
+  ],
+  "critical_scope": [
+    "TwoStep ranks (b+2,a') -> (b,a'), explicitly a'<b and q>=1; p1+1=p and q1=q. Characters alpha,beta are unitary, so |z|=r^((a'-b)/2)<1.",
+    "TwoStep conclusion Pure applies to every FinK k and every lower Sig1 f1 satisfying IsLow. FinK only imposes the source Cartan commutation condition at infinity, not compactness at all finite places.",
+    "ConvCont: probability measure on X; an arbitrary left Haar measure on G. Bumps are nonnegative real continuous compactly supported, eta(1)!=0; no integral-one requirement.",
+    "The staged rational unipotent quotient averages have mass one. Final Ctx.int_zero rescales the normalized zero mean to any source Haar/domain by its finite positive quotient volume.",
+    "NonZeroAn keeps separate q-induction for p=0 and p-induction for q=0. Adapted polynomial test vanishing is transported through SchToPol and PolSch; small-side ToSo is retained.",
+    "Original Geo.IsGood additionally has even a+a', a'<a, character-weight gap, natural (a-a')/2>2(p+q)+1, and a'>2(p+q)+1. These hypotheses are carried by original triples; the replacements do not weaken them.",
+    "Line-cusp replacement retains KeyTwo and KeyThree. Their LocTwo/LocThree/VacBar/Places producers remain separate translation obligations."
+  ]
+}

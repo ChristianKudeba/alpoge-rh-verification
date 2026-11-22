@@ -1,0 +1,181 @@
+
+\section{Definite-side nonvanishing before the comparison induction}
+\label{sec:sr-source-definite-nonzero}
+
+We translate \srcid{ThetaLifts.LatticeBasics.NonZero}.
+The conclusion \(\operatorname{NonZeroAn}\) concerns a definite
+first space with an arbitrary allowable target signature:
+\[
+ \begin{split}
+ p=0&\ \Longrightarrow\
+    \exists\Phi\in\operatorname{PolData}(M),\quad I_V(\Phi)\ne0,\\
+ q=0&\ \Longrightarrow\
+    \exists\Phi'\in\operatorname{PolData}(M')\cap\operatorname{So}(M'),
+                          \quad I_{V'}(\Phi')\ne0 .
+ \end{split}                                      \tag{N1}
+ \label{eq:sr-source-nonzeroAn}
+\]
+This is a separate theorem from proportionality of the two period
+maps. In particular its proof does not assume \(\operatorname{OneConst}\)
+at a lower signature.
+
+We retain the exact inputs of \srcid{nonZeroAn\_of}.
+The base assertion \(\operatorname{NonZeroBot}\) gives nonzero
+polynomial periods on both sides when \(p=q=0\).
+The assertions \(\operatorname{TowerA}\) and
+\(\operatorname{TowerB}\) supply the adapted rank reductions,
+possibly after replacing the upper Cartans and split bases.
+\(\operatorname{EvZero}\) supplies a zero-evaluation map whose
+image of the adapted upper polynomial space is the full lower
+polynomial space.
+\(\operatorname{CTBigZero}\) and
+\(\operatorname{CTSmallZero}\) give its actual constant-term
+identities, with nonzero scalar.
+\(\operatorname{LeviEx}\) supplies a Levi lift of every lower
+group element, and \(\operatorname{SplitEx}\) supplies uniqueness
+of the two-component splitting.
+
+Three further inputs have distinct roles.
+\(\operatorname{PolSch}\) places polynomial test vectors in
+the adelic Schwartz space.
+\(\operatorname{SchToPol}\), in the definite first-group case,
+says that if the period vanishes on the prescribed polynomial
+space then it vanishes on all Schwartz vectors.
+\(\operatorname{ToSo}\), on the definite small side, replaces
+a polynomial vector by one in the actual full-rank cutoff
+without changing its period.
+These inputs are not replaced by an assertion that different
+Cartans have the same polynomial subspace.
+
+\begin{srlemma}[The positive definite side, \srcid{big\_of}]
+\label{lem:sr-source-big-nonzero}
+Assume \(\operatorname{NonZeroBot}\),
+\(\operatorname{TowerB}\), \(\operatorname{EvZero}\),
+\(\operatorname{CTBigZero}\), \(\operatorname{SchToPol}\),
+\(\operatorname{PolSch}\), and \(\operatorname{LeviEx}\).
+For every allowable triple with \(p=0\), the large polynomial
+period map is nonzero.
+\end{srlemma}
+
+\begin{proof}
+Induct on \(q\), allowing the small rank \(a'\) and all
+corresponding geometric data to vary.
+For \(q=0\) use the large part of \(\operatorname{NonZeroBot}\).
+
+For \(q+1\), write \(a'=b+2\); the rank condition ensures
+this is possible. The \(B\)-tower gives an adapted upper
+triple \(\widetilde G\), a lower triple \(G_1\) of ranks
+\((a,b)\), and their planes and zero evaluation \(e\).
+The large first signature remains definite, and the lower
+small signature parameter is \(q\).
+Induction gives a lower polynomial vector \(\Phi_1\)
+with nonzero period.
+Surjectivity of \(e\) on the adapted polynomial spaces
+gives an adapted upper polynomial \(\Psi\) with
+\(e\Psi=\Phi_1\).
+
+Suppose every polynomial period for the original upper
+Cartan were zero.
+The definite \(\operatorname{SchToPol}\) assertion then makes
+the upper period zero for every Schwartz vector.
+The adapted \(\Psi\) is Schwartz by \(\operatorname{PolSch}\).
+Changing to \(\widetilde G\) retained the rational forms,
+Darboux coordinates, vacua, Weil action, Haar measure,
+and integration domain. Thus the same period function
+\(I_V(\Psi)\) is zero, even though its polynomial-space
+membership was established with the adapted Cartan.
+
+The zero period has the splitting with both components zero.
+Apply \(\operatorname{CTBigZero}\) to this splitting.
+For a Levi lift of any \(h_1\in U(W_1)(\mathbb A_F)\),
+and with the final target translate equal to \(1\),
+its identity reads
+\[
+                       0=C\,I_{V,1}(e\Psi)(h_1),
+                              \qquad C\ne0.
+\]
+The identity action of \(\omega(1,1)\) has been used here.
+Every \(h_1\) has such a lift by \(\operatorname{LeviEx}\).
+Hence the lower period of \(\Phi_1\) is identically zero,
+contrary to its choice.
+\end{proof}
+
+\begin{srlemma}[The negative definite side, \srcid{small\_of}]
+\label{lem:sr-source-small-nonzero}
+Assume \(\operatorname{NonZeroBot}\),
+\(\operatorname{TowerA}\), \(\operatorname{EvZero}\),
+\(\operatorname{CTSmallZero}\), \(\operatorname{SchToPol}\),
+\(\operatorname{PolSch}\), \(\operatorname{LeviEx}\), and
+\(\operatorname{SplitEx}\).
+For every allowable triple with \(q=0\), the small polynomial
+period map is nonzero, initially without a cutoff requirement
+on the chosen vector.
+\end{srlemma}
+
+\begin{proof}
+Induct on \(p\), allowing \(a\) and all its geometric data to vary.
+The case \(p=0\) is the small part of
+\(\operatorname{NonZeroBot}\).
+In the successor case write \(a=b+2\) and take the
+\(A\)-tower. Its lower triple has ranks \((b,a')\)
+and parameters \((p-1,0)\).
+Choose a lower polynomial vector \(\Phi_1'\)
+with nonzero small period, and lift it through the
+onto adapted zero evaluation to an upper polynomial
+\(\Psi'\).
+
+If the original small polynomial period were identically zero,
+\(\operatorname{SchToPol}\) on this definite first space would
+make it zero on every Schwartz vector.
+As in the preceding proof, this applies to the adapted
+polynomial \(\Psi'\), using \(\operatorname{PolSch}\).
+
+The assertion \(\operatorname{CTSmallZero}\) supplies a function
+\(f_\alpha\), the splitting
+\(\operatorname{Split}_2(I_{V'}(\Psi');f_\alpha,0)\),
+and a nonzero \(C\) such that
+\[
+             f_\alpha(l)=C\,I_{V',1}(e\Psi')(h_1)
+\]
+for every Levi lift \(l\) of \(h_1\).
+Since \(I_{V'}(\Psi')=0\), uniqueness of the two-component
+splitting makes \(f_\alpha=0\).
+In the source this uniqueness is obtained by applying
+\(\operatorname{SplitEx}\) to the zero large test vector
+in the same adapted triple, and comparing the splittings
+\((f_\alpha,0)\) and \((0,0)\).
+Canceling \(C\), and using \(\operatorname{LeviEx}\),
+contradicts the nonzero lower period.
+\end{proof}
+
+\begin{srproposition}[The original \srcid{nonZeroAn\_of}]
+\label{prop:sr-source-nonzeroAn}
+Under the inputs of the two preceding lemmas and
+\(\operatorname{ToSo}\), assertion (N1) holds.
+\end{srproposition}
+
+\begin{proof}
+The large assertion is \srcid{big\_of}.
+For the small assertion choose the polynomial vector from
+\srcid{small\_of}. Since \(q=0\),
+\(\operatorname{ToSo}\) gives a polynomial vector in the
+actual cutoff with the same period.
+That period remains nonzero.
+\end{proof}
+
+Thus the exact dependency order in this module is
+\[
+ \operatorname{NonZeroBot}
+ \ \Longrightarrow\
+ \begin{cases}
+   \text{induction in }q\text{ with }p=0,\\
+   \text{induction in }p\text{ with }q=0
+ \end{cases}
+ \ \Longrightarrow\ \operatorname{NonZeroAn}.
+\]
+The inputs \(\operatorname{TowerA/B}\), the zero-evaluation
+identities, \(\operatorname{SchToPol}\), and
+\(\operatorname{ToSo}\) remain explicitly identified until
+their separate producer theorems are translated.
+This is not the simultaneous proportionality/nonvanishing
+induction used in the earlier alternative draft.

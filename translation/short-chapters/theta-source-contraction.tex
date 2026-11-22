@@ -1,0 +1,302 @@
+
+\section{The contraction lemma and the original two-step conclusion}
+\label{sec:sr-source-two-step}
+
+This section translates
+\srcid{EigenvalueEndgame.SignatureSplitting.ConvCont},
+\srcid{SpanPairIff}, and \srcid{TwoStepOf}.
+The contraction is first proved for an abstract locally compact group.
+Its application concludes that a lower restriction has a pure
+\(\alpha\) constant term. Proportionality and nonvanishing of the
+lower theta images are not hypotheses of this argument.
+
+Let \(G\) be a second-countable locally compact Hausdorff topological
+group, with its Borel structure and left Haar measure \(\mu\).
+Let \(X\) be a topological measurable space whose open sets are
+measurable, with probability measure \(\lambda\).
+Fix a subgroup \(\Gamma\subset G\), a continuous map
+\(n:X\to G\), and \(a\in G\).
+For a neighborhood \(V\) of \(1\), call a real function \(\eta\)
+a bump in \(V\) if it is continuous, compactly supported,
+nonnegative, has support contained in \(V\), and \(\eta(1)\ne0\).
+No normalization of its integral is imposed.
+
+The source's cusp condition consists of the following two assertions.
+There is a compact \(\Omega_0\subset G\) such that every \(g\in G\)
+has \(\gamma g=a^k\kappa\), with \(\gamma\in\Gamma\),
+\(k\ge0\), and \(\kappa\in\Omega_0\).
+Moreover every neighborhood \(V\) admits a bump \(\eta\) such that,
+for every compact \(\Omega\subset G\), there are a real \(D\)
+and a compact \(\Omega'\subset G\) with this property:
+for every \(x\in X\) and \(k\ge0\), some \(\gamma\in\Gamma\)
+and \(u\in\Omega'\) satisfy
+\[
+ \gamma n(x)a^k=a^ku,\qquad
+ |\eta(\kappa^{-1}u^{-1}y)-\eta(\kappa^{-1}y)|
+                   \le D2^{-k}
+ \quad(\kappa\in\Omega,\ y\in G).                 \tag{S1}
+ \label{eq:sr-source-bump-cusp}
+\]
+For \(m\ge0\), say that \(\phi:G\to\mathbb C\) has growth
+\(m\) along \(a\) if, for every compact \(\Omega\), some \(C\)
+satisfies
+\[
+       |\phi(a^k\kappa)|\le C(2^k)^m
+                 \quad(k\ge0,\ \kappa\in\Omega). \tag{S2}
+ \label{eq:sr-source-growth-along-a}
+\]
+
+\begin{srlemma}[The abstract contraction, \srcid{ConvCont.kill}]
+\label{lem:sr-source-abstract-contraction}
+Assume the cusp condition. Let \(\phi,c:G\to\mathbb C\)
+be continuous, let \(\phi\) be left \(\Gamma\)-invariant,
+and suppose
+\[
+ c(g)=\int_X\phi(n(x)g)\,d\lambda(x),\qquad
+ c(a^2g)-c(ag)=z\{c(ag)-c(g)\}                   \tag{S3}
+ \label{eq:sr-source-contraction-data}
+\]
+for every \(g\), where \(|z|<1\).
+If \(\phi\) has growth \(m\) for some integer \(m\ge0\),
+then \(c(ag)=c(g)\) for every \(g\).
+\end{srlemma}
+
+\begin{proof}
+Put \(Dc(g)=c(ag)-c(g)\).
+Induction on \(k\) in (S3) gives
+\[
+ Dc(a^kg)=z^kDc(g),\qquad
+ c(a^kg)=c(g)+(1+z+\cdots+z^{k-1})Dc(g).
+ \tag{S4}\label{eq:sr-source-contraction-powers}
+\]
+Continuity on compact sets and the convergent geometric
+majorant show that \(c\) has growth zero.
+
+For a bump \(\eta\), define
+\(\phi_\eta(g)=\int_G\phi(gy)\eta(y)\,d\mu(y)\),
+and similarly \(c_\eta\).
+These convolutions are continuous and left
+\(\Gamma\)-invariant on the \(\phi\) side.
+Their unipotent-average and recurrence identities are again (S3).
+Here the needed Fubini justification does not assume
+compactness of \(X\): (S1), with \(k=0\), puts every
+\(n(x)\) modulo \(\Gamma\) into one compact set.
+Thus \(\phi(n(x)g)\) is bounded uniformly in \(x\)
+when \(g\) ranges over a compact set.
+Multiply this bound by the compactly supported \(\eta\)
+to obtain an integrable product majorant.
+
+Suppose now that \(\phi\) has growth \(m+1\).
+Choose \(\eta\) satisfying (S1) for an arbitrary prescribed
+neighborhood \(V\).
+For \(\kappa\) in a compact \(\Omega\), change variables
+by left multiplication in the convolution and use
+\(\Gamma\)-invariance. It gives
+\[
+ \phi_\eta(a^k\kappa)-\phi_\eta(n(x)a^k\kappa)
+ =\int_G\phi(a^ky)
+       \{\eta(\kappa^{-1}y)-\eta(\kappa^{-1}u^{-1}y)\}\,d\mu(y).
+\]
+Both terms are supported in the compact set
+\[
+          K=\Omega'\Omega\operatorname{supp}\eta
+                          \ \cup\ \Omega\operatorname{supp}\eta.
+\]
+The growth \(m+1\) bound on \(K\) and (S1) bound this integral
+by \(C D\mu(K)(2^k)^m\).
+Averaging in \(x\), using the probability measure, expresses
+\(\phi_\eta(a^k\kappa)\) as \(c_\eta(a^k\kappa)\) plus
+an error with this bound. The recurrence shows that
+\(c_\eta\) has growth zero, so \(\phi_\eta\) has growth \(m\).
+This is precisely \srcid{Dat.step}.
+
+We induct on \(m\).
+For \(m=0\), the compact ray covering and automorphy make
+\(\phi\) globally bounded by some \(M\).
+Its probability average is bounded by the same \(M\).
+Applying (S4) at \(a^{-k}g\) gives
+\(|Dc(g)|\le2M|z|^k\), hence \(Dc=0\).
+
+For the induction step, the growth drop and induction hypothesis
+give \(Dc_\eta=0\) for a suitable bump in every neighborhood of \(1\).
+The source removes the convolution by positivity.
+If \(D_0(g)=Dc(g)\ne0\), continuity makes
+\(\operatorname{Re}(D_0(gy)/D_0(g))>0\) in a neighborhood of \(1\).
+Choose its nonnegative bump. Its value at \(1\) is positive,
+and Haar measure has full support, so
+\[
+ \operatorname{Re}\int_G
+           \frac{D_0(gy)}{D_0(g)}\eta(y)\,d\mu(y)>0.
+\]
+This contradicts \(Dc_\eta(g)=0\).
+The proof therefore needs neither an integral-one bump
+nor a previously established approximate-identity theorem.
+\end{proof}
+
+We now specify the exact application.
+For a fixed triple let
+\[
+ \operatorname{Sig}(G)=
+ \{I_V(\Phi)-I_{V'}(\Phi'):
+       \Phi\in\operatorname{PolData}(M),\
+       \Phi'\in\operatorname{PolData}(M')\cap\operatorname{So}(M')\}.
+\]
+No matching relation is imposed in this definition.
+For a target hyperbolic plane \(H'\) and its complement \(W_1\),
+write \(\operatorname{Split}_2(F;F_\alpha,F_\beta)\) for
+its line constant term split into the laws
+\(\alpha(t)|t|^{a'/2}\) and \(\beta(t)|t|^{a/2}\).
+Write
+\[
+ \operatorname{IsLow}(H',F_\alpha,k,f_1)
+ \quad\Longleftrightarrow\quad
+ f_1(y)=F_\alpha(lk)
+       \text{ whenever }l\text{ is a Levi lift of }(1,y).
+\]
+The set \(\operatorname{FinK}(W)\) consists of all adelic
+target elements commuting with the prescribed Cartan
+at every infinite place. It does not require their finite
+components to lie in a particular compact subgroup.
+Finally \(\operatorname{Pure}(W_1,\alpha,a'/2,f_1)\) means
+that there exist a further nondegenerate rational target
+plane, its complement \(W_2\), and a constant term of \(f_1\)
+with the single law \(\alpha(t)|t|^{a'/2}\).
+
+Two intermediate assertions are retained exactly.
+\(\operatorname{SigMod}\) says that every member of
+\(\operatorname{Sig}(G)\) has polynomial growth in the actual
+adelic height. \(\operatorname{SigSplit}\) says that whenever
+the signature sum is positive there is one nondegenerate
+rational target plane, chosen before the form, along which
+every member of \(\operatorname{Sig}(G)\) admits a two-component
+splitting. These are not assertions of proportionality.
+
+\begin{srproposition}[The original \srcid{TwoStep} conclusion]
+\label{prop:sr-source-two-step}
+Assume \(\operatorname{SigMod}\), \(\operatorname{SigSplit}\),
+the target Iwasawa assertion \(\operatorname{Iwa}\), and
+automorphy of both polynomial period images
+\(\operatorname{IAut}\).
+Let \(G\) have ranks \((b+2,a')\), and let \(G_1\) have
+ranks \((b,a')\), with their specified triples, and assume explicitly
+\(a'<b\). The triples' character data are unitary: in particular,
+\(|\alpha(t)|=|\beta(t)|=1\) for every idèle \(t\).
+Assume the exact plane-removal configuration:
+the small first space is unchanged, \(q_1=q\),
+\(p_1+1=p\), and the large first and target planes
+are adapted in columns \(0,b+1\).
+Suppose \(q\ge1\) and \(F\in\operatorname{Sig}(G)\) has
+\[
+             \operatorname{Split}_2(F;F_\alpha,0).
+\]
+Assume that for every \(k\in\operatorname{FinK}(W)\) some
+\(f_1\in\operatorname{Sig}(G_1)\) satisfies
+\(\operatorname{IsLow}(H',F_\alpha,k,f_1)\).
+Then every such \(k,f_1\) satisfies
+\[
+             \operatorname{Pure}(W_1,\alpha,a'/2,f_1).
+ \tag{S5}\label{eq:sr-source-two-step-pure}
+\]
+\end{srproposition}
+
+\begin{proof}
+Since \(q_1=q\ge1\), \(\operatorname{SigSplit}\) supplies one
+further rational plane \(H_1\) in \(W_1\), with nondegenerate
+complement \(W_2\), along which every lower comparison form
+splits. Choose its two components \(A_x,C_x\) for the function
+\(y\mapsto F_\alpha(\operatorname{lev}(y)x)\), for every upper \(x\).
+
+Here is why this choice is possible for arbitrary \(x\).
+The upper Iwasawa assertion gives
+\(x=n\,m(t)\operatorname{lev}(g_1)k\) with
+\(k\in\operatorname{FinK}(W)\).
+The constant term \(F_\alpha\) is left invariant under
+the line radical, and its outer Levi law gives the factor
+\(\alpha(t)|t|^{a'/2}\).
+Its restriction is consequently a scalar multiple of a
+right translate of the supplied lower \(f_1\).
+Transporting the lower splitting by that scalar and translation
+produces \(A_x,C_x\).
+Their laws are \(\alpha(t)|t|^{a'/2}\) and
+\(\beta(t)|t|^{b/2}\).
+The value \(c(x)=A_x(1)+C_x(1)\) is independent of this choice:
+it is the lower constant-term average of the displayed
+restriction. This uses uniqueness of the average, not
+an unmentioned choice of individual component normalizations.
+
+The two target planes give an embedding of
+\(\mathrm{SL}_2(\mathbb A_E)\) acting on their isotropic
+two-plane and by inverse conjugate transpose on its dual.
+Put \(u=(\operatorname{halfE})^{-1}\), whose infinite components
+are \(2\), and \(r=|u|_E>1\).
+Let \(h\) be the image of \(\operatorname{diag}(u,u^{-1})\).
+The two successive Levi laws give
+\[
+ c(hx)=A_x(1)+zC_x(1),\quad
+ c(h^2x)=A_x(1)+z^2C_x(1),\quad
+ z=\alpha(u)\beta(u^{-1})r^{(a'-b)/2}.
+ \tag{S6}\label{eq:sr-source-two-step-recurrence}
+\]
+Since \(|\alpha(u)|=|\beta(u^{-1})|=1\) and \(a'<b\),
+\(|z|=r^{(a'-b)/2}<1\).
+This is exactly where the lower rank inequality is used.
+
+The source's \srcid{SpanPairIff.two\_orders} identifies this
+iterated line average with a different staged average.
+First average \(F\) over the radical attached to the rational
+isotropic two-plane. Then average its restriction to the
+embedded \(\mathrm{SL}_2\) over its upper unipotent quotient.
+The equality is proved by the two quotient maps of the
+flag unipotent group: one has the first line radical as
+kernel and the lower line radical as quotient; the other
+has the two-plane radical as kernel and the additive
+\(E\)-root group as quotient.
+Their rational quotients are compact and their Haar measures
+are normalized to mass one, so the two stage formulas have
+the same normalization.
+
+The resulting \(\mathrm{SL}_2\) function is continuous and
+rationally invariant. Its polynomial ray growth follows
+from \(\operatorname{SigMod}\) after averaging over the compact
+two-plane quotient. The concrete cusp condition for this
+\(\mathrm{SL}_2\), including (S1), is supplied by
+\srcid{SignatureSplitting.AeFacts.ae\_facts}.
+Equation (S6) is its contraction recurrence.
+The abstract lemma, through \srcid{SpanPairIff.two\_kill},
+therefore gives \(c(hx)=c(x)\).
+It follows that \((z-1)C_x(1)=0\), hence \(C_x(1)=0\).
+
+Now fix an originally supplied \(k,f_1\).
+Transport its chosen lower splitting by a right translate \(y\).
+Applying the same equality at \(\operatorname{lev}(y)k\)
+shows that the whole \(\beta\)-component of this splitting
+is zero. The chosen plane \(H_1\), complement \(W_2\), and
+remaining \(\alpha\)-component witness (S5).
+This proves \srcid{TwoStepOf.twoStep\_of'}.
+No lower period injectivity, nonzero vector, or
+irreducibility argument occurs in this proof.
+\end{proof}
+
+The final assembly \srcid{TwoStepOf.twoStep\_of} derives the
+two intermediate assertions as follows.
+\srcid{SigSplitOf.sigMod\_of} uses \(\operatorname{WeilConv}\)
+and \(\operatorname{KDecay}\) to bound the two periods and
+their difference.
+\srcid{SigSplitOf.sigSplit\_of} uses
+\(\operatorname{SplitEx}\), \(\operatorname{PlaneSkew}\),
+\(\operatorname{Iwa}\), the closed \(\operatorname{CTBasic}\),
+\(\operatorname{IAut}\), and \(\operatorname{SigRe}\).
+It first chooses an adapted target model, obtains its
+two-component splitting, and transports it back by the
+right translation supplied by \(\operatorname{SigRe}\).
+Consequently the exact retained inputs of \srcid{twoStep\_of}
+are
+\[
+ \operatorname{WeilConv},\ \operatorname{KDecay},\
+ \operatorname{SplitEx},\ \operatorname{PlaneSkew},\
+ \operatorname{Iwa},\ \operatorname{IAut},\
+ \operatorname{SigRe}.
+\]
+Their producers are separate parts of the archive.
+The stronger upper-vanishing or global-proportionality deductions
+are not substituted for the precise conclusion (S5).

@@ -1,0 +1,265 @@
+
+\section{The original line-to-cusp argument}
+\label{sec:sr-source-line-cusp}
+
+This section translates
+\srcid{EigenvalueEndgame.CuspidalAverages.CuspOfLineOfKeys},
+together with the coefficient lemma \srcid{KillCoef.kill\_coef}.
+It retains the two source assertions \(\operatorname{KeyTwo}\)
+and \(\operatorname{KeyThree}\). It does not replace them by
+a general-linear Jacquet-module or unitarity argument.
+
+For a rational isotropic \(j\)-frame \(u\) with dual frame \(u'\)
+in \(W\), write \(U=\operatorname{colSp}(u)\) and let
+\(\operatorname{ct}_U\) be the normalized average along the
+source group \(\operatorname{unipU}(W,U)\).
+The group fixes \(U\) pointwise and acts trivially on \(U^\perp/U\).
+Its rational quotient is compact.
+The context \(\operatorname{Ctx}\) used below comprises the CM
+involution, skew symmetry of the target form, and its nonzero
+determinant. From these the source constructs the quotient
+averages and rational frame extensions.
+
+A continuous additive character \(\chi\) of \(\mathbb A_F\otimes_F E\)
+has the source property \(\operatorname{IsChar}\) if, for every
+split finite place and each selected projection
+\(t:E\to F_v\), it is nontrivial on some vector supported at \(v\)
+whose conjugate projection is zero.
+A functional \(\Lambda\) has the source property
+\(\operatorname{IsWh}(W,u,\chi)\) if it is additive on continuous
+rationally invariant functions, is homogeneous, and obeys
+\[
+ \Lambda(R_hf)=
+       \chi\!\left(\sum_{i=0}^{j-2}g_{i,i+1}\right)\Lambda(f)
+ \tag{C1}\label{eq:sr-source-whittaker-law}
+\]
+whenever \(h\) acts on \(u\) by an upper unipotent matrix \(g\)
+and acts trivially on \(U^\perp/U\).
+Here \(R_hf(x)=f(xh)\).
+Both the condition on the complementary quotient and the order
+of right translation in (C1) are part of the assertion.
+
+The retained \(\operatorname{KeyThree}\) says that for every
+allowable triple, every such frame of size \(j\ge3\),
+every admissible \(\chi,\Lambda\), and every
+\(f\in\operatorname{Sig}(G)\),
+\[
+                         \Lambda(R_hf)=0
+                              \quad\hbox{for every }h.
+ \tag{C2}\label{eq:sr-source-keyThree}
+\]
+The retained \(\operatorname{KeyTwo}\) has a different conclusion.
+For a two-frame, its specified continuous Levi map \(m\),
+admissible \(\chi,\Lambda\), \(f\in\operatorname{Sig}(G)\),
+and any \(h_0\), there exist a neighborhood \(V\) of \(h_0\),
+matrices \(b_i\in\mathrm{GL}_2(\mathbb A_F\otimes_F E)\),
+and numbers \(y_i\in\mathbb C\) such that
+\[
+ \begin{gathered}
+ b_0=1,\qquad \det b_i=1,\qquad |y_i|\longrightarrow\infty,\\
+ \forall h\in V\ \exists c_h\in\mathbb C\
+       \forall i\ge0,\qquad
+      \Lambda(R_{m(b_i)h}f)=c_h y_i .
+ \end{gathered}                                    \tag{C3}
+ \label{eq:sr-source-keyTwo}
+\]
+The same \(b_i,y_i\) work throughout \(V\); \(c_h\) may vary with \(h\).
+This neighborhood quantifier is used in convolution below.
+
+\begin{srlemma}[The coefficient version of the growth bootstrap]
+\label{lem:sr-source-kill-coefficient}
+Use the abstract \(G,X,\Gamma,n,a,\lambda\), cusp condition,
+and growth notion of
+Lemma~\ref{lem:sr-source-abstract-contraction}.
+Let \(\phi,c\) satisfy its data with recurrence parameter \(z=0\),
+and let \(\phi\) have some finite growth exponent.
+Let \(e:X\to\mathbb C\) be continuous with \(|e(x)|\le1\).
+Suppose \(|y_i|\to\infty\), \(b_i\in G\), and on a neighborhood
+\(V\) of \(1\),
+\[
+ y_0\int_Xe(x)\phi(n(x)b_i z)\,d\lambda(x)
+       =y_i\int_Xe(x)\phi(n(x)z)\,d\lambda(x)
+                    \qquad(z\in V,\ i\ge0).
+ \tag{C4}\label{eq:sr-source-weighted-coefficient-scaling}
+\]
+Then \(\int_Xe(x)\phi(n(x))\,d\lambda(x)=0\).
+\end{srlemma}
+
+\begin{proof}
+This is \srcid{KillCoef.kill\_coef}, using the same
+growth induction \srcid{ConvCont.kill\_ind}.
+If \(\phi\) is globally bounded by \(M\), every weighted
+probability average has absolute value at most \(M\).
+If its value at \(1\) were nonzero, (C4) at \(z=1\)
+would contradict \(|y_i|\to\infty\).
+
+For the induction step set
+\(w(g)=\int_Xe(x)\phi(n(x)g)\,d\lambda(x)\).
+The compact-set bound \srcid{Dat.bound} and dominated
+convergence make \(w\) continuous.
+Choose \(V'\ni1\) with \(V'V'\subset V\).
+Take the growth-lowering bump with support in an arbitrary
+prescribed neighborhood intersected with \(V'\).
+Fubini, with the compact-set bound times the bump as
+majorant, gives
+\[
+       \int_Xe(x)\phi_\eta(n(x)g)\,d\lambda(x)
+                                  =(w*\eta)(g).
+\]
+For \(z\in V'\) and \(u\) in the bump support, \(zu\in V\).
+Integrating (C4) at \(zu\) shows that the convolved
+function has the same scaling relation on \(V'\).
+The lower-growth induction makes its weighted coefficient
+at \(1\) zero. The positive-bump argument
+\srcid{Bump.zero}, applied to the continuous \(w\),
+then gives \(w(1)=0\).
+No spectral decomposition is involved.
+\end{proof}
+
+Fix a standard adelic additive character \(\psi\) of \(E\).
+The context's adelic identification
+\(\mathrm{ad}:\mathbb A_F\otimes_F E\to\mathbb A_E\)
+gives \(\chi=\psi\circ\mathrm{ad}\).
+The source proves \(\operatorname{IsChar}(\chi)\):
+if a split component were annihilated, use the continuous
+split section with projections \((1,0)\).
+The standard character's rational-annihilator property would
+force that adelic section to be rational, contradicting
+its two projections. This is \srcid{isChar}.
+
+For the chosen \(j\)-frame define \(\Lambda_U(f)\) as the full
+Whittaker coefficient, evaluated at \(1\), of
+\[
+       g\longmapsto
+          \operatorname{ct}_U(f)\bigl(\operatorname{lev}_u
+                                      (\mathrm{ad}^{-1}g)\bigr)
+                \quad\hbox{on }\mathrm{GL}_j(\mathbb A_E).
+ \tag{C5}\label{eq:sr-source-whittaker-of-average}
+\]
+In the source this is
+\(\operatorname{whit}_{\psi,j-1}\) and is named \srcid{wh}.
+Its properties, with their precise uses, are as follows.
+
+First, \srcid{isWh} verifies (C1) using the upper-unipotent
+Whittaker transformation law. The constant-term average
+supplies the needed complementary-quotient invariance.
+Second, \srcid{wh\_right} identifies
+\(\Lambda_U(R_{\operatorname{lev}_u(g)h}f)\) with the value
+at \(g\) of the Whittaker coefficient of the \(h\)-translated
+Levi restriction.
+Third, \srcid{wh\_ne} is the detection implication:
+if averages along all proper nonzero initial subframes
+of \(u\) vanish, and \(\Lambda_U(R_hf)=0\) for every \(h\),
+then \(\operatorname{ct}_U(f)=0\).
+Indeed \srcid{ct\_van} identifies each proper general-linear
+constant term of the Levi restriction with one of those
+smaller averages. The source theorem \srcid{whit\_good}
+then detects a nonzero Levi restriction by its full Whittaker
+coefficient. This use of the Whittaker expansion does not
+introduce a cuspidal-spectrum unitarity argument.
+
+\begin{srlemma}[The two-frame coefficient, \srcid{wh\_two}]
+\label{lem:sr-source-wh-two}
+Let \(f\) be continuous, rationally invariant and of polynomial
+adelic height growth. Suppose its average along the first
+line of a rational two-frame vanishes.
+If its Whittaker functional has the neighborhood scaling
+property (C3), then \(\Lambda_U(R_{h_0}f)=0\).
+\end{srlemma}
+
+\begin{proof}
+Embed \(\mathrm{SL}_2(\mathbb A_E)\) in the Levi of the two-frame.
+The matrices \(b_i\), having determinant one, lie in this group.
+On it use
+\(\phi(g)=\operatorname{ct}_U(f)(m(g)h_0)\).
+Its upper-unipotent mean is zero by the vanishing first-line
+average and integration in stages.
+Thus it satisfies the abstract data with \(c=0,z=0\).
+It has finite ray growth because the original \(f\) has
+polynomial height growth and the two-plane average uses a
+compact rational quotient.
+The concrete cusp/bump condition for this \(\mathrm{SL}_2\)
+comes from \srcid{AeFacts.ae\_facts}.
+
+Write the Whittaker coefficient as its compact additive
+quotient integral with weight
+\(e(x)=\psi(-\operatorname{dot}(e_{\rm last},x))\).
+The weight is continuous of absolute value one.
+Transport the neighborhood \(V\) in (C3) to a neighborhood
+of \(1\) under \(g\mapsto m(g)h_0\).
+The relation \(b_0=1\) gives (C4), by multiplying the
+\(i\)-th identity by \(y_0\) and the zeroth identity
+by \(y_i\). The preceding coefficient lemma makes the
+Whittaker coefficient zero at \(h_0\), as asserted.
+\end{proof}
+
+\begin{srproposition}[The source theorem \srcid{cuspOfLine\_of\_keys}]
+\label{prop:sr-source-line-cusp}
+Assume \(\operatorname{WeilConv}\),
+\(\operatorname{KDecay}\), \(\operatorname{IAut}\),
+\(\operatorname{KeyThree}\), and \(\operatorname{KeyTwo}\).
+For an allowable triple, let \(H'\) be any nondegenerate
+rational target plane and \(f\in\operatorname{Sig}(G)\).
+If its line constant term at \(H'\) is zero, then \(f\)
+is cuspidal in the source's sense: every average along
+\(\operatorname{unipU}(W,U)\), for a nonzero rational
+isotropic \(U\), vanishes for every Haar measure and
+rational fundamental domain.
+\end{srproposition}
+
+\begin{proof}
+Automorphy follows from \(\operatorname{IAut}\).
+The source lemma \srcid{sig\_mod} combines the large
+\(\operatorname{WeilConv}\) bound and the small
+\(\operatorname{KDecay}\) bound into polynomial growth
+of their difference. Its height is at least one, so the
+two powers are bounded by their summed exponent after
+enlarging their nonnegative constants.
+
+We strongly induct on the positive frame dimension \(j\),
+proving zero normalized average for every rational
+isotropic \(j\)-frame with a dual frame.
+For \(j=1\), \srcid{AvLine.av\_line} transports the given
+zero line average to every other rational isotropic line.
+Witt extension supplies a rational isometry between their
+nonzero vectors, \srcid{conj\_N} identifies the two
+unipotent groups, and automorphy and normalized quotient
+integration transport the zero assertion.
+
+For \(j=2\), the induction hypothesis gives the zero first-line
+average. Apply \(\operatorname{KeyTwo}\) to the functional
+(C5) and to each \(h_0\).
+Lemma~\ref{lem:sr-source-wh-two} makes all its right translates
+zero. The detection implication \srcid{wh\_ne} therefore
+gives the zero two-plane average.
+
+For \(j\ge3\), the proper initial-subframe averages vanish by
+induction. The functional (C5) satisfies
+\(\operatorname{IsWh}\), and \(\operatorname{KeyThree}\)
+makes every one of its right translates zero.
+Apply \srcid{wh\_ne} again to obtain the zero \(j\)-plane
+average.
+
+Finally any nonzero rational isotropic subspace \(U\)
+has a basis frame and an isotropic dual frame:
+\srcid{Ctx.frame} obtains the dual from nondegeneracy.
+The preceding induction proves its normalized average is zero.
+To obtain the exact unnormalized-integral quantifiers,
+\srcid{Ctx.int\_zero} scales an arbitrary Haar measure by the
+inverse mass of its fundamental domain. The rational quotient
+is compact, so this mass is finite and positive.
+Canceling the resulting nonzero scalar proves zero for
+the originally given measure and domain.
+\end{proof}
+
+The inputs \(\operatorname{KeyTwo}\) and
+\(\operatorname{KeyThree}\) are produced separately in
+\srcid{CuspidalAverages.ActsOfReads}:
+\srcid{keyThree\_of\_locThree} uses
+\(\operatorname{ThetaBasic},\operatorname{KDecay},
+\operatorname{IAut},\operatorname{LocThree},\operatorname{Places}\);
+\srcid{keyTwo\_of\_locTwo\_vacBar} uses the corresponding
+\(\operatorname{LocTwo},\operatorname{VacBar},\operatorname{Places}\)
+inputs. Their local support, torus-scaling, vacuum, and
+split-place producers have not been silently replaced by
+a different proof in this section.
