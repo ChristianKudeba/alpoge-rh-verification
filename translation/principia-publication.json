@@ -4,54 +4,61 @@
   "paper_page": "https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper",
   "status": "Published consolidated working manuscript; mathematical proof remains incomplete",
   "canonical_pdf": {
-    "id": "abbc587cbe529d1d0d337a66f4552119",
+    "id": "afd67f331f84d87cd2b9a9d66a5f7523",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 3062998,
-    "url": "https://principia-math.com/api/ws/files/abbc587cbe529d1d0d337a66f4552119",
+    "size": 4109573,
+    "url": "https://principia-math.com/api/ws/files/afd67f331f84d87cd2b9a9d66a5f7523",
     "attached": {
-      "id": "839b76c37ed226722a6ec215bb9d4362",
+      "id": "663462680831a521f7767ffb459cbcf1",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 347,
-    "verified_sha256": "00f9d7a1311995a462a0a7c34c304895e6d7a233e7e94310ec659b3d40818e87",
-    "source_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
-    "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size"
+    "pages": 496,
+    "verified_sha256": "c35231fefa0e4a8f4255fd6eb30e1455f9a0fd3087b7eda4e5877d577e5a2e90",
+    "source_commit": "33a889f2ae1cb1d4d1c4f234942f269f13e8a919",
+    "hash_scope": "Immutable release PDF hashed in memory; Principia import has matching size"
   },
   "canonical_latex_master": "alpoge-rh-working-translation.tex",
   "source_files": [
     {
+      "path": "alpoge-rh-working-translation.tex",
+      "bytes": 465568,
+      "sha256": "ba14cdd301aeb4ed678efc7de00bffd5f1c3219d836f5b502737feb65b35652c",
+      "file_id": "9c8cc33a546414334e2d4da3aade5210",
+      "updated_at": 1795306119806
+    },
+    {
       "path": "alpoge-translation/arithmetic.tex",
-      "bytes": 402672,
-      "sha256": "ce33683fa6aa9dc7f7c5fe3d37be7ad799196bc76026279e2d621af82e579a2c",
+      "bytes": 464707,
+      "sha256": "ee81877c733e9c5d78337397f6b38913162e76148a16fbbf44dfe644d018829d",
       "file_id": "c3e3338d13685e0a6803c622713a922b",
-      "updated_at": 1795299404724
+      "updated_at": 1795305894990
     },
     {
       "path": "alpoge-translation/theta-and-geometry.tex",
-      "bytes": 403957,
-      "sha256": "e5ae90b0082128cbf090d529a689a1e5c5b76a7df043e91534c9680fc076a6cf",
+      "bytes": 471723,
+      "sha256": "9a6d4789991553fa6b9d6665536647da63e68c7d2a2ec065380db776a5e1a45a",
       "file_id": "b7608052b93602f39ba6d6627f506a81",
-      "updated_at": 1795299417557
+      "updated_at": 1795305908235
     },
     {
       "path": "alpoge-translation/prime-sums-and-zeros.tex",
-      "bytes": 403699,
-      "sha256": "aa0a102a7191f89987574f858f74ece3bb1a0cbebae7bb019a9d78c2da4faf40",
+      "bytes": 457744,
+      "sha256": "ed63c74c7761b61ad58f281a123ffc6afe14d15618c66fd78315a4a99b135729",
       "file_id": "b2a369c30823d8ea8d0edb2a807767c1",
-      "updated_at": 1795299427014
+      "updated_at": 1795305918665
     },
     {
-      "path": "alpoge-rh-working-translation.tex",
-      "bytes": 409840,
-      "sha256": "f4678601190be76b5cf0ec8131d9a4cdf9da59e2cb163a04937ebfeaf612e9aa",
-      "file_id": "9c8cc33a546414334e2d4da3aade5210",
-      "updated_at": 1795299436336
+      "path": "alpoge-translation/supporting-constructions.tex",
+      "bytes": 468089,
+      "sha256": "754329677ba421b15d68c1cfb8f032131b7b1c2d23684b353f7bfaba1a8b5c05",
+      "file_id": "f3ba0e16fc988f76fbab00f2741bc0cd",
+      "updated_at": 1795305883052
     }
   ],
   "expanded_source": {
-    "bytes": 1620024,
-    "sha256": "7d1bc42cbbf63306cb73cd62d8edeb2c88df565c737d9aca28b41424a82396cd"
+    "bytes": 2327635,
+    "sha256": "6b3144c991401e19b3ee399834817c24aa81e9b796977d2c24382afd792a399f"
   },
   "removed_superseded_files": [
     {
@@ -99,40 +106,40 @@
   },
   "paper_stage_completion_unchanged": true,
   "previous_pdf": {
-    "id": "1bda9b6e2d268b4151aa70c7d053c444",
+    "id": "abbc587cbe529d1d0d337a66f4552119",
     "filename": "alpoge-rh-consolidated-manuscript.pdf",
     "content_type": "application/pdf",
-    "size": 2782992,
-    "url": "https://principia-math.com/api/ws/files/1bda9b6e2d268b4151aa70c7d053c444",
+    "size": 3062998,
+    "url": "https://principia-math.com/api/ws/files/abbc587cbe529d1d0d337a66f4552119",
     "attached": {
-      "id": "940ebe823531b72d90560177038ee4a7",
+      "id": "839b76c37ed226722a6ec215bb9d4362",
       "path": "alpoge-rh-consolidated-manuscript.pdf"
     },
-    "pages": 310,
-    "verified_sha256": "01d544dcbee529697ce4651a7b26d32a2b94040a81b783bc5b67f5592b91b21c",
-    "source_commit": "6ea985a68c17c0c38d2c92d47becfd87826c3640",
+    "pages": 347,
+    "verified_sha256": "00f9d7a1311995a462a0a7c34c304895e6d7a233e7e94310ec659b3d40818e87",
+    "source_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
     "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size"
   },
   "title_credit": "with reductions from Principia contributors",
   "expanded_source_matches_compiled_release": true,
   "source_readback_matches_generated_text": true,
   "document_checks": {
-    "source_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
-    "status": "working exposition; character estimates and connected geometric supply unproved",
-    "pages": 347,
+    "source_commit": "33a889f2ae1cb1d4d1c4f234942f269f13e8a919",
+    "status": "working exposition; standalone common-window proof incomplete",
+    "pages": 496,
     "supporting_part_start_pages": [
-      188
+      338
     ],
     "title_credit_check": "passed",
     "reference_and_glyph_check": "passed",
     "distributed_and_flattened_text": "identical",
     "words_outside_page": [],
     "box_warnings": [
-      "Underfull \\hbox (badness 10000) in paragraph at lines 24584--24594\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
-      "Underfull \\hbox (badness 1533) in paragraph at lines 25058--25060\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
+      "Underfull \\hbox (badness 10000) in paragraph at lines 42765--42775\n[]$\\TU/lmr/m/n/10 , $[]$, $[]$ and",
+      "Underfull \\hbox (badness 1533) in paragraph at lines 43239--43241\n[]\\TU/lmr/bx/n/10 Propo-si-tion.[] \\TU/lmr/m/n/10 A mod-u-lar type-II point with"
     ],
-    "pdf_sha256": "00f9d7a1311995a462a0a7c34c304895e6d7a233e7e94310ec659b3d40818e87",
-    "tex_sha256": "7d1bc42cbbf63306cb73cd62d8edeb2c88df565c737d9aca28b41424a82396cd",
+    "pdf_sha256": "c35231fefa0e4a8f4255fd6eb30e1455f9a0fd3087b7eda4e5877d577e5a2e90",
+    "tex_sha256": "6b3144c991401e19b3ee399834817c24aa81e9b796977d2c24382afd792a399f",
     "contact_sheets": [
       "contact-01.png",
       "contact-02.png",
@@ -162,7 +169,20 @@
       "contact-26.png",
       "contact-27.png",
       "contact-28.png",
-      "contact-29.png"
+      "contact-29.png",
+      "contact-30.png",
+      "contact-31.png",
+      "contact-32.png",
+      "contact-33.png",
+      "contact-34.png",
+      "contact-35.png",
+      "contact-36.png",
+      "contact-37.png",
+      "contact-38.png",
+      "contact-39.png",
+      "contact-40.png",
+      "contact-41.png",
+      "contact-42.png"
     ]
   },
   "current_manuscript_count": 1,
@@ -251,12 +271,29 @@
       "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size",
       "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-6ea985a68c17c0c38d2c92d47becfd87826c3640",
       "replaced_attachment_removed": true
+    },
+    {
+      "id": "abbc587cbe529d1d0d337a66f4552119",
+      "filename": "alpoge-rh-consolidated-manuscript.pdf",
+      "content_type": "application/pdf",
+      "size": 3062998,
+      "url": "https://principia-math.com/api/ws/files/abbc587cbe529d1d0d337a66f4552119",
+      "attached": {
+        "id": "839b76c37ed226722a6ec215bb9d4362",
+        "path": "alpoge-rh-consolidated-manuscript.pdf"
+      },
+      "pages": 347,
+      "verified_sha256": "00f9d7a1311995a462a0a7c34c304895e6d7a233e7e94310ec659b3d40818e87",
+      "source_commit": "eb4a9b483869b4b3c07606d80375cc58534e3cfd",
+      "hash_scope": "Release PDF hashed in memory; Principia imported immutable release with matching size",
+      "remote_archive_release": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-eb4a9b483869b4b3c07606d80375cc58534e3cfd",
+      "replaced_attachment_removed": true
     }
   ],
   "remaining_inputs": [
-    "Compatible nice-curve/link selection, rank3 seed/support insertion and quadratic automorphic descent with full local level data",
-    "Theta quotient matching and rank recursions, ramified matching and local integral-model/reached-section calculus",
-    "Uniform algebraic-point height lower bound and compatible integral root-tower construction on common windows"
+    "Global theta quotient identities and compatible rank recursions: drafted, pending mathematical review and integration",
+    "Actual integral Hodge lattice, flatness/saturation and flagged model construction: drafted, pending mathematical review and integration",
+    "Uniform geometric section/covolume bounds and compatible tied family on the same cohomological windows"
   ],
   "new_components": [
     "Global high-twist bound via integral homology with exponent 24, all coefficient primes",
@@ -272,7 +309,10 @@
     "Finite-level arithmetic first/second Selmer bounds, finite trace detectors and actual Taylor–Wiles common group limit",
     "Rank3 selected-curve regularity with closed-zero-set/minor proof and all-ranks N4 from V0ok",
     "Actual CaseII Hecke quotient and integral interpolation; residual Speh exclusion and exact ordinary normalization",
-    "Normalized classical anisotropic doubling inputs, canonical mean Cu=4 and exact quadratic CM elliptic period witness"
+    "Normalized classical anisotropic doubling inputs, canonical mean Cu=4 and exact quadratic CM elliptic period witness",
+    "Both uniform rational-character estimates assembled in prose from the rank-three/rank-four endpoint constructions",
+    "General principal-polarized Hodge maximal-slope estimate with field-independent constant",
+    "Cone operator, finite-vacuum Euler factor, four constant terms, square-integrability and quotient descent calculations"
   ],
   "new_prose_independently_refereed": false,
   "new_prose_separately_formalized": false,
@@ -300,11 +340,10 @@
     "other_contributors_not_modified": true,
     "community": {
       "repository": "leanprover-community/riemann-hypothesis",
-      "head": "7da4577eb40dd74b09218d111114ca43bc2ad226",
-      "pr45": "merged",
+      "head": "f28a764e76a18f68680446bf09682c24d1a8b5c4",
       "pr44_head": "c9b3e57f0fe987012d32c2523635387bfe56d5a5",
       "pr44_combined_verification": "pending in checked snapshot",
-      "zulip": "Live and archive access failed; no messages verified"
+      "zulip": "Live access failed; no messages verified"
     }
   },
   "literal_edition_scope": {
@@ -312,5 +351,11 @@
     "explanatory_mathematical_prose_complete": false,
     "reverse_audit_checks": "transcription fidelity; independent formal verification is a separate report"
   },
-  "source_partition_note": "Four existing paths reused with adjusted part boundaries below the 512 KB editor cap."
+  "source_partition_note": "One LaTeX project across five inputs below the 512 KB editor cap. The previous index is archived in GitHub and its slot is reused for the fifth input.",
+  "chojecki_review": {
+    "url": "https://www.ulam.ai/research/rh-short.pdf",
+    "pages": 23,
+    "scope": "Analytic/Fourier/frame arguments are developed; Sections 6–7 cite arithmetic construction and cohomological window from the formal development",
+    "sha256": "9fb2e8afe44c597914297b5b176a2a20600e6e69c04fd9875377547f10fea568"
+  }
 }
