@@ -635,3 +635,363 @@ The coefficient bundles and expansion relation are defined in
 \srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/ExtensionDescent/DegExp.lean};
 \(\nu\) is defined in the corresponding
 \srcid{DiscreteValuationRings/ValuationMultiplicationInvariance.lean}.
+
+\subsection{The formal kernel trace with its exact determinant}
+\label{subsec:ftb-formal-kernel-trace}
+
+The coprime-place part of the denominator proof uses the following
+formal trace calculation.  Merely dividing a sum by the number of
+torsion points would not give its conclusion.
+
+Let \(V\) be a complete DVR of characteristic zero, with fraction
+field \(F\), and let \(\mathcal F\) be a commutative \(d\)-dimensional
+formal group over \(V\), with an action of the commutative domain
+\(\mathcal O\).
+For a matrix \(\mu\in M_n(\mathcal O)\), let \([\mu]\) act on
+\(\mathcal F^n\), let \(\mu^*\) be its pullback on
+\(R=V[[X_{b,i}]]\), and put
+\[
+ j_\mu=\det(d[\mu]_0)\in V,\qquad
+ K_\mu=\{\alpha\in\mathfrak m_V^{nd}:[\mu](\alpha)=0\}.
+\]
+Write \(\tau_\alpha^*f(X)=f(X+_{\mathcal F}\alpha)\).
+These substitutions converge because \(\alpha\) has all coordinates
+in \(\mathfrak m_V\).
+
+The source's finite-height hypothesis means that for every integer
+\(N\ge1\), the scalar multiplication series \([N]\), reduced modulo
+\(\mathfrak m_V\), generate an ideal containing a power of the
+coordinate ideal.
+Its split-kernel hypothesis is literal: for every field \(\Omega\)
+with an injective \(V\)-algebra structure, and every \(V\)-algebra map
+\(\chi:R\to\Omega\) annihilating the coordinate series of \([\mu]\),
+each \(\chi(X_{b,i})\) lies in the image of \(V\).
+There is no continuity assumption on \(\chi\).
+We use these exact hypotheses below.
+
+\begin{srlemma}[Finite substitution, invariants, and trace]
+\label{lem:ftb-formal-substitution}
+Suppose a matrix \(\mu\) has a matrix multiple \(\mu'\mu=N1_n\),
+with \(N\ge1\), and \(j_\mu\ne0\).
+Then \(R\) is finite free over \(\mu^*R\).
+If the kernel is split, \(K_\mu\) is finite, its cardinality equals
+this module rank, and
+\[
+ R^{K_\mu}=\mu^*R,\qquad
+ \mu^*\operatorname{Tr}_{R/\mu^*R}(f)
+                         =\sum_{\alpha\in K_\mu}\tau_\alpha^*f .
+\]
+On the left the trace is identified with an element of the source
+copy of \(R\).
+\end{srlemma}
+\begin{proof}
+Finite height for \([N]\), and \([\mu'][\mu]=[N]\), imply that the
+reduction of the coordinates of \([\mu]\) has finite colength.
+The coordinate quotient modulo the target maximal ideal is finite.
+Adic Nakayama, using completeness, lifts finitely many representatives
+of this quotient to a finite module generating family for the
+substitution map.
+It is a local finite map between the two regular local power-series
+rings \(V[[Y]]\) and \(V[[X]]\), both of dimension \(nd+1\).
+The target is Cohen--Macaulay, and the closed fibre is zero
+dimensional.  The local Cohen--Macaulay flatness criterion therefore
+makes this finite module flat.  A finite flat module over the local
+source is free.  It is nonzero, so it is faithfully flat and the
+substitution map is injective.
+Choose its finite free basis.
+This is the actual source mechanism in
+\srcid{FoundationProofs/IsDiscreteValuationRingIntegralClosure.lean},
+\srcid{FormalIsogeny.flat\_injective\_basis\_of\_finiteReduction};
+\srcid{ExistsFiniteBasisPowerSeriesSubstFiniteColength} then identifies
+its rank with the coordinate quotient.
+Its rank is the dimension of the special-fibre coordinate quotient
+\((V/\mathfrak m_V)[[X]]/(\bar\phi)\) over \(V/\mathfrak m_V\).
+Equivalently it is the \(V\)-rank of \(R/(\phi)\), which is finite
+free over \(V\); it is not the module length of that \(V\)-module.
+
+Since \(j_\mu\ne0\), the generic kernel algebra is reduced:
+translation identifies the differentials at every kernel point with
+\(d[\mu]_0\).  After splitting, its points therefore have cardinality
+the same as the module rank.  Translation by those points gives that
+many distinct endomorphisms fixing \(\mu^*R\).
+
+Here is the integral invariant/trace argument used in the source.
+For a finite free extension of domains \(A\subset B\), of rank \(h\),
+and \(h\) distinct \(A\)-endomorphisms \(g\), take an \(A\)-basis
+\(b_i\) of \(B\) and form \(M=(g(b_i))_{g,i}\).
+Its determinant is nonzero: a relation between its rows would give a
+linear relation between distinct multiplicative maps on \(B\);
+evaluating such a relation on \(xy\) and subtracting a suitable
+multiple of its value on \(y\) proves their independence by induction.
+For multiplication by \(x\), with matrix \(L_x\),
+\[
+                    \operatorname{diag}(g(x))M=M L_x .
+\]
+If all \(g(x)=x\), multiply by the adjugate of \(M\) and inspect one
+diagonal entry.  Cancelling \(\det M\ne0\) expresses \(x\) as an
+element of \(A\).  Taking traces in the same identity gives
+\(\operatorname{Tr}_{B/A}(x)=\sum_g g(x)\).
+This proves both assertions integrally, without division by \(h\).
+Apply it to the translation endomorphisms.
+\end{proof}
+
+\begin{srlemma}[The constant Jacobian divides the trace]
+\label{lem:ftb-jacobian-trace}
+For the substitution \(\phi=[\mu]\) above,
+\[
+                 \operatorname{Tr}_{R/\mu^*R}(R)\subset j_\mu R .
+\]
+\end{srlemma}
+\begin{proof}
+Invariant differentials on a formal group give
+\[
+ \det\left(\frac{\partial\phi_i}{\partial X_j}\right)
+                                      =j_\mu\,U(X)
+\]
+with \(U\in R^\times\).
+Indeed the invariant-differential matrix has constant term \(1\);
+the identity
+\(d\phi(X)\,A(X)=A(\phi(X))\,d\phi(0)\)
+gives this determinant equation.  The same calculation applies to
+the product formal group.
+
+For completeness, the finite complete-intersection trace fact used
+here is as follows.  If \(A\subset B\) is the finite free algebra
+presented by equations \(f_i=0\) in \(A[[X_1,\ldots,X_s]]\), the
+Jacobian \(\mathcal J=\det(\partial f_i/\partial X_j)\) satisfies
+\[
+             \operatorname{Tr}_{B/A}(x)=\lambda(x\mathcal J)
+                  \quad(x\in B)
+\]
+for an \(A\)-linear functional \(\lambda:B\to A\).
+One algebraic construction is to write, in the two-copy algebra,
+\(f_i(X)-f_i(Y)=\sum_j a_{ij}(X,Y)(X_j-Y_j)\).
+The determinant of \(a_{ij}\) is annihilated by every
+\(X_j-Y_j\), by the adjugate identity, and its restriction to the
+diagonal is \(\mathcal J\).
+The Koszul resolution of the system of parameters identifies this
+annihilator with the dualizing rank-one \(B\)-module.
+Choose its dual functional, normalized so that this determinant
+corresponds to \(1\).
+If \(b_i\) and \(b_i^\vee\) are the resulting dual bases, the
+determinant is \(\sum_i b_i\otimes b_i^\vee\); multiplication on the
+two factors and the matrix formula for trace give exactly
+\(\operatorname{Tr}(x)=\lambda(x\mathcal J)\).
+This argument works over the residue characteristic as well; no
+division by the rank or a factorial is used.
+
+Apply this to the finite substitution presentation
+\(A[[X]]/(\phi_i(X)-Y_i)\).
+Its Jacobian in \(B\) is \(j_\mu U\).
+The trace formula becomes
+\(\operatorname{Tr}(x)=j_\mu\lambda(xU)\), proving divisibility.
+The source spells out this diagonal-determinant construction in
+\srcid{ConstantDvdTraceOfJacobianFiniteColength}; the
+formal-group invariant-differential identity is
+\srcid{DetJacobianFormalModuleMatrixEqConstMulUnit}.
+\end{proof}
+
+\begin{srproposition}[The untwisted kernel sum]
+\label{prop:ftb-untwisted-kernel-sum}
+Let \(p,q,s\in M_n(\mathcal O)\) satisfy
+\[
+ s(pq)=(pq)s=N1_n,\quad N\ge1,\quad N\ne0,\quad j_{pq}\ne0 .
+\]
+Assume the kernel of \(pq\) is split.  If \(f\in R\) is invariant
+under \(K_q\), then for some \(g\in R\),
+\begin{equation}\label{eq:ftb-untwisted-kernel-sum}
+ \sum_{\alpha\in K_{pq}}\tau_\alpha^*f
+                         =|K_q|\,j_p\,(pq)^*g .
+\end{equation}
+\end{srproposition}
+\begin{proof}
+The matrix relations also give a scalar matrix multiple for \(q\)
+and for \(p\); the latter follows by cancelling \(q\) over the
+fraction field and then returning to the domain \(\mathcal O\).
+Moreover \(j_{pq}=j_pj_q\), so both factors are nonzero.
+Splitness passes to the subgroup \(K_q\).
+Lemma~\ref{lem:ftb-formal-substitution} gives \(f=q^*f'\), with
+\(f'\in R\).
+Trace in the tower
+\((pq)^*R\subset q^*R\subset R\) gives
+\[
+ \operatorname{Tr}_{pq}(q^*f')
+                    =|K_q|\operatorname{Tr}_p(f').
+\]
+Lemma~\ref{lem:ftb-jacobian-trace} writes the last trace as \(j_pg\).
+The sum-of-translations identity in
+Lemma~\ref{lem:ftb-formal-substitution} now gives
+\eqref{eq:ftb-untwisted-kernel-sum}.
+This is \srcid{JacobianNonzeroSplittingOfProduct.sum\_shift\_kerM\_mul}.
+\end{proof}
+
+\begin{srlemma}[Removing the integral translation multiplier]
+\label{lem:ftb-twisted-kernel-sum}
+Let \(\kappa\in R^\times\) have constant term \(1\).
+For \(\alpha\in K_{pq}\), suppose \(U_\alpha\in R^\times\) satisfies
+\(U_\alpha\tau_\alpha^*\kappa=\kappa\).
+If \(U_\alpha\tau_\alpha^*f=f\) for \(\alpha\in K_q\), then
+\[
+ \sum_{\alpha\in K_{pq}}U_\alpha\tau_\alpha^*f
+                   =|K_q|\,j_p\,\kappa(pq)^*g
+\]
+for an integral power series \(g\in R\).
+\end{srlemma}
+\begin{proof}
+The unit \(\kappa^{-1}f\) is not required; only the series
+\(\kappa^{-1}f\in R\) is used.
+It is invariant under \(K_q\).
+Apply Proposition~\ref{prop:ftb-untwisted-kernel-sum} to this series
+and multiply the identity by \(\kappa\).
+Each summand becomes \(U_\alpha\tau_\alpha^*f\).
+This is the entire argument of
+\srcid{SumHarmonicValuesFormalKernelSimilitude.sum\_twisted}.
+\end{proof}
+
+\subsection{Why the required exponential is integral}
+\label{subsec:ftb-integral-kappa}
+
+Retain a polarized formal biextension, its canonical gauge \(h(X,Y)\),
+the \(\mathcal O\)-action and involution \(a\mapsto a^*\), and the
+chosen CM element \(w_0\) with \(w_0+w_0^*=1\).
+Put \(L_h(X)=h(X,[w_0]X)\) and
+\(S(X_1,\ldots,X_n)=\sum_bL_h(X_b)\).
+The canonical-gauge identities say that the two additivity defects
+and the adjointness defect
+\[
+ h(X+Y,Z)-h(X,Z)-h(Y,Z),\quad
+ h(X,Y+Z)-h(X,Y)-h(X,Z),\quad
+ h([a]X,Y)-h(X,[a^*]Y)
+\]
+have integral exponential and zero constant term.
+Also \(h(0,Y)=h(X,0)=0\).
+These are the particular gauge clauses used here.
+
+\begin{srlemma}[Integral similitude exponential]\label{lem:ftb-kappa}
+If \(\mu^*\mu=c1_n\), with \(c\) a positive integer, then
+\[
+       \kappa(X)=\exp\bigl(S([\mu]X)-cS(X)\bigr)
+\]
+belongs to \(V[[X]]\) and has constant term \(1\).
+\end{srlemma}
+\begin{proof}
+Let \(\mathcal I\) be the additive subgroup of zero-constant series
+whose exponential is an integral series.
+It is a group: products handle addition, and such integral
+exponentials have constant term \(1\), so their inverses are integral.
+It is preserved by zero-constant integral substitution.
+Modulo \(\mathcal I\), the displayed canonical-gauge identities make
+\([h(X,Y)]\) additive in both variables and balanced for the adjoint
+action.  Consequently
+\[
+ \begin{split}
+ \sum_i[h(([\mu]X)_i,[w_0]([\mu]X)_i)]
+ &=\sum_{i,j,k}[h(X_j,[\mu_{ij}^*\mu_{ik}w_0]X_k)]\\
+ &=c\sum_j[h(X_j,[w_0]X_j)] .
+ \end{split}
+\]
+The first equality is finite expansion by additivity; the second is
+\(\sum_i\mu_{ij}^*\mu_{ik}=c\delta_{jk}\).
+Thus \(S([\mu]X)-cS(X)\in\mathcal I\), which proves integrality of its
+exponential.  Its exponent has zero constant term, so the exponential
+has constant term \(1\).
+This is the quotient-by-\srcid{intLog} argument of
+\srcid{ExistsIntegralExponentialSimilitudeGauge}.
+In particular it does not assume that the exponential of an arbitrary
+integral power series is integral.
+\end{proof}
+
+Let \(\mathcal D_{k,P}\) denote the harmonic connection evaluation of
+the same canonical gauge, in \(n\) copies, at line power \(k\).
+For a polynomial \(P\) in the eigendirection letters define
+\[
+ (\mu_\#P)(X_{\tau,i,b})
+       =P\left(\sum_a\tau(\mu_{ab})X_{\tau,i,a}\right).
+\]
+The formal invariant-vector-field chain rule gives
+\begin{equation}\label{eq:ftb-kappa-connection}
+ \mathcal D_{c,P}\bigl(\kappa\,\mu^*g\bigr)
+                    =\mathcal D_{1,\mu_\#P}(g).
+\end{equation}
+Indeed multiplying by \(\exp(cS)\) converts the left-hand input to
+\(\mu^*(g\exp S)\), by the defining identity of \(\kappa\).
+An invariant derivative in direction \((\tau,i,b)\) becomes
+\(\sum_a\tau(\mu_{ab})D_{\tau,i,a}\) under pullback.
+Iterating and evaluating at the identity gives exactly
+\eqref{eq:ftb-kappa-connection}.
+Every substitution is zero-constant, so it is defined formally.
+No change of line power or exponential factor remains unaccounted
+for.  This is
+\srcid{ConnectionValueLevelKappaMulPullback.nabValN\_kappa\_mul\_pullM}.
+
+\begin{srproposition}[The determinant in the harmonic kernel sum]
+\label{prop:ftb-harmonic-kernel-trace}
+Assume the actual chart's formal group and canonical gauge satisfy the
+preceding hypotheses.
+Let \(F_b\) be regular sections at line power \(c\), and \(G_{\alpha,b}\)
+their normalized symmetric translates for \(\alpha\in K_{pq}\).
+Suppose on \(K_q\) the tuple is fixed up to integral constants whose
+product is \(1\).
+Use the actual integral germs and normalized translation units, so
+the product translation unit \(U_\alpha\) satisfies
+\(U_\alpha\tau_\alpha^*\kappa=\kappa\).
+If \(P\) is the specified harmonic polynomial and
+\(s(pq)_\#P\) belongs to the chart's integral harmonic polynomial
+lattice, then
+\[
+ s\sum_{\alpha\in K_{pq}}\mathcal D_P(G_\alpha)
+           =|K_q|\prod_\tau\tau(\det p)^{r_\tau}\,z,\qquad
+                              v(z)\ge-\rho ,
+\]
+where the same chart has the connection bound
+\(v(\mathcal D_{1,Q}(g))\ge-\rho\) for all integral series \(g\)
+and all integral harmonic \(Q\) of these row degrees.
+\end{srproposition}
+\begin{proof}
+Write \(f=\prod_b f_b(X_b)\) for the integral product germ.
+Regularity identifies the translated product germs with
+\(U_\alpha\tau_\alpha^*f\).
+The product-one constants on \(K_q\) give the invariance hypothesis of
+Lemma~\ref{lem:ftb-twisted-kernel-sum}.
+Apply that lemma, then apply the linear operator
+\(\mathcal D_{c,P}\) and multiply by \(s\).
+Formula~\eqref{eq:ftb-kappa-connection} identifies the remaining factor
+with
+\(z=\mathcal D_{1,s(pq)_\#P}(g)\).
+It has the stated valuation because \(g\) and the transformed
+polynomial are integral.
+Finally the chart's eigendirection basis gives
+\[
+                  j_p=\prod_\tau\tau(\det p)^{r_\tau} :
+\]
+on the \(\tau\)-eigenspace, the tangent action is the matrix
+\(\tau(p)\), repeated \(r_\tau\) times.
+This proves the exact determinant, including its multiplicities.
+\end{proof}
+
+\paragraph{Application boundary and source ledger.}
+The complete formal trace and integral-exponential arguments above are
+relative to the explicitly stated formal-group/gauge data.
+To apply them to an actual integral point one still needs its
+\emph{same-model} regular germs, normalized symmetric translation units,
+split kernel and finite-height assertions.
+In the frozen source these are produced by
+\srcid{RegularSectionIntegralGermUniqueScale},
+\srcid{ExistsTranslateUnitSymmetricFormalGroupPoint},
+\srcid{ProdSymmetricTranslationUnitsEqKappaRatio},
+\srcid{FiniteHeightFormalGroupUniformisedModel},
+and \srcid{SplitKernelFormalGroupOfRationalTorsion}.
+The last two use the actual PEL uniformization and rational torsion.
+They are not consequences of an abstract generic Weil pairing.
+The outer geometric application is
+\srcid{SumHarmonicValuesFormalKernelSimilitude}
+(blob \srcid{21a04bf4711f158dc9396f9bae37fe5e6aece21f}).
+All the preceding named files have prefix
+\srcid{src/Development/AbelianVarietyTheory/Proofs/RingsOfIntegers/}.
+The exact inner producer blobs are:
+\srcid{JacobianNonzeroSplittingOfProduct}
+\srcid{55d47bbcbcb87813838d6bcf54d054f30255ff14};
+\srcid{ExistsIntegralExponentialSimilitudeGauge}
+\srcid{b51ac56be9caa1cd17ebcc0cb776a1a1446cdeb1};
+\srcid{ConnectionValueLevelKappaMulPullback}
+\srcid{88fb019a0ae41304662fbdc581d1bed509474bec}.

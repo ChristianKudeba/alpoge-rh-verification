@@ -508,11 +508,15 @@ For the step \(m\mapsto m+1\), expand
 \[
           P_{m+1}(X,Z)=P_m(X,Z)\phi_1([m]X,X,Z).
 \]
-Use (FP4) with
-\((A,B,C,D)=([m]X,[m]Y,X,Y)\), the induction hypothesis,
-and \([m]F(X,Y)=F([m]X,[m]Y)\).
-The resulting products are precisely the first identity
-at \(m+1\).
+Apply (FP4) with
+\[
+                  (A,B,C,D)=([m]X,[m]Y,X,Y).
+\]
+Use the induction hypothesis and
+\[
+                  [m]F(X,Y)=F([m]X,[m]Y).
+\]
+The resulting products give the first identity at \(m+1\).
 
 For the second identity, the case \(m=0\) is
 \(\phi_2(0,Y,Z)=1\).
@@ -793,13 +797,13 @@ be a \(k\)-algebra map, and put
 \(\mathfrak q=(X_1,\ldots,X_d)\).
 Assume the two precise approximation properties
 \[
- \begin{split}
+ \begin{aligned}
  j(a)\in\mathfrak q^m
              &\iff a\in\mathfrak m^m
                                   &&(a\in A,\ m\ge0),\\
  \forall m\ge0,\ \forall s\in k[[X]],\quad
  \exists a\in A:\quad j(a)-s&\in\mathfrak q^m .
- \end{split}
+ \end{aligned}
  \tag{FT2}\label{eq:faithful-Taylor-properties}
 \]
 If every formal partial derivative of \(j(f)\) is zero,
@@ -1348,3 +1352,1220 @@ curve, and integral splitting/gluing of (FC6)
 are separate subsequent steps.
 It supplies no independent model, quotient action,
 or local free \(O\)-basis.
+
+\subsection{First-order descent through the actual torus extension}
+\label{subsec:faithful-torus-first-order-descent}
+
+This is the descent argument inside
+\srcid{IsPullbackWhisker.desc\_first} and
+\srcid{triv\_descend}.  Its constant-coefficient correction
+is part of the source proof.  A generator of a pulled-back
+line does not automatically descend through a torus torsor.
+
+\begin{srlemma}\label{lem:faithful-torus-nilpotent-coboundary}
+Let a split torus \(T=\operatorname{Spec}\mathbb Z[X]\)
+act on a scheme \(Y\), where \(X\) is its character group.
+Let \(\delta\in\Gamma(Y,\mathcal O_Y)\) be invariant and
+satisfy \(\delta^2=0\).
+Suppose a unit \(\rho\) on \(T\times Y\) satisfies
+\[
+ \rho(tt',y)=\rho(t,t'y)\rho(t',y),\qquad
+                              \rho|_{\delta=0}=1.
+ \tag{FD1}\label{eq:faithful-torus-unit-cocycle}
+\]
+Then there is a unit \(u\) on \(Y\) such that
+\[
+                              u(y)=u(ty)\rho(t,y).
+ \tag{FD2}\label{eq:faithful-torus-unit-coboundary}
+\]
+The assertion holds in every residue characteristic.
+\end{srlemma}
+\begin{proof}
+We use the source's coefficient construction on affine
+test points, so no interchange of arbitrary direct sums
+with global sections is assumed.
+For \(y:\operatorname{Spec}R\to Y\), pull \(\rho\)
+back to \(T_R\), and expand it in the group ring \(R[X]\).
+Let \(f(y)\) be the coefficient of the trivial character
+in \(\rho(-,y)-1\).
+This assignment commutes with every ring map \(R\to R'\).
+On affine opens it therefore defines a regular function,
+and compatibility on overlaps gives
+\(f\in\Gamma(Y,\mathcal O_Y)\).
+This is the source's \srcid{exists\_glob} construction.
+
+Reducing \(R\) modulo \(\delta(y)\) shows every coefficient
+of \(\rho(-,y)-1\) is divisible by \(\delta(y)\).
+In particular \(f(y)\) is divisible by \(\delta(y)\),
+and \(f^2=0\).
+
+Fix \(t\in T(R)\).
+Translation of the variable \(s\in T_R\) by \(t\)
+multiplies a character \(\chi^a(s)\) by the unit \(\chi^a(t)\).
+It preserves the coefficient of the trivial character.
+In the cocycle equation
+\[
+                          \rho(st,y)=\rho(s,ty)\rho(t,y),
+\]
+each difference from \(1\) is divisible by \(\delta(y)\);
+invariance of \(\delta\) and \(\delta^2=0\) remove their
+product.
+Taking trivial-character coefficients gives
+\[
+                         f(y)=f(ty)+\rho(t,y)-1.
+\]
+Put \(u=1+f\), whose inverse is \(1-f\).
+The product of \(f(ty)\) with \(\rho(t,y)-1\) is zero,
+again by \(\delta^2=0\).
+The last identity is therefore exactly (FD2).
+Equality at all affine test points gives the asserted
+equality of regular functions.
+\end{proof}
+
+\begin{srlemma}\label{lem:faithful-torus-line-descent}
+Let
+\[
+                      1\longrightarrow T\longrightarrow G
+                           \stackrel q\longrightarrow B\longrightarrow1
+\]
+be the source's torus extension over a field \(k\).
+Thus \(T\) is split with finite free character group,
+\(q\) is flat, surjective and quasi-compact, and the
+displayed torus is its scheme-theoretic kernel.
+Let \(\mathcal L\) be an invertible sheaf on
+\(B_{k[\delta]/\delta^2}\), with a specified trivialization
+on \(B\).
+If \(q^*\mathcal L\) has a global generator, then
+\(\mathcal L\) has a global generator.
+\end{srlemma}
+\begin{proof}
+Normalize the pulled-back generator \(c\) to reduce to \(1\).
+Indeed, its reduction is a unit on \(G\) relative to the
+specified trivialization, and dividing by the pullback
+of that unit under
+\(G_{k[\delta]/\delta^2}\to G\) performs the normalization.
+
+Let \(Y=G_{k[\delta]/\delta^2}\).
+Since the two maps \(T\times Y\to B_{k[\delta]/\delta^2}\)
+are equal, the two pullbacks of \(c\) have a well-defined
+unit ratio
+\[
+                               c(ty)=\rho(t,y)c(y).
+\]
+Associativity of the torus action gives (FD1)'s cocycle
+identity.  Normalization gives \(\rho|_{\delta=0}=1\).
+Apply Lemma~\ref{lem:faithful-torus-nilpotent-coboundary}.
+The generator \(u c\) is invariant:
+\[
+                   (u c)(ty)=u(ty)\rho(t,y)c(y)=u(y)c(y).
+\]
+
+The kernel identity identifies
+\(G\times_B G\) with \(T\times G\):
+a pair with the same quotient has difference in \(T\),
+uniquely.
+This is the source's \srcid{exists\_kp} calculation.
+Thus invariance is precisely agreement of the two
+pullbacks along this fibre product.
+The same remains true after adjoining \(\delta\).
+The map \(q_{k[\delta]/\delta^2}\) is faithfully flat
+and quasi-compact.
+On each trivializing affine open of \(\mathcal L\),
+the faithfully flat equalizer for regular functions
+descends \(u c\) to a section; agreement on overlaps
+follows from faithful flatness.
+Apply the same argument to its inverse.
+The descended section is therefore a generator.
+This is the source's \srcid{desc\_gen} step.
+\end{proof}
+
+\begin{srcorollary}\label{cor:faithful-translation-line-descent}
+In the same extension, let \(M\) be an invertible sheaf on
+\(B\), and let \(y_1\in G(k[\delta]/\delta^2)\) reduce to \(0\).
+If
+\(t_{y_1}^*q^*M\otimes(q^*M)^{-1}\)
+has a global generator on \(G_{k[\delta]/\delta^2}\), then
+\[
+                              t_{q y_1}^*M\otimes M^{-1}
+\]
+has a global generator on \(B_{k[\delta]/\delta^2}\).
+\end{srcorollary}
+\begin{proof}
+The quotient map is a group homomorphism, so the first
+line is the pullback of the second.
+The latter reduces canonically to the cancellation line
+\(M\otimes M^{-1}\) because \(q y_1\) reduces to \(0\).
+Apply the preceding lemma.
+This proves the actual \srcid{triv\_descend} assertion
+with its given quotient and line.
+\end{proof}
+
+\subsection{Geometric power freeness implies the tangent property}
+\label{subsec:faithful-geompf-to-tanpf}
+
+We record the two jet facts used at the end of the source
+argument.
+For a semiabelian fibre with an actual formal germ in
+characteristic \(p\), two points over
+\(R_p=k[\delta]/(\delta^{p+1})\), reducing to zero and
+having the same image over \(R_1\), have the same
+\(p\)-multiple.
+Indeed the universal coordinates give vectors
+\(a,a'\in(\delta R_p)^d\) with \(a-a'\in(\delta^2)^d\).
+Their coordinatewise \(p\)-th powers agree because
+\(\delta^{2p}=0\).
+The factorization \([p](X)=V(X^{(p)})\) then gives the claim.
+The source calls this \srcid{pow\_first}.
+In \srcid{geompf\_tan}, the supplied \(\mathrm{PowFns}\)
+hypothesis provides a local actual germ by
+\srcid{CdLocal.germ\_local}; it is this actual germ
+which is used for the coordinate calculation.
+
+For the split torus, any \(y_1\in T(R_1)\) reducing to zero
+lifts to some \(\tau\in T(R_p)\) reducing to zero.
+The restriction map \(R_p^\times\to R_1^\times\) is
+surjective: lift a unit and its inverse, and correct
+their product by a finite geometric series in the
+nilpotent kernel.
+Since the character group is a free \(\mathbb Z\)-module,
+its homomorphism into \(R_1^\times\) lifts into \(R_p^\times\).
+If \([p]\tau=0\), evaluate any character:
+\[
+             (1+c_1\delta+\cdots+c_p\delta^p)^p
+                                   =1+c_1^p\delta^p=1.
+\]
+Thus \(c_1=0\), because \(k\) is a field, and \(y_1=0\).
+This is exactly \srcid{torus\_tan}, including \(p=2\).
+
+\begin{srproposition}\label{prop:faithful-geompf-tanpf}
+For the actual source data \(E,H_E,O,t,X,x,k,p\),
+assume \(\mathrm{PowFns}(t)\) and
+\(\mathrm{GeomPF}(t,x)\).
+Then \(\mathrm{TanPF}(t,x,p)\) holds.
+\end{srproposition}
+\begin{proof}
+Take \(y\in G_x(R_p)\) reducing to zero with \([p]y=0\),
+and a global generator of the first-order
+translation-difference line in
+\eqref{eq:faithful-tanpf}.
+Use the line isomorphism \(L|_{G_x}\simeq q^*M\) in
+the given \(\mathrm{GeomPF}\) data to transfer this generator
+to the translation-difference line of \(q^*M\).
+Corollary~\ref{cor:faithful-translation-line-descent} descends
+it to the translation-difference line for \(q y_1\) and \(M\).
+The given \(\mathrm{KTriv}(B,M)\) says that this trivial
+translation is possible only for the zero point.
+Its local-test formulation applies to the pullbacks of
+this global generator.  Hence \(q y_1=0\).
+
+The scheme-theoretic kernel property gives a unique
+\(\tau_1\in T(R_1)\) with \(i\tau_1=y_1\).
+It reduces to zero because \(i\) is a monomorphism.
+Lift it to \(\tau\in T(R_p)\) as above.
+The points \(i\tau\) and \(y\) have the same first-order
+restriction and both reduce to zero.
+The actual \srcid{pow\_first} identity gives
+\([p](i\tau)=[p]y=0\).
+Since \(i\) is a monomorphism, \([p]\tau=0\).
+The torus calculation then gives \(\tau_1=0\), hence
+\(y_1=0\).
+This is precisely the conclusion of \(\mathrm{TanPF}\).
+The identification of points on the geometric fibre with
+points of the original family over \(x\), used in the
+formal statement, is the pullback universal property and
+commutes with augmentation and first-order restriction.
+\end{proof}
+
+\subsection{Changing the algebraically closed representative}
+\label{subsec:faithful-fibpf-common-field}
+
+The source's \(\mathrm{FibPF}\) assertion is a property
+of the scheme point, rather than a chosen field-valued
+representative.
+Here are the actual transport operations in
+\srcid{LbIsoPullPull} and \srcid{IsMapOfCancel.fib\_inj\_of}.
+
+A field extension \(k\to k'\) preserves \(\mathrm{GeomPF}\):
+base change the torus extension, its abelian quotient,
+the line \(M\), and the line isomorphism.
+The translation-kernel condition \(\mathrm{KTriv}\)
+is preserved because its defining tests over local
+rings and their maps to the base are also tests over
+the original base.
+The pullback fibre group and line are identified by the
+canonical cartesian maps, not just by an isomorphism
+of their generic points.
+More generally, for a source \(\mathrm{SABMap}\)
+\(t'\to t\) over \(f:X'\to X\), its cartesian group
+square and its specified line isomorphism give
+\[
+ \mathrm{GeomPF}(t',x')
+         \iff\mathrm{GeomPF}(t,f x').
+ \tag{FD3}\label{eq:faithful-geompf-cartesian}
+\]
+The proof pulls the same quotient presentation through
+the resulting fibre-group isomorphism and composes
+the two line isomorphisms.
+No action on the abelian quotient is added by this step.
+
+If two field-valued points have the same image \(z\in X\),
+they have a common algebraically closed representative.
+Indeed take a point of their fibre product over \(X\)
+over the common point.
+Its residue field receives both field embeddings;
+adjoin an algebraic closure \(\Omega\).
+The resulting map
+\(\operatorname{Spec}\Omega\to X\) is the composite
+of either field-valued point with its field extension.
+Equivalently, for \(f:X'\to X\), \(z'\in X'\), and
+\(x:\operatorname{Spec}k\to X\) over \(f(z')\), the
+source constructs
+\[
+ y:\operatorname{Spec}\Omega\to X',\qquad k\hookrightarrow\Omega,
+ \quad y(\operatorname{closedPoint}\Omega)=z',\quad
+                                  f y=x|_\Omega .
+ \tag{FD4}\label{eq:faithful-common-representative}
+\]
+This is \srcid{exists\_common}: it takes the algebraic
+closure of the residue field of the chosen pullback point.
+
+Combining (FD3) and (FD4) proves the exact transport
+\[
+                  \mathrm{FibPF}(t',z')
+                         \iff \mathrm{FibPF}(t,f(z')) .
+ \tag{FD5}\label{eq:faithful-fibpf-cartesian}
+\]
+In the reverse direction, extend the given geometric
+representative to the common \(\Omega\), pull its
+\(\mathrm{GeomPF}\) presentation back, and use (FD3).
+This is the actual input transport available for a
+cartesian model; it does not construct its \(\mathrm{FibPF}\)
+presentations in the first place.
+
+\begin{srcorollary}\label{cor:faithful-fibpf-injectivity}
+Let \(k\) be any field of characteristic the prime \(p\),
+and retain the actual source data in
+\eqref{eq:faithful-fibre-inj-target}.
+If \(\mathrm{PowFns}(t)\) and
+\(\mathrm{FibPF}(t,x(\operatorname{closedPoint}k))\)
+hold, then \(\alpha_{g.B}\) is injective.
+\end{srcorollary}
+\begin{proof}
+Choose an algebraically closed representative \(x'\)
+and its quotient presentation from \(\mathrm{FibPF}\).
+Use (FD4) to extend \(x\) and \(x'\) to one algebraically
+closed field \(\Omega\).
+The presentation of \(\mathrm{GeomPF}\) transports to
+their equal \(\Omega\)-point.
+Base change the actual germ \(g\), including all of its
+jet maps and line frames, to \(\Omega\).
+Its formal coefficients are the images of those of \(g\).
+Proposition~\ref{prop:faithful-geompf-tanpf} and
+Corollary~\ref{cor:faithful-tanpf-injectivity} show that
+the resulting \(\alpha\) over \(\Omega\) is injective.
+
+For clarity, injectivity here descends through the field
+extension without any geometric assertion:
+the matrix of \(\alpha\) is
+\[
+                              \begin{pmatrix}H\\A^t\end{pmatrix}.
+\]
+Finite products and coefficient extraction commute with
+the field map, so the new matrix is obtained entrywise
+from this one.
+Its columns are linearly independent over \(\Omega\)
+if and only if the old columns are independent over \(k\),
+by scalar extension for finite-dimensional vector spaces.
+Thus the original \(\alpha\) is injective.
+This is the source's \srcid{CcInjAlg.conjInj\_map}
+and \srcid{FamilyEx.fib\_inj}.
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+The torus unit correction, fpqc generator descent,
+\srcid{pow\_first}, \srcid{torus\_tan}, and
+\srcid{geompf\_tan} are in
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/IsPullbackWhisker.lean}
+(blob \srcid{c9e6827648499993c20da2cc27ed65eff497a5c1}).
+The base-change and common-representative operations are in
+\srcid{LbIsoPullPull.lean}
+(blob \srcid{3e035cb739e8e25ede4d7cdc3aef150deb5929ac}).
+The final assembly is \srcid{IsMapOfCancel.lean}
+(blob \srcid{0e6bd88efb7a5a80f951c7bfa2779e311210c8fb}),
+with matrix descent in \srcid{CcInjAlg.lean}
+(blob \srcid{7655d4e71f179d4772105c8700c3e7bde59f4456}).
+All paths in this paragraph have the same
+\srcid{HodgeTatePoints} prefix and were checked at the
+frozen baseline.
+
+This closes the actual field-level injectivity target
+\eqref{eq:faithful-fibre-inj-target} with its stated
+\(\mathrm{PowFns}\), \(\mathrm{FibPF}\), and actual-germ
+inputs.  Supplying those geometric inputs on the chosen
+model remains separate.
+The quotient-action producer is also separate:
+the torus descent and representative transport above
+neither require nor assert a new \(O\)-action on the
+abelian quotient.
+The next step constructs the actual compatible integral
+family over the source arithmetic curve and glues its
+two exact lattice sequences.
+
+\subsection{The actual formal pairing and Frobenius identities}
+\label{subsec:faithful-formal-pairing-transport}
+
+Let \(B\) be the source's formal biextension over a
+commutative ring \(R\).
+Use \(R_a,C_a,S,H,A,\alpha,\beta\) as in
+\eqref{eq:faithful-formal-H-action}--\eqref{eq:faithful-alpha-beta}.
+The pairing used by the source is
+\[
+ \omega_B((v,f),(v',f'))=f'^tv-f^tv'+v^tSv'.
+ \tag{FM1}\label{eq:faithful-pairH}
+\]
+It is perfect over \(R\): testing against \((0,f')\)
+recovers \(v\), and then testing against \((v',0)\)
+recovers \(f\).  Its block matrix also has an explicit
+inverse.  We do not deduce alternation in characteristic
+two from a skew-transpose identity.
+
+The adjoint and symmetry identities of the actual datum,
+on taking mixed degree \((1,1)\), give
+\[
+ \begin{split}
+ S+S^t&=0,\\
+ C_{ab}&=R_b^tC_a+C_bR_{\bar a},\\
+ C_{a+b}&=C_a+C_b,\qquad C_1=0,\\
+ C_a+C_{\bar a}^t+R_a^tS&=SR_{\bar a}.
+ \end{split}
+ \tag{FM2}\label{eq:faithful-pairH-coefficients}
+\]
+In the additive identity, the extra partial-multiplier
+terms have at least degree two in one variable block,
+by their axes identities; they make no mixed
+degree-\((1,1)\) contribution.
+The two product factors of an axes-normalized scalar
+series contribute the sum of their mixed coefficients.
+These observations prove each equation directly from
+the source's \(\mathrm{FB}\) identities.
+
+The tangent action is a ring homomorphism, by
+differentiating the action's addition, multiplication,
+and identity clauses.
+Equations (FM2) show that \(\rho_H\) is also a ring
+homomorphism and that
+\[
+              \omega_B(\rho_H(a)y,y')
+                        =\omega_B(y,\rho_H(\bar a)y').
+ \tag{FM3}\label{eq:faithful-pairH-adjoint}
+\]
+For the last assertion the two mixed terms are equal
+exactly by the last equation of (FM2).
+These are the source's
+\srcid{BilinearPartAx3.rhoH\_hom} and
+\srcid{pairH\_adj}.
+
+Assume now \(\operatorname{char}R=p\), with \(p\) prime.
+Define the second partial product
+\[
+                  Q_n(X,Y)=\prod_{\nu=0}^{n-1}
+                                      \phi_2(X,[\nu]Y,Y),
+\]
+and write \(\sigma(X,Y)=B.\mathrm{sy}(X,Y)\).
+The source's partial-product inductions give
+\[
+ \begin{split}
+ Q_n(X,Y)\sigma(X,Y)^n
+      &=\sigma(X,[n]Y)P_n(Y,X),\\
+ Q_n(X,Y)^m P_m(X,[n]Y)
+      &=P_m(X,Y)^nQ_n([m]X,Y).
+ \end{split}
+ \tag{FM4}\label{eq:faithful-two-partial-products}
+\]
+For the first identity, the induction step is the
+symmetry law
+\[
+ \phi_2(X,U,Y)\sigma(X,U)\sigma(X,Y)
+                         =\sigma(X,F(U,Y))\phi_1(U,Y,X),
+\]
+at \(U=[n]Y\), multiplied by the previous product.
+For the second, induct on \(n\), use the step formula
+for \(Q_{n+1}\), and use the second identity of
+\eqref{eq:faithful-Pm-identities} at
+\((X,[n]Y,Y)\).
+The axes identities give both base cases.
+This is exactly \srcid{FirstPowerZeroAt.pow\_sy} and
+\srcid{pow\_inter}.
+
+Let \(V,g_0\) be the series in (FP5), so
+\(DV(0)=H\) and \(\operatorname{bil}(g_0)=A\).
+The first identity of (FM4), together with
+\(\sigma(X,Y)\sigma(Y,X)=1\), gives
+\[
+ Q_p(X,Y)=g_1(X,Y^{(p)}),\qquad
+ g_1(X,Y)=
+   \sigma(X,V(Y))\,g_0(Y,X)\,\sigma^{[p]}(Y,X^{(p)}).
+\]
+All three factors are axes-normalized.
+Since \(p\ge2\), the last factor has zero mixed
+degree-\((1,1)\) coefficient.
+Consequently
+\[
+                       \operatorname{bil}(g_1)=SH+A^t.
+ \tag{FM5}\label{eq:faithful-g1-bilinear}
+\]
+Apply the second identity of (FM4) with \(m=n=p\).
+Substitute the two factorizations and \([p]=V\circ F\),
+where \(F\) is coordinate Frobenius.
+The resulting equation is the common substitution
+\((X,Y)\mapsto(X^{(p)},Y^{(p)})\) of
+\[
+ Q_p^{[p]}(X,Y)\,g_0(X,V(Y))
+                  =P_p^{[p]}(X,Y)\,g_1(V(X),Y).
+\]
+To match the source exactly, compare the coefficients
+\(X_i^pY_j^p\) before cancelling that substitution.
+The ordinary mixed coefficients of \(P_p\) and \(Q_p\)
+are zero, by their factorizations.
+Axes normalization makes the product's mixed coefficient
+the sum of the two mixed coefficients.
+Equations (FM5) and \(DV(0)=H\) therefore give
+\[
+                           AH=H^t(SH+A^t).
+ \tag{FM6}\label{eq:faithful-isotropy-matrix}
+\]
+This is \srcid{AlphaBetaAdjointExact.am\_mul\_hw}.
+Direct substitution in (FM1) and in \(\beta\) now yields
+\[
+       u^t\beta(y)=\omega_B(\alpha(u),y),
+               \qquad \beta\alpha=0 .
+ \tag{FM7}\label{eq:faithful-alpha-beta-adjoint-zero}
+\]
+No residue-field injectivity is used to obtain this identity.
+
+The first partial adjoint-product identity, also obtained
+by induction in the source, is
+\[
+ P_p([a]X,Y)\operatorname{ad}_a([p]X,Y)
+       =\operatorname{ad}_a(X,Y)^p P_p(X,[\bar a]Y).
+\]
+Its coefficient \(X_i^pY_j\), using (FP5), is the matrix
+identity
+\[
+                (R_a^{(p)})^tA+H^tC_a=AR_{\bar a}.
+\]
+Commutation of \([a]\) and \([p]\), on taking the
+\(p\)-th pure coefficients, gives
+\(R_aH=HR_a^{(p)}\).
+Transpose the first identity and use (FC1).
+Together they prove
+\[
+             \alpha(R_a^{(p)}u)=\rho_H(a)\alpha(u).
+ \tag{FM8}\label{eq:faithful-alpha-action}
+\]
+Finally (FM3), (FM7), and (FM8) with \(\bar a\)
+give, by testing against every \(u\),
+\[
+                \beta(\rho_H(a)y)
+                           =(R_{\bar a}^t)^{(p)}\beta(y).
+ \tag{FM9}\label{eq:faithful-beta-action}
+\]
+These are \srcid{CbAlpha.alpha\_act} and
+\srcid{BetaEquivariantFrobenius.beta\_rhoH\_eq}.
+
+\subsection{The exact change of formal coordinates}
+\label{subsec:faithful-alpha-beta-coordinate-change}
+
+Let \((\varphi,\psi,\lambda)\) be the source's
+\(\mathrm{IsIso}(B,B_2)\).
+Thus \(\varphi,\psi\) are inverse zero-constant-term
+coordinate series, \(\varphi\) carries the law and action
+of \(B_2\) to those of \(B\), and \(\lambda\) is the
+specified axes-normalized gauge relating their actual
+biextension data.
+Put
+\[
+ P=D\varphi(0),\quad Q=D\psi(0),\quad
+ Z=\operatorname{bil}_{1,1}(\lambda),\qquad
+ T(v,f)=(Pv,Q^t(f+Z^tv)).
+ \tag{FM10}\label{eq:faithful-T-coordinate}
+\]
+Differentiate the inverse coordinate identities:
+\(PQ=QP=I\).
+The inverse of \(T\) is explicitly
+\[
+                         T^{-1}(v,f)=(Qv,P^tf-Z^tQv).
+\]
+Taking mixed coefficients of the symmetry and adjoint
+gauge identities gives
+\[
+ \begin{split}
+ S_2+Z&=P^tSP+Z^t,\\
+ C_{2,a}+ZR_{2,\bar a}
+                 &=R_{2,a}^tZ+P^tC_aP.
+ \end{split}
+ \tag{FM11}\label{eq:faithful-gauge-coefficients}
+\]
+Differentiating action compatibility gives
+\(R_aP=PR_{2,a}\).
+Substitution of these three identities proves
+\[
+                  \rho_H(a)T=T\rho_{H,2}(a),\qquad
+                     \omega_B(Ty,Ty')=\omega_{B_2}(y,y').
+ \tag{FM12}\label{eq:faithful-T-action-pairing}
+\]
+For example, the extra two gauge terms in the pairing
+are \(v^t(Z^t-Z)v'\), which cancel the corresponding
+terms in \(P^tSP=S_2+Z-Z^t\).
+This is the source's \srcid{BilinearPartAx3.iso\_rho}.
+
+In characteristic \(p\), the first partial gauge identity
+gives, by the same finite-product induction,
+\[
+ P_{2,n}(X,Y)\lambda([n]_2X,Y)
+           =\lambda(X,Y)^nP_n(\varphi(X),\varphi(Y)).
+ \tag{FM13}\label{eq:faithful-iso-Pn}
+\]
+Indeed multiply the gauge identity at
+\(([\nu]_2X,X,Y)\), for \(0\le\nu<n\);
+all intermediate \(\lambda([\nu]_2X,Y)\) factors telescope.
+At \(n=p\), compare coefficients of degree
+\(X_i^pY_j\).
+The mixed coefficient of \(\lambda^p\) in these degrees
+vanishes in characteristic \(p\).
+The factorizations (FP5) identify the remaining
+coefficients, giving
+\[
+ \begin{split}
+                      PH_2&=HP^{(p)},\\
+                   A_2+H_2^tZ&=(P^{(p)})^tAP .
+ \end{split}
+ \tag{FM14}\label{eq:faithful-H-A-transport}
+\]
+The first identity also follows directly from action
+compatibility for multiplication by \(p\).
+For the second, substitution into \(P_p=g_0(X^{(p)},Y)\)
+shows that only the linear coefficient \(P^{(p)}\)
+in the first block and \(P\) in the second contribute.
+Thus (FM14) is the source's coefficient calculation,
+not an inference from an isomorphism after inverting
+the residue characteristic.
+
+Transpose the second equation in (FM14) and multiply
+by \(Q^t\).  Together with the first equation it gives
+\[
+                            \alpha_B P^{(p)}=T\alpha_{B_2}.
+ \tag{FM15}\label{eq:faithful-alpha-coordinate}
+\]
+To obtain the other transformation, pair both sides
+against \(u\), use (FM7), then (FM12) and (FM15).
+Since \(P^{(p)}\) has inverse \(Q^{(p)}\), this proves
+\[
+                            \beta_BT=(Q^t)^{(p)}\beta_{B_2}.
+ \tag{FM16}\label{eq:faithful-beta-coordinate}
+\]
+These are exactly the two conclusions of
+\srcid{AlphaBetaIsomorphismTransport.alpha\_beta\_of\_isIso}.
+
+\subsection{Integral local matrix splittings}
+\label{subsec:faithful-local-matrix-splittings}
+
+\begin{srlemma}\label{lem:faithful-local-matrix-splitting}
+Let \(R\) be a commutative local ring with residue field
+\(\kappa\), and let \(H,A,S\in M_d(R)\).
+Assume
+\[
+             AH-H^tSH-H^tA^t=0
+\]
+and that the residue map
+\(\bar u\mapsto(\bar H\bar u,\bar A^t\bar u)\)
+is injective.
+Put \(D=A-H^tS\).
+Then there are matrices \(r_1,r_2,s_1,s_2\in M_d(R)\)
+with
+\[
+ \begin{array}{ll}
+ r_1H+r_2A^t=I,&Ds_1-H^ts_2=I,\\
+ Hr_1+s_1D=I,&Hr_2-s_1H^t=0,\\
+ A^tr_1+s_2D=0,&A^tr_2-s_2H^t=I .
+ \end{array}
+ \tag{FM17}\label{eq:faithful-six-splitting-equations}
+\]
+\end{srlemma}
+\begin{proof}
+This is the source's explicit construction in
+\srcid{CgSplit.split\_local}.
+The residue matrix \(M=(H;A^t)\) has a left inverse
+over \(\kappa\).
+Lift that inverse entrywise to a matrix \(N_0\) over \(R\).
+Then \(N_0M\) has residue \(I\), so its determinant is
+a unit in \(R\).
+Correct \(N_0\) to
+\(N=(N_0M)^{-1}N_0\).
+Write \(N=(x\ y)\), so
+\[
+                         xH+yA^t=I.
+\]
+Set
+\[
+       s_1=y^t,\qquad s_2=-(x^t+Sy^t),\qquad
+       w=xs_1+ys_2,
+\]
+and then
+\[
+                         r_1=x-wD,\qquad r_2=y+wH^t.
+\]
+The transpose of \(xH+yA^t=I\) gives
+\(Ds_1-H^ts_2=I\).
+The isotropy assumption is \(DH-H^tA^t=0\).
+It gives, by direct expansion,
+\[
+              r_1H+r_2A^t=I,\qquad r_1s_1+r_2s_2=0.
+\]
+Consequently
+\[
+ \begin{pmatrix}r_1&r_2\\D&-H^t\end{pmatrix}
+ \begin{pmatrix}H&s_1\\A^t&s_2\end{pmatrix}=I_{2d}.
+\]
+For square matrices over a commutative ring a left
+inverse is also a right inverse: their determinants
+multiply to \(1\), and the adjugate gives the inverse.
+Reverse the product and read its four blocks.
+They are the remaining four identities in (FM17).
+\end{proof}
+
+Define
+\[
+ \begin{split}
+ r(v,f)&=r_1v+r_2f,\\
+ s(z)&=(-s_1z,-s_2z).
+ \end{split}
+\]
+Equations (FM17), with
+\(\alpha(u)=(Hu,A^tu)\) and
+\(\beta(v,f)=H^tf-Dv\), say
+\[
+                    r\alpha=I,\qquad \beta s=I,\qquad
+                             \alpha r+s\beta=I.
+ \tag{FM18}\label{eq:faithful-local-split-maps}
+\]
+All four maps have entries in \(R\).
+Along with \(\beta\alpha=0\), these identities give
+a split exact sequence of free \(R\)-modules.
+They also prove the exact membership statements needed
+for the source's lattice \(\mathrm{ShortExact}\):
+\[
+ \begin{split}
+ u\in R^d
+   &\iff \alpha(u)\in R^{2d},\\
+ z\in R^d
+   &\iff \exists y\in R^{2d}:\ \beta(y)=z,
+ \end{split}
+\]
+when the maps are extended to the fraction field of
+an integral \(R\).
+For the reverse implication in the first line use
+\(u=r\alpha(u)\); for the second use the integral
+section \(s\).
+The splitting uses residue injectivity, not a
+freeness assertion for an integral coefficient-algebra action.
+
+\paragraph{Frozen-source ledger.}
+The pairing and action identities are
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/BilinearPartAx3.lean}
+(blob \srcid{801076aed5e81aac6a8b3e00d8de5a58fa3c69e4}),
+and the partial-product identities are
+\srcid{FirstPowerZeroAt.lean}
+(blob \srcid{c8a2021b8a683124fd3e5e295482e9e2538c7cd4}).
+The isotropy proof is
+\srcid{src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/AlphaBetaAdjointExact.lean}
+(blob \srcid{92f76fca56924851fdac2083d49b83542b6bdc91}).
+The coordinate calculations are
+\srcid{AlphaBetaIsomorphismTransport.lean}
+(blob \srcid{fa705e7c833f43e37d657fd453b12b28d5c154da}).
+The action compatibility is
+\srcid{CbAlpha.lean}
+(blob \srcid{53f82bd0f9fe6e14b7f20e18d36a395a19515c4e}),
+followed by the short
+\srcid{BetaEquivariantFrobenius.lean}.
+The local construction is
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/CgSplit.lean}
+(blob \srcid{cd96d1085533f0dd620d241008453dd628c68ed0}).
+Every listed blob was compared with the frozen baseline.
+
+These lemmas prove the formal coordinate transformations
+and the integral local splitting once the actual residue
+\(\alpha\) is injective.
+The next source assembly chooses the integral germs,
+uses the proved \(\mathrm{FibPF}\)-to-injectivity statement
+at each centre, and constructs the two global lattice
+sequences with these actual changes of coordinates.
+
+\subsection{Actual germs, their comparison, and the family on a curve}
+\label{subsec:faithful-actual-family-construction}
+
+We now follow \srcid{CdChart}, \srcid{CdFrame},
+\srcid{ActGeneratorZero}, and \srcid{IsMapOfCancel}
+in their order.  The geometric input is the given
+\(\mathrm{SAB}(H_E,X)\) and \(\mathrm{PowFns}(t)\).
+No integral model or fibre quotient is inferred from
+these formal-coordinate constructions.
+
+\paragraph{Local coordinates and line frames.}
+The tangent module of a smooth group along its identity
+is finite projective and commutes with base change.
+For a local base ring \(R\), it is finite free.
+Choose a basis.
+First choose compatible actual jet points \(x_m\)
+extending this specified first differential.
+At each stage smoothness supplies a lift of the
+already chosen jet to the next nilpotent order;
+one such lift is selected.
+These smooth lifts themselves are not claimed to be unique.
+This is the source's
+\srcid{ExistsJetPointsOfIsLieBasis} stage.
+
+Now keep that chosen compatible system fixed.
+For a square-zero thickening, lifts of a point reducing
+to the identity differ by the tangent module tensored
+with the square-zero ideal.
+In solving for the coordinates of another nilpotent
+point relative to the chosen \(x_m\), an approximate
+solution modulo \(I^a\) has an error in
+\(\operatorname{Lie}(G)\otimes I^a/I^{a+1}\).
+The specified tangent basis identifies that error with
+one unique coordinate correction in
+\((I^a/I^{a+1})^d\).
+Adjust the approximate coordinates by this correction.
+Induction through the powers of \(I\) gives existence
+and uniqueness of the coordinates relative to the
+chosen jets.
+This is the separate
+\srcid{NilChart.existsUnique\_coord} stage;
+its uniqueness does not assert uniqueness of arbitrary
+smooth lifts.
+It also gives compatibility under truncation.
+Thus the chosen compatible jets are universal,
+and the actual group law and \(O\)-action can be
+transported to their coordinates.
+Transport of multiplication and action through these
+unique coordinates gives the formal law and action.
+Their associativity, commutativity and module identities
+follow by evaluating on the universal jets and using
+the corresponding identities of the actual group.
+This is the construction behind
+\srcid{ChartOfBasis.chart\_of\_basis} and the
+\srcid{param\_of\_dif\_bijective} argument in
+\srcid{DifBijectiveOfParam}; it uses the specified
+differential, not a newly selected generic coordinate system.
+
+For the open-affine construction, first choose a chart
+of the actual line \(L\) containing the identity at a
+given base point.
+Shrink the base to an affine open on which its identity
+section remains in that chart.
+The tangent module becomes free after one further
+principal localization avoiding the point:
+localize the finite projective module at the point,
+choose a basis there, and descend the finitely many
+basis and inverse-matrix coefficients to one principal
+neighbourhood.
+Base-change compatibility identifies this free module
+with the actual tangent module on that neighbourhood.
+The preceding construction then gives the actual
+coordinate jets over that affine ring.
+
+Here is the source's line-frame construction on this
+same neighbourhood.
+All points of every nilpotent jet, and all their finite
+group-law sums, have the same underlying image as the
+zero section.
+They therefore lie in the one chosen chart of \(L\).
+Use its frame to trivialize the line factors of the
+two-variable cubical difference, and multiply them
+with the signs \((+,-,-,+)\).
+This defines \(e_m\) at each jet order.
+Truncation is compatible because the same chart is
+used throughout.
+When one argument is zero, equal factors cancel;
+hence these are the axes-normalized actual frames.
+
+The ratios between these frames and the given cubical,
+swap and adjoint comparisons are units at every finite
+jet order.  Their truncations agree.
+Coefficientwise passage through the jet quotients gives
+the actual series \(\phi_1,\phi_2,\sigma,\operatorname{ad}_a\).
+For \(\phi_1\) the defining relation is
+\[
+ \gamma(X,Y,Z)=\phi_1(X,Y,Z)
+            \frac{e(F(X,Y),Z)}{e(X,Z)e(Y,Z)};
+\]
+the second partial multiplier is obtained by the
+corresponding second-variable formula.
+The symmetry series compares \(e(X,Y)\) with \(e(Y,X)\);
+the adjoint series compares \(e([a]X,Y)\) with
+\(e(X,[\bar a]Y)\) using the given global adjoint generator.
+Their zero-axis and constant identities follow by
+cancelling the same actual line frames.
+
+The formal \(\mathrm{FB}\) laws are then checked on
+each universal finite jet.
+The partial associativity, commutativity and interchange
+equations are the cubical cocycle equations expressed
+in these frames.
+The adjoint addition, multiplication and symmetry
+equations compare the same global line isomorphisms.
+Their possible unit ratios lie on the corresponding
+powers of the actual group.
+By \(\mathrm{PowFns}\), such a ratio is pulled back
+from the base, and its value at the zero section is
+\(1\); thus it is \(1\).
+This is exactly the source's \srcid{FBIdAd.fbId} step.
+It constructs a genuine \(\mathrm{GermAt}\) on the
+chosen open affine, and over every local base.
+It does not assert a comparison with another cohomology theory.
+
+\paragraph{Comparing two actual germs.}
+Let \(g,g'\) be two actual germs of the same dimension
+over a local ring \(R\), at the same family point.
+Apply the universal-coordinate property of \(g\) to
+each jet of \(g'\).
+The unique resulting coordinate maps commute with
+truncation; hence they are the truncations of a
+zero-constant-term series \(\varphi\).
+Thus at every order the actual \(g'\)-jet is the
+\(g\)-jet evaluated at \(\varphi\).
+Doing the same in reverse gives \(\psi\).
+Uniqueness on every finite jet proves that they are
+inverse series.
+The actual group law and action commute with them
+for the same reason.
+Their differentials send the tangent basis of \(g'\)
+to the indicated linear combinations of the basis of \(g\).
+
+The ratio of the \(g'\)-frame with the pullback of the
+\(g\)-frame along \((\varphi,\varphi)\) is a unit on
+every two-variable jet.
+Its compatible truncations determine the gauge series
+\(\lambda\).
+The two axes identities give \(\lambda(0,Y)=\lambda(X,0)=1\).
+Substitute this frame-ratio formula in each actual
+partial multiplication, symmetry and adjoint comparison.
+Cancellation proves exactly the source's
+\(\mathrm{IsIso}(g.B,g'.B,\varphi,\psi,\lambda)\)
+identities, including the adjoint one.
+In the latter comparison \(\mathrm{PowFns}\) ensures
+the two global adjoint generators have the same
+normalization.
+This is the proof of
+\srcid{ActGeneratorZero.germ\_iso}.
+The dimension of a germ is unique because its tangent
+map is a basis isomorphism, so two germs have the
+same finite free tangent rank.
+
+All these operations commute with a base ring map:
+pull back each actual finite jet and frame, map its
+formal coefficients, and use uniqueness of the
+resulting coordinates.
+For tangent vectors the base-change map is the
+actual map on dual numbers.
+This gives the source's \(\mathrm{IsMapOf}\) and
+the stated tangent-base-change identity; it is not
+an identification of arbitrary lattices after a
+nonflat change of base.
+
+\begin{srproposition}\label{prop:faithful-actual-family-ex}
+Let \(K\) have characteristic the prime \(p\).
+Let \(C\) be the source's arithmetic curve, with
+valuation rings \(R_i\), and let
+\(z:\operatorname{Spec}K\to X\).
+Suppose there are maps
+\(x_i:\operatorname{Spec}R_i\to X\) extending \(z\),
+such that every open containing the image of \(z\)
+contains the closed image of \(x_i\) outside a finite
+set of indices.
+Assume \(\mathrm{PowFns}(t)\), and assume
+\(\mathrm{FibPF}(t,\operatorname{centre}x_i)\) for every \(i\).
+Then there is a source \(\mathrm{Family}(C,p,d,O)\)
+with the following actual data:
+\[
+ \begin{gathered}
+ B=g.B,\quad B_i=g_i.B\text{ over }R_i,\quad
+ B_{i,K}\text{ over }K,\quad B_{i,\kappa}\text{ over }\kappa_i,\\
+ B_i\longrightarrow B_{i,K},\quad
+ B_i\longrightarrow B_{i,\kappa}
+             \text{ are coefficientwise base changes},\\
+ \alpha_{B_{i,\kappa}}\text{ is injective},\\
+ (\varphi_i,\psi_i,\lambda_i):
+                          B_{i,K}\longrightarrow B
+             \text{ are actual germ comparison data}.
+ \end{gathered}
+\]
+Their linear and mixed matrices are integral outside
+a finite set.
+Writing \(P_i=D\varphi_i(0)\), their columns give the
+actual tangent-basis comparison
+\[
+       (g_i.\mathrm{tg}_l)|_K
+                   =\sum_j(P_i)_{jl}\,g.\mathrm{tg}_j .
+ \tag{FF1}\label{eq:faithful-family-tangent-columns}
+\]
+\end{srproposition}
+\begin{proof}
+Follow the source's choices, including its fixed
+self-comparison.
+Choose one open-affine actual germ \(g_A\) near the
+image of \(z\), on \(j:\operatorname{Spec}A\hookrightarrow X\).
+The map \(z\) factors through this open, giving
+\(a:A\to K\); its base change gives \(g\).
+Choose once a comparison
+\((\varphi_0,\psi_0,\lambda_0)\) of \(g\) with itself.
+We retain this chosen comparison as the source does.
+
+If \(\operatorname{centre}x_i\) lies in this open,
+the entire image of \(\operatorname{Spec}R_i\) lies there:
+every point of a local spectrum specializes to its
+closed point, and membership in an open passes to
+generizations.
+Consequently \(x_i\) factors through \(j\), giving
+\(b_i:A\to R_i\).
+The composite \(A\to R_i\to K\) is \(a\), since the
+two maps to the open immersion \(j\) have the same
+generic composite.
+Take \(g_i\) to be the base change of \(g_A\).
+Its generic formal data are therefore \(B\) itself,
+and use the fixed
+\((\varphi_0,\psi_0,\lambda_0)\) for its comparison.
+
+At any other index, choose an actual local germ \(g_i\)
+over \(R_i\).
+Base change it to \(K\).
+Its dimension is \(d\) by the uniqueness of tangent rank.
+Compare it with \(g\) by the actual comparison construction
+above, obtaining \(\varphi_i,\psi_i,\lambda_i\).
+In both cases the tangent comparison is the differential
+of this actual coordinate comparison, proving (FF1).
+
+Reduce \(g_i\) to its residue field \(\kappa_i\).
+Since \(R_i\subset K\) has characteristic \(p\), so does
+\(\kappa_i\).
+The resulting residue point has image
+\(\operatorname{centre}x_i\).
+Corollary~\ref{cor:faithful-fibpf-injectivity} therefore
+gives the required residue injectivity.
+This uses the given \(\mathrm{FibPF}\) at that centre,
+with its actual representative transport.
+
+It remains to check the finite exceptional set in
+\(\mathrm{Family}\).
+By the assumed curve property, only finitely many
+centres lie outside the chosen affine open.
+At every other index the three relevant matrices
+are the fixed matrices
+\[
+ D\varphi_0(0),\qquad D\psi_0(0),\qquad
+                         \operatorname{bil}(\lambda_0).
+\]
+Each has finitely many entries in \(K\).
+For a nonzero entry \(c\), the arithmetic-curve
+hypothesis says \(\{i:v_i(c)\ne1\}\) is finite;
+hence \(\{i:v_i(c)>1\}\) is finite.
+The same set is empty for \(c=0\).
+Take the union for all entries and the exceptional
+centres.
+Outside it all required entries are integral.
+This constructs every field of the actual
+\(\mathrm{Family}\) record and proves its tangent
+comparison conclusion.
+\end{proof}
+
+\subsection{The two exact lattice sequences on that same family}
+\label{subsec:faithful-family-exact-lattices}
+
+Let \(F\) be the actual family just constructed,
+and assume its valuation index set is nonempty.
+Over \(K\) retain the generic action \(\rho_H\)
+of its generic datum \(B\).
+For each \(i\), put
+\[
+ \begin{gathered}
+ P_i=D\varphi_i(0),\quad Q_i=D\psi_i(0),\quad
+ Z_i=\operatorname{bil}(\lambda_i),\\
+ T_i(v,f)=(P_iv,Q_i^t(f+Z_i^tv)),\\
+ \mathcal L_i=P_iR_i^d,\qquad
+                   \mathcal H_i=T_i(R_i^d\oplus R_i^d).
+ \end{gathered}
+ \tag{FF2}\label{eq:faithful-integral-family-lattices}
+\]
+These are the source's \(\mathrm{colLat}\) and
+\(\mathrm{imLat}\); equivalently, \(\mathcal H_i\)
+is the \(R_i\)-span of the images of all integral
+coordinate pairs.
+Linearity shows that span is exactly the displayed image.
+
+\begin{srproposition}\label{prop:faithful-family-two-exact}
+The collections \(\mathcal L,\mathcal H\) are lattice
+bundles on \(C\), stable under their actual \(O\)-actions,
+and have the exact lattice sequences (FC6) with the
+actual generic maps \(\alpha_B,\beta_B\).
+Their \(O\)-equivariance is (FC7).
+In particular they form the source's
+\(\mathrm{ConjData}(C,p,O,d)\), with
+\(\rho_H(a)\) exactly the formal action (FC1) and
+\(\mathcal H_i\) exactly (FF2).
+\end{srproposition}
+\begin{proof}
+The inverse coordinate identities give \(P_iQ_i=Q_iP_i=I\).
+The maps \(P_i\) and \(T_i\) are invertible over \(K\),
+so the images of standard coordinate bases are local
+lattice bases.
+Outside the finite exceptional set, \(P_i,Q_i,Z_i\)
+have integral entries.
+The inverse formula for \(T_i\) in (FM10) is then integral
+as well, and \(P_i\) is invertible over \(R_i\).
+Thus \(\mathcal L_i=R_i^d\) and
+\(\mathcal H_i=R_i^{2d}\) there.
+This verifies the full lattice-bundle condition,
+rather than just finite-dimensionality over \(K\).
+
+For the first sequence, the dot-product dual lattice is
+\[
+                         \mathcal L_i^\vee=Q_i^tR_i^d.
+\]
+Indeed \(f\) pairs integrally with every \(P_iv\)
+if and only if \(P_i^tf\) is integral.
+Projection of \(T_i(v,f)\) to its first coordinate is
+\(P_iv\), so it maps \(\mathcal H_i\) onto
+\(\mathcal L_i\).
+The kernel has \(v=0\), hence consists exactly of
+\((0,Q_i^tf)\), \(f\in R_i^d\).
+This proves exactness at every lattice and over \(K\).
+
+Let \(\alpha_i,\beta_i\) be the maps of \(B_{i,K}\).
+They have entries in \(R_i\), since \(B_{i,K}\) is
+the coefficientwise base change of \(B_i\).
+The residue maps are those of \(B_{i,\kappa}\).
+Their \(\alpha\) is injective by construction.
+The formal matrix identity (FM6) holds already over
+\(R_i\).
+Lemma~\ref{lem:faithful-local-matrix-splitting} therefore
+supplies integral maps \(r_i,s_i\) with
+\[
+              r_i\alpha_i=I,\quad \beta_i s_i=I,\quad
+                       \alpha_i r_i+s_i\beta_i=I.
+ \tag{FF3}\label{eq:faithful-actual-local-split}
+\]
+In particular every local sequence is split exact.
+
+Frobenius pullback of a column lattice is
+\[
+                F^*\mathcal L_i=P_i^{(p)}R_i^d,\qquad
+ F^*(\mathcal L_i^\vee)=(Q_i^t)^{(p)}R_i^d .
+ \tag{FF4}\label{eq:faithful-frobenius-column-lattice}
+\]
+One inclusion follows from coordinatewise \(p\)-th powers.
+For the reverse inclusion, the standard coordinate
+vectors are already their own \(p\)-th powers, and the
+definition takes their \(R_i\)-span.
+Thus no perfectness of \(K\) or of \(R_i\) is being used.
+
+The exact coordinate identities (FM15)--(FM16) read
+\[
+                  \alpha_B P_i^{(p)}=T_i\alpha_i,\qquad
+                \beta_BT_i=(Q_i^t)^{(p)}\beta_i.
+ \tag{FF5}\label{eq:faithful-family-conjugate-transport}
+\]
+They transport the local split sequence to the desired
+three lattices.
+Here are both lattice exactness assertions explicitly.
+If \(\alpha_Bx=T_iw\) with \(w\in R_i^{2d}\),
+then \(w=\alpha_i(P_i^{(p)})^{-1}x\);
+apply the integral map \(r_i\) to see
+\((P_i^{(p)})^{-1}x\in R_i^d\).
+Conversely (FF5) sends \(P_i^{(p)}R_i^d\) into
+\(\mathcal H_i\).
+For the quotient, a vector
+\(z=(Q_i^t)^{(p)}z_0\), \(z_0\in R_i^d\), is the
+\(\beta_B\)-image of the integral-lattice vector
+\(T_i s_i z_0\).
+Every image of a vector \(T_iw\), \(w\in R_i^{2d}\),
+belongs to that quotient lattice because \(\beta_i\)
+is integral.
+
+To verify generic exactness, choose one index \(i_0\).
+Extend (FF3) from \(R_{i_0}\) to \(K\), then use
+(FF5) and the invertibility of \(T_{i_0}\),
+\(P_{i_0}^{(p)}\), and \((Q_{i_0}^t)^{(p)}\).
+It gives injectivity of \(\alpha_B\), exactness in the
+middle, and surjectivity of \(\beta_B\).
+This is where the source's nonempty-index hypothesis
+is used.
+
+For action stability, the local full action
+\(\rho_{H,i}(a)\) has entries in \(R_i\), by its formula
+from the integral coefficients \(R_{i,a},C_{i,a}\).
+The exact conjugacy
+\(\rho_H(a)T_i=T_i\rho_{H,i}(a)\) from (FM12)
+therefore preserves \(\mathcal H_i\).
+The tangent action similarly preserves \(\mathcal L_i\).
+The two Hodge action formulas are immediate from
+(FC1); their dual action is conjugated by \(a\mapsto\bar a\).
+Equations (FM8)--(FM9) give precisely the Frobenius
+equivariance (FC7).
+All fields of \(\mathrm{ConjData}\) are now verified.
+\end{proof}
+
+Equation (FF1) also identifies \(\mathcal L_i\) with the
+actual integral tangent lattice of \(t\) along
+\(\operatorname{Spec}R_i\), in the generic tangent basis
+of \(g\).
+Every integral tangent vector is a unique \(R_i\)-linear
+combination of the actual \(g_i\)-basis, and (FF1)
+gives exactly its generic coordinate column.
+For any supplied generic Lie model whose basis is
+\(g.\mathrm{tg}\), this is the corresponding
+\(\mathrm{CurveIn.lieLat}\).
+This identifies the full tangent lattice; it does not
+assert that eigensaturation commutes with arbitrary
+nonflat base change.
+
+\paragraph{Frozen-source ledger and precise boundary.}
+The construction is
+\srcid{src/Development/WeilBound/CoreStatements/HodgeTatePoints/IsMapOfCancel.lean}
+(\srcid{family\_ex\_of'}, \srcid{family\_ex\_of})
+and \srcid{FamilyEx.lean}
+(blob \srcid{fc5cf10a0dd00e2cf0ebe6641f7155268297f889}).
+The open and local actual germs use
+\srcid{CdChart.lean}
+(blob \srcid{12b7d324d8c4eb021c9511b8f8159fbb0f0df34a}),
+\srcid{CdFrame.lean}
+(blob \srcid{6c6bd0f34fec3e74184db3deafec022352a66585}),
+and \srcid{CdAffine.lean}
+(blob \srcid{e6415ee56fbdd7298c90763c8d9a81912285057a}).
+The actual comparison is \srcid{ActGeneratorZero.lean}
+(blob \srcid{87c9ca61488a846330980cdd2de75f5113ebdaca}).
+The universal-coordinate argument is \srcid{CdUniv.lean}
+(blob \srcid{1a57f210225fa7e067d3f8b08a22f46a9c2e64ac}),
+using the smooth nilpotent-coordinate construction
+in \srcid{DifBijectiveOfParam}.
+The arithmetic curve in the family proposition is
+exactly \srcid{CurveIn} in
+\srcid{src/Development/AutomorphicSpectrum/Definitions/GlobalGeometry/LocalComponentsSurjective.lean}
+(blob \srcid{8e98742eccb39d9d79504054928cb929aa765a34}).
+
+The exact-sequence assembly is
+\srcid{src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/FamilyGivesConjugateLieData.lean}
+(blob \srcid{2813120bea19b2105021742dc0bdc9d81af78996}),
+and the identity with the actual coordinate-span lattices
+is \srcid{FamilyHodgeLatticeData.lean}
+(blob \srcid{4a8b444c580da836575a4c7b64280bd414081efc}).
+All were compared with the frozen baseline.
+
+Thus the sequence target (FC6) is proved for the source's
+actual curve, actual \(\mathrm{PowFns}\) family, and
+its specified \(\mathrm{FibPF}\) centres.
+The separate local free \(O\otimes R_i\)-basis in (FC8)
+has not been inferred from these sequences.
+The next source argument uses that exact additional
+hypothesis to deduce degree zero for every character
+quotient, including at ramified coefficient primes.
