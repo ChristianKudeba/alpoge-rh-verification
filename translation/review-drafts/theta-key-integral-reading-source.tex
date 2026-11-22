@@ -1,0 +1,289 @@
+\section{Integer-exponent readings and bounded component multipliers}
+\label{sec:sr-source-integer-reading}
+This section follows the actual negative-exponent clearing argument,
+rather than replacing it by an extension principle.
+We distinguish the Fourier propositions used by the source's
+bounded-section algebra from the algebraic section-reading argument.
+
+\subsection{The bounded-section product}
+Fix the source Hermitian frame datum \(X\), its open frame domain
+\(\mathcal D_X\), and integral row weights \(\lambda,\lambda'\).
+Write
+\[
+ \|P\|_{\lambda,x}=|P(x)|\,n_\lambda(x),\qquad
+ n_\lambda(x)>0,\qquad
+ n_{\lambda+\lambda'}(x)=n_\lambda(x)n_{\lambda'}(x).
+ \tag{IR1}\label{eq:sr-source-reading-nfac}
+\]
+The last equality follows directly from the product of positive
+successive Gram-minor ratios in \(n_\lambda\), using
+\(r^{a+b}=r^ar^b\) for \(r>0\).
+A bounded section means a holomorphic section with the source
+Borel and arithmetic transformation laws and bounded weighted norm.
+The source space \(SS_\lambda\) consists of such sections whose
+zero Fourier coefficient vanishes along every admissible rational
+isotropic direction.
+
+Here are the two exact Fourier inputs used at this point:
+\begin{enumerate}
+\item A nonzero Fourier coefficient of a moderate holomorphic section
+along an admissible isotropic direction has frequency
+\(\nu=(\nu_\tau)\) with \(\nu_\tau\ge0\) for every \(\tau\).
+A bounded section is moderate with exponent \(0\).
+\item The coefficient of a product is the convergent convolution of
+the two coefficient families:
+\[
+ \operatorname{fj}_{\lambda+\lambda'}(PQ;\xi,\nu,x)
+ =\sum_{\nu'}\operatorname{fj}_\lambda(P;\xi,\nu',x)
+       \operatorname{fj}_{\lambda'}(Q;\xi,\nu-\nu',x).
+ \tag{IR2}\label{eq:sr-source-reading-convolution}
+\]
+The sum is the source's \(\mathrm{HasSum}\) assertion, not a
+formal multiplication of series.
+\end{enumerate}
+These are exactly \(\mathrm{ModerateCoefficientPositivity}\) and
+\(\mathrm{CoefficientConvolution}\).
+
+\begin{srlemma}\label{lem:sr-source-bdd-cusp-product}
+Under these two Fourier inputs, \(P\in SS_\lambda\) and a bounded
+section \(Q\) of weight \(\lambda'\) imply \(PQ\in SS_{\lambda+\lambda'}\).
+\end{srlemma}
+\begin{proof}
+Holomorphy is preserved by multiplication.
+Both transformation characters multiply; for the Borel character
+this is the identity
+\(\prod_{\tau,i}b_{\tau,ii}^{\lambda_{\tau,i}+\lambda'_{\tau,i}}
+ =b_\lambda(b)b_{\lambda'}(b)\).
+Every diagonal entry is nonzero.
+Equation~\eqref{eq:sr-source-reading-nfac} gives
+\(\|PQ\|_{\lambda+\lambda',x}
+ =\|P\|_{\lambda,x}\|Q\|_{\lambda',x}\), so the product is bounded.
+
+Apply \eqref{eq:sr-source-reading-convolution} at \(\nu=0\).
+For a nonzero convolution term, the first input gives
+\(\nu'_\tau\ge0\) and \(-\nu'_\tau\ge0\) for every \(\tau\).
+Thus \(\nu'=0\), and the \(P\)-factor is zero by cuspidality.
+Every term is therefore zero.
+Uniqueness of the stated sum proves that the product's zero
+coefficient vanishes. This is
+\srcid{BoundedSectionAlgebra.siegelSpaceAlgebra_of}, at its
+\(SS\)-multiplication clause.
+\end{proof}
+The same argument with the triangle inequality proves that \(SS\)
+is closed under zero, addition and scalar multiplication.
+In taking sums of coefficients, integrability on the finite-volume
+period domain follows from boundedness: real isotropic flow
+preserves all the Gram minors, hence \(n_\lambda\), and the
+Fourier exponential has modulus one.
+Consequently the source's span-defined \(\mathrm{holSub}\) equals
+the space of families whose every component belongs to \(SS\).
+This is \srcid{mem_holSub_model}.
+
+\subsection{The actual integer-exponent reading}
+Use the source \(E,H,D_w,l,X_o,c\) and an actual good complex
+uniformization \(U\).
+Suppose \(p+q\ge1\), a source key section
+\(\kappa\in\mathrm{KeySec}(X_o,c)\) has been supplied, and
+\(G=(G_1,G_2)\) has even \(G_2\) and antitone integer exponent
+rows:
+\[
+ i\le j<\operatorname{mult}_{D_w}(\tau)
+ \ \Longrightarrow\ G_1(\tau,j)\le G_1(\tau,i).
+ \tag{IR3}\label{eq:sr-source-integer-antitone}
+\]
+Let \(f\) be an actual algebraic section in
+\(\mathrm{secZ}(X_o,c,\mathrm{exZ}(D_w,G))\).
+Retain the uniformization's actual reading law for dominant
+natural weights and even tensor degree.
+Also retain the actual nonvanishing section supplier:
+for every \(x_0\in\mathcal D_{U,k}\) there are \(m\ge0\) and
+\[
+ f_0\in\mathrm{sec}(X_o,c,0,2(m+1)),\qquad
+             \operatorname{rd}_U(f_0)_k(x_0)\ne0.
+ \tag{IR4}\label{eq:sr-source-reading-nonvanishing}
+\]
+The source supplies (IR4) by its level-\(3\) eta rule in
+\srcid{UnfoldedIsSecZeroKeySection.exists_sec_rdU_ne_zero}.
+
+\begin{srproposition}\label{prop:sr-source-integer-reading}
+For every component \(k\), the actual reading
+\(\operatorname{rd}_U(f)_k\) is a section of the exact model weight
+\(\operatorname{modelWt}(U,G,k)\).
+\end{srproposition}
+\begin{proof}
+Fix \(x_0\) and choose (IR4).
+Write \(G_2=2g_2\), set \(N=|G_2|\), and choose \(B\ge0\) with
+\(-B\le G_1(\tau,j)\) for every actual row index.
+The finite sum of all \(|G_1(\tau,j)|\) is one possible \(B\).
+Set exactly as in the source
+\[
+ \begin{split}
+ t_g&=(B+1)m+(N+1)(m+1),&t&=g_2+t_g,\\
+ a_g(\tau,i)&=
+ \begin{cases}B+1&i<\operatorname{mult}_{D_w}(\tau),\\0&\text{otherwise},
+ \end{cases}&
+ a(\tau,i)&=
+ \begin{cases}G_1(\tau,i)+B+1&i<\operatorname{mult}_{D_w}(\tau),\\
+ 0&\text{otherwise}.
+ \end{cases}
+ \end{split}
+ \tag{IR5}\label{eq:sr-source-integer-clearing}
+\]
+The lower bound on \(G_1\) makes \(a\) natural-valued.
+Moreover \(t_g\ge N+1\), so \(t\ge0\).
+Both \(a_g\) and \(a\) are antitone, including the transition
+to the zero entries outside the actual rows.
+
+Let \(\rho=\kappa.\rho\), the specified algebraic unit of key
+exponent, and put
+\[
+                  g=\rho^{B+1}f_0^{B+N+2}.
+ \tag{IR6}\label{eq:sr-source-reading-clearing-section}
+\]
+The exact exponent identities are
+\[
+ \begin{split}
+ \mathrm{exZ}(D_w,\mathrm{wtZ}(a_g,2t_g))
+  &=(B+1)\,\mathrm{keyEx}(D_w)
+      +(B+N+2)\mathrm{exZ}(D_w,\mathrm{wtZ}(0,2(m+1))),\\
+ \mathrm{exZ}(D_w,\mathrm{wtZ}(a,2t))
+  &=\mathrm{exZ}(D_w,G)
+       +\mathrm{exZ}(D_w,\mathrm{wtZ}(a_g,2t_g)).
+ \end{split}
+ \tag{IR7}\label{eq:sr-source-reading-exponent-identities}
+\]
+For the tensor coordinate the first identity is
+\((B+1)(-2)+2(B+N+2)(m+1)=2t_g\);
+the second uses \(G_2=2g_2\).
+For every determinant coordinate they read respectively
+\(B+1=B+1\) and
+\(G_1+B+1=G_1+(B+1)\).
+Multiplication and powers of actual algebraic sections therefore give
+\[
+       g\in\mathrm{sec}(a_g,2t_g),\qquad
+       fg\in\mathrm{sec}(a,2t).
+\]
+The uniformization's given dominant-weight reading law makes their
+readings sections of the corresponding natural model weights.
+
+The model weights add, because both original tensor weights are
+even and their algebraic exponents agree in (IR7).
+Thus, writing \(\mu=\operatorname{modelWt}(U,G,k)\) and
+\(\lambda=\mathrm{laU}(U,a_g,2t_g,k)\), the readings of
+\(fg\) and \(g\) have weights \(\mu+\lambda\) and \(\lambda\).
+
+Their denominator reading at \(x_0\) is nonzero.
+Indeed \(\operatorname{rd}_U(f_0)_k(x_0)\ne0\).
+Multiplicativity then forces the reading of \(1\) to be \(1\)
+there. Since \(\rho\rho^{-1}=1\), the reading of \(\rho\) is
+nonzero there too. Equation (IR6) now gives the assertion.
+Finally,
+\[
+    \operatorname{rd}_U(f)_k\,\operatorname{rd}_U(g)_k
+                     =\operatorname{rd}_U(fg)_k
+\]
+holds on the whole frame domain.
+
+For completeness, the source's local quotient argument gives
+all three section clauses. Near \(x_0\) the denominator stays
+nonzero, so the quotient is holomorphic.
+For an upper triangular invertible \(b\),
+\(b_\lambda(b)\ne0\).
+Evaluate the displayed identity at \(x_0\) and \(x_0b\) and
+cancel \(b_\lambda(b)\operatorname{rd}_U(g)_k(x_0)\);
+this gives the Borel weight \(\mu\).
+For an arithmetic transformation \(\gamma\), the multiplier
+\(\chi_\lambda(\gamma)\) is nonzero, since it has finite order.
+The identical cancellation gives the multiplier
+\(\chi_\mu(\gamma)\).
+Since \(x_0\) was arbitrary, all section clauses hold everywhere.
+These are precisely
+\srcid{IsSecReadingDecreasingIntegerExponents.isSec_of_local_quot}
+and \srcid{isSec_modelWt_rdU}.
+\end{proof}
+
+\subsection{Preservation of the actual component cusp space}
+Let \(Z\) be the source component, and let \(s\) have the same
+hypotheses as \(f\) in the preceding proposition, with weight \(G_0\).
+Assume also
+\[
+ s\in\mathrm{suppOn}(Z),\qquad
+ \forall\sigma\text{ good}\ \exists C_\sigma\
+ \forall z\in\mathrm{framesOn}(U_\sigma,Z):\
+                    \mathrm{homN}(s;z)\le C_\sigma .
+ \tag{IR8}\label{eq:sr-source-component-bdd}
+\]
+All frames and norms here belong to the same supplied
+uniformization. No uniformity in a varying family is being added.
+
+\begin{srproposition}\label{prop:sr-source-component-cusp-multiplier}
+Under the two Fourier inputs above, for every \(G\) with even
+tensor coordinate,
+\[
+      f\in\mathrm{cuspOn}(U,Z,G)
+          \quad\Longrightarrow\quad
+      fs\in\mathrm{cuspOn}(U,Z,G+G_0).
+ \tag{IR9}\label{eq:sr-source-component-cusp-product}
+\]
+\end{srproposition}
+\begin{proof}
+Algebraic section exponents add, and support of \(s\) on \(Z\)
+gives support of \(fs\) there.
+Fix a good \(\sigma\).
+The actual model reading of \(s\) is a section by the preceding
+proposition.
+On \(\mathrm{framesOn}(U_\sigma,Z)\), its weighted norm is at most
+\(C_\sigma/\mathrm{lieFacZ}(D_w,x,G_0)\), whose denominator is
+strictly positive.
+Off those component frames its reading is zero by the support
+condition. It is therefore a bounded section on every component,
+with bound
+\[
+                \max\{0,C_\sigma/\mathrm{lieFacZ}(D_w,x,G_0)\}.
+\]
+The component readings of \(f\) belong to \(SS\).
+The first lemma puts their products in \(SS\) at the sum model
+weight. The equality between \(\mathrm{holSub}\) and componentwise
+\(SS\), followed by the source definition of
+\(\mathrm{cuspW}\) and the already checked support, proves (IR9).
+This is exactly
+\srcid{ExistsUnramPtsDefinite.mul_mem_cuspOn_of_isSec}
+followed by
+\srcid{MulMemCuspFormsOfBoundedSectionComponent.mul_mem_cuspOn_of_bdd}.
+\end{proof}
+
+\paragraph{Frozen-source ledger and retained suppliers.}
+All paths below use \srcid{alpoge-source-7cbf7a0c}.
+In
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/},
+the actual reading proof is
+\srcid{IsSecReadingDecreasingIntegerExponents.lean},
+blob \srcid{b08455118b8cd54243ae8185790eaef6bf4e9382};
+the final bounded component assembly is
+\srcid{MulMemCuspFormsOfBoundedSectionComponent.lean},
+blob \srcid{3a5a50359e5689723974601a420411cab829aa03}.
+The earlier componentwise bounded-product argument is in
+\srcid{src/Development/AbelianVarietyTheory/Definitions/Divisors/ExistsUnramPtsDefinite.lean},
+blob \srcid{3cd59129266bb5e4fbc6a994794b40622e259d41}.
+The actual nonvanishing supplier is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/IwasawaDecomposition/UnfoldedIsSecZeroKeySection.lean},
+blob \srcid{54d610b59fda59d5c0fb5d17e846651747cf1cd4}.
+Its level-\(3\) eta construction and the existence of the key unit
+are separate actual inputs to the reading proposition.
+
+The Fourier product proof is in
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FundamentalDomains/BoundedSectionAlgebra.lean},
+blob \srcid{71f99c21a0d1bc7a47618506aea05641e5cad761}.
+The concrete Fourier suppliers remain
+\srcid{ModerateCoefficientPositivityHolds.lean}
+(blob \srcid{712132fb6d8bf919371842e7a2a95d5f42d1fc57})
+and
+\srcid{CoefficientConvolutionHolds.lean}
+(blob \srcid{dbd4d7e005c93fdc46adbd27159fb35b54cc2fbb})
+in that same directory.
+The latter itself uses
+\srcid{CoefficientConvolutionOfSubCoefficients}
+and \srcid{SublatticeCoefficients}.
+This section proves the actual exponent clearing, local quotient,
+and bounded component multiplication from those precise suppliers;
+it does not substitute an unnamed Koecher principle for them.

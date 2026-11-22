@@ -266,3 +266,717 @@ The inputs \(\operatorname{KeyTwo}\) and
 inputs. Their local support, torus-scaling, vacuum, and
 split-place producers have not been silently replaced by
 a different proof in this section.
+
+\subsection{The source's local support and three-column distribution argument}
+\label{subsec:sr-source-local-three}
+
+This subsection gives the actual mechanism of
+\srcid{ZariskiLocallyAffineLine} and
+\srcid{LocalFieldT2Space.locSupp/locThree}.
+It uses algebraic linear functionals on locally constant compactly
+supported functions. No continuity, distribution completion, or
+unitary representation assumption on the functional is made.
+
+Let \(k\) be a nonarchimedean local field, \(\mathcal O\) its valuation
+ring, and \(V=M_{n,d}(k)\).
+The subgroup \(\Lambda_0=M_{n,d}(\mathcal O)\) is compact and open:
+openness follows entry by entry from the open valuation ring, and
+compactness from the finite product of compact closed unit balls.
+The field is Hausdorff, and every neighborhood of zero contains a
+nonzero power of a uniformizer.
+Write \(\mathcal S(V)\) for locally constant compactly supported
+complex functions.
+Let \(l\) be a complex-linear functional on all functions on \(V\);
+only its restriction to \(\mathcal S(V)\) matters.
+Say that \(l\) kills a subset \(U\) if \(l(\varphi)=0\) for every
+\(\varphi\in\mathcal S(V)\) whose nonzero set lies in \(U\).
+
+\begin{srlemma}[Compact cosets and local vanishing]
+\label{lem:sr-source-local-kills}
+If every \(Y\in U\) has a neighborhood killed by \(l\), then \(l\)
+kills \(U\).
+More generally let \(\Lambda\subset V\) be a compact open additive
+subgroup, and suppose \(l\) kills \(U\).
+Suppose that for every \(Y\) in a neighborhood \(\Omega\), either
+\(Y\in U\), or there are a \(k\)-linear map \(s_Y:V\to V\)
+and \(c_Y\ne1\) with
+\[
+ s_YY=Y,\qquad
+ s_YZ\in\Lambda\ \Longleftrightarrow\ Z\in\Lambda,\qquad
+ l(\varphi\circ s_Y)=c_Yl(\varphi)\quad(\varphi\in\mathcal S(V)).
+ \tag{LD1}\label{eq:sr-source-local-stabilizer}
+\]
+Then \(l\) kills the interior of \(\Omega\).
+\end{srlemma}
+\begin{proof}
+A locally constant compactly supported function is a finite sum
+of constants times indicators of cosets of a sufficiently small
+compact open subgroup \(a\Lambda\), \(a\in k^\times\).
+Here is the precise smallness argument.
+Its nonzero set is compact: it is closed, because the zero fibre of
+a locally constant function is open, and is contained in its compact
+support.
+At each point of this set, local constancy supplies a neighborhood
+on which its value is constant.
+Compactness and continuity of addition and scalar multiplication
+give one sufficiently small \(a\ne0\) such that every coset
+\(x+a\Lambda\) meeting this set is contained in an assigned such
+neighborhood.
+For a function supported in an open set, impose containment in that
+open set at the same time.
+The compact nonzero set meets only finitely many disjoint open
+cosets. Summing its constant values on those cosets proves the
+decomposition. This also proves the first assertion by choosing
+the assigned neighborhoods to be killed by \(l\).
+
+For the second assertion take \(\varphi\) whose nonzero set is
+contained in \(\operatorname{int}\Omega\), and choose such a coset
+decomposition with every relevant coset contained in \(\Omega\).
+For a coset \(C=x+a\Lambda\), either \(C\subset U\), in which case
+its indicator has zero \(l\)-value, or choose \(Y\in C\setminus U\).
+Since \(s_Y\) is linear, fixes \(Y\), and preserves membership in
+\(\Lambda\) in both directions, it preserves membership in
+\(Y+a\Lambda=C\) in both directions.
+Thus \(1_C\circ s_Y=1_C\).
+Equation (LD1) gives
+\((c_Y-1)l(1_C)=0\), so this value is zero.
+Add the finitely many coset values.
+These are \srcid{small}, \srcid{kills\_of\_local}, and
+\srcid{kills\_interior} in the source.
+\end{proof}
+
+\begin{srlemma}[The source's moving square-zero stabilizers]
+\label{lem:sr-source-local-dead}
+Suppose \(l\) kills \(U\).
+Fix \(Y_0\in V\).
+Let \(A_Y,B_Y:V\to V\) be linear maps with
+\((Y,Z)\mapsto A_YZ,B_YZ\) continuous at every \((Y_0,Z)\).
+Assume
+\[
+ A_{Y_0}^2=B_{Y_0}^2=0,\qquad
+                       A_{Y_0}B_{Y_0}=B_{Y_0}A_{Y_0}.
+\]
+For every \(Y\) sufficiently near \(Y_0\) outside \(U\), suppose
+\[
+ \begin{gathered}
+ A_Y^2=B_Y^2=0,\qquad
+            (1+A_Y)(1+B_Y)Y=Y,\\
+ \exists c_Y\ne1\quad
+ l\bigl(\varphi\circ(1+A_Y)(1+B_Y)\bigr)
+                  =c_Yl(\varphi)\quad(\varphi\in\mathcal S(V)).
+ \end{gathered}\tag{LD2}\label{eq:sr-source-local-moving-stabilizer}
+\]
+Then \(l\) kills a neighborhood of \(Y_0\).
+\end{srlemma}
+\begin{proof}
+Set
+\[
+ \Lambda=\Lambda_0\cap A_{Y_0}^{-1}\Lambda_0
+       \cap B_{Y_0}^{-1}\Lambda_0
+       \cap(A_{Y_0}B_{Y_0})^{-1}\Lambda_0.
+\]
+It is open and closed, and is a closed subset of the compact
+\(\Lambda_0\), hence compact.
+The square-zero and commutation equations show that both
+\(A_{Y_0}\) and \(B_{Y_0}\) send \(\Lambda\) into itself.
+For example the four conditions for \(A_{Y_0}Z\) are supplied by
+\(A_{Y_0}Z,0,A_{Y_0}B_{Y_0}Z,0\in\Lambda_0\).
+
+Compactness of \(\Lambda\), openness of \(\Lambda\), and the stated
+joint continuity show that, after shrinking around \(Y_0\),
+\[
+                       A_Y\Lambda,\ B_Y\Lambda\subset\Lambda.
+\]
+Explicitly, at each \(Z\in\Lambda\), continuity gives product
+neighborhoods of \(Y_0,Z\) whose images lie in \(\Lambda\);
+a finite cover of the compact set of \(Z\)'s gives one
+neighborhood of \(Y_0\) valid for every \(Z\in\Lambda\).
+If \(C\Lambda\subset\Lambda\) and \(C^2=0\), then
+\[
+                     Z+CZ\in\Lambda\ \Longleftrightarrow\
+                                     Z\in\Lambda.
+\]
+For the converse subtract \(C(Z+CZ)=CZ\).
+Apply this to \(C=A_Y,B_Y\).
+Thus \(s_Y=(1+A_Y)(1+B_Y)\) satisfies all clauses of (LD1)
+outside \(U\). The preceding lemma, on the interior of the chosen
+neighborhood, proves the result.
+This is the actual argument of \srcid{dead} and \srcid{deadM}.
+\end{proof}
+
+Fix distinct indices \(i_0,i_1\).
+For a row \(\rho\in k^d\), put
+\[
+ C_{i,\rho}(Z)=Z_{\cdot,i}\rho,\qquad
+                     \mathrm{colOp}_{i,\rho}Z=Z+C_{i,\rho}(Z).
+\]
+If \(\rho'_i=0\), then
+\(C_{i,\rho}C_{j,\rho'}=0\), by multiplication of the two
+rank-one matrices.
+In particular \(C_{i,\rho}^2=0\) when \(\rho_i=0\).
+Then \(1+C_{i,\rho}\) is a continuous linear automorphism with
+inverse \(1-C_{i,\rho}\), so pullback preserves \(\mathcal S(V)\).
+
+Let \(\psi:k\to\mathbb C^\times\) be a nontrivial additive character,
+let \(\xi:k^\times\to\mathbb C^\times\) be any multiplicative
+character, and impose the source's exact two laws:
+\[
+ \begin{aligned}
+ l\{\varphi(\gamma Z)\}&=\xi(\det\gamma)l(\varphi)
+                      &&(\gamma\in\mathrm{GL}_n(k)),\\
+ l\{\varphi(Z+Z_{\cdot,i_0}\rho)\}
+       &=\psi(\rho_{i_1})l(\varphi)
+                      &&(\rho_{i_0}=0).
+ \end{aligned}\tag{LD3}\label{eq:sr-source-local-left-column}
+\]
+Only Schwartz functions are quantified in these laws.
+
+\begin{srproposition}[The actual two-column support assertion]
+\label{prop:sr-source-local-support}
+Under (LD3), \(l\) kills the set on which
+\(Z_{\cdot,i_0},Z_{\cdot,i_1}\) are linearly independent.
+Equivalently it vanishes on every Schwartz test that vanishes
+where these columns are dependent. This is \(\mathrm{LocSupp}\).
+\end{srproposition}
+\begin{proof}
+Choose \(t\in k\) with \(\psi(t)\ne1\).
+Fix \(Y_0\) with independent columns \(x_0,y_0\).
+Choose rows \(\mu,\nu\) with
+\[
+ \mu x_0=0,\qquad \mu y_0=1,\qquad \nu x_0=1.
+\]
+They are obtained by extending the two coordinate functionals
+from the span of \(x_0,y_0\).
+For \(Y\) near \(Y_0\) write \(x=Y_{\cdot,i_0},y=Y_{\cdot,i_1}\), and put
+\[
+ \begin{split}
+ D(Y)&=(\nu x)(\mu y)-(\mu x)(\nu y),\\
+ \lambda_Y&=D(Y)^{-1}\{(\nu x)\mu-(\mu x)\nu\},\\
+ N_Y&=-t\,x\lambda_Y,\qquad
+ \rho_Y(b)=t\,\lambda_Y(Y_{\cdot,b}),\\
+ A_Y(Z)&=N_YZ,\qquad B_Y(Z)=Z_{\cdot,i_0}\rho_Y .
+ \end{split}\tag{LD4}\label{eq:sr-source-independent-stabilizers}
+\]
+At \(Y_0\), \(D=1\); thus all these maps are continuous in the
+required joint sense on a neighborhood.
+Direct multiplication gives
+\[
+ \lambda_Yx=0,\quad\lambda_Yy=1,\quad
+ \rho_Y(i_0)=0,\quad\rho_Y(i_1)=t,\quad
+ A_Y^2=B_Y^2=0,\quad A_YB_Y=B_YA_Y.
+\]
+Moreover \(B_YY=x\rho_Y\), \(A_YY=-x\rho_Y\), and
+\(A_YB_YY=0\), so \((1+A_Y)(1+B_Y)Y=Y\).
+
+The matrix \(1+N_Y\) is invertible, with inverse \(1-N_Y\),
+and has determinant
+\(1-t\lambda_Yx=1\).
+The first law in (LD3) therefore gives invariance under \(1+A_Y\).
+The second gives multiplication by \(\psi(t)\) under \(1+B_Y\).
+Combining the two, with the order in (LD2), gives its scalar
+\(c_Y=\psi(t)\ne1\).
+Apply Lemma~\ref{lem:sr-source-local-dead} with \(U=\varnothing\).
+It shows that \(l\) kills a neighborhood of each independent \(Y_0\).
+Lemma~\ref{lem:sr-source-local-kills} proves the assertion on the
+whole independent locus.
+This is \srcid{kills\_indep}, then \srcid{locSupp}.
+\end{proof}
+
+Now fix a third distinct index \(i_2\), and assume in addition
+\[
+ l\{\varphi(Z+Z_{\cdot,i_1}\rho)\}
+       =\psi(\rho_{i_2})l(\varphi)
+                \quad(\rho_{i_0}=\rho_{i_1}=0).
+ \tag{LD5}\label{eq:sr-source-second-column-law}
+\]
+
+\begin{srproposition}[The actual three-column vanishing assertion]
+\label{prop:sr-source-local-three}
+The laws (LD3)--(LD5) imply \(l(\varphi)=0\) for every
+\(\varphi\in\mathcal S(V)\), for every \(n,d\) for which the
+three distinct column indices exist.
+This is the original \(\mathrm{LocThree}\).
+\end{srproposition}
+\begin{proof}
+First let \(Y_0\) have \(x_0=Y_{0,\cdot,i_0}\ne0\),
+and choose a row index \(a_0\) with \(x_0(a_0)\ne0\).
+Near this point define, with \(x=Y_{\cdot,i_0},y=Y_{\cdot,i_1}\),
+\[
+ \rho_Y=e_{i_2}\!\left(-t\,{y(a_0)\over x(a_0)}\right),
+ \qquad A_Y=C_{i_1,e_{i_2}t},\qquad B_Y=C_{i_0,\rho_Y}.
+ \tag{LD6}\label{eq:sr-source-dependent-stabilizers}
+\]
+These are jointly continuous near \(Y_0\); they are square zero
+and their products in either order are zero.
+Let \(U\) be the independent-column locus, already killed by \(l\).
+If \(Y\notin U\) near \(Y_0\), then \(x\ne0\) and \(y=sx\)
+for one \(s\in k\).
+Consequently the changes in column \(i_2\) from \(A_Y\) and \(B_Y\)
+cancel, and \((1+A_Y)(1+B_Y)Y=Y\).
+Law (LD5) supplies the factor \(\psi(t)\) for \(1+A_Y\).
+The second law in (LD3) supplies the factor \(1\) for \(1+B_Y\),
+because \(\rho_Y(i_1)=0\).
+Thus (LD2) holds with \(c_Y=\psi(t)\ne1\).
+Its lemma shows local vanishing near every such \(Y_0\).
+The local-kills lemma implies that \(l\) kills the whole locus
+\(U_1=\{Y:Y_{\cdot,i_0}\ne0\}\).
+This is the source's intermediate \srcid{kills\_ne}.
+
+Finally take any \(Y_0\), and use the fixed operators
+\[
+                       A_Y=0,\qquad B_Y=C_{i_0,e_{i_1}t}.
+\]
+They satisfy every continuity and square-zero clause.
+Outside \(U_1\), \(Y_{\cdot,i_0}=0\), so
+\((1+A_Y)(1+B_Y)Y=Y\).
+The second law in (LD3) gives the scalar \(\psi(t)\ne1\).
+The moving-stabilizer lemma now gives local vanishing at every
+\(Y_0\), hence vanishing everywhere by the local-kills lemma.
+This is \srcid{locThree}, with no restriction \(n>0\).
+\end{proof}
+
+\paragraph{Frozen-source ledger.}
+The compact-coset and moving-stabilizer arguments are
+\srcid{src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/ZariskiLocallyAffineLine.lean}
+(blob \srcid{c6f5b75d529a8c7e4b5b479465d4dcb5b4fc30af}).
+The matrix formulas, independent/dependent support steps and final
+vanishing are in
+\srcid{src/Development/WeilBound/ThetaLifts/EigenvalueEndgame/CuspidalAverages/LocalFieldT2Space.lean}
+(blob \srcid{831e81d9d5ab83074a7c3a318fd6c26e83007527}).
+Both were read at the frozen original tag
+\srcid{alpoge-source-7cbf7a0c}.
+This proves those two local inputs; it does not by itself prove
+\(\mathrm{LocTwo}\), \(\mathrm{VacBar}\), the split dictionary,
+or any global theta comparison.
+
+\subsection{The original split-place producers of the two cusp keys}
+\label{subsec:sr-source-acts-of-reads}
+
+This subsection translates
+\srcid{CuspidalAverages.ActsOfReads.keyThree\_of\_locThree} and
+\srcid{keyTwo\_of\_locTwo\_vacBar}.
+The source inputs \(\mathrm{ThetaBasic},\mathrm{KDecay},\mathrm{IAut}\)
+are retained. So are the explicit local distribution statements
+\(\mathrm{LocThree},\mathrm{LocTwo}\), the vacuum assertion
+\(\mathrm{VacBar}\), and the place assertions \(\mathrm{Places}\).
+We write their roles and all constants below.
+Proving a cusp key from these inputs does not prove the inputs.
+
+Keep one source triple of first-space ranks \(a,a'\), common target
+rank \(d=a+a'\), characters \(\alpha,\beta\), and actual periods
+\(I,I'\). Thus a member of the source's comparison space has the
+form
+\[
+ f=I(\Phi)-I'(\Phi'),\qquad
+ \Phi\in\mathrm{PolData},\quad
+ \Phi'\in\mathrm{PolData}'\cap\mathrm{So}'.
+ \tag{AK1}\label{eq:sr-source-key-comparison}
+\]
+The lower test retains the prescribed \(\mathrm{So}'\) cutoff.
+
+Fix a finite split place \(v\) of \(F\), a map
+\(t:E\hookrightarrow F_v=k\), and the source split section
+\(\mathrm{sec}:k\times k\to\mathbb A_E\) supported at \(v\).
+Its two projections are \(t\) and \(t\circ\sigma\);
+these projections determine every element supported at \(v\).
+Put
+\[
+ s_v(x)=\mathrm{sec}(x,0),\qquad
+ c_v(h)=t(h)\in\mathrm{GL}_d(k).
+\]
+Here \(s_v\) includes insertion into the \(v\)-component.
+The section also gives the source local character
+\(\chi_v=\chi\circ s_v\).
+If \(\chi\) satisfies \(\mathrm{IsChar}\), then
+\(\chi_v\ne1\): the nontrivial element supported at \(v\),
+with second projection zero, is \(s_v\) of its first projection.
+This proves \srcid{psi\_ne}; it does not use only rational
+modulations, on which a global additive character would vanish.
+
+\paragraph{The precise local period maps.}
+Write \(\mathcal S(M_{n,d}(k))\) for locally constant compactly
+supported functions on \(n\)-by-\(d\) matrices.
+For cofinally all finite \(v\), the source constructs maps
+\(S:\mathcal S(M_{a,d}(k))\to\{\text{automorphic functions on }U(W)\}\)
+and \(S'\) with \(a'\) in place of \(a\), together with local
+model changes \(\iota,\iota'\), such that
+\[
+ S(\iota\,\mathrm{vac}_v)=I(\Phi),\qquad
+ S'(\iota'\,\mathrm{vac}'_v)=I'(\Phi').
+ \tag{AK2}\label{eq:sr-source-local-period-values}
+\]
+The maps are additive on Schwartz functions and homogeneous.
+For the large map their exact transformation laws are
+\[
+ \begin{split}
+ S\{\varphi(\gamma Y)\}
+       &=\xi(\det\gamma)\,S\varphi,\\
+ R_h(S\varphi)&=\eta(\det c_v(h))\,
+                     S\{\varphi(Yc_v(h))\}
+                   \quad(h\text{ supported at }v),\\
+ \xi&=\{\alpha_v^{-1}\beta_v|\cdot|_v^{d/2}\}^{-1},
+ \qquad \eta=\beta_v|\cdot|_v^{a/2}.
+ \end{split} \tag{AK3}\label{eq:sr-source-local-period-laws}
+\]
+For the small map replace
+\[
+ (\xi,\eta,a)=
+ \bigl(\{\alpha_v\beta_v^{-1}|\cdot|_v^{d/2}\}^{-1},
+              \alpha_v|\cdot|_v^{a'/2},a'\bigr).
+ \tag{AK4}\label{eq:sr-source-small-local-period-laws}
+\]
+We view the unit-valued characters through their complex values.
+The absolute value has \(|\varpi|_v=q^{-1}\).
+
+Here is the construction in \srcid{exists\_loc},
+\srcid{locV}, and \srcid{locV'}.
+For a global test \(\Phi\), define insertion by
+\[
+ \mathrm{ins}_v(\Phi,\varphi)(x)
+   =\varphi(x_v)\,\Phi(x^{v,0}),
+\]
+where \(x^{v,0}\) replaces its \(v\)-coordinate by zero.
+For a pure restricted tensor, insertion changes exactly one factor.
+Outside a finite set that factor equals the vacuum and has value
+one at zero. Hence insertion of the vacuum recovers \(\Phi\).
+Insertion of any local Schwartz function remains in
+\(\mathrm{PolData}\): its archimedean polynomial factor is unchanged,
+and all finite factors remain Schwartz and vacuum almost everywhere.
+The set of tests with these two properties is a vector subspace,
+so the assertion extends to every finite sum of pure tensors.
+For the source's \(\mathrm{So}\), exclude also its one distinguished
+finite place \(v_1\). The local condition at \(v_1\) is then unchanged.
+Intersecting the two insertion-stable subspaces proves the assertion
+for \(\mathrm{PolData}'\cap\mathrm{So}'\).
+
+The actual local Weil dictionary supplies \(\iota\), its inverse
+\(j\) on Schwartz functions, and the intertwining laws.
+Define
+\[
+                  S\varphi=I(\mathrm{ins}_v(\Phi,j\varphi)).
+ \tag{AK5}\label{eq:sr-source-local-period-construction}
+\]
+The insertion argument puts every test used here in the source
+period domain. \(\mathrm{KDecay}\) gives convergence; consequently
+theta-sum linearity and linearity of the convergent integral give
+additivity. \(\mathrm{IAut}\) supplies automorphy.
+Intertwining the first-group action and applying invariance of its
+period gives the first law in (AK3). The local transpose used there
+has the same determinant as \(\gamma\); the inverse character is
+therefore exactly the displayed \(\xi\).
+Intertwining the second-group action and right translation gives
+the second law and its displayed \(\eta\).
+The identical calculation with the small source pair gives (AK4).
+No scalar in the local dictionary is independently renormalized here.
+The dictionary's model change and inverse, including its splitting
+characters, are retained construction inputs in this step.
+
+\paragraph{From a global Whittaker functional to a local distribution.}
+Let \(u,u'\) be a source frame of size \(j\):
+\[
+ u^tJ\bar u=0,\qquad (u')^tJ\bar u'=0,\qquad u^tJ\bar u'=1.
+\]
+There are an injection \(e:\{0,\ldots,j-1\}\to\{0,\ldots,d-1\}\)
+and \(c\in\mathrm{GL}_d(E)\) such that
+\[
+ c_{\cdot,e(i)}=u_{\cdot,i},\qquad
+ (J\bar u')^t c=(1_d)_{e(\cdot),\cdot}.
+ \tag{AK6}\label{eq:sr-source-frame-complement}
+\]
+Indeed the displayed left inverse of \(u\) splits \(E^d\) into
+its image and the kernel of that left inverse. Append a basis of
+the kernel to the specified columns of \(u\).
+This proves \srcid{frame\_compl}.
+
+Let \(\Lambda\) satisfy the actual \(\mathrm{IsWh}\) laws for this
+frame and \(\chi\). Fix any \(g\in U(W)(\mathbb A)\).
+Every local matrix \(c_v(g)\) has a lift \(g_v\) supported at \(v\).
+It is obtained by putting that matrix in the first split factor
+and its inverse \(J\)-adjoint in the conjugate split factor.
+Then
+\[
+                       g=r g_v,
+\]
+where \(r\) commutes with all elements supported at \(v\):
+both split components of \(r\) are \(1\).
+The equality follows from the two-projection uniqueness of the split
+section and the unitary equation. This is \srcid{ex\_split}.
+
+On the Schwartz subspace define
+\[
+ l_0(\varphi)=
+       \Lambda\bigl(R_r\,S\{\varphi(Yc)\}\bigr).
+\]
+Automorphy of \(S\varphi\), and additivity of \(\Lambda\) on
+automorphic functions, make this linear.
+Extend it algebraically to a linear functional \(l\) on all
+matrix functions; only its restriction to Schwartz functions is used.
+The original \srcid{exists\_l} proves
+\[
+ \begin{split}
+ l\{\varphi(\gamma Y)\}&=\xi(\det\gamma)l(\varphi),\\
+ l\{\varphi(\mathrm{colOp}_{e(i),\rho}Y)\}
+       &=\chi_v(\rho_{e(i+1)})l(\varphi)
+       \quad\bigl(\rho_{e(b)}=0\text{ for }b\le i\bigr),\\
+ \Lambda(R_{kg}S\varphi)
+       &=\eta(\det(c_v(k)c_v(g)))\,
+          l\{\varphi(Yc^{-1}c_v(k)c_v(g))\}
+                  \quad(k\text{ supported at }v),
+ \end{split}\tag{AK7}\label{eq:sr-source-local-whittaker-distribution}
+\]
+where
+\[
+ \mathrm{colOp}_{i,\rho}Y
+                  =Y+Y_{\cdot,i}\rho .
+\]
+In (AK7), \(c\) denotes its image under \(t\).
+
+For completeness, the column law uses the local matrix
+\(N=1+e_{e(i)}\rho\). Its determinant is \(1+\rho_{e(i)}=1\).
+Lift \(cNc^{-1}\) to the split unitary group at \(v\).
+The frame columns transform by an upper unipotent matrix whose
+consecutive superdiagonal sum is \(s_v(\rho_{e(i+1)})\);
+the earlier consecutive entries vanish because
+\(\rho_{e(b)}=0\) for \(b\le i\).
+On the orthogonal complement of the frame span, the displacement
+is a multiple of \(u_{\cdot,i}\), hence belongs to that span.
+These are all clauses of \(\mathrm{IsWh.law}\).
+Applying that law, then the second law in (AK3), proves the column
+identity. The determinant factor is \(1\).
+The first line of (AK7) follows from the first line of (AK3).
+For the last line substitute \(g=r g_v\), commute \(r\) past \(k\),
+and use the second line of (AK3). Thus no continuity of \(l\) is
+assumed or required.
+
+\begin{srproposition}[The source's three-column key producer]
+\label{prop:sr-source-key-three-producer}
+Assume \(\mathrm{ThetaBasic},\mathrm{KDecay},\mathrm{IAut},
+\mathrm{LocThree},\mathrm{Places}\).
+Then \(\mathrm{KeyThree}\) holds with its full quantifiers:
+every frame of size at least three, every admissible
+\(\chi,\Lambda\), every \(f\) in (AK1), and every right translate.
+\end{srproposition}
+\begin{proof}
+There are infinitely many split places by \(\mathrm{Places}\).
+Choose one outside the two finite exceptional sets in (AK2).
+The functional \(l\) in (AK7) has the left covariance and the two
+successive column laws required by \(\mathrm{LocThree}\), at the
+distinct indices \(e(0),e(1),e(2)\).
+The local character is nontrivial, as proved above.
+Thus \(\mathrm{LocThree}\) makes \(l\) vanish on every Schwartz test.
+Take \(k=1\) in (AK7). Its right matrix substitution preserves the
+Schwartz space, so \(\Lambda(R_gS\varphi)=0\).
+Apply this separately to \(S(\iota\mathrm{vac})\) and
+\(S'(\iota'\mathrm{vac}')\).
+Both functions are automorphic. Additivity and homogeneity of
+\(\Lambda\) therefore give
+\(\Lambda(R_g(I\Phi-I'\Phi'))=0\).
+This is exactly \srcid{keyThree\_of\_locThree}.
+\end{proof}
+
+\paragraph{The numerical sequence used for the two-column key.}
+For \(q>1,\ r\in\mathbb C^\times,\ c\in\mathbb Z\), put
+\[
+ Y_m(q,r,c)=(qr)^{-m}
+       \sum_{0\le i<(2m-c+1)_+}r^i,\qquad
+                     (x)_+=\max\{x,0\}.
+ \tag{AK8}\label{eq:sr-source-key-two-sequence}
+\]
+Integer powers and the truncation in this formula are literal.
+
+\begin{srlemma}\label{lem:sr-source-key-two-sequence}
+For every \(m\ge0\),
+\[
+ Y_m(q,r^{-1},c)=r^cY_m(q,r,c).
+ \tag{AK9}\label{eq:sr-source-key-two-inversion}
+\]
+If \(|r|>q\), then \(|Y_m(q,r,c)|\to\infty\).
+\end{srlemma}
+\begin{proof}
+When \(2m-c+1\le0\), both sums are zero.
+Otherwise write \(2m-c=N\ge0\).
+Reversing the finite sum gives
+\(\sum_{i=0}^Nr^{-i}=r^{-N}\sum_{i=0}^Nr^i\).
+Since \(c=2m-N\), multiplication by the two prefactors gives (AK9).
+
+Put \(R=|r|>q>1\).
+For all sufficiently large \(m\), \(N=2m-c+1\ge0\), and
+the finite geometric identity and the norm triangle inequality give
+\[
+ R^N-1
+   \le \left|\sum_{i=0}^{N-1}r^i\right|(R+1).
+\]
+Multiplying by \((qR)^{-m}\), and using
+\((qR)^{-m}\le1\), yields
+\[
+ |Y_m(q,r,c)|
+       \ge {R^{1-c}(R/q)^m-1\over R+1}.
+\]
+The right side tends to infinity.
+These are the source's \srcid{yy\_inv} and
+\srcid{yy\_tendsto}; no phase convergence is asserted.
+\end{proof}
+
+\begin{srproposition}[The source's two-column key producer]
+\label{prop:sr-source-key-two-producer}
+Assume \(\mathrm{ThetaBasic},\mathrm{KDecay},\mathrm{IAut},
+\mathrm{LocTwo},\mathrm{VacBar},\mathrm{Places}\).
+For every size-two source frame, every specified Levi map \(m\),
+every admissible \(\chi,\Lambda\), every comparison form \(f\),
+and every \(h_0\in U(W)(\mathbb A)\), there are a neighborhood
+\(V\) of \(h_0\), matrices \(b_i\in\mathrm{GL}_2(\mathbb A_E)\),
+and complex numbers \(y_i\), with
+\[
+ b_0=1,\quad \det b_i=1,\quad |y_i|\longrightarrow\infty,
+ \qquad
+ \forall h\in V\ \exists x_h\in\mathbb C\
+ \forall i\ge0:\quad
+              \Lambda(R_{m(b_i)h}f)=x_hy_i.
+ \tag{AK10}\label{eq:sr-source-key-two-conclusion}
+\]
+\end{srproposition}
+\begin{proof}
+Choose the rational completion \(c\) in (AK6) first.
+The place assertions permit choosing one split \(v\) for which:
+both (AK2) hold; both model changes carry the vacuum to
+\(\kappa1_{M_{a,d}(\mathcal O_v)}\) and
+\(\kappa'1_{M_{a',d}(\mathcal O_v)}\);
+the entries of \(c,c^{-1},c_v(h_0),c_v(h_0^{-1})\) are integral;
+and \(\alpha_v,\beta_v\) are unramified.
+Indeed all these requirements exclude only finitely many places,
+whereas the split places are infinite.
+The two vacuum scalars are not assumed nonzero.
+
+Choose a uniformizer \(\varpi\), let \(q=|\mathcal O_v/\varpi|\),
+and choose the exact conductor \(c_0\in\mathbb Z\) of
+\(\chi_v\): it is trivial on \(\varpi^{c_0}\mathcal O_v\) and
+nontrivial on \(\varpi^{c_0-1}\mathcal O_v\).
+Here is the source's short proof of \srcid{exists\_cond}.
+Continuity at zero gives an ideal \(\varpi^m\mathcal O_v\)
+on which \(|\chi_v(x)-1|<1/2\).
+Every nonnegative integer multiple of a point of that ideal
+remains in the ideal. Thus, for \(z=\chi_v(x)\),
+\(|z^n-1|<1/2\) for every \(n\ge0\).
+The identity
+\[
+ z^{2^{j+1}}-1=(z^{2^j}-1)\{2+(z^{2^j}-1)\}
+\]
+implies
+\[
+ |z^{2^j}-1|\ge(3/2)^j|z-1|.
+\]
+The left side is bounded by \(1/2\), so \(z=1\).
+There is therefore at least one exponent on whose ideal
+the character is trivial. Fixing one \(x\) with
+\(\chi_v(x)\ne1\) bounds these exponents below, since
+\(x\in\varpi^c\mathcal O_v\) for all sufficiently negative
+integers \(c\).
+Their least integer \(c_0\) has the asserted triviality;
+minimality gives a point of
+\(\varpi^{c_0-1}\mathcal O_v\) with nontrivial character.
+
+Use the split section to choose \(b_i\) whose first local projection
+is \(\operatorname{diag}(\varpi^i,\varpi^{-i})\), whose conjugate
+projection is \(1\), and which is \(1\) away from \(v\).
+Then \(b_0=1\), and \(\det b_i=1\).
+For the prescribed Levi map the frame formula gives
+\[
+ c_v(m(b_i))c
+   =c\,\mathrm{torus}_{e(0),e(1)}(\varpi^i).
+ \tag{AK11}\label{eq:sr-source-key-two-torus}
+\]
+The source proves this by substituting the two projections into
+\(\mathrm{levM}\); (AK6) cancels the frame row and column matrices.
+This is \srcid{exists\_torus}; the matrices \(b_i\) are the same for
+both source periods.
+
+Set
+\[
+ V=\{h:c_v(h),\,c_v(h^{-1})\in M_d(\mathcal O_v)\}.
+\]
+The valuation ring is open, and projection, inversion and matrix
+entries are continuous. Hence \(V\) is open and contains \(h_0\).
+For \(h\in V\), apply (AK7) with \(g=h\).
+Integral invertibility of \(c\) and \(c_v(h)\) gives
+\[
+ 1_{\mathrm{int}}\{Yc^{-1}c_v(m(b_i))c_v(h)\}
+       =1_{\mathrm{int}}\{
+                    Y\,\mathrm{torus}_{e(0),e(1)}(\varpi^i)\}.
+ \tag{AK12}\label{eq:sr-source-key-two-vacuum-torus}
+\]
+To verify this, factor the matrix on the left as
+\(\mathrm{torus}_{e(0),e(1)}(\varpi^i)c^{-1}c_v(h)\)
+using (AK11).
+Right multiplication by the final matrix preserves integral matrices
+in both directions. This is \srcid{oneO\_tor}.
+The determinant of \(c_v(m(b_i))\) is one, so its \(\eta\)-factor
+in (AK7) has no \(i\)-dependence.
+The remaining \(\eta(\det c_v(h))\) and vacuum scalar are absorbed
+into a constant depending on \(h\).
+
+Write \(a=a'+2\epsilon\), using the triple's parity and \(a'<a\), and
+put
+\[
+ r={\alpha_v(\varpi)\over\beta_v(\varpi)}q^\epsilon.
+ \tag{AK13}\label{eq:sr-source-key-two-r}
+\]
+The triple's rank gap gives \(\epsilon>1\).
+Its Hecke character data and the split section give
+\(|\alpha_v(\varpi)|=|\beta_v(\varpi)|=1\).
+Thus \(|r|=q^\epsilon>q\).
+All these statements are made after fixing the actual triple;
+no bound uniform in a changing triple is inferred.
+
+The large left character in (AK3), at \(\varpi\), is
+\((\alpha_v/\beta_v)(\varpi)q^{d/2}\).
+Consequently its local \(\mathrm{LocTwo}\) parameter is
+\[
+                    \xi(\varpi)q^{a-d}
+                       =(\alpha_v/\beta_v)(\varpi)q^\epsilon=r.
+\]
+For (AK4) the parameter is
+\(\xi'(\varpi)q^{a'-d}=r^{-1}\).
+The characters \(\xi,\xi'\) are unramified: both original
+characters and the absolute-value powers are trivial on local units.
+Thus every premise of the local \(\mathrm{LocTwo}\) formula is present.
+Applied to (AK12), that formula gives
+\[
+ \Lambda(R_{m(b_i)h}I\Phi)=A_hY_i(q,r,c_0),\qquad
+ \Lambda(R_{m(b_i)h}I'\Phi')=B_hY_i(q,r^{-1},c_0).
+\]
+Their local additive characters and conductor are identical.
+Apply (AK9), and subtract, using automorphy for the additivity of
+\(\Lambda\).
+With
+\[
+             y_i=Y_i(q,r,c_0),\qquad
+                         x_h=A_h-B_hr^{c_0},
+\]
+we obtain (AK10).
+The preceding lemma proves \(|y_i|\to\infty\).
+This is the full quantifier order of
+\srcid{keyTwo\_of\_locTwo\_vacBar}: \(V,b_i,y_i\) precede \(h\),
+whereas \(x_h\) may depend on \(h\).
+\end{proof}
+
+\paragraph{Frozen source and retained leaves.}
+All source files below have prefix
+\srcid{src/Development/WeilBound/}.
+The local-to-global construction is
+\srcid{ThetaLifts/EigenvalueEndgame/CuspidalAverages/ActsOfReads.lean}
+(blob \srcid{4e02838d8c6835af8c49065256decc48a0b20f9c});
+its conductor and sequence calculations are
+\srcid{ThetaLifts/EigenvalueEndgame/CuspidalAverages/ExistsCond.lean}
+(blob \srcid{123a7a68b9cdf0725772ddb17331e96dc4a2d617}).
+Both were read at \srcid{alpoge-source-7cbf7a0c}.
+
+The still separate local leaves are
+\srcid{LocalFieldT2Space.locSupp/locThree},
+\srcid{ColOpSingle.locTwo\_of}, and
+\srcid{VacIntZ.vacBar}, in that same cusp directory.
+The place assertions and the exact split Weil dictionary, including
+\srcid{dictionary\_extended} and \srcid{section\_statement},
+also remain separate producers.
+This subsection proves their application to the actual large/small
+periods, and the shared sequence and neighborhood; it does not replace
+one of those producers by a choice of normalizations.

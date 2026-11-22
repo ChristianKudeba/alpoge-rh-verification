@@ -995,3 +995,360 @@ The exact inner producer blobs are:
 \srcid{b51ac56be9caa1cd17ebcc0cb776a1a1446cdeb1};
 \srcid{ConnectionValueLevelKappaMulPullback}
 \srcid{88fb019a0ae41304662fbdc581d1bed509474bec}.
+
+\subsection{Reached sections on the actual polarized model}
+\label{subsec:ftb-reached-sections}
+
+Retain the integral uniformization and its coefficient bundles from
+\S\ref{subsec:ftb-expansion-regularity}.
+The following uses its period/cubical identifications, including the
+quadratic valuation \(Q\); it introduces no replacement model.
+Put
+\[
+ b_Q(x,y)=Q(x+y)-Q(x)-Q(y).
+\]
+The polarized period pairing gives a symmetric bilinear \(b_Q\),
+\(b_Q(x,x)=2Q(x)\), and
+\[
+ Q(x+km)=Q(x)+k\,b_Q(m,x)+k^2Q(m).
+\]
+
+An actual generator of the principal theta line has an integral
+primitive coefficient at \(0\).
+The coefficient functional equation transports it from \(0\) to all
+of \(X\); more generally the same equation shows that the inequalities
+defining \(\nu\ge r\) can be checked on representatives of \(X/kX\).
+Indeed the coefficient line-bundle translation for
+\(\chi\mapsto\chi+km\) changes the scalar valuation by
+\(kQ(m)+b_Q(m,\chi)\).  The displayed quadratic identity says that
+this is precisely
+\((Q(\chi+km)-Q(\chi))/k\).
+For \(k=1\) there is only the representative \(0\).
+Thus the primitive theta generator has \(\nu\ge0\).
+This is the source's
+\srcid{GeneratorSectionExpansionNuNonneg}, using
+\srcid{ValuationMinRepresentatives} with the representative set
+\(\{0\}\).
+
+We give the two operations on this assertion explicitly.
+For a CM endomorphism \(a\) with \(a^*a=aa^*=N\), the adjoint
+compatibility of the period pairing gives
+\[
+ b_Q(a^*\chi,a^*\chi)=b_Q(\chi,N\chi),\qquad
+                         Q(a^*\chi)=NQ(\chi).
+\]
+The normalized pullback at line powers \(k\to kN\) has coefficients
+supported on \(a^*X\); the coefficient at \(a^*\chi\) is the
+pullback of the coefficient at \(\chi\) through the corresponding
+endomorphism of the proper abelian quotient, with the canonical
+rigidified coefficient-bundle identification.
+This identification has an integral generator: it is the cubical
+Rosati identity on the integral quotient, normalized at its identity.
+Pullback takes an integral section to an integral section.
+Consequently
+\[
+ V_{\ge r+Q(\chi)/k}(\Theta_\chi)
+ \Longrightarrow
+ V_{\ge r+Q(a^*\chi)/(kN)}
+                       (([a]^*\Theta)_{a^*\chi}).
+\]
+The other coefficients vanish and satisfy every lower bound.
+Therefore normalized CM pullback preserves the inequality \(\nu\ge r\)
+in the forward direction used here.
+The source calls these the
+\srcid{PullGenStatement}, \srcid{QAlStatement}, and
+\srcid{PullbackValuationForwardBound};
+the last is obtained by exactly this coefficient argument.
+Its application to sections includes the source restriction
+\(k=1\) or \(k\ge4\).
+
+For a symmetric torsion translation, let \(p\) be its uniformized
+point at line power \(k\), with period label \(y\in X\) and proper
+abelian coordinate \(b\) satisfying \(kb=c(y)\).
+Properness extends \(b\) to the valuation ring.
+For each \(\chi\), compare its chosen generic Poincare generator with
+an integral generator over this extension.
+The scalar \(t_\chi\) in this comparison satisfies
+\begin{equation}\label{eq:ftb-poincare-ratio}
+                     k\,v(t_\chi)=b_Q(y,\chi).
+\end{equation}
+Here is the cubical valuation calculation behind this formula.
+Taking \(k\) tensor powers changes the \(b\)-argument to \(kb=c(y)\).
+The cubical multiplication identification compares this tensor with
+the period-pairing generator at \((y,\chi)\).
+All generators extending over the valuation ring have unit ratios;
+their valuations are zero.  The period pairing has valuation
+\(b_Q(y,\chi)\).
+The extra \(kQ(y)\) term in the theta rigidification occurs on both
+sides and cancels.  Thus the remaining identity of valuations is
+\(kv(t_\chi)+kQ(y)=b_Q(y,\chi)+kQ(y)\), proving
+\eqref{eq:ftb-poincare-ratio}.
+This is the tensor calculation printed in
+\srcid{ValuationThetaRatioEqBilinear.v\_ratio\_gt};
+its hypotheses include the same cubical structure and period
+rigidifications of the uniformization.
+
+If \(q_w\) is the valuation of the single remaining line generator,
+and the translation lift has scalar normalization \(\zeta\), its
+coefficient map shifts \(\chi\) to \(\chi+y\).
+By \eqref{eq:ftb-poincare-ratio} it gives, for all \(r\),
+\[
+ \nu(\Theta)\ge r
+ \quad\Longleftrightarrow\quad
+ \nu(\zeta\Phi_p\Theta)\ge r+c,\qquad
+ c=q_w+v(\zeta)-Q(y)/k .
+\]
+The equality follows by subtracting
+\(Q(\chi+y)/k\) from the coefficient valuation:
+the \(\chi\)-dependent term
+\(b_Q(y,\chi)/k\) cancels exactly.
+This is the content of \srcid{TWMain.tw\_of}, rather than the
+unsupported assertion that an arbitrary finite-order matrix preserves
+an arbitrary lattice.
+
+\begin{srlemma}[The finite-order shift argument]\label{lem:ftb-periodic-nu}
+Suppose \(A\) is a finite-order operator on these coefficient
+families and, for a fixed rational \(c\),
+\(\nu(s)\ge r\) if and only if \(\nu(As)\ge r+c\), for every \(s,r\).
+Then \(\nu(s)\ge r\) if and only if \(\nu(As)\ge r\).
+\end{srlemma}
+\begin{proof}
+Let \(A^M=1\), with \(M\ge1\).
+Iteration gives
+\[
+      \nu(s)\ge r\quad\Longleftrightarrow\quad
+                              \nu(s)\ge r+Mc.
+\]
+If \(c=0\), there is nothing to prove.
+Otherwise the monotone predicate \(P(r):=[\nu(s)\ge r]\) is periodic
+with a nonzero rational period.  If it holds at one rational threshold,
+it holds at every rational threshold: use multiples of the absolute
+period to exceed any prescribed threshold, then decrease the bound.
+In particular \(P(r)\) and \(P(r-c)\) are equivalent.
+Combining this with the one-step shift gives the assertion.
+This proof permits the zero family; no unproved finiteness or upper
+bound for \(\nu\) is needed.
+\end{proof}
+
+An actual symmetric \(k\)-torsion lift acts with finite order on
+coefficient families.
+Its lift through the PEL torsion identification can differ from a
+chosen uniformized lift only by a root of unity.
+Such a scalar has valuation zero.
+Lemma~\ref{lem:ftb-periodic-nu} and the preceding exact shift formula
+therefore show that symmetric torsion translation preserves
+\(\nu\ge0\).
+The actual finite-order and root-of-unity comparisons are those of
+\srcid{SymmetricLiftActsRootOfUnityOnExpansions}, used in
+\srcid{SymmetricTorsionTranslateSectionNuNonneg}.
+
+Define a \emph{reached} section inductively as follows.
+Start from the actual principal theta generator at line power \(1\).
+One may apply a normalized CM pullback
+\(a^*a=N\), with \(N\) odd, from line power \(k\) to \(kN\),
+provided \(k=1\) or \(k\ge4\).
+One may also apply a normalized symmetric torsion translation at
+the current line power.
+This is exactly the inductive predicate \srcid{Reach}.
+
+\begin{srproposition}[Reached sections are regular on the same chart]
+\label{prop:ftb-reached-regular}
+For a good integral chart with its actual PEL uniformization,
+every reached section extends over that integral model.
+\end{srproposition}
+\begin{proof}
+Base change the chart and all its cubical data to an algebraically
+closed valued extension of its fraction field.
+The base coefficient calculation, the normalized-pullback argument,
+and the symmetric-translation argument above prove \(\nu\ge0\)
+by induction on the construction of the reached section.
+The pullback and translation identities commute with this base
+change: pulling the corresponding line-bundle isomorphisms and their
+normalized generators gives the same identities, by uniqueness of
+the rigidified normalization.
+Apply Proposition~\ref{prop:ftb-expansion-regularity} to descend the
+nonnegative coefficient family and extend the section over the
+original chart.
+This is \srcid{ReachedSectionRegularOnIntegralModel.regular\_of\_reach}.
+The proposition is relative to the actual integral uniformization
+and its compatible expansion correspondence, as stated above.
+\end{proof}
+
+\subsection{The exact mixed-translation pullback}
+\label{subsec:ftb-mixed-pullback}
+
+\begin{srlemma}[The reached section behind a mixed translate]
+\label{lem:ftb-mixed-pullback}
+Let \(N\) be odd, and let
+\[
+ N=\beta\alpha n',\qquad
+ \alpha\bar\alpha=A,\quad\beta\bar\beta=B,\qquad
+                                N^2=(n')^2AB .
+\]
+Here the first equality is in \(\mathcal O_E\), and \(A,B,n'\) are
+nonnegative integers.
+Let \(s\) be the actual line-power-one theta section.
+Suppose \(x_1,x_2\) satisfy
+\[
+ x_1^{N^2}=x_2^{N^2}=1,\quad
+ ([\alpha\beta]x_1)^{(n')^2}=1,\quad
+ ([\beta]x_2)^{(n')^2A}=1 .
+\]
+If \(F\) is the prescribed normalized mixed translate of
+\([N]^*s\) at these two points, then
+\[
+                         F=[\beta]^*h
+\]
+for a reached section \(h\) at line power \((n')^2A\).
+All pullbacks and translates have their fixed symmetric normalization.
+\end{srlemma}
+\begin{proof}
+Construct, in order,
+\[
+ G_0=[n']^*s,\quad
+ G_1=t_{[\alpha\beta]x_1}^*G_0,\quad
+ K_1=[\alpha]^*G_1,\quad
+ h=t_{[\beta]x_2}^*K_1 .
+\]
+The displayed torsion conditions make both translations defined.
+Every intermediate line power is odd; \((n')^2\) is \(1\) or at
+least \(4\), so these are permitted \srcid{Reach} steps.
+Composition of normalized pullbacks gives
+\([\alpha\beta]^*[n']^*s=[N]^*s\).
+Normalized pullback commutes with symmetric translation by replacing
+the translating point by its image.
+Apply these two identities first to the \(x_1\)-translate and then
+to the \(x_2\)-translate.
+Uniqueness of normalized odd-level symmetric translates identifies
+\([\beta]^*h\) with \(F\) exactly, including its scalar phase.
+This proves the assertion of
+\srcid{MixedTranslatePullbackEqReachedSection.uu\_eq\_pull\_reach}.
+\end{proof}
+
+For a harmonic polynomial \(P\) with row degrees \(a_{\tau,i}\),
+let
+\[
+                 \operatorname{Nm}_a(\gamma)
+                  =\prod_{\tau,i}\tau(\gamma)^{a_{\tau,i}} .
+\]
+Every nonzero monomial of \(P\) has total degree \(d_a\):
+sum its row degrees over all rows.
+Applying the differential chain rule in each eigendirection gives
+\[
+ \mathcal D_P([\gamma]^*h)
+          =\operatorname{Nm}_a(\gamma)\,\mathcal D_P(h),\qquad
+ \operatorname{Nm}_a(m)=m^{d_a}.
+\]
+These identities are valid for arbitrary coefficient-field
+coefficients of \(P\), by linearity; the source first clears their
+common denominator when applying its integral-polynomial version.
+
+\begin{srproposition}[The mixed-translate valuation bound]
+\label{prop:ftb-mixed-value-bound}
+In an actual good integral chart suppose the harmonic connection
+evaluation of an integral germ has valuation at least \(-\rho\) for
+all integral harmonic polynomials of these row degrees and all line
+powers.
+Retain the hypotheses of Lemma~\ref{lem:ftb-mixed-pullback}, and suppose
+\(n'\) is a unit in the chart DVR.
+Then
+\[
+ v\left(
+  \frac{\operatorname{Nm}_a(\alpha)}{N^{d_a}}
+                         \mathcal D_P(F)\right)\ge-\rho .
+\]
+\end{srproposition}
+\begin{proof}
+The reached section \(h\) is regular by
+Proposition~\ref{prop:ftb-reached-regular}, so its germ is an integral
+power series in this chart.
+The pullback chain rule and \(N=\beta\alpha n'\) give
+\[
+ \frac{\operatorname{Nm}_a(\alpha)}{N^{d_a}}\mathcal D_P(F)
+             =(n')^{-d_a}\mathcal D_P(h).
+\]
+The unit factor has valuation zero.
+The assumed chart connection bound gives the conclusion.
+For \(P=0\) the value is zero and its valuation is \(+\infty\).
+This is the complete calculation in
+\srcid{HarmonicValueTranslatedProductValuationBound.term\_bound}.
+\end{proof}
+
+\subsection{The actual formal kernel is finite and split}
+\label{subsec:ftb-actual-split-kernel}
+
+In an actual good chart, the formal group used in
+\S\ref{subsec:ftb-formal-kernel-trace} is the completion at the identity
+of the same smooth semi-abelian integral model.
+Its scalar kernels on the special fibre are finite: the torus kernel
+is a product of \(\mu_N\)'s, and the proper abelian quotient has finite
+multiplication kernel.
+The exact torus--abelian sequence therefore gives a finite scalar
+kernel.  In the formal coordinates its local zero set is supported
+at the origin.  Noetherianity implies that the coordinate ideal has a
+power contained in the scalar-kernel equations.
+Thus this is precisely the finite-height condition used in
+Lemma~\ref{lem:ftb-formal-substitution}, including the primes of bad
+reduction.
+
+For completeness, the split-kernel assertion in that lemma is
+obtained from actual rational torsion, as follows.
+Suppose
+\[
+ \mu'\mu=kM1,\qquad (k,\ell)=1,
+\]
+at residue characteristic \(\ell\), and every \(M\)-torsion point of
+the generic abelian variety is rational over the chart's fraction
+field.
+Multiplication by \(k\) is an automorphism of the formal group:
+its tangent matrix is the unit matrix \(k1\), and the formal inverse
+is constructed recursively.
+Hence a formal \(\mu\)-kernel point is killed by \(M\).
+
+The formal kernel algebra is finite over \(V\).
+A generic algebraic point of it can be taken over a finite extension
+DVR, where its coordinates are integral and small.
+The formal coordinate point gives compatible points of the same
+smooth group scheme modulo all powers of the maximal ideal.
+They algebraize over the complete DVR in an affine neighborhood of
+the identity: the compatible coordinate ring maps have their limit
+in the complete ring and satisfy its finitely many defining equations.
+The resulting generic group point is \(M\)-torsion, so by the stated
+rational-torsion condition it descends to the original fraction field.
+Its chart coordinates descend with it.
+Those coordinates are integral over the original \(V\), which is
+integrally closed, so they lie in \(V\).
+They are still small, since their reductions over the extension are
+zero.  This proves the exact \srcid{SplitKer} condition.
+It also proves that the formal part of a scalar kernel consists of
+its \(\ell\)-primary points; prime-to-\(\ell\) scalar multiplication
+is invertible formally.
+The source carries out the coordinate/jet and descent argument in
+\srcid{SplitKernelFormalGroupOfRationalTorsion}, and derives finite
+height in \srcid{FiniteHeightFormalGroupUniformisedModel}.
+
+The rational-torsion condition is reached in the denominator argument
+by passing to a finite extension DVR in the actual short-value
+reading.  Normalized valuations \(v_{V'}/(te)\) restrict exactly to
+\(v_V/e\); no additional denominator constant is introduced by this
+extension.
+
+\paragraph{Source ledger and retained boundary.}
+The reached-section proof uses the actual N3/PEL expansion
+correspondence, integral cubical identifications, primitive theta
+generator and period-pairing valuation.
+The coefficient calculations above are
+\srcid{GeneratorSectionExpansionNuNonneg},
+\srcid{NormalisedPullbackSectionNuNonneg},
+\srcid{SymmetricTorsionTranslateSectionNuNonneg}, and
+\srcid{ReachedSectionRegularOnIntegralModel}.
+The exact translation shift and periodic argument are
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/TWMain.lean}
+and \srcid{PeriodicValuation.lean}.
+The cubical ratio calculation is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/RingsOfIntegers/ValuationThetaRatioEqBilinear.lean}.
+The mixed-translate and harmonic statements are in the same
+\srcid{RingsOfIntegers/} directory.
+None of these deductions by itself constructs the initial integral
+uniformization or proves the chart harmonic connection bound
+\(\rho\); those are separate producer obligations.

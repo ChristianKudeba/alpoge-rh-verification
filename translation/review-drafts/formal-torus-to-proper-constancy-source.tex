@@ -1,0 +1,157 @@
+\subsection{The source torus-to-proper-group constancy argument}
+\label{subsec:faithful-torus-proper-constant}
+
+The quotient-action producer uses the following result from
+\texttt{SplitTorusToAbelianVarietyConst}.  We give its actual
+two-chart and resultant argument.
+
+\begin{lemma}\label{lem:faithful-torus-proper-constant}
+Let \(K\) be a field and \(B\) a group scheme proper over \(K\).
+Let \(X\) be a finite free abelian group.  Every \(K\)-morphism
+\[
+                         D(X)\longrightarrow B
+\]
+is constant, with value its value at the identity of the split
+torus \(D(X)\).  In particular a group homomorphism is zero.
+The map in the first assertion need not be a homomorphism.
+\end{lemma}
+\begin{proof}
+We first treat one Laurent variable over any field extension
+\(L/K\).  A morphism
+\(\operatorname{Spec}L[T,T^{-1}]\to B\) extends over
+\(\operatorname{Spec}L[T]\): every local ring of the latter
+regular integral curve is a valuation ring, and the valuative
+criterion for properness extends the map from the function
+field at each point.  Separatedness makes the extensions agree
+on overlaps.  Apply the same construction after \(T\mapsto T^{-1}\).
+We obtain two maps
+\[
+        b,b':\mathbb A^1_L\longrightarrow B,\qquad
+                         b(x)=b'(x^{-1})\quad(x\ne0),
+ \tag{TP1}\label{eq:faithful-torus-two-charts}
+\]
+with this equality after arbitrary field extension.
+
+Here is the source's algebraic neighbourhood calculation.
+Let \(R\) be a \(K\)-algebra with a surjective specialization
+\(e:R\to L\).
+Suppose \(F,G:\mathbb A^1_R\to B\) satisfy the analogue of
+\eqref{eq:faithful-torus-two-charts} on all field-valued points,
+and both specializations have image in an affine open
+\(V\subset B\).
+The closed complement of \(F^{-1}V\) is cut out by an ideal of
+\(R[T]\) whose image in \(L[T]\) is the unit ideal.
+Surjectivity of \(R[T]\to L[T]\) therefore supplies an element
+\(a\) of that ideal with \(e(a)=1\).
+In particular, on any field-valued point where \(F(x)\notin V\),
+one has \(a(x)=0\).
+Likewise choose \(a'\in R[T]\) with \(e(a')=1\) vanishing where
+\(G\) leaves \(V\).
+
+Put \(n=\deg a'\) and
+\[
+                  h(T)=T^{n+1}a'(T^{-1}).
+\]
+This is a polynomial, with \(h(0)=0\).
+Its resultant with \(a\), taken using the indicated degree
+bounds, gives \(g\in R\) with \(e(g)\ne0\).
+Indeed after specialization the first polynomial is \(1\)
+and the second is \(T^{n+1}\), so that resultant is \(1\).
+If \(F(x)\notin V\) over a field, then \(a(x)=0\).
+For \(x\ne0\), the two-chart relation says
+\(G(x^{-1})\notin V\), so \(h(x)=0\); for \(x=0\) the last
+equality holds by its factor \(T\).
+Bezout's resultant identity therefore gives \(g=0\) in that
+field.  Consequently, whenever \(g\) is nonzero in a field
+specialization of \(R\), the whole affine-line image of \(F\)
+lies in \(V\).  Interchanging \(F,G\) gives the same assertion
+for \(G\).  These are the source's
+\texttt{exists\_poly}, \texttt{exists\_elim}, and
+\texttt{exists\_good}.
+
+We next use its specialization at a unit.
+Let \(R\) be a domain, equipped with \(L\to R\) and a surjective
+\(K\)-algebra map \(e:R\to L\).
+Let \(t\in R^\times\) have \(e(t)=1\).
+From the two maps in \eqref{eq:faithful-torus-two-charts} form
+\[
+ \begin{split}
+ F(X)&=b_R(tX)b_R(X)^{-1},\\
+ G(X)&=b'_R(t^{-1}X)b'_R(X)^{-1}.
+ \end{split}
+\]
+They glue under \(X\mapsto X^{-1}\) on field-valued nonzero
+points.  Under \(e\) both become the identity map.
+Choose an affine open \(V\) of \(B\) containing the identity.
+The preceding resultant calculation for \(F,G\) and for \(G,F\)
+gives two elements with nonzero specialization under \(e\).
+They are nonzero in the domain \(R\), so remain nonzero in
+\(Q=\operatorname{Frac}R\).
+It follows that both affine-line maps over \(Q\) factor through
+the same affine open \(V\).
+
+For any regular function \(s\) on \(V\), their pullbacks are
+polynomials \(P_s(X),Q_s(X)\in Q[X]\) with
+\[
+                          P_s(X)=Q_s(X^{-1})\quad\text{in }Q(X).
+\]
+This forces \(P_s\) to be constant.
+For example, multiply the equality by \(X^{\deg Q_s}\);
+the reflected polynomial on the right has degree at most
+\(\deg Q_s\), whereas the nonzero polynomial on the left
+has degree \(\deg P_s+\deg Q_s\).
+The zero case is immediate.
+Thus \(F_Q(1)=F_Q(0)=1\), giving
+\[
+                            b_R(t)=b_R(1)
+\]
+after passing to \(Q\).
+It holds already over \(R\): for a separated target, equality
+of maps from the integral affine scheme can be tested after
+the injective inclusion \(R\hookrightarrow Q\).
+This is \texttt{val\_unit\_eq}.
+
+Take \(R=L[T,T^{-1}]\), \(t=T\), and \(e\) evaluation at \(T=1\).
+The last equality shows that the original morphism from
+\(\mathbb G_{m,L}\) is constant.  Equivalently, evaluating the
+universal equality at any unit gives equality of its values at
+all \(L\)-units.  This proves the one-variable assertion over
+every extension \(L/K\).
+
+Finally take a morphism \(f:D(X)\to B\).
+For every extension field \(L/K\), every torus point \(z\in D(X)(L)\),
+and every cocharacter \(\lambda:\mathbb G_m\to D(X)\), the map
+\[
+                x\longmapsto f\bigl(z\lambda(x)\bigr)
+\]
+is constant by the one-variable assertion.
+A basis of \(X\) and its dual cocharacters express each point
+as a finite product of such cocharacter values.  Successive
+use of that equality gives \(f(z)=f(1)\).
+To obtain equality of morphisms rather than only values, take
+the universal torus point over the domain \(K[X]\), test it in
+its fraction field, and use separatedness to descend the
+equality along \(K[X]\hookrightarrow\operatorname{Frac}K[X]\).
+This is the source's \texttt{eq\_const}.
+A group homomorphism has identity value \(1\), giving the
+last assertion.
+\end{proof}
+
+\paragraph{Frozen-source ledger.}
+The source is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/DegenerationProofs/SplitTorusToAbelianVarietyConst.lean}
+{\texttt{SplitTorusToAbelianVarietyConst}}
+(blob \texttt{ba8b522aec7afdd0c9bf4636efd4dff843172d2d}),
+checked against the frozen baseline.
+The argument above follows
+\texttt{exists\_extension}, \texttt{valuationRing\_stalk},
+\texttt{exists\_poly}, \texttt{exists\_elim},
+\texttt{exists\_good}, \texttt{natDegree\_eq\_zero\_of\_inv},
+\texttt{val\_eq\_of\_affine}, \texttt{val\_unit\_eq},
+\texttt{exists\_extension\_line}, \texttt{ev\_eq}, and
+\texttt{eq\_const}.
+The eventual abelian-variety wrapper has the stronger hypotheses
+of an algebraically closed field and an abelian scheme.
+The proof above retains the actual stronger intermediate
+proper-group statement; it does not replace its mechanism by
+an Albanese or no-rational-curves assertion.

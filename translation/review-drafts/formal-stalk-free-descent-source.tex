@@ -1,0 +1,251 @@
+\subsection{The exact descent of a coefficient basis to component stalks}
+\label{subsec:faithful-free-stalk-transport}
+
+We use \(O=\mathcal O_E\), with the specified integral basis
+\(b_1,\ldots,b_n\).  The basis condition in this subsection means
+that the vectors \(\rho(b_j)x_l\), indexed by the pair \((l,j)\),
+are linearly independent and span the whole underlying module.
+It is the source's \(\mathrm{HFree}\) condition when
+\(\rho=\rho_H\).
+
+\begin{lemma}[Characteristic-zero coefficient basis]
+\label{lem:faithful-free-charzero}
+Let \(F\) be a field of characteristic zero, let \(W\) be a
+finite-dimensional \(F\)-vector space, and let
+\(\rho:O\to\operatorname{End}_F(W)\) be a ring homomorphism.
+If its multiplication characteristic polynomials are the
+\(r\)-th powers of the regular integral multiplication
+characteristic polynomials, mapped to \(F[T]\), then \(W\) has
+the coefficient basis condition of rank \(r\).
+\end{lemma}
+\begin{proof}
+The source \texttt{CharZeroFreeModule} chooses an integral
+primitive element \(a\in O\) for \(E/\mathbb Q\).
+To obtain it, multiply a primitive element in \(E\) by a nonzero
+integer so that it becomes integral.
+For every \(b\in O\), clearing denominators in its rational
+polynomial expression in \(a\) gives
+\[
+                    N b=P(a),\qquad
+                    0\ne N\in\mathbb Z,\quad P\in\mathbb Z[T].
+ \tag{ST1}\label{eq:faithful-integral-primitive-generator}
+\]
+The operator \(\rho(a)\) is semisimple.
+Indeed the integral minimal polynomial of \(a\), mapped to \(F[T]\),
+annihilates it.  The minimal polynomial over \(\mathbb Q\) is
+separable, and its mapped polynomial remains separable in
+characteristic zero.  An operator annihilated by a squarefree
+polynomial is semisimple.  This applies also to the regular
+operator on
+\[
+                       V=(F\otimes_{\mathbb Z}O)^r.
+\]
+The characteristic-polynomial assumption at \(a\) says that
+these two semisimple operators have the same characteristic
+polynomial.
+
+Here is the source's comparison of such operators over \(F\),
+which does not require \(F\) to be algebraically closed.
+Regard each space as an \(F[T]\)-module.
+For a simple summand its characteristic polynomial is the monic
+irreducible polynomial \(q\) defining that summand, and the
+summand is \(F[T]/(q)\): the annihilator of a nonzero generator
+is maximal, and its degree equals the vector-space dimension.
+Choose a simple summand on one side.  Its irreducible polynomial
+divides the common characteristic polynomial; on the other
+semisimple side it divides the characteristic polynomial of some
+simple summand, hence that summand is another copy of \(F[T]/(q)\).
+Split both summands off and cancel their monic polynomial.
+Induction on dimension identifies the complements.
+This constructs an \(F\)-linear isomorphism \(e:V\to W\)
+intertwining multiplication by \(a\).
+
+It then intertwines every integral polynomial in \(a\).
+Equation \eqref{eq:faithful-integral-primitive-generator} and the
+invertibility of \(N\) in \(F\) imply that it intertwines every
+\(b\in O\).  Let \(x_l\) be the image of \(1\) in the \(l\)-th
+factor of \(V\).  The images of its regular integral coefficient
+basis are precisely \(\rho(b_j)x_l\), proving the assertion.
+\end{proof}
+
+\begin{lemma}[Field descent followed by local lifting]
+\label{lem:faithful-free-local-descent}
+Let \(R\) be a commutative local ring, let \(K\) be a field,
+and let \(f:R\to K\) be a local ring homomorphism.
+Let \(I\) be a finite index set and
+\(\rho:O\to\operatorname{Mat}_I(R)\) a ring homomorphism.
+If the base-changed representation on \(K^I\) has the
+coefficient basis condition of rank \(r\), then the representation
+on \(R^I\) has that same condition.
+The map \(f\) is not assumed surjective.
+\end{lemma}
+\begin{proof}
+Put \(F=R/\mathfrak m_R\).
+Localness gives \(\ker f=\mathfrak m_R\), so \(f\) factors as
+\(R\twoheadrightarrow F\hookrightarrow K\).
+We first descend the basis from \(K\) to \(F\), as in
+\texttt{FreeModuleNakayamaDescent.int\_descent}.
+Write
+\[
+                  B=F\otimes_{\mathbb Z}O,\qquad
+                  S=B\otimes_F K,\qquad M=F^I .
+\]
+The residue representation makes \(M\) a finite \(B\)-module.
+The given coefficient basis on \(K^I\) is exactly an \(S\)-basis
+of rank \(r\): expanding coefficients in the tensor base change
+of the integral basis shows that independence and spanning over
+\(S\) are equivalent to those coefficient conditions over \(K\).
+The canonical base-change identifications give
+\(S\otimes_B M\simeq K\otimes_F M\simeq K^I\).
+
+The algebra \(S\) is faithfully flat over the finite-dimensional
+Artinian \(F\)-algebra \(B\).
+Flatness of \(S\otimes_BM\) over \(S\) descends to flatness of
+\(M\) over \(B\).
+Explicitly, tensor a monomorphism of \(B\)-modules first with
+\(M\), then with the faithfully flat \(S\); its resulting map
+is injective by flatness of \(S\otimes_BM\), and faithful
+flatness detects the original injectivity.
+For every prime of \(B\), choose a prime of \(S\) above it.
+Base change at these primes identifies the fibre ranks, which
+are all \(r\), because the module over \(S\) is free of rank \(r\).
+
+The source now uses its semilocal finite-flat basis theorem.
+In this application \(B\) is Artinian: it is the finite product
+of its local Artinian factors.  The finite flat module on each
+factor is free; its rank is the just computed \(r\).
+The associated orthogonal idempotents combine these local bases
+to a \(B\)-basis of \(M\) of rank \(r\).
+Expanding this basis in the integral tensor basis gives
+\(x_{0,1},\ldots,x_{0,r}\in F^I\) satisfying the coefficient
+basis condition over \(F\).
+This is faithfully flat basis descent, not a choice of
+\(F\)-rational coordinates in an arbitrary nonempty open set.
+
+Lift each coordinate of each \(x_{0,l}\) to \(R\), obtaining
+\(x_l\in R^I\).
+The square matrix whose columns are \(\rho(b_j)x_l\) has
+invertible reduction over \(F\).
+It is square because the residue coefficient basis has
+\(|I|=nr\) elements.
+Its determinant is outside \(\mathfrak m_R\), hence is a unit
+of \(R\).  The adjugate gives an inverse matrix, proving
+both independence and spanning over \(R\).
+This is the source's \texttt{lift\_basis} step.
+\end{proof}
+
+We now spell out the exact formal-germ transport in which the
+preceding lemmas occur.  For a formal cubical germ \(B\) of
+dimension \(d\), use the matrix
+\[
+ M_B(a)=
+ \begin{pmatrix}
+ R_a&0\\
+ -C_a^t&R_{\bar a}^t
+ \end{pmatrix}.
+ \tag{ST2}\label{eq:faithful-free-block-matrix}
+\]
+The canonical isomorphism between the \(2d\) coordinate module
+and its product presentation intertwines \(M_B(a)\) with
+\(\rho_H(a)\).  The action is a ring homomorphism, by the actual
+formal identities.  Consequently its characteristic polynomial
+is the one in \(\mathrm{HChar}\), and its coefficient basis is
+the one in \(\mathrm{HFree}\).
+
+If \(B'\) is the actual coefficient base change of \(B\) along
+\(f:R\to R'\), coefficient extraction gives
+\[
+                         M_{B'}(a)=f(M_B(a)).
+ \tag{ST3}\label{eq:faithful-free-base-change-matrix}
+\]
+Characteristic polynomials therefore commute with base change.
+They also descend along an injective \(f\), by injectivity of
+\(R[T]\to R'[T]\).
+An actual formal coordinate and gauge isomorphism conjugates
+the two doubled actions, using the previously proved matrix
+\(T\); hence it preserves \(\mathrm{HChar}\).
+These are \texttt{hchar\_map}, \texttt{hchar\_of\_map}, and
+\texttt{hchar\_iso}.  The following is the exact local
+case distinction in \texttt{HodgeFreeEveryStalk.at\_point}.
+
+Let \(t\) be the supplied \(\mathrm{SAB}\) datum on \(X\), with
+\(\mathrm{PowFns}(t)\), and let \(z\in X\).
+Choose an actual germ \(g\) over the local ring
+\(R=\mathcal O_{X,z}\), satisfying \(\mathrm{HChar}(g.B,r)\).
+Assume
+\[
+ \text{for every prime }p\text{ with }p=0\text{ in }\kappa(z),
+                         \quad \mathrm{FibPF}(t,z).
+ \tag{ST4}\label{eq:faithful-free-stalk-fibpf}
+\]
+If \(\kappa(z)\) has characteristic zero,
+Lemma~\ref{lem:faithful-free-charzero} gives a coefficient basis
+for the reduced block representation on \(\kappa(z)^{2d}\);
+Lemma~\ref{lem:faithful-free-local-descent} lifts it to \(R\).
+
+If \(\kappa(z)\) has characteristic \(p>0\), use
+\(\mathrm{FibPF}(t,z)\) to choose an algebraically closed
+representative \(x:\operatorname{Spec}k\to X\) centred at \(z\),
+with \(\mathrm{GeomPF}(t,x)\).
+The induced \(R\to k\) is local.
+It has characteristic \(p\): otherwise \(p\) would be a unit
+in \(k\), hence a unit in \(R\) by localness, contradicting its
+zero image in \(\kappa(z)\).
+The actual germ-base-change producer supplies \(g_k\), and
+\eqref{eq:faithful-free-base-change-matrix} transports its
+\(\mathrm{HChar}\) identity.
+The positive-characteristic geometric producer
+\texttt{HeightCharFreeGeometric.hfree\_geom} supplies
+\(\mathrm{HFree}(g_k.B,r)\).
+Lemma~\ref{lem:faithful-free-local-descent} now descends and lifts
+this exact coefficient basis, giving
+\(\mathrm{HFree}(g.B,r)\).
+
+Finally let \(\xi:\operatorname{Spec}\Omega\to X\) be the
+source's component-generic point with \(\operatorname{char}\Omega=0\),
+and assume the actual predicate \(\mathrm{IsCptGen}(\xi)\).
+For its source component index set \(\mathrm{Cpt}(\xi)\),
+this supplies the injective structural maps
+\(\mathcal O_{X,q}\to\Omega\).
+Let \(S\) be the supplied actual \(\mathrm{GermSys}(t,\xi,M)\).
+Its generic germ \(S.g_0\) and each \(S.g_q\) have their actual
+coefficient-base-change and formal-isomorphism comparisons.
+The generic \(\mathrm{HChar}(S.g_0.B,r)\) first transfers through
+that isomorphism and then descends along
+\(\mathcal O_{X,q}\hookrightarrow\Omega\).
+Thus every \(S.g_q\) has the same \(\mathrm{HChar}\) exponent \(r\).
+Apply the preceding local case distinction with
+\eqref{eq:faithful-free-stalk-fibpf} at each such \(q\).
+This is exactly
+\texttt{GermSystemHeightFree.hfree\_at\_component\_stalks}.
+
+\paragraph{Frozen-source ledger and status.}
+The field-descent and lifting producer is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/FreeModuleNakayamaDescent.lean}
+{\texttt{FreeModuleNakayamaDescent}}
+(blob \texttt{988535984bf3c602ecdf1fa614ae8e8c71ccc922}).
+Its characteristic-zero companion is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/CharZeroFreeModule.lean}
+{\texttt{CharZeroFreeModule}}
+(\texttt{b1c6e762bc443d5fddb738cdf5f358c4f031cc96}).
+The exact matrix, local case distinction, and generic-component
+transport are
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/HodgeFreeEveryStalk.lean}
+{\texttt{HodgeFreeEveryStalk}}
+(\texttt{64b7c3a2f5bc38ac43b1990ed38d80ea8c66bb6f}),
+wrapped by
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/GermSystemHeightFree.lean}
+{\texttt{GermSystemHeightFree}}
+(\texttt{56027647fd66f4f01da68e5a6099af999bf3b5f4}).
+All four files were checked against the frozen baseline.
+
+The two algebraic lemmas and the matrix transport above are
+proved here.  The positive-characteristic local application
+uses the separate actual geometric freeness producer; its
+quotient-action, gauge, and degree inputs must be joined before
+that application is declared fully translated.
+Likewise this subsection takes the actual model's
+\(\mathrm{PowFns}\), \(\mathrm{FibPF}\), and
+\(\mathrm{IsCptGen}\) inputs as supplied by their own model
+producers.  It does not infer any of those from semistability,
+rank, or a generic-fibre comparison.

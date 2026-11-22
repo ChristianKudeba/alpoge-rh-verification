@@ -1,0 +1,323 @@
+\subsection{The finite Hopf-algebra count used by the free-\(O\) producer}
+\label{subsec:faithful-hopf-count}
+
+This subsection translates the finite algebra argument in
+\texttt{PrimitiveDerivationPairing}, together with its five elementary
+producers.  Throughout, \(k\) is an algebraically closed field of
+characteristic a prime \(p\), and \(A\) is a finite-dimensional,
+commutative and cocommutative Hopf \(k\)-algebra.  Write \(\Delta\),
+\(\epsilon\), and \(\iota\) for its comultiplication, counit, and
+antipode.  Its finite dual \(A^\vee=\operatorname{Hom}_k(A,k)\) is
+endowed with convolution.  In particular
+\[
+ (uv)(a)=(u\otimes v)(\Delta a),\qquad
+ 1_{A^\vee}=\epsilon .
+\]
+An \(\epsilon\)-derivation is a \(k\)-linear map \(w:A\to k\) with
+\(w(ab)=w(a)\epsilon(b)+\epsilon(a)w(b)\).  An element \(f\in A\) is
+primitive when \(\Delta f=f\otimes1+1\otimes f\).
+
+\begin{lemma}[Two finite-algebra choices]\label{lem:faithful-hopf-choices}
+Let \(R\) be a finite-dimensional commutative \(k\)-algebra.
+\begin{enumerate}
+\item If a \(k\)-subspace \(U\subset R\) has the property that every
+\(k\)-algebra homomorphism \(x:R\to k\) is nonzero on some element of
+\(U\), then \(U\) contains a unit.
+\item If \(V\ne0\) is a \(k\)-subspace of \(R\), stable under
+\(f\mapsto f^p\), then it contains a nonzero \(f\) for which
+\(f^p=0\) or \(f^p=f\).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The ring \(R\) is Artinian.  Every maximal-ideal residue field is a
+finite extension of \(k\), hence is \(k\).  In (1), the intersection
+of \(U\) with each maximal ideal is therefore a proper subspace.
+There are finitely many maximal ideals, and \(k\) is infinite.
+A finite union of proper subspaces cannot cover \(U\).  An element
+outside that union belongs to no maximal ideal, and is a unit.
+
+For (2), use strong induction on \(\dim_k(fR)\), beginning with any
+nonzero \(f\in V\).  If \(f\) is nilpotent, take the last nonzero term
+in \(f,f^p,f^{p^2},\ldots\).  Otherwise \(f\) is outside some prime
+ideal, which is maximal.  The corresponding \(x:R\to k\) has
+\(x(f)\ne0\).  Set \(f'=x(f)^{-1}f\) and \(g=(f')^p-f'\).
+Then \(g\in V\) and \(x(g)=0\).  If \(g=0\), use \(f'\).
+If \(g\ne0\), then \(g=fq\) for some \(q\in R\), so \(gR\subset fR\).
+This inclusion is strict: equality would express \(f=ga\), contrary
+to \(x(f)\ne0=x(g)\).  Apply the induction hypothesis to \(g\).
+\end{proof}
+
+\begin{lemma}[Powers of a nonzero primitive]\label{lem:faithful-primitive-powers}
+If \(0\ne f\in A\) is primitive, the \(p\) elements
+\(1,f,\ldots,f^{p-1}\) are linearly independent.
+\end{lemma}
+\begin{proof}
+Applying the counit to one tensor factor of the primitive identity
+gives \(\epsilon(f)=0\).  Thus \(f\) and \(1\) are linearly independent.
+Choose a linear functional \(y:A\to k\) with \(y(1)=0\) and \(y(f)=1\).
+Let \(y^{*m}\) denote its \(m\)-fold convolution power, with
+\(y^{*0}=\epsilon\).  The binomial formula gives
+\[
+ \Delta(f^i)=\sum_{l=0}^i {i\choose l}f^l\otimes f^{i-l}.
+\]
+Induction on \(m\) consequently gives
+\[
+ y^{*m}(f^i)=0\quad(i<m),\qquad
+ y^{*m}(f^m)=m!.
+\]
+Indeed, in the convolution step all terms except \(l=1\) vanish:
+the \(l=0\) term uses \(y(1)=0\), and for \(l\ge2\) the other
+convolution factor has exponent less than \(m\).
+Given a linear relation among the displayed \(p\) powers, apply
+\(y^{*m}\) successively with \(m=p-1,p-2,\ldots,0\).
+Since \(m!\ne0\) for \(m<p\), all coefficients vanish.
+\end{proof}
+
+We record the two derivation computations in the precise form used
+below.  For a derivation \(D:R\to R\), put \(C=\ker D\).
+
+\begin{lemma}[Nilpotent derivation coordinates]
+\label{lem:faithful-nilpotent-derivation}
+Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
+\(D^p=0\), and \(D^{p-1}t\) is a unit for some \(t\in R\).
+Then there is \(z\in R\) with \(Dz=1\), and the map
+\[
+ C^p\longrightarrow R,\qquad (c_0,\ldots,c_{p-1})
+       \longmapsto\sum_{i=0}^{p-1}c_i z^i
+ \tag{HC1}\label{eq:faithful-nilpotent-coordinates}
+\]
+is a \(k\)-linear isomorphism.  In particular
+\(\dim_kR=p\dim_k C\).
+For every \(k\)-algebra map \(e:R\to k\), an \(e\)-derivation
+\(u:R\to k\) which kills \(C\) and \(z\) is zero; moreover \(e(Dz)=1\).
+\end{lemma}
+\begin{proof}
+Put \(w=D^{p-1}t\).  Since \(Dw=0\), also \(D(w^{-1})=0\), and
+\[
+ z=w^{-1}D^{p-2}t
+\]
+has \(Dz=1\).  This formula includes \(p=2\).
+For \(c\in C\),
+\[
+ D^n(cz^i)=i(i-1)\cdots(i-n+1)c z^{i-n},
+\]
+where a term with \(n>i\) is zero.  The coefficient formula follows
+by induction from Leibniz's rule.  It proves injectivity of
+\eqref{eq:faithful-nilpotent-coordinates}, by applying \(D^{p-1}\)
+to a relation and descending on the largest exponent.
+For surjectivity, prove by induction on \(j\le p\) that
+\(D^ja=0\) implies an expression with exponents \(<j\).
+At the induction step, \(b=D^ja\) lies in \(C\); subtract
+\((j!)^{-1}bz^j\), then apply the assertion for \(j\).
+The factorials in use have \(j<p\).  Taking \(j=p\) proves the claim.
+Finally \(u(z^i)=0\) by induction using its Leibniz rule, and
+\(u(c_i)=0\); the expression in \eqref{eq:faithful-nilpotent-coordinates}
+therefore gives \(u=0\).
+\end{proof}
+
+\begin{lemma}[Multiplicative derivation coordinates]
+\label{lem:faithful-multiplicative-derivation}
+Suppose \(R\) is a finite-dimensional commutative \(k\)-algebra,
+\(D^p=D\), and \(z\) is a unit with \(Dz=z\).  Then
+\[
+ C^p\xrightarrow{\ \sim\ }R,\qquad
+ (c_0,\ldots,c_{p-1})\longmapsto\sum_{i=0}^{p-1}c_i z^i .
+ \tag{HC2}\label{eq:faithful-multiplicative-coordinates}
+\]
+Thus \(\dim_kR=p\dim_k C\).  For any \(k\)-algebra map \(e:R\to k\),
+an \(e\)-derivation \(u\) killing \(C\) and \(z\) is zero, and
+\(e(Dz)=e(z)\ne0\).
+\end{lemma}
+\begin{proof}
+The polynomial \(X^p-X\) has simple roots, exactly the elements of
+\(\mathbf F_p\subset k\).  It annihilates \(D\), so \(R\) is the
+direct sum of its \(D\)-eigenspaces with eigenvalues
+\(0,1,\ldots,p-1\).  Leibniz's rule gives
+\(D(z^i)=i z^i\) and \(D(z^{-i})=-i z^{-i}\).
+Multiplication by \(z^i\) therefore identifies \(C\) with the
+eigenspace of eigenvalue \(i\): its inverse is multiplication by
+\(z^{-i}\).  This proves \eqref{eq:faithful-multiplicative-coordinates}.
+The last assertion follows from the same Leibniz calculation as
+in Lemma~\ref{lem:faithful-nilpotent-derivation}.
+\end{proof}
+
+\begin{lemma}[A single primitive Hopf quotient]
+\label{lem:faithful-single-primitive-quotient}
+Let \(0\ne f\in A\) be primitive, with \(f^p=0\) or \(f^p=f\).
+Then
+\[
+ \dim_k A=p\dim_k(A/(f)).
+ \tag{HC3}\label{eq:faithful-single-primitive-dimension}
+\]
+Furthermore, the primitive elements in the ideal \((f)\) are
+exactly the scalar multiples of \(f\).
+\end{lemma}
+\begin{proof}
+On the commutative convolution algebra \(R=A^\vee\), define
+\[
+ (Du)(a)=u(fa).
+\]
+The primitive identity for \(f\) says exactly that \(D\) is a
+derivation.  Its iterates satisfy
+\((D^nu)(a)=u(f^na)\).  Let \(e:R\to k\) be evaluation at \(1_A\);
+then \(e(Du)=u(f)\).
+
+We first obtain one of the two coordinate lemmas.
+If \(f^p=0\), then \(D^p=0\).  The element \(f^{p-1}\) is nonzero
+by Lemma~\ref{lem:faithful-primitive-powers}.  Every algebra map
+\(x:A^\vee\to k\) is evaluation at an invertible element \(g\in A\).
+Here is the exact finite-dual argument: finite-dimensional
+biduality represents \(x\) by \(g\); multiplicativity and unitality
+give \(\Delta g=g\otimes g\) and \(\epsilon(g)=1\); the antipode
+identity gives \(g\iota(g)=1\).
+Choose \(u\in A^\vee\) with \(u(f^{p-1}g)\ne0\).  Then
+\(x(D^{p-1}u)\ne0\).
+Lemma~\ref{lem:faithful-hopf-choices}(1), applied to
+\(\operatorname{im}D^{p-1}\), supplies a unit in that image.
+Lemma~\ref{lem:faithful-nilpotent-derivation} applies.
+
+If \(f^p=f\), then \(D^p=D\).  Set
+\(b=\sum_{i=1}^{p-1}f^i\).
+The equality \(fb=b\) follows from \(f^p=f\), and \(b\ne0\) follows
+from Lemma~\ref{lem:faithful-primitive-powers}.
+For an algebra map \(x\) represented by an invertible \(g\) as above,
+choose \(u\) with \(u(bg)\ne0\).
+The functional \(w(a)=u(ba)\) satisfies \(Dw=w\), and \(x(w)\ne0\).
+Lemma~\ref{lem:faithful-hopf-choices}(1) now supplies a unit in
+the eigenvalue-one subspace of \(D\).
+Lemma~\ref{lem:faithful-multiplicative-derivation} applies.
+
+In either case we have
+\[
+ \dim_kR=p\dim_k\ker D
+ \tag{HC4}\label{eq:faithful-dual-rank}
+\]
+and an element \(z\in R\) such that \(e(Dz)\ne0\), with the following
+property: an \(e\)-derivation killing \(\ker D\) and \(z\) is zero.
+The kernel of \(D\) is the annihilator of the ideal \((f)\) under
+the pairing \(A^\vee\times A\to k\).  Finite-dimensional duality
+identifies its dimension with \(\dim_k A/(f)\), proving
+\eqref{eq:faithful-single-primitive-dimension}.
+
+Let \(g=bf\) be primitive.  Since \(z(f)=e(Dz)\ne0\), set
+\(a=z(g)/z(f)\) and define
+\[
+ u(w)=w(g)-a\,w(f)\qquad(w\in R).
+\]
+The primitive identities for \(g\) and \(f\) make \(u\) an
+\(e\)-derivation.  If \(Dw=0\), then \(w\) annihilates \((f)\),
+so \(u(w)=0\); also \(u(z)=0\) by the choice of \(a\).
+The property just proved forces \(u=0\).
+The perfect pairing then gives \(g=af\).
+Conversely, scalar multiples of \(f\) are primitive.
+\end{proof}
+
+\begin{proposition}[Primitive--tangent divisibility]
+\label{prop:faithful-primitive-tangent-count}
+Let \(P\subset A\) be a subspace of primitive elements, and
+\(W\subset A^\vee\) a subspace of \(\epsilon\)-derivations, with
+\[
+ w(f)=0\qquad(w\in W,\ f\in P).
+\]
+Then
+\[
+ p^{\dim_kP+\dim_kW}\ \mid\ \dim_k A .
+ \tag{HC5}\label{eq:faithful-primitive-tangent-count}
+\]
+No reducedness, connectedness, or perfect pairing between these
+two subspaces is assumed.
+\end{proposition}
+\begin{proof}
+Use strong induction on \(\dim_k A\).  We first carry out the step
+when \(P\ne0\).  Enlarge it to
+\[
+ Q=\{f\in A:\ f\text{ is primitive and }w(f)=0
+                    \text{ for every }w\in W\}.
+\]
+This is a nonzero subspace.  It is stable under \(p\)-th powers:
+the primitive identity is preserved by Frobenius, and the
+\(\epsilon\)-derivation rule gives \(w(f^p)=0\).
+Lemma~\ref{lem:faithful-hopf-choices}(2) supplies
+\(0\ne f\in Q\) with \(f^p=0\) or \(f^p=f\).
+
+The ideal \(I=(f)\) is a Hopf ideal.  Indeed \(\epsilon(f)=0\);
+the primitive identity becomes zero after applying the quotient
+to both tensor factors; and \(\iota(f)=-f\), by the antipode
+identity.  These assertions extend from \(f\) to its ideal by
+multiplicativity.  Hence \(B=A/I\) is again a finite commutative
+cocommutative Hopf algebra.  Write \(\pi:A\to B\).
+By Lemma~\ref{lem:faithful-single-primitive-quotient},
+\[
+ \dim_kA=p\dim_kB,\qquad
+ \ker(\pi|_Q)=kf .
+ \tag{HC6}\label{eq:faithful-hopf-induction-dim}
+\]
+In particular \(\dim_kB<\dim_kA\) and
+\(\dim_k\pi(Q)=\dim_kQ-1\).
+
+Every \(w\in W\) kills \(I\): for \(af\in I\), its Leibniz rule
+and \(w(f)=\epsilon(f)=0\) give \(w(af)=0\).
+It therefore descends uniquely to an \(\epsilon_B\)-derivation on
+\(B\).  Let \(W_B\subset B^\vee\) be the space of these descended
+maps.  Pullback by the surjection \(\pi\) identifies \(W_B\) with
+\(W\), so their dimensions agree.  The primitive subspace
+\(P_B=\pi(Q)\) is annihilated by \(W_B\).
+The induction hypothesis gives
+\[
+ p^{\dim_kQ-1+\dim_kW}\mid\dim_kB.
+\]
+Multiplying by \(p\) and using \eqref{eq:faithful-hopf-induction-dim}
+gives the bound with \(Q\) in place of \(P\).
+Since \(P\subset Q\), this implies \eqref{eq:faithful-primitive-tangent-count}.
+
+If \(P=0=W\), the assertion is immediate.  If \(P=0\) but \(W\ne0\),
+pass to the finite dual Hopf algebra \(A^\vee\).  The defining
+Leibniz equality says precisely that the image of \(W\) in
+\(A^\vee\) consists of primitive elements: this follows by testing
+the dual comultiplication against arbitrary \(a\otimes b\).
+Apply the nonzero-primitive induction step just proved to that
+subspace and the zero tangent subspace.  Its induction hypotheses
+are available because all smaller quotient dimensions are smaller
+than \(\dim_kA^\vee=\dim_kA\).
+This yields \(p^{\dim_kW}\mid\dim_kA^\vee=\dim_kA\), as required.
+\end{proof}
+
+\paragraph{Exact source ledger and remaining interface.}
+All source links below refer to the frozen baseline, and each
+listed file was compared byte for byte with its translation input.
+The five elementary producers are
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/FrobeniusStableSubspaceElement.lean}
+{\texttt{FrobeniusStableSubspaceElement}}
+(blob \texttt{15fb69f4ae27a6ab7224fa1bf79bce80e0675cc2}),
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/SubspaceContainsUnit.lean}
+{\texttt{SubspaceContainsUnit}}
+(\texttt{8704c238b26ef7343b77b18851d75a59aee66050}),
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/NilpotentDerivationRank.lean}
+{\texttt{NilpotentDerivationRank}}
+(\texttt{ea20fda1a391f68e58f8727f9f03d43b523e6939}),
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/MultiplicativeDerivationRank.lean}
+{\texttt{MultiplicativeDerivationRank}}
+(\texttt{979dd7f8e24e2ac0afd291416a0ccd017b285dd1}),
+and
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PrimitiveElementPowersIndep.lean}
+{\texttt{PrimitiveElementPowersIndep}}
+(\texttt{51bb9dcde6060dee77bc4d8e4c835a0abc59281b}).
+The assembly is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PrimitiveDerivationPairing.lean}
+{\texttt{PrimitiveDerivationPairing}}
+(\texttt{27d2edd4e342ad3e38cf97e7a3adc841abb3cd48}),
+specifically \texttt{key}, \texttt{stepP},
+\texttt{norm\_index\_count\_bound}, and
+\texttt{primitive\_tangent\_dvd\_finrank}.
+The proofs above retain its primitive quotient and dual-derivation
+induction; they do not substitute a general structure theorem for
+finite group schemes.
+
+The next geometric interface is separate: for the finite kernel
+of multiplication by \(a\), one must construct the injected
+primitive and tangent subspaces, and identify their pairing with
+the actual mixed coefficient of the adjoint cubical frame.
+Proposition~\ref{prop:faithful-primitive-tangent-count} proves the
+finite algebra count once those maps are supplied.  It does not
+itself identify the germ's doubled tangent space with a
+Dieudonn\'e module or establish the free-\(O\) conclusion.

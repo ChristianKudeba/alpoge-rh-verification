@@ -1,0 +1,424 @@
+\section{The source carrying section and its exact cost}
+\label{sec:ftb-carrying-section}
+This section follows the construction in
+\texttt{ExistsCarryingSectionOrders} and
+\texttt{CarryingSectionIntegralFrame}.  It keeps the same component,
+level and reference weight throughout.  The analytic hypotheses used below
+are the actual estimates for that component; no estimate for a different
+cover or for a larger space is substituted.
+
+Let \(E\) be the CM host, \(f=|\Psi|\), \(r=p+q\geq1\), and let \(K\)
+be the coefficient field, \(d_K=[K:\mathbf Q]\).
+Fix the good uniformizations \(U_\sigma\), their frame dictionaries, a
+component \(Z\), and the source metric parameter \(x\).
+Write \(H\) for the source Hodge weight, with rows
+\(H_{\tau i}=0\) for \(i<p\) and \(H_{\tau i}=-1\) for \(i\geq p\).
+Thus
+\[
+ u'=u-3rH,\qquad
+ G=\operatorname{wt}(u,0),\quad
+ G_0=\operatorname{wt}(8(u-u'),0)=\operatorname{wt}(24rH,0).
+\]
+All section weights in this section are integer weights.
+The scalar exponent is even wherever the source norm multiplication
+law or the integer-reading law is used.
+
+For a finite-place function \(e=(e_w)\) of finite support and a
+conjugation-invariant function \(t=(t_\sigma)\), put
+\[
+ \operatorname{cost}(e,t)=\frac1{d_K}
+  \left(\sum_w e_w\log Nw+\sum_\sigma t_\sigma\right).
+\]
+For a recurrent valuation \(v\) over \(w\), let
+\[
+ \operatorname{depth}_Z(G,v)
+   =\inf\{v(s):s\in\operatorname{latOn}(U,Z,G)\}.
+\]
+Here \(\operatorname{latOn}\) is the source lattice of integral cusp
+sections supported on \(Z\), not a lattice chosen after \(v\).
+A section \(\theta\) \emph{carries \(u'\) to \(u\)} if it has weight
+\(G_0\), is nonzero at the generic point of \(Z\), and, for every
+\(k\geq0\),
+\[
+ \theta^k\operatorname{cuspOn}(U,Z,\operatorname{wt}(8ku',0))
+ \subseteq
+ \operatorname{cuspOn}(U,Z,\operatorname{wt}(8ku,0)).
+ \tag{C1}\label{eq:ftb-carries}
+\]
+The finite inequality required later is
+\[
+ 8\operatorname{depth}_Z(G,v)
+       \leq v(\theta)+8e_w                         \tag{C2}\label{eq:ftb-finbd}
+\]
+whenever some integral section of weight \(G\) has finite \(v\).
+The infinite inequality is
+\[
+ \operatorname{homN}_{G_0}(\theta;y)^2
+   \leq e^{16t_\sigma}\,
+           \operatorname{Berg}_{Z,G}(y)^8
+ \quad (y\text{ a frame on }Z).                    \tag{C3}\label{eq:ftb-infbd}
+\]
+The Bergman function is that of the specified reference space and frame
+dictionary.  Statements with value \(+\infty\) have the evident
+extended-real interpretation.
+
+\subsection{The finite theta inequality}
+Here is the elementary lattice calculation used in the finite
+theta estimate.  Let \(Y\) be a finitely generated
+\(\mathbf Z\)-module with an \(\mathcal O_E\)-action.  Conjugation
+preserves \(\mathcal O_E\); choose \(w_0\in\mathcal O_E\) with
+\(w_0+\bar w_0=1\).  Let \(\mathscr B\) be the real vector space of
+symmetric \(\mathbf Z\)-bilinear forms satisfying
+\(\gamma(ca,b)=\gamma(a,\bar c b)\).
+For positive semidefinite \(\beta\in\mathscr B\), define
+\[
+ \phi_C(\beta)=
+ \inf_{\ell}\ell(\beta),                           \tag{C4}\label{eq:ftb-phic}
+\]
+where \(\ell:\mathscr B\to\mathbf R\) is linear, is integer-valued
+on integer-valued forms, and is strictly positive on every nonzero
+positive semidefinite form.  This is the source definition of
+\(\phi_C\); it is not the minimum of a quadratic form.
+
+\begin{lemma}[Spanning and coset minima]\label{lem:ftb-coset-minimum}
+Let \(Q:Y\to\mathbf Z_{\geq0}\) satisfy
+\(\beta(a,a)=2Q(a)\).  Suppose \(m\geq2\), and
+\(y_1,\ldots,y_n\) generate \(Y/m^2Y\) as an
+\(\mathcal O_E\)-module.  If \(b_i\in\mathbf Q\cup\{+\infty\}\)
+satisfy, for every \(q\in\mathbf Q\),
+\[
+ \bigl[q\leq Q(mz+y_i)/m^2\text{ for every }z\in Y\bigr]
+       \ \Longrightarrow\ q\leq b_i,
+\]
+then
+\[
+                 \phi_C(\beta)/m^2\leq\sum_i b_i .
+ \tag{C5}\label{eq:ftb-coset-minimum}
+\]
+\end{lemma}
+\begin{proof}
+Choose \(z_i\) minimizing the nonnegative integer
+\(Q(y_i+mz)\).  Let \(X\) be the \(\mathcal O_E\)-span of
+\(y_i+mz_i\).  The generation assumption gives \(Y=X+mY\).
+The finitely generated abelian quotient \(A=Y/X\) satisfies \(A=mA\).
+The determinant trick applied to generators of \(A\) supplies a
+nonzero integer \(s\equiv1\pmod m\) with \(sA=0\):
+write each generator as \(m\) times a combination of the generators
+and take the determinant of \(I-mC\).  Its determinant is
+\(1\bmod m\), hence is nonzero.  Thus every element of \(Y\) has a
+positive integer multiple in \(X\).
+
+For \(x_i=y_i+mz_i\) define
+\(\ell(\gamma)=\sum_i\gamma(w_0x_i,x_i)\).
+Symmetry, balance, and \(w_0+\bar w_0=1\) give
+\(2\gamma(w_0a,a)=\gamma(a,a)\).
+The functional \(\ell\) is integer-valued on integral forms.
+It is positive on every nonzero positive semidefinite form:
+if its nonnegative summands all vanish, then
+\(\gamma(x_i,x_i)=0\).  Positivity of
+\(\gamma(nx_i+y,nx_i+y)\) for all integers \(n\) forces
+\(\gamma(x_i,y)=0\).  Balance extends this vanishing to \(X\), and
+the positive-multiple property extends it to \(Y\).  This would give
+\(\gamma=0\).  Thus \(\ell\) occurs in \eqref{eq:ftb-phic}, and
+\[
+ 0\leq\phi_C(\beta)
+ \leq\sum_i\beta(w_0x_i,x_i)=\sum_iQ(x_i).
+\]
+The infimum is bounded below by zero because \(\beta\) is
+positive semidefinite.  The hypothesis at the rational number
+\(Q(x_i)/m^2\), followed by addition, proves \eqref{eq:ftb-coset-minimum}.
+\end{proof}
+
+The geometric input for applying this lemma is precise.  On the actual
+complete-DVR PEL uniformization of an algebraic integral frame, take
+the primitive integral theta section, its expansion of nonnegative
+\(\nu\), the cubically normalized origin value, and the odd-level
+Heisenberg lifts compatible with the full level structure.
+For \(m\) odd the expansion formula and its valuation convergence law
+give
+\[
+ \left[\forall\chi,\ q\leq
+      Q(m\chi+y_a)/m^2\right]
+       \Longrightarrow q\leq v(\vartheta_a) .
+ \tag{C6}\label{eq:ftb-theta-coset-val}
+\]
+Indeed, the normalized theta value is the convergent sum of its
+expansion terms in that coset.  Nonnegative \(\nu\) bounds every
+term below by \(q\); the nonarchimedean sum law bounds the sum below
+by \(q\).  The lifts of a tuple spanning the full level module
+give the \(y_a\)'s spanning \(Y/m^2Y\).
+These are statements about the same integral theta section and its
+normalized values.  Integral expansions or torsion lifts on a
+different model would not suffice.
+
+Apply \eqref{eq:ftb-theta-coset-val} and
+Lemma~\ref{lem:ftb-coset-minimum} with \(m=R^2\).
+An integral linear combination of products of the corresponding
+theta constants has valuation at least \(\phi_C/R^4\).
+Each product has this lower bound, its integer coefficient has
+nonnegative valuation, and the valuation of a finite sum is at least
+the minimum of those bounds.  Finite extension and comparison of the
+two semiabelian models preserve the normalized value.  Consequently
+the source theta rule \(f\), for any tuple spanning the level
+\(R^4\) module, satisfies
+\[
+             v(f)\geq\phi/R^4                       \tag{C7}\label{eq:ftb-tau-bound}
+\]
+at a point carrying the actual source datum \(\operatorname{HasPhi}(\phi)\).
+Here \(\phi\geq0\); if \(f\) vanishes, the assertion holds with
+value \(+\infty\).
+This proves the finite calculation from the explicitly stated
+same-model expansion and normalized-value inputs.  Their geometric
+construction remains the integral-uniformization input, not an
+additional claim of this calculation.
+
+\subsection{The section \(f^{24}KS\)}
+Assume \(5^4\mid M\), and supply the source admissible level-\(5^4\)
+tuple and theta rule \(f\) nonzero on \(Z\).  This nonvanishing input
+is the actual shifted-null-value construction of
+\texttt{exists\_isGenRule\_nonzeroOn}; its scope is retained below.
+The admissible tuple generates the full level module.
+Let
+\[
+ a_\sigma(y)=
+       \operatorname{homN}_{\operatorname{wtZ}(0,2r)}(f^2;y).
+\]
+Retain the following two estimates, uniformly for every such generating
+tuple and its theta rule, on the same component and cover:
+\[
+ a_\sigma(y)\leq A,\qquad
+ a_\sigma(y)^3\leq e^\beta\operatorname{Berg}_{Z,G}(y),
+ \quad \beta\geq0.                                 \tag{C8}\label{eq:ftb-carry-analytic}
+\]
+Their source producers are listed below.
+
+Let \(K_0\) be the \(3r\)-th power of the weight-four key unit,
+viewed as a twisting section.  Its weight is
+\(\operatorname{wt}(0,-12r)\); its finite lower bounds are
+nonnegative, and its constant norm factors satisfy
+\[
+ \log c_{K_0,\sigma}\leq
+ \kappa:=3r\,(2fr\log(2\pi)).
+\]
+Let \(S\) be the flat constant section of weight
+\(\operatorname{wt}(\operatorname{par}(-12r),0)\), with finite
+values \(\rho_w\), positive constant norm factors \(c_{S,\sigma}\),
+and
+\[
+ \deg S
+ =12r\,f\,\frac{p-q}{2}\omega
+ =\frac1{d_K}\left(\sum_w\rho_w\log Nw
+                         -\sum_\sigma\log c_{S,\sigma}\right).
+ \tag{C9}\label{eq:ftb-flat-carry-deg}
+\]
+Both twisting sections have inverses on \(Z\).
+
+\begin{proposition}[The explicit carrying section]
+\label{prop:ftb-carry-explicit}
+Under these hypotheses put
+\[
+ \theta=f^{24}K_0S,\qquad
+ e_w=-\rho_w/8,\qquad
+ t_\sigma=\beta/2+\kappa/8+\log c_{S,\sigma}/8.
+ \tag{C10}\label{eq:ftb-carry-choice}
+\]
+Then \(\theta\) carries \(u'\) to \(u\).  For every actual
+algebraic integral frame with source
+\(\operatorname{HasPhi}(\phi)\), over \(w\) with ramification
+normalizer \(e_0>0\),
+\[
+ \frac8{2500}\frac{\phi}{e_0}-8e_w
+           \leq v_{\mathrm{norm}}(\theta).          \tag{C11}\label{eq:ftb-carry-finite}
+\]
+It satisfies \eqref{eq:ftb-infbd}, and its cost is exactly
+\[
+          \operatorname{cost}(e,t)
+                =\beta/2+\kappa/8-\deg S/8.         \tag{C12}\label{eq:ftb-carry-cost}
+\]
+\end{proposition}
+\begin{proof}
+The source identity
+\[
+ 12\,\operatorname{wtZ}(0,2r)
+  +\operatorname{wt}(0,-12r)
+  +\operatorname{wt}(\operatorname{par}(-12r),0)
+       =\operatorname{wt}(24rH,0)
+\]
+gives the required weight.  The generic value is nonzero because
+\(f\) is nonzero and \(K_0,S\) are invertible on \(Z\).
+The rows of this weight are antitone.
+The integer-reading/bounded-section multiplication theorem therefore
+sends any even-weight cusp section supported on \(Z\) to a cusp
+section after multiplication by \(\theta\): its norm is bounded by
+\(A^{12}c_{K_0,\sigma}c_{S,\sigma}\).
+Iteration gives \eqref{eq:ftb-carries}.  This invocation is the actual
+integer-reading theorem, including its key-unit and level-three eta
+nonvanishing inputs; it is not an extension theorem for arbitrary
+rational sections.
+
+At a valued point on \(Z\), \eqref{eq:ftb-tau-bound} gives
+\(v_{\mathrm{norm}}(f)\geq\phi/(625e_0)\).
+The product law and the bounds for \(K_0,S\) give
+\[
+ v_{\mathrm{norm}}(\theta)
+     \geq24\phi/(625e_0)+\rho_w
+     \geq8\phi/(2500e_0)-8e_w .
+\]
+The last inequality uses \(\phi/e_0\geq0\).
+At a point off \(Z\), the factor \(S\), supported on \(Z\), makes
+\(\theta=0\), which also gives the required extended-real inequality.
+
+The exact norm multiplication law is
+\[
+ \operatorname{homN}_{G_0}(\theta;y)
+       =a_\sigma(y)^{12}c_{K_0,\sigma}c_{S,\sigma}.
+\]
+Raise the second inequality of \eqref{eq:ftb-carry-analytic} to
+the eighth power.  Since
+\[
+ e^{16t_\sigma}
+       =(e^\kappa c_{S,\sigma})^2e^{8\beta},
+\]
+it proves \eqref{eq:ftb-infbd}.  The source
+\(\operatorname{goodOf}(\bar\sigma)=\operatorname{goodOf}(\sigma)\)
+law and the constant-norm law for \(S\) imply
+\(t_{\bar\sigma}=t_\sigma\).  Finally substitute
+\eqref{eq:ftb-carry-choice} into the definition of cost and use
+\eqref{eq:ftb-flat-carry-deg}.  The finite and infinite terms are
+finite sums, so this gives \eqref{eq:ftb-carry-cost} without a
+limiting argument.
+\end{proof}
+
+\begin{lemma}[The numerical cost absorption]\label{lem:ftb-carry-cost-numerical}
+Suppose \(f,r,L\geq1\), \(p,q\geq0\), \(p+q=r\),
+\(|\omega|\leq3L\), and \((frL)^{12}\leq P\).
+Then
+\[
+ \frac{3r(2fr\log(2\pi))}{8}
+ -\frac{12rf((p-q)\omega/2)}8\leq10P.
+\]
+In a common window with \(T\beta\leq C_\beta U\) and \(TP\leq U\),
+the nonnegative number \(c_c=\beta/2+10P\) satisfies
+\(Tc_c\leq(C_\beta+10)U\) and bounds the cost of
+Proposition~\ref{prop:ftb-carry-explicit}.
+\end{lemma}
+\begin{proof}
+The inequalities \(\log(2\pi)\leq7\) and
+\(-((p-q)\omega/2)\leq3rL/2\) give the upper bound
+\((42/8)fr^2+(18/8)fr^2L\).
+Both \(fr^2\) and \(fr^2L\) are at most \((frL)^2\leq P\);
+the displayed sum is at most \(7.5P\leq10P\).
+The window assertion follows by multiplying by \(T\) and adding
+the two budgets.  This uses the same \(T\) as the analytic estimate.
+\end{proof}
+
+\subsection{Spreading the reference exponents}
+The source reference input has the following exact content.
+There are a finite set \(S_0\) of rational primes, numbers
+\(a(p)\geq0\) supported on \(S_0\), and \(s\geq0\), such that
+\[
+ \sum_{p\in S_0}a(p)\log p\leq s,\qquad
+ \operatorname{refExp}_p(U,1/2500,G)\leq a(p)
+       \quad(p\text{ prime}).                      \tag{C13}\label{eq:ftb-ref-budget}
+\]
+The latter supremum of normalized point depths includes, at every
+algebraic integral point \(y\) over \(w\mid p\) carrying
+\(\operatorname{HasPhi}(\phi)\),
+\[
+ \operatorname{depth}_{\mathrm{all}}(G,y)
+       \leq v_w(p)a(p)+\phi/(2500e_0).              \tag{C14}\label{eq:ftb-ref-point}
+\]
+The depth on the left is the infimum of the normalized valuations of
+the source integral cusp sections.  It uses
+\(v_V(p)=e_0v_w(p)\); dividing by this equality is the definition
+of the \(p\)-normalized depth.  Thus no residue-degree factor is lost.
+
+\begin{proposition}[The same section gives the multiplier datum]
+\label{prop:ftb-carry-spread}
+Assume \eqref{eq:ftb-ref-budget}.  Assume also the actual valued-frame
+comparison: every recurrent valuation in use admits a finite valued
+extension and an algebraic integral frame carrying
+\(\operatorname{HasPhi}(\phi)\), with the same normalized values
+on sections.  Then
+\[
+                  e'_w=e_w+\sum_{p\in S_0}v_w(p)a(p)
+ \tag{C15}\label{eq:ftb-spread}
+\]
+has finite support and
+\(\operatorname{cost}(e',t)\leq\operatorname{cost}(e,t)+s\).
+With \(\theta\) of Proposition~\ref{prop:ftb-carry-explicit},
+the finite inequality \eqref{eq:ftb-finbd} holds for \(e'\), and
+the source no-base condition holds: if any cusp section of any weight
+on \(Z\) has finite recurrent valuation, some integral section of
+weight \(G\) has finite valuation.  Consequently these are the
+actual multiplier data of cost at most \(c_c+s\).
+\end{proposition}
+\begin{proof}
+For every rational integer \(p>0\),
+\[
+ \frac1{d_K}\sum_w v_w(p)\log Nw=\log p .
+\]
+This is the ideal norm formula for \(p\mathcal O_K\).
+It proves the cost assertion for \eqref{eq:ftb-spread}; it also
+proves finite support, since an integer has only finitely many
+prime ideal divisors.
+
+Represent a recurrent valuation \(v\) by the specified extended frame.
+Choose the rational prime \(p\) below \(w\).
+If a cusp section on \(Z\) has finite \(v\), its nonzero evaluation
+forces the point to lie on \(Z\).
+For any real \(b\) strictly larger than the right-hand side of
+\eqref{eq:ftb-ref-point}, the definition of infimum chooses an
+integral cusp section with normalized valuation less than \(b\).
+Restrict it to \(Z\); its value at the point is unchanged.
+Letting \(b\) decrease gives
+\[
+ \operatorname{depth}_Z(G,v)\leq
+ B:=v_w(p)a(p)+\phi/(2500e_0)<+\infty .
+\]
+This proves the no-base assertion: if every integral section had
+value \(+\infty\), their infimum could not be at most \(B\).
+Moreover, \eqref{eq:ftb-carry-finite} and
+\(e'_w\geq e_w+v_w(p)a(p)\) imply
+\[
+ v(\theta)\geq8B-8e'_w
+       \geq8\operatorname{depth}_Z(G,v)-8e'_w.
+\]
+Transport back using equality of normalized values, including
+the values of \(\theta\) and of every integral section.
+The infinite bound and the carrying property use the same
+\(\theta,t\) and are unchanged.  If the reference budget is
+\(Ts\leq C_{\mathrm{ref}}U\), addition gives total budget
+\(T(c_c+s)\leq(C_\beta+10+C_{\mathrm{ref}})U\).
+\end{proof}
+
+\paragraph{Exact analytic and geometric frontiers.}
+The construction above translates the carrying and spreading
+calculations, with their expanded inputs.  The source produces
+\eqref{eq:ftb-carry-analytic} from
+\texttt{NormSqThetaConstantSpanningClassesLeExp},
+\texttt{FrameExponentialVolumeLarge},
+\texttt{FrameExponentialVolumeSmall}, and
+\texttt{EtaBoundLengthUnit}.  In the proof the common theta parameter
+is \(P_\eta=\operatorname{EtaAn.p16}(E,r,g_0g_1,m,5,1)\),
+and \(\beta=P_\eta+B_{\rm small}\).
+The theta bound gives \(a\leq\exp(P_\eta/625)\) everywhere and a
+stronger exponent \(a\leq e^z\) in the small-first-minimum regime.
+The respective Bergman lower bounds give \(G_{\rm Berg}\geq e^t\)
+with \(3z\leq P_\eta+B_{\rm small}+t\).
+Hence
+\(a^3\leq e^{P_\eta+B_{\rm small}}G_{\rm Berg}\) in both regimes.
+The length bounds for \(P_\eta\) and \(B_{\rm small}\) add with the
+same window length \(T\).  These four exact producer estimates
+are retained here as inputs until their proofs are translated.
+The finite theta input is the same-model integral expansion,
+primitive normalization and Heisenberg lift construction in
+\eqref{eq:ftb-theta-coset-val}; the recurrent-frame input is
+\texttt{exists_ext_hasPhi}.  The admissible shifted tuple and nonzero theta rule use
+\texttt{CardLevGrpAndSpan}, fpqc descent of the theta expression, and
+\texttt{ExistsShiftNullValNeZero}; the last is an actual theta-value
+nonvanishing input.  The exponent-one key unit, the
+integer-reading/cusp multiplication theorem, and the finite reference
+budget \eqref{eq:ftb-ref-budget} are also retained with their exact
+scope.  The arithmetic lemmas of this section do not by themselves
+assert these geometric and analytic suppliers.

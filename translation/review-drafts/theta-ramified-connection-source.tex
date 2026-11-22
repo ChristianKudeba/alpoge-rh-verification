@@ -1,0 +1,449 @@
+\subsection{The normalized translation-unit identity}
+\label{subsec:ftb-translation-unit-identity}
+
+For the same formal biextension let
+\[
+ H(X)=h(X,[w_0]X),\quad
+ \Theta(X,Y,Z)=
+ \exp\bigl(H(X+Y+Z)-H(X+Y)-H(X+Z)-H(Y+Z)
+                         +H(X)+H(Y)+H(Z)\bigr),
+\]
+and
+\(\iota(X)=\exp(H(-X)-H(X))\).
+The sums and negatives here are those of the formal group.
+The canonical-gauge/cubical identities make \(\Theta\) and \(\iota\)
+integral units.  Their constant terms are one.
+
+A normalized symmetric translation by a small \(k\)-torsion point
+\(\alpha\), at odd line power \(k\), is represented by an integral
+unit \(u_\alpha(X)\).
+The exact three identities it obeys are
+\begin{align}
+ u_\alpha(X+Y)u_\alpha(0)
+   &=u_\alpha(X)u_\alpha(Y)\Theta(X,Y,\alpha)^k,
+                                                        \label{eq:ftb-unit-cube}\\
+ (u_\alpha\tau_\alpha^*)^k(1)&=1,             \label{eq:ftb-unit-order}\\
+ u_\alpha(0)\iota(\alpha)^k u_\alpha(-\alpha)&=1.
+                                                        \label{eq:ftb-unit-sym}
+\end{align}
+These are \texttt{TrUnit.mul}, \texttt{TrUnit.order}, and
+\texttt{TrUnit.sym} in the frozen source.
+
+Here the unit is obtained from the actual integral theta group, not
+by extending a generic phase.
+The preimage of the integral point in the theta group is a
+\(\mathbb G_m\)-torsor on \(\operatorname{Spec}V\), hence has a lift
+because \(V\) is local.
+There is a unique odd-order symmetric normalization.
+For example, if \(k=2r+1\), an arbitrary lift \(w\) has central units
+\(a=w^k\) and \(b=w\,\delta(w)\), where \(\delta\) is inversion on
+the symmetric theta group; \(a^2=b^k\).
+The central rescaling \(t=a b^{-(r+1)}\) satisfies
+\(t^k=a^{-1}\), \(t^2=b^{-1}\).
+Thus \(tw\) has the required order and symmetry.
+The same two equations show uniqueness.
+
+Read this integral lift in the formal line-bundle frame.
+Its action is \(f\mapsto u_\alpha\tau_\alpha^*f\), with
+\(u_\alpha\in V[[X]]^\times\).
+The cubical multiplication identity gives
+\eqref{eq:ftb-unit-cube}; its order gives
+\eqref{eq:ftb-unit-order}; inversion gives
+\eqref{eq:ftb-unit-sym}.
+The source realizes the formal frame as the compatible limit of the
+actual jets, so the multiplier and the action on regular germs use
+the same frame.
+Its model comparison is
+\texttt{ExistsTranslateUnitSymmetricFormalGroupPoint.model\_unit}
+and \texttt{exists\_trUnit}.
+The required integral theta-group and square-model comparisons belong
+to the actual cubical model, not to a pairing specified only on the
+generic fibre.
+
+\begin{srlemma}[The product translation unit is exactly the
+\(\kappa\)-ratio]\label{lem:ftb-unit-kappa-ratio}
+Suppose \(\mu^*\mu=k1\), \(k\) is odd, \([\mu]\alpha=0\), and
+\(\kappa=\exp(S([\mu]X)-kS(X))\) is as in
+Lemma~\ref{lem:ftb-kappa}.
+For \(n\) normalized translation units set
+\(U(X)=\prod_bu_{\alpha_b}(X_b)\).
+Then
+\[
+                            U\,\tau_\alpha^*\kappa=\kappa .
+\]
+\end{srlemma}
+\begin{proof}
+All series below belong to the integral domain \(R=V[[X]]\).
+Let \(\psi=\tau_\alpha^*\) and let \(E_0,E_\alpha,E_{-\alpha}\)
+be evaluation at \(0,\alpha,-\alpha\).
+Their values are constants and are fixed by \(\psi\).
+Put
+\[
+ T=\prod_b\Theta(X_b,\alpha_b,\alpha_b)^k,\qquad
+ I=\prod_b\iota(\alpha_b)^k .
+\]
+The definitions of \(\Theta,\iota,\kappa\), and
+\([\mu]\alpha=0\), give
+\[
+ \psi^2\kappa\cdot\kappa\cdot(E_\alpha\kappa)^2T
+       =(\psi\kappa)^2E_\alpha(\psi\kappa),\qquad
+ E_{-\alpha}\kappa\cdot I=E_\alpha\kappa .
+\]
+The first is the third-difference identity for \(S\) at
+\((X,\alpha,\alpha)\); all terms involving
+\(S([\mu]\alpha)\) vanish.
+The second is its inversion identity.
+Also \(E_0\kappa=1\) and \(\psi^k\kappa=\kappa\).
+
+Equations \eqref{eq:ftb-unit-cube}--\eqref{eq:ftb-unit-sym}, multiplied
+over the copies, say
+\[
+ \psi U\cdot E_0U=U\cdot E_\alpha U\cdot T,\quad
+ \prod_{i=0}^{k-1}\psi^iU=1,\quad
+ E_0U\cdot I\cdot E_{-\alpha}U=1 .
+\]
+Define the unit \(\chi\) by
+\(\chi\kappa=U\psi\kappa\).
+Substitution and cancellation in these identities give
+\[
+                 \psi\chi\cdot E_0\chi
+                                  =\chi\cdot E_\alpha\chi,\qquad
+                  \prod_{i=0}^{k-1}\psi^i\chi=1.
+\]
+The first identity says
+\(\psi\chi=(E_\alpha\chi/E_0\chi)\chi\), with constant unit ratio.
+Hence the second has the form \(l\chi^k=1\), with \(l\) a constant
+unit.  Applying \(E_0\) gives \(\chi^k=(E_0\chi)^k\).
+Factor this difference of powers.
+The second factor has nonzero constant term
+\(k(E_0\chi)^{k-1}\); characteristic zero and the domain condition
+therefore imply \(\chi=E_0\chi\).
+In particular \(\psi\chi=\chi\).
+The inversion and symmetry identities then give \(\chi^2=1\).
+The product identity gives \(\chi^k=1\).
+As \(k\) is odd, \(\chi=1\), which is the required identity.
+This is the full cancellation mechanism of
+\texttt{ProdSymmetricTranslationUnitsEqKappaRatio.core};
+no root of unity is discarded.
+\end{proof}
+
+\subsection{The half-degree bound for the harmonic connection}
+\label{subsec:ftb-half-degree-connection}
+
+We record the formal calculation which produces the factor \(1/2\)
+in the discriminant loss.
+The integral formal biextension has an integral first-order module
+\(\mathcal H_V\) with its alternating pairing, an
+\(\mathcal O_E\)-action, and an exact sequence
+\[
+              0\longrightarrow\operatorname{Lie}(\mathcal F)^\vee
+               \longrightarrow\mathcal H_V
+               \longrightarrow\operatorname{Lie}(\mathcal F)
+               \longrightarrow0 .
+\]
+The action is adjoint for complex conjugation.
+In a formal frame a member lifting the tangent direction \(u\) has
+the form \((u,\phi-Su)\), where \(u,\phi\) are integral and
+\(S=\operatorname{sg}_1(h)\) is the gauge's linear correction.
+This describes the source's \texttt{Hset}; the pairing is the
+usual Heisenberg pairing
+\(\beta((u,v),(u',v'))=v'\cdot u-v\cdot u'\).
+The actual chart has an integral basis of tangent eigendirections
+\(u_{\tau,i}\).
+These structures and their compatibility with the canonical
+connection are those of its integral formal biextension.
+
+\begin{srlemma}[Ramified eigenlifts, with paired prime support]
+\label{lem:ftb-ramified-eigenlifts}
+Assume \(E/\mathbb Q\) is Galois.
+Let \(p\) be the chart residue characteristic, write
+\(\Delta_E=p^a m\), \(p\nmid m\), and suppose every prime
+\(\mathfrak p\mid p\) is distinct from its conjugate.
+For every tangent eigendirection there is a decomposition of a full
+eigenlift
+\[
+ (u_{\tau,i},\,\phi_{\tau,i}+\psi_{\tau,i}-Su_{\tau,i}),
+ \qquad\phi_{\tau,i}\text{ integral},\qquad
+ v(\psi_{\tau,i,j})\ge-\frac{a}{[E:\mathbb Q]}v(p).
+\]
+There is a partition of the primes above \(p\) into conjugate pairs,
+with a choice of side in each pair, such that all pairings between
+the integral lifts and errors vanish unless their prime colours are
+equal and their sides opposite.
+The full eigenlift has zero pairing with a tangent eigendirection
+except at the conjugate embedding.
+\end{srlemma}
+\begin{proof}
+Every embedding \(E\to F\) sends \(\mathcal O_E\) into \(V\).
+Its residue kernel is a prime \(\mathfrak p\mid p\).
+The finite-algebra product decomposition after completing
+\(\mathcal O_E\otimes V\) gives integral projectors onto these prime
+factors.  Algebraically the same projectors are obtained by Chinese
+remainders on the finite algebra; their idempotents lift over the
+complete local ring.
+Conjugation pairs the factors by the hypothesis
+\(\mathfrak p\ne\bar{\mathfrak p}\).
+The adjoint action makes two factor summands orthogonal unless their
+primes are conjugate.
+
+Choose any integral lift of \(u_{\tau,i}\) in \(\mathcal H_V\), and
+apply its integral prime projector.
+It still lifts the same tangent direction.
+Over \(F\), apply the embedding projector \(e_\tau\).
+If \(\omega_j,\omega_j^\vee\) are an integral basis and its trace-dual
+basis, this projector is
+\[
+                 e_\tau=\sum_j\tau(\omega_j)\,\omega_j^\vee
+\]
+acting on the module.
+This identity follows from trace duality, so its sum over all
+embeddings is \(1\) and its action is the required eigenprojection.
+Choose \(\delta\) in the different with minimal valuation at this
+prime.  Then each \(\delta\omega_j^\vee\) is integral, and the
+coefficients of \(e_\tau\) have denominators dividing \(\tau(\delta)\).
+Since the tangent direction was already an eigenvector, the
+difference between the projected and unprojected lifts is vertical,
+of the form \((0,\psi)\).
+Thus \(\tau(\delta)\psi\) is integral.
+
+The Galois different exponents at primes above \(p\) are equal.
+If their ramification and residue degrees are \(e_p,f_p\), and their
+number is \(g\), the discriminant identity is
+\(a=gf_p d_p\), while \([E:\mathbb Q]=gf_pe_p\).
+It follows that
+\[
+                  v(\tau(\delta))
+                  =d_p\,v(p)/e_p
+                  =a\,v(p)/[E:\mathbb Q].
+\]
+Using the weaker inequality is sufficient if a different element is
+chosen only to attain the minimum of its image ideal.
+This proves the denominator estimate.
+Prime-projector orthogonality proves the three required vanishings
+for the integral--integral, error--integral and integral--error
+pairings.  Eigenprojection and adjointness give the final
+embedding-level vanishing.
+These are the trace-dual and prime-projector operations of
+\texttt{ExistsRamifiedEigenLiftsOfChartDirections} and
+\texttt{HolomorphicFamilies/EigRamLift.eigLiftRam\_core}.
+\end{proof}
+
+Here is the precise contraction count.
+Give every embedding its conjugate-prime colour and its side.
+For a monomial \(m\) in one column, put
+\[
+ \operatorname{pairMin}(m)=
+  \sum_{\text{colours }c}
+   \min\left\{\sum_{\ell\text{ on side }+,\ c(\ell)=c}m_\ell,
+              \sum_{\ell\text{ on side }-,\ c(\ell)=c}m_\ell\right\}.
+\]
+For a monomial in \(n\) columns, sum this number over the columns.
+Twice this sum is at most the total monomial degree, since
+\(2\min(A,B)\le A+B\) in each colour and column.
+For a polynomial of row degrees \(a\), the total degree is \(d_a\).
+Thus its sum of pair minima is at most \(\lfloor d_a/2\rfloor\).
+
+\begin{srlemma}[The paired connection estimate]\label{lem:ftb-paired-connection}
+Under the eigenlift and orthogonality conditions of
+Lemma~\ref{lem:ftb-ramified-eigenlifts}, let
+\(J=\{x\in F:v(x)\ge-c\}\), where
+\(c=a\,v(p)/[E:\mathbb Q]\).
+For every integral input power series and every integral harmonic
+polynomial \(P\) of row degrees \(a_{\tau,i}\), its normalized
+harmonic connection value at any line power belongs to
+\(J^{\lfloor d_a/2\rfloor}\).
+Consequently its valuation is at least \(-c\,d_a/2\).
+\end{srlemma}
+\begin{proof}
+We give the actual connection calculation, including the divided
+contractions.  Write \(x=(x_i)\) for the formal-group coordinates and
+\(z=(z_i)\) for the auxiliary coordinates, and write \(D_u\) for the
+invariant derivative in direction \(u\).  Put
+\[
+ s_i(x)=\operatorname{sgOf}(h)_i,\qquad
+ F_u(x,z)=\sum_i(z_i-s_i(x))u_i .
+\]
+On the doubled power-series ring the source connection is
+\begin{equation}\label{eq:ftb-explicit-connection}
+ N_{u,v}=D_u+\sum_i(D_us_i+v_i)\partial_{z_i}-mF_u .
+\end{equation}
+In particular \(N_{0,\psi}=\sum_i\psi_i\partial_{z_i}\);
+it kills a series depending only on \(x\).
+A direct commutator calculation gives
+\[
+ [N_\xi,N_\eta]=m\beta(\xi,\eta).
+\]
+Indeed invariant derivatives commute,
+\(D_uD_{u'}s_i=D_{u'}D_us_i\), and
+\(V_{u,v}(F_{u'})=\sum_iv_iu_i'\) for the vector-field part \(V\)
+of \(N\).  These identities prove both the commutator and the
+vertical killing assertion without a coordinate change.
+
+Let \(H=h(x,[w_0]x)\) and \(E=\exp(mH)\), with \(E(0)=1\).
+For an integral lift
+\(\xi_h=(u,\phi-Su)\), the canonical-gauge identities say
+\[
+ D_uH+\sum_is_i u_i\in V[[x]],\qquad
+ D_us_i-\sum_jS_{ij}u_j\in V[[x]] .
+\]
+They follow by differentiating the additive, symmetric and adjoint
+gauge-defect identities; \(w_0+\bar w_0=1\) cancels the two linear
+adjoint terms.  Consequently the displayed formula gives
+\[
+ E^{-1}N_{\xi_h}E
+  =D_u+\sum_i(D_us_i+\phi_i-(Su)_i)\partial_{z_i}
+      +m\bigl(D_uH+\sum_is_i u_i-\sum_iz_i u_i\bigr),
+\]
+an operator with integral coefficients.
+Thus every word in the operators \(N_{\xi_h}\), applied to
+\(E f(x)\) with \(f\) integral, is \(E\) times an integral series;
+its constant coefficient is integral.
+This is the source's \texttt{ConnectionIntegrality} calculation.
+
+Now write the full lift as \(\xi=\xi_h+(0,\psi)\).
+Order the two sides with all \(+\) operators to the left of all
+\(-\) operators.  Within a side the required operators commute by
+the pairing vanishings.  Move every vertical error operator through
+the word to the right, where it kills \(E f(x)\).
+Each commutation contributes the scalar
+\[
+ \kappa_{\ell\ell'}
+   =\begin{cases}
+       m\beta((0,\psi_\ell),\xi_{h,\ell'}),
+              &c(\ell)=c(\ell'),\
+                 s(\ell)=+,\ s(\ell')=-,\\
+       0,&\text{otherwise}.
+     \end{cases}
+\]
+It belongs to \(J\): the tangent component of \(\xi_h\) is integral
+and every coordinate of \(\psi\) lies in \(J\).
+The resulting ordered Wick formula replaces a polynomial \(Q\) by
+\[
+       \sum_{j=0}^{\deg Q}
+          \frac{\delta_\kappa^j}{j!}Q,\qquad
+ \delta_\kappa=\sum_{\ell,\ell'}\kappa_{\ell\ell'}
+                         \partial_\ell\partial_{\ell'} .
+\]
+This formula follows by induction on a word: commuting the next
+vertical operator either moves it to the right or selects one
+opposite-side letter for a scalar contraction.
+The choices of \(j\) contractions are exactly the terms in
+\(\delta_\kappa^j/j!\).
+
+This expression introduces no nonintegral coefficient.
+For a monomial \(X^AY^B\), indexed on the two sides, its term with
+a nonnegative matrix \(N=(n_{ij})\), \(\sum n_{ij}=j\), has scalar
+coefficient
+\[
+ \frac{\prod_i A_i!/(A_i-\sum_jn_{ij})!\,
+       \prod_j B_j!/(B_j-\sum_in_{ij})!}
+      {\prod_{ij}n_{ij}!}\ \prod_{ij}\kappa_{ij}^{n_{ij}} .
+\]
+The integer before the product is integral: divide the first
+falling-factorial product by \(\prod_{ij}n_{ij}!\) row by row,
+obtaining multinomial integers, and leave the second product
+unchanged.  Hence every coefficient lies in \(J^j\).
+Each contraction removes one letter from either side of one colour.
+It reduces \(\operatorname{pairMin}\) by one.
+It follows inductively that \(\delta_\kappa^jQ=0\) once \(j\)
+exceeds the maximum pair minimum of a supported monomial.
+The integral-operator assertion above therefore places the
+constant value in the indicated power of \(J\).
+Because \(1\in J\), a term in \(J^j\), \(j\le e\), also belongs
+to \(J^e\).
+
+It remains to justify that the ordered values compute the desired
+harmonic derivative.  Apply the same commutation formula to the
+full lifts, splitting them instead as \((u,0)+(0,v)\).
+The corresponding contraction coefficient vanishes unless the
+embedding labels are conjugate.
+For \(n\) columns its second-order operator is a sum over columns
+of scalar multiples of
+\[
+   \sum_{b=1}^n
+        \partial_{(\tau,i,b)}
+        \partial_{(\bar\tau,j,b)} .
+\]
+Each such operator kills \(P\) by its harmonicity.
+Their sum \(\delta\) therefore kills \(P\), and the finite
+exponential \(\sum_j\delta^j/j!\) applied to \(P\) is just \(P\).
+The columnwise ordered Wick expansions consequently have exactly
+the same total value as the original harmonic connection.
+Formally this uses that the second-order operators in distinct
+columns commute; expand the finite exponential of their sum and
+collect the multinomial coefficients.
+In the horizontal case \(v=0\), substitution
+\(\operatorname{ev}_s:z_i\mapsto s_i(x)\) obeys the exact chain rule
+\[
+               \operatorname{ev}_s N_{u,0}
+                             =D_u\operatorname{ev}_s .
+\]
+The \(\sum_iD_us_i\,\partial_{z_i}\) term is precisely the
+derivative of this substitution, and \(F_u(x,s(x))=0\).
+For a general \((u,v)\), the additional vertical derivative
+\(\sum_iv_i\partial_{z_i}\) remains; it was removed only by the
+preceding Wick and harmonic comparison.
+Since \(s_i(0)=0\), this horizontal substitution preserves constant
+coefficients, proving that the resulting constant value is the
+original invariant harmonic derivative.  This proves the value comparison as well
+as the error estimate.
+
+The argument is precisely the chain
+\texttt{ConnectionKillsSeries},
+\texttt{ConnectionSecondOfCommute},
+\texttt{ExpConjConnectionIntegral},
+\texttt{SCWick}, \texttt{SCMain},
+\texttt{LemmaHCols}, \texttt{HarmSecond}, and
+\texttt{ChartValJ}.
+The bound \(2\sum_b\operatorname{pairMin}\le d_a\) now gives
+membership in \(J^{\lfloor d_a/2\rfloor}\).
+Since \(v(J^s)\ge-sc\), it gives the asserted valuation.
+\end{proof}
+
+At a place where \(\Delta_E\) is a unit, the trace-dual projectors are
+integral; the same argument has \(J=V\), and the connection value is
+integral.
+For an actual principal host the arithmetic host data gives
+\(E/\mathbb Q\) Galois, discriminant support in
+\(\operatorname{cond}E\), and
+\(\mathfrak p\ne\bar{\mathfrak p}\) over each prime in that support.
+The precise host assertion is
+\texttt{HostFieldGaloisDegreeDiscrConjMovesPrimes.host\_galois\_discr\_moves};
+its last clause is equivalent to the existence of
+\(x\in\mathfrak p\) with \(\bar x\notin\mathfrak p\).
+Applying the ramified estimate, or the unit-discriminant estimate,
+gives for every line power the uniform chart loss
+\begin{equation}\label{eq:ftb-host-chart-loss}
+ \rho=\frac{d_a}{2}
+  \sum_{p\mid\operatorname{cond}E}
+       v(p)\frac{\operatorname{ord}_p\Delta_E}{[E:\mathbb Q]} .
+\end{equation}
+Terms away from the residue characteristic have valuation zero.
+This is \texttt{HarmonicValuationLowerBoundHostFieldAllPlaces.chBound\_host}.
+It is the chart bound required by
+Proposition~\ref{prop:ftb-mixed-value-bound}.
+
+\paragraph{Source ledger and exact geometric input.}
+The translation-unit construction uses the actual formal line frame
+and integral theta group on the chart model.
+Its producer also uses
+\texttt{FormalGroupCharts/SurjectiveAppTopIntegralModelSquare.lean}
+to identify the generic and integral-model fibre actions.
+This comparison must be supplied by the same N3/model construction.
+The pure \(\kappa\)-ratio proof is
+\texttt{RingsOfIntegers/ProdSymmetricTranslationUnitsEqKappaRatio.lean}
+(blob \texttt{a17745b704f0f016723223e43b95b2f5a284daf5}).
+The ramified projection calculation is
+\texttt{RingsOfIntegers/ExistsRamifiedEigenLiftsOfChartDirections.lean}
+(blob \texttt{dace979b8644da935cf648e5eef6d90c6ab6688d}),
+with \texttt{HolomorphicFamilies/EigRamLift.lean}
+(blob \texttt{532b04bcef9d8cdeb821bc4b7e792eaa9f9e75fd}).
+The formal normal-ordering identity is
+\texttt{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/PullbackSections/HolomorphicFamilies/ChartValJ.lean}.
+Its source imports the explicit \texttt{WickVanishing.Closed} and
+\texttt{WickVanishing.HarmSecond} calculations.
+All actual-chart applications require the same integral formal
+biextension and its gauge/eigendirection comparison, supplied by
+\texttt{JetHarmonics/IntegralChartFormalBiext.lean} and
+\texttt{IntegralChartDirectionsAreEigenvectors.lean}.
+These are named model joins, not extra numerical assumptions.

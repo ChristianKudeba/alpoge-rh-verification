@@ -1,0 +1,311 @@
+\subsection{The actual kernel points and the adjoint-frame coefficient}
+\label{subsec:faithful-geometric-kernel-count}
+
+We retain the geometric hypotheses of
+\texttt{ProperGroupGermFiniteSubscheme}.  Let \(E\) be a CM number
+field, \(H\) its specified host, and \(O=\mathcal O_E\), with
+\(\bar a=H.\mathrm{bar}(a)=a^*\).  Let \(k\) be algebraically closed
+of characteristic the prime \(p\), and let \(t\) be the source's
+polarized semiabelian datum \(\mathrm{SAB}(H,\operatorname{Spec}k)\).
+Assume that its group \(G\) is proper and that its cubical line \(L\)
+satisfies the source predicate \(\mathrm{KTriv}(G,L)\).
+In particular \(G\) is an abelian variety.  Choose an actual
+\(\mathrm{GermAt}(t,1,d)\), denoted \(g\).  Put
+\[
+ R_a=\operatorname{lin}_1(g.B.\mathrm{acta}(a)),\qquad
+ C_a=\operatorname{bil}_{1,1}(g.B.\mathrm{ad}(a)).
+\]
+The doubled formal action is the actual action already fixed:
+\[
+ \rho_H(a)(u,f)=(R_a u,R_{\bar a}^{\,t}f-C_a^{\,t}u).
+ \tag{KG1}\label{eq:faithful-kernel-doubled-action}
+\]
+
+Fix \(a\in O\).  Suppose a finite \(k\)-algebra \(A\), with a map
+\(\kappa:\operatorname{Spec}A\to G\), represents the scheme-theoretic
+kernel of \([a]\).  Thus \([a]\kappa=0\), and every point killed by
+\([a]\) factors uniquely through \(\kappa\), over every test scheme.
+No separability or reducedness of this finite kernel is assumed.
+
+\begin{lemma}[The geometric primitive and tangent maps]
+\label{lem:faithful-geometric-kernel-pair}
+The multiplication, identity, and inverse of this kernel endow \(A\)
+with a finite commutative cocommutative Hopf algebra structure.
+There are injective linear maps
+\[
+ \begin{split}
+ D:\ker R_a&\longrightarrow\operatorname{Hom}_k(A,k),\\
+ T:\ker R_{\bar a}&\longrightarrow A
+ \end{split}
+\]
+such that \(D(u)\) is an augmentation derivation, \(T(z)\) is
+primitive, and
+\[
+                 D(u)(T(z))=u^tC_a z .
+ \tag{KG2}\label{eq:faithful-actual-mixed-kernel-pair}
+\]
+Here the right side is the mixed coefficient of the chosen actual
+adjoint cubical frame, with no change of its normalization.
+\end{lemma}
+
+\begin{proof}
+We first give the source's construction of the pairing and its
+nondegeneracy assertion.
+
+Write
+\[
+ \mathcal P(x,y)=L_{x+y}\otimes L_x^{-1}\otimes L_y^{-1}\otimes L_0
+\]
+for the normalized second difference of \(L\).
+The actual germ's frame supplies a global generating section \(w_a\)
+of
+\[
+       \mathcal P(x,[\bar a]y)\otimes
+                         \mathcal P([a]x,y)^{-1}.
+ \tag{KG3}\label{eq:faithful-actual-adjoint-line}
+\]
+This is its \(\mathrm{frame.ad}(a)\) producer.
+The alternating product defining this line is exactly
+\(\mathrm{AdSum}([a],[\bar a])\): on arbitrary multiplicative
+symbols it expands as
+\[
+ h(x+[\bar a]y)h(x)^{-1}h([\bar a]y)^{-1}
+      h([a]x+y)^{-1}h([a]x)h(y).
+\]
+Thus no independent polarization comparison is substituted for
+the actual generator.
+
+On points \(x\in\ker[a]\), \(v\in\ker[\bar a]\), both second
+differences in \eqref{eq:faithful-actual-adjoint-line} have their
+canonical axis trivializations.  Evaluation of \(w_a\) in these
+trivializations gives a unit \(\chi_a(x,v)\), functorial in the
+test algebra.  The value at either axis is \(1\).
+The source proves this by comparing the two axis pullbacks with
+the identity pullback: their ratio is a global function on the
+proper connected group, hence comes from the base, and its value
+at the identity is \(1\), as is the constant coefficient of
+\(g.B.\mathrm{ad}(a)\).
+The same global-function comparison, applied to translation by a
+kernel point, gives
+\[
+ \chi_a(y+x,v)=\chi_a(y,v)\chi_a(x,v)
+              \qquad([a]x=0,\ [\bar a]v=0).
+ \tag{KG4}\label{eq:faithful-kernel-character-law}
+\]
+More explicitly, compare the two pullbacks of \(w_a\) indexed by
+\((y+x,v)\) and \((y,v)\).  Their alternating line expressions
+agree because \([a]x=[\bar a]v=0\); the ratio is constant in the
+proper group variable \(y\), and evaluating at \(y=0\) gives the
+factor \(\chi_a(x,v)\).  These are the source's
+\texttt{pair\_ax} and \texttt{pair\_mul}.
+
+We also need its precise nondegeneracy argument, only in the
+second variable.  If \(R\) is local and \(v\in G(R)\) is killed by
+\([\bar a]\), suppose
+\[
+      \chi_a(x,v)=1
+ \quad\text{for every point }x\in\ker[a]
+ \text{ after every base change over }\operatorname{Spec}R.
+ \tag{KG5}\label{eq:faithful-kernel-pair-trivial}
+\]
+Then \(v=0\).
+First \([a]:G\to G\) is finite, flat, and surjective in this
+situation.  Indeed it is proper; its geometric kernel points
+factor through the finite scheme \(\operatorname{Spec}A\), and
+each geometric fibre is a translate of that kernel.  Thus it is
+locally quasi-finite and proper, hence finite.  The source's
+finite-endomorphism result for a smooth geometrically integral
+proper group gives flatness and surjectivity.  In particular it
+is an fpqc cover, also after base change to \(R\).
+
+On \(G_R\), put \(\mathcal P_v=\mathcal P(-,v)\).
+The inverse of \(w_a(-,v)\) is a generator of
+\([a]^*\mathcal P_v\).  Two points with the same image under
+\([a]\) differ by a kernel point.  Equations
+\eqref{eq:faithful-kernel-character-law} and
+\eqref{eq:faithful-kernel-pair-trivial} therefore say that these
+two pullbacks of that generator agree.  Faithfully flat descent
+of a generating section and its inverse gives a generator of
+\(\mathcal P_v\).  The line \(L_v\otimes L_0^{-1}\) over the local
+base \(\operatorname{Spec}R\) has a generator.  Multiplying it
+with the descended generator gives a generator of
+\(t_v^*L\otimes L^{-1}\) on \(G_R\).
+The stipulated \(\mathrm{KTriv}(G,L)\) now gives \(v=0\).
+This is \texttt{pair\_nondeg}; it is a descent of the actual
+adjoint-frame generator, not an invocation of an unspecified
+duality pairing.
+
+We construct the linear maps in finite bases, as in
+\texttt{ker\_data}.  Choose bases
+\(u_1,\ldots,u_s\) of \(\ker R_a\) and
+\(v_1,\ldots,v_r\) of \(\ker R_{\bar a}\).
+For any \(n\), let
+\[
+     S_n=k\oplus k^n,\qquad (0\oplus k^n)^2=0 .
+\]
+The actual germ sends the coordinate tuple
+\((0,\,(u_j)_l)_{l=1}^d\) to a point over \(S_s\);
+since its linear \([a]\)-image is zero, that point factors
+uniquely through \(\operatorname{Spec}A\).
+In terms of functions this is an algebra map
+\[
+       \psi:A\longrightarrow S_s,\qquad
+       \psi(b)=\bigl(\epsilon(b),(D_j(b))_{j=1}^s\bigr).
+\]
+Its constant component is the identity point \(\epsilon\):
+reduce the point modulo the square-zero ideal and use uniqueness
+of its kernel factorization.  Multiplicativity of \(\psi\)
+therefore gives
+\[
+ D_j(bb')=\epsilon(b)D_j(b')+D_j(b)\epsilon(b').
+ \tag{KG6}\label{eq:faithful-kernel-derivation}
+\]
+A linear relation \(\sum c_jD_j=0\), composed with the map
+\(S_s\to k[\delta]/(\delta^2)\) determined by
+\((e_j)\mapsto c_j\delta\), says that the actual first-order
+point in direction \(\sum c_j u_j\) is zero.
+The actual germ's first-order coordinate injectivity makes that
+direction zero; independence of the \(u_j\) gives all \(c_j=0\).
+
+Likewise the directions \(v_i\) give a point
+\(z\in\ker[\bar a](S_r)\).
+Apply \(\chi_a\) to the universal point
+\(\kappa\in\ker[a](A)\) and this point over
+\(A\otimes_k S_r\).  The resulting unit has the form
+\[
+             c=1+\sum_{i=1}^r f_i\otimes e_i .
+ \tag{KG7}\label{eq:faithful-kernel-character-coefficients}
+\]
+Its constant coefficient is \(1\) by the axis normalization.
+Let \(\Delta:A\to A\otimes_kA\) be obtained by multiplying the
+two universal kernel points.  Formula
+\eqref{eq:faithful-kernel-character-law} gives
+\[
+   (\Delta\otimes1)c=c_{13}c_{23}.
+\]
+Comparison of the square-zero coefficients in \(S_r\) gives
+\[
+                   \Delta(f_i)=f_i\otimes1+1\otimes f_i.
+ \tag{KG8}\label{eq:faithful-kernel-primitives}
+\]
+If \(\sum_i c_i f_i=0\), substitute the direction map
+\(S_r\to k[\delta]/(\delta^2)\) into
+\eqref{eq:faithful-kernel-character-coefficients}.
+The resulting character is identically \(1\), universally on
+\(\ker[a]\).  The nondegeneracy just proved gives that the
+first-order point with direction \(\sum_i c_i v_i\) is zero.
+First-order coordinate injectivity and independence of the
+\(v_i\) show that every \(c_i=0\).
+
+It remains to check the normalization in
+\eqref{eq:faithful-actual-mixed-kernel-pair}.
+Evaluate the adjoint frame on the two first-order points over
+\(S_s\otimes_kS_r\).
+The germ coordinates have zero products within the first
+square-zero block and within the second.  Therefore the formal
+series \(g.B.\mathrm{ad}(a)(X,Y)\) has only its constant, pure
+first-order, and mixed terms at this point.  Its restrictions
+to either axis are \(1\), so the pure terms vanish.
+The coefficient of \(e_j\otimes e_i\) is exactly
+\[
+                    \sum_{l,m}(u_j)_l(C_a)_{lm}(v_i)_m.
+\]
+On the other hand substituting \(\psi\) into
+\eqref{eq:faithful-kernel-character-coefficients} gives that same
+coefficient as \(D_j(f_i)\).
+The actual frame-to-series comparison is
+\texttt{chi\_chart}; the coefficient extraction is
+\texttt{second\_jet\_expansion}.  This proves the equality with
+the actual \(C_a\), including its sign and transpose convention.
+
+Finally the kernel's multiplication, identity, and inverse factor
+uniquely through itself.  On coordinate rings these give
+\(\Delta,\epsilon,\iota\); uniqueness of kernel factorization
+transfers associativity, the identity laws, inversion, and
+commutativity to the Hopf laws.  Equivalently this is the
+source's \texttt{exists\_hopf} construction on the same underlying
+algebra \(A\).  Extend \(u_j\mapsto D_j\) and \(v_i\mapsto f_i\)
+linearly from the chosen bases.  Their independence gives
+injectivity; equations \eqref{eq:faithful-kernel-derivation},
+\eqref{eq:faithful-kernel-primitives}, and the mixed calculation
+give all the asserted identities.
+\end{proof}
+
+\begin{proposition}[The proper-germ kernel divisibility]
+\label{prop:faithful-proper-germ-kernel-divisibility}
+Under the same hypotheses,
+\[
+       p^{\,\dim_k\ker\rho_H(a)}\mid\dim_k A .
+ \tag{KG9}\label{eq:faithful-proper-germ-kernel-divisibility}
+\]
+\end{proposition}
+\begin{proof}
+Set
+\[
+ W_a=\{u\in\ker R_a:
+                  z^tC_a^{\,t}u=0\text{ for all }z\in\ker R_{\bar a}\}.
+\]
+Project \(\ker\rho_H(a)\) to its first component.
+If \((u,f)\) lies in this kernel, then \(R_a u=0\) and
+\(C_a^tu=R_{\bar a}^tf\).
+For \(z\in\ker R_{\bar a}\) this gives
+\(z^tC_a^tu=(R_{\bar a}z)^tf=0\), so the projection's image
+is contained in \(W_a\).
+Its kernel injects by the second component into
+\(\ker R_{\bar a}^t\).
+The kernel dimensions of a square matrix and its transpose agree.
+Rank--nullity consequently gives the exact bound used by the source:
+\[
+       \dim_k\ker\rho_H(a)
+             \le \dim_k\ker R_{\bar a}+\dim_k W_a.
+ \tag{KG10}\label{eq:faithful-doubled-kernel-bound}
+\]
+No equality or unproved lifting of a first component is needed.
+
+Apply Lemma~\ref{lem:faithful-geometric-kernel-pair}.
+The primitive subspace \(P=T(\ker R_{\bar a})\) has dimension
+\(\dim_k\ker R_{\bar a}\), and the augmentation-derivation
+subspace \(W=D(W_a)\) has dimension \(\dim_kW_a\).
+Equation \eqref{eq:faithful-actual-mixed-kernel-pair} and the
+definition of \(W_a\) make these spaces orthogonal.
+Proposition~\ref{prop:faithful-primitive-tangent-count} yields
+\[
+ p^{\,\dim_k\ker R_{\bar a}+\dim_kW_a}\mid\dim_kA.
+\]
+Equation \eqref{eq:faithful-doubled-kernel-bound} implies
+\eqref{eq:faithful-proper-germ-kernel-divisibility}.
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+The actual geometric producer is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ProperGroupGermFiniteSubscheme.lean}
+{\texttt{ProperGroupGermFiniteSubscheme}}
+(blob \texttt{3ad2aaa54254d04f8c6931e8c1537377fb2abd13}),
+namely \texttt{ker\_data}, \texttt{assemble},
+\texttt{exists\_hopf}, and \texttt{kerHopf\_geom}.
+Its explicit cubical and scheme-theoretic helpers are in
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankMultiplicationCharP.lean}
+{\texttt{KernelRankMultiplicationCharP}}
+(blob \texttt{8692ad93c74b5c1b23bdc6589110ce06b1a56c60}):
+\texttt{pair\_ax}, \texttt{pair\_mul}, \texttt{pair\_nondeg},
+\texttt{pair\_exists}, \texttt{exists\_ker}, \texttt{flat\_surj},
+\texttt{second\_jet\_expansion}, and \texttt{chi\_chart}.
+Here \texttt{chi\_chart} is the chart comparison for its
+\texttt{Chi} predicate in the \texttt{JetKernelRank} namespace;
+its equality is applied to the two actual square-zero coordinate
+points, as above.
+The final bound is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ProperMultiplicationKernel.lean}
+{\texttt{ProperMultiplicationKernel}}
+(blob \texttt{ed9741baf8969ed3e3efda99cbdbce7a51e6dc81}),
+specifically \texttt{finrank\_ker\_rhoH\_le} and
+\texttt{lemF\_ker\_order\_dvd}.
+All three files were checked against the frozen baseline.
+
+The conclusion is for the proper polarized quotient equipped with
+its actual \(\mathrm{KTriv}\) line and actual germ.
+The finite-kernel existence and its norm-degree formula, and the
+transfer from a semiabelian group to its proper quotient, are
+separate producers.  This calculation establishes the exact
+adjoint-frame pairing needed for them; it makes no unproved
+integral identification with a Dieudonn\'e module.

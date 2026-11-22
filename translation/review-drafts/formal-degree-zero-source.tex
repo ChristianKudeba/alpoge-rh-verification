@@ -1,0 +1,442 @@
+\subsection{Degree zero from the two exact sequences and a free coefficient lattice}
+\label{subsec:faithful-character-quotient-degree-zero}
+
+This subsection follows
+\srcid{SplitHermitianGeneratorsExist.deg\_quot\_eq\_zero}.
+The coefficient algebra need not be reduced or etale;
+the final step uses its actual ideal filtration.
+
+\begin{srproposition}\label{prop:faithful-character-quotient-degree-zero}
+Let \(E\) be a number field with the specified involution
+on \(O=\mathcal O_E\), let \(K\) have characteristic
+the prime \(p\), and let \(C\) be a source arithmetic
+curve over \(K\).
+Let \(D\) be the source's
+\(\mathrm{ConjData}(C,p,O,d)\), so its lattice bundle
+\(\mathcal H\), its tangent lattice \(\mathcal L\),
+its actual action \(\rho_H\), and its two exact
+sequences are exactly (FC6)--(FC7).
+Let \(\chi:O\to K\) be a ring character.
+Retain the source's splitting hypothesis: for every
+\(a\in O\), the characteristic polynomial of
+multiplication by \(a\) on the integral \(O\)-lattice,
+mapped to \(K[T]\), splits over \(K\).
+
+Assume there is a fixed \(r\ge0\) such that for every
+valuation index \(i\) there are \(x_{i,1},\ldots,x_{i,r}\)
+with
+\[
+ \bigl\{\rho_H(b_j)x_{i,l}:
+       1\le j\le[E:\mathbb Q],\ 1\le l\le r\bigr\}
+ \quad\text{a }K\text{-basis of }H_K
+\]
+whose \(R_i\)-span is exactly \(\mathcal H_i\);
+here \(b_j\) is the specified integral basis of \(O\).
+Then, for the source quotient lattice,
+\[
+ \deg_C\!\left(\mathcal H/W_\chi\right)=0,\qquad
+ W_\chi=\sum_{a\in O}\operatorname{im}
+                                  (\rho_H(a)-\chi(a)I).
+ \tag{FZ1}\label{eq:faithful-character-quotient-zero}
+\]
+\end{srproposition}
+
+\paragraph{Degree conventions and two elementary bundle facts.}
+For a subspace \(W\subset H_K\), the sublattice is
+\(\mathcal H_i\cap W\) and the quotient lattice is
+the image of \(\mathcal H_i\) in \(H_K/W\).
+These are the source's \(\mathrm{sub}\) and
+\(\mathrm{quot}\); no equality of a coefficient ideal's
+integral image with its saturation is assumed.
+
+First, degree is additive in an exact lattice sequence.
+At each valuation, choose an integral basis of the
+submodule and lift a basis of the quotient.
+The determinant matrix is block triangular, so its
+valuation is the sum of the two determinant valuations.
+The product formula removes changes of generic basis.
+This proves additivity with the source's weighted
+integer-valued degree.
+
+If compatible idempotent endomorphisms act on an exact
+lattice sequence and preserve its middle lattice, their
+image sequences are also exact lattices.
+For a kernel vector, take an arbitrary preimage in the
+first term and apply its idempotent; for a quotient
+vector, take an integral lift in the middle and apply
+the middle idempotent.
+The maps commute, so these are the required preimages
+and lifts in the image subspaces.
+Consequently their degrees add.
+This is the source's
+\srcid{FilteredExactSequenceProjectorBundles.subDeg\_range\_shortExact}.
+
+Second, Frobenius multiplies subbundle degree by \(p\):
+\[
+       \deg_C\bigl(F^*\mathcal V\cap F(W)\bigr)
+                               =p\,\deg_C(\mathcal V\cap W).
+ \tag{FZ2}\label{eq:faithful-frob-subdegree}
+\]
+Here \(F(W)\) is the \(K\)-span of coordinatewise
+\(p\)-th powers.
+The full-lattice formula is
+\srcid{FrobeniusLatticeDegreeMulP.deg\_frobLat}; the required
+subspace formula is separately
+\srcid{LinearIndependentMapVec.SubFrob.subDeg\_frob}.
+Here is its intersection argument.
+Choose a full integral local basis \(b\) adapted to \(W\),
+whose first \(m=\dim W\) elements form an integral
+basis \(c\) of the intersection.
+The coordinatewise \(p\)-th powers of \(b\) are a full
+basis, because its determinant is raised to its
+\(p\)-th power.
+The \(p\)-th powers of \(c\) form a basis of the
+Frobenius span of \(W\).
+More generally the source proves their linear independence
+by taking a left inverse to their original row matrix
+and applying Frobenius to the matrix identity; it does
+not take \(p\)-th roots of coefficients.
+The local Frobenius lattice is the integral span of
+the new full basis: inclusion of all Frobenius
+generators follows from their original integral
+coordinates, and the reverse inclusion uses the
+new basis vectors themselves.
+In those coordinates, its intersection with the
+new \(m\)-dimensional subspace is precisely the span
+of the first \(m\) vectors.
+Thus it has the asserted transformed intersection basis.
+The semilinear coordinate formula sends every
+change-of-basis matrix \(M\) on \(W\) to \(M^{(p)}\);
+hence \(\det(M^{(p)})=\det(M)^p\).
+Valuations multiply by \(p\), proving (FZ2).
+The full-lattice finite-exception condition gives the
+corresponding lattice bundles throughout.
+No surjectivity of Frobenius on \(K\) is asserted.
+
+\paragraph{Finite constants and their action.}
+The kernel of \(\chi\) contains the nonzero element
+\(p\in O\).
+Every nonzero ideal of \(O\) has finite quotient:
+if \(a\ne0\) belongs to it, multiplication by \(a\)
+has nonzero integral determinant on the integral basis
+of \(O\), so \(O/aO\), and hence the ideal quotient,
+is finite.
+Thus \(\chi(O)\) is a finite integral domain.
+For every nonzero element, multiplication is injective
+and therefore surjective on this finite set, so it has
+an inverse there.
+It is a finite subfield \(k\subset K\).
+Write \(|k|=p^s\), with \(s>0\), and
+\(\chi_0:O\to k\) for the same character with restricted
+codomain.
+
+Every nonzero element of \(k\) has finite multiplicative
+order; hence every valuation \(v_i\) of \(K\) is \(1\)
+on it.
+In particular \(k\subset R_i\) for all \(i\).
+Set
+\[
+ A=k\otimes_{\mathbb Z}O,\quad
+ \chi_A(c\otimes a)=c\,\chi_0(a),\quad
+ \mathfrak m=\ker\chi_A .
+\]
+The algebra \(A\) is a finite ring.
+Extend the three \(O\)-actions on
+\(\mathcal H,\mathcal L,\mathcal L^\vee\) to \(A\)
+by \(c\otimes a\mapsto c\,\rho(a)\).
+They preserve their lattices because \(c\in R_i\).
+The same is true of every idempotent in \(A\).
+
+\paragraph{Frobenius forces every constant idempotent degree to vanish.}
+For \(e^2=e\in A\), let
+\[
+                            d_H(e)=\deg_C(\mathcal H\cap eH_K).
+\]
+The idempotents induced on the first and last Hodge
+terms give, by exactness,
+\[
+ d_H(e)=
+ \deg_C\bigl(\mathcal L^\vee\cap e_{\rm dual}L_K^\vee\bigr)
+ +\deg_C\bigl(\mathcal L\cap e_{\rm tan}L_K\bigr).
+ \tag{FZ3}\label{eq:faithful-idempotent-Hodge-degree}
+\]
+The action on the dual is the specified conjugate
+transpose action, not an unconjugated replacement.
+
+Define the source's coefficient Frobenius
+\[
+                \mathfrak F:A\to A,\qquad
+                             c\otimes a\longmapsto c^p\otimes a.
+\]
+The action of \(\mathfrak F(e)\) on either conjugate
+term of (FC6) is the coordinatewise Frobenius of the
+action of \(e\) on the corresponding Hodge term.
+Explicitly, for any matrix representation \(\rho\),
+\[
+ \operatorname{act}_{\rho^{(p)}}(\mathfrak F(e))
+                              =\operatorname{act}_\rho(e)^{(p)}.
+\]
+The range of the matrix on the right is the Frobenius
+span of its old range: one inclusion follows by
+taking \(p\)-th powers, and the reverse follows by
+applying the matrix to standard basis vectors,
+which are their own \(p\)-th powers.
+Applying the exact conjugate sequence, then (FZ2)
+to its two terms, and comparing with (FZ3), yields
+\[
+                              d_H(\mathfrak F(e))=p\,d_H(e).
+ \tag{FZ4}\label{eq:faithful-idempotent-Frobenius-step}
+\]
+This is the source's \srcid{step}.
+
+Coefficient Frobenius has period \(s\) on \(A\), because
+\(c^{p^s}=c\) on \(k\).
+Its iterates preserve idempotents.
+Iterating (FZ4) therefore gives
+\[
+                          d_H(e)=p^s d_H(e).
+\]
+The degree is an integer and \(p^s>1\), so
+\[
+                                  d_H(e)=0.
+ \tag{FZ5}\label{eq:faithful-idempotent-degree-zero}
+\]
+This is \srcid{vanish}.
+It has used the two exact sequences and finite constants,
+not the free coefficient-lattice premise yet.
+
+\paragraph{The source's idempotent for the character block.}
+For every element \(t\) of a finite ring there is a
+positive integer \(N_t\) with \(t^{N_t}\) idempotent.
+Indeed a repeated pair of powers gives an eventually
+periodic sequence; choose a sufficiently large positive
+multiple of that period.
+Define exactly as in \srcid{exists\_idem}
+\[
+                          e=\prod_{t\in\mathfrak m}(1-t^{N_t}).
+ \tag{FZ6}\label{eq:faithful-character-idempotent}
+\]
+Each factor is idempotent, and the factors commute;
+hence \(e^2=e\).
+Modulo \(\mathfrak m\), every factor is \(1\), so
+\(\chi_A(e)=1\).
+For \(t\in\mathfrak m\), the factor \(1-t^{N_t}\)
+shows that \(e t\) is nilpotent.
+In fact
+\(t^{N_t}(1-t^{N_t})=0\), and taking the corresponding
+power of the product kills \((e t)^{N_t}\).
+
+These statements do not require \(A\) to be semisimple.
+They supply the actual idempotent and nilpotence
+hypotheses used in the source's next step.
+
+\paragraph{A one-dimensional descending ideal quotient.}
+For any nonzero ideal \(J\subset eA\), the source
+constructs an ideal \(J_1<J\), an element \(t\in J\),
+and a \(k\)-linear functional \(l:A\to k\), such that
+\[
+ \begin{gathered}
+       J=J_1+kt,\qquad \mathfrak m t\subset J_1,\\
+                         l|_{J_1}=0,\qquad l(t)=1.
+ \end{gathered}
+ \tag{FZ7}\label{eq:faithful-ideal-colength-one}
+\]
+Here is its determinant-trick argument, with the
+nilpotence premise retained.
+Since \(A\) is finite, \(J\) is a finitely generated
+\(A\)-module.
+If \(J\subset\mathfrak mJ\), the determinant trick gives
+an element \(r\equiv1\pmod{\mathfrak m}\) annihilating \(J\).
+Then \(1-r\in\mathfrak m\) acts as the identity on \(J\).
+Also \(e\) acts as the identity on \(J\subset eA\).
+Thus \(e(1-r)\) acts as the identity on \(J\), although
+it is nilpotent by the preceding paragraph.
+This forces \(J=0\), a contradiction.
+Hence choose \(t\in J\setminus\mathfrak mJ\).
+
+Choose a \(k\)-linear functional on \(A/\mathfrak mJ\)
+nonzero on the class of \(t\), and scale it to value \(1\).
+Its pullback is \(l\).
+Put \(J_1=J\cap\ker l\).
+For \(a\in A,b\in J\), write
+\[
+                  ab=\chi_A(a)b+(a-\chi_A(a))b.
+\]
+The second term belongs to \(\mathfrak mJ\), on which
+\(l\) vanishes.
+Therefore \(l(ab)=\chi_A(a)l(b)\), proving \(J_1\)
+is an ideal.
+The equations in (FZ7) follow by subtracting \(l(b)t\)
+from any \(b\in J\), and by
+\(\mathfrak m t\subset\mathfrak mJ\).
+This is precisely
+\srcid{IdealDescendingOneDimQuotient.exists\_colength\_one}.
+
+\paragraph{The local free coordinates in the filtration step.}
+Write \(\tau:A\to\operatorname{End}_K(H_K)\) for the
+extended action, and set
+\[
+       W_J=\sum_{a\in J}\operatorname{im}\tau(a),\qquad
+       Q=\mathcal H/W_{\mathfrak m}.
+\]
+The additional hypothesis in the proposition now enters.
+The given local vectors \(x_{i,l}\), together with the
+integral basis \(b_j\), give a free basis over
+\(R_i\otimes_k A\) of \(\mathcal H_i\).
+For a \(k\)-linear functional \(l:A\to k\), the resulting
+coefficient functionals
+\(\Theta_{i,l,\nu}:H_K\to K\) satisfy
+\[
+ \Theta_{i,l,\nu}(\tau(a)x_{i,\mu})
+                               =\delta_{\nu\mu}\,l(a).
+\]
+They are integral on \(\mathcal H_i\):
+in the specified integral basis the coefficients
+\(l(1\otimes b_j)\) lie in \(k\subset R_i\).
+This is the source's \(\mathrm{FreeAt}\) construction;
+the local basis is allowed to depend on \(i\).
+
+For the \(l,t,J_1,J\) in (FZ7), define
+\[
+                           P_i(y)=
+                           \sum_\nu\Theta_{i,l,\nu}(y)x_{i,\nu}.
+\]
+It is \(K\)-linear and preserves \(\mathcal H_i\).
+Expansion in the local free coefficient basis gives
+three precise properties:
+\[
+ \begin{split}
+ y-\tau(t)P_i(y)&\in W_{J_1} &&(y\in W_J),\\
+                         P_i(W_{J_1})&=0,\\
+ P_i(\tau(t)z)-z&\in W_{\mathfrak m} &&(z\in H_K).
+ \end{split}
+ \tag{FZ8}\label{eq:faithful-filtration-local-maps}
+\]
+For the first line, apply
+\(a-l(a)t\in J_1\) to every coefficient \(a\in J\).
+For the second, \(l\) vanishes on the ideal \(J_1\).
+For the third,
+\(ta-\chi_A(a)t\in J_1\), so
+\(l(ta)=\chi_A(a)\); subtracting \(\chi_A(a)\)
+from each coefficient leaves an element of
+\(\mathfrak m\).
+These are the coordinate calculations in
+\srcid{AlgebraActionBundleFiltrationStep.exists\_local}.
+
+If the valuation index set is empty, every degree is
+already zero, and (FZ1) follows.
+Otherwise fix one index \(i_0\).
+Define a global \(K\)-linear map
+\[
+                         g:W_J\longrightarrow H_K/W_{\mathfrak m},
+                   \qquad g(y)=[P_{i_0}y].
+\]
+Equations (FZ8) prove that its kernel is \(W_{J_1}\)
+and that \(g(\tau(t)z)=[z]\).
+They also give exactness at every lattice.
+For an integral class \([z]\), use the integral lift
+\(\tau(t)z\in\mathcal H_i\cap W_J\).
+Conversely, if \(y\in\mathcal H_i\cap W_J\), then
+\[
+                              [P_{i_0}y]=[P_i y].
+\]
+To verify this equality, use
+\(y-\tau(t)P_i y\in W_{J_1}\), apply \(P_{i_0}\),
+and then use the last line of (FZ8).
+The right side is an integral quotient class because
+\(P_i\) preserves \(\mathcal H_i\).
+Thus the source's exact lattice sequence is
+\[
+ 0\longrightarrow \mathcal H\cap W_{J_1}
+  \longrightarrow \mathcal H\cap W_J
+  \stackrel g\longrightarrow Q\longrightarrow0.
+\]
+Degree additivity gives
+\[
+      \deg_C(\mathcal H\cap W_J)
+          =\deg_C(\mathcal H\cap W_{J_1})+\deg_C Q.
+ \tag{FZ9}\label{eq:faithful-ideal-degree-step}
+\]
+This proof has used the actual local coordinate maps;
+it has not assumed that the same coefficient basis
+works at every valuation.
+
+\paragraph{Completion of the proof.}
+The ideal set of the finite ring \(A\) is finite.
+Apply (FZ7)--(FZ9) by descending induction, starting
+with \(J=eA\) and ending at \(0\).
+As \(\chi_A(e)=1\), the starting ideal is nonzero.
+The source therefore obtains a positive integer \(N\)
+with
+\[
+                              d_H(e)=N\deg_C Q.
+\]
+By (FZ5) its left side is zero; hence \(\deg_C Q=0\).
+
+Finally,
+\[
+ W_{\mathfrak m}
+    =\sum_{a\in O}\operatorname{im}
+                              (\rho_H(a)-\chi(a)I).
+\]
+One inclusion follows because
+\(1\otimes a-\chi_0(a)\otimes1\in\mathfrak m\).
+For the reverse inclusion, modulo these elements every
+\(c\otimes a\) equals \(c\chi_0(a)\otimes1\);
+an element of \(\mathfrak m\) then becomes zero.
+Thus the ideal is generated by those differences,
+and its action image is the displayed sum.
+The quotient \(Q\) is exactly the quotient in (FZ1),
+proving the proposition.
+
+The source statement retains the splitting hypothesis
+on the multiplication characteristic polynomials.
+The displayed source proof body does not use that
+hypothesis; it is nevertheless retained above, so the
+statement has not been generalized here.
+
+\paragraph{Frozen-source ledger and actual geometric use.}
+The final source is
+\srcid{src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/SplitHermitianGeneratorsExist.lean}
+(blob \srcid{659a82dce2a636fc33707996c8856ebc090a819b}).
+The actual supporting producers are, in that same directory:
+\begin{itemize}
+\item \srcid{FilteredExactSequenceProjectorBundles.lean},
+blob \srcid{5a1e6aefb1675481a726fef2ff75faddb1820c28};
+\item \srcid{FrobeniusLatticeDegreeMulP.lean},
+blob \srcid{e56760012070cfb0458badd029e0b0742304f85e};
+\item \srcid{LinearIndependentMapVec.lean},
+blob \srcid{2f83f8d798ab9f9e4371667c6ffbf32d4902f908},
+especially \srcid{SubFrob.subDeg\_frob}; this is the
+actual subspace/intersection Frobenius producer;
+\item \srcid{ModuleBasisLatticeBundleFree.lean},
+blob \srcid{9753258f9343bf632b4b9784f4e89d3e18468af4};
+\item \srcid{IdealDescendingOneDimQuotient.lean},
+blob \srcid{3980cc27b82f3dbd9e6ba1b42081c6cc96dd2f2d};
+\item \srcid{AlgebraActionBundleFiltrationStep.lean},
+blob \srcid{757a0401673a313b13c7c87787424ea88c678a00}.
+\end{itemize}
+All were checked against the frozen baseline tag.
+
+For an actual vertical curve in a supplied model,
+Proposition~\ref{prop:faithful-actual-family-ex} and
+Proposition~\ref{prop:faithful-family-two-exact}
+supply these exact sequences with their actual tangent
+and full formal lattices, once the model has
+\(\mathrm{PowFns}\) and the specified \(\mathrm{FibPF}\)
+at the curve centres.
+If the actual formal lattices also have the fixed-rank
+free \(O\)-bases stipulated in this proposition,
+(FZ1) proves degree zero for their actual character
+quotient determinant.
+This is the source's degree-zero conclusion on the
+vertical curve.  The free-basis input is precisely
+where the separate formal-kernel/freeness producer
+must be joined; it has not been replaced by ordinary
+\(R_i\)-freeness or by the existence of the two sequences.
+
+This conclusion does not construct the full Mumford
+model, identify its analytic flat frame with a canonical
+determinant extension, or pull arbitrary eigensaturated
+lattices through a nonflat base change.
+Those are separate joins in the flat-saturation producer.

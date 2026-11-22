@@ -1,0 +1,124 @@
+{
+  "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
+  "updated_utc": "2026-11-22T01:41:00Z",
+  "current_published_pages": 541,
+  "whole_manuscript_complete": false,
+  "entries": [
+    {
+      "key": "frobDegree",
+      "blob": "16a1cfb8369bfc73d641d173f904f1358b56dcb3",
+      "path": "translation/review-drafts/formal-degree-zero-source.tex",
+      "status": "checked",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "thetaActs",
+      "blob": "f7e88d1a5c7bd0b61e436bb163960a912ec2dd1d",
+      "path": "translation/review-drafts/theta-cusp-key-producers-source.tex",
+      "status": "checked",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "shortReach",
+      "blob": "9abe98ccc875c38c9494b05353984549a6770aaf",
+      "path": "translation/review-drafts/theta-reached-sections-source.tex",
+      "status": "checked",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "shortRamified",
+      "blob": "183c60ad44bdeb564a46ec5bb40e7f11f52736ff",
+      "path": "translation/review-drafts/theta-ramified-connection-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "shortAdapt",
+      "blob": "2933c41e53c9e1d27efa65ee4dc5265d7e9851b5",
+      "path": "translation/review-drafts/theta-all-prime-denominator-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "shortTwist",
+      "blob": "a836acc92e41f601634dcca4798a5b151786959b",
+      "path": "translation/review-drafts/theta-flat-weight-reduction-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "shortCarry",
+      "blob": "7cb4142ec5218301e18f2681cc8c8cecf6fe50b4",
+      "path": "translation/review-drafts/theta-carrying-section-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "thetaKeyRead",
+      "blob": "2f412e3f1f3b96ba25f660ab87344252f45a0848",
+      "path": "translation/review-drafts/theta-key-integral-reading-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "thetaHalf",
+      "blob": "215525dfa8154b2803716510539e82118ced5b34",
+      "path": "translation/review-drafts/theta-half-sup-first-minimum-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "thetaGaussian",
+      "blob": "b9c86e68226635ba95e898251d02fef39b3454aa",
+      "path": "translation/review-drafts/theta-gaussian-cauchy-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobPrimitive",
+      "blob": "e4e0fcb8ae56927a1b49656e592a7e9f0a77e453",
+      "path": "translation/review-drafts/formal-primitive-derivation-count-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobProper",
+      "blob": "3303cc407674a07667394b54754ad39efcfddb1c",
+      "path": "translation/review-drafts/formal-proper-kernel-pairing-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobRankFree",
+      "blob": "8f09180f0936bf0c1c0c08b8c1257c8ede0c2734",
+      "path": "translation/review-drafts/formal-kernel-rank-free-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobStalk",
+      "blob": "0b30c88fbba5e176dfdd1cc9291dfe173f63e21e",
+      "path": "translation/review-drafts/formal-stalk-free-descent-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobNorm",
+      "blob": "1464aaf9ed63ef3d3789991b08c92617ed26147a",
+      "path": "translation/review-drafts/formal-torus-norm-count-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobTorus",
+      "blob": "40fb0a98973c72fa7d8d72c1cac174b9fb9969be",
+      "path": "translation/review-drafts/formal-torus-to-proper-constancy-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    }
+  ],
+  "root_boundary": {
+    "path": "translation/review-drafts/boundary-unit-source.tex",
+    "status": "checked full-rank specialization; actual period/model joins retained"
+  }
+}

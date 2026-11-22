@@ -1,0 +1,424 @@
+\subsection{Integral flat twists and the passage to an arbitrary weight}
+\label{subsec:ftb-flat-twists-weight-reduction}
+
+A componentwise twisting section in this argument consists of
+opposite-weight regular rules \(t,t^{-1}\), supported on one
+component \(Z\), with \(tt^{-1}=e_Z\).
+Multiplication by either rule preserves the indicated cusp spaces.
+Its normalized pointwise norm on \(Z\) is a positive constant
+\(c_\sigma\) at each coefficient-field embedding.
+Its valuations satisfy
+\(\rho_w\le v(t)\le\rho'_w\) at every valued point over \(w\);
+both functions have finite support.
+These are all the fields of the source's \texttt{TwSec}.
+In particular cusp preservation and the equality of pointwise
+norms are part of this data; they are not inferred solely from the
+existence of a rational section.
+Its lower degree is
+\[
+ \deg_{\rm lo}(t)=
+   -\frac1{[K:\mathbb Q]}\sum_{\sigma:K\hookrightarrow\mathbb C}
+                           \log c_\sigma
+   +\sum_w\rho_w\,\frac{\log Nw}{[K:\mathbb Q]} .
+\]
+The product formula makes this unchanged by rescaling \(t\) by
+\(a\in K^\times\), with the corresponding changes in \(c,\rho\).
+
+\begin{srlemma}[Rounding a flat line by one algebraic scalar]
+\label{lem:ftb-round-flat-line}
+Let \(K\) be a number field of degree \(d_K\).
+Let \(c_\sigma>0\) be conjugation invariant, and let \(\rho_w\)
+be real, finitely supported and integral at primes not above a
+finite set \(\mathcal B\) of rational primes.
+Then there is \(a\in K^\times\) with
+\[
+ v_w(a)+\rho_w\ge0\quad\hbox{for every }w
+\]
+and, for every \(\sigma\),
+\[
+ \log(c_\sigma|\sigma a|)
+ \le-\deg(c,\rho)+\tfrac12\log\operatorname{rd}K
+                      +\sum_{p\in\mathcal B}\log p+1 .
+\]
+Here \(\deg(c,\rho)\) is the degree in the preceding display.
+\end{srlemma}
+\begin{proof}
+Set \(b=\prod_{p\in\mathcal B}p\), and let \(S\) contain the support
+of \(\rho\).
+Use the nonzero fractional ideal
+\[
+                 J=(b)\prod_{w\in S}w^{\lfloor-\rho_w\rfloor}.
+\]
+If \(a\ne0\) belongs to \(J\), then
+\(v_w(a)\ge v_w(b)+\lfloor-\rho_w\rfloor\).
+Off \(\mathcal B\), \(\rho_w\) is integral, so this is at least
+\(-\rho_w\).
+At a prime over \(\mathcal B\), \(v_w(b)\ge1\);
+\(1+\lfloor-\rho_w\rfloor>-\rho_w\) proves the same conclusion.
+Moreover
+\[
+ \log NJ
+  =d_K\log b+\sum_{w\in S}\lfloor-\rho_w\rfloor\log Nw
+  \le d_K\left(\log b-
+               \sum_w\rho_w\frac{\log Nw}{d_K}\right).
+\]
+
+Apply Minkowski to the real intervals and complex discs
+\(|x_\sigma|<R/c_\sigma\), where
+\[
+ R=\frac52
+       \left(NJ\,\sqrt{|\operatorname{disc}K|}
+                   \prod_\sigma c_\sigma\right)^{1/d_K}.
+\]
+This is a symmetric convex body in the mixed embedding.
+The covolume of \(J\) is
+\(2^{-r_2}NJ\sqrt{|\operatorname{disc}K|}\).
+The body's interval/disc factor is at least one in the source's
+volume normalization, whereas \((5/2)^{d_K}>2^{d_K}\);
+hence its volume is strictly larger than \(2^{d_K}\) times that
+covolume.
+It contains a nonzero \(a\in J\).
+Thus \(c_\sigma|\sigma a|<R\) simultaneously.
+Taking logarithms, using \(\log(5/2)<1\), and inserting the ideal
+norm bound gives the asserted inequality.
+This proof retains the source's fractional-ideal floor and the
+extra factor \(\prod_{p\in\mathcal B}p\); it does not round at
+different embeddings separately.
+\end{proof}
+
+For a function \(w:\Psi\to\mathbb Z\), let
+\(\operatorname{par}(w)\) denote the weight constant with value
+\(w_\tau\) on every row at the CM embedding \(\tau\).
+The actual flat-section packet used here supplies a twisting
+section of weight
+\(\operatorname{wt}(\operatorname{par}(w),0)\), with integral
+valuations off \(\mathcal B\), and lower degree
+\begin{equation}\label{eq:ftb-flat-twist-exact-degree}
+ \deg_{\rm lo}(t)=
+ \sum_{\tau\in\Psi}w_\tau c_1
+ -q_{\rm sig}(\log\operatorname{rd}E-\log d_{\rm host})
+                                      \sum_{\tau\in\Psi}w_\tau .
+\end{equation}
+This is the source construction
+\texttt{ExistsTwSecOfConst.twSec\_of\_flat}: tensor the actual
+rank-one constant sections with exponents \(w_\tau\), and add
+the finite defect
+\(\sum_\tau(-w_\tau)\operatorname{flDefect}_\tau\).
+The normalized sum of each defect is
+\(q_{\rm sig}(\log\operatorname{rd}E-\log d_{\rm host})\);
+finite support permits exchanging the sums.
+The source's host discriminant bound is
+\[
+ |\log\operatorname{rd}E-\log d_{\rm host}|
+                                      \le\log\operatorname{rd}E .
+\]
+It follows from \eqref{eq:ftb-flat-twist-exact-degree} that
+\[
+ -\deg_{\rm lo}(t)\le
+ (|c_1|+q_{\rm sig}\log\operatorname{rd}E)\sum_\tau|w_\tau|.
+\]
+The flat packet and its integral defect are the exact geometric
+input here.
+The condition \texttt{UnramPts} ensures that the valuations of
+these constant rules are integral away from \(\mathcal B\), not
+merely rational: it supplies an integral valued point of
+ramification index one off that set.
+Applying Lemma~\ref{lem:ftb-round-flat-line} and multiplying by its
+scalar gives an integral twisting section with
+\begin{equation}\label{eq:ftb-flat-twist-short}
+ \log c_\sigma(t)\le
+ (|c_1|+q_{\rm sig}\log\operatorname{rd}E)\sum_\tau|w_\tau|
+ +\sum_{p\in\mathcal B}\log p+\tfrac12\log\operatorname{rd}K+1 .
+\end{equation}
+The degree \(d_K\) cancels before this bound; no polynomial
+estimate in a varying auxiliary degree is substituted for it.
+
+The other twist is the fourth-power theta key unit.
+Its exact source input is an invertible rule \(K_4\) of weight
+\(\operatorname{wt}(0,-4)\), together with an actual key section,
+such that
+\begin{align}
+ 0\le v(K_4)&\le
+       4\sum_\tau r_\tau
+           \operatorname{ord}_w(\tau\mathfrak D_E\mathcal O_K),
+                                                   \label{eq:ftb-key-unit-finite}\\
+ \operatorname{homN}_\sigma(K_4)&=(2\pi)^{2fr}.
+                                                   \label{eq:ftb-key-unit-infinite}
+\end{align}
+These are exactly the weight-four scalar and two-frame
+comparisons of Section~\ref{sec:key-different}.
+For the analytic value, at an orthonormal frame the key formula
+gives
+\[
+ |\kappa|=(2\pi)^{2g}(2\pi\xi)^{2g},\qquad g=fr .
+\]
+Unimodularity of the polarization says that the fundamental
+volume times \(\det H\) is one; the theta generator's normalized
+square integral is one.
+The weight factor is \((2\pi\xi)^{-2g}\), so it cancels and gives
+\eqref{eq:ftb-key-unit-infinite}.
+Moving a general frame to an orthonormal one preserves its
+normalized norm by the weight transformation law.
+At a finite place, if \(D\) is the determinant of the complete
+integral eigenframe in an integral Lie basis, then
+\(K_4=D^4u\), \(u\in V^\times\).
+Trace-dual projectors give
+\(D\mid\prod_\tau\tau(\delta_\tau)^{r_\tau}\) for elements
+\(\delta_\tau\) attaining the local different valuation.
+This gives \eqref{eq:ftb-key-unit-finite}.
+
+Consequently \(t_1=e_ZK_4^m\), with inverse \(e_ZK_4^{-m}\),
+is a twisting section of weight \(\operatorname{wt}(0,-4m)\),
+with nonnegative lower valuations and
+\[
+                \log c_\sigma(t_1)\le m\,2fr\log(2\pi).
+\]
+The inverse and all powers are on the same component; their
+product is \(e_Z\), not \(1\) on the other components.
+
+\begin{srlemma}[Multiplication transports an integral spanning family]
+\label{lem:ftb-twist-span}
+Let \(t\) be a twisting section with nonnegative lower valuations.
+If \(\mathcal S\) is an integral \(K\)-spanning set of cusp forms
+of even weight \(G\), then the products \(e_Z f t\),
+\(f\in\mathcal S\), span the component cusp space of weight
+\(G+\operatorname{wt}(t)\), are integral, and satisfy
+\[
+       \|e_Zft\|_{\sigma,Z}
+                          \le c_\sigma(t)\,\|f\|_{\sigma,Z}.
+\]
+\end{srlemma}
+\begin{proof}
+Multiplication by \(t\) has inverse multiplication by its specified
+inverse, because cusp preservation holds both ways and
+\(e_Z\) acts as the identity on this component.
+It is therefore a \(K\)-linear isomorphism.
+The component projection \(f\mapsto e_Zf\) is surjective.
+Their composite transports the spanning set.
+
+At every valuation over \(w\), the product has valuation at least
+\(v(f)+\rho_w(t)\ge0\).
+The integral lattice is defined by these same inequalities.
+For the norm, on the component the pointwise norm multiplies
+exactly by the positive constant \(c_\sigma(t)\); off the
+component the product is zero.
+Integrate its square with the source's component measure and
+take square roots.
+This gives the displayed inequality (in fact equality whenever
+both sides use precisely the component projection).
+Finiteness is legitimate because a cusp form's pointwise norm is
+bounded and the component measure has mass at most one.
+The norm and integral lattice used after multiplication are
+therefore those of the target weight on the same model.
+\end{proof}
+
+\begin{srproposition}[The source weight reduction and short span]
+\label{prop:ftb-arbitrary-weight-short-span}
+Let the good-cover packet be the one in
+Proposition~\ref{prop:ftb-integral-span-assembly}.
+Put \(X=frL\), \(f,r,L\ge1\).
+Suppose its field-size bound is \(o\le391X^2\), and suppose
+\[
+ \log\operatorname{rd}E\le3L,\quad
+ |c_1|\le9rL,\quad
+ \sum_{p\in\mathcal B}\log p\le C_BX^2 .
+\]
+Retain the actual flat/key twisting sections just described.
+Let \(\lambda_{\tau,1}\ge\cdots\ge\lambda_{\tau,r}\) have
+signature gap at least \(8fr+10\), and put
+\(S=\sum_{\tau,i}|\lambda_{\tau,i}|\), \(\log S\le10L\).
+If the even-domain integral spanning bound has constant \(C_G\),
+then the component cusp lattice of weight
+\(\operatorname{wt}(\lambda,0)\) has an integral \(K\)-spanning
+family with every norm at most
+\[
+                  \exp\{C_2(X^3S+X^5)\},
+                   \qquad C_2=11C_G+C_B+500 .
+\]
+The constants are chosen before all host, component and weight
+data.
+\end{srproposition}
+\begin{proof}
+Set \(m=fr+1\) and \(n=8m\).
+For each CM embedding set
+\[
+       n_{0,\tau}=1+4m-\lambda_{\tau,p_{\rm sig}},\qquad
+       \lambda'=\lambda+\operatorname{par}(n_0).
+\]
+Every entry in the first signature block is strictly greater
+than \(4m\).
+The gap condition says the first entry of the second block is
+at most \(-4m-1\).
+Antitonicity gives this bound for the whole second block.
+Thus the following nonnegative integer rows define theta
+exponents:
+\[
+ a_{\tau,i}=\lambda'_{\tau,i}-4m
+                    \quad(1\le i\le p_{\rm sig}),\qquad
+ a_{\bar\tau,j}=-\lambda'_{\tau,r+1-j}-4m
+                    \quad(1\le j\le q_{\rm sig}),
+\]
+with zero continuation outside these finite rows.
+They are antitone, and \(n\) is even, so
+\(\operatorname{Dom}(a,n)\) holds literally.
+The first-block exponents are positive, as required for the
+cuspidal theta spanning theorem.
+The associated weight is \(\operatorname{laOf}(a,n)=\lambda'\).
+Also \(n=8(fr+1)\ge8fr+4\), the required column threshold.
+
+The triangle inequality gives
+\[
+ N_0:=\sum_\tau|n_{0,\tau}|
+                    \le S+f(4(fr+1)+1),\qquad
+ \kappa:=\operatorname{sizeK}(a,n)
+                    \le(1+r)S+rf(4(fr+1)+1).
+\]
+The second follows from the identity
+\(\kappa=\sum_{\tau,i}|\lambda_{\tau,i}+n_{0,\tau}|\).
+These estimates and \(\log S\le10L\), \(\log(fr)\le L\)
+also give \(\log\kappa\le20L\).
+For instance \(S\ge1\) and \(fr\ge1\), so
+\(\kappa\le 11(fr)^2(S+1)\);
+we have
+\(\log\kappa\le\log22+2\log(fr)+\log S
+               \le\log22+12L\le20L\).
+Here \(S\ge1\), and \(\log22<8\).
+The same estimate is the source's integral-weight logarithm
+calculation.
+Apply the even-domain result: there is an integral spanning
+family at weight
+\(\operatorname{wt}(\lambda',4m)\), of norm
+\(\le\exp(C_GX^2\kappa)\).
+The identification of its section and Petersson norm with
+the theta-exponent notation uses the exact identity of the full
+exponent function; it retains the evenness of \(n\).
+
+Multiply by \(t_1=e_ZK_4^m\) and by the integral flat twist \(t_2\)
+of parallel weight \(-n_0\).
+Their weights add exactly to
+\[
+ \operatorname{wt}(\lambda',4m)+
+ \operatorname{wt}(0,-4m)+
+ \operatorname{wt}(\operatorname{par}(-n_0),0)
+                                  =\operatorname{wt}(\lambda,0).
+\]
+Lemma~\ref{lem:ftb-twist-span} proves both spanning and integrality.
+The logarithm of every resulting norm is at most
+\begin{align*}
+ &(fr+1)2fr\log(2\pi)\\
+ &\quad+(|c_1|+q_{\rm sig}\log\operatorname{rd}E)N_0
+       +C_BX^2+\tfrac12\log\operatorname{rd}K+1
+       +C_GX^2\kappa .
+\end{align*}
+Here \(\log\operatorname{rd}K\le o\le391X^2\).
+We give the actual scalar absorption.
+Since \(fr\le X\), \(rL\le X\), \(X\ge1\), and
+\(\log(2\pi)\le7\), the first term is at most \(28X^5\).
+The middle product is at most
+\[
+                  12X^3S+108X^5 ,
+\]
+because \(|c_1|+q_{\rm sig}\log\operatorname{rd}E\le12rL\)
+and \(N_0\le S+9f(fr)\).
+Finally
+\[
+    \kappa\le2XS+9X^2,\qquad
+    C_GX^2\kappa\le2C_GX^3S+9C_GX^5.
+\]
+The field term is at most \(196X^5\), \(1\le X^5\), and
+\(C_BX^2\le C_BX^5\).
+Adding proves the claimed bound with \(11C_G+C_B+500\).
+This is the source's
+\texttt{CovolumeNumericalBoundsCollect.covol\_numerical\_collect}.
+\end{proof}
+
+\begin{srproposition}[Short generators, with the same window variables]
+\label{prop:ftb-arbitrary-weight-short-generators}
+In the preceding setting, suppose the component cusp lattice
+\(L_\lambda\) is a full \(\mathcal O_K\)-lattice, its Petersson
+norms arise from the same positive Gram frame, and its
+\(K\)-rank \(h\) satisfies \(\log h\le C_bX^3\).
+Then there is a family of \(\mathbb Z\)-generators of \(L_\lambda\)
+with common norm bound \(A\ge1\), and cardinality \(n_{\rm gen}\),
+such that
+\[
+ \log A\le C(X^3S+X^5),\qquad
+ \log n_{\rm gen}\le CX^3,\qquad
+                       C=2000+C_b+C_2 .
+\]
+The zero-rank lattice has the empty generating family, with
+\(A=1\); the second inequality is then interpreted by this
+separate convention.
+\end{srproposition}
+\begin{proof}
+Apply Proposition~\ref{prop:ftb-short-generators} to the integral
+spanning family:
+\[
+ n_{\rm gen}\le2d_Kh,\qquad
+ A\le\max\{1,d_K^4h\operatorname{rd}K
+                         \exp(C_2(X^3S+X^5))\}.
+\]
+The norm hypotheses in that proposition hold for these exact
+Petersson norms: scaling has factor \(|\sigma a|\), nonnegativity
+is immediate, and the triangle inequality is the Euclidean
+triangle inequality after applying the chosen Gram-frame
+isomorphism.
+
+The good-cover size condition gives both
+\(\log d_K\le o\) and \(\log\operatorname{rd}K\le o\), with
+\(o\le391X^2\).
+If the maximum is \(1\), its logarithm is zero.
+Otherwise
+\[
+ \log A\le5o+C_bX^3+C_2(X^3S+X^5)
+          \le(2000+C_b+C_2)(X^3S+X^5),
+\]
+since \(X^2,X^3\le X^5\) and \(5\cdot391<2000\).
+For a nonempty family,
+\[
+ \log n_{\rm gen}\le\log2+\log d_K+\log h
+        \le1+391X^2+C_bX^3\le CX^3 .
+\]
+This is the full numerical passage in
+\texttt{FlatConstantAbsLeNineExplicit.short\_gen\_comp}.
+Neither the number nor the norm of these generators is obtained
+from a Hilbert--Samuel asymptotic.
+\end{proof}
+
+\paragraph{Exact scope of the two twists.}
+The floor/Minkowski proof is
+\texttt{DivisorProofs/ExistsShortIntegralFlatLineTwistingSection.lean}
+(\texttt{7a5c6eafdd31c9448b7819342562331dac7b4923}).
+The lower-degree identity is
+\texttt{DivisorProofs/ExistsTwSecOfConst.lean}
+(\texttt{3906b3d7afd777e9d6ec9b67a47e3c394e60176e}).
+The multiplicative lattice and norm arguments are
+\texttt{ExistsLinearEquivMulTwistingSectionIntegral.lean}
+(\texttt{398f8190dbac2615bb6e0612cc9890a80c720b02}) and
+\texttt{ExistsSpanningFamilyMulTwistingSection.lean}
+(\texttt{8e96b74a7f66eac17ed4b00ae441a570308494a6}).
+The exact large-gap exponents are
+\texttt{ExistsThetaWeightExponentsOfLargeGap.lean}
+(\texttt{af7b06e0d1be0dd845fb0504619cd9b29d6baa52}).
+The full assembly is \texttt{ShortLatticeSpanningSets.lean},
+followed by \texttt{FlatConstantAbsLeNineExplicit.lean}.
+
+The key-power application is
+\texttt{ExistsKeyUnitPowTwistingSectionOnComponent.lean}
+(\texttt{d7dd57cc9990ada2ddb8d85b56d821d4a4b86353}).
+It requires the actual exponent-one theta rule \(\kappa\), its
+functorial family-unit theorem, the componentwise fourth root,
+the complex key-norm formula and the finite model-unit/different
+comparison.
+The first of these is supplied in the frozen source by
+\texttt{ThetaLawProofs/KeyFamOne.lean}
+and \texttt{ModuliProofs/ExactKeyFormulaProof.lean}, through
+\texttt{UniformizationProofs/KeyFormulaOfConnFam.lean}.
+The existing component-root/different argument may be reused
+only with those actual inputs and the same N3/N4 models.
+The cusp-preserving clauses of the twists use
+\texttt{MulMemCuspFormsOfBoundedSectionComponent.lean},
+including its key-section and analytic hypotheses.
+These exact producer joins are tracked separately; the elementary
+rounding and weight/numerical deductions above do not by themselves
+assert their construction.

@@ -52,7 +52,27 @@ jobs:
                       raise ValueError("Chapter escapes the source directory")
                   return expand(child, (*active, path)).rstrip("\n")
               return pattern.sub(replace, path.read_text(encoding="utf-8"))
-          (out / "rh-short-route.tex").write_text(expand(root / "short-route.tex"), encoding="utf-8")
+          source=expand(root / "short-route.tex")
+          (out / "rh-short-route.tex").write_text(source, encoding="utf-8")
+          editor=re.sub(r"(?m)^[ \t]+","",source).replace(r"\(","$").replace(r"\)","$")
+          names=re.findall(r"\\label\{([^{}]+)\}",editor)
+          assert len(names)==len(set(names)), "Duplicate source labels"
+          label_map={name:"p"+str(i+1) for i,name in enumerate(names)}
+          editor=re.sub(r"\\(label|eqref|ref|pageref|autoref|nameref|cref|Cref)(\*?)\{([^{}]+)\}",
+              lambda m:"\\"+m[1]+m[2]+"{"+label_map.get(m[3],m[3])+"}",editor)
+          editor=re.sub(r"\\hyperref\[([^\]]+)\]",
+              lambda m:r"\hyperref["+label_map.get(m[1],m[1])+"]",editor)
+          aliases=[("operatorname","qO"),("mathcal","qC"),("mathbb","qB"),("mathrm","qR")]
+          for original,short in aliases:
+              assert not re.search(r"\\"+short+r"\b",editor), "Compact macro collision"
+              editor=re.sub(r"\\"+original+r"\b",lambda m:"\\"+short,editor)
+          defs="\n".join("\\newcommand{\\"+short+"}{\\"+original+"}" for original,short in aliases)+"\n"
+          anchor=r"\allowdisplaybreaks[2]"
+          assert editor.count(anchor)==1
+          editor=editor.replace(anchor,anchor+"\n"+defs,1)
+          (out/"principia-editor-source.tex").write_text(editor,encoding="utf-8")
+          (out/"principia-editor-label-map.json").write_text(
+              __import__("json").dumps(label_map,indent=2)+"\n",encoding="utf-8")
       - name: Compile both presentations and compare their text
         working-directory: translation
         shell: bash
@@ -80,6 +100,12 @@ jobs:
           diff=list(difflib.unified_diff(left,right,fromfile="distributed",tofile="flattened",n=5))
           print("\n".join(diff[:180]))
           PY
+            exit 1
+          fi
+          compile principia-editor-source.tex
+          pdftotext -layout principia-editor-source.pdf "$RUNNER_TEMP/short-editor.txt"
+          if ! cmp "$RUNNER_TEMP/short-standalone.txt" "$RUNNER_TEMP/short-editor.txt"; then
+            diff -u "$RUNNER_TEMP/short-standalone.txt" "$RUNNER_TEMP/short-editor.txt" | head -n 120 || true
             exit 1
           fi
           cp "$GITHUB_WORKSPACE/translation/short-route-sources.json" .
@@ -133,6 +159,9 @@ jobs:
           report={"source_commit":os.environ["GITHUB_SHA"],"status":"working exposition; standalone common-window proof incomplete",
                   "pages":len(pages),"supporting_part_start_pages":part_two,"title_credit_check":"passed",
                   "reference_and_glyph_check":"passed","distributed_and_flattened_text":"identical",
+                  "editor_transport_text":"identical",
+                  "editor_tex_bytes":(root/"principia-editor-source.tex").stat().st_size,
+                  "editor_tex_sha256":hashlib.sha256((root/"principia-editor-source.tex").read_bytes()).hexdigest(),
                   "words_outside_page":escaped,"box_warnings":warnings,
                   "pdf_sha256":hashlib.sha256((root/"rh-short-route.pdf").read_bytes()).hexdigest(),
                   "tex_sha256":hashlib.sha256((root/"rh-short-route.tex").read_bytes()).hexdigest(),
@@ -150,6 +179,8 @@ jobs:
           path: |
             ${{ runner.temp }}/rh-short-route/rh-short-route.pdf
             ${{ runner.temp }}/rh-short-route/rh-short-route.tex
+            ${{ runner.temp }}/rh-short-route/principia-editor-source.tex
+            ${{ runner.temp }}/rh-short-route/principia-editor-label-map.json
             ${{ runner.temp }}/rh-short-route/build-report.json
             ${{ runner.temp }}/rh-short-route/short-route-sources.json
             ${{ runner.temp }}/rh-short-route/qa/contact-*.png
@@ -187,7 +218,7 @@ jobs:
               create_release "${{ github.event.repository.default_branch }}"
             fi
           fi
-          gh release upload "$tag" paper/rh-short-route.pdf paper/rh-short-route.tex paper/build-report.json paper/short-route-sources.json paper/qa/contact-*.png --repo "$repo" --clobber
+          gh release upload "$tag" paper/rh-short-route.pdf paper/rh-short-route.tex paper/principia-editor-source.tex paper/principia-editor-label-map.json paper/build-report.json paper/short-route-sources.json paper/qa/contact-*.png --repo "$repo" --clobber
           if ! gh release edit "$tag" --repo "$repo" --draft=false --latest=false 2>"$RUNNER_TEMP/short-release-error"; then
             cat "$RUNNER_TEMP/short-release-error" >&2
             grep -qi 'Resource not accessible by integration' "$RUNNER_TEMP/short-release-error" || exit 1

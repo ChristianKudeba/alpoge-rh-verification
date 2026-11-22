@@ -1,0 +1,361 @@
+\section{The source first-minimum estimate at a half maximum}
+\label{sec:sr-source-half-maximum}
+We keep the source frame datum, weighted norms, and rational
+transvections throughout. The first-minimum estimate is made at
+one actual frame of the same uniformization used by the theta reading.
+
+\subsection{The periodic Schwarz estimate}
+\begin{srlemma}\label{lem:sr-source-periodic-schwarz}
+Let \(M>0\), \(0<t<T\), and let \(g:\mathbb C\to\mathbb C\) be
+\(M\)-periodic, holomorphic on \(\operatorname{Im}z>-T\), and tend
+to zero as \(\operatorname{Im}z\to+\infty\), uniformly in the real
+coordinate in the sense of the source filter
+\(\operatorname{comap}(\operatorname{Im})(+\infty)\).
+If \(|g(z)|\le B\) on \(\operatorname{Im}z=-t\), then
+\[
+                    |g(0)|\le e^{-2\pi t/M}B .
+ \tag{HM1}\label{eq:sr-source-periodic-schwarz}
+\]
+\end{srlemma}
+\begin{proof}
+Use \(q=e^{2\pi iz/M}\). Periodicity gives a single-valued
+holomorphic function \(F(q)\) on the punctured disc of radius
+\(e^{2\pi T/M}\).
+The given limit makes \(F\) bounded near zero with \(F(0)=0\);
+the removable singularity theorem, or its Cauchy coefficient proof,
+makes this a holomorphic extension.
+Set \(R=e^{2\pi t/M}>1\).
+The divided difference \(F(q)/q\), with value \(F'(0)\) at zero,
+is holomorphic on a neighborhood of the closed disc of radius \(R\).
+On its boundary it has norm at most \(B/R\).
+The maximum principle gives \(|F(1)|\le B/R\), which is (HM1).
+This is precisely
+\srcid{PeriodicSchwarzLemma.periodic_schwarz}.
+\end{proof}
+
+\subsection{Decay on the rational isotropic flow}
+The source \(X=\mathrm{DataX}(E,r)\) includes the lattice \(L'\),
+the scalar \(k_0>0\) with
+\[
+                     c_\tau=2|\tau(\xi_0)|=k_0,
+\]
+and an integer \(n_0>0\) sending \(L'\) into the lattice of
+admissible rational isotropic vectors.
+For \(v\in L'\) with \(v\ne0\) and
+\(\langle v,v\rangle=0\), let \(x(\zeta)\) be the source flow
+\(X.\mathrm{flow}(v,(\zeta)_\tau,x_0)\).
+
+We use the exact source Fourier expansion on an admissible
+isotropic direction and its coefficient-positivity statement.
+The latter is the first Fourier input in
+Section~\ref{sec:sr-source-integer-reading}.
+For \(P\in SS_\lambda(X)\), write \(u=n_0v\).
+The square in the rank-one flow matrix gives
+\[
+      x(\zeta)
+        =X.\mathrm{flow}\bigl(u,(\zeta/n_0^2)_\tau,x_0\bigr).
+ \tag{HM2}\label{eq:sr-source-flow-rescale}
+\]
+The source expansion is the convergent sum
+\[
+ P(x(\zeta))=\sum_\nu a_\nu
+       \exp\!\left({4\pi i\zeta\over n_0^2}
+                              \sum_\tau\nu_\tau\right)
+                  \qquad(\operatorname{Im}\zeta\ge0),
+ \tag{HM3}\label{eq:sr-source-isotropic-expansion}
+\]
+where \(a_\nu=X.\mathrm{fj}(\lambda,u,\nu,P,x_0)\).
+Every nonzero \(a_\nu\) has all \(\nu_\tau\ge0\), and
+\(a_0=0\) by the defining zero-coefficient condition of \(SS\).
+Thus every nonzero term has \(\sum_\tau\nu_\tau>0\).
+
+At \(\zeta=0\), the source's \(\mathrm{HasSum}\) in the finite
+dimensional complex target gives \(\sum_\nu|a_\nu|<\infty\).
+For \(\operatorname{Im}\zeta\ge0\), each summand in (HM3) has
+norm at most \(|a_\nu|\), and its norm tends to zero as
+\(\operatorname{Im}\zeta\to+\infty\).
+Dominated convergence for this summable family therefore yields
+\[
+                         P(x(\zeta))\longrightarrow0 .
+ \tag{HM4}\label{eq:sr-source-flow-decay}
+\]
+The argument applies to the source's function equal to
+\(P(x(\zeta))\) on the flow domain and zero elsewhere, since its
+values agree for all sufficiently large imaginary parts.
+This is
+\srcid{MaximumBoundField.flowTermNormDecay.tendsto_zero}.
+It uses the actual Fourier expansion and positive-frequency
+supplier; it does not assume rapid decay for an arbitrary
+holomorphic function.
+
+\subsection{The maximum estimate before host rescaling}
+Set \(f=[E:\mathbb Q]/2\) and
+\[
+ \varepsilon_*=\min\!\left\{1,\,
+ {\pi\over M(fw+2)k_0\log2}\right\}.
+ \tag{HM5}\label{eq:sr-source-epstar}
+\]
+Assume \(M,w>0\), \(P\in SS_\lambda(X)\),
+\(\sum_\tau\operatorname{spread}_\tau(\lambda)\le w\), and that
+the source rational transvections are in the arithmetic group
+with trivial character:
+for every isotropic \(v\in L'\) and every integral
+conjugation-fixed \(b\in E\), there is \(\gamma\in\Gamma_X\)
+such that \(\chi_\lambda(\gamma)=1\) and
+\[
+                  \tau(\gamma)=\mathrm{flowMat}_{v,\tau}
+                                                  (M\tau(b)).
+ \tag{HM6}\label{eq:sr-source-flow-period}
+\]
+Let \(x_0\) be a positive half maximum:
+\[
+ 0<\|P\|_{\lambda,x_0},\qquad
+ \forall x\in\mathcal D_X:\quad
+                 \|P\|_{\lambda,x}\le2\|P\|_{\lambda,x_0}.
+ \tag{HM7}\label{eq:sr-source-half-max}
+\]
+
+\begin{srproposition}\label{prop:sr-source-maxbound}
+For every \(0\ne v\in L'\), there is a good embedding \(\tau\)
+with
+\[
+                 \varepsilon_*
+                  \le\operatorname{maj}_{x_0,\tau}(\tau(v)).
+ \tag{HM8}\label{eq:sr-source-maxbound}
+\]
+\end{srproposition}
+\begin{proof}
+Suppose every displayed majorant \(m_\tau\) is
+less than \(\varepsilon_*\le1\).
+The value \(\langle v,v\rangle\) is integral, and its every
+complex conjugate has absolute value at most \(m_\tau<1\);
+the other half of the embeddings are complex conjugates.
+Its rational norm is therefore an integer of absolute value
+less than one, so it vanishes.
+The source majorant inequality thus makes \(v\) isotropic.
+
+Each \(m_\tau>0\), since \(v\ne0\).
+The explicit source flow-domain criterion is
+\[
+ x(\zeta)\in\mathcal D_X
+      \quad\Longleftrightarrow\quad
+                 1+k_0m_\tau\operatorname{Im}\zeta>0
+                       \quad\text{for every }\tau .
+ \tag{HM9}\label{eq:sr-source-flow-domain}
+\]
+Put \(T=(k_0\varepsilon_*)^{-1}\) and
+\(t=(2k_0\varepsilon_*)^{-1}\), so \(0<t<T\).
+The assumed strict inequalities imply that the flow lies
+in the domain on \(\operatorname{Im}\zeta>-T\).
+The flow matrix is polynomial in \(\zeta\), so
+\(g(\zeta)=P(x(\zeta))\) is holomorphic there.
+Taking \(b=1\) in (HM6), using the flow composition law and
+the section's arithmetic transformation, makes \(g\)
+\(M\)-periodic.
+Equation (HM4) supplies its limit zero at imaginary infinity.
+
+On the line \(\operatorname{Im}\zeta=-t\), all
+\(1+k_0m_\tau\operatorname{Im}\zeta\) lie in \((1/2,1]\).
+The source Gram-minor comparison for the isotropic flow gives
+\[
+ {n_\lambda(x_0)\over n_\lambda(x(\zeta))}
+ \le\prod_\tau
+   \max\{1+k_0m_\tau\operatorname{Im}\zeta,\,
+             (1+k_0m_\tau\operatorname{Im}\zeta)^{-1}\}
+                           ^{\operatorname{spread}_\tau(\lambda)/2}
+ \le2^{w/2}.
+\]
+Together with (HM7), this implies
+\[
+     |g(\zeta)|\le
+           {2\,\|P\|_{\lambda,x_0}\,2^{w/2}\over n_\lambda(x_0)}.
+\]
+Apply (HM1) and multiply by \(n_\lambda(x_0)>0\).
+Since \(g(0)=P(x_0)\) and the half-maximum norm is positive,
+\[
+                  1\le e^{-2\pi t/M}\,2\,2^{w/2}.
+ \tag{HM10}\label{eq:sr-source-maxbound-contradiction}
+\]
+But (HM5) gives
+\(2\pi t/M=\pi/(Mk_0\varepsilon_*)\ge(fw+2)\log2\).
+Since \(f\ge1\) and \(w>0\), the logarithm of the right side
+of (HM10) is at most
+\(-(fw+2)\log2+(1+w/2)\log2<0\).
+This contradicts (HM10).
+The proof is exactly \srcid{MaxBoundPf.maxBound_holds}.
+The flow-domain and Gram-minor comparisons invoked above are the
+source \srcid{FlowDomainCriterionHolds} and \srcid{M3bNormHolds}.
+\end{proof}
+
+\subsection{The host scalar and the root discriminant}
+Write \(d_E=|\operatorname{disc}E|\) and
+\(\mathrm{rd}_E=d_E^{1/[E:\mathbb Q]}\).
+The principal host's two fractional ideals \(A,\bar A\) satisfy
+\[
+                 (\xi_0)A\bar A\,\mathfrak D_E=O_E,\qquad
+                 |\tau(\xi_0)|=x>0\quad\text{for every }\tau .
+ \tag{HM11}\label{eq:sr-source-host-ideal}
+\]
+Here \(\mathfrak D_E\) is the different.
+
+\begin{srlemma}\label{lem:sr-source-small-inverse}
+There is \(b\in E\), \(b\ne0\), such that
+\(bA\subset O_E\) and
+\[
+                        |\tau(b)|^2\le x\,\mathrm{rd}_E^2
+                            \quad\text{for every }\tau.
+ \tag{HM12}\label{eq:sr-source-small-inverse}
+\]
+\end{srlemma}
+\begin{proof}
+First suppose \(N(\bar A)\le N(A)\).
+Taking norms in (HM11), with \([E:\mathbb Q]=2f\), gives
+\[
+                  x^{2f}N(A)N(\bar A)d_E=1,
+       \qquad N(A)^{-1}\le x^f\sqrt{d_E}.
+\]
+Set \(R=\sqrt{x\,\mathrm{rd}_E^2}\).
+For the fractional ideal \(A^{-1}\), the complex-disc version
+of Minkowski's theorem applies with this same radius at every
+infinite place, because
+\[
+ 2^fN(A)^{-1}\sqrt{d_E}
+        \le2^fx^fd_E
+        <\pi^fx^fd_E=\pi^fR^{2f}.
+\]
+It supplies \(0\ne b\in A^{-1}\) with every \(|\tau(b)|<R\).
+This gives (HM12) and \(bA\subset O_E\).
+If the norms have the opposite order, apply this argument with
+\(A,\bar A\) reversed and conjugate \(b\).
+The product identity is unchanged, conjugation exchanges the
+ideals and permutes all embeddings, giving the same conclusion.
+These are the source
+\srcid{FirstMinAtHalfMax.exists_small_inv} and
+\srcid{exists_small_inv_AA}.
+\end{proof}
+
+\subsection{The actual first minimum and the orthogonal half maximum}
+Now fix the actual host packet \(D\), stage \(j\), supplied
+uniformization laws \(\mathrm{Laws}(D,j,X_o,c,U,\mathrm{dict})\),
+a good embedding \(\sigma\), and one component \(k\).
+The source's principal-level construction gives a datum \(X\)
+with this same underlying component, together with
+\[
+ \Lambda=A L',\quad k_0=2\,\xi_R(D),\quad
+ M'=l.M\,N(\mathrm{ccK})\,D.\mathrm{host}.d,\quad
+ M'k_0=2\,l.M\sqrt{D.\mathrm{host}.d},
+ \tag{HM13}\label{eq:sr-source-transvection-data}
+\]
+where \(\Lambda=AL'\) means the actual \(O_E\)-span of
+\(au\), \(a\in A,u\in L'\).
+The transvections in (HM6) hold with \(M'\).
+This precise supplier is
+\srcid{ExistsSelfDualDataTransvectionPrincipalLevel.exists_dataX_transv}.
+It uses the actual perfect trace form and the actual principal
+congruence inclusion, not the abstract lattice alone.
+
+Define
+\[
+ \epsilon_{\rm lev}(w)=
+ \min\!\left\{1,\,
+ {\pi\over2\,l.M\sqrt{D.\mathrm{host}.d}\,
+                    (fw+2)\log2}\right\}.
+ \tag{HM14}\label{eq:sr-source-epslev}
+\]
+Equation (HM13) identifies this with (HM5).
+The source's \(\operatorname{firstMinimumSq}\) is the infimum,
+over nonzero \(v\in\Lambda\), of
+\(\sum_\tau 2\xi_R(D)\operatorname{maj}_{x_0,\tau}(\tau(v))\).
+
+\begin{srproposition}\label{prop:sr-source-first-minimum-halfmax}
+At a positive half maximum of a section with weight spread at
+most \(w>0\) and trivial arithmetic character,
+\[
+ \operatorname{firstMinimumSq}(x_0)
+             \ge {2\,\epsilon_{\rm lev}(w)\over\mathrm{rd}_E^2}.
+ \tag{HM15}\label{eq:sr-source-first-minimum}
+\]
+\end{srproposition}
+\begin{proof}
+Choose \(b\) from (HM12) with \(x=\xi_R(D)\).
+For \(v\in\Lambda\), the exact span in (HM13) and
+\(bA\subset O_E\) give \(bv\in L'\).
+For \(v\ne0\), (HM8) therefore supplies \(\tau_0\) with
+\[
+ \epsilon_{\rm lev}(w)
+       \le\operatorname{maj}_{x_0,\tau_0}(\tau_0(bv))
+       =|\tau_0(b)|^2\operatorname{maj}_{x_0,\tau_0}(\tau_0(v))
+       \le\xi_R(D)\mathrm{rd}_E^2
+                       \operatorname{maj}_{x_0,\tau_0}(\tau_0(v)).
+\]
+Every term in the first-minimum sum is nonnegative.
+Keeping its \(\tau_0\)-term proves the claimed lower bound for
+every nonzero \(v\).
+The lattice spans \(E^r\), and the actual packet has \(r\ge1\),
+so the set defining the infimum is nonempty.
+Taking the infimum proves (HM15).
+This is \srcid{FirstMinAtHalfMax.firstMin_at_halfMax}.
+\end{proof}
+
+\begin{srproposition}\label{prop:sr-source-orthogonal-halfmax}
+Suppose a family \(P\) belongs to the actual
+\(\mathrm{holSub}(U_\sigma,\lambda)\), has positive finite
+global supremum \(S\), has trivial arithmetic characters, and
+every component has spread at most the same \(w>0\).
+There are a component \(k\) and an orthogonal frame \(x_f\) in
+its domain such that
+\[
+              S\le2|P_k(x_f)|,\qquad
+ \operatorname{firstMinimumSq}(x_f)
+             \ge {2\,\epsilon_{\rm lev}(w)\over\mathrm{rd}_E^2}.
+ \tag{HM16}\label{eq:sr-source-orthogonal-halfmax}
+\]
+\end{srproposition}
+\begin{proof}
+Since \(0<S<\infty\), the supremum definition gives a frame
+\(x\) in one component with \(S/2<\|P_k\|_{\lambda,x}\).
+All component norms are at most \(S\), so \(x\) is a positive
+half maximum in that component.
+The component belongs to \(SS\), because the source
+\(\mathrm{holSub}\) is the span of such families and \(SS\)
+is a submodule.
+Apply (HM15).
+Use the actual upper triangular orthogonalizing factor \(b(x)\)
+from \srcid{FrameDegreeData.bOf_mem}.
+Right multiplication by it preserves the frame domain, the
+weighted norm, and \(\operatorname{firstMinimumSq}\).
+At the resulting orthogonal frame all successive Gram-minor
+norms are one; its weighted norm is therefore \(|P_k(x_f)|\).
+This gives both inequalities in (HM16).
+It is \srcid{FirstMinAtHalfMax.half_sup_at_ortho}.
+No maximum-attainment or compactness assertion is used.
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+All sources are read at \srcid{alpoge-source-7cbf7a0c}.
+The periodic Schwarz proof is
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/FundamentalDomains/PeriodicSchwarzLemma.lean},
+blob \srcid{0f49e1e5cf5bd6b20b73373433d9600b5f02d11f}.
+In that same directory,
+\srcid{MaximumBoundField.lean} is
+\srcid{c7b65dca30b0f3b9a858814b7e5bf9e5f42bb774},
+\srcid{MaxBoundPf.lean} is
+\srcid{dcd344008b85a949193a31cd613956653dddeb08}, and
+\srcid{CuspidalExponentialDecay.lean} is
+\srcid{a05dc166cf19232be5e2c25ba52b9a7713d53d3e}.
+The host-scalar, first-minimum and half-sup proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/FirstMinAtHalfMax.lean},
+blob \srcid{63e29ac9732ebfa986c8251e1b2f6917e907e707}.
+The exact principal-level supplier (HM13) is
+\srcid{ExistsSelfDualDataTransvectionPrincipalLevel.lean} in
+that directory, blob \srcid{8a14c6e08bbc4bcc1218f16298c4ed44e1b165d4}.
+
+The source Fourier expansion \srcid{M3bExpHolds}, coefficient
+positivity, flow-domain formula \srcid{FlowDomainCriterionHolds},
+and Gram-minor comparison \srcid{M3bNormHolds} are retained as
+their exact analytic suppliers in the foregoing proof.
+The actual perfect trace-form and principal-congruence
+construction in (HM13), and the same uniformization's Borel
+orthogonalization identities in (HM16), are likewise the
+specified source inputs. The pointwise theorem does not assert
+a bound uniform over independently chosen metrics or frames.

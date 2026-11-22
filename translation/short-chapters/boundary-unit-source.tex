@@ -1,0 +1,333 @@
+\section{The polylogarithmic boundary estimate and the unit extension}
+\label{sec:faithful-boundary-unit}
+We follow the multiplication-and-division proof of logarithmic
+removability in \srcid{ContinuousNormMulOneAddAbsLogPow}, followed
+by the actual subframe and Hodge Gram comparisons in
+\srcid{BoundaryChartFrameGrowth}. The construction of the period
+family used in those comparisons remains a separate input.
+
+For a finite coordinate set \(S\subset\{1,\ldots,n\}\), put
+\[
+ D_S=\{z:\prod_{i\in S}z_i=0\},\quad
+ P_S(z)=\prod_{i\in S}z_i,\quad
+ \ell_S(z)=1+\sum_{i\in S}|\log|z_i||\quad(z\notin D_S).
+ \tag{BG1}\label{eq:faithful-log-weight}
+\]
+Local logarithmic growth means that, on each compact subset of
+an open \(U\subset\mathbb C^n\), the norm off \(D_S\) is bounded
+by \(C\ell_S^N\), for some \(C\ge1\) and integer \(N\ge0\).
+
+\begin{srlemma}[Removal of logarithmic growth]
+\label{lem:faithful-removable-log-growth}
+A holomorphic function on \(U\setminus D_S\) with local logarithmic
+growth has a unique holomorphic extension to \(U\).
+\end{srlemma}
+\begin{proof}
+Give \(f\) any finite values on \(D_S\) when writing products below.
+For every integer \(a\ge1\),
+\(r(1+|\log r|)^a\to0\) as \(r\downarrow0\):
+for \(r\le1\), set \(x=1-\log r\), obtaining \(e\,x^ae^{-x}\).
+Extending its value at zero by zero makes this a continuous
+function on \([0,\infty)\).
+For nonnegative \(a_i\), induction gives
+\(1+\sum a_i\le\prod(1+a_i)\), since the mixed terms are nonnegative.
+On a compact neighborhood with \(|f|\le C\ell_S^N\) this yields
+\[
+ |P_Sf|\le C\prod_{i\in S}
+       \{|z_i|(1+|\log|z_i||)^{N+1}\}\quad(z\notin D_S).
+ \tag{BG2}\label{eq:faithful-product-log-majorant}
+\]
+Each factor has a continuous finite limit, and at a divisor
+point at least one has limit zero.
+Since \(P_Sf=0\) on the divisor, it follows that \(P_Sf\to0\)
+at every divisor point.
+This is \srcid{HasLogGrowth.tendsto_prod_mul}.
+
+Set \(G=P_S^2f\) off the divisor and zero on it.
+At \(p\in D_S\), the polynomial \(P_S\) is
+\(O(\|z-p\|)\), while \(P_Sf=o(1)\).
+Thus \(G=o(\|z-p\|)\).
+It is complex Fr\'echet differentiable at \(p\), with derivative zero.
+Away from the divisor it is holomorphic, so \(G\) is holomorphic on \(U\).
+
+If a holomorphic \(H\) vanishes on \(\{z_i=0\}\cap U\), it has a
+holomorphic quotient \(H_1\) with \(H=z_iH_1\).
+Locally, the convergent power series of \(H\) in the \(i\)-th
+coordinate has zero constant coefficient; shifting its powers
+down by one gives the quotient.
+Off the hyperplane it is \(H/z_i\), and on the hyperplane its
+value is \(\partial_iH\).
+These descriptions agree and glue.
+This is \srcid{exists_eq_coord_mul_of_isOpen}.
+
+Suppose more generally that \(H=z_if_1\) off \(D_S\), with
+\(i\in S\) and \(f_1\) of local logarithmic growth.
+To prove \(H(p)=0\) for every \(p_i=0\), replace all zero
+coordinates of \(p\) by the same nonzero \(t\), leaving the
+others fixed; call this point \(\gamma(t)\).
+For small \(t\), it lies outside \(D_S\) in a fixed compact
+neighborhood in \(U\), and for some fixed \(M\ge1\)
+\[
+ \ell_S(\gamma(t))\le M(1+|\log|t||),\qquad
+ |H(\gamma(t))|\le |t|CM^N(1+|\log|t||)^N\longrightarrow0.
+\]
+Continuity proves the required vanishing, including intersections
+of hyperplanes.
+
+List the coordinates of \(S\) twice.
+Starting from \(G=P_S^2f\), divide successively by the coordinates
+in this list.
+At each step the remaining coordinate product times \(f\)
+has local logarithmic growth, since a polynomial is bounded
+on compact subsets.
+The preceding paragraph proves vanishing on the next hyperplane,
+so holomorphic division applies.
+Cancellation off \(D_S\) preserves equality with the remaining
+product times \(f\).
+After the doubled list is exhausted, the quotient is the
+required extension.
+This is \srcid{HasLogGrowth.exists_extension_of_prod_mul}.
+Uniqueness follows from continuity and density of the complement,
+also witnessed by the paths \(\gamma(t)\).
+For empty \(S\) no division is necessary.
+\end{proof}
+
+\begin{srcorollary}[Two-sided growth gives a unit]
+\label{cor:faithful-log-growth-unit}
+If \(f\) is holomorphic and nonzero off \(D_S\), and both \(f\)
+and \(f^{-1}\) have local logarithmic growth, its holomorphic
+extension is nowhere zero.
+\end{srcorollary}
+\begin{proof}
+Extend \(f\) and \(f^{-1}\) separately by the lemma.
+Their product is \(1\) on the dense complement and hence everywhere.
+This is \srcid{exists_unit_extension_of_log_growth}.
+A bound on \(f\) alone would not establish nonvanishing.
+\end{proof}
+
+\subsection{The subframe determinant estimate}
+Matrix inequalities below mean nonnegativity of Hermitian quadratic
+forms. For a complex \(g\times k\) matrix \(P\) and positive real
+symmetric \(g\times g\) matrix \(Y\), write
+\[
+ G(P)=\det(P^t\overline P),\qquad
+ D(P,Y)=\det(P^tY^{-1}\overline P).
+ \tag{BG3}\label{eq:faithful-subframe-determinants}
+\]
+For full-rank \(P\) these are positive real numbers.
+The conjugations agree with the source: use the columns of
+\(\overline P\) in the usual Hermitian Gram formula.
+
+\begin{srlemma}[Inverse and determinant comparison]
+\label{lem:faithful-subframe-determinant-comparison}
+Let \(P\) have full column rank. If \(0<cI\le Y\le CrI\)
+and \(r\ge1\), then
+\[
+              (Cr)^{-k}G(P)\le D(P,Y)\le c^{-k}G(P).
+ \tag{BG4}\label{eq:faithful-subframe-det-bounds}
+\]
+\end{srlemma}
+\begin{proof}
+For \(g>0\) the matrix inequalities imply \(C>0\).
+Orthogonal diagonalization gives
+\((Cr)^{-1}I\le Y^{-1}\le c^{-1}I\).
+They hold also on complex vectors: for \(u=a+ib\),
+\(u^*Y^{-1}u=a^tY^{-1}a+b^tY^{-1}b\), since symmetry
+cancels the imaginary cross terms.
+Conjugating by the injective column map \(\overline P\) gives
+\[
+ (Cr)^{-1}(P^t\overline P)
+ \le P^tY^{-1}\overline P\le c^{-1}(P^t\overline P).
+\]
+Conjugate by the inverse positive square root of
+\(P^t\overline P\). The middle matrix has its \(k\) positive
+eigenvalues between \((Cr)^{-1}\) and \(c^{-1}\).
+Multiplying them proves the determinant inequalities.
+These are the source's
+\srcid{subframe_inv_bounds} and \srcid{subframe_det_bounds}.
+If \(g=0\), full rank forces \(k=0\) and both determinants are \(1\).
+\end{proof}
+
+\begin{srproposition}[The compact-family bound]
+\label{prop:faithful-compact-subframe-log}
+Let \(P(x)\) be continuous of rank \(k\) on a compact set \(T\).
+Fix \(c>0\) and real \(C\).
+There is \(C'>0\), independent of \(x,Y,r\), such that
+\(0<cI\le Y\le CrI\) and \(r\ge1\) imply
+\[
+                 D(P(x),Y)\le C',\qquad
+                    1\le C'r^kD(P(x),Y).
+ \tag{BG5}\label{eq:faithful-compact-subframe-log}
+\]
+\end{srproposition}
+\begin{proof}
+If \(T\) is empty take \(C'=1\).
+Otherwise \(G(P(x))\) is positive and continuous; let its
+minimum be \(\mu>0\), and let \(M\) bound its absolute value.
+The source takes
+\[
+                        C'=c^{-k}|M|+|C|^k/\mu+1.
+ \tag{BG6}\label{eq:faithful-subframe-constant}
+\]
+For \(g>0\), (BG4) bounds the determinant above by the first
+summand. Its lower bound gives
+\(1\le(|C|^k/\mu)r^kD(P(x),Y)\), proving the other assertion.
+For \(g=k=0\), both determinants are \(1\) and \(C'\ge1\).
+This proves \srcid{subframe_det_log_growth}.
+Uniform full rank on the compact set is essential for \(\mu>0\).
+\end{proof}
+
+For the source's logarithmic period datum, a holomorphic matrix
+\(A(z)\), invertible at \(0\), and a period matrix \(\tau(w)\)
+on the logarithmic cover satisfy
+\[
+ A(z)H(z)A(z)^*=(\operatorname{Im}\tau(w))^{-1},
+                         \qquad z=\exp(w).
+ \tag{BG7}\label{eq:faithful-period-trivialization}
+\]
+The period order bounds are
+\[
+ cI\le Y=\operatorname{Im}\tau(w)\le C R(z)I,\qquad
+ R(z)=e+2\sum_{i<a}|\log|z_i||,\qquad
+       1\le R(z)\le(e+2)\ell_S(z).
+ \tag{BG8}\label{eq:faithful-chart-radius}
+\]
+The source supplies these bounds through \srcid{ImTauBounds.cond}
+with the \srcid{RiemannExtensionSlices},
+\srcid{PuncturedExpOrder}, and \srcid{LogCoverDescent} inputs.
+We retain this precise period-family input.
+
+Let \(F(z)\) be continuous, of row rank \(k\) at \(0\).
+After shrinking, the matrices \((F(z)A(z)^{-1})^t\) lie in one
+compact neighborhood of full-rank matrices.
+Indeed their Euclidean Gram determinant is positive at \(0\)
+and continuous; choose a compact neighborhood inside its positive
+locus, and use continuity of \(F\) and matrix inversion.
+Apply the preceding proposition and (BG7):
+\[
+ FHF^*=(FA^{-1})Y^{-1}(FA^{-1})^*,\qquad
+ |\det(FHF^*)|\le K,\quad
+       1\le K\ell_S^k|\det(FHF^*)|,
+ \tag{BG9}\label{eq:faithful-log-period-subframe}
+\]
+where \(K=C'(e+2)^k\).
+The determinant is nonnegative real, so its norm is its real part.
+This is \srcid{logPeriods_subframe_det_bounds} with exactly
+the period-trivialization and order inputs just stated.
+
+\subsection{The actual Hodge Gram factors and the flat norm}
+In a boundary chart write \(F(z)_{ib}=\psi_z(u_i(b))\)
+for the chosen model tangent columns, independent at \(0\).
+The logarithmic period construction, after a radial rescaling,
+identifies their actual Hodge Gram matrix as
+\[
+                         \Gamma=\pi FHF^* .
+ \tag{BG10}\label{eq:faithful-hodge-gram}
+\]
+For any \(a\ne0\), the triangle inequality for logarithms gives
+\[
+ \ell_S(az)\le\{1+n|\log|a||\}\ell_S(z).
+ \tag{BG11}\label{eq:faithful-log-weight-rescaling}
+\]
+There are at most \(n\) terms in \(S\), and \(\ell_S\ge1\).
+Thus, if the chart rescaling is \(z\mapsto\rho z\) with \(\rho>0\),
+(BG9) gives
+\[
+ |\det\Gamma|\le K,\qquad
+             1\le K\ell_S^k|\det\Gamma|,\qquad
+ K=K_0\pi^k\{1+n|\log|\rho^{-1}||\}^k .
+ \tag{BG12}\label{eq:faithful-hodge-gram-log-bound}
+\]
+Here \(K_0\) is the constant before this rescaling.
+The factors \(\pi^k\) and the bracket are at least one;
+multiplying by them preserves both estimates.
+This is \srcid{hodgeGram_det_log_bounds}, including the factor
+\(\pi\) and the radial change.
+
+The two actual eigenframes of the flat analytic function have
+Hodge Gram matrices \(\Gamma,\Delta\).
+Its defining norm identity is
+\[
+                     |\Phi|^2|\det\Gamma|=|\det\Delta|.
+ \tag{BG13}\label{eq:faithful-unitAn-gram-norm}
+\]
+Write \(x=|\Phi|>0\), \(g=|\det\Gamma|\), \(d=|\det\Delta|\).
+The bounds for the same frames are
+\[
+ g\le K_1,\quad1\le K_1\ell_S^{N_1}g,\qquad
+ d\le K_2,\quad1\le K_2\ell_S^{N_2}d.
+\]
+Multiplying the first lower bound by \(x^2\), then using
+\(x^2g=d\le K_2\), proves
+\(x^2\le K_1K_2\ell_S^{N_1}\).
+Multiplying the second lower bound by \(x^{-2}\) similarly
+proves \(x^{-2}\le K_1K_2\ell_S^{N_2}\).
+Since \(y\le1+y^2\), \(\ell_S\ge1\), and the constants are
+nonnegative, these imply the source's common bound
+\[
+           x,\ x^{-1}\le(1+|K_1K_2|)\ell_S^{N_1+N_2}.
+ \tag{BG14}\label{eq:faithful-flat-two-sided-log}
+\]
+This is \srcid{norm_bounds_of_gram}.
+No varying square-root or logarithm branch is chosen.
+
+\begin{srproposition}[The boundary-chart unit]
+\label{prop:faithful-bdry-chart-unit-extension}
+Assume the actual boundary chart, its centre-independent tangent
+columns, the analytic frame function's holomorphy and nonvanishing
+clauses, its Gram identity (BG13), and the period inputs
+(BG7)--(BG8) for those same tangent columns.
+Its frame value extends to a holomorphic unit on a smaller whole chart.
+\end{srproposition}
+\begin{proof}
+At a punctured point the actual abelian open contains a basic
+neighborhood \(R[r^{-1}]\) with \(\psi_z(r)\ne0\).
+Each value \(\psi_z(a)/\psi_z(r)^j\) is holomorphic where the
+denominator is nonzero; this extends the coefficient maps
+holomorphically to the localization.
+The cartesian chart maps lift the model tangent columns over
+this localization by their dual-number maps.
+Their specializations are the stated eigenframes: their point maps
+and both projections to the semiabelian pullbacks agree, so
+cartesian uniqueness identifies the tangent vectors.
+The holomorphy clause of the actual analytic frame function
+therefore proves holomorphy of its displayed value.
+This is the source's \srcid{differentiableAt_of_chart} argument.
+
+Hodge Gram pullback identifies the two Gram matrices with these
+same vectors. On the smaller of their two admissible radii,
+(BG12)--(BG14) give logarithmic growth of the frame value and
+its inverse. Nonvanishing on the punctured chart is part of
+\srcid{IsUnitAn}.
+Corollary~\ref{cor:faithful-log-growth-unit} gives the required unit.
+This is \srcid{exists_unit_extension_of_bdryChart}.
+\end{proof}
+
+\paragraph{The remaining construction-specific period join.}
+The actual logarithmic period datum is constructed in
+\srcid{LogPeriodsRiemannForm.exists_logPeriods_isRiem}.
+Its source proof builds the local family exponential, continues
+the central fibre's discrete free periods, makes additive local
+sections, identifies the Hodge matrix, and checks the torsion
+pairing before producing the datum.
+The change of period basis in
+\srcid{PeriodMatrixLocalTrivialization} uses a symplectic marking
+and \srcid{SiegelOfRiemann}.
+The order bounds in (BG8) retain their precise source inputs.
+Thus this section proves the determinant and removable-unit
+arguments from those inputs; it does not infer their existence
+from a monodromy slogan.
+The actual chart and tangent-column comparison with the
+resolution still has to be supplied by
+\srcid{AffineChartBundleSections} before using
+Section~\ref{sec:faithful-flat-line-extension}.
+
+The frozen paths are
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/ContinuousNormMulOneAddAbsLogPow.lean};
+\srcid{src/Development/AutomorphicSpectrum/Proofs/MetricProofs/ExistsUnitExtensionOfLogGrowth.lean},
+\srcid{SubframeDetLogGrowth.lean} and
+\srcid{LogPeriodsSubframeDetBounds.lean} in the same metric directory;
+and
+\srcid{src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/HodgeGramBoundNearBoundary.lean}
+and \srcid{BoundaryChartFrameGrowth.lean}.
+All are read at \srcid{alpoge-source-7cbf7a0c}.

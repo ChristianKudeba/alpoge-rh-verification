@@ -1,0 +1,288 @@
+\subsection{From the source kernel bounds to an actual free coefficient basis}
+\label{subsec:faithful-kernel-norm-free}
+
+This is the algebraic producer
+\texttt{KernelRankAlgebraicBound}; its conclusion is a basis, not
+merely a dimension assertion.
+
+\begin{proposition}\label{prop:faithful-kernel-norm-free}
+Let \(E\) be a number field, \(O=\mathcal O_E\), and
+\(b_1,\ldots,b_n\) its specified integral basis, where
+\(n=[E:\mathbb Q]\).  Let \(k\) be algebraically closed of
+characteristic the prime \(p\), let \(W\) be a finite-dimensional
+\(k\)-vector space, and let
+\(\rho:O\to\operatorname{End}_k(W)\) be a unital ring homomorphism.
+Fix \(r\ge0\).  Assume, for every \(a\in O\), that
+\[
+ \operatorname{charpol}(\rho(a))
+  =\left(\operatorname{charpol}(m_a:O\to O)
+                                \bmod k\right)^r,
+ \tag{NF1}\label{eq:faithful-norm-free-charpoly}
+\]
+and, for every \(a\ne0\), that
+\[
+       \dim_k\ker\rho(a)\le
+                       r\,v_p(|N_{E/\mathbb Q}(a)|).
+ \tag{NF2}\label{eq:faithful-norm-free-kernel}
+\]
+Then there exist \(x_1,\ldots,x_r\in W\) such that
+\[
+        \{\rho(b_j)x_l:1\le j\le n,\ 1\le l\le r\}
+ \tag{NF3}\label{eq:faithful-norm-free-basis}
+\]
+is a \(k\)-basis of \(W\).  Equivalently the extended action makes
+\(W\) free of rank \(r\) over \(k\otimes_{\mathbb Z}O\).
+\end{proposition}
+
+\begin{proof}
+Put \(A=k\otimes_{\mathbb Z}O\).  The rule
+\((c\otimes a)w=c\rho(a)w\) gives the actual \(A\)-module
+structure.  For \(a\in O\), the regular multiplication
+characteristic polynomial on \(A\) is the image in \(k[T]\) of
+the integral multiplication characteristic polynomial.
+Thus \eqref{eq:faithful-norm-free-charpoly} compares the
+characteristic polynomials on \(W\) and on the regular module
+\(A\) for each element \(1\otimes a\).
+Taking degrees gives
+\[
+                         \dim_kW=nr.
+ \tag{NF4}\label{eq:faithful-norm-free-dimension}
+\]
+We keep the source's local-generator argument.
+
+\emph{The two arithmetic elements.}
+For a maximal ideal \(\mathfrak m\subset A\), its residue field
+is \(k\), since it is finite-dimensional over the algebraically
+closed field \(k\).  Choose the corresponding \(k\)-algebra map
+\(\chi_0:A\to k\).
+The restriction \(\psi:O\to k\), \(a\mapsto\chi_0(1\otimes a)\),
+has a nonzero maximal kernel \(\mathfrak w\) containing \(p\).
+Write
+\[
+                      |O/\mathfrak w|=p^f .
+\]
+The source constructs a nonzero \(\pi\in\mathfrak w\) with
+\[
+                       v_p(|N\pi|)=f .
+ \tag{NF5}\label{eq:faithful-norm-free-pi}
+\]
+Here is its ideal calculation.
+The Dedekind two-generator statement gives \(\pi\) such that
+\(\mathfrak w(p)+(\pi)=\mathfrak w\).
+Consequently \((\pi)=\mathfrak w I\) and cancellation of the
+nonzero ideal \(\mathfrak w\) gives \((p)+I=O\).
+In the finite quotient \(O/I\), multiplication by \(p\) is
+invertible.  Hence \(p\nmid |O/I|\): otherwise Cauchy's theorem
+would give a nonzero element of additive order \(p\), contradicted
+by that invertibility.
+Taking ideal norms gives
+\(|N\pi|=p^f|O/I|\), proving
+\eqref{eq:faithful-norm-free-pi}, including \(\pi\ne0\).
+
+Factor
+\[
+                  (p)=\mathfrak w^c Q,\qquad
+                  \mathfrak w+Q=O.
+\]
+Choose \(z\in Q\) with \(z\equiv1\bmod\mathfrak w\), choose a
+lift \(g_0\in O\) of a generator of the finite cyclic group
+\((O/\mathfrak w)^\times\), and put \(\theta=g_0z\).
+Its residue is nonzero and generates that multiplicative group.
+For every \(\pi'\in\mathfrak w\),
+\[
+                         (\pi'\theta)^{c+1}\in(p).
+ \tag{NF6}\label{eq:faithful-norm-free-theta}
+\]
+Indeed one factor contributes membership in \(Q\), while \(c\)
+factors of \(\pi'\) contribute membership in \(\mathfrak w^c\).
+
+There are exactly \(f\) embeddings
+\(j:O/\mathfrak w\to k\); finite-field separability gives this
+count.  Extend them to characters
+\[
+ \chi_j:A\to k,\qquad
+                  \chi_j(c\otimes a)=c\,j(a\bmod\mathfrak w).
+\]
+For
+\[
+                 t=1\otimes\theta,\qquad u=1\otimes\pi
+\]
+the \(f\) numbers \(\alpha_j=\chi_j(t)\) are pairwise distinct
+and nonzero: equality on the chosen multiplicative generator
+gives equality of the embeddings.
+Equation \eqref{eq:faithful-norm-free-theta} says \(ut\) is
+nilpotent in \(A\).  Moreover
+\[
+ \dim_k\ker(u:W\to W)\le rf
+ \tag{NF7}\label{eq:faithful-norm-free-total-kernel}
+\]
+by \eqref{eq:faithful-norm-free-kernel} and
+\eqref{eq:faithful-norm-free-pi}.
+
+\emph{The generalized eigenspaces.}
+For each \(j\), let \(G_j(A)\) and \(G_j(W)\) be the maximal
+generalized \(\alpha_j\)-eigenspaces for multiplication by \(t\).
+Set \(d_j=\dim_kG_j(A)\).
+The characteristic-polynomial assumption at \(\theta\) gives
+\[
+                      \dim_kG_j(W)=r d_j .
+ \tag{NF8}\label{eq:faithful-norm-free-eigenspace-size}
+\]
+We justify both \(d_j>0\) and the nilpotence exponent used next.
+
+For any \(v\) in an Artinian commutative ring, stabilization of
+its principal powers supplies \(n,y\) with
+\(v^{n+1}y=v^n\).
+Then
+\[
+             e=1-(vy)^n
+\]
+satisfies \(v^ne=0\), and \(1-e\) is divisible by every power
+\(v^M\).  For the latter assertion use
+\(v^n(vy)^M=v^n\); explicitly
+\(1-e=v^{n+M}y^{n+M}\).
+This is the source's \texttt{fitting} construction.
+Apply it to \(v=t-\alpha_j\).
+The resulting \(e_j\) lies in \(G_j(A)\), and
+\(\chi_j(e_j)=1\), since \(1-e_j\) is divisible by \(t-\alpha_j\).
+Thus \(d_j>0\).
+It also acts as the identity on \(G_j(W)\):
+for any such vector \(w\), choose \(M\) with
+\((t-\alpha_j)^Mw=0\) and use the divisibility of \(1-e_j\).
+
+Since \(\alpha_j\ne0\), the elements \(t\) and \(t-\alpha_j\)
+are coprime.  Because \(ut\) is nilpotent, Bezout applied to
+powers of those two elements shows that \(u\) is nilpotent
+on \(G_j(A)\).  More explicitly, if \((ut)^N=0\) and
+\((t-\alpha_j)^Mv=0\), write
+\(a t^N+b(t-\alpha_j)^M=1\) and multiply by \(u^Nv\).
+Both terms on the right vanish.
+Cayley--Hamilton on this \(d_j\)-dimensional subspace gives
+\[
+                          u^{d_j}G_j(A)=0 .
+\]
+In particular \(u^{d_j}e_j=0\).
+As \(e_j\) acts as the identity on \(G_j(W)\), we obtain
+\[
+                          u^{d_j}G_j(W)=0 .
+ \tag{NF9}\label{eq:faithful-norm-free-nilpotence}
+\]
+
+For a nilpotent endomorphism \(U\) with \(U^d=0\), the elementary
+source bound is
+\[
+                     \dim V\le d\,\dim\ker U.
+ \tag{NF10}\label{eq:faithful-nilpotent-corank}
+\]
+To see its exact mechanism, lift a basis of \(V/UV\), whose
+dimension is \(\dim\ker U\), to \(y_1,\ldots,y_s\).
+Then \(V=\operatorname{span}_k(y_i)+UV\).
+Iteration shows that \(U^q y_i\), \(0\le q<d\), span \(V\).
+This proves \eqref{eq:faithful-nilpotent-corank} without assuming
+a Jordan basis.
+Apply it to \(u|G_j(W)\), using
+\eqref{eq:faithful-norm-free-eigenspace-size} and
+\eqref{eq:faithful-norm-free-nilpotence}.
+As \(d_j>0\),
+\[
+                          \dim_k\ker(u|G_j(W))\ge r.
+\]
+These kernel spaces lie in pairwise independent generalized
+eigenspaces, all within \(\ker(u|W)\).
+There are \(f\) of them.  Equation
+\eqref{eq:faithful-norm-free-total-kernel} therefore forces
+\[
+                       \dim_k\ker(u|G_j(W))=r
+                           \quad\text{for every }j.
+ \tag{NF11}\label{eq:faithful-norm-free-local-corank}
+\]
+
+\emph{Generators modulo the chosen maximal ideal.}
+For the embedding inducing \(\chi_0\), use
+\eqref{eq:faithful-norm-free-local-corank} to lift a basis of
+\(G_j(W)/uG_j(W)\) to \(x_1,\ldots,x_r\in G_j(W)\).
+It follows that
+\[
+       G_j(W)=\operatorname{span}_k(x_1,\ldots,x_r)+uG_j(W).
+\]
+For arbitrary \(w\in W\), the vector \(e_jw\) is in \(G_j(W)\).
+The two remaining terms in the decomposition
+\[
+          w=e_jw+(1-e_j)w
+\]
+are controlled as follows.
+We have \(u\in\ker\chi_0=\mathfrak m\), because \(ut\) is
+nilpotent and \(\chi_0(t)\ne0\); also \(1-e_j\in\mathfrak m\)
+by its divisibility by \(t-\alpha_j\).
+Hence
+\[
+ W=A x_1+\cdots+A x_r+\mathfrak mW .
+ \tag{NF12}\label{eq:faithful-norm-free-local-generators}
+\]
+This is the actual \texttt{core}/\texttt{locmax} conclusion.
+
+\emph{Gluing the generators.}
+The Artinian algebra \(A\) has finitely many maximal ideals.
+For each \(\mathfrak m\), choose \(r\) vectors
+\(y_{\mathfrak m,l}\) as in
+\eqref{eq:faithful-norm-free-local-generators}.
+The Chinese remainder theorem gives \(c_{\mathfrak m}\in A\)
+whose residue is \(1\) at \(\mathfrak m\) and \(0\) at all
+other maximal ideals.
+Set
+\[
+               x_l=\sum_{\mathfrak m}
+                                  c_{\mathfrak m}y_{\mathfrak m,l},
+       \qquad N=\sum_l A x_l.
+\]
+Then \(W=N+\mathfrak mW\) for every maximal \(\mathfrak m\).
+The source's determinant trick proves \(N=W\).
+Indeed, if the ideal
+\(J=\{a\in A:aW\subset N\}\) were proper, choose
+\(\mathfrak m\supset J\).
+The finitely generated equality \(W=N+\mathfrak mW\) gives
+an element \(a\equiv1\bmod\mathfrak m\) with \(aW\subset N\):
+write finitely many module generators in terms of one another
+with coefficients in \(\mathfrak m\), and apply the adjugate
+to the matrix \(I-M\).
+Thus \(a\in J\subset\mathfrak m\), a contradiction.
+Consequently \(1\in J\) and \(W=N\).
+
+The \(A\)-generators \(x_l\) imply that the vectors in
+\eqref{eq:faithful-norm-free-basis} span over \(k\):
+expand an arbitrary element of \(O\) in the integral basis
+\(b_j\), then expand a tensor in \(A\) as a sum of pure tensors.
+There are \(nr\) such vectors, exactly \(\dim_k W\) by
+\eqref{eq:faithful-norm-free-dimension}; they are therefore
+linearly independent.  This proves the desired actual basis.
+\end{proof}
+
+\paragraph{Frozen-source ledger.}
+The complete source is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/KernelRankAlgebraicBound.lean}
+{\texttt{KernelRankAlgebraicBound}}
+(blob \texttt{ed4a911401a5dc7a2c756d59035b64c06fb41f13}).
+The paragraphs above follow, in order, its
+\texttt{arith\_pi}, \texttt{arith\_theta}, \texttt{count\_hom},
+\texttt{fitting}, \texttt{pow\_finrank\_kill},
+\texttt{finrank\_G}, \texttt{core}, \texttt{locmax},
+\texttt{glue}, and final theorem.
+The nilpotent spanning argument is its imported
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/TorusUniformisation/ChowMahlerFamilies/JordanBasisNilpotent.lean}
+{\texttt{JordanBasisNilpotent}},
+\texttt{exists\_span\_sup\_range} and \texttt{span\_eq\_top};
+its construction is given explicitly in
+\eqref{eq:faithful-nilpotent-corank}.
+The wrapper
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/KernelRankBoundNormValuation.lean}
+{\texttt{KernelRankBoundNormValuation.lemF\_algebra}}
+has exactly the hypotheses and conclusion of this proposition.
+
+This is a closed algebraic implication.
+To apply it to the geometric doubled action one must still
+produce \eqref{eq:faithful-norm-free-kernel}, with the same
+\(r\) as the actual characteristic-polynomial identity.
+The proper-germ divisibility proves one component of that
+kernel bound.  The torus lattice, quotient gauge, and
+norm-degree calculation supply the other components; the
+present proposition does not replace any of them.

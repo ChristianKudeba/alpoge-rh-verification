@@ -7,9 +7,10 @@
     "commit": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4"
   },
   "current_paper": {
-    "source_commit": "e91c5c8b4951a4ddc93a3f9258e9c0343c990c64",
-    "pages": 499,
-    "complete": false
+    "source_commit": "ebbefe4a5d5d47c193d285ac96c768eb6a65b9eb",
+    "pages": 541,
+    "complete": false,
+    "artifact": "b6e2fd252a7258fb2fa254fd63f65557"
   },
   "exhaustive_dependency_graph": false,
   "status_rules": {
@@ -185,44 +186,50 @@
       "remaining": "Expand exact tied-family fields, match all objects and constant order, then apply existing signed/analytic endpoint."
     }
   ],
-  "last_update_utc": "2026-11-22T01:17:00Z",
+  "last_update_utc": "2026-11-22T01:43:00Z",
   "page_target": 1000,
   "bounded_source_additions": [
     {
       "id": "theta-source-nonvanishing",
-      "status": "checked",
+      "status": "integrated",
       "manuscript": "translation/short-chapters/theta-source-nonvanishing.tex",
       "review_scope": "Exact displayed hypotheses and source assembly only; upstream named producer inputs remain separate."
     },
     {
       "id": "theta-source-contraction",
-      "status": "checked",
+      "status": "integrated",
       "manuscript": "translation/short-chapters/theta-source-contraction.tex",
       "review_scope": "Exact displayed hypotheses and source assembly only; upstream named producer inputs remain separate."
     },
     {
       "id": "theta-source-line-cusp",
-      "status": "checked",
+      "status": "integrated",
       "manuscript": "translation/short-chapters/theta-source-line-cusp.tex",
       "review_scope": "Exact displayed hypotheses and source assembly only; upstream named producer inputs remain separate."
     },
     {
       "id": "formal-frobenius-source",
-      "status": "checked",
+      "status": "integrated",
       "manuscript": "translation/short-chapters/formal-frobenius-source.tex",
       "review_scope": "Exact displayed hypotheses and source assembly only; upstream named producer inputs remain separate."
     },
     {
       "id": "theta-denominator-generators-source",
-      "status": "checked",
+      "status": "integrated",
       "manuscript": "translation/short-chapters/theta-denominator-generators-source.tex",
       "review_scope": "Exact displayed hypotheses and source assembly only; upstream named producer inputs remain separate."
     },
     {
       "id": "flat-line-extension-source",
-      "status": "checked",
+      "status": "integrated",
       "manuscript": "translation/short-chapters/flat-line-extension-source.tex",
       "review_scope": "Exact displayed hypotheses and source assembly only; upstream named producer inputs remain separate."
     }
+  ],
+  "next_reviewed_additions": [
+    "Vertical finite-field/idempotent degree-zero with full free-O premise",
+    "Split-place cusp keys and local three-column distribution vanishing",
+    "Reached-section valuation and exact mixed-translate calculation",
+    "Polylogarithmic removal, subframe determinant and Gram unit extension with actual period/model inputs retained"
   ]
 }
