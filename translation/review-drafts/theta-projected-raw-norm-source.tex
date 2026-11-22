@@ -1,0 +1,421 @@
+\section{Projected vacua and the raw-theta index factor}
+\label{sec:sr-source-raw-theta-norm}
+This section follows the source normalized isogeny sum, followed
+by \srcid{JetTranslateProjectedVacuumLe} and
+\srcid{NormRawThetaSeriesIndexBoundLeSqrt}.
+It keeps the same Hermitian ambient space, actual Weil action,
+frame and algebraic theta reading in every comparison.
+
+\subsection{The normalized isogeny sum on two actual tori}
+Use two source Gaussian tori \(Y,Y'\) on the same
+\(\mathbb C^N\), with lattices \(L,L'\), unit factors \(k,k'\),
+and the actual translation
+\[
+ (U_aF)(z)=
+       e^{\pi H(z,a)-\pi H(a,a)/2}F(z-a).
+ \tag{RV1}\label{eq:sr-source-fock-translation}
+\]
+The factors obey their integral semicharacter law and agree on
+\(L\cap L'\).
+Let \(R\subset L'\) be a finite set of unique representatives
+of \(L'/(L\cap L')\), and set
+\[
+                     G_R=\sum_{a\in R}k'(a)U_aF
+                                      \qquad(F\in Y.\mathrm{Sec}(1)).
+ \tag{RV2}\label{eq:sr-source-isogeny-sum}
+\]
+
+\begin{srlemma}\label{lem:sr-source-isogeny-sum-norm}
+The actual sum \(G_R\) belongs to \(Y'.\mathrm{Sec}(1)\), and
+\[
+                           L_{2,Y'}(G_R)=|R|\,L_{2,Y}(F).
+ \tag{RV3}\label{eq:sr-source-isogeny-sum-norm}
+\]
+\end{srlemma}
+\begin{proof}
+The Fock composition law and the semicharacter law say that
+\(k'(a)U_a\) is an additive representation for \(a\in L'\).
+For \(\gamma\in L'\), write
+\(\gamma+a=a'+b\), uniquely with \(a'\in R\) and
+\(b\in L\cap L'\).
+The operator \(k'(b)U_b=k(b)U_b\) fixes \(F\).
+Thus translation by \(\gamma\) permutes the summands in (RV2),
+which is the section condition for \(Y'\).
+Each summand is entire.
+
+The finite representative set supplies a full common sublattice
+\(L_0\subset L\cap L'\): for each real basis vector \(b_i'\)
+of \(L'\), two integer multiples have the same representative
+modulo \(L\), so a nonzero integer multiple \(n_i b_i'\)
+belongs to \(L\); these multiples are still a real basis.
+Integrate on its basis parallelepiped.
+For \(a,a'\in R\), put
+\[
+ h_{a,a'}(z)=U_aF(z)\overline{U_{a'}F(z)}e^{-\pi H(z,z)} .
+\]
+Substitution of (RV1) and the section condition gives exactly
+\[
+ h_{a,a'}(z+x)
+   =e^{2\pi i\,\operatorname{Im}H(x,a-a')}h_{a,a'}(z)
+                                             \qquad(x\in L).
+ \tag{RV4}\label{eq:sr-source-pairing-density}
+\]
+For \(x\in L_0\) this multiplier is one, by integrality in \(L'\).
+For \(a\ne a'\), their difference is not in \(L\).
+Perfection of \(L\) therefore gives some \(x\in L\) for which
+the multiplier in (RV4) is not one.
+Indeed if every such imaginary pairing were integral,
+the resulting integral functional would be represented by
+a point of \(L\); nondegeneracy over the real span would then
+put \(a-a'\) in \(L\).
+The integral of the \(L_0\)-periodic continuous density is
+unchanged by any translation of its fundamental domain.
+Equation (RV4) consequently forces its off-diagonal integral
+to be zero.
+
+On the diagonal,
+\(h_{a,a}(z)=|F(z-a)|^2e^{-\pi\|z-a\|^2}\).
+Its average over a fundamental domain of \(L_0\) equals
+\(L_{2,Y}(F)\), independently of \(a\), by tiling with
+fundamental domains of \(L\).
+Similarly the average of the density of \(G_R\), periodic
+under \(L'\), equals \(L_{2,Y'}(G_R)\).
+Expanding the finite square, all off-diagonal averages vanish
+and each of the \(|R|\) diagonal terms has the indicated value.
+The factors \(k'(a)\) have modulus one.
+All integrals are legitimate because the densities are continuous
+on bounded fundamental parallelepipeds.
+This proves (RV3), by exactly the common-lattice and pairing-density
+argument in
+\srcid{ContinuousThetaSectionPointwiseNormSq.isogeny_sum_mem_and_norm}.
+\end{proof}
+
+\subsection{The normalized tensor jet}
+Let \(T\) be the source \(O_E\)-linear positive torus, with
+level-one semicharacter determined by the fixed integral \(w_0\)
+satisfying \(w_0+\overline{w_0}=1\).
+Let \(s\in T.\mathrm{Sec}(1,1)\), \(s\ne0\).
+For a positive self-dual Hermitian coefficient lattice
+\(\Lambda\subset E^n\), use its actual tensor lattice and
+representatives \(R\) modulo the original product period lattice.
+Both tensor tori carry the same formula
+\[
+ \epsilon_{w_0}(\gamma)
+ =\exp\{\pi i\,\operatorname{Im}
+                         H_C(\gamma,w_0\gamma)\}.
+\]
+They therefore have the required equality of factors on their
+intersection.
+
+The source obtains a real basis of this tensor lattice by
+integer commensurability with the product lattice.
+Integrality and perfection are transported by its contraction
+description: contraction against every coefficient vector in
+\(\Lambda\) lies in the original period lattice.
+The Hermitian self-duality of \(\Lambda\) supplies a finite dual
+family, which reconstructs a tensor from these contractions.
+Thus the tensor object used here is the actual
+\(\mathrm{GT}\), not merely a collection of unrelated norm bounds.
+
+For \(F=s^{\otimes n}\), the product fundamental domain and
+Fubini give \(L_2(F)=L_2(s)^n\).
+Lemma~\ref{lem:sr-source-isogeny-sum-norm} gives
+\[
+                         L_2(G_R)=|R|\,L_2(s)^n .
+ \tag{RV5}\label{eq:sr-source-tensor-sum-norm}
+\]
+Also \(L_2(s)>0\).
+If it were zero, its continuous nonnegative norm density would
+vanish almost everywhere on one fundamental domain, hence
+everywhere there and, by the actual section transformation,
+everywhere; this would imply \(s=0\).
+
+Put \(f=[E:\mathbb Q]/2\), \(g=\dim_\mathbb C T=fr\).
+Suppose the original period lattice has minimum at least
+\(\lambda>0\).
+The exact short-vector and contraction argument in
+Section~\ref{sec:sr-source-gaussian-sup} gives the tensor
+minimum
+\(\lambda'=\lambda/(2f^{3/2}n^2\mathrm{rd}_E)\) for \(n>0\);
+the zero-row case is handled separately as there.
+For a homogeneous polynomial \(P\) of degree \(d\), let
+\(\|P\|_1=\sum_\alpha|P_\alpha|\), and define
+\[
+ {\cal B}(P,d,\lambda)=
+ \|P\|_1(\pi e d)^{d/2}\sqrt2
+ \left(1+
+ {4\sqrt{2gn}\,(2f^{3/2}n^2\mathrm{rd}_E)
+                       \over\sqrt\pi\,\lambda}\right)^{gn}.
+ \tag{RV6}\label{eq:sr-source-normalized-jet-bound}
+\]
+The degree-zero factor is \(1\).
+
+Apply the actual Gaussian supremum bound to \(G_R\) on this
+tensor torus, then the repeated Cauchy estimate to any translate
+\(U_yG_R\). The norm density of \(U_yG_R\) at \(z\) is the
+norm density of \(G_R\) at \(z-y\), so its same global bound
+applies. For coefficients \(|c_j|\le1\), a finite set \(J\),
+and \(|\beta|^2=|R|\), the result is
+\[
+ { \left|\beta^{-1}\sum_{j\in J}c_j
+                         P(\partial)U_{y_j}G_R(0)\right|
+                       \over L_2(s)^{n/2}}
+                  \le |J|\,{\cal B}(P,d,\lambda).
+ \tag{RV7}\label{eq:sr-source-normalized-isogeny-jet}
+\]
+Here \(\beta\ne0\), since \(R\) contains a representative of zero.
+The cancellation is literal:
+the square root of (RV5) is
+\(|\beta|L_2(s)^{n/2}\).
+This is
+\srcid{NormalisedThetaValueBound.normalised_theta_value_bound}.
+No beta factor is chosen independently of the actual index.
+
+\subsection{The actual projected vacuum at an orthogonal frame}
+Keep the source Hermitian datum \(X\), one fixed symplectic
+rational basis \(\mathrm{bas}\), and the corresponding genuine
+Weil and Heisenberg actions.
+Let \(L\subset E^r\) be self-dual for the source alternating
+trace form \(EF_X\), \(n\) even, and let \(v\) be the normalized
+vacuum for \(\mathrm{tens}(O_E^n,L)\).
+For the positive coefficient lattice \(\Lambda\), put
+\[
+ J_\Lambda=[\Lambda:\Lambda\cap O_E^n],\qquad
+                         A_\Lambda=\mathrm{tens}(\Lambda,L).
+\]
+The source tensor-index formula gives a finite representative set
+\(R\subset A_\Lambda\) modulo \(\mathrm{tens}(O_E^n,L)\), with
+\[
+                  |R|=J_\Lambda^r=:J>0,\qquad
+ \mathrm{projA}_{A_\Lambda}v
+       ={1\over J}\sum_{a\in R}\epsilon_{w_0}(a)\,\omega(a)v .
+ \tag{RV8}\label{eq:sr-source-projector-representatives}
+\]
+To identify this with the definition as the mean over distinct
+orbit functions, use the source vacuum orthogonality:
+\(\epsilon(a)\omega(a)v=v\) holds exactly on its original
+self-dual lattice. The Heisenberg composition law then gives
+equality of two orbit functions exactly when their parameters
+differ by that lattice.
+Representatives therefore map bijectively to the distinct
+orbit functions, including their count \(J\).
+This is \srcid{ProjAEqSumReps.projA_eq_sum_reps} and
+\srcid{vac_proj_mean}.
+The tensor-index formula itself is the source
+\srcid{TensorLatticeSelfDualSemicharacterIndex}:
+a pseudobasis of either factor makes the tensor relative index
+the product of the factor indices; fractional ideal multiplication
+does not change each relative index.
+It gives
+\(\operatorname{relIndex}(\Lambda'\otimes L,\Lambda\otimes L)
+ =\operatorname{relIndex}(\Lambda',\Lambda)^r\).
+Self-duality gives the required finite nonzero index and vacuum
+overlap. We retain the source tensor-vacuum construction used
+in this step.
+
+Fix an orthogonal frame \(x\in\mathcal D_X\), and a common
+\(t>0\) with \(X.c_\tau=t\) for every \(\tau\).
+The source constructs the positive torus \(T\) and
+\(\psi:\mathbb C^g\overset{\sim}\longrightarrow V_T\)
+from this same \(X,L,x\).
+In the actual relabelled coordinates,
+\[
+ H_T(\psi z,\psi z')=h_x(z,z'),\qquad
+ \psi(e_j)=\sqrt t\,e_{\epsilon(j)},\qquad
+ \psi(p_v(x,u))\in L_T\ \Longleftrightarrow\ u\in L.
+ \tag{RV9}\label{eq:sr-source-self-torus}
+\]
+For precision, this construction first uses the full lattice
+\(L\), an integer commensurability with \(X.\Lambda\), and a
+real lattice basis of its scaled period image.
+The integral dual of \(L\) represents every lattice functional:
+extend it rationally and invert the nondegenerate \(EF_X\)
+pairing. Self-duality puts the representing vector back in \(L\).
+The torus factor is the sign of
+\(\operatorname{Im}H_T(\gamma,w_0\gamma)\);
+the integer cross-term formula and \(w_0+\overline{w_0}=1\)
+give its semicharacter law.
+Finally \(\psi\) is the explicit coordinate permutation followed
+by multiplication by \(\sqrt t\).
+Uniqueness of the Hermitian form with the given imaginary
+pairing on a full period lattice identifies it with \(h_x\).
+These are the steps in
+\srcid{ExistsTorusOfSelfD.exists_torus_of_selfD}.
+The equality of the period coordinates with the source \(h_x\)
+uses the specified \srcid{HermitianFormAtFrameLaws}.
+
+Let the actual normalized theta function satisfy
+\[
+ \theta\in\mathrm{IsTheta1}(X,x,L),\qquad
+ \mathrm{MeanOne}(\theta),\qquad
+       \prod_b\theta(z_b)=\kappa\,\mathrm{thA}(v,x,z).
+ \tag{RV10}\label{eq:sr-source-theta-vacuum-tie}
+\]
+Under (RV9), \(s(v_1)=\theta(\psi^{-1}v_1)\) is a level-one
+section with \(L_2(s)=1\).
+Indeed substitution in its Fock transformation gives (GS1),
+and the normalized integral is unchanged by the fixed
+real linear coordinate change: its Haar scalar cancels between
+the integral and volume. Any two fundamental domains give the
+same integral of the periodic density.
+Thus \(\mathrm{MeanOne}\) is exactly this \(L_2\)-normalization;
+it is not an unrelated positive scalar.
+
+Write \(\Phi(y)_b=\psi(p_v(x,y_b))\).
+The source proves that \(-\Phi(R)\) is the representative set
+for the tensor torus above,
+\(\epsilon_{w_0}(-\Phi(a))=\epsilon_{w_0}(a)\),
+and Fock translation becomes \(U_{-\Phi(y)}\).
+Consequently the theta function for
+\(\omega(y)\mathrm{projA}_{A_\Lambda}v\) is
+\[
+                  \kappa^{-1}J^{-1}\,G_R\circ\psi^{\,n},
+\]
+with the additional common translation \(U_{-\Phi(y)}\).
+If \(\kappa=0\), the target bound is immediate.
+Otherwise the displayed \(\kappa^{-1}\) cancels its exterior
+\(\kappa\).
+
+Each actual theta-polynomial letter becomes
+\(\sqrt t\) times its Euclidean coordinate direction.
+The relabelling of letters is injective, so it preserves the
+coefficient \(L^1\)-sum.
+Homogeneity gives the derivative factor \(t^{d/2}\).
+Apply (RV7) with one translation and \(\beta=\sqrt J\).
+Since (RV8) divides by \(J\), the exact result is
+\[
+ |\kappa\,\mathrm{thP}(\omega(y)\mathrm{projA}_{A_\Lambda}v,P,x)|
+           \sqrt J
+ \le \|P\|_1(\pi e t d)^{d/2}\sqrt2
+ \left(1+
+ {4\sqrt{2gn}\,(2f^{3/2}n^2\mathrm{rd}_E)
+                       \over\sqrt\pi\,\lambda}\right)^{gn}.
+ \tag{RV11}\label{eq:sr-source-projected-vacuum-jet}
+\]
+Here the minimum assumption is exactly
+\(\lambda^2\le h_x(p_v(x,u),p_v(x,u)).\operatorname{re}\)
+for every \(0\ne u\in L\).
+The source \srcid{hx_ortho} supplies this from the same frame's
+\(\lambda^2\le\mathrm{firstMinimumSq}(x)\).
+Equation (RV11) is
+\srcid{JetTranslateProjectedVacuumLe.jet_projA_le}.
+
+\subsection{The exact raw-theta value}
+Now use the original \(E,H,D_w,l,X_o,c\), good embedding
+\(\sigma:c.F\to\mathbb C\), actual \(\mathrm{IsUnf}\) with
+\(r=p+q\ge1\), and actual \(\mathrm{IsNab}\) connection.
+The row dictionary in the preceding construction has
+\(X.p_0=D_w.q\) and the other block size \(q_0=D_w.p\), exactly
+as in \srcid{ExistsAnalyticDataUnitFrameFramedPoint.exists_setup}.
+The polynomial directions, signatures and \(\psi\) use that
+specified dictionary, including this ordering.
+
+Let \(n\) be even, \(a\) dominant, and let
+\(\Lambda=\mathrm{La}\) be the actual positive coefficient
+lattice with \(\mathrm{Unimod}\),
+\(\mathrm{TrivAt}(l.M)\) and \(\mathrm{LevOK}(N,l.M)\).
+Let \(P\in\mathrm{harmL}(c,\Lambda,a)\) have total degree
+\(d=\mathrm{DF}(D_w,a)\).
+Let \(f\in\mathrm{sec}(X_o,c,a,n)\), and suppose its values on
+every source test ring and every frame satisfy the actual
+\(\mathrm{thLaValAt}\) formula for these same
+\(\Lambda,N,P,\mathrm{nab}\) and coefficient function \(w\).
+Assume \(|\sigma(w(q))|\le1\) for every label \(q\).
+
+The source first extends the equality from test rings to the
+complex frame: actual \(\mathrm{secBaseChange}\) supplies a
+test frame mapping to it; uniqueness and naturality of the
+actual short theta value give the same value after pullback.
+This is \srcid{thLaValAt_evR}.
+It uses all test rings in the premise, not equality at one
+preferred complex point.
+
+At an orthogonal frame \(x\), the supplied analytic fibre,
+marked level data, theta generator and normalized vacuum give
+the exact complex value formula. If
+\[
+ m=\mathrm{mIdx}(\Lambda,N,r),\quad
+ z=\mathrm{zCard}(\Lambda,N,r),\quad
+ Q=|\mathrm{Fin}(n)\to\mathrm{LevQ}(D_w,l)|,\quad
+ J=J_\Lambda^r,
+\]
+its scalar is
+\[
+ {z\over m}\ {1\over Q}\,
+ \kappa\,\mathrm{thP}
+       \left(\sum_q\sigma(w(q))\,
+                  \omega(Y_q)\mathrm{projA}_{A_\Lambda}v,\ P,\ x\right),
+              \qquad z=mJ .
+ \tag{RV12}\label{eq:sr-source-raw-reading-scalar}
+\]
+The exact relation \(z=mJ\) follows by multiplying the finite
+lattice indices through the intersection with \(O_E^n\);
+it is \srcid{zCard_eq}, with \srcid{index_Ln}.
+No normalizing \(\mathrm{betaH}^{-1}\) is inserted in this raw
+formula.
+
+Put \(B_0\) equal to the right side of (RV11).
+Linearity of the actual theta derivative and the triangle
+inequality give a bound \(B_0/\sqrt J\) for the normalized
+\(Q\)-mean in (RV12).
+Combining this with \(z=mJ\) gives
+\[
+ \left|\operatorname{ev}_\sigma(f;x)\right|
+ \le \sqrt{J_\Lambda^r}\,
+       \left(\sum_\alpha|\sigma(P_\alpha)|\right)
+       (\pi e t d)^{d/2}\sqrt2
+ \left(1+
+ {4\sqrt{2frn}\,(2f^{3/2}n^2\mathrm{rd}_E)
+                       \over\sqrt\pi\,\lambda}\right)^{frn}.
+ \tag{RV13}\label{eq:sr-source-raw-value-bound}
+\]
+Algebraically \(|m^{-1}z|\le J\) even in the source's
+zero-denominator convention; the actual finite-index case has
+\(m>0\).
+Likewise an empty-label mean is zero by that convention.
+The actual label group is finite and nonempty.
+This proves exactly
+\srcid{NormRawThetaSeriesIndexBoundLeSqrt.norm_evR_le}
+under the stated actual analytic-fibre/reading suppliers.
+
+\paragraph{Frozen-source ledger and retained geometric comparisons.}
+All sources use \srcid{alpoge-source-7cbf7a0c}.
+In
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CuspFormEvaluations/},
+the files are
+\begin{itemize}
+\item \srcid{ContinuousThetaSectionPointwiseNormSq.lean},
+\srcid{9f7ab3413f449c9b93dac642ca2ab0845057ee85};
+\item \srcid{NormalisedThetaValueBound.lean},
+\srcid{689a12045c213d4d11e73f6660d5ee8a8739f684};
+\item \srcid{ProjAEqSumReps.lean},
+\srcid{818dccb76df27daa5ee0a1c63a15a27700ebfaf4};
+\item \srcid{ExistsTorusOfSelfD.lean},
+\srcid{859af98c532c58c34785cd7f6e382a0f49944c71};
+\item \srcid{L2OneEqIntegralFundamentalDomainDivVolume.lean},
+\srcid{34d7c34bb82c87d1f3b0a8a9ea0771ffa8c0d23e};
+\item \srcid{JetTranslateProjectedVacuumLe.lean},
+\srcid{4a358a4e34143451dab2d499357ed33d1e51249d};
+\item \srcid{ExistsAnalyticDataUnitFrameFramedPoint.lean},
+\srcid{903ac3995f8acf7789604f184c54eb7fc7887e45}.
+\end{itemize}
+The tensor lattice and relative-index proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/SiegelThetaTransformation/TensorLatticeSelfDualSemicharacterIndex.lean},
+blob \srcid{4894f884d42f8c17e88ea2604bcf2fc40817b20d}.
+The final raw reading proof is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/NormRawThetaSeriesIndexBoundLeSqrt.lean},
+blob \srcid{d1817b6beba51a259498dc4ae71cb669cf67c874}.
+
+The remaining construction-specific suppliers at (RV10)--(RV12)
+are exactly the actual
+\srcid{AnalyticFibreUnitFrameUniformisation},
+\srcid{FramedPointGeneratorIsThetaLevelOne},
+\srcid{ProdLevelOneThetaEqVacuumTheta},
+\srcid{DualHalfLevelMarkingExistsAndMatch},
+and
+\srcid{ShortThetaValueComplexPointEqClassicalTheta},
+together with actual \srcid{IsNab}, the symplectic row dictionary,
+and the source tensor-vacuum/Heisenberg laws.
+The preceding arguments prove the Gaussian and index bounds with
+these compatible data; they do not construct separate witnesses
+and identify them merely because they have the same names.

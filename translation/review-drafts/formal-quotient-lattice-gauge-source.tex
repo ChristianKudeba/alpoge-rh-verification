@@ -1,0 +1,360 @@
+\subsection{The cocharacter lattice and the actual quotient gauge}
+\label{subsec:faithful-quotient-lattice-gauge}
+
+Keep the field hypotheses and actual
+\(\mathrm{AbQuot}(t,x)\) of
+Proposition~\ref{prop:faithful-actual-abelian-quotient}.
+Write \(G=G_x\), and write \(t_B\) for its proper polarized
+quotient datum.  Choose actual germs \(g,g_B\) of dimensions
+\(d,d'\).  We distinguish the actual quotient map \(q:G\to B\)
+from its formal coordinate series \(Q_s\) and tangent matrix \(P\).
+
+\begin{srproposition}[The actual \(O\)-lattice in the tangent sequence]
+\label{prop:faithful-quotient-cocharacter-lattice}
+There are a finite free abelian group \(\Lambda\), an actual
+\(O\)-module structure on it, a surjective matrix
+\(P:k^d\to k^{d'}\), and an injection
+\[
+                  j:k\otimes_{\mathbb Z}\Lambda\longrightarrow k^d
+\]
+with the following properties:
+\[
+ \begin{split}
+ \ker P&=\operatorname{im}j,\\
+ P R_a&=R_{B,a}P,\\
+ j S_a&=R_a j,\qquad
+ S_a=1\otimes(a|\Lambda).
+ \end{split}
+ \tag{QL1}\label{eq:faithful-quotient-lattice}
+\]
+The columns of \(P\) are precisely the actual first-order
+coordinates of \(q\) in the given germs.
+In particular no unrelated \(O\)-action is assigned to
+\(\Lambda\) by a dimension comparison.
+\end{srproposition}
+\begin{proof}
+Let \(C\) be the character group of the split torus in the
+given extension, and put
+\[
+                         \Lambda=\operatorname{Hom}_{\mathbb Z}(C,\mathbb Z).
+\]
+It is finite free over \(\mathbb Z\).
+The \(O\)-action on \(G\) preserves the torus kernel, since
+\(q\) is equivariant for the actual action on \(B\).
+Kernel factorization gives its induced group endomorphism
+on \(D(C)\) for every \(a\in O\).
+Every such endomorphism is a diagonal map defined by one
+\(h(a):C\to C\): on the group algebra, the pullback of a
+character is a group-like unit.  Comparing its Laurent
+monomials, and then evaluating at the identity, makes it
+a single character with coefficient \(1\).
+Characters distinguish the torus maps, so uniqueness gives
+the equations for the identity, multiplication, and addition.
+This is the source's \srcid{exists\_diagMap} and
+\srcid{exists\_charAct} construction.
+
+Define the action on the cocharacter lattice by
+\[
+                       a\lambda=\lambda\circ h(a).
+ \tag{QL2}\label{eq:faithful-cocharacter-action}
+\]
+Composition reverses the two character endomorphisms;
+commutativity of \(O\) makes this a unital ring action, exactly
+as in \srcid{lamEnd}.  It is not an action recovered merely
+from its characteristic polynomial.
+
+The tangent model of the split torus is
+\(\operatorname{Hom}_{\mathbb Z}(C,k)\):
+a tangent vector \(\delta\) sends a character \(\chi\) to
+\(1+\varepsilon\delta(\chi)\) in the dual numbers.
+The map
+\[
+ k\otimes_{\mathbb Z}\Lambda\longrightarrow
+             \operatorname{Hom}_{\mathbb Z}(C,k),\qquad
+ c\otimes\lambda\longmapsto
+             \bigl(\chi\mapsto c\,\lambda(\chi)\bigr)
+ \tag{QL3}\label{eq:faithful-cocharacter-tangent}
+\]
+is an isomorphism, by a basis of the finite free \(C\).
+The torus action on this tangent model is precomposition
+by \(h(a)\), which is exactly the base change of
+\eqref{eq:faithful-cocharacter-action}.
+
+The actual tangent sequence is
+\[
+       0\longrightarrow\operatorname{Lie}D(C)
+        \stackrel{di}\longrightarrow\operatorname{Lie}G
+        \stackrel{dq}\longrightarrow\operatorname{Lie}B
+        \longrightarrow0 .
+ \tag{QL4}\label{eq:faithful-actual-tangent-quotient}
+\]
+The source proves its first two assertions directly on
+dual-number points.
+The injection follows from the monomorphism \(i\).
+If a tangent point of \(G\) maps to zero under \(q\), the
+kernel pullback factors it uniquely through the torus.
+Its reduction is the identity, again by injectivity of \(i\);
+so this factor is a tangent point of the torus.
+Conversely a torus tangent point maps to zero.
+For surjectivity, \(q\) is smooth: after its flat surjective
+quasi-compact base change by \(q\), it becomes the projection
+\(D(C)\times G\to G\), which is smooth, and smoothness descends.
+Given a dual-number point of \(B\) at the identity, smoothness
+lifts it with the chosen identity reduction in \(G\).
+Concretely the source factors the two points through their
+local stalks, lifts the stalk algebra homomorphism over the
+square-zero ideal of \(k[\varepsilon]/(\varepsilon^2)\), and
+composes with the stalk-to-scheme map.
+Thus it gives an actual tangent point and not only a
+surjection after a field extension.
+
+Choose the tangent-model linear isomorphisms
+\(e_G:\operatorname{Lie}G\simeq k^d\) and
+\(e_B:\operatorname{Lie}B\simeq k^{d'}\) determined by
+the given germ bases.  Put
+\[
+             P=e_B\,dq\,e_G^{-1},\qquad
+             j=e_G\,di\,(\text{map in \eqref{eq:faithful-cocharacter-tangent}}).
+\]
+Equation \eqref{eq:faithful-actual-tangent-quotient} gives
+surjectivity, injectivity, and the kernel equality.
+Differentiating the actual action equations for \(q\) and
+\(i\), and using the character formula in
+\eqref{eq:faithful-cocharacter-tangent}, gives the two
+equivariance identities in \eqref{eq:faithful-quotient-lattice}.
+Finally the germ basis condition identifies the image of
+its \(l\)-th basis tangent point under \(q\) with the \(l\)-th
+column of this same \(P\).  This is the actual
+\(\mathrm{IsDiff}(g,g_B,P)\) field in \srcid{lie\_seq}.
+\end{proof}
+
+\begin{srlemma}[Axis-normalized units on the actual fibre square]
+\label{lem:faithful-quotient-unit-axes}
+If a global unit \(u\) on \(G\times G\) restricts to \(1\)
+on both zero axes, then \(u=1\).
+\end{srlemma}
+\begin{proof}
+The variety \(G\times G\) is integral: it is smooth and
+geometrically connected over the algebraically closed field.
+For the action of the torus on its first factor, compare
+the translated \(u\) with \(u\).
+The same Laurent-unit coefficient argument as in
+Lemma~\ref{lem:faithful-torus-quotient-seesaw} says that
+the ratio is a fixed character of the torus.
+Evaluate at a point of the second zero axis:
+both the original and translated values are \(1\).
+This makes that character trivial.
+Do the same for the torus action in the second factor,
+using the first zero axis.
+Thus \(u\) is invariant under the two torus actions.
+
+The map \(q\times q:G\times G\to B\times B\) is flat,
+surjective, and quasi-compact.  Two points in a fibre
+differ by these two kernel-torus translations.
+The two pullbacks of \(u\) to its fpqc relation agree,
+so \(u\) descends to a global function on \(B\times B\).
+That proper geometrically connected smooth variety has
+global functions \(k\).  The descended function is constant,
+and a zero-axis value makes its constant \(1\).
+This is the actual \srcid{UnitTrivialOnBothAxes} proof.
+\end{proof}
+
+\begin{srproposition}[The actual mixed-coefficient gauge]
+\label{prop:faithful-quotient-mixed-gauge}
+There is one matrix \(Z\in\operatorname{Mat}_d(k)\) such that,
+for every \(a\in O\),
+\[
+          C_a+R_a^t Z-ZR_{\bar a}=P^t C_{B,a}P .
+ \tag{QL5}\label{eq:faithful-quotient-mixed-gauge}
+\]
+It is obtained from the actual line isomorphism
+\(L_x\simeq q^*P_B\) and the two chosen actual formal frames.
+\end{srproposition}
+\begin{proof}
+We follow the finite-jet construction and comparison in
+\srcid{AbelianQuotientBilinear}, retaining its unit normalization.
+
+First the universal coordinates of \(g_B\) express
+\(q\circ g\) at every finite jet order by a unique truncated
+coordinate tuple.  Truncating one such expression gives the
+previous one by uniqueness.  Its constant term is zero,
+since \(q(0)=0\).
+The inverse limit of the compatible coefficients gives
+a tuple of formal series
+\[
+                     Q_s\in k[[X_1,\ldots,X_d]]^{d'},
+                      \qquad Q_s(0)=0 .
+\]
+At every order it represents the actual point \(q\circ g\).
+The first-order uniqueness for the actual germ bases, and
+the last assertion of
+Proposition~\ref{prop:faithful-quotient-cocharacter-lattice},
+give \(D Q_s(0)=P\).
+Applying the actual equivariance of \(q\) to the universal
+jet points and using coordinate uniqueness also gives the
+formal action compatibility
+\[
+             Q_s([a]_gX)=[a]_{g_B}(Q_s(X)).
+ \tag{QL6}\label{eq:faithful-quotient-formal-action}
+\]
+These are the source's
+\srcid{AbelianQuotientGermPowerSeries},
+\srcid{AbelianQuotientDifferentialMatrix}, and
+\srcid{AbelianQuotientGermSubstitution} steps.
+
+Let \(w:L_x\simeq q^*P_B\) be the actual line isomorphism.
+On the two universal jet points, it induces an isomorphism
+of their normalized second-difference lines.
+The chosen frame \(e_G\) and the pullback of \(e_B\) are
+generators of these identified lines, so their ratio is a
+unique unit \(U_m\) in the finite two-point jet algebra.
+Use the source's orientation:
+\[
+               e_G=U_m^{-1}\,\gamma_w\,Q_s^*e_B ,
+ \tag{QL7}\label{eq:faithful-quotient-frame-ratio}
+\]
+where \(\gamma_w\) is the alternating product induced by
+\(w\) on the second difference.
+The source records this as
+\(\mathrm{Tr}(w,e_G,Q_s^*e_B,U_m^{-1})\).
+Restriction of the two actual frames and of \(w\) shows
+that \(U_{m+1}\) truncates to \(U_m\); equality follows
+by the uniqueness of the ratio of generators.
+Thus these units give a formal series
+\[
+                   \lambda(X,Y),\qquad
+                   \lambda(X,0)=\lambda(0,Y)=1 .
+\]
+For the two axis identities, restrict
+\eqref{eq:faithful-quotient-frame-ratio} to that axis.
+Both normalized second-difference generators become the
+canonical axis generator, and the alternating product of
+\(w\) cancels in pairs.  The resulting ratio is \(1\)
+at every jet order.  This is the precise
+\srcid{AbelianQuotientGaugeTransform.exists\_lam}
+construction, including its inverse orientation.
+
+For each \(a\), compare the two actual global adjoint
+generators \(w_{G,a}\) and \(w_{B,a}\) using \(w\).
+Their alternating line expressions coincide because \(q\)
+is a homomorphism and is equivariant for both \(a\) and
+\(\bar a\).  Their ratio is therefore a global unit
+\(u_a\) on \(G\times G\);
+this is \srcid{AbelianQuotientLineBundleGauge}.
+The source checks that it restricts to \(1\) on both axes.
+It first restricts to the actual universal one-point jets.
+The adjoint relation makes both generator values \(1\);
+the alternating product of \(w\) along an axis again
+cancels in pairs, so the pullback of \(u_a\) is \(1\)
+at every order.
+These jet equalities imply the actual axis equality:
+the smooth germ coordinates identify all truncated local
+rings, their intersection is zero by Krull intersection,
+and the restriction of a global function on the integral
+\(G\) to its local ring at the identity is injective.
+No surjectivity of the formal Taylor map is used.
+This is \srcid{AbelianQuotientGaugeUnit}.
+Lemma~\ref{lem:faithful-quotient-unit-axes} now gives
+\(u_a=1\) on the whole fibre square.
+
+Put \(A_a(X,Y)=g.B.\mathrm{ad}(a)\) and
+\(A_{B,a}=g_B.B.\mathrm{ad}(a)\).
+The two adjoint-frame equations and
+\eqref{eq:faithful-quotient-frame-ratio}, with this global
+ratio equal to \(1\), give at every finite jet order
+\[
+ \begin{split}
+ A_{B,a}(Q_s(X),Q_s(Y))\,
+                    \lambda(X,[\bar a]_gY)
+     =\lambda([a]_gX,Y)\,A_a(X,Y).
+ \end{split}
+ \tag{QL8}\label{eq:faithful-quotient-series-gauge}
+\]
+For clarity, the cancellation uses the same four factors
+at each order: the two adjoint-frame equations
+\(w_{G,a}e_{G,\mathrm{left}}=A_a e_{G,\mathrm{right}}\)
+and
+\(w_{B,a}e_{B,\mathrm{left}}=A_{B,a}e_{B,\mathrm{right}}\),
+and \eqref{eq:faithful-quotient-frame-ratio} at the left
+and right substituted point pairs.
+The product induced by \(w\) on the adjoint line is the
+right second-difference product divided by the left one;
+its factors cancel because \(u_a=1\).
+Equation \eqref{eq:faithful-quotient-formal-action} ensures
+that substituting \(Q_s\) before or after either action
+gives the same truncated point.
+The remaining unit identity is exactly
+\eqref{eq:faithful-quotient-series-gauge}.
+Equality at every finite order gives equality of formal
+series, as in \srcid{AbelianQuotientGaugeRelation}.
+
+Set \(Z=\operatorname{bil}_{1,1}\lambda\).
+All four unit series in
+\eqref{eq:faithful-quotient-series-gauge} are \(1\)
+on both axes.  Therefore the mixed coefficient of a product
+is the sum of the mixed coefficients.
+A substitution contributes only its first differential:
+\[
+ \begin{split}
+ \operatorname{bil}\bigl(A_{B,a}(Q_s(X),Q_s(Y))\bigr)
+                                  &=P^t C_{B,a}P,\\
+ \operatorname{bil}\bigl(\lambda(X,[\bar a]_gY)\bigr)
+                                  &=Z R_{\bar a},\\
+ \operatorname{bil}\bigl(\lambda([a]_gX,Y)\bigr)
+                                  &=R_a^t Z.
+ \end{split}
+\]
+Taking mixed coefficients in
+\eqref{eq:faithful-quotient-series-gauge} gives
+\[
+                    P^t C_{B,a}P+Z R_{\bar a}=R_a^t Z+C_a,
+\]
+which is \eqref{eq:faithful-quotient-mixed-gauge}.
+This is one \(Z\), obtained from the single ratio series
+\(\lambda\), for all \(a\).
+\end{proof}
+
+\paragraph{Frozen-source ledger and scope.}
+The actual lattice construction is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/AbelianQuotientLattice.lean}
+{\srcid{AbelianQuotientLattice}}
+(blob \srcid{187d2323635424a4d4fc7f2e08fd28c423478a39}):
+\srcid{exists\_dual\_lift}, \srcid{lie\_kernel},
+\srcid{lie\_surjective}, \srcid{exists\_charAct},
+\srcid{tenMap\_bijective}, \srcid{lamEnd}, and
+\srcid{lie\_seq}.
+The mixed-gauge assembly is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/AbelianQuotientBilinear.lean}
+{\srcid{AbelianQuotientBilinear.frame\_gauge}}
+(blob \srcid{c5ea956019648f4e8862164cedc13627b0d6246e}).
+Its actual finite-jet producers, in that same source directory, are
+\srcid{AbelianQuotientGermPowerSeries}
+(\srcid{b8393721074d0e17b4eb268b369cdcd4f32c8f7e}),
+\srcid{AbelianQuotientDifferentialMatrix}
+(\srcid{8bac6126d6aaf9d18aa282463b4bc805bc315bc5}),
+\srcid{AbelianQuotientGermSubstitution}
+(\srcid{7781ab82d410a2d0061107d0a64f4823a7241c88}),
+\srcid{AbelianQuotientGaugeTransform}
+(\srcid{c997b24547de07406ad472c9b9e9846cb88b36ee}),
+\srcid{AbelianQuotientLineBundleGauge}
+(\srcid{c27e04cd714a1cff5fe6806b1347cf0b94dc1f3b}),
+\srcid{AbelianQuotientGaugeUnit}
+(\srcid{3e59e5015dc988a8a5a481a93a11364145b4f5b4}),
+\srcid{UnitTrivialOnBothAxes}
+(\srcid{196eb507e5f9a50a5d4a8ea317ca2cb707deab37}),
+and \srcid{AbelianQuotientGaugeRelation}
+(\srcid{5352d8f5464c4871367b864a9724367ec83dbb75}).
+The assembly, lattice, and eight displayed helper files were checked
+against the frozen baseline.
+The bilinear coefficient step is the actual
+\srcid{FormalBilinearTermProduct} and
+\srcid{SubstitutionBilinearFormTransform} calculation.
+
+The propositions construct the actual lattice, action,
+differential, and gauge on the supplied geometric quotient.
+They do not infer an integral formal-Hodge identification
+from its dimension, nor do they assert that a nonflat
+base change preserves an eigensaturated lattice.
+The remaining geometric input to
+\srcid{HeightCharFreeGeometric} is the finite-kernel
+norm-degree producer for the proper quotient.

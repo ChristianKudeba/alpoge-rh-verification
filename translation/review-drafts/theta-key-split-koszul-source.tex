@@ -1,0 +1,452 @@
+\section{The integral Koszul invariant behind the key rule}
+\label{sec:ftb-koszul-key}
+This section translates the algebraic construction used by
+\srcid{ExistsIntegralKeyInvariantRuleCharZero}.
+The construction is independent of a compactification.
+The input is a principally polarized abelian scheme \(A/R\) of
+relative dimension \(g\geq1\), a symmetric ample principal line bundle
+\(L\), a generator of \(L|_0\), a fibrewise nonzero theta section
+\(\vartheta\in H^0(A,L)\), and a basis \(v_1,\ldots,v_g\) of its Lie
+algebra.  This is the source datum \(\operatorname{KeyIn}(R)\).
+In particular the principal polarization has trivial translation
+kernel.  Changing the theta section or Lie basis does not change the
+rigidification.
+
+We use the following abelian-scheme laws with their indicated scope.
+For \(m>0\), \(H^0(A,L^m)\) is free of rank \(m^g\) over a local base
+and its displayed bases commute with base change; positive powers have
+the higher-cohomology vanishing used in their affine Cech complexes.
+For \(m\geq4\) these sections separate points and first-order tangent
+vectors on a field fibre.  Multiplication by \(m\) is finite locally
+free of degree \(m^{2g}\), is etale if \(m\) is invertible, and has
+\(m^{2g}\) points over an algebraically closed field with \(m\ne0\).
+We also use the theorem of the cube, symmetric multiplication
+\([m]^*L\simeq L^{m^2}\), and faithfully flat descent along \([m]\).
+These are precisely the laws used below; a scheme equipped only with
+an ample line bundle would not be sufficient.
+
+\subsection{Squared torsion of the actual augmented complex}
+Let \(C=\bigoplus_{j\geq0}C_j\) be a finite free graded module over a
+commutative ring, with fixed finite bases, and let \(D\) have degree
+\(-1\), \(D^2=0\).
+A contraction is a degree \(+1\) matrix \(h\) with \(Dh+hD=1\).
+When the even and odd basis sets are identified by a bijection \(e\),
+put
+\[
+ \tau(D,h,e)
+  =\det\bigl((D+h)_{\mathrm{even},e(\mathrm{even})}\bigr)^2.
+ \tag{K1}\label{eq:ftb-torsion-square}
+\]
+The square is part of the definition and removes the ordering sign.
+
+\begin{srlemma}[Integral contraction and unique squared torsion]
+\label{lem:ftb-squared-torsion}
+Over a local ring \(R\), if the residue-field complex is exact,
+a contraction exists, the even and odd ranks are equal, and
+\eqref{eq:ftb-torsion-square} is a unit of \(R\).
+It is independent of \(h\) and \(e\).
+\end{srlemma}
+\begin{proof}
+Over a field choose \(G\) with \(DGD=D\), by splitting
+\(\operatorname{im}D\).  Exactness gives
+\(N^2=0\) for \(N=1-(DG+GD)\): \(DN=ND=0\), and the image of
+\(N\), being in \(\ker D=\operatorname{im}D\), is killed by \(N\).
+Thus \(DG+GD\) is invertible.
+Lift \(G\) entry by entry from the residue field to \(H\) over \(R\).
+The matrix \(B=DH+HD\) has unit determinant and commutes with \(D\).
+Then \(h_0=HB^{-1}\) satisfies \(Dh_0+h_0D=1\).
+Keep only the degree \(+1\) entries of \(h_0\).  The degree-zero
+part of the last identity is still \(Dh+hD=1\), and the other
+entries vanish for degree reasons.
+
+The matrix \(D+hDh\) is an involution and exchanges even and odd
+degrees: \(DhD=D\), and
+\(Dh(hD)=0\).  Its two off-diagonal blocks are inverse, proving
+equality of the two finite ranks.
+For independence take two contractions \(h_1,h_2\) and write
+\(k=h_2-h_1\).  Then
+\[
+ Dk+kD=0,\quad (kD)^2=0,\quad
+ (D+h_2)(D+h_1)=1+kD+h_2h_1 .
+\]
+Order the even basis by degree.  This last matrix is block triangular;
+on degree \(j\) its diagonal block is \((1+kD)|_{C_j}\).
+Every such block has determinant one.  For \(j=0\), the block \(kD\)
+is zero.  For successive degrees use
+\(\det(1+XY)=\det(1+YX)\), with
+\(X=k:C_{j-1}\to C_j\) and \(Y=D:C_j\to C_{j-1}\);
+the swapped product is \(-kD|_{C_{j-1}}\).
+Since that product squares to zero, the determinants of
+\(1+kD\) and \(1-kD\) are inverse.  Induction gives determinant one
+on every degree.
+
+Fix the same odd ordering for both contractions.
+If \(a,b\) are the determinants of their even-to-odd blocks, and
+\(c\) the determinant of the odd-to-even block for \(h_1\), the
+previous paragraph gives \(ac=bc=1\).  Hence \(a=b\) and \(a\)
+is a unit.  A different odd ordering changes a determinant only by
+the sign of a permutation.  Squaring proves all assertions.
+\end{proof}
+
+Let \(s_1,\ldots,s_g\in H^0(A,L^n)\).
+For an integer \(l>gn\), choose bases \(b_j\) of
+\(H^0(A,L^{l-jn})\), \(0\leq j\leq g\).
+The source complex has
+\[
+ C_{j+1}=\bigoplus_{|I|=j}H^0(A,L^{l-jn}),
+ \qquad C_0=R^d,
+ \tag{K2}\label{eq:ftb-koszul-complex}
+\]
+with the usual signed multiplication by the \(s_i\) and the final
+evaluation map at \(z_1,\ldots,z_d\).
+In increasing-index exterior coordinates, deletion of \(i\) has
+sign \((-1)^{|\{a\in I:a<i\}|}\).
+This fixes the convention used in the determinant calculations.
+
+The source transverse-zero hypothesis means all of the following:
+the \(z_a\) are sections through pairwise distinct points in
+\emph{every} fibre; their images are exactly the common zeros of
+the \(s_i\); a line-bundle chart is chosen at every \(z_a\);
+\(s_i(z_a)=0\); and
+\[
+ J_a=\det\bigl(D_{v_k}s_i(z_a)\bigr)_{i,k}
+                 \in R^\times .                   \tag{K3}\label{eq:ftb-jac-unit}
+\]
+Values and derivatives here are the coefficients in those chosen
+line-bundle charts.
+
+\begin{srlemma}[The transverse Koszul unit]\label{lem:ftb-koszul-unit}
+Let \(R\) be local Noetherian and let the displayed transverse-zero
+hypothesis hold.  Then the complex
+\eqref{eq:ftb-koszul-complex} is exact on every algebraically closed
+field fibre.  It has a unique squared torsion \(t_l\in R^\times\),
+and
+\[
+                     d=g!\,n^g.                   \tag{K4}\label{eq:ftb-zero-count}
+\]
+\end{srlemma}
+\begin{proof}
+On a field fibre, the Jacobian condition says that the germs of the
+\(s_i\) generate the maximal ideal at each listed zero.
+At other points the zero ideal is the unit ideal.
+The local Koszul complex is therefore exact.
+Here is the source passage to global sections: refine to a finite
+affine cover trivializing \(L\), use its finite-intersection Cech
+cube, and successively cut by the \(s_i\).
+Weak regularity on each affine intersection gives the local
+division step.  The Cech complexes of the powers
+\(L^{l-jn}\) have no positive cohomology because each exponent is
+positive.  Induction through these cuts shows (i) exactness at every
+positive Koszul degree, (ii) interpolation of arbitrary residues at
+the finite zeros, and (iii) that a section vanishing at those zeros
+is \(\sum_i s_i a_i\) with \(a_i\in H^0(A,L^{l-n})\).
+For (ii), first interpolate the prescribed residues separately on
+affine charts; their differences on overlaps lie in the ideal
+\((s_1,\ldots,s_g)\), and the preceding Cech division steps glue
+them.  For (iii), the same division steps glue local expressions
+in that ideal.  These three assertions give exactness of the
+augmented evaluation complex, including its degree-zero term.
+This is the source Cech/Koszul argument, with the exponents
+\(l-jn>0\) retained.
+
+All matrices and evaluation charts commute with field base change.
+Thus exactness over the algebraic closure of the residue field
+descends to the residue field (apply a linear retraction to a
+solution of each finite linear system).
+Lemma~\ref{lem:ftb-squared-torsion} supplies \(t_l\).
+Equality of the even and odd ranks gives
+\[
+ d=\sum_{j=0}^g(-1)^j\binom gj(l-jn)^g=g!\,n^g.
+\]
+The last identity is the \(g\)-th finite difference of \(X^g\);
+lower powers cancel and the leading power contributes \(g!n^g\).
+\end{proof}
+
+\subsection{The split torsion determinant}
+For each positive integer \(m\) choose an integral matrix
+\(\alpha_m\) of order four satisfying
+\(\alpha_m^t\alpha_m=mI_4\).
+It can be chosen for every \(m\): write \(m=a^2+b^2+c^2+d^2\)
+and use
+\[
+ \alpha_m=
+ \begin{pmatrix}
+ a&-b&-c&-d\\ b&a&-d&c\\
+ c&d&a&-b\\d&-c&b&a
+ \end{pmatrix}.
+ \tag{K5}\label{eq:ftb-quaternion}
+\]
+The relation also gives \(\alpha_m\alpha_m^t=mI_4\).
+
+Suppose \(R\) is a local Noetherian principal ideal domain, \(m\) is
+a unit, and a fibrewise distinct full \(N\)-torsion enumeration
+\(\xi_1,\ldots,\xi_{N^{2g}}\) is supplied, with \(m\mid N\).
+The kernel of \(\alpha_m^t:A^4\to A^4\) has
+\(m^{4g}\) elements in a geometric fibre.
+One sees the number by Smith normal form:
+if \(d_i\) are its four invariant factors, then \(d_i\mid m\),
+\(\prod_i d_i=|\det\alpha_m|=m^2\), and the kernel has
+\(\prod_i d_i^{2g}=m^{4g}\) points.
+Choose an enumeration
+\[
+ \zeta_I=(\zeta_{I1},\ldots,\zeta_{I4}),
+ \qquad I\in\{1,\ldots,m^g\}^{\,4}.
+\]
+These are actual tuples of the supplied sections.
+Indeed every such kernel tuple is \(m\)-torsion, since
+\(\alpha_m\alpha_m^t=mI\), and hence is \(N\)-torsion.
+Reduction maps the supplied \(N\)-torsion bijectively to the
+geometric \(N\)-torsion.  A relation true after reduction is true
+over \(R\): two sections of the finite etale \(N\)-torsion scheme
+that agree at the closed point agree on the connected local base.
+Thus
+\[
+ \sum_r\alpha_{m,rc}\zeta_{Ir}=0\quad(c=1,\ldots,4)
+ \tag{K6}\label{eq:ftb-kernel-tuples}
+\]
+and distinct \(I\)'s stay distinct in every fibre.
+
+Let \(a_{Ir}:A^4\to A\) be
+\(a_{Ir}(x)=\sum_c\alpha_{m,rc}x_c+\zeta_{Ir}\).
+The theorem of the cube gives a generator \(w_I\) of
+\[
+ \left(\bigotimes_r a_{Ir}^*L\right)
+       \otimes\left(\bigotimes_c\operatorname{pr}_c^*L^{-m}\right).
+ \tag{K7}\label{eq:ftb-box-generator}
+\]
+For precision, in the Picard group the quadratic law for a symmetric
+line bundle cancels all off-diagonal terms by
+\(\alpha_m^t\alpha_m=mI\).
+The linear cross terms in the translations cancel by
+\eqref{eq:ftb-kernel-tuples}.  Constant line bundles pulled from
+\(\operatorname{Spec}R\) are free because \(R\) is local.
+These are exactly the terms in the source cube calculation.
+
+Normalize a generator
+\(\mu:[m]^*L\otimes L^{-m^2}\simeq\mathcal O_A\)
+at the origin using the chosen rigidification.
+Since each \(\zeta_{Ir}\) is \(m\)-torsion, the product of its
+values and the origin value of \(w_I\) has the same line-bundle
+weight as the rigidification to exponent \(4-4m^3\).
+Their quotient is therefore a unit \(\rho_I\in R^\times\), namely
+\[
+ w_I(0)^{m^2}\prod_r\mu(\zeta_{Ir})
+              =\rho_I\,\operatorname{rig}^{\,4-4m^3}.
+ \tag{K8}\label{eq:ftb-rho-normalization}
+\]
+This identity is an equality of framed values, so is independent of
+the temporary chart used to write it.
+
+For a basis \(b_1,\ldots,b_{m^g}\) of \(H^0(A,L^m)\), divide
+\(\prod_r a_{Ir}^*\vartheta\) by \(w_I\) and expand it in the
+external-product basis.  Denote the coefficient matrix by \(Q_m\):
+\[
+ \prod_r a_{Ir}^*\vartheta
+   =w_I\sum_{I'}(Q_m)_{II'}\prod_c\operatorname{pr}_c^*b_{I'_c}.
+ \tag{K9}\label{eq:ftb-box-matrix}
+\]
+All its coefficients are in \(R\), by the relative basis and
+base-change law.  The source box-product spanning proof obtains this
+basis by affine base change and then one factor at a time.
+
+\begin{srlemma}[Unit determinant, with its actual kernel argument]
+\label{lem:ftb-box-det-unit}
+The determinant of \(Q_m\) is a unit.  Consequently
+\[
+        \lambda_m=(\det Q_m)^{2m^2}\prod_I\rho_I^2
+                         \in R^\times              \tag{K10}\label{eq:ftb-lambda}
+\]
+is defined integrally.
+\end{srlemma}
+\begin{proof}
+It suffices to reduce to an algebraic closure \(k\) of the residue
+field.  Put \(H_m=\ker(\alpha_m:A^4(k)\to A^4(k))\), and choose
+one \(I_0\).  The ratios \(w_{I_0}/w_I\) transform under translation
+by \(H_m\) by characters \(\chi_I\).  The numerator theta products
+in \eqref{eq:ftb-box-matrix} are invariant under \(H_m\), since
+all their arguments are unchanged.  Thus those products multiplied
+by \(w_{I_0}/w_I\) are eigenvectors of characters \(\chi_I\).
+
+The characters are pairwise distinct.  If two agreed, pull their
+invariant ratio back along the \(r\)-th row embedding
+\(A\to A^4\), \(x\mapsto(\alpha_{m,r1}x,\ldots,\alpha_{m,r4}x)\).
+The relation \(\alpha_m\alpha_m^t=mI\) cancels the other rows.
+After a constant trivialization this gives an isomorphism
+\[
+ [m]^*\bigl(t_{\zeta_{Ir}}^*L\otimes
+                     t_{\zeta_{I'r}}^*L^{-1}\bigr)\simeq\mathcal O_A
+\]
+invariant under \(A[m]\).
+Faithfully flat descent along \([m]\) gives
+\(t_{\zeta_{Ir}}^*L\simeq t_{\zeta_{I'r}}^*L\).
+The principal-polarization kernel is trivial, so
+\(\zeta_{Ir}=\zeta_{I'r}\) for every row, hence \(I=I'\).
+
+Each eigenvector is nonzero.  Choose a point where \(\vartheta\)
+is nonzero.  The isogeny \(\alpha_m\) is surjective (its composite
+with \(\alpha_m^t\) is \([m]\)); one can therefore prescribe four
+nonzero theta arguments after the translation.
+Eigenvectors with distinct multiplicative characters are linearly
+independent over a field: in a shortest nontrivial relation,
+translate by a group element distinguishing two characters and
+subtract an appropriate multiple of the relation to shorten it.
+A nonzero left-kernel vector of \(Q_m\), combined with
+\eqref{eq:ftb-box-matrix} and multiplied by \(w_{I_0}/w_I\), would
+contradict this independence.  Thus \(\det Q_m\ne0\) over \(k\).
+A coefficient over the local ring with nonzero residue is a unit.
+Equation~\eqref{eq:ftb-lambda} is now a product of units.
+\end{proof}
+
+\subsection{The exact formula and cancellation of the auxiliary choices}
+Choose \(n,l,l'\) with \(n\geq4\), \(gn<l<l'\), and write
+\[
+ D=\prod_{j=0}^g(l-jn)(l'-jn),\quad s=3g+2,\quad d=g!n^g.
+\]
+Supply split \(D\)-torsion and the transverse tuple above, and assume
+\(D\in R^\times\).  Apply
+Lemma~\ref{lem:ftb-box-det-unit} to every degree \(l-jn,l'-jn\).
+Let \(t_l,t_{l'}\) be the two squared Koszul units,
+\(\lambda_j,\lambda'_j\) the corresponding units
+\eqref{eq:ftb-lambda}, and \(J=\prod_{a=1}^dJ_a\).
+Set
+\[
+ \begin{split}
+ T_l&=t_l^{\,4D^s}
+       \prod_{j=0}^g\lambda_j^{
+          (-1)^j\binom gj(D/(l-jn))^s},\\
+ T_{l'}&=t_{l'}^{\,4D^s}
+       \prod_{j=0}^g(\lambda'_j)^{
+          (-1)^j\binom gj(D/(l'-jn))^s},\\
+ \kappa&=T_l^{\,gn-2l'}T_{l'}^{\,2l-gn}
+                         J^{\,8D^s(l'-l)},\\
+ c&=2D^s\,d(l'-l).
+ \end{split}                                      \tag{K11}\label{eq:ftb-kaform}
+\]
+All negative powers in this formula are powers of units.
+
+\begin{srproposition}[Integral value and its frame law]
+\label{prop:ftb-integral-koszul-invariant}
+The formula \eqref{eq:ftb-kaform} gives a unit of \(R\), and
+commutes with local base change preserving the displayed data.
+Over a characteristic-zero field, it is independent of the bases,
+enumeration and charts of the fixed transverse intersection, and of
+the auxiliary generators used in \eqref{eq:ftb-box-generator}.
+If \(\vartheta\) is replaced by \(a\vartheta\) and the Lie basis by
+the matrix \(M\), its value satisfies
+\[
+              a^{8c}\kappa_{\rm new}
+                         =(\det M)^{4c}\kappa_{\rm old}.
+ \tag{K12}\label{eq:ftb-koszul-homog}
+\]
+Here the tuple \(s_i\) is fixed; independence of \emph{that} tuple
+is a further step, stated separately below.
+\end{srproposition}
+\begin{proof}
+Existence over the stated local principal ideal domain follows from
+the preceding lemmas, which also give \eqref{eq:ftb-zero-count}.
+Base change applies to the actual multiplication and evaluation
+matrices, their contractions, the cubical generators, and determinants;
+the defining identities therefore base change term by term.
+
+We record the determinant calculations, including their signs.
+If a basis in degree \(m\) changes by a matrix of determinant \(b\),
+its fourth external product has determinant \(b^{4m^{3g}}\).
+Thus
+\[
+             \lambda_{\rm new}
+                   =\lambda_{\rm old}b^{-8m^{3g+2}}.
+\]
+Rescaling a cubical generator by a unit \(z_I\) rescales row \(I\)
+of \(Q_m\) by \(z_I^{-1}\), and rescales \(\rho_I\) by
+\(z_I^{m^2}\); these cancel in \eqref{eq:ftb-lambda}.
+A permutation of kernel tuples contributes only a determinant sign,
+removed by the square.  For arbitrary two choices of kernel enumeration, first permute the
+full kernel tuples to agree.  The normalized generators \(\mu\)
+agree: their quotient is a base unit, determined by its origin value.
+On the proper geometrically connected variety \(A^4\), corresponding
+\(w_I\)'s have a constant unit ratio \(z_I\).
+The origin normalization gives
+\(\rho'_I=z_I^{m^2}\rho_I\); uniqueness of the external-product
+coefficients gives the inverse row factor \(z_I^{-1}\) in \(Q_m\).
+These factors cancel as above.  External-product independence follows
+one factor at a time from independence of the original basis, so this
+comparison is valid without choosing an analytic realization.
+
+For a change of bases \(b_j\) with determinants \(b_j\), the squared
+torsion changes by
+\(\prod_jb_j^{2(-1)^j\binom gj}\).
+If the chosen line generator at each zero changes by \(g_a\), set
+\(\gamma=\prod_ag_a\), in the convention that old evaluations are
+\(g_a^l\) times new evaluations in degree \(l\).
+The augmented degree-zero evaluation term then gives
+\[
+ t_{l,\rm new}
+   =t_{l,\rm old}\gamma^{-2l}
+                    \prod_jb_j^{2(-1)^j\binom gj},
+ \qquad J_{\rm new}=J_{\rm old}\gamma^{-gn}.
+\]
+The torsion comparison follows by conjugating the whole graded
+matrix, with these evaluation scalars in degree zero, and taking
+the determinant of the even-to-odd block.  Permuting the zero
+sections again disappears after squaring.
+
+In \(T_l\) the basis exponents cancel term by term:
+\[
+ 4D^s\cdot2(-1)^j\binom gj
+ -(D/m)^s(-1)^j\binom gj\cdot8m^s=0.
+\]
+Hence \(T_{l,\rm new}=T_l\gamma^{-8lD^s}\), and the analogous
+formula holds for \(l'\).
+The remaining exponent of \(\gamma\) in \(\kappa\) is
+\[
+ -8D^s\{l(gn-2l')+l'(2l-gn)+gn(l'-l)\}=0 .
+\]
+This proves the claimed independence for a fixed intersection.
+
+Multiplication of \(\vartheta\) by \(a\) multiplies every row of
+\(Q_m\) by \(a^4\).  There are \(m^{4g}\) rows; thus
+\(\lambda_m\) is multiplied by \(a^{8m^{4g+2}}\).
+The same finite-difference identity as in
+\eqref{eq:ftb-zero-count} gives
+\(T_l\mapsto a^{8D^sd}T_l\), and similarly for \(l'\).
+The total exponent is \(-16D^sd(l'-l)=-8c\).
+Changing the Lie basis multiplies each \(J_a\) by \(\det M\);
+there are \(d\) zeros, giving exponent
+\(8D^sd(l'-l)=4c\).
+These are exactly \eqref{eq:ftb-koszul-homog}.
+\end{proof}
+
+\begin{srlemma}[Numerical data away from a residue prime]
+\label{lem:ftb-key-numerical-data}
+For every \(g\geq1\) and every prime \(p\), choose
+\[
+ n=4p,\qquad l=gn+1,\qquad l'=gn+1+p
+\]
+and the matrices \eqref{eq:ftb-quaternion}.
+Then \(n\geq4\), \(gn<l<l'\), \(D\geq1\), \(c\geq1\),
+and \(p\nmid D\).
+\end{srlemma}
+\begin{proof}
+For \(0\leq j\leq g\),
+\[
+ l-jn=4p(g-j)+1,\qquad
+ l'-jn=p(4(g-j)+1)+1 .
+\]
+Both are positive and congruent to one modulo \(p\).
+Their product \(D\) is therefore positive and prime to \(p\);
+the formula for \(c\) is a product of positive integers.
+\end{proof}
+
+\paragraph{What this construction supplies and what remains.}
+The proposition supplies the actual integral \(\operatorname{KaVal}\)
+from split torsion and split transverse zeros, including the exact
+normalizations and powers.  It does not yet assert a rule independent
+of the chosen sections.  The source next proves this independence by
+DVR specialization along lines, first between algebraically independent
+tuples and then between arbitrary admissible tuples; it then proves
+holomorphy in period coordinates, normalizes the powered rule, and
+descends its exponent to one by connected families.
+Those are separate producer steps.  In particular neither the unit
+determinant in \eqref{eq:ftb-lambda} nor the unit
+\eqref{eq:ftb-kaform} alone is the exponent-one key unit used in the
+carrying section.

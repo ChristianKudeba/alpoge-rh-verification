@@ -197,18 +197,95 @@ The source polynomial derivative is the sum over monomials of
 the iterated derivative along their actual repeated coordinate
 list; no factorial or divided-power convention is inserted.
 
+\subsection{The exact self-dual short-vector supplier}
+Let \(E\) be CM, \(f=[E:\mathbb Q]/2\), and let
+\(\Lambda\subset E^n\) be a finitely generated \(O_E\)-module
+self-dual for \(h(u,v)=\sum_k u_k\overline{v_k}\).
+The source's rational positive form is
+\[
+ B(u,v)=\operatorname{Tr}_{E/\mathbb Q}h(u,v),\qquad
+ B(u,u)=\sum_\sigma\sum_k|\sigma(u_k)|^2 .
+ \tag{GS11a}\label{eq:sr-source-trace-hermitian}
+\]
+It is symmetric, positive definite and nondegenerate.
+Since \(\Lambda\) is full over \(E\), it is full over \(\mathbb Q\):
+clear an integer denominator in each scalar \(a\in E\), so
+\(a\Lambda\subset\mathbb Q\Lambda\).
+A \(\mathbb Z\)-basis of \(\Lambda\) is therefore a
+\(\mathbb Q\)-basis \(b_1,\ldots,b_M\) of \(E^n\), \(M=2fn\).
+
+For a nonzero vector \(u\) in the \(B\)-dual of this lattice,
+\(B(u,y)\in\mathbb Z\) for all \(y\in\Lambda\).
+Writing \(\mathfrak D\) for the different, testing at
+\(\overline a\,y\), \(a\in O_E\), gives
+\(h(u,y)\in\mathfrak D^{-1}\).
+Hence \(\delta u\in\Lambda\) for every
+\(\delta\in\mathfrak D\), by Hermitian self-duality.
+Put \(\alpha=h(u,u)\ne0\).
+For \(\delta\in\mathfrak D\) and \(a\in O_E\),
+\(a\delta u\in\Lambda\); the trace integrality just obtained,
+together with invariance of trace under conjugation, gives
+\(\operatorname{Tr}(\alpha\delta a)\in\mathbb Z\).
+Thus
+\[
+                  \alpha\mathfrak D\subset\mathfrak D^{-1},
+                    \qquad \alpha\in\mathfrak D^{-2}.
+\]
+The norm of a nonzero element of a fractional ideal is at least
+the ideal norm, since its principal ideal divided by that
+fractional ideal is integral. Consequently
+\(|N_{E/\mathbb Q}\alpha|\ge|\operatorname{disc}E|^{-2}\).
+All conjugates of \(\alpha\) are nonnegative, with positive sum.
+The arithmetic--geometric mean inequality gives
+\[
+                   B(u,u)\ge {2f\over\mathrm{rd}_E^2}.
+ \tag{GS11b}\label{eq:sr-source-trace-dual-min}
+\]
+This is the original
+\srcid{EmbeddingHermSelf.trace_dual_min}, using the fractional
+ideal norm and trace estimate already proved by the trace-dual
+norm lemma.
+
+Apply the source transference bound to this rational Euclidean
+space with \(\lambda=\sqrt{2f}/\mathrm{rd}_E\).
+For clarity, its rational-to-real passage diagonalizes \(B\)
+and embeds the rational space into \(\mathbb R^M\) by multiplying
+the basis coordinates by the square roots of its nonnegative
+diagonal coefficients.
+The images of the \(B\)-dual basis form a real basis:
+pairing with the images of the original basis gives the identity
+matrix. Their integer lattice has minimum at least \(\lambda\)
+by (GS11b). The original Euclidean transference theorem supplies
+an independent family in the dual lattice with lengths at most
+\(M^2/\lambda\). Its integral pairings with that real basis are
+integer coordinates in the original rational basis, so this
+family pulls back to \(v_1,\ldots,v_M\in\Lambda\), independent
+and spanning over \(\mathbb Q\), with
+\(B(v_j,v_j)\le(M^2/\lambda)^2\).
+This is \srcid{TraceHermNondegenerate.transference_rat}, using
+the earlier source \srcid{T0.transference_dual} inequality.
+
+For every embedding \(\tau\), its conjugate is distinct and has
+the same squared-coordinate sum, so
+\(2\sum_k|\tau(v_{j,k})|^2\le B(v_j,v_j)\).
+Substitution of \(M=2fn\) and \(\lambda=\sqrt{2f}/\mathrm{rd}_E\)
+proves
+\[
+ \sum_k|\tau(v_{j,k})|^2
+       \le\{2 f^{3/2}n^2\mathrm{rd}_E\}^2 .
+ \tag{GS11}\label{eq:sr-source-tensor-short-vectors}
+\]
+This proves the actual supplier
+\srcid{TraceHermNondegenerate.exists_short_vectors}, including
+its stronger rational independence and spanning assertion.
+For \(n=0\) the empty family is exactly the asserted family.
+
 \paragraph{The tensor-period minimum used with this estimate.}
 Let \(T\) be the source \(O_E\)-linear positive torus, and
 \(\Lambda\subset E^n\) the actual positive self-dual Hermitian
 coefficient lattice.
-The source short-vector supplier gives an \(E\)-spanning family
-\(v_j\in\Lambda\) satisfying
-\[
- \sum_k|\tau(v_{j,k})|^2\le
-               \{2 f^{3/2}n^2\mathrm{rd}_E\}^2
-                         \quad\text{for all }j,\tau .
- \tag{GS11}\label{eq:sr-source-tensor-short-vectors}
-\]
+The preceding source short-vector construction gives an
+\(E\)-spanning family \(v_j\in\Lambda\) with (GS11).
 For \(\gamma\) in the actual tensor lattice, contraction by
 \(v_j\) lies in the original period lattice.
 If \(\gamma\ne0\), some such contraction is nonzero:
@@ -231,8 +308,8 @@ For \(n=0\) the tensor lattice is zero and the source takes
 These are the exact contraction steps in
 \srcid{LeMulNormFlatOfSelfDual.le_mul_norm_flat_of_selfDual}
 and \srcid{NormalisedThetaValueBound.exists_min_period}.
-The short-vector construction (GS11) is its separately retained
-arithmetic lattice supplier.
+The short-vector construction (GS11) has just been proved from
+the same source transference bound and trace-dual norm estimate.
 
 \paragraph{Frozen-source ledger.}
 All sources use \srcid{alpoge-source-7cbf7a0c}.
@@ -264,6 +341,17 @@ blob \srcid{0800466bdb169dc1ddd430812943ca9c4f8f093d};
 the actual normalized tensor-period bound is
 \srcid{NormalisedThetaValueBound.lean},
 blob \srcid{689a12045c213d4d11e73f6660d5ee8a8739f684}.
+The exact short-vector proof in the same directory is
+\srcid{TraceHermNondegenerate.lean},
+blob \srcid{c12f943d2da5d109d91c74539874b853f035eb6b},
+with \srcid{EmbeddingHermSelf.lean},
+blob \srcid{d1edfe1b816a8069a1c99f902b09cbf9f6549fd1}.
+Its fractional-ideal trace and norm supplier is
+\srcid{src/Development/AbelianVarietyTheory/Proofs/CovolumeBounds/FinrankMulDiscrRpowLeSumSqOfMemTraceDual.lean},
+blob \srcid{83942a82c35de9c2751c6b1419702f69ca8ab550}.
+Its Euclidean transference supplier is the already identified
+\srcid{src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/HeightTheory/Transference.lean},
+blob \srcid{3b1ced809264736e3140deb8ea437d8aa061580c}.
 The Gaussian statements above are proved for a supplied actual
 \(\mathrm{GT}\); they do not construct the model's analytic
 fibre or identify an algebraic theta reading with its sections.

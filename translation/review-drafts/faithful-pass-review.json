@@ -1,6 +1,6 @@
 {
   "baseline": "7cbf7a0c32fca1badf05931879a37c3f8a2b03b4",
-  "updated_utc": "2026-11-22T01:41:00Z",
+  "updated_utc": "2026-11-22T01:57:00Z",
   "current_published_pages": 541,
   "whole_manuscript_complete": false,
   "entries": [
@@ -68,8 +68,8 @@
       "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
     },
     {
-      "key": "thetaGaussian",
-      "blob": "b9c86e68226635ba95e898251d02fef39b3454aa",
+      "key": "thetaGaussianNext",
+      "blob": "9021a25a1041d85ea03f82fa97480f37fdbe7b6d",
       "path": "translation/review-drafts/theta-gaussian-cauchy-source.tex",
       "status": "review pending",
       "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
@@ -115,6 +115,62 @@
       "path": "translation/review-drafts/formal-torus-to-proper-constancy-source.tex",
       "status": "review pending",
       "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobQuotient",
+      "blob": "5c49a38da4193fbecca6b7a932026b172ba0c585",
+      "path": "translation/review-drafts/formal-polarized-quotient-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobGauge",
+      "blob": "2be9af342bbb3b23b53465782cd952ee19be9ea9",
+      "path": "translation/review-drafts/formal-quotient-lattice-gauge-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobDegreeNorm",
+      "blob": "de09199e66061c6d0033b88f48bdf0ae481f184d",
+      "path": "translation/review-drafts/formal-multiplication-norm-degree-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "frobHFree",
+      "blob": "81c700307ea6e7987a80f625adcfe5a536303847",
+      "path": "translation/review-drafts/formal-geometric-free-assembly-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "keyKoszul",
+      "blob": "82f44b0b46d46c4667803bcb0d8434b34b037a28",
+      "path": "translation/review-drafts/theta-key-split-koszul-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "keyColliding",
+      "blob": "8811f2d5ed3f1232531971d654030ba4abc6314d",
+      "path": "translation/review-drafts/theta-key-colliding-zero-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "thetaProjectedNorm",
+      "blob": "acdde4b49cfd014f39a84f17fc704da1c13109b0",
+      "path": "translation/review-drafts/theta-projected-raw-norm-source.tex",
+      "status": "review pending",
+      "scope": "Only the printed premises and bounded source deduction; upstream construction inputs remain separate."
+    },
+    {
+      "key": "psiUnitRoot",
+      "blob": "81b61ba081e805d9c44e0c379dd86063404888de",
+      "path": "translation/review-drafts/psi-unit-source.tex",
+      "status": "review pending",
+      "scope": "Actual unramified-torsion unit clause given actual uniformisation and expansion/torsion identification; N3 existence retained."
     }
   ],
   "root_boundary": {

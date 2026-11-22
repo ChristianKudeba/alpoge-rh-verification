@@ -1,0 +1,269 @@
+\subsection{Assembly of the source geometric \(O\)-freeness producer}
+\label{subsec:faithful-geometric-hfree-assembly}
+
+\begin{srtheorem}[The exact geometric freeness conclusion]
+\label{thm:faithful-geometric-hfree}
+Let \(E\) be a CM number field with host \(H\), and equip
+\(O=\mathcal O_E\) with the involution \(a^*=H.\mathrm{bar}(a)\).
+Let \(t\) be the source \(\mathrm{SAB}\) datum over \(X\), with
+\(\mathrm{PowFns}(t)\).
+Let \(k\) be algebraically closed of characteristic the
+prime \(p\), and \(x:\operatorname{Spec}k\to X\) satisfy
+\(\mathrm{GeomPF}(t,x)\).
+For an actual germ \(g\) of dimension \(d\), assume
+\(\mathrm{HChar}(g.B,r)\), namely
+\[
+ \operatorname{charpol}(\rho_H(a))
+   =\bigl(\operatorname{charpol}(a|O)\bmod k\bigr)^r
+                            \qquad(a\in O).
+ \tag{HF1}\label{eq:faithful-hfree-character}
+\]
+Then \(\mathrm{HFree}(g.B,r)\) holds:
+there are \(x_1,\ldots,x_r\in k^d\oplus k^d\) such that
+\(\rho_H(b_j)x_l\), for the specified integral basis \(b_j\)
+of \(O\), form a \(k\)-basis of \(k^d\oplus k^d\).
+\end{srtheorem}
+
+\begin{proof}
+Use Proposition~\ref{prop:faithful-actual-abelian-quotient}
+to construct the actual proper polarized quotient \(t_B\).
+Its proper geometrically connected products have only base
+global functions, so it has \(\mathrm{PowFns}\).
+The actual-germ construction therefore gives a quotient germ
+\(g_B\), of dimension \(d'\).
+Propositions~\ref{prop:faithful-quotient-cocharacter-lattice}
+and \ref{prop:faithful-quotient-mixed-gauge} give the same
+\(O\)-lattice \(\Lambda\), maps \(P,j\), and matrix \(Z\).
+Write \(L_0=k\otimes_{\mathbb Z}\Lambda\) and
+\(S_a=1\otimes(a|\Lambda)\).
+Set \(n=[E:\mathbb Q]>0\) and
+\(s=\operatorname{rank}_O\Lambda\).
+By Lemma~\ref{lem:faithful-integral-lattice-norm},
+\[
+                  \dim_kL_0=ns.
+\]
+The actual tangent sequence and
+\eqref{eq:faithful-hfree-character} give, respectively,
+\[
+                         d=d'+ns,\qquad 2d=nr.
+ \tag{HF2}\label{eq:faithful-hfree-ranks}
+\]
+For the second equality take degrees of the characteristic
+polynomial at \(a=1\).
+The formal cubical identities make \(\rho_H\) a unital ring
+action, as required by
+Proposition~\ref{prop:faithful-kernel-norm-free}.
+
+We reproduce the source's kernel-transfer calculation.
+For matrices \(R,R',C\), put
+\[
+        \mathcal T(R,R',C)(v,f)=(Rv,(R')^tf-C^tv).
+\]
+The invertible shear \(T_Z(v,f)=(v,f+Z^tv)\) satisfies
+\[
+ \mathcal T(R,R',C)T_Z
+        =T_Z\mathcal T(R,R',C+R^tZ-ZR').
+\]
+Thus the kernels have the same dimension.
+By \eqref{eq:faithful-quotient-mixed-gauge}, the latter
+coefficient for \(a\) is \(P^tC_{B,a}P\).
+
+Here is the actual three-step rank bound, so that no
+unconstructed filtration of a formal-Hodge object is needed.
+Let
+\[
+             K=\ker\mathcal T(R_a,R_{\bar a},P^tC_{B,a}P).
+\]
+Choose a right inverse \(U:k^{d'}\to k^d\) of \(P\).
+The map
+\[
+                   c:K\to L_0^\vee,\qquad
+                        c(v,f)(l)=f^tj(l)
+\]
+has image in \(\ker S_{\bar a}^\vee\).
+Indeed the kernel equation says
+\(R_{\bar a}^tf=(P^tC_{B,a}P)^tv\);
+evaluate it on \(j(l)\), use \(Pj=0\), and use
+\(jS_{\bar a}=R_{\bar a}j\).
+The dimensions of the kernels of an endomorphism and its
+dual are equal.
+
+If \(c(v,f)=0\), then \(f\) annihilates \(\ker P\), and
+\[
+                              f=P^tU^tf .
+\]
+To check this, \(z-UPz\in\ker P\) for every \(z\), so
+\(f^tz=f^tUPz\).
+On \(K\cap\ker c\), define
+\[
+                         m(v,f)=(Pv,U^tf).
+\]
+Its image lies in \(\ker\rho_{H,B}(a)\).
+The first component follows from \(PR_a=R_{B,a}P\).
+For the second, multiplication by the injective \(P^t\)
+turns its required equation into the original second
+kernel equation, using \(PR_{\bar a}=R_{B,\bar a}P\)
+and \(f=P^tU^tf\).
+Finally, if also \(m(v,f)=0\), then \(f=0\) and
+\(v=j(l)\) for a unique \(l\in L_0\).
+The first kernel equation and injectivity of \(j\) give
+\(S_a l=0\).
+Applying rank--nullity to \(c\) and then \(m\) gives
+\[
+ \dim_k\ker\rho_H(a)
+ \le \dim_k\ker S_{\bar a}
+       +\dim_k\ker\rho_{H,B}(a)+\dim_k\ker S_a .
+ \tag{HF3}\label{eq:faithful-hfree-kernel-transfer}
+\]
+This is exactly \srcid{HeightCharFreeGeometric.ker\_bound}.
+
+Now fix \(a\ne0\) and put \(M=|N_{E/\mathbb Q}(a)|>0\).
+The proper quotient's finite multiplication kernel has
+coordinate algebra \(A\), by
+Proposition~\ref{prop:faithful-proper-multiplication-degree}.
+Let \(m_A=\dim_kA>0\) and
+\(D=\dim_k\ker\rho_{H,B}(a)\).
+The actual adjoint-frame kernel calculation gives
+\[
+                p^D\mid m_A,\qquad m_A^n=M^{2d'}.
+ \tag{HF4}\label{eq:faithful-hfree-proper-degree}
+\]
+The first assertion is
+Proposition~\ref{prop:faithful-proper-germ-kernel-divisibility};
+it applies to the quotient's actual \(\mathrm{KTriv}\) line
+and actual germ.  The second assertion is its finite-flat
+norm degree, including the inseparable case.
+Consequently
+\[
+                 D\le v_p(m_A),\qquad
+                 n\,v_p(m_A)=2d'\,v_p(M).
+\]
+Multiplying by \(n\) and using
+\eqref{eq:faithful-hfree-ranks} gives
+\[
+ \begin{split}
+ n(2s\,v_p(M)+D)
+   &\le 2ns\,v_p(M)+2d'\,v_p(M)\\
+   &=nr\,v_p(M).
+ \end{split}
+\]
+Cancel \(n>0\) to obtain
+\[
+                         2s\,v_p(M)+D\le r\,v_p(M).
+ \tag{HF5}\label{eq:faithful-hfree-numeric}
+\]
+This is the source's \srcid{numeric} step.
+
+The norm is unchanged by the specified involution:
+it is an integral algebra automorphism of \(O\), so
+\(N(\bar a)=N(a)\).
+Lemma~\ref{lem:faithful-integral-lattice-norm} therefore
+bounds each of \(\dim\ker S_a\) and
+\(\dim\ker S_{\bar a}\) by \(s\,v_p(M)\).
+Combining \eqref{eq:faithful-hfree-kernel-transfer} with
+\eqref{eq:faithful-hfree-numeric} gives
+\[
+                 \dim_k\ker\rho_H(a)\le r\,v_p(M)
+                            \qquad(a\ne0).
+\]
+This is the exact all-nonzero-\(a\) inequality.
+Together with the original
+\eqref{eq:faithful-hfree-character}, it satisfies
+Proposition~\ref{prop:faithful-kernel-norm-free}.
+That proposition constructs the asserted vectors \(x_l\)
+and their integral-coefficient basis.
+\end{proof}
+
+\paragraph{Actual supply from a PEL uniformization at the residue fibre.}
+We record the exact interface with the model lane, without
+constructing a PEL uniformization here.
+Let \(R\) be a local domain, let \(t\) be a source
+\(\mathrm{SAB}\) datum over \(\operatorname{Spec}R\), and
+suppose the actual \(\mathrm{PELUnif}(\mathfrak m_R,t)\)
+datum \(P\) is supplied.
+Let \(\kappa=R/\mathfrak m_R\).
+Then the source proves
+\[
+        \mathrm{GeomPF}
+              \bigl(t,\operatorname{Spec}\kappa\to\operatorname{Spec}R\bigr).
+ \tag{HF6}\label{eq:faithful-pel-residue-geompf}
+\]
+Here is its actual level-zero construction.
+Take \(D=P.D.\mathrm{toPre}\) and the extension
+\(c=P.U.\mathrm{toUnifPre}.\mathrm{gt}(0)\) on
+\(\operatorname{Spec}(R/\mathfrak m_R^{\,1})\).
+Pull it along the canonical map from \(\operatorname{Spec}\kappa\).
+Uniqueness of group pullbacks identifies its group with the
+actual residue fibre of \(t.G\), its abelian quotient with
+the residue fibre of \(D.P.A\), and its split torus with
+the split torus of the same finite free lattice \(D.X\).
+Base change of this actual extension supplies its flat,
+surjective, quasi-compact quotient, its group kernel map,
+and the kernel pullback.
+
+The required line on the abelian quotient is exactly
+\(D.P.L\) pulled to its residue fibre.
+Its \(\mathrm{KTriv}\) property is the base change of
+\(D.P.\mathrm{ktriv}\), transported through the same
+group pullback and identity line comparison.
+The level-zero line comparison is
+\(P.U.\mathrm{toUnifPre}.w(0)\).
+The datum's equality
+\(P.U.\mathrm{toUnifPre}.LG=t.PP\) identifies its left
+side with the actual residue pullback of \(t.PP.L\).
+The two group-pullback identifications and the extension's
+quotient square identify its right side with the pullback
+of the just specified abelian line.
+This supplies the exact line isomorphism in
+\(\mathrm{GeomPF}\), and proves
+\eqref{eq:faithful-pel-residue-geompf}.
+No \(O\)-action on the quotient is presumed in this step:
+Theorem~\ref{thm:faithful-geometric-hfree} constructs that
+action from this witness.
+
+After extending \(\kappa\) to an algebraically closed field,
+the extension and line data remain their actual pullbacks;
+the proved geometric-power-free transport supplies
+\(\mathrm{GeomPF}\) there.
+Theorem~\ref{thm:faithful-geometric-hfree} applies with the
+actual \(\mathrm{HChar}\) identity.
+The exact field descent and local lifting in
+Lemma~\ref{lem:faithful-free-local-descent} return its
+coefficient basis to the relevant local ring.
+For the source's component-generic germ system, the
+\(\mathrm{IsCptGen}\) injection and formal-isomorphism
+transport in
+Section~\ref{subsec:faithful-free-stalk-transport}
+give the fixed same \(r\) at all component stalks.
+That is the original fixed-rank coefficient-basis premise
+in Proposition~\ref{prop:faithful-character-quotient-degree-zero},
+once its actual germ-system and curve maps are used.
+
+\paragraph{Exact source ledger and remaining model scope.}
+The geometric assembly is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/HeightCharFreeGeometric.lean}
+{\srcid{HeightCharFreeGeometric.hfree\_geom}}
+(blob \srcid{fc878d079297c3a245b8bee44983372cafa2a8ce}).
+The proof above includes its \srcid{finrank\_ker\_gauge},
+\srcid{ker\_bound}, \srcid{numeric}, and final assembly,
+using the actual source producers expanded in the preceding
+subsections.
+
+The level-zero supply is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/WeilBound/CoreStatements/HodgeTatePoints/CgUnif.lean}
+{\srcid{CgUnif.unif\_pf}},
+wrapped by
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PelUniformisedGeometricFree.lean}
+{\srcid{PelUniformisedGeometricFree.geomPF\_closedPoint}}
+(\srcid{965ed7955f305a0d57ff6eeafa4f8d99de1a110a}).
+Their theorem assumes an actual \(\mathrm{PELUnif}\) datum;
+it does not deduce one from semistability.
+The model's transport to such a datum and the chosen geometric
+residue representative is the separate
+\srcid{ModelFibresPowerFree} producer.
+The global \(N3\) construction, the generic
+\(\mathrm{HChar}\) input, and the analytic canonical-extension
+comparison retain their own source hypotheses and proofs.
+None is asserted merely from this geometric freeness theorem,
+and this theorem by itself is not a completion of
+\(\mathrm{FlatSat}\).

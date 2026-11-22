@@ -1,0 +1,267 @@
+\subsection{The actual polarized abelian quotient and its \(O\)-action}
+\label{subsec:faithful-actual-abelian-quotient}
+
+We retain the source field hypotheses: \(E\) is a CM number
+field with host \(H\), \(O=\mathcal O_E\) has its specified
+involution \(\bar a\), \(k\) is algebraically closed of
+characteristic a prime \(p\), and \(t\) is a source
+\(\mathrm{SAB}\) datum over \(X\), satisfying
+\(\mathrm{PowFns}(t)\).
+Let \(x:\operatorname{Spec}k\to X\) satisfy
+\(\mathrm{GeomPF}(t,x)\).
+Its witness is an actual torus extension
+\[
+       0\longrightarrow D(C)\stackrel i\longrightarrow G_x
+                       \stackrel q\longrightarrow B\longrightarrow0,
+ \tag{AQ1}\label{eq:faithful-geometric-quotient-extension}
+\]
+where \(C\) is finite free over \(\mathbb Z\), \(B/k\) is
+abelian, \(q\) is a flat surjective quasi-compact group map,
+and \(i\) represents its kernel.  The witness also gives a
+line \(M\) on \(B\), its \(\mathrm{KTriv}\) property, and an
+actual line isomorphism \(L_x\simeq q^*M\).
+There is no \(O\)-action on \(B\) in this witness yet.
+
+\begin{srlemma}[The normalized torus-quotient seesaw]
+\label{lem:faithful-torus-quotient-seesaw}
+Let \(Y/k\) be smooth and geometrically connected with a
+\(k\)-point \(y_0\).  For the extension
+\eqref{eq:faithful-geometric-quotient-extension}, let \(N\) be
+a line on \(B\times Y\).
+If \((q\times1)^*N\) is trivial on \(G_x\times Y\) and
+\(N|_{B\times\{y_0\}}\) is trivial, then \(N\) is trivial.
+\end{srlemma}
+\begin{proof}
+Choose a generating section \(u\) of \((q\times1)^*N\).
+Translation in the \(D(C)\)-variable compares two sections
+of the same pulled-back line; their ratio is a unit
+\[
+             r(\tau,g,y)=u(i(\tau)g,y)/u(g,y).
+\]
+The source's weight calculation shows that
+\(r(\tau,g,y)=\tau(\chi)\) for one fixed \(\chi\in C\).
+Here is that calculation on charts.
+The base \(G_x\times Y\) is smooth and geometrically connected,
+hence reduced and connected.
+On an affine open of this base the torus coordinate ring is
+a Laurent polynomial ring.  An invertible Laurent polynomial
+over a reduced ring is, on each connected component, a unit
+times a single monomial: multiplying it by its inverse and
+comparing extremal terms forces this statement over every
+prime quotient, and the resulting exponents form open-and-closed
+pieces.  Thus the exponent is locally constant.
+These local exponents agree on overlaps, and connectedness
+makes it one fixed \(\chi\).
+The coefficient is \(1\), by evaluating at \(\tau=1\).
+This is the source's \srcid{exists\_weight} calculation; it
+does not assume that the original section \(u\) was invariant.
+
+Choose a generator \(s\) of \(N|_{B\times\{y_0\}}\).
+The ratio of \(u(g,y_0)\) to \(q^*s(g)\) is a global unit
+\(f(g)\) on \(G_x\), and
+\[
+                   f(i(\tau)g)=\tau(\chi)f(g).
+\]
+Consequently \(u(g,y)/f(g)\) is invariant under the torus.
+If two points of \(G_x\times Y\) have the same image under
+\(q\times1\), their \(G_x\)-components differ by a unique
+kernel point after the kernel factorization.
+The corrected generating section therefore has equal
+pullbacks on the fpqc relation.
+Faithfully flat descent of this section and its inverse
+gives a generator of \(N\).
+These are \srcid{exists\_unit\_weight} and
+\srcid{exists\_gen\_of\_weight}.
+\end{proof}
+
+\begin{srproposition}[The actual \(\mathrm{AbQuot}\) datum]
+\label{prop:faithful-actual-abelian-quotient}
+From the displayed hypotheses one constructs:
+\begin{enumerate}
+\item a descended \(O\)-action on \(B\), with
+\(q[a]_{G_x}=[a]_Bq\) for every \(a\in O\);
+\item a rigidified, symmetric, cubical, primitive line \(P\)
+on \(B\), adjoint for this action and its specified involution;
+\item \(\mathrm{KTriv}(B,P)\) and an actual isomorphism
+\(L_x\simeq q^*P\).
+\end{enumerate}
+Together with the original torus extension, these are exactly
+the source's \(\mathrm{AbQuot}(t,x)\) fields.
+\end{srproposition}
+\begin{proof}
+We first descend the action, then the adjoint line comparison,
+and finally normalize the line.  These are the three separate
+constructions in \srcid{AbelianQuotientOfPowerFns}.
+
+For each \(a\in O\), the composite
+\(D(C)\to G_x\stackrel{[a]}\longrightarrow G_x\to B\)
+is zero by Lemma~\ref{lem:faithful-torus-proper-constant}.
+The map \([a]q:G_x\to B\) is therefore constant on \(q\)-fibres.
+Explicitly, if \(g_1q=g_2q\), then
+\(g_1g_2^{-1}\) factors through \(i\); its composite with
+\([a]q\) is zero.  Hence the two values agree.
+The effective-epimorphism property of the flat surjective
+quasi-compact \(q\) gives a unique morphism \([a]_B\) with
+\[
+                         q[a]_B=[a]_{G_x}q
+\]
+in the source's left-to-right composition notation.
+This is \srcid{exists\_desc}.
+It preserves the identity; rigidity for morphisms between
+abelian varieties makes it a group homomorphism.
+The equations for \(1\), products, and sums follow by
+precomposing with the epimorphism \(q\) and using the equations
+on \(G_x\).  Thus it is the actual descended \(O\)-action
+\srcid{exists\_act}.
+
+For the next step write \(m=[M]\) in the Picard group, and
+write \(\lambda_m(u,v)\) for its normalized second difference:
+\[
+ [M_{u+v}]-[M_u]-[M_v]+[M_0].
+\]
+Set, on any test scheme,
+\[
+ D_a(u,v)=\lambda_m([a]_B u,v)
+                   -\lambda_m(u,[\bar a]_Bv).
+\]
+It commutes with pullback, vanishes on either zero axis, and
+\[
+                         D_a(qg,qh)=0,
+ \tag{AQ2}\label{eq:faithful-quotient-adjoint-pull}
+\]
+because \(q^*M\simeq L_x\), the actions commute with \(q\), and
+\(L_x\) has the actual adjoint isomorphism of the original
+\(\mathrm{SAB}\) datum.
+
+Pull this class first to \(B\times G_x\).
+Its pullback along \(q\times1\) is zero by
+\eqref{eq:faithful-quotient-adjoint-pull}; its restriction at
+the zero point of \(G_x\) is zero.
+Lemma~\ref{lem:faithful-torus-quotient-seesaw}, with \(Y=G_x\),
+gives \(D_a(u,qh)=0\).
+Apply that lemma again with \(Y=B\), interchanging the two
+variables.  Its pullback is now zero by the last conclusion,
+and its zero section is again zero.  Hence \(D_a=0\) on
+\(B\times B\).
+This proves the actual adjoint line isomorphism for \(M\).
+It does not assume that pullback on Picard groups under \(q\)
+is injective; the two normalized seesaw applications supply
+exactly the needed conclusion.
+
+We describe the primitive normalization in the source
+\srcid{ExistsPrimitiveNormalisation}.
+Its host element \(w_0\) satisfies
+\[
+                            w_0+\bar w_0=1.
+\]
+The theorem of the cube for the line \(M\) on the abelian
+variety \(B\) makes \(\lambda_m\) symmetric and biadditive.
+Define the line
+\[
+       P=\mathcal P_M(1,[w_0])
+        =[1+[w_0]]^*M\otimes M^{-1}
+                         \otimes[w_0]^*M^{-1}\otimes M_0 .
+ \tag{AQ3}\label{eq:faithful-primitive-normalized-line}
+\]
+Thus its pointwise class is \(\lambda_m(z,[w_0]z)\).
+The source computes its second difference by the cube identity:
+\[
+ \begin{split}
+ \lambda_{[P]}(u,v)
+   &=\lambda_m(u,[w_0]v)+\lambda_m(v,[w_0]u)\\
+   &=\lambda_m(u,[w_0]v)+\lambda_m(u,[\bar w_0]v)\\
+   &=\lambda_m(u,v).
+ \end{split}
+ \tag{AQ4}\label{eq:faithful-primitive-polarization}
+\]
+The middle equality is the adjoint comparison just proved,
+together with symmetry.
+This is the source's \srcid{diff\_2\_quadratic}.
+The same biadditive expansion gives vanishing third difference
+for the class in \eqref{eq:faithful-primitive-normalized-line},
+and its value at \(-z\) is its value at \(z\).
+The defining expression has a canonical identity rigidification.
+Choose a generator of the vanishing third-difference line and
+normalize it at the identity.
+The source's
+\srcid{Cube.exists\_normalised}/\srcid{cubicalOfNormalised}
+uses global functions of the proper connected group to turn
+this normalized generator into the cubical structure:
+the two putative cube compatibility expressions differ by a
+base unit, whose identity value is \(1\).
+The symmetry is the displayed equality at \(-z,z\).
+Finally \eqref{eq:faithful-primitive-polarization}, evaluated at
+\((z,[w_0]z)\), gives
+\[
+                              P\simeq\mathcal P_P(1,[w_0]).
+\]
+This is its primitive isomorphism.
+The adjoint isomorphisms for \(P\) follow from
+\eqref{eq:faithful-primitive-polarization} and those for \(M\).
+
+The same equality of second differences preserves
+\(\mathrm{KTriv}\), as in \srcid{KTrivOfLamEq}.
+Indeed, over a local test base, if the translation difference
+of \(P\) at \(v\) is trivial, divide out its identity-fibre
+constant line to see that \(\lambda_{[P]}(v,-)\) is trivial.
+By \eqref{eq:faithful-primitive-polarization},
+\(\lambda_m(v,-)\) is trivial.  Restoring the constant fibre
+line, which has a generator over the local base, trivializes
+the translation difference of \(M\).  Its given
+\(\mathrm{KTriv}\) property forces \(v=0\).
+
+It remains essential to recover the original pulled-back line.
+The original \(\mathrm{SAB}\) line is already primitive:
+\[
+                         L_x\simeq\mathcal P_{L_x}(1,[w_0]).
+\]
+Using \(q^*M\simeq L_x\) and the descended action,
+\eqref{eq:faithful-primitive-normalized-line} gives
+\[
+              q^*P\simeq\mathcal P_{q^*M}(1,[w_0])
+                       \simeq\mathcal P_{L_x}(1,[w_0])
+                       \simeq L_x .
+\]
+Thus the normalization on \(B\) produces the required
+isomorphism with this same original line.
+Together with \(B\)'s properness, the original \(C,i,q\),
+and all its kernel and flat-cover fields, this is the
+actual \(\mathrm{AbQuot}\) construction.
+\end{proof}
+
+\paragraph{Frozen-source ledger and supplied background.}
+The assembly, including its two seesaw calls, is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/AbelianQuotientOfPowerFns.lean}
+{\srcid{AbelianQuotientOfPowerFns}}
+(blob \srcid{07fc1095576c3a7ac5bb28ede8f6fea274b8ac1c}):
+\srcid{exists\_desc}, \srcid{exists\_act},
+\srcid{adj\_quot}, and \srcid{exists\_abQuot}.
+The normalized weight/descent proof is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/PicardClassTrivialBySeesaw.lean}
+{\srcid{PicardClassTrivialBySeesaw}}
+(\srcid{fd2dc8406b863f544fe21342a03896050edfd671}),
+specifically \srcid{exists\_weight},
+\srcid{exists\_unit\_weight}, \srcid{exists\_gen\_of\_weight},
+and \srcid{pic\_inj}.
+The normalization is
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/blob/alpoge-source-7cbf7a0c/src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/ExistsPrimitiveNormalisation.lean}
+{\srcid{ExistsPrimitiveNormalisation}}
+(\srcid{16bc270f28fe0061b1a6dadd8c5088713eecb271}),
+namely its second-/third-difference identities,
+\srcid{exists\_normalised\_bundle}, and final theorem.
+These files were checked against the frozen baseline.
+
+The geometric background used here has its exact usual scope:
+the theorem of the cube for a line on an abelian variety,
+global functions on a proper geometrically connected smooth
+group, rigidity of an identity-preserving morphism of abelian
+varieties, and fpqc descent of an invertible sheaf with a
+generating section.  They are the imported source producers
+\srcid{ExistsGenThetaOfIsAbelianScheme},
+\srcid{GlobalFnsHolds}, \srcid{AbelianSchemeLawsUnconditional},
+and \srcid{CubicalOfNormalised}; the proof above shows where
+each is used.  It does not invoke a theorem asserting that the
+entire \(\mathrm{AbQuot}\) package exists.
+All constructions are on the given geometric fibre and its
+actual torus quotient; no integral extension or nonflat
+specialization identification is inferred.
