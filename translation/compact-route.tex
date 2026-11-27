@@ -46,9 +46,11 @@ This revision starts with the arithmetic inputs and Theorem C of its three-theor
 It gives full proofs of the degree-independent polynomial estimate used to choose compatible
 powers of a twist, the determinant-specialization argument for finite relation modules,
 the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate, the global reciprocity calculation, bounded pencils of tied primes,
-the simultaneous compatible-twist selection, the numerical budget comparisons, and the
+the simultaneous compatible-twist selection, the balanced-row local calculation,
+the double-Cramer and one-prime operator formulas, the glued-lattice indicator,
+the numerical budget comparisons, and the
 height and Gram-determinant calculus used at the end of Theorem C.
-The local balancing and special-value verification for automorphic rows, the Ribet and patching operators,
+The special-value interpolation, the complete Ribet and patching application,
 and the geometric comparison forms are explicitly identified as inputs still to be
 expanded here. Thus this revision is a partial exposition, not a standalone prose proof
 of RH. The formal development contains proofs of these inputs; an unexpanded input in
@@ -1275,7 +1277,7 @@ For finitely many balanced rows over \(A\), a nonzero
 \(a\mid\ell^M\), and a neighborhood \(W\) of an element
 in the inertia subgroup specified in
 Proposition~\ref{prop:auxiliary-prime}, there is an integer
-\(J_0\), independent of \(N\), such that for every \(N\)
+\(J_0\), independent of \(N\), such that for every \(N\ge1\)
 there is a pencil with \(|J|\le J_0\) and
 \[
  \length_A X_{i,a}(J)\le\beta_i\quad\hbox{for all }i.
@@ -1701,6 +1703,284 @@ definitions. The theorem just proved supplies the complete
 global selection argument once those local and value inputs
 are given. It does not assume that a Fitting polynomial at a
 general tuple defines a characteristic-zero Galois character.
+
+
+\subsection{Balancing the rows: the local calculation}
+\label{sec:balance-local}
+We record explicitly the local calculation used to apply
+the global theorem. Let \(n\ge1\), \(t\ge1\), and let
+\(R\) be a row in the source's sense.
+The relevant row hypotheses, expressed without a Lean
+predicate, are the following:
+\begin{enumerate}[label=(\alph*)]
+\item \(R\) is continuous, with nondegenerate trace pairing,
+and
+\(\operatorname{tr}R(c(g))
+  =\chi(g)^{1-t}\operatorname{tr}R(g^{-1})\);
+it is unramified away from \(\ell g\).
+\item Its local lattices at \(\ell\) are potentially
+crystalline with Hodge--Tate jumps \(J_\sigma\), and
+\(\#\{J_\sigma<0\}+\#\{J_{\bar\sigma}<0\}\le n\).
+\item Away from \(\ell\) at the level, inertia has finite
+image of order prime to the residue characteristic.
+There is an inertial \(\gamma_v\) with
+\(v_\ell\det(R(\gamma_v^\pm)-1)\le n c_\ell\);
+at a chosen place it is the specified tame generator.
+\item Over every sufficiently large coefficient ring,
+a stable lattice \(u\) has full matrix span and some
+\(g\) with \(u(g)=\alpha I\) and
+\(\chi(g)=g_i^n\), for one of the two level primes.
+There is also scalar inertia \(\gamma\) away from
+\(\ell\), with scalar \(s\), such that
+\(s^j-1\) is a unit for \(1\le j\le4n+2\).
+\end{enumerate}
+These are assumptions on the admissible row; the
+automorphic theorem producing such a row is a different
+part of the argument. The rank bounds give
+\(n\le r,\ nt\le rt\). Each factor
+\(g_i^j-1\), \(1\le j\le rt\), divides the integer \(G\):
+use the order formula for the chosen
+\(\mathrm{GL}_{rt}(\F_{g_i})\) factor of \(G\).
+
+For completeness we specify the classical local
+crystalline fact being used. For a potentially
+crystalline lattice \(T\) of rank \(n\) over \(A\),
+the module \(Z_f^1(E_v,T)\) of integral cocycles
+whose rational class is crystalline is finite free,
+and
+\begin{equation}\label{eq:local-Zf-rank}
+ \operatorname{rank}_A Z_f^1(E_v,T)
+       =n+\sum_{\sigma:E_v\hookrightarrow\overline\Q_\ell}
+                                     \#\{J_\sigma<0\}.
+\end{equation}
+To recover the formula, tensor with the coefficient field \(K\).
+The Bloch--Kato finite-part exact sequence is
+\[
+ 0\longrightarrow H^0(E_v,V)\longrightarrow D_{\rm cris}(V)
+ \longrightarrow D_{\rm cris}(V)\oplus
+                   (D_{\rm dR}(V)/\mathrm{Fil}^0)
+ \longrightarrow H_f^1(E_v,V)\longrightarrow0 .
+\]
+Taking dimensions gives
+\(\dim H_f^1=\dim(D_{\rm dR}/\mathrm{Fil}^0)+\dim H^0\).
+The coboundary dimension is \(n-\dim H^0\).
+Adding the two gives \(n+\dim(D_{\rm dR}/\mathrm{Fil}^0)\),
+and the latter filtered dimension is the sum of the negative
+jumps. Integral local Galois cohomology is finitely generated;
+the cocycle module in question is torsion free, hence finite
+free over the DVR. This proves the stated rank formula from
+the classical local finite-part exact sequence.
+Integral cocycles here mean the inverse image
+of \(H_f^1(E_v,T\otimes\Q_\ell)\);
+one is not assuming that every torsion crystalline
+class lifts integrally. The latter issue is
+responsible for the separate block losses in
+Ribet's method.
+\src{New/Selmer/CrystallineRank.lean}{finrank_crysCocycles_eq_add_neg_jumps}
+
+\begin{proposition}[the balanced-row budget]\label{prop:row-balanced}
+For such a row and a chosen place \(w\) above \(g\),
+away from \(\ell\), every sufficiently large
+coefficient ring admits a lattice \(u\), relations
+\(\mathcal L\) given by all linear relations of the
+local \(Z_f^1\)'s above \(\ell\), and
+\(\gamma,\beta\) balanced as in
+Definition~\ref{def:balanced}, with
+\[
+ \frac{\beta+
+       v_A\det(u(\tau_w)-1)+v_A\det(u(\tau_w^-)-1)}
+                {v_A(\ell)}
+             \le10fn c_\ell .
+\]
+\end{proposition}
+\begin{proof}
+Choose the stable lattice and scalar elements in
+(d). Trace conjugate self-duality determines the
+second scalar at every scalar element:
+\begin{equation}\label{eq:row-second-scalar}
+ u(g^-)=\chi(g)^{t-1}\alpha I
+              \quad\hbox{if }u(g)=\alpha I .
+\end{equation}
+To check this, for every \(k\) apply (a) to
+\(g^{-1}c(k)\), use cyclicity of trace and
+\(u(g)=\alpha I\), and then apply (a) to \(c(k)\).
+The result is
+\(\operatorname{tr}(u(g^-)u(k))
+ =\chi(g)^{t-1}\alpha\operatorname{tr}u(k)\).
+Full matrix span makes the trace pairing
+nondegenerate on these test matrices, proving
+\eqref{eq:row-second-scalar}.
+At the inertial \(\gamma\), \(\chi(\gamma)=1\),
+so its two scalars are \(s\).
+Both \(s-1,s+1\) are units, by the conditions
+at \(j=1,2\).
+The residue of \(s\) has order greater than
+\(4n+2\); thus the residue-field condition holds.
+Continuity modulo \(\ell^M\) follows from continuity
+of the lattice representation and discreteness
+of the finite quotient. Coboundaries are
+crystalline, so obey every defining relation.
+
+We check the lengths. A useful elementary fact is
+that a finite-rank module of integral functions
+with all its linear relations imposed modulo
+\(a\) gives at most
+\((\operatorname{rank}Z)\length(A/a)\) parameters.
+Here is a justification avoiding a saturation
+assumption on \(Z\).
+Take a basis of \(Z\) and let \(P\subset A^d\)
+be the span of all coordinate-evaluation
+functionals. It is finite free, since \(A\) is
+Noetherian and a DVR. Functions obeying the
+relations are precisely homomorphisms
+\(P\to A/a\): a presentation of \(P\) by its
+coordinate generators has exactly those
+relations. Since \(\operatorname{rank}P\le d\),
+their length is at most \(d\length(A/a)\).
+Apply this with \(Z=Z_f^1(E_v,T)\).
+By \eqref{eq:local-Zf-rank}, summing over \(v\mid\ell\)
+and pairing conjugate embeddings, the total is at most
+\[
+ (\#\{v\mid\ell\}+f)n\length(A/a).
+\]
+
+At a level place \(v\nmid\ell\), let \(Z\) be the local
+cocycle module, \(I_v\) inertia, \(\tau\) a tame generator,
+and \(\phi\) a Frobenius lift. Evaluation at \(\tau\)
+has image of length at most \(n\length(A/a)\).
+Its kernel consists of cocycles vanishing on inertia:
+wild inertia acts trivially on the representation,
+because its finite image has order prime to the
+residue characteristic, and its cocycle values are
+in an \(\ell\)-group; tame inertia is topologically
+generated by \(\tau\). A cocycle in this kernel is
+determined by its value at \(\phi\), and that value
+lies in \(M_a^{I_v}\). Indeed
+\(b(i\phi)=u(i)b(\phi)\) and
+\(b(\phi(\phi^{-1}i\phi))=b(\phi)\).
+For any inertial \(\gamma_v\) this invariant module
+lies in \(\ker(u(\gamma_v)-1)\).
+The kernel--image exact sequence and Smith normal
+form therefore give the complete bound
+\[
+ \length_A Z\le n\length(A/a)
+                     +v_A\det(u(\gamma_v)-1).
+\]
+Any additional local relations only decrease \(Z\).
+
+Let \(S\) consist of the places above \(\ell g\).
+Set
+\[
+ \beta=\sum_{v\mid g,\ v\nmid\ell}
+              v_A\det(u(\gamma_v)-1)
+       +n\,v_A(1-g_i^{nt}).
+\]
+By \eqref{eq:row-second-scalar},
+the scalar difference in
+\eqref{eq:balanced-length} is
+\(\alpha(1-\chi(g)^t)
+ =\alpha(1-g_i^{nt})\), and \(\alpha\) is a unit.
+Combining the two local sums proves that
+inequality for every \(a\mid\ell^M\).
+
+There are at most \(4f\) places above the two
+level primes. Each summand of the first sum,
+after normalization, is at most \(n c_\ell\).
+Since \(g_i^{nt}-1\mid G\), the mirror term is
+at most \(n v_\ell(G)\le n c_\ell\).
+The two additional chosen tame determinants
+cost at most \(2n c_\ell\).
+Altogether the normalized cost is at most
+\((4f+3)n c_\ell\le10fn c_\ell\), as \(f\ge1\).
+\end{proof}
+\src{New/Selmer/RowBalanced.lean}{IsRow.eventually_isBalanced}
+
+
+\subsection{How the Hecke values enter the selection theorem}
+\label{sec:value-families}
+The source constructs, for each ramified Hecke pair, an
+integral group-ring interpolation \(F\). We specify its
+role rather than identify it with an unspecified
+\(L\)-function value. Its inputs are a subset
+\(K_0\subseteq\{0,1\}\) and an integer \(e\ge0\), with
+\[
+ F(1)\ne0,\qquad
+ F(\vartheta)=F(1)N(Q)^e\rho(\vartheta)^{e+1}.
+\]
+At any auxiliary modulus \(Q\), \(F\) is an integral
+linear combination of values of the tame character.
+Increasing \(Q\) by \(P\) multiplies it by
+\[
+ \prod_{k\in K_0}\prod_{\epsilon=\pm1}
+          (1-\nu\vartheta(P)^\epsilon (NP)^{k-z}).
+\]
+The exponent \(e\) is \(0\) away from the endpoint;
+at the endpoint it is \(1\), because a theta period
+is multiplied by its conjugate. The construction
+and its normalization at that endpoint are still
+a geometric interpolation obligation.
+
+Once such \(F\) is given, all its passage into the
+global selection theorem is elementary.
+Convert the finite tame characters to Galois
+characters by reciprocity and the fixed isomorphism
+\(\C\simeq\overline\Q_\ell\).
+The group-ring expansion gives the integral
+polynomials required in (ii) above.
+The Euler-factor relation gives (iii): there
+are at most four displayed factors, and the
+bound \(8d\) allows the two signs and both
+normalizations. All the local character values
+are units, so the valuation of the product
+is the sum of their valuations.
+
+For a chosen tame generator at \(w\mid g\),
+the characters in these factors have values
+\(\zeta\) with \(\zeta^{Nw-1}=1\), and the
+ramified-pair hypothesis excludes \(\zeta=1\).
+Consequently
+\[
+ v_\ell(\zeta-1)\le v_\ell(Nw-1)\le c_\ell.
+\]
+The first inequality follows by writing
+\(Nw-1=\ell^a b\), \((b,\ell)=1\).
+If \(\zeta\) has nontrivial prime-to-\(\ell\)
+part it is a unit distance from \(1\);
+otherwise the cyclotomic distance formula
+\eqref{eq:torsion-radius} gives a value at most
+\(a\). The final inequality follows from
+\(Nw-1\mid G\).
+This verifies hypothesis (iv).
+
+Finally, \(\ell\nmid N(Q)\). The interpolation
+identity therefore gives
+\[
+ v_\ell F(\vartheta)-v_\ell F(1)
+                      =(e+1)v_\ell\rho(\vartheta).
+\]
+Both \(F\)-values are integral. Hence an increase
+at most \(d\ge0\) in their (nonnegative) valuations
+implies \(v_\ell\rho(\vartheta)\le d\).
+Applying Theorem~\ref{thm:abstract-compatible-twist}
+with \(\eta=c_\ell\), and
+Proposition~\ref{prop:row-balanced} with
+\(B_i=10fn_i c_\ell\), gives the desired bounds
+\((10fn_i+1)c_\ell\) for Selmer lengths,
+\(9c_\ell\) for these ratios, and \(c_\ell\)
+for the conductor sum.
+The scalar normalization at \(\gamma_i\) is
+unchanged: the twist is unramified and thus
+trivial on this inertial element.
+It is locally trivial above \(\ell\), so the
+crystalline relations extend to the twisted
+lattice there.
+Thus the global part of Input~\ref{in:twist}
+is proved; its remaining requirement is the
+geometric construction of this integral
+interpolation, with the stated Euler factors.
+\src{New/Selmer/ValueFamilies.lean}{Data.Pair.exists_isIntegralMeasure}
+\src{New/Selmer/ValueFamilies.lean}{exists_isFamily}
+\src{New/Selmer/TwistForRows.lean}{exists_mFoldTwist_selmerLengthLe}
 
 \section{Local losses and their global budget}\label{sec:budget}
 Fix admissible data \(D\). Write \(f\) for the number of infinite places of
@@ -2134,8 +2414,10 @@ The same \(\tau\) works for all \(i,j,p,s\) in these statements.
 Theorem~\ref{thm:abstract-compatible-twist} proves the global selection
 argument, including finite coordinates, reciprocity, and the shortening
 by bounded pencils. To discharge the present input one must still verify
-the local balancing estimates and the value-family hypotheses for the
-specified automorphic rows and Hecke ratios. These source-specific
+the integral interpolation of Hecke values.
+Section~\ref{sec:balance-local} proves the local balancing calculation
+from the explicit row hypotheses, and Section~\ref{sec:value-families}
+checks the value-family conditions once that interpolation is given. These source-specific
 verifications are not consequences of polynomial avoidance.
 
 \begin{sourceinput}[denominator construction]\label{in:denominator}
@@ -2212,6 +2494,692 @@ archimedean signatures differ. It is proved in the source from rigid
 labels and comparison of trace formulas, and remains a separate
 translation obligation here.
 
+
+
+\section{The Ribet determinant and one-prime patching}
+\label{sec:ribet-algebra}
+This section constructs two operators used in the
+denominator argument. The first is an algebraic
+Ribet determinant, obtained by applying Cramer's rule
+twice. The second is the first-order deformation
+of a trace at one auxiliary prime. These constructions
+do not alone establish the numerical bound of
+Input~\ref{in:denominator}; their application also
+requires the triangular-prime and local representation
+estimates described at the end of the section.
+
+\subsection{Cramer's rule in a family of representations}
+Let \(O\) be a commutative ring, \(\Gamma\) a group,
+and \(u_x:O[\Gamma]\to M_d(O)\), \(x\in Y\),
+a family of algebra homomorphisms, with \(d\ge1\).
+Let \(L\) be a commutative \(O\)-algebra and
+\(S\subset L^Y\) a commutative \(O\)-subalgebra.
+Assume all coefficients of the characteristic
+polynomial of \(u_x(g)\), as functions of \(x\),
+belong to \(S\), for every \(g\in\Gamma\).
+
+We use the standard integral form of Amitsur's
+characteristic-polynomial identity: the characteristic
+coefficients of every element of \(S[\Gamma]\),
+and of every square block matrix over \(S[\Gamma]\),
+evaluated through the \(u_x\), belong to \(S\).
+This is an identity with integer coefficients \cite{amitsur}; it
+requires no division by factorials and remains
+valid in positive characteristic. The role of this
+background identity is precisely to put the two
+determinants and their adjugates below in the
+coefficient algebra \(S\), rather than only in
+the larger algebra \(L^Y\).
+\src{New/Selmer/RibetCramer.lean}{amitsur_charpoly_mem_matrix}
+
+For \(r\in S[\Gamma]\), write \(U(r)\) for its
+family of \(d\)-by-\(d\) matrices.
+If \(\mathfrak J\subset L^Y\) is an \(S\)-submodule,
+define its trace kernel
+\[
+ K=\{r\in S[\Gamma]:
+       \operatorname{tr}(U(r)U(g))\in\mathfrak J
+                          \text{ for every }g\in\Gamma\}.
+\]
+It is a left ideal.
+Indeed for \(b=\sum_hb_hh\), cyclicity gives
+\(\operatorname{tr}(U(br)U(g))
+ =\sum_hb_h\operatorname{tr}(U(r)U(gh))\),
+which belongs to \(\mathfrak J\).
+
+\begin{proposition}[the double-Cramer construction]
+\label{prop:double-cramer}
+Let \(R=S[\Gamma]\), let
+\(V:R^N\to R\) be left \(R\)-linear, choose \(w\in R^N\),
+and put \(a_0=V(w)\) and \(\beta=\det U(a_0)\).
+Let \(\mathfrak a\subset R\) be a left ideal.
+Suppose a square matrix \(M\in M_N(R)\) has each
+row satisfying
+\[
+ V(M_i)\in K+\mathfrak a\,a_0 .
+\]
+For every \(h\in R\) there is \(f\in S\) such that
+\(f\beta\in\mathfrak J\), and at every \(x\) for which
+\(u_x(bh)=0\) for all \(b\in\mathfrak a\),
+\[
+ f(x)=\det\bigl(u_x(M)\bigr)\,
+                     \operatorname{tr}u_x(h).
+\]
+In the determinant, \(u_x(M)\) is the flattened
+\(Nd\)-by-\(Nd\) block matrix.
+\end{proposition}
+\begin{proof}
+Write \(v_i=V(e_i)\); then \(V(z)=\sum_i z_iv_i\).
+Choose \(m_i\in\mathfrak a\) and \(k_i\in K\) with
+\(V(M_i)=m_i a_0+k_i\), so
+\[
+ Mv=m a_0+k,\qquad a_0=wv .
+\]
+Here vectors are columns except \(w\), which is a row.
+
+By the characteristic-polynomial identity, the
+flattened matrix \(U(M)\) has characteristic
+polynomial over \(S\).
+Cayley--Hamilton expresses its adjugate as a
+polynomial in \(U(M)\) with coefficients in \(S\).
+Thus there is \(W\in M_N(R)\) with
+\[
+ U(W)U(M)=D I_{Nd},\qquad D=\det U(M)\in S.
+\]
+This statement holds also for \(N=0\), with
+the empty determinant \(1\); otherwise it is the
+usual adjugate formula.
+The same argument for \(U(a_0)\) gives an element
+\(\eta\in R\) with
+\(U(a_0)U(\eta)=\beta I_d\), and \(\beta\in S\).
+
+Set \(b_0=D-wWm\in R\) and
+\(f=\operatorname{tr}U(b_0h)\in S\).
+To justify the last membership, the trace is the
+negative of the next-to-leading characteristic
+coefficient, covered by the same identity.
+Multiplication of \(Mv=m a_0+k\) by \(wW\),
+followed by evaluation through \(U\), gives
+\[
+ U(b_0a_0)=U(wWk).
+\]
+Every component of \(wWk\) is a left multiple
+of an element of \(K\). Therefore, by cyclicity,
+\[
+ \begin{split}
+ f\beta
+ &=\operatorname{tr}
+          \bigl(U(\eta h)U(b_0a_0)\bigr)\\
+ &=\operatorname{tr}U(\eta h\,wWk)
+ \ \in\ \mathfrak J .
+ \end{split}
+\]
+This uses the trace-kernel property for arbitrary
+elements of \(R\), obtained from its defining
+property on group elements by \(S\)-linearity.
+
+At a system \(x\) satisfying the asserted
+annihilation of \(\mathfrak a h\), each
+\(u_x(m_i h)=0\). Expanding \(wWm h\)
+then gives \(u_x(wWm h)=0\).
+Hence \(f(x)=D(x)\operatorname{tr}u_x(h)\),
+which is the required formula.
+All uses of the adjugate occurred after evaluation;
+no commutative determinant over the noncommutative
+ring \(R\) has been assumed.
+\end{proof}
+\src{New/Selmer/RibetCramer.lean}{exists_ribet_element_cramer}
+
+The normalizing group-algebra element has the
+particularly simple form
+\[
+ \omega=[\gamma a]-y[a]
+                 +p\sum_g\theta(g)[g],
+\]
+where \(\theta\) is finitely supported.
+Pairing it with \(u(g)-1\) gives
+\[
+ (u(\gamma a)-1)-y(u(a)-1)
+                  +p\sum_g\theta(g)(u(g)-1).
+\]
+On a row block with \(u(\gamma)=yI\), its first
+two terms equal \((y-1)I\).
+On the trivial character block all terms are zero.
+These two elementary facts explain why its determinant
+is zero on a lift while its row block can retain a
+bounded determinant valuation. They do not bound
+the first nonzero parameter coefficient without
+the additional Selmer estimates.
+
+\subsection{Transfer of a line-stabilizer character}
+Let \(k\) be a finite field of order \(q\), let
+\(m\mid q-1\), and let \(n\ge1\).
+Choose a generator \(\bar u\) of \(k^\times\) and
+the logarithm
+\(\log_{\bar u}:k^\times\to\Z/m\) taking \(\bar u\)
+to \(1\).
+For \(\Gamma=\mathrm{GL}_n(k)\), let \(H\) stabilize
+the first coordinate line.
+Define \(a:H\to\Z/m\) by
+\(a(h)=\log_{\bar u}(h_{11})\).
+This is a homomorphism, since the first column
+of \(h\) is a multiple of the first basis vector.
+
+Choose representatives \(r_i\) for \(\Gamma/H\),
+and write
+\[
+ w(g,i)=r_{gi}^{-1}gr_i\in H,\qquad
+ \operatorname{Ver}(a)(g)=\sum_i a(w(g,i)).
+\]
+Changing representatives adds
+\(-a(h_{gi})+a(h_i)\) to the summands,
+whose sum is zero. The identity
+\(w(gh,i)=w(g,hi)w(h,i)\) proves that
+\(\operatorname{Ver}(a)\) is a homomorphism.
+
+\begin{lemma}\label{lem:line-transfer}
+There is a homomorphism \(d:k^\times\to\Z/m\)
+such that \(\operatorname{Ver}(a)=d\circ\det\), and
+\[
+ n!\,d(\bar u)=n!\quad\text{in }\Z/m .
+\]
+Both \(a\) and its transfer vanish on the
+appropriate unipotent reductions of the
+pro-\(p\) Iwahori subgroup.
+\end{lemma}
+\begin{proof}
+If \(m=1\) the assertion is immediate; otherwise
+\(q>2\). Choose \(b\in k^\times\setminus\{1\}\).
+Every elementary transvection is a commutator
+in \(\mathrm{GL}_n(k)\): for \(i\ne j\),
+commuting the diagonal matrix with entry \(b\)
+at \(i\) with \(1+xE_{ij}\) gives
+\(1+(b-1)xE_{ij}\).
+Elementary transvections generate
+\(\mathrm{SL}_n(k)\), by Gaussian elimination.
+A homomorphism to an abelian group kills all
+commutators, so the transfer factors through
+the determinant. For \(n=1\) this is direct.
+
+A central element \(z\in H\) fixes every coset
+and has \(w(z,i)=z\); its transfer is therefore
+\([\Gamma:H]a(z)\).
+For \(z=\bar u I\) the left side is
+\(d(\bar u^n)=n d(\bar u)\).
+The index is the number of lines,
+\(1+q+\cdots+q^{n-1}\equiv n\pmod m\).
+Thus \(n d(\bar u)=n\); multiply by \((n-1)!\).
+Finally a unitriangular reduction has first
+diagonal entry and determinant both \(1\),
+so both logarithms vanish.
+\end{proof}
+\src{New/Patching/OnePrime.lean}{exists_line_stabilizer_log}
+
+\subsection{The first-order operator, with its formula}
+We give the abstract ring construction, allowing
+noncommuting operators at the same prime.
+Let \(\Gamma\) be finite, \(H\subset\Gamma\), and
+\(\rho:\Gamma\to R^\times\), where \(R\) is a ring.
+Let \(a:H\to\Z/m\) and \(c=\operatorname{Ver}(a)\).
+Let \(\sigma:R\to\bar R\) kill \(m\).
+For an integer-valued function \(f\) on \(\Z/m\) put
+\[
+ W_H(f)=\sum_{h\in H}f(a(h))\rho(h),\qquad
+ W_\Gamma(f)=\sum_{g\in\Gamma}f(c(g))\rho(g),\qquad
+ N_\Gamma=\sum_{g\in\Gamma}\rho(g).
+\]
+If two weights are congruent modulo \(m\), their
+weighted sums have the same image under \(\sigma\).
+This follows by writing their difference as
+\(m\) times an integer-valued function.
+
+Let \(B:(\Z/m\to\Z)\to R\) be additive and satisfy
+\[
+ B(f)\rho(h)=B(f(\,\cdot-a(h)))\quad(h\in H).
+\]
+Suppose a subring \(\mathcal A\) contains
+\(\rho(\Gamma)\) and every \(B(f)\).
+Let \(\Psi,L\in R\), and positive integers \(b,k\),
+satisfy
+\begin{equation}\label{eq:one-prime-hyp}
+ \begin{gathered}
+ \sum_{h\in H}\rho(h^{-1})\Psi\rho(h)=b\,1_R,\qquad
+ \rho(h)B(1)=B(1),\\
+ LB(1)=0,\qquad L\rho(g)=L,\qquad
+ |\Gamma|\text{ is a non-zero-divisor on }R .
+ \end{gathered}
+\end{equation}
+Choose \(\gamma\in\Gamma\) with \(k c(\gamma)=k\)
+in \(\Z/m\).
+
+\begin{theorem}[one-prime first-order patching]
+\label{thm:one-prime}
+There is an explicit \(F\in\mathcal A\) such that,
+for each \(g\), some \(Z_g\in R\) satisfies
+\[
+ \sigma\bigl(bF(\rho(g)-1)\bigr)
+       =\sigma(N_\Gamma Z_g),\qquad LZ_g=0.
+\]
+If \(t,t',r\in R\), the elements \(t,t'\)
+commute with \(\mathcal A\), and for all
+integer-valued \(f\),
+\begin{equation}\label{eq:patch-two-identities}
+ \begin{split}
+ B(\Delta_k f)t&=W_H(\Delta_k f)t',\\
+ W_\Gamma(f)t'&=(\rho(\gamma)-1)W_\Gamma(f)r,
+ \qquad \Delta_k f(x)=f(x-k)-f(x),
+ \end{split}
+\end{equation}
+then
+\[
+ 2k\,\sigma(Ft)=2k\,\sigma(N_\Gamma r).
+\]
+No division by \(2k\) is made.
+\end{theorem}
+\begin{proof}
+Use the coset representatives above, and choose
+an integer lift \(v:\Z/m\to\Z\) of the identity
+function. Define
+\[
+ T=\sum_i\rho(r_i),\qquad
+ U=\sum_i\rho(r_i^{-1}),\qquad
+ F=T B(-v) U .
+\]
+It belongs to \(\mathcal A\).
+For \(x\in\Gamma\), set
+\(w(g,x)=r_{gxH}^{-1}gx\).
+The bijection
+\((i,h)\mapsto r_i h x^{-1}\) proves the useful
+coset identity
+\begin{equation}\label{eq:coset-identity}
+ T\Bigl(\sum_{h\in H}f(h)\rho(h)\Bigr)\rho(x^{-1})
+      =\sum_{g\in\Gamma}f(w(g,x))\rho(g).
+\end{equation}
+Apply the first identity of
+\eqref{eq:one-prime-hyp}, multiplying on the
+left by \(T\) and on the right by \(B(1)\).
+The equality \(\rho(h)B(1)=B(1)\) then gives
+\begin{equation}\label{eq:trace-factorization}
+ N_\Gamma\Psi B(1)=bT B(1).
+\end{equation}
+
+Reindex the terms of \(U\rho(g)\) by the
+permutation of cosets under \(g\).
+The right-\(H\) covariance of \(B\) gives
+\[
+ F(\rho(g)-1)
+  =T\sum_i
+   B\bigl(-v(\,\cdot-a(w(g,r_i)))+v\bigr)
+                             \rho(r_i^{-1}).
+\]
+The weight in parentheses is congruent modulo
+\(m\) to the constant \(v(a(w(g,r_i)))\).
+Thus after applying \(\sigma\), multiplication
+by \(b\), and use of
+\eqref{eq:trace-factorization}, the formula becomes
+\[
+ \sigma\bigl(bF(\rho(g)-1)\bigr)
+       =\sigma(N_\Gamma Z_g),\qquad
+ Z_g=\Psi B(1)\sum_i
+       v(a(w(g,r_i)))\rho(r_i^{-1}).
+\]
+To check \(LZ_g=0\) in the original ring, multiply
+\eqref{eq:trace-factorization} by \(L\).
+Its left side is
+\(|\Gamma|L\Psi B(1)\), whereas its right side
+is zero because \(L\rho(r_i)=L\) and \(LB(1)=0\).
+Regularity of \(|\Gamma|\) implies
+\(L\Psi B(1)=0\), proving the assertion.
+
+For the final identity,
+\eqref{eq:coset-identity}, summed over \(x=r_i\),
+and the definition of transfer show
+\begin{equation}\label{eq:weighted-transfer}
+ \sigma(TW_H(v)U)=\sigma(W_\Gamma(v)).
+\end{equation}
+Indeed the coefficient of \(\rho(g)\) on the
+left is congruent to
+\(\sum_i a(w(g,r_i))=c(g)\), which is the
+coefficient on the right modulo \(m\).
+
+Choose \(f(x)=-v(x)(v(x)+k)\).
+Modulo \(m\) its difference is
+\[
+ \Delta_k f(x)=-(x-k)x+x(x+k)=2kx.
+\]
+Use the first identity of
+\eqref{eq:patch-two-identities} for this \(f\),
+multiply by \(T,U\), and use commutation with
+\(t,t'\). Weight reduction and
+\eqref{eq:weighted-transfer} give
+\[
+ -2k\,\sigma(Ft)
+            =2k\,\sigma(W_\Gamma(v)t').
+\]
+The second identity in
+\eqref{eq:patch-two-identities} changes the
+right side to
+\(\sigma((\rho(\gamma)-1)W_\Gamma(2kv)r)\).
+Left multiplication of a weighted sum by
+\(\rho(\gamma)\) translates its weight by
+\(c(\gamma)\). Its difference weight is
+congruent to \(-2k c(\gamma)=-2k\pmod m\).
+The expression is therefore
+\(-2k\,\sigma(N_\Gamma r)\).
+Negating proves the theorem.
+\end{proof}
+\src{New/Patching/OnePrime.lean}{one_prime_first_order}
+
+This formula explains both the logarithm weight
+and the factor \(2n!\) used at an auxiliary
+\(\mathrm{GL}_n\)-level. Lemma~\ref{lem:line-transfer}
+provides \(k=n!\); the quadratic weight above
+supplies the factor \(2\), including when
+\(\ell=2\). In the application, the two
+weighted identities must still be proved by
+local--global compatibility and the Hecke
+root-string condition. Replacing them by
+an assertion that the operator is integral
+would leave precisely the difficult local
+input unproved.
+
+\subsection{What remains to apply these operators}
+The trace ideal in the application contains
+\[
+ \ell^\nu\operatorname{tr}(u_x(g)),\qquad
+ \operatorname{tr}((u_x(\tau_j)-1)u_x(g))
+  -X_j\operatorname{tr}
+       ((u_x(\phi_j)-1)\epsilon_j(u_x(\phi_j))u_x(g)).
+\]
+Here \(\epsilon_j(1)=1\), and \(u_x\) is the
+normalized Galois representation attached to
+a Hecke system. The double-Cramer construction
+is applied to a module with these relations.
+Its first-order Fitting estimate needs the
+triangular bounds for even Tate classes and
+the finite bound for odd Tate classes, together
+with the crystalline defect bounds for every
+block. These have not yet been expanded here.
+
+After the one-prime operators are combined,
+the patched diagonal operator has an eigenvalue
+\(\lambda\) satisfying
+\[
+ v_\ell(G^3\lambda)\le r_O\beta_\ell .
+\]
+The \(\lambda\) in this statement is not
+asserted to equal the coefficient \(d\) of
+the Ribet polynomial. The patching construction
+multiplies its top coefficient by extra
+Hecke factors; the required assertion is the
+valuation bound and preservation of the
+integral lattice. The distinction is retained
+in the corrected reading notes of 27 November.
+\src{New/Patching/OnePrimeTie.lean}{BaseLevel.exists_diagOp_mem_ellIntegralForms}
+
+
+\section{The lattice joining the two theta factors}
+\label{sec:glued-lattice}
+The comparison forms require a lattice whose finite
+indicator splits into two block conditions.
+We construct it explicitly. This is a finite
+geometric input; the analytic theta identities
+using it remain separate.
+
+\subsection{The local matrix construction}
+Let \(O\) be a DVR with uniformizer \(\varpi\),
+and let \(R=O/\varpi^2\).
+Let \(r\le\min(N,m)\), \(a\le N\), and choose embeddings
+\(\phi:\{1,\ldots,r\}\hookrightarrow\{1,\ldots,N\}\)
+and \(z:\{1,\ldots,r\}\hookrightarrow\{1,\ldots,m\}\).
+Write \(E_\phi,E_z\) for their inclusion matrices.
+For \(s\in M_{a,N}(R)\) put
+\[
+ S=\begin{pmatrix}s\\ \varpi I_N\end{pmatrix},\qquad
+ \mathcal C=\{Y\in\mathrm{GL}_r(R):\varpi Y=\varpi I_r\}.
+\]
+Here \(\operatorname{Ann}_R(\varpi)=\varpi R\), so
+\(\mathcal C=I_r+\varpi M_r(R)\), with
+\((I+\varpi B)^{-1}=I-\varpi B\).
+The statements also apply over products of these rings.
+
+\begin{proposition}[the glued indicator]\label{prop:glue}
+There are \(C,G\in M_{N+m}(O)\) with \(CG=\varpi I\)
+and, for every \(X=\binom{X_+}{X_-}\in M_{N+m,r}(R)\),
+\begin{equation}\label{eq:glued-indicator}
+ \mathbf1_{\bar G X=\varpi\binom0{E_z}}
+ =
+ \sum_{Y\in\mathcal C}
+ \mathbf1_{\,X_-Y=E_z,\quad S X_+Y=S E_\phi}.
+\end{equation}
+There is \(K\in\mathrm{GL}_N(R)\) such that the columns
+of \(\varpi\bar G|_{R^N}K\) vanish outside any prescribed
+set of \(a\) indices. The sum in
+\eqref{eq:glued-indicator} has at most one nonzero term.
+\end{proposition}
+\begin{proof}
+Lift \(s\) to \(\widetilde s\) over \(O\).
+Smith normal form for the full-column-rank matrix
+\(\widetilde S=\binom{\widetilde s}{\varpi I_N}\)
+gives
+\[
+ \widetilde S=U_ND,\qquad U\in\mathrm{GL}_{a+N}(O),
+\]
+where \(U_N\) is its last \(N\) columns and \(D\)
+is square of size \(N\). Indeed permute the nonzero
+Smith block to the last \(N\) rows and absorb the
+right basis change into \(D\).
+Consequently \(D,\widetilde S\) have the same row
+module, and \(U_{22}D=\varpi I_N\), where \(U_{22}\)
+is the lower \(N\) rows of \(U_N\).
+
+Put \(P=E_\phi E_z^{\,t}\). Let \(\Delta,\Delta'\)
+be diagonal \(m\)-by-\(m\) matrices: on the \(z\)-indices
+their entries are \(1,\varpi\), respectively, and
+on the other indices they are \(\varpi,1\).
+Set
+\[
+ C=\begin{pmatrix}U_{22}&P\\0&\Delta\end{pmatrix},
+ \qquad
+ G=\begin{pmatrix}D&-DP\\0&\Delta'\end{pmatrix}.
+\]
+The diagonal products are \(\varpi I\), and the
+upper off-diagonal product is
+\(-U_{22}DP+P\Delta'=-\varpi P+\varpi P=0\).
+Thus \(CG=\varpi I\).
+
+The lower block of the left condition in
+\eqref{eq:glued-indicator} forces the unselected
+rows of \(X_-\) to be zero and its selected
+\(r\)-by-\(r\) submatrix \(Z=E_z^{\,t}X_-\)
+to be \(I_r\) modulo \(\varpi\).
+Thus \(X_-=E_zZ\), and \(Y=Z^{-1}\) is the unique
+element of \(\mathcal C\) with \(X_-Y=E_z\).
+For this \(Y\), the upper block, multiplied
+on the right by \(Y\), becomes
+\(D(X_+Y-E_\phi)=0\).
+Equality of the row modules of \(D,\widetilde S\)
+makes this equivalent to
+\(S(X_+Y-E_\phi)=0\). This proves both directions
+of \eqref{eq:glued-indicator} and uniqueness.
+
+Modulo \(\varpi\), the row span of \(D\) is
+that of \(s\), of dimension at most \(a\).
+Choose a column change over the residue field
+so that all columns outside the prescribed
+\(a\) indices are in its kernel. Lift that
+invertible change to \(O\); its determinant
+is a unit. The unselected columns of \(DK\)
+are divisible by \(\varpi\), so those of
+\(\varpi DK\) vanish modulo \(\varpi^2\).
+Since \(G|_{O^N}=\binom D0\), this proves
+the remaining assertion.
+\end{proof}
+\src{New/Rows/GluedFormTheta.lean}{DividedSplitting.exists_isGlued}
+
+\subsection{Realizing a unitary lattice}
+Let \(E\) be a CM field and \(\mathcal P\) a finite
+set of split finite places, disjoint from its
+conjugate. Choose an idele \(\varpi\) with a
+uniformizer at these places and component \(1\)
+elsewhere. Apply the construction separately
+at each chosen place. Write \(x^*\) for conjugate
+transpose on finite adelic matrices.
+
+\begin{lemma}[the divided inverse]\label{lem:divided-inverse}
+There is a unitary finite-adelic matrix \(\gamma\),
+supported at \(\mathcal P\cup\bar{\mathcal P}\), such
+that \(\varpi\gamma^{-1}\) is integral and reduces
+to \(\bar G\) at the chosen places.
+If an integral unitary \(j\) is \(1\) modulo
+\(\varpi^2\) there, then \(\gamma^{-1}j\gamma\)
+is integral and is \(1\) modulo their maximal ideals.
+\end{lemma}
+\begin{proof}
+Let \(c\) have component \(C\) at the chosen places
+and \(1\) elsewhere. It is invertible over the
+local fields because \(CG=\varpi I\).
+The supports of \(c,c^*\) are disjoint, so they
+commute and \(\gamma=(c^*)^{-1}c\) is unitary.
+At a chosen place \(\gamma=C\), hence
+\(\varpi\gamma^{-1}=G\).
+At its conjugate \(\varpi=1\) and
+\(\gamma^{-1}=C^*\), which is integral.
+Elsewhere all matrices are the identity.
+
+At a chosen place write \(j-1=\varpi^2 A\).
+Then
+\[
+ \gamma^{-1}(j-1)\gamma
+   =\varpi^{-1}G(\varpi^2 A)C=\varpi GAC .
+\]
+This is integral and zero modulo \(\varpi\).
+At the conjugate place unitarity of \(j\) makes
+\(j-1\) divisible by the conjugate uniformizer
+squared, since \(j^{-1}-1\) has that divisibility
+at the chosen place. There
+\(\gamma=(C^*)^{-1}\), so the corresponding
+expression again has one remaining uniformizer
+and integral factors.
+The inverse is integral as well, either by
+unitarity or by the same calculation for \(j^{-1}\).
+This proves the claim.
+\end{proof}
+\src{New/Rows/GluedFormTheta.lean}{DividedLattice.exists_reducedInverse_eq}
+\src{New/Rows/GluedFormTheta.lean}{DividedLattice.reduceAt_conj_eq_one}
+
+In the application \(V_j=V''\oplus V^\circ\),
+the selected \(r\) coordinates belong to the
+\(V^\circ\) block. Thus the inclusion in
+\eqref{eq:glued-indicator} is \(\binom0{E_z}\).
+The column assertion places all divided directions
+in the prescribed \(3m\) coordinates.
+
+\subsection{The two bounds for class sums}
+At fixed level a definite unitary form has
+finitely many classes. Its class sum is
+\[
+ \operatorname{clsum}(v)=
+       \sum_\xi\frac{v_\xi}{|\operatorname{Aut}(\xi)|},
+\]
+with the equivariant interpretation in its weight
+space. The stabilizer denominators can be dropped
+only after the level is proved free.
+
+\begin{lemma}\label{lem:class-sum-two-bounds}
+Suppose every automorphism order divides \(A_0\).
+If every \(cv_\xi\) belongs to a nonarchimedean
+unit ball stable under addition, then
+\(A_0c\,\operatorname{clsum}(v)\) belongs to it.
+If \(\|\sigma(v_\xi)\|\le B\) in the transformed
+Hermitian weight norm, then
+\[
+ \|\sigma(\operatorname{clsum}(v))\|
+                     \le(\#\{\xi\}) B .
+\]
+\end{lemma}
+\begin{proof}
+For the first assertion
+\(A_0/|\operatorname{Aut}(\xi)|\) is an integer,
+so each term and their finite sum lie in the
+unit ball. For the second use the triangle
+inequality and
+\(1/|\operatorname{Aut}(\xi)|\le1\).
+The automorphism fixes these rational coefficients.
+\end{proof}
+\src{Lib/Adelic/Hecke/ClassSumBounds.lean}{weylGauge_classSum_le_one}
+\src{Lib/Adelic/Hecke/ClassSumBounds.lean}{sqrt_weylNormSq_classSum_le}
+
+\subsection{Assembling the comparison map}
+We spell out the final linear algebra after the
+theta identities. Let \(H\) be the good-form
+space, \(T\) the table space,
+\(U_\vartheta:H\to V_\vartheta\) the adjoint theta
+lift, and \(C_\vartheta:T\to V_\vartheta\)
+the constructed comparison maps.
+Suppose
+\begin{equation}\label{eq:comparison-functional}
+ \langle F,U_\vartheta^*C_\vartheta\zeta\rangle
+       =b_\vartheta\Lambda(F,\zeta),
+                   \qquad b_\vartheta\ne0 ,
+\end{equation}
+with \(\Lambda\) independent of \(\vartheta\),
+conjugate-linear in \(F\), linear in \(\zeta\),
+and separating \(H\).
+Let \(K_\vartheta\) be the tested obstruction
+space, and suppose
+\(\Lambda(F,C_\vartheta^*\Xi)=0\) for all
+\(F\in H,\Xi\in K_\vartheta\).
+
+\begin{proposition}\label{prop:comparison-assembly}
+Put \(A=U_1^*C_1\) and
+\(\gamma_\vartheta=b_\vartheta/b_1\).
+Then \(A:T\to H\) is surjective,
+\(U_\vartheta^*C_\vartheta=\gamma_\vartheta A\),
+and \(C_\vartheta A^*H\perp K_\vartheta\).
+\end{proposition}
+\begin{proof}
+Test the asserted operator identity against all
+\(F\) and use \eqref{eq:comparison-functional}.
+If \(F\perp\im A\), this same equation at \(1\)
+gives \(b_1\Lambda(F,\zeta)=0\) for every \(\zeta\);
+separation forces \(F=0\). Finite dimension gives
+\(\im A=H\).
+Finally the hypothesis at \(\Xi\) and the
+equation at \(1\) give \(AC_\vartheta^*\Xi=0\).
+Adjunction gives
+\(\langle\Xi,C_\vartheta A^*F\rangle
+  =\langle AC_\vartheta^*\Xi,F\rangle=0\).
+\end{proof}
+\src{New/Rows/ComparisonForms.lean}{exists_comparison_forms}
+
+The actual finite class sum uses the point form
+at \(\operatorname{diag}(h,h')\gamma\) with the
+Cartan-product value
+\(\overline{\beta_1 y_\vartheta(h)}\cdot\zeta\);
+\(g^{\mathrm{loss}}\) clears its Cartan denominators.
+The glued indicator is the finite-data identity
+splitting its kernel into the two factors.
+Equation~\eqref{eq:comparison-functional} still
+requires the global product-kernel and period
+identities, including convergence.
+Separation requires the filling theorem; the
+condition on \(K_\vartheta\) requires the
+vanishing-descent theorem. Those statements
+are not proved by the finite matrix construction.
+
+The period theorem uses data that are vacuum
+\emph{at} its stated set \(T\) and its conjugate.
+The vanishing-descent theorem has distinct
+hypotheses: a split \(w\), \(\bar w\in T\), an
+unramified character at \(\bar w\), a spherical
+condition at \(w\), and its rank gap after the
+character change by \(\upsilon^p\).
+Vacuum at \(T\) and vacuum outside \(T\) are
+different conditions. Input~\ref{in:comparison}
+remains open until these conditions and the
+theta identities are verified for the same
+windows and ranks.
 
 \section{Heights and the product formula}\label{sec:heights}
 Let
@@ -2866,16 +3834,22 @@ arithmetic and geometry.
 
 Sections~\ref{sec:global-selmer}--\ref{sec:pencil-twist} prove the
 global Selmer construction under explicit balanced-row and value-family
-hypotheses. Input~\ref{in:twist} still requires their local verification
-for the automorphic rows and the Hecke values. The odd Tate-class estimate must be written with its
+hypotheses, and Section~\ref{sec:balance-local} proves the local row budget.
+The integral Hecke-value interpolation in Section~\ref{sec:value-families}
+remains to be constructed geometrically. The odd Tate-class estimate must be written with its
 precise local conditions and its treatment of small primes.
-The denominator section must then construct the triangular auxiliary
-prime system, the trace ideal, the Ribet element with its explicit
-valuation, and the integral patching operator of
-Input~\ref{in:denominator}.
+The denominator section now gives the full double-Cramer operator and
+the first-order operator at one prime. Its application still requires
+the triangular auxiliary prime system, the first-order block Fitting
+bound, the odd-class and crystalline defect bounds, and the Hecke
+root-string identities and multi-prime patching. These are needed for
+the numerical denominator bound in Input~\ref{in:denominator}.
 
-The geometric section must construct the comparison forms, their
-Fock-dual tables and integral gauges, the Hecke-value height estimate,
+The geometric section now constructs the glued lattice and proves its
+indicator identity, divided inverse and class-sum bounds. It must still
+construct the comparison forms and prove their product-kernel,
+period and vanishing identities, with the Fock-dual tables and integral
+gauges, the Hecke-value height estimate,
 the chain scalar, and the crude integral rows. It must prove the
 archimedean estimates at the same data, including the tested projection
 contraction. Section~\ref{sec:numerics} has discharged the budget and
@@ -2902,6 +3876,10 @@ working draft, commit \texttt{82252d4e71d9f4db30a38e370dba78283ab3a921},
 \href{https://github.com/nasqret/riemann-rev/tree/82252d4e71d9f4db30a38e370dba78283ab3a921/writeup}{source and individual notes}.
 The notes were prepared with AI readers and writers and are not a
 human-refereed exposition.
+\bibitem{amitsur}
+S. A. Amitsur, \emph{On the characteristic polynomial of a sum of matrices},
+Linear and Multilinear Algebra \textbf{8} (1979/80), 177--182,
+\href{https://doi.org/10.1080/03081088008817315}{doi:10.1080/03081088008817315}.
 \bibitem{smithGW}
 A. Smith, \emph{Galois cohomology and the Greenberg--Wiles formula:
 CRM minicourse}, 6 May 2026, Theorem 1.8,

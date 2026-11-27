@@ -18,9 +18,9 @@
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 33,
+  "intermediate_proofs": 41,
   "unexpanded_source_input_groups": [
-    "Local balancing and Hecke-value family verification for the automorphic rows",
+    "Integral interpolation and Euler-factor norm relations for Hecke values",
     "Ribet and patching denominator construction",
     "geometric comparison forms and Hecke-value heights",
     "chain factorization and scalar control",
@@ -323,9 +323,39 @@
       "file": "LinePointPowers.lean",
       "edition": "grh-compact/src/New/Selmer/LinePointPowers.lean",
       "translation": "global Selmer construction; standard Tate duality/GW stated and cited in place of split-prime relation coordinates"
+    },
+    {
+      "file": "New/Selmer/RibetCramer.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded intermediate argument; source application hypotheses stated"
+    },
+    {
+      "file": "New/Patching/OnePrime.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded intermediate argument; source application hypotheses stated"
+    },
+    {
+      "file": "New/Selmer/RowBalanced.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded intermediate argument; source application hypotheses stated"
+    },
+    {
+      "file": "New/Selmer/ValueFamilies.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Exact reduction; geometric interpolation remains open"
+    },
+    {
+      "file": "New/Rows/GluedFormTheta.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded intermediate argument; source application hypotheses stated"
+    },
+    {
+      "file": "Lib/Adelic/Hecke/ClassSumBounds.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded intermediate argument; source application hypotheses stated"
     }
   ],
-  "completed_arithmetic_identity": "Finite mirror estimate plus global reciprocity via the classical Greenberg-Wiles formula, bounded pencils, finite coordinates, and complete simultaneous twist selection under explicit local hypotheses",
+  "completed_arithmetic_identity": "Finite mirror estimate plus global reciprocity via the classical Greenberg-Wiles formula, bounded pencils, finite coordinates, and complete simultaneous twist selection under explicit local hypotheses; local balancing from explicit IsRow hypotheses; double Cramer and complete abstract one-prime patching formula",
   "reading_manifest_hash_checks": [
     {
       "path": "notes/fit-twists/fit-twists.tex",
@@ -368,5 +398,11 @@
     "All finite-prime rowBudget sums <= B0, conditional on stated odd-class X size bound",
     "9 times the crude-unit prime sums <= x^999",
     "The three scale comparisons in Theorem C"
+  ],
+  "completed_geometric_steps": [
+    "Glued indicator by explicit matrices C,G with CG=uniformizer",
+    "Unitary adelic realization of divided inverse and conjugation integrality",
+    "Class-sum integrality and norm bounds",
+    "Comparison-map assembly conditional on exact theta identities"
   ]
 }
