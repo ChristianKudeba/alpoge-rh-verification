@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-26",
+  "project_id": "d16ab288ed353bc5b10e292ace0ddbc1",
+  "source_file_id": "9c8cc33a546414334e2d4da3aade5210",
+  "source_path": "alpoge-rh-working-translation.tex",
+  "paper_file_id": "024f2fee3ca2bb69512a7317bcae4bed",
+  "paper_artifact_id": "a5554d2f2e4d4cb9013ba460024b2634",
+  "paper_path": "alpoge-rh-consolidated-manuscript.pdf",
+  "paper_url": "https://principia-math.com/api/ws/files/a5554d2f2e4d4cb9013ba460024b2634",
+  "source_commit": "903a8ea34996b3c01a49a318f22604fd4622149f",
+  "release_url": "https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/compact-exposition-903a8ea34996b3c01a49a318f22604fd4622149f",
+  "build_run_id": 45935040006,
+  "commit": "903a8ea34996b3c01a49a318f22604fd4622149f",
+  "pages": 26,
+  "pdf_bytes": 531412,
+  "pdf_sha256": "6dc140c822ccea6667191ee333c22315496fa151207728ad0020f2a520efd652",
+  "source_sha256": "a0237ac83403106e7973f65d903053762843f5182c6d40e586912e53c27bfedb",
+  "status": "partial exposition, not a standalone RH proof",
+  "standalone_prose_complete": false,
+  "reference_and_glyph_checks": "passed",
+  "overfull_boxes": 0,
+  "words_outside_page": [],
+  "visually_inspected_pages": "1-26",
+  "intermediate_proofs": 25,
+  "prior_edition_archive": {
+    "release": "short-route-6be17bf2cd8bf8b790193532ca4d7e4616ba5b45",
+    "pdf_name": "rh-short-route.pdf",
+    "bytes": 5412824,
+    "sha256": "d5a04f923f5c685adc616578b4744dfdf4040fba1243db659f0c14076955af9b"
+  },
+  "replacement_note": "Principia upload_file and paper PUT do not overwrite existing PDF paths. The prior PDF was archived and hash-verified, then only our old attachment was deleted and the new PDF reattached under the same filename. The LaTeX source file id and history are unchanged. The source census JSON built before publication names the prior attachment id; this publication receipt supplies the current id.",
+  "other_paper_records_unchanged": true
+}
