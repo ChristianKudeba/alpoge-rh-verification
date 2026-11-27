@@ -1,0 +1,308 @@
+{
+  "edition_date": "2026-11-26",
+  "formal_source": {
+    "repository": "lsernau/grh-lean",
+    "commit": "72fead102f663d5c7a407964a13dc0cf9d977207",
+    "directory": "grh-compact"
+  },
+  "reading_source": {
+    "repository": "nasqret/riemann-rev",
+    "commit": "abad2f1b7755ca045847f1d42f27cf88b4263fee",
+    "license": "0BSD"
+  },
+  "principia": {
+    "project": "d16ab288ed353bc5b10e292ace0ddbc1",
+    "source_file_id": "9c8cc33a546414334e2d4da3aade5210",
+    "paper_file_id": "9d7ce36f0d34693480abddcac13f7b78",
+    "paper_path": "alpoge-rh-consolidated-manuscript.pdf"
+  },
+  "status": "partial exposition",
+  "standalone_prose_complete": false,
+  "intermediate_proofs": 20,
+  "unexpanded_source_input_groups": [
+    "short compatible twisted Selmer groups",
+    "Ribet and patching denominator construction",
+    "geometric comparison forms and Hecke-value heights",
+    "chain factorization and scalar control",
+    "crude integral completion rows"
+  ],
+  "additional_obligations": [
+    "odd Tate-class estimate",
+    "full admissible-data definitions and scale comparisons",
+    "A and B",
+    "weighted-prime inequality",
+    "good-window analytic conclusion"
+  ],
+  "source_files": [
+    {
+      "file": "RootsOfUnityPoints.lean",
+      "blob_sha": "7c07be15e6c410124a9bc5ecb470e7750ac67074",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "exists_root_of_unity_eval_large"
+        },
+        {
+          "line": 72,
+          "name": "exists_roots_of_unity_ellVal_le"
+        }
+      ]
+    },
+    {
+      "file": "DeterminantBound.lean",
+      "blob_sha": "686d1d98ab6ce7bb70ff4f087d2a10cbae8b85df",
+      "declarations": [
+        {
+          "line": 34,
+          "name": "coeffEmb"
+        },
+        {
+          "line": 39,
+          "name": "ZfAt"
+        },
+        {
+          "line": 43,
+          "name": "crysRels"
+        },
+        {
+          "line": 50,
+          "name": "obeying_crysRels"
+        },
+        {
+          "line": 56,
+          "name": "cmSign"
+        },
+        {
+          "line": 59,
+          "name": "complexEmbOf"
+        },
+        {
+          "line": 64,
+          "name": "IsRowType"
+        },
+        {
+          "line": 78,
+          "name": "loss"
+        },
+        {
+          "line": 81,
+          "name": "coeffEmb_surjective"
+        },
+        {
+          "line": 87,
+          "name": "tateTwist_smul"
+        },
+        {
+          "line": 91,
+          "name": "IsCompletionGroup.complexEmbOf_eq_iff"
+        },
+        {
+          "line": 98,
+          "name": "IsCompletionGroup.index_eq_card_range"
+        },
+        {
+          "line": 102,
+          "name": "sum_complexEmbOf_le"
+        },
+        {
+          "line": 111,
+          "name": "norm_gram_det_le_of_operators"
+        }
+      ]
+    },
+    {
+      "file": "FitTwistsExist.lean",
+      "blob_sha": "da769eba595af2f883eed9b82dbd322a521aea14",
+      "declarations": [
+        {
+          "line": 24,
+          "name": "exists_isFitFamily"
+        }
+      ]
+    },
+    {
+      "file": "DenominatorBound.lean",
+      "blob_sha": "5889d96fe1a6ad7926e0df09a7d183232f91c534",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "exists_cycChar_pow_sub_one_dvd"
+        },
+        {
+          "line": 47,
+          "name": "denominatorLe_rowBudget"
+        }
+      ]
+    },
+    {
+      "file": "Heights.lean",
+      "blob_sha": "a18a99e1f76a6e963113cae8f906ddc99814f518",
+      "declarations": [
+        {
+          "line": 21,
+          "name": "HeightLe"
+        },
+        {
+          "line": 28,
+          "name": "log_product_formula"
+        },
+        {
+          "line": 36,
+          "name": "HeightLe.mono"
+        },
+        {
+          "line": 42,
+          "name": "HeightLe.of_le"
+        },
+        {
+          "line": 47,
+          "name": "HeightLe.mul"
+        },
+        {
+          "line": 54,
+          "name": "HeightLe.prod"
+        },
+        {
+          "line": 59,
+          "name": "HeightLe.pow"
+        },
+        {
+          "line": 65,
+          "name": "HeightLe.nonneg"
+        }
+      ]
+    },
+    {
+      "file": "OneDeterminant.lean",
+      "blob_sha": "329f004f845b9e2becc896419c8594e82dfef0a6",
+      "declarations": [
+        {
+          "line": 22,
+          "name": "inner_sum_sum_eq_card_mul"
+        },
+        {
+          "line": 28,
+          "name": "card_mul_sum_det_le"
+        },
+        {
+          "line": 58,
+          "name": "dyadSum"
+        },
+        {
+          "line": 67,
+          "name": "finrank_sub_le_re_inner_dyadSum"
+        },
+        {
+          "line": 90,
+          "name": "IsSpread"
+        },
+        {
+          "line": 97,
+          "name": "exists_few_translates"
+        },
+        {
+          "line": 115,
+          "name": "exists_extend_basis_of_span_eq_top"
+        },
+        {
+          "line": 129,
+          "name": "one_determinant"
+        }
+      ]
+    },
+    {
+      "file": "LiftVolumeHeight.lean",
+      "blob_sha": "87938141d4103b485fd5a7125721798f65f973f1",
+      "declarations": [
+        {
+          "line": 26,
+          "name": "compressedGramOp"
+        },
+        {
+          "line": 31,
+          "name": "adjoint_comp_eq_conj_smul"
+        },
+        {
+          "line": 35,
+          "name": "det_compressedGramOp"
+        },
+        {
+          "line": 47,
+          "name": "norm_det_compressedGramOp_padic_le"
+        },
+        {
+          "line": 76,
+          "name": "norm_det_compressedGramOp_arch_le"
+        },
+        {
+          "line": 103,
+          "name": "heightLe_liftVolume_ratio"
+        }
+      ]
+    },
+    {
+      "file": "LongForms.lean",
+      "blob_sha": "9eff36cf003ac398fbd24361e80e95a03d0b0e05",
+      "declarations": [
+        {
+          "line": 19,
+          "name": "Data.heightLe_volume_ratio_sq"
+        },
+        {
+          "line": 39,
+          "name": "Data.heightLe_volume_rows"
+        },
+        {
+          "line": 63,
+          "name": "Data.integral_forms_long"
+        },
+        {
+          "line": 78,
+          "name": "Data.exists_family_covolumeSq_le"
+        }
+      ]
+    },
+    {
+      "file": "ComparisonForms.lean",
+      "blob_sha": "14ef893c54f5db837ea7e4f143b2b1a444b89b5a",
+      "declarations": [
+        {
+          "line": 38,
+          "name": "splittingV"
+        },
+        {
+          "line": 46,
+          "name": "classAut_rowFixingLevel_eq_bot"
+        },
+        {
+          "line": 53,
+          "name": "glueLattice"
+        },
+        {
+          "line": 59,
+          "name": "lineScale"
+        },
+        {
+          "line": 81,
+          "name": "inner_adjoint_comparisonForm"
+        },
+        {
+          "line": 116,
+          "name": "comparisonForm_mem_integralForms"
+        },
+        {
+          "line": 131,
+          "name": "normSqAt_comparisonForm_le"
+        },
+        {
+          "line": 170,
+          "name": "tableTheta_adjoint_eq_zero"
+        },
+        {
+          "line": 200,
+          "name": "exists_comparison_forms"
+        }
+      ]
+    }
+  ]
+}

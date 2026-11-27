@@ -1,0 +1,1496 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{input}[theorem]{Source input}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\N}{\mathbb N}
+\newcommand{\HH}[2]{\mathsf H_{#1}(#2)}
+\newcommand{\vnorm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ip}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\length}{\operatorname{length}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\volsq}{\operatorname{vol}^{2}}
+\newcommand{\src}[2]{\par\smallskip\begingroup\footnotesize\noindent Source: \path{#1}.\par\noindent\path{#2}.\par\endgroup}
+\title{An exposition of the compact RH and GRH development\\[4pt]
+\large Compatible twists, denominators, and the volume inequality}
+\author{A working exposition prepared for Christian Kudeba\\
+with reductions from Principia contributors}
+\date{26 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We develop a prose account of the compact formal development at commit
+\texttt{72fead102f663d5c7a407964a13dc0cf9d977207} of
+\texttt{lsernau/grh-lean}, directory \texttt{grh-compact}.
+This revision starts with the arithmetic inputs and Theorem C of its three-theorem reduction.
+It gives full proofs of the degree-independent polynomial estimate used to choose compatible
+powers of a twist, the determinant-specialization argument for finite relation modules,
+the linear algebra that converts scalar operators into a denominator bound, and the
+height and Gram-determinant calculus used at the end of Theorem C.
+The source-specific construction of short Selmer groups, the Ribet and patching operators,
+and the geometric comparison forms are explicitly identified as inputs still to be
+expanded here. Thus this revision is a partial exposition, not a standalone prose proof
+of RH. The formal development contains proofs of these inputs; an unexpanded input in
+this text does not mean a missing lemma in that development.
+\end{abstract}
+\tableofcontents
+
+\section{The edition and the argument}
+The proof under discussion is attributed to Levent Alp\"oge and Claude.
+The compact edition is due to Luke Sernau, colleagues at Anthropic, and Claude.
+We use Bartosz Naskr\k{e}cki's working reading as a guide, at commit
+\texttt{abad2f1b7755ca045847f1d42f27cf88b4263fee} of
+\texttt{nasqret/riemann-rev}. Its text is available under 0BSD.
+In particular the notes \emph{Short Selmer groups}, \emph{Fit twists}, \emph{Heights},
+\emph{Chain volume}, and \emph{Lift volume height} were compared with the corresponding
+pinned Lean files for this revision. Their reference to an input or an outline is
+not treated as a complete proof of that input. The proofs below are rewritten in one
+notation; source pointers at the end identify their formal counterparts.
+
+The compact snapshot on Principia records a compilation of its 794 modules and audits
+of its five concluding declarations against the three standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+Its receipt does not record a full Comparator pass. These are statements about the
+formal artifact and its recorded checks; they do not certify the correctness or
+completeness of the present prose.
+
+The three structural statements have the following roles. Theorem A supplies
+many short theta lifts, with a bound for the index needed to make them integral.
+Theorem B says that a logarithmically bounded number of their translates almost spans
+the row space. Theorem C bounds below the covolume of any such almost-spanning,
+small-index family. Comparing the two estimates bounds a weighted sum over non-split
+primes. A good-window argument converts the bound to a prime-error estimate, and an
+analytic nonvanishing criterion gives the five concluding statements about RH and GRH.
+
+The present revision is organized around the hard interface between A and C:
+\[
+ \text{short twisted Selmer groups}
+ \ \longrightarrow\ \text{projection denominators}
+ \ \longrightarrow\ \text{height of volume ratios}
+ \ \longrightarrow\ \text{Theorem C}.
+\]
+A compatible twist must work simultaneously for a finite set of Galois rows and
+for each of its first \(m\) powers. It is chosen separately for each prime and each
+identification of the complex numbers with an algebraic closure of a local field.
+One global complex character working at every prime is neither asserted nor needed.
+
+\paragraph{What carries over from the earlier manuscript.}
+The existing paper supplies a publication record, source history, and material for reuse.
+The analytic strategy, explanations of determinant comparisons, and much of the local
+terminology can be reused after checking their definitions. Earlier fourth-power
+windows, auxiliary constants, and conditional character estimates are not silently
+inserted into this compact route. The earlier 668-page edition remains available in the
+\href{https://github.com/ChristianKudeba/alpoge-rh-verification/releases/tag/short-route-6be17bf2cd8bf8b790193532ca4d7e4616ba5b45}{source archive}.
+Its page count measures written material, not verified coverage of the compact proof.
+
+\paragraph{Conventions.}
+All logarithms of positive real numbers are natural. For a prime \(\ell\),
+\(\overline{\Q}_\ell\) carries the absolute value \(\abs{\ell}_\ell=\ell^{-1}\);
+write \(v_\ell(z)=-\log\abs z_\ell/\log\ell\), with \(v_\ell(0)=+\infty\).
+The valuation ring of a valued field \(K\) is \(\mathcal O_K\).
+Inner products are conjugate-linear in the first variable and linear in the second.
+For a linear map \(T\) from a finite-dimensional Hermitian space put
+\(\volsq(T)=\det(T^*T)\). All products or sums over primes below a bound are finite.
+A \emph{source input} is a mathematical assertion whose proof has not yet been
+fully written in this manuscript.
+
+
+\section{A uniform estimate at roots of unity}\label{sec:torsion}
+This is the polynomial part of the compatible-twist construction.
+The order of the root of unity is chosen before the polynomials are given.
+There is no bound on their degrees.
+
+\subsection{Gauss norms}
+For a polynomial \(F(X)=\sum_i a_iX^i\) over a non-archimedean valued field and
+a real number \(0<\rho\le1\), put
+\[
+ \vnorm{F}_\rho=\max_i \abs{a_i}\rho^i,\qquad \vnorm0_\rho=0.
+\]
+This norm is non-archimedean, multiplicative, and nondecreasing as a function of
+\(\rho\). Here is a proof of the only less immediate assertion, multiplicativity.
+Choose the largest indices \(i,j\) at which the respective maxima for two nonzero
+polynomials \(F,G\) are attained. In the coefficient of \(X^{i+j}\), the summand
+\(a_i b_j\), after multiplication by \(\rho^{i+j}\), has absolute value
+\(\vnorm F_\rho\vnorm G_\rho\). Every other summand is strictly smaller:
+if its first index exceeds \(i\), its first factor is strictly smaller than the
+first maximum; otherwise its second index exceeds \(j\). The ultrametric
+inequality, with one strictly largest summand, gives equality in this coefficient.
+The reverse bound for every coefficient follows by the ultrametric inequality.
+Also, if \(\abs z\le\rho\), then \(\abs{F(z)}\le\vnorm F_\rho\).
+
+If \(\eta\) is a primitive root of unity of order \(\ell^{j+1}\), then
+\begin{equation}\label{eq:torsion-radius}
+ \abs{\eta-1}=\abs\ell^{1/(\ell^j(\ell-1))}.
+\end{equation}
+Indeed all \(\ell\)-power roots reduce to \(1\) in residue characteristic \(\ell\).
+For \(u\) prime to \(\ell\), the quotient
+\((\eta^u-1)/(\eta-1)\) reduces to \(u\), and is a unit.
+All primitive roots therefore have the same distance from \(1\).
+Their distances multiply to \(\abs{\Phi_{\ell^{j+1}}(1)}=\abs\ell\), and
+there are \(\ell^j(\ell-1)\) of them. Roots of lower order are no farther from \(1\).
+The cyclotomic identity here follows directly from
+\(\Phi_{\ell^{j+1}}(X)=\sum_{a=0}^{\ell-1}X^{a\ell^j}\).
+
+\begin{theorem}[degree-independent simultaneous evaluation]\label{thm:torsion}
+Let \(\ell\) be prime, \(0<r<1\), and \(\abs\ell<r^{\ell-1}\).
+Fix a finite set \(I\) and positive real numbers \(y_i\), \(i\in I\).
+There is \(N_0\), depending only on these data, such that for every \(N\ge N_0\)
+the following holds in every valued extension \(K\) of \(\Q_\ell\) containing
+the \(\ell^N\)-th roots of unity. If
+\(F_i\in\mathcal O_K[X]\) and \(\vnorm{F_i}_r\ge y_i\) for all \(i\), there is
+\(\zeta^{\ell^N}=1\) with
+\[
+ \abs{F_i(\zeta-1)}\ge r y_i\qquad(i\in I).
+\]
+\end{theorem}
+\begin{proof}
+The assertion is immediate when \(I\) is empty. Since integral polynomials have
+Gauss norm at most \(1\) at a radius at most \(1\), the other hypotheses are
+impossible if any \(y_i>1\). We may assume \(0<y_i\le1\).
+Put \(Y=\prod_i y_i>0\), and choose an integer \(a\ge1\) with \(r^a<\abs\ell\).
+Choose \(N_0\) so that, for every \(N\ge N_0\),
+\begin{equation}\label{eq:harmonic-threshold}
+ \frac{(\ell-1)(-\log r)}a\sum_{j=0}^{N-1}\frac1{j+1}>-\log Y .
+\end{equation}
+Such a threshold exists because the harmonic series diverges. For completeness,
+its terms with \(2^s\le j+1<2^{s+1}\) sum to at least \(1/2\);
+arbitrarily many disjoint blocks give arbitrarily large sums.
+
+Suppose a family \(F_i\) is a counterexample for \(N\ge N_0\). Write
+\[
+ \Pi=\prod_iF_i,\qquad
+ \rho_t=r^{1/\ell^t},\qquad G_t=\vnorm{\Pi}_{\rho_t}.
+\]
+Multiplicativity and monotonicity give
+\(1\ge G_t\ge\prod_i\vnorm{F_i}_r\ge Y>0\).
+
+Fix \(0\le j<N\), put \(n=\ell^{j+1}\), \(p=a(j+1)\), and
+\(P(X)=(1+X)^n-1\). Its distinct roots \(\alpha\) are the numbers \(\eta-1\)
+with \(\eta^n=1\). By \eqref{eq:torsion-radius} and the hypothesis on \(r\),
+every such root has \(\abs\alpha<\rho_j\le\rho_t\) for \(t=j,j+1\).
+For each root the assumed failure supplies an \(i\) with
+\(\abs{F_i(\alpha)}<r y_i\). Consequently, for \(t=j,j+1\),
+\begin{equation}\label{eq:product-small-at-root}
+ \abs{\Pi(\alpha)}<r y_i\prod_{k\ne i}\vnorm{F_k}_{\rho_t}
+ \le r G_t .
+\end{equation}
+
+Divide \(\Pi^p\) by the monic polynomial \(P\):
+\(\Pi^p=PS+R\), where \(\deg R<n\).
+Interpolation at the roots of \(P\) gives
+\[
+ R(X)=\sum_{P(\alpha)=0}\Pi(\alpha)^p
+               \frac{P(X)}{P'(\alpha)(X-\alpha)} .
+\]
+To verify this formula, evaluate it at each root: exactly the corresponding term
+survives, with value \(\Pi(\alpha)^p\); two polynomials of degree less than \(n\)
+with the same \(n\) values are equal. Since
+\(\abs{P'(\alpha)}=\abs{n(1+\alpha)^{n-1}}=\abs\ell^{j+1}\), we have
+\[
+ \vnorm R_{\rho_t}
+ < r^pG_t^p\abs\ell^{-(j+1)}\rho_t^{\,n-1}
+ \le \left(\frac{r^a}{\abs\ell}\right)^{j+1}G_t^p
+ <G_t^p.
+\]
+Indeed \(P/(X-\alpha)\) is a product of \(n-1\) linear factors whose roots
+have absolute value at most \(\rho_t\), hence has Gauss norm
+\(\rho_t^{n-1}\). The strict estimate for each summand remains strict for their
+finite maximum.
+
+As \(\vnorm{\Pi^p}_{\rho_t}=G_t^p\) and the remainder is strictly smaller,
+the ultrametric inequality forces
+\[
+ \vnorm S_{\rho_t}=G_t^p/\rho_t^n .
+\]
+Monotonicity of the Gauss norm of this same quotient \(S\) at the two radii gives
+\[
+ \log G_{j+1}-\log G_j
+ \ge \frac n p(\log\rho_{j+1}-\log\rho_j)
+ =\frac{(\ell-1)(-\log r)}{a(j+1)}.
+\]
+Sum over \(0\le j<N\). The left side is
+\(\log G_N-\log G_0\le-\log Y\), contradicting
+\eqref{eq:harmonic-threshold}. All choices were independent of the degrees and
+coefficients of the \(F_i\).
+\end{proof}
+\src{New/Selmer/RootsOfUnityPoints.lean}{exists_root_of_unity_eval_large}
+
+This proof makes explicit the Gauss-norm computation outlined in
+Naskr\k{e}cki's \emph{Short Selmer groups}, Lemma on one variable.
+It uses a Lagrange remainder in place of the equivalent differentiated product
+identity in the formal proof. It proves the same degree-independent estimate;
+it is not a claim that the formal file has been shortened.
+
+\subsection{Several variables and compatible powers}
+\begin{theorem}[one tuple for all powers]\label{thm:many-torsion}
+Fix a prime \(\ell\), positive integers \(a,m\), nonnegative integers \(q,L\),
+a finite set \(I\), nonnegative real numbers \(B_i\), and \(\delta>0\).
+There is \(N_0\) depending only on these data with the following property.
+Let \(N\ge N_0\), and let \(K\) be a valued extension of \(\Q_\ell\) containing
+the \(\ell^N\)-th roots of unity. Let \(S,T\) be finite sets with \(\#S\le q\).
+Suppose
+\[
+ D_t\in\mathcal O_K[X]\text{ is monic},\quad
+ \sum_{t\in T}\deg D_t\le L,
+\]
+and, for \(i\in I\), \(1\le d\le m\), suppose
+\(F_{i,d}\in\mathcal O_K[X_s:s\in S]\) and
+\(u_{i,d}\in\mathcal O_K^S\) satisfy
+\[
+ \abs{u_{i,d,s}-1}^{a}\le\abs\ell\quad(s\in S),
+ \qquad v_\ell(F_{i,d}(u_{i,d}))\le B_i .
+\]
+Then some \(\zeta\in\mathcal O_K^S\) satisfies
+\[
+ \zeta_s^{\ell^N}=1,\qquad
+ v_\ell(F_{i,d}((\zeta_s^d)_s))\le B_i+\delta,\qquad
+ v_\ell(D_t(\zeta_s))\le\delta
+\]
+for every indicated index.
+\end{theorem}
+\begin{proof}
+Choose \(0<r<1\) sufficiently close to \(1\) that
+\begin{equation}\label{eq:many-r}
+ \max(\abs\ell,\ell^{-\delta})
+       <r^{\,q+L+\ell+ma+1}<1 .
+\end{equation}
+In particular \(\abs\ell<r^{\ell-1}\), \(\abs\ell<r^{ad}\) for \(1\le d\le m\),
+and \(r^q,r^{L+1}>\ell^{-\delta}\).
+Apply Theorem~\ref{thm:torsion} in advance, for each \(0\le h\le q\), to the
+finite list of lower bounds
+\[
+ r^L,\qquad \ell^{-B_i}r^h\quad(i\in I,\ 1\le d\le m).
+\]
+Take the maximum of these finitely many thresholds for \(N_0\).
+
+We replace the coordinates of each \(u_{i,d}\) one at a time.
+After replacing the coordinates of a subset \(A\subseteq S\), require that
+the value of each \(F_{i,d}\) at the mixed tuple is at least
+\(\ell^{-B_i}r^{\#A}\) in absolute value. The assertion holds for \(A=\varnothing\).
+
+Choose \(s\notin A\). For every \(i,d\), keep the other mixed coordinates fixed
+and substitute \((1+X)^d\) for coordinate \(s\), obtaining \(H_{i,d}(X)\).
+Its Gauss norm at \(r\) is at least \(\ell^{-B_i}r^{\#A}\).
+To see this, the monic polynomial
+\[
+ ((1+X)^d-u_{i,d,s})^a
+\]
+has degree \(ad>0\), and its constant coefficient has absolute value at most
+\(\abs\ell<r^{ad}\). In an algebraic closure its constant coefficient is the
+product, up to sign, of its \(ad\) roots. Thus some root \(w\) has
+\(\abs w<r\). Evaluation at \(w\) sets the coordinate back to \(u_{i,d,s}\)
+and gives the old mixed value; the Gauss bound on evaluation proves the assertion.
+
+Add the polynomial \(H_0(X)=\prod_{t\in T}D_t(1+X)\) to this finite list.
+It is monic of degree at most \(L\), so \(\vnorm{H_0}_r\ge r^L\).
+Theorem~\ref{thm:torsion}, with \(h=\#A\), supplies a root
+\(\zeta_s^{\ell^N}=1\) such that
+\[
+ \abs{H_{i,d}(\zeta_s-1)}
+       \ge\ell^{-B_i}r^{\#A+1},
+ \qquad
+ \abs{\prod_tD_t(\zeta_s)}\ge r^{L+1}.
+\]
+Every factor \(D_t(\zeta_s)\) has absolute value at most \(1\).
+It follows that each factor has absolute value at least \(r^{L+1}>
+\ell^{-\delta}\). Keep \(\zeta_s\), and continue the induction.
+
+After at most \(q\) steps all coordinates have been replaced. Each value of
+\(F_{i,d}\) has absolute value at least
+\(\ell^{-B_i}r^{\#S}\ge\ell^{-B_i}r^q>\ell^{-(B_i+\delta)}\).
+Taking valuations proves the claims. If \(S\) is empty the assertion follows
+directly from the hypotheses.
+\end{proof}
+\src{New/Selmer/RootsOfUnityPoints.lean}{exists_roots_of_unity_ellVal_le}
+
+The formal statement permits \(a=0\) or \(m=0\) as well. We have stated the
+positive case needed for a nonempty family of compatible powers; no such
+corner case is used to obtain a stronger arithmetic conclusion.
+The threshold is uniform in the polynomials, the points, their degrees, and
+the finite sets of coordinates and monic factors subject to the displayed bounds.
+
+
+\section{Determinants, relation modules, and denominators}\label{sec:denominators}
+Two finite-dimensional arguments separate the construction of Selmer classes
+from the estimates eventually needed for volumes.
+
+\subsection{A sharp determinant in a family of relations}
+\begin{proposition}[determinant specialization]\label{prop:fitting}
+Let \(\mathcal O\) be a discrete valuation ring, let \(c\in\mathcal O\setminus\{0\}\),
+and let \(A(X)\) be an \(s\)-by-\(d\) matrix over
+\(\mathcal O[X_1,\ldots,X_q]\).
+For a homomorphism \(e:\mathcal O\to\mathcal O'\) into a discrete valuation ring
+with \(e(c)\ne0\), and \(u\in(\mathcal O')^q\), let
+\[
+ \mathcal S_{e,u}
+ =\ker\bigl(e(A)(u):(\mathcal O'/e(c))^d
+                         \longrightarrow(\mathcal O'/e(c))^s\bigr).
+\]
+Normalize the discrete valuation \(v'\) by giving a uniformizer value \(1\).
+Fix \(u_0\in\mathcal O^q\). There is a polynomial
+\(F\in\mathcal O[X_1,\ldots,X_q]\) such that
+\[
+ v(F(u_0))=\length_{\mathcal O}\mathcal S_{\mathrm{id},u_0},
+ \qquad
+ \length_{\mathcal O'}\mathcal S_{e,u}
+                  \le v'(e(F)(u))
+\]
+for every such \(e,u\), with \(v'(0)=+\infty\).
+\end{proposition}
+\begin{proof}
+Append \(cI_d\) as additional rows of \(A(X)\), and call the resulting
+\((s+d)\)-by-\(d\) matrix \(R(X)\). At any specialization into a discrete
+valuation ring, elementary row and column operations put \(A\) in Smith
+normal form, with nonzero diagonal entries of valuations
+\(a_1,\ldots,a_t\), and \(d-t\) zero directions.
+If \(h=v'(e(c))\), the kernel modulo \(e(c)\) has length
+\[
+ \sum_{i=1}^t\min(a_i,h)+(d-t)h .
+\]
+This follows coordinate by coordinate: the solutions of
+\(\pi^{a_i}x=0\) modulo \(\pi^h\) form a module of length \(\min(a_i,h)\);
+a zero direction has length \(h\).
+
+The ideal generated by the maximal minors of \(R\) has exactly that valuation.
+One way to see this is to compute its cokernel before taking minors.
+The row lattice of \(R\), after Smith operations on \(A\), is generated
+in coordinate \(i\) by \(\pi^{a_i}\) and \(\pi^h\), or by \(\pi^h\) alone
+in a zero direction. It is a full lattice of index valuation equal to the
+displayed sum. A basis matrix for a full lattice has determinant of valuation
+its index, and elementary row operations show that its determinant ideal is
+the ideal of maximal minors of any generating matrix.
+In a discrete valuation ring a finitely generated ideal has valuation equal
+to the minimum of the valuations of its generators. Thus the kernel length
+is the minimum valuation among these minors.
+
+At \(u_0\), choose a maximal minor attaining this minimum, and let \(F(X)\)
+be the determinant of those same rows of \(R(X)\).
+At every other specialization its valuation is at least the minimum there.
+This proves both claims, including the case when that particular determinant
+specializes to zero. The appended minor \(c^d\) ensures that the minimum is
+always finite.
+\end{proof}
+
+In the Selmer argument, a separate finite-coordinate theorem presents the
+cocycles and their local conditions by such relations.
+The proposition then supplies one polynomial that bounds every specialized
+length and is sharp at the selected base point. Neither this determinant
+argument nor Theorem~\ref{thm:many-torsion} proves the finite-coordinate theorem
+or supplies the base point with short Selmer group.
+\src{New/Selmer/Corepresentable.lean}{finite relation coordinates}
+\src{New/Selmer/LinePointPowers.lean}{exists_sharp_fitting_poly}
+
+\subsection{Simultaneously non-small linear forms}
+\begin{lemma}\label{lem:generic-residue}
+Let \(K=\overline{\Q}_\ell\), and let \(L_1,\ldots,L_d\) be nonzero linear
+forms on \(K^s\). There is \(z\in\mathcal O_K^s\) such that
+\[
+ \abs{L_k(z)}=\max_p\abs{\operatorname{coeff}_p L_k}\qquad(1\le k\le d).
+\]
+\end{lemma}
+\begin{proof}
+Divide each form by one of its coefficients of greatest absolute value.
+All the resulting coefficients are integral, and each form has nonzero
+reduction in the residue field. This residue field is infinite:
+it contains a copy of every finite extension of \(\F_\ell\), obtained by
+lifting an irreducible separable polynomial and taking a root in
+\(\overline{\Q}_\ell\) in the corresponding unramified extension.
+A finite union of proper linear hyperplanes cannot cover an affine space
+over an infinite field. Explicitly, on the curve
+\((1,t,\ldots,t^{s-1})\) each nonzero reduced linear form is a nonzero
+polynomial in \(t\), with finitely many roots. Choose \(t\) avoiding all
+of them, and lift its coordinates to \(\mathcal O_K\).
+Every normalized form then evaluates to a unit. Multiplying back its
+normalizing coefficient gives the assertion. The case \(s=0\) has no
+nonzero linear forms and no substantive assertion.
+\end{proof}
+
+\begin{proposition}[scalar operators control a determinant]\label{prop:operators}
+Fix \(\iota:\C\simeq\overline{\Q}_\ell\), and give complex numbers the
+transported absolute value \(\abs z_\iota=\abs{\iota(z)}_\ell\).
+Let \(Z\) be a \(d\)-dimensional complex subspace of \(V\), spanned by a set
+\(\mathcal A\). Let \(j:V\to W\) be linear, \(x_1,\ldots,x_d\in Z\),
+and \(\eta_1,\ldots,\eta_d\in V^*\). Let \(M\in\overline{\Q}_\ell\) and
+\(\gamma\in\mathbb R\).
+Suppose that for each nonzero \(p\in\mathcal A\) there is a linear map
+\(G_p:V\to W\) with the following properties:
+\begin{enumerate}[label=(\roman*)]
+\item for every \(v\in\mathcal A\) some \(\lambda\in\C\) satisfies
+      \(G_pv=\lambda jv\);
+\item every \(\lambda\) with \(G_pp=\lambda jp\) satisfies
+      \(\abs{M\,\iota(\lambda)}_\ell\ge e^{-\gamma}\);
+\item if \(w\in Z\) and \(jw=G_p x_b\), then
+      \(\abs{M\,\iota(\eta_a(w))}_\ell\le1\) for every \(a,b\).
+\end{enumerate}
+Then
+\[
+ \abs{\iota\bigl(\det(\eta_a(x_b))_{a,b}\bigr)}_\ell\le e^{d\gamma}.
+\]
+\end{proposition}
+\begin{proof}
+For \(d=0\) the determinant is \(1\), so suppose \(d>0\).
+Choose a basis \(\omega_1,\ldots,\omega_d\) from \(\mathcal A\).
+For \(G_p=G_{\omega_p}\), choose scalars
+\(\lambda_{p,k}\) with \(G_p\omega_k=\lambda_{p,k}j\omega_k\).
+By (ii),
+\(\abs{M\iota(\lambda_{k,k})}_\ell\ge e^{-\gamma}>0\).
+In particular the linear forms
+\(L_k(z)=\sum_p M\iota(\lambda_{p,k})z_p\) are nonzero.
+Lemma~\ref{lem:generic-residue} gives \(z_p\in\mathcal O_K\) with
+\[
+ \Lambda_k:=\sum_p M\iota(\lambda_{p,k})z_p,\qquad
+ \abs{\Lambda_k}_\ell\ge e^{-\gamma}\quad(1\le k\le d).
+\]
+
+Write \(x_b=\sum_k P_{bk}\omega_k\), and put
+\(w_{p,b}=\sum_k P_{bk}\lambda_{p,k}\omega_k\).
+Then \(w_{p,b}\in Z\) and \(jw_{p,b}=G_p x_b\).
+Thus the matrix
+\[
+ Q_{ab}=\sum_p z_p M\iota(\eta_a(w_{p,b}))
+\]
+has integral entries by (iii). With \(E_{ak}=\iota(\eta_a(\omega_k))\)
+we have \(Q=E\diag(\Lambda_k)\iota(P)^{\mathsf t}\).
+Taking determinants, and using the same expression without the diagonal
+matrix for \(\iota(\eta_a(x_b))\), gives
+\[
+ \det Q
+ =\iota\bigl(\det(\eta_a(x_b))\bigr)\prod_k\Lambda_k.
+\]
+The left side has absolute value at most \(1\), while the product has
+absolute value at least \(e^{-d\gamma}\). Division proves the result.
+\end{proof}
+\src{New/Selmer/DeterminantBound.lean}{norm_gram_det_le_of_operators}
+
+The scalar operators need not be the same for different basis vectors.
+The proposition combines them with integral coefficients chosen in the
+local field, rather than assuming one initially clears every denominator.
+It is valid without assuming that \(j\) is injective on all of \(V\);
+the universal quantifier in (ii) is part of its hypothesis.
+
+\subsection{The denominator statement needed for theta lifts}\label{sec:den-def}
+Let \(O\) now denote an auxiliary pair of unitary spaces, not a valuation ring,
+let \(\mathcal F(O)\) be its space of forms, and let \(e_0\) be an element
+of the group algebra at its chosen finite places. For a subspace \(Z\) write
+\(P_Z\) for its ordinary complex orthogonal projection.
+The source's tested condition for a form \(y'\), relative to \(e_0,Z^\perp\),
+means that, for every permissible split place \(w\) off the level,
+\[
+ y'\perp
+ \bigl(\im e_0\cap\ker H_w(X_w)\cap Z^\perp\bigr).
+\]
+Here \(H_w\) is the Hecke-polynomial operator with the test value \(X_w\)
+specified by the auxiliary pair. All these places, not a single convenient
+one, occur in the condition.
+
+For \(r_O\) the rank on the row side, the assertion
+\(\operatorname{Den}_\iota(O,e_0,Z;\beta)\) is the following:
+for every \(d=\dim Z\), and \(d\)-tuples \(y,y'\) of forms, if each \(y_a\)
+is integral at every embedding into \(\C_\ell\), and each \(y'_b\) is integral
+at the embedding attached to \(\iota\) and tested in the preceding sense,
+then
+\begin{equation}\label{eq:den}
+ \abs{\iota\bigl(\det(\ip{y_a}{P_Zy'_b})_{a,b}\bigr)}_\ell
+ \le \exp(d\,r_O\,\beta).
+\end{equation}
+The definition does not assert that \(P_Z\) preserves an integral lattice.
+Its permitted denominators are controlled only after pairing with these
+integral and tested vectors.
+\src{New/Selmer/FitTwists.lean}{DenominatorLe}
+
+For a twist with the source's short Selmer groups, the required value is
+\(\beta=\beta_\ell\log\ell\), with \(\beta_\ell\) defined in
+Section~\ref{sec:budget}.
+The formal argument constructs the \(G_p\) of
+Proposition~\ref{prop:operators} by Ribet's method and patching.
+It uses \(M=G^3\), where \(G\) is the order of the chosen finite group, and
+\(\gamma=r_O\beta_\ell\log\ell\).
+The proposition then proves \eqref{eq:den}; it does not construct the
+operators. That source-specific construction remains the input
+in Section~\ref{sec:fit}.
+
+
+\section{Local losses and their global budget}\label{sec:budget}
+Fix admissible data \(D\). Write \(f\) for the number of infinite places of
+its CM field \(E\), and retain the source's positive integers
+\(a,m,k,t,h_2,b_1\), the auxiliary product \(g=g_0g_1\), and scale \(b>1\).
+The normalizations are
+\[
+ \mathcal B=f a(\log b)^3,\qquad B_0=\mathcal B/(mk).
+\]
+In the source \(k=r+1-m\), \(t=5r\), \(h_2=r^8\), \(a\) is the least multiple
+of \(N_1\) above \(xb\), and \(b_1\) the least multiple of \(N_1\) above \(a/x\).
+
+Let
+\[
+ G=\prod_{w\ {\rm chosen}}\#\mathrm{GL}_{rt}(\F_w).
+\]
+There are \(f\) chosen places above each \(g_i\), all with residue field of
+cardinality \(g_i\). This integer pays for stabilizers, finite idempotents,
+and the scalar inertia elements used in the denominator argument.
+Put
+\begin{align}
+ J&=(2b_1)!\left(\prod_{\max(b_1-30h_2^3,0)<s\le b_1+30h_2^3}s\right)^{h_2^3},
+                                                     \label{eq:J}\\
+ c_\ell&=v_\ell(G)+2^{-\ell},\\
+ \lambda_\ell&=10^6\frac m k\left(b_1v_\ell(g)+v_\ell(J)\right),\\
+ \beta_\ell&=h_2^{27}\left(c_\ell+v_\ell(X)\right)+4f\lambda_\ell .
+                                                     \label{eq:beta}
+\end{align}
+The integer \(X\ge1\), independent of \(\ell\), is supplied by the odd
+Tate--Shafarevich estimate for the abelian CM field \(E\). With
+\(N=N_1d\) its cyclotomic conductor, its size bound is
+\begin{equation}\label{eq:X}
+ X\le 2^{4(N+t+3)^{27}}h_E ,
+\end{equation}
+where \(h_E\) is the class number. The source theorem controls the specified
+odd Tate-twisted cohomology modules simultaneously for every prime,
+including \(2\), every \(0\le e<t\), and every modulus \(\ell^\nu\).
+A full definition and proof of that cohomological assertion are still owed
+in this manuscript; here only its uniform positive integer and size bound
+are used.
+\src{New/Selmer/DeterminantBound.lean}{lambdaLoss; loss}
+\src{New/Selmer/AptTupleDefs.lean}{crudeUnit}
+\src{New/Selmer/RibetElement.lean}{rowBudget}
+\src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{exists_length_shaOdd_le}
+
+\begin{lemma}\label{lem:prime-log}
+For a positive integer \(A\) and any finite set \(T\) of primes,
+\[
+ \sum_{\ell\in T}v_\ell(A)\log\ell\le\log A .
+\]
+Also \(\sum_{\ell\in T}2^{-\ell}\log\ell\le2\).
+\end{lemma}
+\begin{proof}
+The full prime factorization of \(A\), after taking logarithms, gives
+\(\log A=\sum_\ell v_\ell(A)\log\ell\); every summand is nonnegative.
+For the second inequality use \(\log\ell\le\ell\) and
+\(\sum_{n\ge0}n2^{-n}=2\).
+The latter identity follows by multiplying
+\(\sum_{n\ge0}n z^n\) by \(1-z\): subtracting the shifted sum leaves
+\(\sum_{n\ge1}z^n=z/(1-z)\), hence the original sum is \(z/(1-z)^2\).
+The power series converge absolutely for \(\abs z<1\).
+\end{proof}
+
+\begin{proposition}[the prime sum is finite without choosing one twist globally]
+\label{prop:budget}
+For every finite set \(T\) of primes,
+\begin{align}
+ \sum_{\ell\in T}c_\ell\log\ell&\le\log G+2,             \label{eq:cr-sum}\\
+ \sum_{\ell\in T}\beta_\ell\log\ell
+ &\le h_2^{27}(\log G+\log X+2)
+       +4\cdot10^6f\,\frac m k(b_1\log g+\log J).       \label{eq:budget-sum}
+\end{align}
+Moreover
+\[
+ \log J\le
+ 2b_1\log(2b_1)+60h_2^6\log(b_1+30h_2^3),
+ \qquad
+ \log G\le (rt)^2 f\log g .
+\]
+\end{proposition}
+\begin{proof}
+Insert \eqref{eq:beta}, distribute the finite sum, and apply
+Lemma~\ref{lem:prime-log} separately to \(G,X,g,J\).
+This proves \eqref{eq:cr-sum} and \eqref{eq:budget-sum}, with no interchange
+of an infinite sum.
+
+There are at most \(60h_2^3\) integers in the interval of \eqref{eq:J}.
+Each is positive and at most \(b_1+30h_2^3\).
+Also \((2b_1)!\le(2b_1)^{2b_1}\). Taking logarithms proves the first bound.
+For the second, a matrix group of size \(s\) over \(\F_q\) has at most
+\(q^{s^2}\) elements, because it is a subset of all \(s\)-by-\(s\) matrices.
+Multiply over the chosen places and use
+\(\prod_w\#\F_w=g^f\).
+\end{proof}
+
+The global arithmetic bookkeeping is therefore reduced to explicit bounds
+for logarithms of positive integers. For example the following elementary
+calculation isolates the potentially large factorial term.
+
+\begin{lemma}[absorption of the local factorial loss]\label{lem:factorial-budget}
+Assume
+\[
+ b\ge4,\quad \log b\ge10^6,\quad
+ b_1\le2b,\quad 60h_2^6\le b,\quad
+ 30h_2^3\le b,\quad \log g\le22\log b,
+ \quad m^2\le4x,\quad a\ge xb .
+\]
+Then
+\[
+ 4\cdot10^6 f\,\frac m k(b_1\log g+\log J)\le \frac12 B_0 .
+\]
+\end{lemma}
+\begin{proof}
+The bounds for \(J\) in Proposition~\ref{prop:budget} give
+\[
+ b_1\log g+\log J
+ \le 44b\log b+4b\log(4b)+b\log(3b)\le54b\log b.
+\]
+Here \(\log(4b)\le2\log b\) and \(\log(3b)\le2\log b\) since \(b\ge4\).
+The ratio of the resulting bound to \(B_0=f a(\log b)^3/(mk)\) is at most
+\[
+ \frac{216\cdot10^6 m^2b}{a(\log b)^2}
+ \le \frac{864\cdot10^6}{(\log b)^2}<\frac12 .
+\]
+\end{proof}
+
+To finish the global inequality used in the source, one checks these
+coarse inequalities from admissibility and proves
+\(h_2^{27}(\log G+\log X+2)\le B_0/2\).
+Likewise \(9(\log G+2)\le x^{999}\) gives the ratio budget.
+The formal proof discharges these comparisons by its logarithmic size
+calculus. They are recorded as explicit numerical obligations here rather
+than replaced with an unspecified small error.
+\src{New/Selmer/FitTwistsExist.lean}{the two finite-prime budget bounds in exists_isFitFamily}
+
+\section{The compatible family and the denominator input}\label{sec:fit}
+For a coefficient ring \(\mathcal O\) finite over \(\Z_\ell\), write
+\[
+ \lambda_\ell(M)=\length_{\mathcal O}(M)/v_{\mathcal O}(\ell)
+\]
+for normalized length. This removes dependence on the ramification
+degree of the coefficient ring.
+
+A continuous \(1\)-cocycle for \(\rho:G_E\to\mathrm{GL}(L)\) is a function
+\(z:G_E\to L/\ell^M L\) with \(z(gh)=z(g)+\rho(g)z(h)\).
+The Selmer cocycles used here are unramified off
+\[
+ \{\text{places above }\ell\}\ \cup\
+ \{\text{chosen places above }g\}\ \cup Q\cup\bar Q,
+\]
+and obey the linear relations satisfied by crystalline cocycles at
+the places above \(\ell\). One also imposes \(z(\gamma)=0\) at a specified
+scalar element. Thus it is a module of actual cocycles with stated
+relations, not an unnamed quotient of a cohomology group.
+
+The admissible Galois rows have prescribed jumps, conjugate self-duality,
+nondegenerate trace, scalar inertia, and full matrix span on sufficiently
+large coefficient lattices. These hypotheses are essential to the
+reciprocity argument which makes the Selmer groups short.
+
+\begin{input}[one twist for finitely many rows]\label{in:twist}
+Fix \(D,\ell,\iota\), finitely many admissible rows \(R_i\) of ranks \(r_i\),
+and an integer \(M\ge0\). There is one finite-order weight-zero tame
+character \(\tau\) whose first \(m\) powers are allowed twists. For
+\(1\le j\le m\), put \(\vartheta=\tau^j\), and let \(\psi\) be the
+\(\ell\)-adic avatar of \(\vartheta^{-1}\).
+\begin{enumerate}[label=(\roman*)]
+\item Its set \(Q\) of new ramified places has prime norms, is disjoint
+from its conjugate and the prescribed bad places, and is prime to \(\ell\).
+The character comes from the norm-one torus, is trivial at the required
+places above \(\ell\), and satisfies
+\(\sum_{w\in Q}v_\ell(\psi(\sigma_w)-1)\le c_\ell\)
+for the chosen tame inertia generators.
+\item For every \(i\) there are a scalar Galois element \(\gamma_i\)
+and a scalar \(u_i\) with \(u_i-1\) a unit, \(\mathrm{cyc}(\gamma_i)=1\),
+and \(\psi R_i(\gamma_i)=u_i I\), such that, over all sufficiently
+large coefficient rings, the Selmer-cocycle module just described,
+with \(z(\gamma_i)=0\), has normalized length at most
+\((10f r_i+1)c_\ell\).
+\item For every ramified pair \(p\) of the data and each sign \(s\),
+the source's ratio \(\rho_p(\vartheta,s)\) of twisted to untwisted Hecke
+values satisfies
+\(\abs{\iota(\rho_p(\vartheta,s)^{-1})}_\ell
+ \le\exp(9c_\ell\log\ell)\).
+\end{enumerate}
+The same \(\tau\) works for all \(i,j,p,s\) in these statements.
+\end{input}
+\src{New/Selmer/TwistForRows.lean}{exists_mFoldTwist_selmerLengthLe}
+
+Theorems~\ref{thm:torsion} and \ref{thm:many-torsion}, together with
+Proposition~\ref{prop:fitting}, supply the specialization step of this
+input. Its remaining construction uses balanced rows, local reciprocity,
+and tied Frobenius--inertia conditions at auxiliary primes.
+Those arguments still require prose proofs here. Calling this input a
+consequence of polynomial avoidance alone would omit its principal
+arithmetic content.
+
+\begin{input}[denominator construction]\label{in:denominator}
+Let \(\vartheta\) satisfy the auxiliary conditions in
+Input~\ref{in:twist}(i). Let \(O\) be an auxiliary pair of ranks
+\((r_O,n_O)\), \(e_0\) its specified group-algebra element, and
+\(Z\subseteq\mathcal F(O)\). Suppose \(Z\) is spanned by vectors in \(Z\)
+with both of the following properties:
+\begin{enumerate}[label=(\roman*)]
+\item the vector lies in the projection for a tuple of apt labels for
+\((O,\vartheta)\), and that projection has image in \(\im e_0\);
+\item it lifts some Hecke data which have an admissible row for an
+auxiliary pair \(V\) of the same ranks, with
+\(\mu_O=\mu_V\vartheta\), and this row satisfies the short Selmer bound
+of Input~\ref{in:twist}(ii) at
+\(M=\lfloor r\beta_\ell\rfloor+1\).
+\end{enumerate}
+Then
+\[
+ \operatorname{Den}_\iota(O,e_0,Z;\beta_\ell\log\ell)
+\]
+holds in the sense of \eqref{eq:den}.
+\end{input}
+\src{New/Selmer/DenominatorBound.lean}{denominatorLe_rowBudget}
+
+The integer \(r\) in the truncation is the fixed rank of \(D\), not the
+dimension of \(Z\) or necessarily \(r_O\).
+A complete prose proof of Input~\ref{in:denominator} must construct the
+operators of Proposition~\ref{prop:operators}, with the valuation of
+\(G^3\) times their eigenvalue at most \(r_O\beta_\ell\).
+It must also show they clear denominators on the tested complement.
+The source uses triangular Taylor--Wiles primes, a trace ideal, a Ribet
+determinant, and an integral diagonal patching operator for this purpose.
+None of these conditions is discharged merely by attaching the name of
+the Lean declaration to this statement.
+
+\subsection{Assembly of a fit family}
+Here is the precise assembly, separated from those arithmetic inputs.
+Suppose the good Hecke eigensystems have the required admissible rows,
+and the source's transfer theorem identifies their occurrence across
+the \(m\) spaces \(W_j\). Also include the finitely many rows for the
+rank-one pairs at all indices \(j\). The eigensystem set is finite:
+commuting normal Hecke operators on a finite-dimensional space have a
+simultaneous orthogonal eigenbasis, so only finitely many joint systems
+can occur. The rank-one pair set is finite in the admissible data.
+
+For each \((\ell,\iota)\) apply Input~\ref{in:twist} to this one finite
+union of rows and to \(M=\lfloor r\beta_\ell\rfloor+1\).
+Call the resulting \(m\)-fold twist \(\theta_{\ell,\iota}\).
+There is no dependence on a later choice of an individual good eigenform.
+Apply Input~\ref{in:denominator} first to the image of the \(j\)-th
+good adjoint theta lift and then to every rank-one line at that index.
+The source's apt-label and Hecke-transfer assertions verify its two
+spanning hypotheses. This gives the denominator bound at the same
+\(\theta_{\ell,\iota}^j\) in both applications.
+
+Set \(\gamma_\ell=\beta_\ell\log\ell\).
+Once the explicit budget comparisons at the end of Section~\ref{sec:budget}
+are proved, every finite prime sum of \(\gamma_\ell\) is at most \(B_0\).
+Input~\ref{in:twist}(iii), \eqref{eq:cr-sum}, and the height calculus give
+\[
+ \HH{x^{999}}{\left(\rho_p(\theta_{\ell,\iota}^j,s)^{-1}\right)}
+\]
+for every ramified \(p,s,j\).
+Coprimality of the conductor with \(\ell\) follows from (i).
+These three assertions are exactly the fitness requirements:
+coprimality, a summable denominator bound for every good lift and
+rank-one line, and a height bound for every required ramified ratio.
+\src{New/Selmer/FitTwists.lean}{Data.IsFitFamily}
+\src{New/Selmer/FitTwistsExist.lean}{exists_isFitFamily}
+
+The transfer between the \(W_j\) is a substantive assertion: their
+archimedean signatures differ. It is proved in the source from rigid
+labels and comparison of trace formulas, and remains a separate
+translation obligation here.
+
+
+\section{Heights and the product formula}\label{sec:heights}
+Let
+\[
+ \mathcal I=\{(\ell,\iota):\ell\text{ prime},\
+                \iota:\C\xrightarrow{\sim}\overline{\Q}_\ell\}.
+\]
+These are field isomorphisms, with no continuity requirement.
+A family \(z=(z_{\ell,\iota})\) may depend on both indices.
+
+\begin{definition}\label{def:height}
+Write \(\HH h z\) if there are a complex number \(H\ne0\), a real number
+\(\alpha\), and real numbers \(e_\ell\) such that
+\begin{align*}
+ &\abs{\sigma(H)}\le e^\alpha &&(\sigma\in\Aut(\C)),\\
+ &\abs{\iota(H z_{\ell,\iota})}_\ell\le e^{e_\ell}
+                                      &&((\ell,\iota)\in\mathcal I),\\
+ &\alpha+\sum_{\substack{\ell<T\\\ell\ {\rm prime}}}e_\ell\le h
+                                      &&\text{for all sufficiently large }T.
+\end{align*}
+\end{definition}
+The letter \(H\) is one number for the whole family.
+The \(e_\ell\) need not be nonnegative, and \(h\) may be negative.
+For example, for an integer \(a\ge1\) the constant family \(1/a\) has bound
+\(\HH{\log a}{1/a}\), with witness \(H=a,\alpha=\log a,e_\ell=0\).
+The constant family \(a\) has bound \(\HH{-\log a}a\), with
+\(H=1/a,\alpha=-\log a,e_\ell=0\).
+Thus this relation is not the usual nonnegative Weil height.
+
+\begin{lemma}[height calculus]\label{lem:height-calculus}
+The relation has the following properties.
+\begin{enumerate}[label=(\roman*)]
+\item If \(\HH h z\), \(h\le h'\), and
+\(\abs{\iota(z'_{\ell,\iota})}_\ell
+ \le\abs{\iota(z_{\ell,\iota})}_\ell\) at every index, then \(\HH{h'}{z'}\).
+\item If all finite prime sums of \(e_\ell\) are at most \(h\), and
+\(\abs{\iota(z_{\ell,\iota})}_\ell\le e^{e_\ell}\), then \(\HH h z\).
+\item If \(\HH h z\) and \(\HH k w\), then \(\HH{h+k}{zw}\).
+Consequently finite products add bounds, and
+\(\HH h z\) implies \(\HH{nh}{z^n}\) for \(n\in\N\).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For (i), use the same witness and multiply the local comparison by
+\(\abs{\iota(H)}_\ell\). For (ii), use \(H=1,\alpha=0\).
+For (iii), multiply the witnesses \(H,K\), add their archimedean exponents,
+and add their prime sequences. Multiplicativity of each absolute value
+gives both local bounds. Beyond the larger of the two thresholds,
+the two finite-sum inequalities can be added. Induction gives finite
+products and powers; the empty product has witness \(1,0,(0)_\ell\).
+\end{proof}
+\src{New/Heights/Heights.lean}{HeightLe.mono; HeightLe.of_le; HeightLe.mul; HeightLe.prod; HeightLe.pow}
+
+\subsection{Why a height bound for \(1\) cannot be negative}
+We give the field-theoretic details to avoid an implicit algebraicity assumption.
+
+\begin{lemma}[extension of embeddings]\label{lem:extend}
+An embedding of a countable characteristic-zero subfield \(F\subseteq\C\)
+into \(\overline{\Q}_\ell\) extends to an isomorphism
+\(\C\simeq\overline{\Q}_\ell\).
+An embedding \(F\to\C\) likewise extends to an automorphism of \(\C\).
+\end{lemma}
+\begin{proof}
+First extend the embedding to the algebraic closure of \(F\) inside the
+target, using the usual maximal-extension argument: a partial embedding
+on an algebraic intermediate field extends across the minimal polynomial
+of any element not yet in its domain, since that polynomial has a root
+in the algebraically closed target. The algebraic closures of a countable
+field are countable.
+
+Both \(\C\) and \(\overline{\Q}_\ell\) have cardinality \(2^{\aleph_0}\).
+For the latter, \(\Q_\ell\) has this cardinality from its digit expansions,
+and adjoining algebraic elements does not change an infinite cardinality.
+The transcendence degree of either field over a countable algebraically
+closed subfield is \(2^{\aleph_0}\): for a transcendence basis of infinite
+cardinality \(\kappa\), its algebraic closure has cardinality
+\(\max(\aleph_0,\kappa)\); a finite or countable basis would give a countable
+field. Choose a bijection between the two transcendence bases.
+It extends the already given embedding to an isomorphism of their rational
+function fields. Extend once more across algebraic closures by the same
+maximal-extension argument. An algebraically closed field algebraic over
+the image is the full image, so the resulting map is onto.
+\end{proof}
+
+\begin{lemma}\label{lem:algebraic}
+If a complex number \(H\) has a uniform bound
+\(\abs{\iota(H)}_2\le B\) for all \(\iota:\C\simeq\overline{\Q}_2\),
+then \(H\) is algebraic over \(\Q\).
+\end{lemma}
+\begin{proof}
+If \(H\) were transcendental, choose a transcendental \(t\in\Q_2\) with
+\(\abs t_2>B\). Such a choice is possible: every nonempty open ball of
+\(\Q_2\) is uncountable, whereas the elements algebraic over \(\Q\) are
+countable; there are balls on which the absolute value exceeds \(B\).
+The map \(\Q(H)\to\Q(t)\), \(H\mapsto t\), is a field isomorphism.
+Extend it by Lemma~\ref{lem:extend} to an isomorphism of \(\C\) with
+\(\overline{\Q}_2\). Its value on \(H\) contradicts the bound.
+\end{proof}
+
+\begin{theorem}[product formula for a varying family]\label{thm:height-nonneg}
+If \(\HH h1\), then \(h\ge0\).
+If \(z_{\ell,\iota}w_{\ell,\iota}=1\) at every index,
+\(\HH h z\), and \(\HH k w\), then \(h+k\ge0\).
+\end{theorem}
+\begin{proof}
+Let \(H,\alpha,e_\ell\) witness the first assertion.
+The bound at \(\ell=2\) and Lemma~\ref{lem:algebraic} imply that
+\(F=\Q(H)\) is a number field. Put \(d=[F:\Q]\ge1\) and
+\(u=N_{F/\Q}(H)\in\Q^\times\).
+Its complex conjugates are obtained by restricting automorphisms of
+\(\C\), by Lemma~\ref{lem:extend}. Multiplying their archimedean bounds gives
+\(\log\abs u\le d\alpha\). For every prime \(\ell\), the product formula
+for the field norm over the \(d\) embeddings \(F\to\overline{\Q}_\ell\),
+and the same extension lemma, give
+\(\log\abs u_\ell\le d e_\ell\).
+
+Here is the rational product formula explicitly. Write \(u=A/B\) in lowest
+terms with \(A\in\Z\setminus\{0\}\), \(B\in\N_{>0}\).
+Unique factorization gives
+\[
+ \log\abs u=\sum_\ell(v_\ell(A)-v_\ell(B))\log\ell,\qquad
+ \log\abs u_\ell=(v_\ell(B)-v_\ell(A))\log\ell .
+\]
+Only primes dividing \(AB\) contribute, so for every sufficiently large \(T\)
+their sum is zero. It follows that
+\[
+ 0=\log\abs u+\sum_{\ell<T}\log\abs u_\ell
+       \le d\left(\alpha+\sum_{\ell<T}e_\ell\right)\le dh .
+\]
+Division by \(d>0\) proves \(h\ge0\).
+For the second assertion, the height calculus gives \(\HH{h+k}1\);
+apply the first.
+\end{proof}
+\src{New/Heights/Heights.lean}{HeightLe.nonneg}
+
+\section{One Gram determinant and completion to a basis}\label{sec:gram}
+\subsection{The two embeddings in an integral Gram matrix}
+For \(j:\C\to\C_\ell\) write \(\bar j=j\circ\mathrm{conj}\).
+An arbitrary automorphism of \(\C\) need not commute with complex conjugation.
+The two embeddings \(j,\bar j\) must therefore be treated separately.
+
+Let \(W\) be a \(d\)-dimensional Hermitian space, \(w=(w_1,\ldots,w_d)\)
+a basis, and \(T_\vartheta:W\to\mathcal H_\vartheta\) linear maps into
+Hermitian spaces. Choose a base index \(0\), assume \(T_0\) injective,
+and put \(z(\vartheta)=\det(T_\vartheta^*T_\vartheta)\).
+Let \(\vartheta=\theta_{\ell,\iota}\) be a chosen index for each
+\((\ell,\iota)\in\mathcal I\). For each such index and each embedding \(j\),
+let \(\mathcal L_\vartheta(j)\subseteq\mathcal H_\vartheta\) satisfy
+\begin{equation}\label{eq:pair-integral}
+ \abs{j(\ip{F}{F'})}_\ell\le1
+ \quad(F\in\mathcal L_\vartheta(\bar j),\
+       F'\in\mathcal L_\vartheta(j)).
+\end{equation}
+
+\begin{proposition}[one-determinant bound]\label{prop:one-det}
+Suppose \(c_{\ell,\iota}\ne0\), \(\nu\in\N\),
+\(\HH h{(\abs{c_{\ell,\iota}}^{-2})}\), and a real sequence \(e_\ell\)
+has every finite sum at most \(\delta\).
+Suppose, for every \((\ell,\iota)\) and \(j:\C\to\C_\ell\), there is
+a complex \(d\)-by-\(d\) matrix \(U_j\) with
+\[
+ \abs{j(\det U_j)}_\ell
+       \ge e^{-e_\ell}\abs{j(c_{\ell,\iota})}_\ell^\nu,\qquad
+ \sum_k(U_j)_{ak}T_\vartheta w_k\in\mathcal L_\vartheta(j).
+\]
+If every conjugate of
+\(\Gamma_0=\det(\ip{T_0w_a}{T_0w_b})_{a,b}\)
+has absolute value at most \(e^\alpha\), then
+\[
+ \HH{\alpha+2\delta+\nu h}
+       {\left(z(\theta_{\ell,\iota})/z(0)\right)} .
+\]
+\end{proposition}
+\begin{proof}
+Write \(\Gamma_\vartheta=\det(\ip{T_\vartheta w_a}{T_\vartheta w_b})\).
+The identity
+\(\Gamma_\vartheta=z(\vartheta)\det(\ip{w_a}{w_b})\)
+follows by writing \(w\) in an orthonormal basis and taking determinants
+of \(T_\vartheta^*T_\vartheta\).
+In particular \(\Gamma_0\ne0\) and the desired ratio is
+\(\Gamma_\vartheta/\Gamma_0\).
+
+Fix \((\ell,\iota)\), and take \(j\) to be its map into \(\C_\ell\).
+Use \(U_j\) for the second slot of the pairing and \(U_{\bar j}\) for the first.
+The mixed Gram matrix is
+\[
+ \overline{U_{\bar j}}\,
+   (\ip{T_\vartheta w_a}{T_\vartheta w_b})\,
+      U_j^{\mathsf t}.
+\]
+Its entries, and therefore its determinant, are integral at \(j\)
+by \eqref{eq:pair-integral}. Taking determinants and using the two lower
+bounds for the change-of-basis matrices gives
+\[
+ \abs{j(\Gamma_\vartheta
+                  \abs{c_{\ell,\iota}}^{2\nu})}_\ell\le e^{2e_\ell}.
+\]
+Here \(c\bar c=\abs c^2\); no commutation of \(j\) with conjugation was used.
+
+Thus \(H=\Gamma_0\), archimedean exponent \(\alpha\), and prime losses
+\(2e_\ell\) witness a bound \(\alpha+2\delta\) for
+\((\Gamma_\vartheta/\Gamma_0)\abs c^{2\nu}\).
+Multiply by the \(\nu\)-th power of the family \(\abs c^{-2}\), and
+apply Lemma~\ref{lem:height-calculus}.
+\end{proof}
+\src{New/Heights/OneDeterminant.lean}{one_determinant}
+
+\subsection{The cost of adding the missing directions}
+Here is the precise meaning of conjugate norm estimates in the next proposition.
+Realize the target of \(T_0\) in a finite coordinate space with inner product
+\(\bar x^{\mathsf t}Qy\), where \(Q\) is positive definite with rational entries.
+Put \(\tilde\sigma=\mathrm{conj}\circ\sigma\circ\mathrm{conj}\).
+For a list \(v\) let \(C_\sigma(v)\) be the Gram determinant of its
+coordinatewise image under \(\sigma\). Then
+\begin{equation}\label{eq:mixed-gram}
+ \abs{\sigma(\det\operatorname{Gram}(v))}
+ \le\sqrt{C_{\tilde\sigma}(v)\,C_\sigma(v)}.
+\end{equation}
+Indeed the matrix on the left is the mixed Gram matrix of
+\(\tilde\sigma(v)\) and \(\sigma(v)\), since
+\(\overline{\tilde\sigma(x)}=\sigma(\bar x)\) and \(Q\) is rational.
+Its determinant is the inner product of the exterior products of these
+two lists, so the ordinary Cauchy--Schwarz inequality proves the bound.
+That exterior-power identity follows by expanding both sides as the
+alternating sum over permutations. This also proves it for dependent lists.
+
+In this coordinate setting \(\vnorm v_\sigma\) means
+\(\vnorm{\sigma(v)}\), and squared covolume means \(C_\sigma\).
+The same argument applies to any specified coordinate model satisfying
+\eqref{eq:mixed-gram}; using it for the source's automorphic forms
+requires their stated class-sum and Weyl metrics.
+
+\begin{proposition}\label{prop:completion}
+Let \(y_1,\ldots,y_n\in W\) be independent, and let a set \(S\subseteq W\)
+span \(W\). Suppose the squared covolume of \(T_0y\), at every conjugate
+metric under consideration, is at most \(e^V\), and
+\(\vnorm{T_0s}_\sigma^2\le e^A\) for \(s\in S\) at each of those metrics.
+Complete \(y\) to a basis with \(\nu=d-n\) elements \(s_1,\ldots,s_\nu\) of \(S\).
+Suppose the first \(n\) vectors have integral combinations of determinant at least
+\(e^{-e_\ell}\) at each \(j\), and the added vectors become integral after
+multiplication by \(c_{\ell,\iota}\).
+Under \eqref{eq:pair-integral}, if every finite sum of \(e_\ell\) is at most
+\(\delta\) and \(\HH h{\abs c^{-2}}\), then
+\[
+ \HH{V+2\delta+(d-n)(A+h)}
+       {\left(z(\theta_{\ell,\iota})/z(0)\right)} .
+\]
+\end{proposition}
+\begin{proof}
+The images of \(S\) span \(W/\Span(y_1,\ldots,y_n)\).
+Choose a basis of the quotient from them and lift it to the indicated \(s_i\).
+This proves existence of the completion and \(\nu=d-n\).
+
+For any positive definite Hermitian form, the Gram determinant of the
+completed list is at most the Gram determinant of the initial list times
+the product of the squared norms of the added vectors.
+Indeed Gram--Schmidt identifies the determinant with the product of the
+squared orthogonal residuals; projecting onto the orthogonal complement
+of the earlier span never increases a norm.
+Apply this separately at \(\sigma\) and \(\tilde\sigma\), and then use
+\eqref{eq:mixed-gram}. Every conjugate of the completed base Gram determinant
+has absolute value at most \(e^{V+\nu A}\), as required by
+Proposition~\ref{prop:one-det}.
+
+Adjoin \(c_{\ell,\iota}I_\nu\) as a second block to the matrix for the
+first \(n\) vectors. Its determinant has local absolute value at least
+\(e^{-e_\ell}\abs{j(c_{\ell,\iota})}_\ell^\nu\).
+Apply Proposition~\ref{prop:one-det} with \(\alpha=V+\nu A\).
+\end{proof}
+
+In the application the family \(S\) comes from the source's crude integral
+rows followed by projection onto the good row space.
+Its matrices for the initial \(y\) can depend on \(\ell,j,\vartheta\).
+The sequence of losses \(e_\ell\) and its bound \(\delta\) cannot.
+This is the quantifier order of the source's \(\operatorname{IndexLe}\).
+
+
+\section{The comparison operator for one lift}\label{sec:comparison}
+We first prove the linear algebra. It explains which geometric data the
+construction of comparison forms must supply.
+
+Let \(u:U\to V\) be an injective linear map of finite-dimensional Hermitian
+spaces, \(\dim U=d\), let \(g:T\to V\) be another map, put \(L=\im u\),
+and let \(\kappa>0\). Define
+\[
+ C=\kappa P_Lgg^*|_L,\qquad
+ \Delta=\det C,\qquad \lambda=\det(u^*u).
+\]
+\begin{lemma}[compressed Gram identity]\label{lem:compressed}
+If \(A:T\to U\) is surjective and \(u^*g=\gamma A\) with \(\gamma\ne0\),
+then
+\begin{equation}\label{eq:compressed}
+ \lambda\Delta
+       =\kappa^d\abs\gamma^{2d}\det(AA^*)\ne0.
+\end{equation}
+In particular \(g^*|_L\) is injective.
+\end{lemma}
+\begin{proof}
+Taking adjoints gives \(g^*u=\bar\gamma A^*\).
+Write \(w=g^*|_L\). Its adjoint is \(P_Lg\), so \(C=\kappa w^*w\).
+Regarding \(u:U\to L\) as a bijection and taking determinants in
+\((wu)^*(wu)=u^*w^*wu\), we obtain
+\[
+ \det((g^*u)^*(g^*u))
+       =\det(u^*u)\det(w^*w).
+\]
+Multiplication by \(\kappa^d\) and substitution
+\(g^*u=\bar\gamma A^*\) give \eqref{eq:compressed}.
+Surjectivity of \(A\) makes \(A^*\) injective; thus \(AA^*\) is
+positive definite. All factors on the right are nonzero.
+If \(g^*z=0\) for \(z\in L\), then \(Cz=0\); invertibility of \(C\)
+gives \(z=0\).
+\end{proof}
+\src{New/Rows/LiftVolumeHeight.lean}{adjoint_comp_eq_conj_smul; det_compressedGramOp}
+
+\subsection{The local determinant}
+\begin{lemma}[a finite family of local coordinate functionals]\label{lem:auerbach}
+Let \(L\) be a \(d\)-dimensional complex vector space with transported
+absolute value from \(\iota:\C\simeq\overline{\Q}_\ell\).
+Let finitely many linear functionals \(l_a\) separate its points.
+One can choose \(d\) of them as the coordinates of a basis \(z_1,\ldots,z_d\)
+such that \(\abs{\iota(l_a(z_b))}_\ell\le1\) for every \(a,b\).
+\end{lemma}
+\begin{proof}
+Write the functionals as rows in any basis. The separation assumption
+says that the row rank is \(d\). Choose a nonzero \(d\)-row determinant
+of greatest transported absolute value, among the finitely many choices.
+Let \(z_b\) be the basis dual to these rows. By Cramer's rule, each
+\(l_a(z_b)\) is a determinant obtained by replacing one chosen row,
+divided by the chosen determinant. The numerator is either zero or
+one of the same minors, up to sign, so the quotient has absolute value
+at most \(1\). For \(d=0\) use the empty basis.
+\end{proof}
+
+\begin{proposition}[local comparison determinant]\label{prop:local-compressed}
+Assume \(g^*|_L\) injective and fix finitely many \(f_a\in T\) such that
+\(l_a(z)=\ip{f_a}{g^*z}\) separate \(L\).
+Suppose each \(g f_a\) is integral at every local embedding, and whenever
+\(\abs{\iota(l_a(z))}_\ell\le1\) for all \(a\), the form
+\(g g^*(\kappa z)\) is integral at \(\iota\) and tested against \(L^\perp\).
+If \(\operatorname{Den}_\iota(O,e_0,L;\beta)\) holds, then
+\[
+ \abs{\iota(\Delta)}_\ell\le\exp(d\,r_O\,\beta).
+\]
+\end{proposition}
+\begin{proof}
+Take the basis from Lemma~\ref{lem:auerbach}, with its selected coordinate
+functionals \(l_{a_1},\ldots,l_{a_d}\). The matrix of \(C\) in this basis
+has entries
+\[
+ l_{a_i}(Cz_b)
+ =\ip{g f_{a_i}}{P_Lg g^*(\kappa z_b)}.
+\]
+This follows by moving \(g^*\) across the inner product and using
+linearity in its second slot. Its first forms are integral everywhere;
+the second forms are integral and tested by the assumption and the
+bounds on all the \(l_a(z_b)\).
+Apply \eqref{eq:den}. The determinant of a matrix of \(C\) in any basis
+is \(\Delta\).
+\end{proof}
+\src{New/Rows/LiftVolumeHeight.lean}{norm_det_compressedGramOp_padic_le}
+
+For the source's comparison forms the \(f_a\) are explicit Fock-dual
+coordinate tables, moved to integral representatives of the finite
+classes. Their functionals are the hook number times the integral
+coordinate evaluations. The preceding proposition supplies the
+determinant estimate once that coordinate construction has been proved.
+It does not replace that construction with an arbitrary orthonormal
+basis: such a basis need not be integral.
+
+\subsection{The archimedean determinant at every automorphism}
+The following version keeps track of noncontinuous automorphisms.
+Suppose \(T\) has a rational positive definite coordinate pairing.
+For each \(\sigma\in\Aut(\C)\), suppose \(V\) has a specified norm
+\(\vnorm{\cdot}_\sigma\) with
+\[
+ \abs{\sigma(\ip{x}{y})}
+        \le\vnorm x_{\tilde\sigma}\vnorm y_\sigma,
+ \qquad \tilde\sigma=\mathrm{conj}\circ\sigma\circ\mathrm{conj}.
+\]
+Assume \(\kappa\) is positive rational and
+\[
+ \kappa\vnorm{g\zeta}_\sigma^2
+       \le e^A\vnorm{\sigma(\zeta)}_T^2
+ \quad(\zeta\in T,\ \sigma\in\Aut(\C)).
+\]
+Finally suppose
+\(\vnorm{P_Lg g^*z}_\sigma\le\vnorm{g g^*z}_\sigma\) for \(z\in L\).
+
+\begin{proposition}\label{prop:arch-compressed}
+Under these assumptions and injectivity of \(g^*|_L\),
+\(\abs{\sigma(\Delta)}\le e^{dA}\) for every \(\sigma\in\Aut(\C)\).
+\end{proposition}
+\begin{proof}
+It suffices to bound each conjugated eigenvalue of \(C\), since its
+determinant is their product with multiplicity.
+Let \(Cz=\alpha z\) with \(z\ne0\), and put \(\eta=g^*z\ne0\).
+In the coordinates of \(T\) set
+\[
+ \eta^\dagger
+    =\mathrm{conj}\circ\sigma^{-1}\circ\mathrm{conj}\circ\sigma(\eta).
+\]
+Then \(\tilde\sigma(\eta^\dagger)=\sigma(\eta)\), and, since the coordinate
+pairing is rational,
+\(\sigma(\ip{\eta^\dagger}{\eta})=\vnorm{\sigma(\eta)}_T^2=:S>0\).
+Pair \(Cz=\alpha z\) with \(g\eta^\dagger\).
+Adjointness gives
+\[
+ \alpha\,\ip{\eta^\dagger}{\eta}
+       =\kappa\,\ip{g\eta^\dagger}{P_Lg\eta}.
+\]
+After applying \(\sigma\) and taking absolute values, the right side is at most
+\[
+ \kappa\,\vnorm{g\eta^\dagger}_{\tilde\sigma}
+              \vnorm{P_Lg\eta}_\sigma
+ \le \kappa
+       \sqrt{\frac{e^A S}{\kappa}}
+       \sqrt{\frac{e^A S}{\kappa}}
+ =e^A S .
+\]
+Divide by \(S>0\) to get \(\abs{\sigma(\alpha)}\le e^A\).
+The determinant bound follows by multiplying over its \(d\) eigenvalues.
+\end{proof}
+\src{New/Rows/LiftVolumeHeight.lean}{norm_det_compressedGramOp_arch_le}
+
+The contraction hypothesis is a geometric assertion about the tested
+comparison forms and the Hecke kernels. Ordinary orthogonal projection
+at the identity automorphism would not imply it at arbitrary \(\sigma\).
+This is why the tested condition persists into the archimedean argument.
+
+\subsection{The single-lift height bound}
+Fix a lift index \(j\). For each twist \(\vartheta\), let
+\(u_\vartheta:U_j\to V_{\vartheta,j}\) be its injective good adjoint lift,
+and write \(\lambda_j(\vartheta)=\det(u_\vartheta^*u_\vartheta)\).
+The source proves \(\dim U_j=d\), independent of \(j\).
+
+\begin{input}[comparison forms and Hecke values]\label{in:comparison}
+For every \(j\) there are a common table space \(T\), a surjection \(A:T\to U_j\),
+maps \(g_\vartheta:T\to V_{\vartheta,j}\), nonzero scalars \(\gamma_\vartheta\),
+a positive rational hook number \(\kappa_j\), and nonzero Hecke-value products
+\(H_j(\vartheta)\), with
+\[
+ u_\vartheta^*g_\vartheta=\gamma_\vartheta A,\qquad
+ \abs{\gamma_\vartheta/\gamma_1}^2=H_j(\vartheta)/H_j(1).
+\]
+They satisfy the integral coordinate and tested hypotheses of
+Proposition~\ref{prop:local-compressed} for every permitted local embedding,
+and the conjugate norm and contraction hypotheses of
+Proposition~\ref{prop:arch-compressed}, at \(\vartheta=1\), with \(A=2rB_0\)
+there. At a fit family of twists one also has
+\[
+ \HH{10m x^{999}+k(6B_0-\mathcal U)}
+       {\left(H_j(\theta_{\ell,\iota}^j)/H_j(1)\right)^{-1}},
+\]
+where \(\mathcal U\) is the source's cost of one direction.
+\end{input}
+\src{New/Rows/ComparisonForms.lean}{exists_comparison_forms}
+\src{New/Rows/HeckeValueHeight.lean}{heightLe_inv_heckeValueProd_div}
+
+\begin{proposition}[height of one lift-volume ratio]\label{prop:one-lift}
+Assume Input~\ref{in:comparison} and a fit family \(\theta\). If
+\[
+ 3rB_0+10m x^{999}+6kB_0\le k(\log b)B_0,
+\]
+then
+\[
+ \HH{d k((\log b)B_0-\mathcal U)}
+       {\left(\lambda_j(1)/\lambda_j(\theta_{\ell,\iota}^j)\right)}.
+\]
+\end{proposition}
+\begin{proof}
+Let \(\Delta(\vartheta)\) be the compressed determinant above.
+Lemma~\ref{lem:compressed} shows it is nonzero and gives
+\[
+ \frac{\lambda_j(1)}{\lambda_j(\vartheta)}
+  =\frac{\Delta(\vartheta)}{\Delta(1)}
+       \left(\frac{H_j(\vartheta)}{H_j(1)}\right)^{-d}.
+\]
+Indeed the common factor \(\kappa_j^d\det(AA^*)\) cancels and the scalar
+ratio is \(\abs{\gamma_1/\gamma_\vartheta}^{2d}\).
+
+For the first ratio, use witness \(H=\Delta(1)\) in
+Definition~\ref{def:height}. Proposition~\ref{prop:arch-compressed} gives
+archimedean exponent \(2drB_0\). The local proposition and fitness give
+prime losses \(dr\gamma_\ell\), whose finite sums are at most \(drB_0\).
+Its height bound is therefore \(3drB_0\).
+The other factor has bound \(d(10m x^{999}+k(6B_0-\mathcal U))\)
+by Input~\ref{in:comparison} and the power rule.
+Add, and use the displayed numerical hypothesis.
+\end{proof}
+\src{New/Rows/LiftVolumeHeight.lean}{heightLe_liftVolume_ratio}
+
+\section{Theorem C: the complete final deduction}\label{sec:C}
+We now give the final deduction with all signs and powers explicit.
+Its source-specific inputs are stated separately so that completeness
+of the deduction is not confused with completeness of their translation.
+
+For the fixed data \(D\), put
+\[
+ d=\dim W,\qquad
+ M=mk\mathcal U,\qquad L=(\log b)\mathcal B.
+\]
+Here \(W\) is the good row space.
+For an \(m\)-fold twist \(\vartheta\), let
+\(\Theta_\vartheta:W\to\mathcal H_\vartheta\) be the chain of theta lifts
+at the prescribed level, and set
+\(z(\vartheta)=\det(\Theta_\vartheta^*\Theta_\vartheta)\).
+The quantities \(z(\vartheta)\) are already squared volumes.
+Their squares appearing below are fourth powers of volume factors;
+one must not remove the extra factor of \(2\) in the height calculation.
+
+\begin{input}[factorization of the chain]\label{in:factorization}
+All the maps \(\Theta_\vartheta\) are injective. There are nonzero complex
+numbers \(c(\vartheta)\) such that
+\[
+ z(\vartheta)=\abs{c(\vartheta)}^d
+                       \prod_{j=1}^m\lambda_j(\vartheta^j).
+\]
+At a fit family, the correction family has bound
+\[
+ \HH{2L}{\left(\abs{c(\theta_{\ell,\iota})/c(1)}^{-2}\right)}.
+\]
+\end{input}
+\src{New/Rows/RowVolume.lean}{Data.volume_iota_eq_prod_liftVolume}
+
+The determinant part of the factorization is elementary once its geometric
+pairing identities are proved. If a common Hecke element \(T_{\vartheta,i}\)
+acts on both spaces and the single-lift pairing is
+\(A_{i+1}\delta(\vartheta)\ip{x}{T_{\vartheta,i}y}\), its determinant is
+\((A_{i+1}\delta(\vartheta))^d\det T_{\vartheta,i}\).
+The chain pairing gives a scalar to the power \(d\) times
+\(\prod_i\det T_{\vartheta,i}\) on the row space.
+Transfer identifies those determinants across the spaces.
+Dividing the two products gives the displayed formula.
+The source must also control the scalar \(c\), using the chain
+normalization and the norm of the modulus. Those pairing identities,
+transfer, and scalar estimates remain part of this input's translation.
+
+\begin{input}[crude completion rows]\label{in:crude}
+There is a spanning set \(S\) of the row space with base norms at most
+\(\exp(2x_1^2b^2)\) in squared conjugate norm.
+For each fit family, its twisted images become integral, at the primes
+prime to the twist's conductor, after multiplication by a common
+nonzero scalar \(\gamma_{\ell,\iota}\) with
+\[
+ \HH{4m^2t x^{999}}{\left(\abs{\gamma_{\ell,\iota}}^{-2}\right)}.
+\]
+Their integral pairings satisfy \eqref{eq:pair-integral}.
+The metrics satisfy the mixed determinant comparison of
+Section~\ref{sec:gram}.
+\end{input}
+\src{New/Exchange/CrudeRows.lean}{Data.crude_rows}
+\src{New/Endgame/LongForms.lean}{Data.heightLe_volume_rows}
+
+For an independent family \(y_1,\ldots,y_n\), its index bound
+\(\operatorname{Index}(y)\le\delta\) means that a single real sequence
+\(e_\ell\) has every finite sum at most \(\delta\), and for every prime,
+every local embedding \(j\), and every twist \(\vartheta\) prime to that
+prime, there is a matrix \(U_{\ell,j,\vartheta}\), integral at \(j\), with
+\[
+ \abs{j(\det U_{\ell,j,\vartheta})}_\ell\ge e^{-e_\ell},
+ \qquad
+ \sum_k(U_{\ell,j,\vartheta})_{ak}\Theta_\vartheta y_k
+                   \text{ integral at }j.
+\]
+The sequence is chosen before the prime, embedding, and twist.
+The matrix is chosen after them.
+\src{New/Endgame/ShortAndEnough.lean}{Data.IndexLe}
+
+\begin{theorem}[Theorem C, from the displayed inputs]\label{thm:C}
+Assume that a fit family exists, Inputs~\ref{in:comparison},
+\ref{in:factorization}, and \ref{in:crude}, and the scale comparisons
+\[
+ b\le L,\qquad
+ 2x_1^2b^2+4m^2t x^{999}\le b^3/4,\qquad
+ 3rB_0+10m x^{999}+6kB_0\le k(\log b)B_0 .
+\]
+Let \(y_1,\ldots,y_n\) be independent rows with
+\[
+ n\ge(1-4/b^2)d,\qquad \operatorname{Index}(y)\le\delta,
+\]
+and suppose that the squared covolume of \(\Theta_1y\) is at most
+\(e^V\) at every conjugate metric. Then
+\begin{equation}\label{eq:C}
+ d(M-3L)\le V+2\delta .
+\end{equation}
+\end{theorem}
+\begin{proof}
+Choose a fit family \(\theta\).
+By Proposition~\ref{prop:one-lift}, the product of its \(m\)
+single-lift ratios has height at most
+\[
+ \sum_{j=1}^m d k((\log b)B_0-\mathcal U)
+       =d(L-M),
+\]
+since \(mkB_0=\mathcal B\) and \(mk\mathcal U=M\).
+Square that family and multiply by the \(d\)-th power of the correction
+family in Input~\ref{in:factorization}.
+The volume factorization and the height calculus yield
+\begin{equation}\label{eq:height-lower}
+ \HH{2d(2L-M)}
+       {\left(z(1)^2/z(\theta_{\ell,\iota})^2\right)}.
+\end{equation}
+More explicitly the single-lift product contributes \(2d(L-M)\),
+and the correction contributes \(2dL\). All denominators are nonzero
+by injectivity and the factorization.
+
+For the other direction use Proposition~\ref{prop:completion},
+Input~\ref{in:crude}, and the index matrices for \(y\). The number of
+added rows is \(\nu=d-n\le4d/b^2\). Their total cost is at most
+\[
+ \nu(2x_1^2b^2+4m^2t x^{999})\le db.
+\]
+Consequently
+\begin{equation}\label{eq:height-upper}
+ \HH{V+2\delta+db}
+       {\left(z(\theta_{\ell,\iota})/z(1)\right)}.
+\end{equation}
+Both estimates use the same fixed admissible data and the same family
+of twists, with the same integral structures and metrics.
+
+The square of the family in \eqref{eq:height-upper} times that in
+\eqref{eq:height-lower} is the constant family \(1\).
+By Theorem~\ref{thm:height-nonneg},
+\[
+ 0\le 2(V+2\delta+db)+2d(2L-M).
+\]
+Rearrangement gives
+\(d(M-2L)\le V+2\delta+db\).
+Subtract \(dL\) and use \(b\le L\):
+\[
+ d(M-3L)\le V+2\delta+d(b-L)\le V+2\delta .
+\]
+No sign assumption on \(M\) was used.
+\end{proof}
+\src{New/Endgame/LongForms.lean}{Data.integral_forms_long}
+
+In the Lean source the inputs and the numerical scale comparisons are
+theorems, so its statement of C has no additional hypotheses of this kind.
+In this prose revision they remain visible until their proofs and object
+definitions have been supplied. The source's completeness and this
+revision's partial coverage are different facts.
+
+\section{What still has to be written}\label{sec:remaining}
+The polynomial estimates and finite-dimensional deductions above are full
+proofs under their displayed hypotheses. They close several intermediate
+exposition obligations, but they do not close the source-specific
+arithmetic and geometry.
+
+The next arithmetic section must prove the balanced-row reciprocity
+inequality and the construction of bounded pencils of tied primes;
+present the finite-coordinate Selmer module uniformly under specialization;
+and combine them with Theorem~\ref{thm:many-torsion} to discharge
+Input~\ref{in:twist}. The odd Tate-class estimate must be written with its
+precise local conditions and its treatment of small primes.
+The denominator section must then construct the triangular auxiliary
+prime system, the trace ideal, the Ribet element with its explicit
+valuation, and the integral patching operator of
+Input~\ref{in:denominator}.
+
+The geometric section must construct the comparison forms, their
+Fock-dual tables and integral gauges, the Hecke-value height estimate,
+the chain scalar, and the crude integral rows. It must prove the
+archimedean estimates at the same data, including the tested projection
+contraction. Finally the elementary scale comparisons in
+Sections~\ref{sec:budget} and \ref{sec:C} must be derived from the
+admissibility inequalities.
+
+After these chapters, A and B, the weighted prime inequality, the
+good-window ending, and the five final analytic statements must be
+integrated and checked against this edition.
+Earlier manuscript chapters are material to compare, not evidence that
+these compact-edition obligations are already discharged.
+There is no defensible numerical percentage of the difficult mathematics
+translated merely from the number of pages in either edition.
+
+\begin{thebibliography}{9}
+\bibitem{compact}
+L. Alp\"oge and Claude; compact rewrite by L. Sernau and collaborators,
+\emph{Compact formal development}, commit
+\texttt{72fead102f663d5c7a407964a13dc0cf9d977207},
+\href{https://github.com/lsernau/grh-lean/tree/72fead102f663d5c7a407964a13dc0cf9d977207/grh-compact}{grh-compact source}.
+\bibitem{readback}
+B. Naskr\k{e}cki, \emph{The condensed Lean proof of RH and GRH: a reading},
+working draft, commit \texttt{abad2f1b7755ca045847f1d42f27cf88b4263fee},
+\href{https://github.com/nasqret/riemann-rev/tree/abad2f1b7755ca045847f1d42f27cf88b4263fee/writeup}{source and individual notes}.
+The notes were prepared with AI readers and writers and are not a
+human-refereed exposition.
+\bibitem{principia}
+\emph{Unpacking the proof of RH}, Principia project,
+\href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper}{paper record},
+and compact-edition compiled snapshot \texttt{sc72fead10}.
+\end{thebibliography}
+\end{document}

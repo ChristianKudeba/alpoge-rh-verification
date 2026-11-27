@@ -1,0 +1,132 @@
+name: Build the compact RH exposition
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'translation/compact-route.tex'
+      - 'translation/compact-route-sources.json'
+      - '.github/workflows/rh-compact-exposition.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: compact-exposition-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /translation/compact-route.tex
+            /translation/compact-route-sources.json
+      - name: Install TeX and render tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-luatex poppler-utils python3-pil
+      - name: Compile and validate the current edition
+        working-directory: translation
+        run: |
+          set -euo pipefail
+          export SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)"
+          latexmk -norc -lualatex -latexoption=-no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error compact-route.tex
+          if grep -Ein 'undefined references|undefined citations|Reference .* undefined|Citation .* undefined|multiply.defin(ed|ition)|Missing character:|Overfull ' compact-route.log; then
+            exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/compact-exposition/qa"
+          cp compact-route.pdf "$RUNNER_TEMP/compact-exposition/rh-compact-exposition.pdf"
+          cp compact-route.tex "$RUNNER_TEMP/compact-exposition/rh-compact-exposition.tex"
+          cp compact-route-sources.json "$RUNNER_TEMP/compact-exposition/"
+          pdftotext -layout compact-route.pdf "$RUNNER_TEMP/compact-exposition/paper.txt"
+          pdftotext -bbox compact-route.pdf "$RUNNER_TEMP/compact-exposition/qa/bounds.html"
+          pdftoppm -r 68 -scale-to 900 -png compact-route.pdf "$RUNNER_TEMP/compact-exposition/qa/page"
+      - name: Inspect page boundaries and make contact sheets
+        shell: python
+        run: |
+          import os,re,json,hashlib
+          from pathlib import Path
+          from PIL import Image,ImageDraw
+          out=Path(os.environ["RUNNER_TEMP"])/"compact-exposition"
+          bounds=(out/"qa/bounds.html").read_text()
+          escaped=[]
+          for number,(attrs,body) in enumerate(re.findall(r"<page\b([^>]*)>(.*?)</page>",bounds,re.S),1):
+              a=dict(re.findall(r'(\w+)="([^"]*)"',attrs))
+              width,height=float(a["width"]),float(a["height"])
+              for attrs,word in re.findall(r"<word\b([^>]*)>(.*?)</word>",body,re.S):
+                  b=dict(re.findall(r'(\w+)="([^"]*)"',attrs))
+                  if float(b["xMin"])<0 or float(b["yMin"])<0 or float(b["xMax"])>width or float(b["yMax"])>height:
+                      escaped.append({"page":number,"word":word})
+          assert not escaped,escaped
+          pages=sorted((out/"qa").glob("page-*.png"))
+          for start in range(0,len(pages),6):
+              sheet=Image.new("RGB",(1020,1450),"#d4d8de")
+              draw=ImageDraw.Draw(sheet)
+              for offset,path in enumerate(pages[start:start+6]):
+                  im=Image.open(path).convert("RGB")
+                  im.thumbnail((485,435))
+                  x=15+(offset%2)*505
+                  y=30+(offset//2)*475
+                  sheet.paste(im,(x+(485-im.width)//2,y))
+                  draw.text((x,y-18),str(start+offset+1),fill="black")
+              sheet.save(out/"qa"/f"contact-{start//6+1:02d}.png")
+          pdf=out/"rh-compact-exposition.pdf"
+          text=(out/"paper.txt").read_text()
+          assert "with reductions from Principia contributors" in re.sub(r"\s+"," ",text)
+          report={"commit":os.environ["GITHUB_SHA"],"pages":len(pages),"pdf_bytes":pdf.stat().st_size,
+                  "pdf_sha256":hashlib.sha256(pdf.read_bytes()).hexdigest(),
+                  "source_sha256":hashlib.sha256((out/"rh-compact-exposition.tex").read_bytes()).hexdigest(),
+                  "status":"partial compact-source exposition; source-specific inputs pending",
+                  "standalone_prose_complete":False,"reference_and_glyph_checks":"passed",
+                  "overfull_boxes":0,"words_outside_page":escaped}
+          (out/"build-report.json").write_text(json.dumps(report,indent=2)+"\n")
+          print(json.dumps(report))
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as f:
+              f.write(json.dumps(report,indent=2)+"\n")
+      - name: Preserve the PDF, source and visual checks
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: compact-exposition
+          path: |
+            ${{ runner.temp }}/compact-exposition/rh-compact-exposition.pdf
+            ${{ runner.temp }}/compact-exposition/rh-compact-exposition.tex
+            ${{ runner.temp }}/compact-exposition/compact-route-sources.json
+            ${{ runner.temp }}/compact-exposition/build-report.json
+            ${{ runner.temp }}/compact-exposition/qa/contact-*.png
+          if-no-files-found: error
+          retention-days: 30
+      - name: Return visual inspection sheets to the reader
+        shell: python
+        run: |
+          import os,base64
+          from pathlib import Path
+          for p in sorted((Path(os.environ["RUNNER_TEMP"])/"compact-exposition/qa").glob("contact-*.png")):
+              print("RH_QA_IMAGE_START "+p.name)
+              print(base64.b64encode(p.read_bytes()).decode())
+              print("RH_QA_IMAGE_END")
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: compact-exposition
+          path: paper
+      - name: Publish the pinned partial exposition
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="compact-exposition-$GITHUB_SHA"
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --latest=false \
+              --title "Compact RH exposition $GITHUB_SHA" \
+              --notes "Partial prose exposition of grh-compact at 72fead1. Intermediate proofs and Theorem C deduction; five source-specific input groups still require expansion. Not a standalone prose proof of RH. Built from $GITHUB_SHA."
+          fi
+          gh release upload "$tag" paper/rh-compact-exposition.pdf paper/rh-compact-exposition.tex paper/compact-route-sources.json paper/build-report.json paper/qa/contact-*.png --repo "$GITHUB_REPOSITORY" --clobber
