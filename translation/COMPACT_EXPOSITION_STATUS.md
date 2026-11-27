@@ -1,6 +1,6 @@
 # Compact exposition status — 27 November 2026
 
-The same Principia LaTeX record is the master: `9c8cc33a546414334e2d4da3aade5210`, path `alpoge-rh-working-translation.tex`. The PDF is `alpoge-rh-consolidated-manuscript.pdf`; read `compact-publication.json` for its current receipt. Work was kept in memory and remote services; no manuscript files were written to the user's computer.
+The same Principia LaTeX record is the master: `9c8cc33a546414334e2d4da3aade5210`, path `alpoge-rh-working-translation.tex`. The PDF is `alpoge-rh-consolidated-manuscript.pdf`: 48 pages, 689,221 bytes, SHA256 `ce0a6c73dfb6f41213880f1ef482e2bcd30482603ad3759c1db0a85752b500fc`. Its current paper id is `bc9d0c927d9447f3a10568a2747a34b3`. All 48 pages were visually inspected; references/glyphs/overfull/page bounds passed; the published PDF checksum was independently streamed and checked in memory. Read `compact-publication.json` for its receipt. Work was kept in memory and remote services; no manuscript files were written to the user's computer.
 
 Formal source: lsernau/grh-lean at 72fead102f663d5c7a407964a13dc0cf9d977207, grh-compact. Reading notes: nasqret/riemann-rev at 82252d4e71d9f4db30a38e370dba78283ab3a921.
 
