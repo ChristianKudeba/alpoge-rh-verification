@@ -47,8 +47,9 @@ It gives full proofs of the degree-independent polynomial estimate used to choos
 powers of a twist, the determinant-specialization argument for finite relation modules,
 the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate, the global reciprocity calculation, bounded pencils of tied primes,
 the simultaneous compatible-twist selection, the balanced-row local calculation,
-the double-Cramer and one-prime operator formulas, the row-block determinant bound,
-the glued-lattice indicator,
+the double-Cramer and one-prime operator formulas, the row-block determinant bound, the character-block Fitting theorem,
+the bounded Stickelberger integer and integral Fourier reconstruction,
+the finite-index crystalline duality and global defect sum, the glued-lattice indicator,
 the numerical budget comparisons, and the
 height and Gram-determinant calculus used at the end of Theorem C.
 The special-value interpolation, the complete Ribet and patching application,
@@ -3049,6 +3050,1272 @@ in the corrected reading notes of 27 November.
 \src{New/Patching/OnePrimeTie.lean}{BaseLevel.exists_diagOp_mem_ellIntegralForms}
 
 
+
+\section{Character blocks and triangular Fitting bounds}
+\label{sec:character-blocks}
+Let \(A\) be a DVR, \(v=v_A\), and let
+\(R=A[X_j:j\in J]\), where \(J\) is finite and
+linearly ordered. Write \(\mathfrak m_X=(X_j:j\in J)\).
+For a submodule \(N\subset R^s\), define
+\[
+ \operatorname{Fitt}(N)=
+ \bigl(\det B:\ B\in M_s(R),\ \text{every row of }B\text{ lies in }N\bigr).
+\]
+This is the zeroth Fitting ideal of \(R^s/N\).
+It is not the annihilator ideal; replacing one
+with the other would lose the determinant multiplicities.
+
+\subsection{Adding one relation and paying for it}
+\begin{lemma}\label{lem:fitt-one-relation}
+If \(av\in N\), for \(a\in R,\ v\in R^s\), then
+\[
+ a\operatorname{Fitt}(N+Rv)\subset\operatorname{Fitt}(N).
+\]
+For any ideal \(I\subset R\),
+\(\operatorname{Fitt}(N+IR^s)
+       \subset\operatorname{Fitt}(N)+I\).
+\end{lemma}
+\begin{proof}
+For the first assertion write each row of a
+generating determinant as \(n_i+b_iv\).
+Multilinearity expands it into the determinant
+with all rows \(n_i\), and determinants with
+one row a multiple of \(v\).
+Every term with at least two such rows is zero
+by alternation. Multiply by \(a\); in each
+one-row term put the factor \(a\) into that
+row, which now lies in \(N\).
+The term with all rows \(n_i\) already generates
+\(\operatorname{Fitt}(N)\). This proves the
+inclusion on generators and hence on the ideal.
+For the second assertion reduce modulo \(I\):
+the reductions of \(N+IR^s\) and \(N\) coincide,
+and determinant commutes with reduction.
+\end{proof}
+\src{Lib/General/Algebra/FittingDuality.lean}{fittingIdeal.mul_mem_of_smul_mem}
+\src{Lib/General/Algebra/FittingDuality.lean}{fittingIdeal.sup_smul_top_le}
+
+\begin{lemma}[triangular relations]\label{lem:fitt-triangle}
+Let \(I\subset J\), and choose \(v_j\in R^s\),
+\(a_j\in R\), for \(j\in I\). If
+\[
+ a_jv_j\in N+\sum_{\substack{i\in I\\i<j}}Rv_i ,
+\]
+then, for \(T=N+\sum_{j\in I}Rv_j\),
+\[
+ \Bigl(\prod_{j\in I}a_j\Bigr)\operatorname{Fitt}(T)
+                        \subset\operatorname{Fitt}(N).
+\]
+\end{lemma}
+\begin{proof}
+Order the elements of \(I\) increasingly.
+At the step adjoining \(v_j\), the preceding lemma
+multiplies the new Fitting ideal into the previous
+one by \(a_j\). Compose these inclusions.
+The empty product and empty sum give the case
+\(I=\varnothing\).
+\end{proof}
+\src{Lib/General/Algebra/FittingDuality.lean}{fittingIdeal.triangle}
+
+Here is the duality argument which bounds the cost
+of adjoining relations. It works over any
+commutative \(A\)-algebra \(R\), not just this
+polynomial ring. Let \(p\ne0\), let
+\(\Phi:A^n\to R^s\) be \(A\)-linear, and suppose
+\(p\Phi(A^n)\subset N\). Fix \(z:G\to A^n\).
+Define
+\[
+ \mathcal F(N)=\{g\mapsto\Psi(z_g):
+       \Psi:A^n\to A/p\text{ is \(A\)-linear and }
+                           \Psi(\Phi^{-1}N)=0\}.
+\]
+It is a finite-length \(A\)-module: its defining
+maps form a submodule of \((A/p)^n\).
+For modules of functions put
+\([Z:V]_\ell=\length_A(Z/(Z\cap V))\);
+the subscript denotes length, without normalization.
+
+\begin{lemma}[finite-quotient duality]\label{lem:finite-dual}
+For \(Q\subset A^n\) containing \(pA^n\), an element
+\(w\) belongs to \(Q\) if and only if
+\(\Psi(w)=0\) for every linear
+\(\Psi:A^n\to A/p\) killing \(Q\).
+\end{lemma}
+\begin{proof}
+Smith normal form gives
+\(A^n/Q\simeq\bigoplus_i A/\pi^{d_i}\), with
+\(d_i\le v(p)\). Each nonzero element of a
+summand is detected by the map
+\(A/\pi^{d_i}\to A/p\) obtained by multiplication
+by \(p/\pi^{d_i}\), up to its unit factor.
+Project to such a summand. This separates every
+nonzero class. The reverse implication is immediate.
+\end{proof}
+
+\begin{proposition}[the cost of imposing vanishing]
+\label{prop:fitting-cost}
+Let \(V\) be any \(A\)-submodule of the function
+space \(G\to A/p\). There are \(K\supset N\)
+and \(c\in A\setminus\{0\}\) such that
+\[
+ v(c)\le[\mathcal F(N):V]_\ell,\qquad
+ c\operatorname{Fitt}(K)\subset\operatorname{Fitt}(N),
+\]
+and
+\[
+ \bigl(\Psi\circ z\in V\Longrightarrow\Psi(w)=0
+       \text{ for every linear }\Psi:A^n\to A/p\bigr)
+                 \Longrightarrow\Phi(w)\in K .
+\]
+\end{proposition}
+\begin{proof}
+Start at \(N\), with multiplier \(1\).
+If the last assertion fails, choose such \(w\)
+with \(\Phi(w)\notin N\).
+Since \(p\Phi(w)\in N\), replace \(w\) by
+\(\pi^a w\) for the largest \(a\) for which it
+still fails. The same vanishing property holds
+for this multiple, and now
+\(\pi\Phi(w)\in N\).
+Adjoin \(R\Phi(w)\), obtaining \(N'\).
+Lemma~\ref{lem:fitt-one-relation} pays for this
+by multiplying its Fitting ideal by \(\pi\).
+
+We check that the integer
+\([\mathcal F(N):V]_\ell\) decreases strictly.
+The natural inclusion
+\[
+ \mathcal F(N')/(\mathcal F(N')\cap V)
+       \longrightarrow \mathcal F(N)/(\mathcal F(N)\cap V)
+\]
+is injective. If it were surjective, take any
+linear \(\Psi\) killing \(\Phi^{-1}N\).
+Its function could be written
+\(\Psi\circ z=\Psi'\circ z+v_0\), where \(\Psi'\)
+kills \(\Phi^{-1}N'\) and \(v_0\in V\).
+The hypothesis on \(w\), applied to \(\Psi-\Psi'\),
+gives \((\Psi-\Psi')(w)=0\); also \(\Psi'(w)=0\).
+Thus every such \(\Psi\) would kill \(w\).
+Lemma~\ref{lem:finite-dual} would imply
+\(\Phi(w)\in N\), a contradiction.
+
+After at most the initial relative length many
+steps the procedure terminates. If it took \(a\)
+steps, take \(c=\pi^a\); compose the Fitting-ideal
+inclusions at the steps. The final module \(K\)
+has the required vanishing property and all the
+stated bounds. No infinite saturation process
+has been used.
+\end{proof}
+\src{Lib/General/Algebra/FittingDuality.lean}{fittingIdeal.exists_cost_le_relLength}
+
+\subsection{The character-block theorem}
+Let \(G\) be an indexing set, with selected
+\(g_1,\ldots,g_s\in G\), and let
+\(z:G\to A^n\). Fix
+\(\tau_j^+,\tau_j^-,\phi_j^+,\phi_j^-\in G\).
+Suppose the following relations hold in \(N\):
+\begin{equation}\label{eq:character-presentation}
+ \begin{gathered}
+ p\Phi(A^n)\subset N,\qquad
+ \Phi(z_{g_i})-e_i\in N,\\
+ \Phi(z_{\tau_j^\epsilon})-
+                   X_j\Phi(z_{\phi_j^\epsilon})\in N
+                                  \quad(j\in J,\ \epsilon=\pm).
+ \end{gathered}
+\end{equation}
+Write \(Z=\mathcal F(N)\). Fix a nonzero \(C\in A\),
+a subset \(I\subset J\), and a set \(L\subset G\).
+Let \(Z_L=\{b\in Z:b|_L=0\}\).
+Assume:
+\begin{enumerate}[label=(\roman*)]
+\item for \(j\in I\), any \(b\in Z_L\) with
+\(b(\tau_i^+)=b(\tau_i^-)\) for all \(i<j\)
+and \(b(\phi_i^+)=b(\phi_i^-)\) for \(i\in I,\ i<j\)
+satisfies
+\(C b(\tau_j^+)=C b(\tau_j^-)\);
+\item for every submodule \(S\subset Z_L\) whose
+elements kill all \(\tau_j^\pm\) and have equal
+\(\phi_j^\pm\)-values for \(j\in I\),
+\[
+ [Z:Z_L]_\ell+[S:S[C]]_\ell\le b;
+ \qquad S[C]=\{s\in S:Cs=0\};
+\]
+\item if \(i<j\in I\) and \(i\notin I\), then
+\(X_iR^s\subset N\).
+\end{enumerate}
+These are the exact triangular-cost conditions;
+there is no assumption that the two conjugate
+values coincide automatically.
+
+\begin{theorem}[one character block]\label{thm:character-fitting}
+Under these hypotheses there is \(H\in R\) with
+\[
+ H\prod_{j\in I}X_j\in\operatorname{Fitt}(N),\qquad
+ v(H(0))\le b+(|I|+s)v(C).
+\]
+\end{theorem}
+\begin{proof}
+First apply Proposition~\ref{prop:fitting-cost}
+to the submodule of functions vanishing on \(L\).
+It gives \(N_1\supset N\) and \(c_1\) with
+\(v(c_1)\le[Z:Z_L]_\ell\) and
+\(c_1\operatorname{Fitt}(N_1)\subset\operatorname{Fitt}(N)\).
+Every form in \(\mathcal F(N_1)\) vanishes on \(L\).
+Indeed for \(g\in L\), every map whose function
+vanishes on \(L\) kills \(z_g\); the proposition
+puts \(\Phi(z_g)\) in \(N_1\).
+The same holds for any larger module.
+
+Put \(v_j=\Phi(z_{\phi_j^+}-z_{\phi_j^-})\).
+For \(j\in I\), let \(T\supset N_1\) contain all
+\(v_i\), \(i\in I,\ i<j\).
+A linear form killing \(\Phi^{-1}T\) has equal
+earlier \(\phi_i^\pm\)-values. Its earlier
+\(\tau_i^\pm\)-values are equal too:
+subtract the two tie relations in
+\eqref{eq:character-presentation}; if \(i\in I\)
+the term \(X_iv_i\) lies in \(T\), and otherwise
+condition (iii) puts it in \(N\).
+Condition (i) therefore says that every such
+linear form kills
+\(C(z_{\tau_j^+}-z_{\tau_j^-})\).
+Finite-quotient duality puts its \(\Phi\)-image
+in \(T\). Subtracting \(C\) times the tie
+difference now gives \(CX_jv_j\in T\).
+Lemma~\ref{lem:fitt-triangle} gives, for
+\(T_2=N_1+\sum_{j\in I}Rv_j\),
+\[
+ C^{|I|}\Bigl(\prod_{j\in I}X_j\Bigr)
+        \operatorname{Fitt}(T_2)
+                         \subset\operatorname{Fitt}(N_1).
+\]
+
+Next set \(T_3=T_2+\mathfrak m_XR^s\).
+Its forms lie in \(Z_L\), kill every tame value
+by the tie relations, and have equal
+\(\phi_j^\pm\)-values on \(I\).
+Write \(S=\mathcal F(T_3)\).
+Apply Proposition~\ref{prop:fitting-cost} again,
+now with the submodule of all functions killed
+by \(C\). It gives \(T_4\supset T_3\) and \(c_2\)
+such that
+\[
+ v(c_2)\le[S:S[C]]_\ell,\qquad
+ c_2\operatorname{Fitt}(T_4)
+                               \subset\operatorname{Fitt}(T_3).
+\]
+For every selected \(g_i\), every linear map with
+\(C(\Psi\circ z)=0\) kills \(Cz_{g_i}\).
+Hence \(\Phi(Cz_{g_i})\in T_4\).
+Together with the coordinate relations in
+\eqref{eq:character-presentation}, this gives
+\(Ce_i\in T_4\) for all \(i\).
+The diagonal matrix \(CI_s\) therefore proves
+\(C^s\in\operatorname{Fitt}(T_4)\).
+
+It follows that
+\(c_2C^s\in\operatorname{Fitt}(T_3)
+ \subset\operatorname{Fitt}(T_2)+\mathfrak m_X\).
+Choose \(D\in\operatorname{Fitt}(T_2)\)
+with \(D(0)=c_2C^s\).
+Set \(H=c_1 C^{|I|}D\).
+The two Fitting inclusions show that
+\(H\prod_{j\in I}X_j\in\operatorname{Fitt}(N)\).
+Finally
+\[
+ v(H(0))=v(c_1)+v(c_2)+(|I|+s)v(C)
+                 \le b+(|I|+s)v(C)
+\]
+by condition (ii). This proves the theorem,
+including the constant term and all multiplicities.
+\end{proof}
+\src{New/Selmer/RibetFirstOrder.lean}{exists_mem_fittingIdeal_block}
+
+
+\subsection{Why the cost is local defect plus odd classes}
+\label{sec:tate-character-cost}
+Write \(\delta_e=\chi^{-e}\), with \(e\ge0\).
+All cocycles below take values in \(A/\ell^\nu\);
+\(\nu=0\) gives the zero module.
+Let \(L_e\subset G_E\) be the union, over places
+above \(\ell\), of inertia groups if \(e=0\),
+and of
+\(D_v\cap\ker\chi\) if \(e>0\).
+The odd-class module is
+\[
+ \mathcal X_e^-=
+ \{z\in Z^1(G_E,(A/\ell^\nu)(-e)):
+       z\text{ unramified off }\ell,\quad z|_{L_e}=0,
+       \quad z\circ c=-z\text{ if }e>0\}.
+\]
+For \(e=0\) there is no oddness condition.
+This exception is necessary at \(\ell=2\).
+
+\begin{lemma}[local crystalline relations kill \(L_e\)]
+\label{lem:tate-local-vanishing}
+Every cocycle for \(A(-e)\) satisfying the linear
+relations of integral crystalline cocycles at
+the chosen places over \(\ell\) vanishes on \(L_e\).
+Consequently, for any module \(Z\) of such
+torsion-valued cocycles,
+\[
+ [Z:\{z:z|_{L_e}=0\}]_\ell
+   \le [Z:\{z:z\text{ obeys the crystalline relations}\}]_\ell .
+\]
+\end{lemma}
+\begin{proof}
+For \(e>0\), the negative-jump part of \(A(-e)\)
+is empty. The Bloch--Kato dimension sequence used
+in \eqref{eq:local-Zf-rank} shows that its rational
+finite cohomology is zero: the filtered quotient
+is zero and the rational invariants vanish.
+Thus a rational crystalline cocycle is a
+coboundary \((\delta_e(g)-1)b\).
+It is zero whenever \(\chi(g)=1\), including
+every such element in the local decomposition
+group. Evaluation at this element is therefore
+one of the linear relations on integral
+crystalline cocycles, so the torsion cocycle
+also vanishes there.
+For \(e=0\), the finite local classes are the
+unramified additive characters. By local
+reciprocity they are multiples of the valuation;
+equivalently this is the finite class of the
+trivial crystalline representation. They
+vanish on inertia, and evaluation on inertia
+is again a defining linear relation.
+
+It remains to pass from the chosen decomposition
+group to all its conjugates. For a scalar cocycle,
+\[
+ z(aga^{-1})=(1-\delta_e(g))z(a)+\delta_e(a)z(g).
+\]
+At every element under consideration
+\(\delta_e(g)=1\), so vanishing is preserved
+under conjugation. This proves the first
+assertion. The second is the monotonicity of
+relative length when the imposed submodule
+is enlarged.
+\end{proof}
+
+The triangular auxiliary data used here consist
+of an ordered set \(J\), prime pairs and tame
+generators \(\tau_j,\tau_j^-=(c(\tau_j))^{-1}\),
+Frobenii \(\phi_j,\phi_j^-=(c(\phi_j))^{-1}\),
+a type \(t_j\in\{1,\ldots,t-1\}\), and an element
+\(a\in G_E\). They satisfy
+\(\chi(\tau_j^\pm)=1\) and
+\(\chi(\phi_j^\pm)\equiv1\pmod{\ell^\nu}\).
+Put \(C=\ell^h\) and \(d_e(g)=\delta_e(g)-1\).
+The two triangular properties needed in the
+following theorem are stated precisely:
+\begin{enumerate}[label=(T\arabic*)]
+\item an even cocycle \(u=u\circ c\) of type
+\(-t_j\), unramified away from \(\ell,J,\bar J\),
+zero on \(L_{t_j}\), and satisfying
+\(u(\tau_i)=0\) for \(i<j\) and
+\(u(\phi_i)=0\) for \(i<j,\ t_i=t_j\),
+has \(C u(\tau_j)=0\);
+\item for \(1\le e<t\), \(4d_e(a)^2\mid C\); and an even cocycle
+\(u\) unramified away from \(\ell\), zero on
+\(L_e\), and zero at \(\phi_j\) for all \(t_j=e\),
+satisfies
+\(d_e(a)u(g)=d_e(g)u(a)\).
+\end{enumerate}
+The source's triangular-prime theorem proves
+these properties; their construction is a
+separate arithmetic assertion.
+
+\begin{theorem}[the Tate-character cost]\label{thm:tate-cost}
+Let \(0\le e<t\), and let \(Z\) be a module of
+\(\delta_e\)-cocycles unramified away from
+\(\ell,J,\bar J\). Suppose
+\[
+ z\in Z,\quad z(g)=d_e(g)b\ (\text{all }g)
+                 \ \Longrightarrow\ d_e(a)z=0 .
+\]
+If \(\Delta_e\) bounds the relative length of
+\(Z\) modulo the crystalline relations and
+\(x_e\) bounds \(\length_A\mathcal X_e^-\),
+then the character-block theorem applies
+with \(I=\{j:t_j=e\}\), \(L=L_e\), \(C=\ell^h\),
+and \(b=\Delta_e+x_e\).
+In particular its scalar-cost term is the local
+defect plus the odd-class length; no bound for
+the even classes is assumed.
+\end{theorem}
+\begin{proof}
+Take \(z\in Z\) vanishing on \(L_e\).
+For \(e>0\), the cocycle \(u=z+z\circ c\)
+is even and has the same allowed ramification.
+Since \(\delta_e\) is \(c\)-invariant,
+composition with \(c\) preserves the cocycle
+identity. At a tame generator and a specified
+Frobenius, the scalar action is the identity
+on \(A/\ell^\nu\); hence
+\[
+ u(\tau_i)=z(\tau_i)-z(\tau_i^-),\qquad
+ u(\phi_i)=z(\phi_i)-z(\phi_i^-).
+\]
+Thus the earlier equalities in condition (i)
+of the character-block theorem are precisely
+the vanishing conditions in (T1).
+It follows that
+\(Cz(\tau_j)=Cz(\tau_j^-)\), as required.
+For \(e=0\), \(I\) is empty and this condition
+has nothing to prove.
+
+Let \(S\subset Z\) vanish on \(L_e\), kill all
+the tame generators, and have equal conjugate
+Frobenius values on \(I\).
+Killing the tame generators removes all new
+ramification, so every member of \(S\) is
+unramified outside \(\ell\).
+The local length term is at most \(\Delta_e\)
+by Lemma~\ref{lem:tate-local-vanishing}.
+We show
+\begin{equation}\label{eq:tate-odd-quotient}
+ [S:S[C]]_\ell\le\length_A\mathcal X_e^- .
+\end{equation}
+For \(e=0\), \(S\subset\mathcal X_0^-\) by
+definition, so the assertion is immediate.
+
+For \(e>0\), define \(D:S\to\mathcal X_e^-\)
+by \(Dz=z\circ c-z\).
+It has the asserted target: its ramification
+and local zeros were just checked, and
+\((Dz)\circ c=-Dz\).
+If \(Dz=0\), then \(z=z\circ c\) and
+\(u=2z\). Its Frobenius values on \(I\) vanish
+because the assumed conjugate values are
+equal and
+\(z(\phi_j^-)= -z(c(\phi_j))\).
+By (T2),
+\(2d_e(a)z\) is the coboundary
+\(g\mapsto d_e(g)\,2z(a)\).
+This cocycle belongs to \(Z\), so the displayed
+coboundary-suppression hypothesis gives
+\(2d_e(a)^2z=0\).
+Since \(4d_e(a)^2\mid C\), it follows that
+\(Cz=0\). Thus \(\ker D\subset S[C]\).
+The kernel--image exact sequence gives
+\[
+ [S:S[C]]_\ell\le\length_A(S/\ker D)
+              =\length_A\im D
+              \le\length_A\mathcal X_e^-,
+\]
+proving \eqref{eq:tate-odd-quotient}.
+Adding the two bounds proves condition (ii)
+with \(\Delta_e+x_e\), and hence the theorem.
+\end{proof}
+\src{New/Selmer/TateTwistSteps.lean}{hasTriangleCost_tateTwist}
+
+
+\section{Cyclotomic integers controlling the odd classes}
+\label{sec:stickelberger}
+We first construct the bounded integer used in the
+odd-class estimate. This part is independent of
+the Euler-system descent. It uses Bernoulli
+polynomials, a finite character matrix, and a
+twisted power-sum congruence.
+
+Let \(N\ge1,\ e\ge1\), and \(D_N=(\Z/N)^\times\);
+write \(d=\varphi(N)\).
+A Dirichlet character is extended by zero
+at nonunits. All polynomial congruences below
+hold in every characteristic-zero coefficient
+domain containing the character values.
+
+\begin{lemma}[the twisted power-sum congruence]
+\label{lem:voronoi}
+Let \(F=Nm\), \(m\ge1\), \(c\equiv1\pmod N\),
+and \((c,m)=1\). For a character \(\psi\bmod N\),
+\[
+ \begin{split}
+ (c^{e+1}-1)\sum_{a=0}^{F-1}\psi(a)a^{e+1}
+ \equiv (e+1)c^e F
+       \sum_{a=0}^{F-1}
+        \left\lfloor\frac{ca}{F}\right\rfloor\psi(a)a^e
+                       \pmod{F^2}.
+ \end{split}
+\]
+\end{lemma}
+\begin{proof}
+Multiplication by \(c\) permutes the residues
+modulo \(F\), since \((c,Nm)=1\).
+Write \(r_a=ca-F\lfloor ca/F\rfloor\).
+Because \(c\equiv1\pmod N\) and \(N\mid F\),
+\(\psi(r_a)=\psi(a)\).
+Expand by the binomial theorem:
+\[
+ r_a^{e+1}\equiv
+ c^{e+1}a^{e+1}-(e+1)c^ea^eF\lfloor ca/F\rfloor
+                                                  \pmod{F^2}.
+\]
+Multiply by \(\psi(a)\), sum, and replace the
+sum of \(\psi(r_a)r_a^{e+1}\) by that of
+\(\psi(a)a^{e+1}\) using the permutation.
+Rearranging proves the congruence.
+\end{proof}
+\src{Lib/Cyclotomic/Voronoi/StickelbergerInteger.lean}{voronoi_congruence}
+
+\begin{theorem}[one bounded Stickelberger integer]
+\label{thm:stick-integer}
+There is an integer \(S_{N,e}\) with
+\(1\le S_{N,e}\le2^{(N+e+3)^6}\) having these
+two properties:
+\begin{enumerate}[label=(\roman*)]
+\item for every prime \(\ell\), some \(c\equiv1\pmod N\),
+\((c,\ell)=1\), satisfies
+\((c^e-1)(c^{e+1}-1)\mid S_{N,e}\);
+\item for every \(c\equiv1\pmod N\) and every
+character \(\psi\bmod N\) with
+\(\psi(-1)=-(-1)^e\), there is a single
+coefficient \(w\), independent of \(m\), with
+\[
+ (c^{e+1}-1)S_{N,e}
+ \equiv 2w\sum_{a=0}^{Nm-1}
+       \left\lfloor\frac{ca}{Nm}\right\rfloor
+                              a^e\psi(a)\pmod m
+\]
+for every \(m\ge1\) prime to \(c\).
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Let \(B_j(T)\) be the Bernoulli polynomials,
+with
+\(B_j(T+1)-B_j(T)=jT^{j-1}\).
+Their recurrence shows \((j+1)!B_j\) is integral:
+multiply the recurrence for \(B_j=B_j(0)\)
+by \(j!\) and use induction on the lower
+indices. The polynomial coefficients follow
+from
+\(B_j(T)=\sum_{i=0}^j\binom ji B_iT^{j-i}\).
+Consequently
+\[
+ P(T)=(e+3)!\,N^{e+2}B_{e+2}(T/N)\in\Z[T].
+\]
+Put
+\[
+ D=(e+3)!(e+2)N,\qquad b(T)=P'(T),\qquad
+ M=D N^e(e+1)! .
+\]
+Then
+\[
+ P(T+N)-P(T)=D T^{e+1},\qquad
+ b(T)=D N^e B_{e+1}(T/N).
+\]
+
+On \(D_N\) define
+\(g(u)=2b(\widetilde u)+(-1)^e\mathbf1_{u=1}
+                         +\mathbf1_{u=-1}\),
+where \(0\le\widetilde u<N\).
+Let \(T\) be the integral \(d\)-by-\(d\) matrix
+\(T_{s,t}=g(t/s)\).
+For every character \(\psi\), its character
+vector is an eigenvector, with eigenvalue
+\[
+ A_\psi=2\sum_{a=0}^{N-1}\psi(a)b(a)
+                              +(-1)^e+\psi(-1).
+\]
+Characters form a basis over \(\C\).
+We check that no \(A_\psi\) vanishes.
+The classical special-value formula, from the Hurwitz-zeta representation
+and its negative-integer values \cite[25.11, 25.15]{dlmf}, is
+\[
+ L(\psi,-e)=-\frac{N^e}{e+1}
+                 \sum_{a=0}^{N-1}\psi(a)B_{e+1}(a/N).
+\]
+If \(\psi(-1)=(-1)^e\), this value and the
+Bernoulli sum are zero, and
+\(A_\psi=2(-1)^e\ne0\).
+If \(\psi(-1)=-(-1)^e\), the last two terms
+cancel and
+\(A_\psi=-2D(e+1)L(\psi,-e)\ne0\).
+For precision, nonvanishing in this second
+parity follows from the Dirichlet functional
+equation and the absolutely convergent
+nonzero Euler product at \(1+e>1\).
+For an imprimitive character its additional
+Euler factors at \(-e\) cannot vanish:
+their nonzero character values have absolute
+value \(1\), whereas the corresponding prime
+power is greater than \(1\).
+Thus this argument uses no RH assertion.
+
+Let \(A_0=|\det T|\ge1\).
+The adjugate equation applied to a character
+vector shows \(A_\psi\mid A_0\) in every
+coefficient domain: read its coordinate at
+the identity, where the character vector
+has value \(1\).
+All these statements are integral character
+identities, so they hold for the given
+character in any such domain, including
+when its residue characteristic divides \(d\).
+
+Take \(c_1=1+N,\ c_2=1+2N\), and define
+\[
+ S_{N,e}=A_0\prod_{i=1}^2(c_i^e-1)(c_i^{e+1}-1).
+\]
+All factors are positive. The two \(c_i\) are
+coprime, since \(c_2-2c_1=-1\).
+For every prime at least one is prime to it.
+This proves (i).
+
+We prove (ii) with a multiplier independent
+of \(m\). In the required parity put
+\(B_\psi=\sum_{a<N}\psi(a)b(a)\), so
+\(A_\psi=2B_\psi\).
+Telescoping \(P(a+N)-P(a)=D a^{e+1}\)
+in each residue class modulo \(N\) gives,
+for \(F=Nm\),
+\[
+ D\sum_{a<F}\psi(a)a^{e+1}
+     =\sum_{a<N}\psi(a)\bigl(P(a+F)-P(a)\bigr)
+     \equiv F B_\psi\pmod{F^2}.
+\]
+Apply Lemma~\ref{lem:voronoi}, multiply by \(D\),
+and substitute this congruence. Cancel \(F\)
+in the characteristic-zero domain to obtain
+\[
+ (c^{e+1}-1)A_\psi
+ \equiv 2D(e+1)c^e
+       \sum_{a<F}\lfloor ca/F\rfloor a^e\psi(a)
+                                                   \pmod F .
+\]
+Choose \(u_\psi\) with \(S_{N,e}=u_\psi A_\psi\).
+Then \(w=u_\psi D(e+1)c^e\) proves (ii) modulo
+\(m\), for every \(m\) prime to \(c\).
+
+We finish with the uniform size bound.
+For \(j\ge2,\ 0\le x\le1\), the classical
+Bernoulli Fourier series \cite[24.8.3]{dlmf} gives
+\[
+ |B_j(x)|\le
+   \frac{2j!}{(2\pi)^j}\sum_{n\ge1}n^{-j}
+                  \le4j!.
+\]
+The last inequality follows from
+\(\sum n^{-2}\le2\), by comparison with
+\(1+\int_1^\infty x^{-2}dx\).
+Thus \(|b(a)|\le4M\) and \(|g(u)|\le10M\).
+The determinant expansion yields
+\(A_0\le d!(10M)^d\).
+
+Set \(y=N+e+3\ge5\).
+Using \(d\le N\le y\), \(a!\le a^a\),
+and \(\log_2 y\le y\), we have
+\[
+ \log_2 M\le3y\log_2 y,\qquad
+ \log_2 A_0\le y\log_2 y+y(4+3y\log_2 y)
+                                                  \le5y^3 .
+\]
+Also
+\[
+ \log_2\prod_{i=1}^2(c_i^e-1)(c_i^{e+1}-1)
+       \le(2e+1)\log_2(6N^2)\le6y^2 .
+\]
+For \(y\ge5\), \(5y^3+6y^2\le7y^3\le y^6\).
+This proves \(S_{N,e}\le2^{y^6}\).
+\end{proof}
+\src{Lib/Cyclotomic/Voronoi/StickelbergerInteger.lean}{exists_isStickelbergerBound}
+
+
+\section{The global odd-class bound: reduction to cyclotomic descent}
+\label{sec:odd-classes}
+We now give the global counting and character
+decomposition with its constants, including
+the small primes. The two cyclotomic descent
+statements at the end of this section remain
+explicit proof obligations; the global theorem
+below is conditional on them until those proofs
+are supplied.
+
+\subsection{Uniformly many detecting points}
+\begin{proposition}\label{prop:uniform-tate-detectors}
+Let \(E\subset\Q(\mu_N)\), \(N\ge1\), and let
+\(\ell\) be prime. There is a finite subset
+\(S_\ell\subset G_E\), independent of the
+coefficient ring, twist and exponent, which
+detects all locally constant cocycles
+\[
+ z:G_E\to(A/\ell^\nu)(-e)
+           \quad\text{unramified outside }\ell .
+\]
+If \(N\le y,\ \ell\le y^2\), then \(|S_\ell|\le y^{20}\).
+\end{proposition}
+\begin{proof}
+Put \(M=N\ell^2\ge4\), \(F=\Q(\mu_M)\), and
+\(n=[F:\Q]\le M\). Classical global reciprocity
+bounds the number of topological generators
+of the maximal abelian pro-\(\ell\) quotient
+of \(G_F\), unramified away from \(\ell\), by
+\[
+ 3n+\log_2 h_F .
+\]
+Here is the generator count in the idelic
+sequence. The local factors at \(v\mid\ell\)
+are generated, after pro-\(\ell\) completion,
+by at most \([F_v:\Q_\ell]+2\) elements:
+the principal-unit free part has that local
+degree, the cyclic torsion needs at most one,
+and one extra generator allows a uniformizer.
+The sum is at most \(3n\).
+The residual ideal-class quotient needs at
+most \(\log_2h_F\) generators, since an
+abelian group generated minimally by \(a\)
+elements of prime-power order has at least
+\(2^a\) elements. Taking quotients by the
+principal ideles and closures of global units
+can only reduce the generator bound.
+Choose lifts of these generators in \(G_F\).
+
+The cyclotomic discriminant formula and
+Lemma~\ref{lem:class-number} give
+\[
+ \log_2h_F\le (n+1)n(1+\log_2M)\le M^3.
+\]
+For the last inequality use
+\(\log_2M\le M/2\) for \(M\ge4\), and
+\((M+1)(1+M/2)\le M^2\).
+Choose also coset representatives of
+\(G_E/G_F\), at most \(M\) elements.
+Their union with the chosen lifts has size
+at most \(M^3+4M\le M^4\).
+
+To check detection, induct on an exponent
+\(a\) killing the values of \(z\).
+If \(\ell z\) vanishes, the values of \(z\)
+are killed by \(\ell\).
+On \(G_F\), the cyclotomic character is
+\(1\pmod{\ell^2}\), so its action on those
+values is the identity, for every \(e\).
+Thus \(z|_{G_F}\) is an additive homomorphism
+of exponent \(\ell\), unramified away from
+\(\ell\), and is killed by the selected
+topological generators.
+The cocycle identity and the coset values
+then give \(z=0\).
+For a general \(z\), apply the inductive
+hypothesis to \(\ell z\), which vanishes on
+the same selected points, and use this
+exponent-one case. This completes the induction.
+Finally \(M=N\ell^2\le y^5\), so \(M^4\le y^{20}\).
+\end{proof}
+\src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{exists_detecting_points_cocycles}
+
+\subsection{The zero twist}
+\begin{proposition}\label{prop:odd-zero-twist}
+For every \(\nu\),
+\(\length_A\mathcal X_0^-\le v_A(h_E)\).
+\end{proposition}
+\begin{proof}
+At \(e=0\) the local condition kills inertia
+also above \(\ell\). Thus the cocycles are
+everywhere-unramified additive homomorphisms
+\(G_E\to A/\ell^\nu\).
+Global reciprocity identifies them with
+\(\operatorname{Hom}(\operatorname{Cl}(E),A/\ell^\nu)\).
+Write the \(\ell\)-primary part of the class
+group as \(\bigoplus_i\Z/\ell^{a_i}\).
+The corresponding homomorphism module has
+length at most
+\(\sum_i a_i v_A(\ell)=v_A(h_E)\).
+There is no projection to an odd eigenspace
+at this twist.
+\end{proof}
+\src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{the e=0 case of exists_length_shaOdd_le}
+
+\subsection{An integral Fourier decomposition}
+Let \(e>0\), \(\Gamma=G_\Q\), \(H=G_E\),
+and \(H_N=G_{\Q(\mu_N)}\subset H\).
+Fix a complex conjugation \(c\in\Gamma\).
+For \(\psi:D_N\to A^\times\) put
+\[
+ \Upsilon_\psi(g)=\chi(g)^e\psi(\chi_N(g)),\qquad
+ \alpha_\psi=\Upsilon_\psi^{-1}.
+\]
+The coefficient ring contains the roots of
+unity of exponent \(\exp(D_N)\).
+Let \(\mathcal C_\psi\) be the module of
+locally constant \(\alpha_\psi\)-cocycles on
+\(\Gamma\), zero at \(c\), zero on
+\(H_N\)-inertia away from \(\ell\), and
+zero on \(H_N\cap D_v\cap\ker\chi\) above
+\(\ell\).
+The source calls this module a component;
+its local conditions are part of its definition.
+
+\begin{proposition}[Fourier reconstruction without division by \(2d\)]
+\label{prop:odd-fourier}
+There are \(A\)-linear maps
+\(x\mapsto z_\psi:\mathcal X_e^-\to\mathcal C_\psi\)
+such that
+\[
+ \sum_\psi z_\psi(g)=-2d\,x(g)\quad(g\in H),\qquad
+ \Upsilon_\psi(c)=1\Longrightarrow 2z_\psi=0 .
+\]
+In particular, if every component with
+\(\Upsilon_\psi(c)=-1\) is zero, then \(4d\,x=0\).
+If \(4d\) is a unit, the map to the product
+of those odd components is injective.
+\end{proposition}
+\begin{proof}
+Choose lifts \(s_t\in\Gamma\) of \(t\in D_N\),
+with \(s_1=1\), and set \([c,g]=cgc^{-1}g^{-1}\).
+Because \(\Gamma/H_N\) is abelian,
+\(u[c,g]u^{-1}\in H_N\subset H\).
+Define
+\[
+ T_\psi(u,g)=
+     \Upsilon_\psi(u)x(u[c,g]u^{-1}),\qquad
+ z_\psi(g)=\sum_{t\in D_N}T_\psi(s_t,g).
+\]
+The function \(T_\psi(u,g)\) depends only on
+the coset \(H_Nu\).
+Indeed for \(v\in H_N\), the cocycle identity
+on \(H\) gives
+\[
+ x(vbv^{-1})=\chi(v)^{-e}x(b)
+                       \quad(b=u[c,g]u^{-1}),
+\]
+since \(\chi(b)=1\).
+Multiplication by
+\(\Upsilon_\psi(v)=\chi(v)^e\) cancels that
+factor.
+
+The commutator identity
+\([c,gh]=[c,g]\,g[c,h]g^{-1}\), and trivial
+cyclotomic value of the two commutators,
+give
+\[
+ T_\psi(u,gh)=T_\psi(u,g)
+                    +\Upsilon_\psi(g)^{-1}T_\psi(ug,h).
+\]
+Right multiplication permutes the cosets,
+so summing proves the \(\alpha_\psi\)-cocycle
+identity for \(z_\psi\).
+The map is locally constant by its finite
+definition, and \(z_\psi(c)=0\).
+
+For an inertial element \(i\in H_N\) away
+from \(\ell\), the two factors of \([c,i]\)
+lie in inertia at conjugate places.
+The same is true after conjugation by \(u\);
+\(x\) is zero on both, so \(z_\psi(i)=0\).
+For \(i\in H_N\cap D_v\cap\ker\chi\) above
+\(\ell\), the local condition on \(x\)
+kills both factors instead.
+This verifies every condition defining
+\(\mathcal C_\psi\).
+
+The identity \([c,cgc^{-1}]=[c,g]^{-1}\)
+shows directly that
+\(z_\psi(cgc^{-1})=-z_\psi(g)\).
+On the other hand its cocycle identity and
+\(z_\psi(c)=0\) give
+\(z_\psi(cgc^{-1})=\alpha_\psi(c)z_\psi(g)\).
+For \(\Upsilon_\psi(c)=1\) their comparison
+gives \(2z_\psi=0\).
+
+Finally character orthogonality is valid
+integrally as an equality, without dividing
+by \(d\):
+\(\sum_\psi\psi(t)=d\mathbf1_{t=1}\).
+Summing the definition over \(\psi\) therefore
+gives \(d\,x([c,g])\).
+For \(g\in H\), oddness of \(x\) and its
+cocycle identity give
+\[
+ x([c,g])=x(cgc^{-1})+
+                     \chi(g)^{-e}x(g^{-1})=-2x(g).
+\]
+This proves the reconstruction formula.
+Multiplying it by \(2\) kills all the even
+components. The last two assertions follow.
+No inverse of \(2\) or \(d\) has been used.
+\end{proof}
+\src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{the character projection in exists_length_shaOdd_le}
+
+\subsection{The precise descent still required}
+For \(S=S_{N,e}\) of Theorem~\ref{thm:stick-integer},
+the two source theorems needed are:
+\begin{enumerate}[label=(D\arabic*)]
+\item if \(\Upsilon_\psi(c)=-1\), then
+\(4S^2\mathcal C_\psi=0\), for every prime
+\(\ell\), including \(2\);
+\item if \(\ell>N+e+3\), there are
+\(v_\ell(S)+1\) elements of \(G_\Q\)
+whose evaluations detect \(\mathcal C_\psi\).
+\end{enumerate}
+These exact statements are stronger than a
+bare annihilator theorem. Their proofs in the
+source use Jacobi sums, Kummer cocycles,
+Artin reciprocity, and Kolyvagin's derivative
+descent. They are not treated here as proved
+merely from the special-value formula or
+from Theorem~\ref{thm:stick-integer}.
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{nsmul_component_eq_zero}
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{exists_detecting_points_component}
+
+\begin{theorem}[the global odd bound from (D1)--(D2)]
+\label{thm:odd-global-assembly}
+Assume (D1)--(D2). For \(E\subset\Q(\mu_N)\)
+a CM field and \(t\ge0\), there is one integer
+\[
+ 1\le X\le2^{4(N+t+3)^{27}}h_E
+\]
+such that
+\(\length_A\mathcal X_e^-\le v_A(X)\)
+for every prime \(\ell\), \(0\le e<t\), and
+every exponent \(\nu\).
+\end{theorem}
+\begin{proof}
+Put \(y=N+t+3\), and for \(1\le e<t\) put
+\(S_e=S_{N,e}\) and \(Y_e=16dS_e^2\).
+Choose
+\[
+ X=h_E\left(\prod_{e=1}^{t-1}Y_e\right)^{y^{20}} .
+\]
+It is positive. The zero twist is covered
+by Proposition~\ref{prop:odd-zero-twist}.
+
+For \(e>0\), (D1) and
+Proposition~\ref{prop:odd-fourier} give
+\(Y_e\mathcal X_e^-=0\).
+Indeed the odd components of \(4S_e^2x\)
+are zero, so \(4d\) kills that multiple.
+If \(\ell\le y^2\), use
+Proposition~\ref{prop:uniform-tate-detectors}.
+Evaluation embeds \(\mathcal X_e^-\) in at
+most \(y^{20}\) copies of
+\((A/\ell^\nu)[Y_e]\), each of length at
+most \(v_A(Y_e)\).
+Thus
+\(\length_A\mathcal X_e^-
+       \le y^{20}v_A(Y_e)\le v_A(X)\).
+This includes every possible small-prime
+denominator and the prime \(2\).
+
+If \(\ell>y^2\), \(4d\) is a unit and
+Fourier reconstruction is injective into
+at most \(d\) odd components.
+Put \(s=v_\ell(S_e)\).
+For \(s=0\), (D1) makes those components zero.
+For \(s\ge1\), (D2) and (D1) bound each
+component's length by
+\((s+1)\,2s\,v_A(\ell)\).
+Consequently
+\[
+ \length_A\mathcal X_e^-
+       \le 2d s(s+1)v_A(\ell)
+       \le4d s^2v_A(\ell).
+\]
+Here \(d\le y\) and
+\(s\le\log_2S_e\le y^6\); hence
+\(2ds\le2y^7\le y^{20}\).
+Since \(v_A(Y_e)=2s v_A(\ell)\) at these
+primes, this gives the same bound by
+\(y^{20}v_A(Y_e)\le v_A(X)\).
+
+Finally
+\(\log_2Y_e\le4+\log_2d+2y^6\le3y^6\).
+There are at most \(y\) factors, so
+\[
+ \log_2(X/h_E)
+      \le y^{20}\,3y^7\le4y^{27}.
+\]
+This proves the advertised uniform size and
+length bounds, conditional exactly on the
+two displayed cyclotomic descent statements.
+\end{proof}
+\src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{exists_length_shaOdd_le}
+
+
+\section{Crystalline defects: duality and the global loss}
+\label{sec:crystalline-defects}
+The defect in Ribet's method concerns integral
+cocycles. Rational crystalline cohomology alone
+does not measure it. We give the finite-index
+duality argument, its application to obeying
+cocycles, and the sum over all blocks and places.
+
+Let \(K/\Q_\ell\) be finite, of degree \(d_K\),
+and \(T\) a potentially crystalline \(A\)-lattice
+of rank \(n\). Put \(T'=T^\vee(1)\), and denote
+the integral crystalline cocycle modules by
+\(Z_f(T),Z_f(T')\). They consist of continuous
+integral cocycles whose rational cohomology
+class lies in the Bloch--Kato finite part.
+
+\begin{lemma}[duality of the reduced finite conditions]
+\label{lem:reduced-finite-dual}
+Let \(M=T/\ell^\nu T\). In the finite local
+cohomology pairing
+\[
+ H^1(K,M)\times H^1(K,M^*)\longrightarrow\Q/\Z
+\]
+the images of \(Z_f(T)\) and \(Z_f(T')\) are
+exact annihilators.
+If a module \(S\) of \(M\)-valued continuous
+cocycles is orthogonal to a submodule
+\(H\subset Z_f(T')\), then
+\[
+ [S:\operatorname{red}Z_f(T)]_\ell
+                   \le[Z_f(T'):H]_\ell .
+\]
+Both relative lengths mean intersection in the
+numerator module. The assertion is unchanged
+after restricting scalars to \(\Z_\ell\) and
+then dividing lengths by the residue-field degree.
+\end{lemma}
+\begin{proof}
+First identify the \(A\)-linear dual with the
+Cartier dual over \(\Z_\ell\).
+The module \(\operatorname{Hom}_{\Z_\ell}(A,\Z_\ell)\)
+is free of rank one over \(A\): it is a finite
+torsion-free \(A\)-module and has that rank by
+tensoring with the fraction fields.
+Choose a generator \(f\). The pairing
+\((v,\lambda)\mapsto f(\lambda(v))\) is
+perfect over \(\Z_\ell\), so its reductions
+identify \(T'/\ell^\nu\) with \(M^*\).
+This choice absorbs the different of \(A\);
+the ordinary trace map alone need not be perfect.
+
+Let \(A_f,A_f'\) be the images of the two
+crystalline cocycle modules before passing
+to cohomology. Reduction has kernel exactly
+\(\ell^\nu Z_f\). Indeed dividing an integral
+cocycle which is pointwise divisible by
+\(\ell^\nu\) leaves an integral continuous
+cocycle with the same rational finite
+condition. Thus their cardinalities are
+\(|A/\ell^\nu|^{r_f}\) and
+\(|A/\ell^\nu|^{r_f'}\).
+
+For each coefficient embedding the weights
+of the Tate dual are \(-u-1\). Among the two
+integers \(u,-u-1\), exactly one is negative.
+The rank formula \eqref{eq:local-Zf-rank} therefore
+gives
+\(r_f+r_f'=(2+d_K)n\).
+Consequently
+\[
+ |A_f|\,|A_f'|=|M|^{2+d_K}.
+\]
+Both images contain all coboundaries.
+Their cohomology images \(\bar A_f,\bar A_f'\)
+therefore have product of orders
+\[
+ |\bar A_f|\,|\bar A_f'|
+    =|M|^{d_K}|H^0(K,M)|\,|H^0(K,M^*)|
+    =|H^1(K,M)|.
+\]
+The last equality is the classical local
+Euler characteristic formula with
+\(H^2(K,M)\) identified with the dual of
+\(H^0(K,M^*)\).
+
+The two cohomology images are orthogonal.
+The rational Bloch--Kato finite parts are
+orthogonal, and the cup product of integral
+classes takes values in the torsion-free
+module \(H^2(K,A(1))\simeq A\);
+a product zero after tensoring with the
+fraction field is already zero.
+Reduction gives the asserted finite
+orthogonality. Local Tate perfectness and
+the cardinality identity make these
+annihilators exact.
+
+Let \(\bar H\subset\bar A_f'\) be the image
+of \(H\).
+Since \(S\) is orthogonal to \(\bar H\), its
+image modulo \(\bar A_f=(\bar A_f')^\perp\)
+embeds in the dual of \(\bar A_f'/\bar H\).
+Its order is therefore at most that quotient's
+order. Passing from cocycles to cohomology
+does not affect this relative index, because
+all coboundaries lie in \(A_f\).
+The quotient \(\bar A_f'/\bar H\) is a
+quotient of \(Z_f(T')/(Z_f(T')\cap H)\).
+Taking lengths proves the inequality.
+Restricting scalars multiplies both
+\(A\)-lengths by the same residue-field
+degree, so gives the same comparison.
+\end{proof}
+\src{Lib/ClassField/LocalDuality/CrystallineDuality.lean}{IsPotCrys.relIndex_dvd_of_orthogonal}
+
+We use classical local Tate duality, its Euler
+characteristic formula, and Bloch--Kato
+orthogonality here as established background;
+their exact use in the index computation
+has been displayed. The formal source proves
+the needed inequality directly through
+Kummer theory and a Sylow argument.
+The prose proof uses the full classical
+duality theorem instead.
+
+For a class \(\mathcal Q\) of potentially
+crystalline lattices, define
+\(T'^{\perp\mathcal Q}\) to be the module
+of functions on \(G_K\) whose cup product
+with every crystalline cocycle of every
+\(Y\in\mathcal Q\) is zero for every
+equivariant finite-power pairing
+\(Y\times T'\to\Z/\ell^a(1)\).
+This quantifies over all exponents and
+pairings, not only the standard pairing.
+
+\begin{proposition}[the defect of an obeying cocycle]
+\label{prop:obeying-defect}
+Suppose the local lattices in a finite family
+\(u_x\), and \(T\), lie in a class
+\(\mathcal Q\) closed under sublattices
+which embed jointly into finite sums of
+the \(u_x\). Let \(Z\) be the module of
+torsion cocycles in \(T/\ell^\nu\) obeying
+all relations among the \(u_x(g)-1\).
+Then
+\[
+ [Z:\{\text{cocycles obeying the relations of }Z_f(T)\}]_\ell
+       \le[Z_f(T'):T'^{\perp\mathcal Q}]_\ell .
+\]
+\end{proposition}
+\begin{proof}
+Take \(z\in Z\).
+Lemma~\ref{lem:obeying-graph} produces a
+lattice \(P\), contained in the product of
+the matrix lattices with left \(u_x\)-action,
+and an equivariant map
+\(\lambda:P\to T/\ell^\nu\).
+As a representation, that product is a
+finite sum of the column lattices \(u_x\).
+Thus \(P\in\mathcal Q\).
+
+The cocycle \(a(g)=(u_x(g)-1)_x\) takes
+values in \(P\), and is crystalline there.
+Indeed the graph construction gives
+\(\ell^k V\subset P\) for some \(k\).
+The vector \((I)_x\) belongs to \(P\otimes\Q_\ell\),
+and \(a\) is its coboundary. Its rational
+cohomology class is zero and hence finite.
+It is integral as a \(P\)-valued cocycle,
+so \(a\in Z_f(P)\), with \(\lambda(a)=z\).
+
+Pair \(\lambda\) with \(T'\) by the perfect
+pairing in the preceding lemma. This is
+one of the finite-power equivariant
+pairings in the definition of
+\(T'^{\perp\mathcal Q}\).
+Every \(z\in Z\) is therefore orthogonal
+to \(Z_f(T')\cap T'^{\perp\mathcal Q}\).
+Apply Lemma~\ref{lem:reduced-finite-dual}.
+It bounds the relative length modulo
+\(\operatorname{red}Z_f(T)\) by the asserted
+dual defect. Reductions of \(Z_f(T)\) obey
+all its linear relations; enlarging the
+submodule by all functions obeying them
+can only decrease the relative length.
+This proves the proposition.
+\end{proof}
+\src{New/Selmer/RowBalanced.lean}{relLength_obeyingCocycles_le}
+
+\subsection{Turning an exponent into a length}
+\begin{lemma}\label{lem:crys-exponent-length}
+If \(\ell^a Z_f(T)\subset H\), then
+\[
+ \frac{[Z_f(T):H]_\ell}{v_A(\ell)}
+             \le2d_K n a .
+\]
+\end{lemma}
+\begin{proof}
+The quotient is generated by at most
+\(\operatorname{rank}_A Z_f(T)\) elements,
+and is killed by \(\ell^a\).
+Its normalized length is therefore at
+most \(a\operatorname{rank}_A Z_f(T)\).
+The rank formula bounds this rank by
+\(n+d_Kn\le2d_Kn\), since \(d_K\ge1\).
+\end{proof}
+\src{New/Selmer/CrystallineRank.lean}{normLength_defect_le}
+
+\subsection{The sum over all places and blocks}
+Let the row rank be \(r_O\ge1\); there are
+\(t\le D.t\) additional rank-one character
+blocks. At a place \(v\mid\ell\) write
+\(d_v=[E_v:\Q_\ell]\). The precise local
+quantitative statement needed is
+\begin{equation}\label{eq:block-local-defect}
+ \begin{gathered}
+ \lambda_\ell
+  [Z_f(T_{\rm row}^\vee(1)):
+                   T_{\rm row}^{\vee}(1)^{\perp\mathcal Q}]_\ell
+       \le d_v r_O\,\mathrm{loss}_\ell,\\
+ \lambda_\ell
+  [Z_f(T_e^\vee(1)):
+                     T_e^{\vee}(1)^{\perp\mathcal Q}]_\ell
+       \le d_v\,\mathrm{loss}_\ell/(D.t)
+                         \quad(0\le e<t).
+ \end{gathered}
+\end{equation}
+In this display \(\lambda_\ell[L:H]_\ell\)
+means the relative \(A\)-length divided by
+\(v_A(\ell)\), not an additional functor.
+
+\begin{proposition}[all crystalline losses]\label{prop:all-block-losses}
+Assume \eqref{eq:block-local-defect} at the
+specified jump windows, for every place above
+\(\ell\). Then the normalized sum of the
+global block losses is at most
+\(4r_Of\,\mathrm{loss}_\ell\).
+\end{proposition}
+\begin{proof}
+The global crystalline relations are the
+intersection of their local conditions.
+For finite-length modules, the quotient
+by an intersection injects into the sum
+of the separate quotients; hence their
+relative length is at most the sum of
+the local relative lengths.
+Apply Proposition~\ref{prop:obeying-defect}
+at each place and for each block.
+For one \(v\), the total bound is
+\[
+ d_v\bigl(r_O+t/(D.t)\bigr)\mathrm{loss}_\ell
+                  \le2r_Od_v\,\mathrm{loss}_\ell.
+\]
+Here \(t\le D.t\) and \(r_O\ge1\).
+Finally \(\sum_{v\mid\ell}d_v=[E:\Q]=2f\).
+Sum the displayed bound to obtain
+\(4r_Of\,\mathrm{loss}_\ell\).
+This explains the factor \(4\), without
+absorbing a place count into the local bound.
+\end{proof}
+\src{New/Selmer/RibetElement.lean}{sum_blockLoss_le}
+
+The remaining content of
+\eqref{eq:block-local-defect} is quantitative
+local Hodge theory at the prescribed windows.
+The source separates tame types at
+\(\ell\mid g\), sparse thick-letter estimates
+at small primes, and few-low-weight estimates
+at the remaining primes. In each case it
+proves an exponent or a length for the
+cup-orthogonal module, then applies the
+lemmas above.
+Those quantitative Kummer-chart estimates
+have not yet been expanded in this text.
+Thus the duality transfer and the global
+sum are proved, while the local numerical
+defect statement remains an explicit input.
+\src{New/Selmer/OnePlaceDefect.lean}{block_defect_le_at_place}
+\src{New/Selmer/CrystallineBound.lean}{crystalline_defect_le}
+\src{New/Lift/ExponentTheorems.lean}{tame_types_exponent; KummerChart.few_low_jumps}
+
 \section{The lattice joining the two theta factors}
 \label{sec:glued-lattice}
 The comparison forms require a lattice whose finite
@@ -3967,12 +5234,16 @@ Sections~\ref{sec:global-selmer}--\ref{sec:pencil-twist} prove the
 global Selmer construction under explicit balanced-row and value-family
 hypotheses, and Section~\ref{sec:balance-local} proves the local row budget.
 The integral Hecke-value interpolation in Section~\ref{sec:value-families}
-remains to be constructed geometrically. The odd Tate-class estimate must be written with its
-precise local conditions and its treatment of small primes.
-The denominator section now gives the full double-Cramer operator and
-the first-order operator at one prime. Its application still requires
-the triangular auxiliary prime system, the first-order block Fitting
-bound, the odd-class and crystalline defect bounds, and the Hecke
+remains to be constructed geometrically. Section~\ref{sec:odd-classes} gives its local conditions, the zero twist,
+the uniform detecting-point count, the integral character decomposition,
+and the final estimate including all small primes. The two cyclotomic
+descent statements (D1)--(D2) remain to be proved. The bounded
+Stickelberger integer used there is proved in Section~\ref{sec:stickelberger}.
+The denominator section now gives the full double-Cramer operator,
+the first-order operator at one prime, and the character-block Fitting
+calculation under the precise triangular-cost hypotheses. Its application still requires
+the triangular auxiliary prime system, the cyclotomic descent statements
+(D1)--(D2), the quantitative local Kummer-chart bounds, and the Hecke
 root-string identities and multi-prime patching. These are needed for
 the numerical denominator bound in Input~\ref{in:denominator}.
 
@@ -4007,6 +5278,10 @@ working draft, commit \texttt{82252d4e71d9f4db30a38e370dba78283ab3a921},
 \href{https://github.com/nasqret/riemann-rev/tree/82252d4e71d9f4db30a38e370dba78283ab3a921/writeup}{source and individual notes}.
 The notes were prepared with AI readers and writers and are not a
 human-refereed exposition.
+\bibitem{dlmf}
+NIST, \emph{Digital Library of Mathematical Functions},
+\href{https://dlmf.nist.gov/24.8}{Bernoulli Fourier series, \S24.8},
+and \href{https://dlmf.nist.gov/25.15}{Dirichlet \(L\)-functions, \S25.15}.
 \bibitem{amitsur}
 S. A. Amitsur, \emph{On the characteristic polynomial of a sum of matrices},
 Linear and Multilinear Algebra \textbf{8} (1979/80), 177--182,

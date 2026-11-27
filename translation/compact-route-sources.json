@@ -18,7 +18,7 @@
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 43,
+  "intermediate_proofs": 60,
   "unexpanded_source_input_groups": [
     "Integral interpolation and Euler-factor norm relations for Hecke values",
     "Ribet and patching denominator construction",
@@ -31,7 +31,8 @@
     "admissible-data construction and further A/B estimates",
     "A and B",
     "weighted-prime inequality",
-    "good-window analytic conclusion"
+    "good-window analytic conclusion",
+    "Proofs of D1-D2 cyclotomic descent and quantitative Kummer-chart local bounds (now isolated precisely)"
   ],
   "source_files": [
     {
@@ -412,5 +413,24 @@
     "Unitary adelic realization of divided inverse and conjugation integrality",
     "Class-sum integrality and norm bounds",
     "Comparison-map assembly conditional on exact theta identities"
+  ],
+  "completed_character_steps": [
+    "one-relation and triangular Fitting ideal inclusions",
+    "finite-quotient duality and bounded relation-adjoining cost",
+    "complete character-block Fitting theorem from explicit triangle hypotheses",
+    "Tate character cost = local crystalline defect + odd-class length"
+  ],
+  "completed_odd_steps": [
+    "bounded integer from Bernoulli matrix and twisted Voronoi congruence",
+    "uniform detecting-point count, including 2",
+    "zero-twist class-number bound",
+    "integral Fourier reconstruction",
+    "global X size and length bound conditional on exact cyclotomic statements D1-D2"
+  ],
+  "completed_defect_steps": [
+    "finite-index local duality via classical Tate/Bloch-Kato",
+    "obeying-cocycle transfer to cup-orthogonal defect",
+    "exponent-to-length bound",
+    "global 4rf loss sum conditional on quantitative local Kummer bounds"
   ]
 }
