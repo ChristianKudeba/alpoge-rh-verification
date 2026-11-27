@@ -45,7 +45,7 @@ We develop a prose account of the compact formal development at commit
 This revision starts with the arithmetic inputs and Theorem C of its three-theorem reduction.
 It gives full proofs of the degree-independent polynomial estimate used to choose compatible
 powers of a twist, the determinant-specialization argument for finite relation modules,
-the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate behind reciprocity, and the
+the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate behind reciprocity, the numerical budget comparisons, and the
 height and Gram-determinant calculus used at the end of Theorem C.
 The source-specific construction of short Selmer groups, the Ribet and patching operators,
 and the geometric comparison forms are explicitly identified as inputs still to be
@@ -838,14 +838,255 @@ The ratio of the resulting bound to \(B_0=f a(\log b)^3/(mk)\) is at most
 \]
 \end{proof}
 
-To finish the global inequality used in the source, one checks these
-coarse inequalities from admissibility and proves
-\(h_2^{27}(\log G+\log X+2)\le B_0/2\).
-Likewise \(9(\log G+2)\le x^{999}\) gives the ratio budget.
-The formal proof discharges these comparisons by its logarithmic size
-calculus. They are recorded as explicit numerical obligations here rather
-than replaced with an unspecified small error.
+Section~\ref{sec:numerics} proves the coarse inequalities from admissibility,
+bounds \(h_2^{27}(\log G+\log X+2)\) by \(B_0/2\), and proves
+\(9(\log G+2)\le x^{999}\). This closes both prime budgets, conditional
+only on the stated size bound for the integer \(X\).
+The cohomological theorem producing \(X\) remains separate.
 \src{New/Selmer/FitTwistsExist.lean}{the two finite-prime budget bounds in exists_isFitFamily}
+
+
+
+\section{Closing the numerical budgets}\label{sec:numerics}
+We now discharge the scale comparisons used above. The odd-class theorem
+still supplies \(X\) and \eqref{eq:X}; the argument here proves that its
+stated size, together with the local losses, fits the required budget.
+
+\subsection{A crude class-number bound}
+We use the classical Minkowski ideal-class theorem in its precise usual
+form: in a degree-\(n\) number field of discriminant \(\Delta\) and
+\(r_2\) complex pairs, every ideal class has an integral representative
+of norm at most
+\((4/\pi)^{r_2}(n!/n^n)\sqrt{\abs\Delta}\).
+This is an established geometry-of-numbers input; no assertion about
+RH is used.
+
+\begin{lemma}\label{lem:class-number}
+For a number field \(F\) of degree \(n\ge1\),
+\[
+ h_F\le (2^n\abs{\Delta_F})^{n+1}.
+\]
+\end{lemma}
+\begin{proof}
+Put \(B=2^n\abs{\Delta_F}\), a positive integer.
+Minkowski's bound is at most \(B\): use \(\pi\ge2\), \(r_2\le n\),
+\(n!\le n^n\), and \(\sqrt{\abs\Delta}\le\abs\Delta\).
+Thus every ideal class has an integral ideal \(J\) of positive norm
+\(a\le B\).
+
+Every such ideal contains \(a\mathcal O_F\), since the finite additive
+group \(\mathcal O_F/J\) has order \(a\) and is killed by \(a\).
+It has the form \(J=(a,z)\).
+Here are details of this last fact.
+For each prime ideal \(\mathfrak p\) dividing \(a\mathcal O_F\), choose
+\(z_{\mathfrak p}\in J\setminus\mathfrak pJ\);
+this set is nonempty, since otherwise multiplying
+\(J=\mathfrak pJ\) by the inverse ideal would give
+\(\mathcal O_F=\mathfrak p\).
+The Chinese remainder theorem for the finitely many distinct prime
+ideals gives an element \(z\in J\) congruent to \(z_{\mathfrak p}\)
+modulo \(\mathfrak pJ\) for each of them: use the ordinary scalar
+Chinese-remainder coefficients and sum their multiples of the
+\(z_{\mathfrak p}\).
+At these primes \(v_{\mathfrak p}(z)=v_{\mathfrak p}(J)\).
+At primes not dividing \(a\), both \(J\) and \((a,z)\) have valuation zero.
+Unique ideal factorization therefore gives \(J=(a,z)\).
+
+For fixed \(a\), the ideal \((a,z)\) depends only on \(z\) modulo
+\(a\mathcal O_F\), which has \(a^n\) elements, since \(\mathcal O_F\)
+is free of rank \(n\) over \(\Z\).
+Consequently the number of ideals needed to represent the classes is at most
+\(\sum_{a=1}^B a^n\le B^{n+1}\).
+\end{proof}
+\src{Lib/General/NumberTheory/ClassNumberBound.lean}{classNumber_le}
+
+\subsection{Coarse consequences of admissibility}
+Write
+\[
+ U=\log x,\qquad V_1=\log x_1,\qquad B=\log b.
+\]
+The data have \(c\ge64\), \(N_0,d\le c\), \(s\ge1\), and
+\begin{equation}\label{eq:scales-explicit}
+ \begin{gathered}
+ 10^{12}c\le\log B,\quad 100\log B\le U,\quad
+ 10^6U\le V_1,\quad 10^6V_1\le B,\quad s\le32U,\\
+ \sqrt x\le m\le2\sqrt x,\qquad x^5\le r\le3x^5 .
+ \end{gathered}
+\end{equation}
+The remaining definitions are
+\[
+ k=r+1-m,\quad t=5r,\quad h_2=r^8,\quad
+ N_1=N_0\,3^{\lfloor\log_3s\rfloor+5}2^s,\quad N=dN_1 .
+\]
+Rounding gives
+\(xb\le a\le xb+N_1\) and
+\(a/x\le b_1\le a/x+N_1\).
+The two level primes lie in \([b^{10},b^{11}]\).
+
+\begin{proposition}\label{prop:coarse}
+For these data,
+\[
+ \begin{gathered}
+ U\ge100,\quad B\ge10^6,\quad
+ B\ge10^{12}U,\quad B\le x^{1/100},\quad b\ge x^{10^{12}},\\
+ N_1\le N\le x^{24},\quad 1\le f\le x^{24},\quad
+ r/2\le k\le r,\quad m\le x,\quad r,t\le x^6,\quad h_2\le x^{41},\\
+ b_1\le2b,\quad 60h_2^6\le b,\quad 30h_2^3\le b,\quad
+ \log g\le22B,\quad
+ \operatorname{rd}(E)\le N\le x^{24}.
+ \end{gathered}
+\]
+\end{proposition}
+\begin{proof}
+The first two scale inequalities imply
+\(U\ge100\cdot10^{12}c\ge100\) and \(B\ge e^{10^{12}c}>10^6\).
+The next two give \(B\ge10^{12}U\); exponentiating gives
+\(b\ge x^{10^{12}}\).
+Also \(100\log B\le U\) gives \(B\le x^{1/100}\).
+
+Since \(3^{\lfloor\log_3s\rfloor+5}\le243s\),
+\[
+ \log N\le2\log c+\log(7776U)+32U\log2.
+\]
+Here \(2\log c\le2\log B\le U/50\),
+\(\log(7776U)\le U\) for \(U\ge100\), and \(\log2<7/10\).
+The last two elementary inequalities follow from monotonicity of
+\(U-\log U\), and the exponential series, respectively.
+Thus \(\log N\le(1/50+1+112/5)U<24U\).
+In particular \(N_1\le x^{24}\).
+As \(E=K(\zeta_{N_1})\), with \([K:\Q]=2\), its degree is at most
+\(2\varphi(N_1)\). It is totally imaginary, so
+\(f=[E:\Q]/2\le\varphi(N_1)\le N_1\).
+
+For \(x\ge e^{100}\), the rank bounds give \(m\le r/2\), whence
+\(r/2\le k\le r\); they also give
+\(m\le x\), \(r,t\le x^6\), and
+\(h_2\le3^8x^{40}\le x^{41}\).
+Rounding gives
+\(b_1\le b+N_1/x+N_1\le2b\), since
+\(N_1\le x^{24}\le b/4\) and \(x\ge1\).
+Further
+\(60h_2^6\le60x^{246}\le x^{247}\le b\) and
+\(30h_2^3\le30x^{123}\le x^{124}\le b\).
+The bounds on \(g_0,g_1\) give \(\log g\le22B\).
+
+For the discriminant bound, \(K=\Q(\sqrt{-d})\) lies in
+\(\Q(\zeta_d)\). This inclusion has a direct Gauss-sum proof:
+for the quadratic character \(\chi\) modulo the prime \(d\), put
+\(\tau=\sum_{a\ne0}\chi(a)\zeta_d^a\).
+One has \(\bar\tau=\chi(-1)\tau=-\tau\), since \(d\equiv7\pmod8\).
+Also
+\[
+ \tau\bar\tau
+ =\sum_{u\ne0}\chi(u)\sum_{b\ne0}\zeta_d^{(u-1)b}
+ =(d-1)-\sum_{u\ne0,1}\chi(u)=d.
+\]
+Thus \(\tau^2=-d\).
+It follows that \(E\subseteq\Q(\zeta_{dN_1})\).
+The classical cyclotomic discriminant formula is
+\[
+ \abs{\Delta_{\Q(\zeta_N)}}
+ =N^{\varphi(N)}
+    \prod_{p\mid N}p^{-\varphi(N)/(p-1)}
+ \le N^{\varphi(N)}.
+\]
+For a subfield \(F\subseteq L\), the relative discriminant identity
+\(\abs{\Delta_L}=\abs{\Delta_F}^{[L:F]}
+                 N_{F/\Q}(\mathfrak d_{L/F})\)
+and integrality of the relative discriminant give
+\(\operatorname{rd}(F)\le\operatorname{rd}(L)\).
+Apply this with \(F=E,L=\Q(\zeta_N)\).
+\end{proof}
+\src{New/Data/AdmissibleData.lean}{Data; Data.k; Data.roundUp}
+\src{New/Data/Different.lean}{towerDeg; Parameters.E}
+\src{New/Data/Magnitudes.lean}{the admissible scale comparisons}
+
+The proposition uses weaker coarse bounds than the source's sharper
+\(f\) and root-discriminant bounds.
+
+\begin{theorem}[the two global budgets]\label{thm:global-budgets}
+Assume the positive integer \(X\) satisfies \eqref{eq:X}.
+For every finite set \(T\) of primes,
+\[
+ \sum_{\ell\in T}\beta_\ell\log\ell\le B_0,\qquad
+ \sum_{\ell\in T}9c_\ell\log\ell\le x^{999}.
+\]
+\end{theorem}
+\begin{proof}
+We bound the first term of \eqref{eq:budget-sum}.
+By Proposition~\ref{prop:coarse},
+\[
+ \log G\le(rt)^2 f\,22B\le x^{24}x^{24}x^2=x^{50}.
+\]
+The last factor uses \(22B\le x^2\), valid for \(x\ge e^{100}\).
+
+Put \(n=[E:\Q]=2f\). Both \(n,n+1\le x^{25}\).
+Lemma~\ref{lem:class-number} and \(\operatorname{rd}(E)\le x^{24}\) give
+\[
+ \log h_E\le n(n+1)(\log2+\log\operatorname{rd}(E))
+            \le x^{50}(\log2+24U)\le x^{52}.
+\]
+Also \(N+t+3\le3x^{24}\le x^{25}\).
+Hence \eqref{eq:X} gives
+\[
+ \log X\le4x^{675}\log2+x^{52}\le x^{676}.
+\]
+As \(h_2^{27}\le x^{1107}\), we get
+\[
+ h_2^{27}(\log G+\log X+2)
+       \le x^{1107}x^{677}=x^{1784}.
+\]
+On the other hand \(mk\le x^7\), \(a\ge xb\), \(f\ge1\), and \(B\ge1\),
+so
+\[
+ B_0=\frac{faB^3}{mk}\ge f b x^{-6}
+       \ge x^{10^{12}-6}\ge2x^{1784}.
+\]
+Thus this part costs at most \(B_0/2\).
+All hypotheses of Lemma~\ref{lem:factorial-budget} now follow from
+Proposition~\ref{prop:coarse} and \(m^2\le4x\).
+That lemma bounds the other part of \eqref{eq:budget-sum} by \(B_0/2\).
+Adding proves the first assertion.
+
+Finally, by \eqref{eq:cr-sum},
+\[
+ \sum_{\ell\in T}9c_\ell\log\ell
+       \le9(\log G+2)\le9(x^{50}+2)\le x^{52}\le x^{999}.
+\]
+All estimates hold for every finite prime set, before a twist is chosen.
+\end{proof}
+\src{New/Selmer/FitTwistsExist.lean}{the finite-prime budget estimates}
+
+\begin{proposition}[the scale comparisons in Theorem C]\label{prop:C-scales}
+With \(\mathcal B=faB^3\), \(B_0=\mathcal B/(mk)\),
+and \(L=B\mathcal B\), admissibility implies
+\[
+ b\le L,\qquad
+ 2x_1^2b^2+4m^2t x^{999}\le b^3/4,\qquad
+ 3rB_0+10m x^{999}+6kB_0\le k B B_0.
+\]
+\end{proposition}
+\begin{proof}
+Since \(f\ge1\), \(a\ge xb\ge b\), and \(B\ge1\), one has \(L=faB^4\ge b\).
+Further \(B\ge10^6V_1\), \(V_1\ge1\), imply
+\(B-2V_1\ge\log16\). Exponentiating yields
+\(2x_1^2b^2\le b^3/8\).
+For the other term, \(m\le x\), \(t\le x^6\) give
+\(4m^2t x^{999}\le4x^{1007}\).
+The inequalities
+\(\log32+1007U\le3B\), from \(B\ge10^{12}U\) and \(U\ge100\),
+give \(4x^{1007}\le b^3/8\). Add the two bounds.
+
+Finally \(r\le2k\) gives \(3rB_0+6kB_0\le12kB_0\), while
+\[
+ \frac{10m x^{999}}{kB_0}
+    =\frac{10m^2x^{999}}{faB^3}
+    \le\frac{40x^{999}}{bB^3}\le1
+\]
+by \(m^2\le4x\), \(a\ge xb\), \(f\ge1\), and \(b\ge x^{10^{12}}\).
+Thus the sum is at most \(13kB_0\le k B B_0\).
+\end{proof}
+\src{New/Endgame/LongForms.lean}{the scale comparisons used in Theorem C}
 
 \section{The compatible family and the denominator input}\label{sec:fit}
 For a coefficient ring \(\mathcal O\) finite over \(\Z_\ell\), write
@@ -964,8 +1205,8 @@ spanning hypotheses. This gives the denominator bound at the same
 \(\theta_{\ell,\iota}^j\) in both applications.
 
 Set \(\gamma_\ell=\beta_\ell\log\ell\).
-Once the explicit budget comparisons at the end of Section~\ref{sec:budget}
-are proved, every finite prime sum of \(\gamma_\ell\) is at most \(B_0\).
+By Theorem~\ref{thm:global-budgets}, every finite prime sum of
+\(\gamma_\ell\) is at most \(B_0\).
 Input~\ref{in:twist}(iii), \eqref{eq:cr-sum}, and the height calculus give
 \[
  \HH{x^{999}}{\left(\rho_p(\theta_{\ell,\iota}^j,s)^{-1}\right)}
@@ -1552,6 +1793,9 @@ The sequence is chosen before the prime, embedding, and twist.
 The matrix is chosen after them.
 \src{New/Endgame/ShortAndEnough.lean}{Data.IndexLe}
 
+The numerical hypotheses in the next statement hold for admissible data
+by Proposition~\ref{prop:C-scales}.
+
 \begin{theorem}[Theorem C, from the displayed inputs]\label{thm:C}
 Assume that a fit family exists, Inputs~\ref{in:comparison},
 \ref{in:factorization}, and \ref{in:crude}, and the scale comparisons
@@ -1647,9 +1891,9 @@ The geometric section must construct the comparison forms, their
 Fock-dual tables and integral gauges, the Hecke-value height estimate,
 the chain scalar, and the crude integral rows. It must prove the
 archimedean estimates at the same data, including the tested projection
-contraction. Finally the elementary scale comparisons in
-Sections~\ref{sec:budget} and \ref{sec:C} must be derived from the
-admissibility inequalities.
+contraction. Section~\ref{sec:numerics} has discharged the budget and
+Theorem C scale comparisons from admissibility. The construction of
+admissible data and the further estimates needed for A and B remain.
 
 After these chapters, A and B, the weighted prime inequality, the
 good-window ending, and the five final analytic statements must be

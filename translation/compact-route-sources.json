@@ -18,7 +18,7 @@
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 21,
+  "intermediate_proofs": 25,
   "unexpanded_source_input_groups": [
     "short compatible twisted Selmer groups",
     "Ribet and patching denominator construction",
@@ -28,7 +28,7 @@
   ],
   "additional_obligations": [
     "odd Tate-class estimate",
-    "full admissible-data definitions and scale comparisons",
+    "admissible-data construction and further A/B estimates",
     "A and B",
     "weighted-prime inequality",
     "good-window analytic conclusion"
@@ -343,5 +343,10 @@
       "expected": "01d1d5477aa2ac547bcfdb89ccf1fbc66e179871b00ab04e292fa4515f925ad1",
       "match": true
     }
+  ],
+  "completed_numerical_steps": [
+    "All finite-prime rowBudget sums <= B0, conditional on stated odd-class X size bound",
+    "9 times the crude-unit prime sums <= x^999",
+    "The three scale comparisons in Theorem C"
   ]
 }

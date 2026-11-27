@@ -103,7 +103,7 @@ jobs:
         run: |
           import os,base64
           from pathlib import Path
-          for p in sorted((Path(os.environ["RUNNER_TEMP"])/"compact-exposition/qa").glob("contact-*.png")):
+          for p in sorted((Path(os.environ["RUNNER_TEMP"])/"compact-exposition/qa").glob("contact-*.png"))[:3]:
               print("RH_QA_IMAGE_START "+p.name)
               print(base64.b64encode(p.read_bytes()).decode())
               print("RH_QA_IMAGE_END")
@@ -130,3 +130,12 @@ jobs:
               --notes "Partial prose exposition of grh-compact at 72fead1. Intermediate proofs and Theorem C deduction; five source-specific input groups still require expansion. Not a standalone prose proof of RH. Built from $GITHUB_SHA."
           fi
           gh release upload "$tag" paper/rh-compact-exposition.pdf paper/rh-compact-exposition.tex paper/compact-route-sources.json paper/build-report.json paper/qa/contact-*.png --repo "$GITHUB_REPOSITORY" --clobber
+      - name: Return the remaining inspection sheets
+        shell: python
+        run: |
+          import base64
+          from pathlib import Path
+          for p in sorted(Path("paper/qa").glob("contact-*.png"))[3:]:
+              print("RH_QA_IMAGE_START "+p.name)
+              print(base64.b64encode(p.read_bytes()).decode())
+              print("RH_QA_IMAGE_END")
