@@ -84,10 +84,12 @@ analytic nonvanishing criterion gives the five concluding statements about RH an
 
 The present revision is organized around the hard interface between A and C:
 \[
- \text{short twisted Selmer groups}
- \ \longrightarrow\ \text{projection denominators}
- \ \longrightarrow\ \text{height of volume ratios}
- \ \longrightarrow\ \text{Theorem C}.
+ \begin{gathered}
+ \text{short twisted Selmer groups}\ \longrightarrow\
+       \text{projection denominators}\\
+ \longrightarrow\ \text{height of volume ratios}
+       \ \longrightarrow\ \text{Theorem C}.
+ \end{gathered}
 \]
 A compatible twist must work simultaneously for a finite set of Galois rows and
 for each of its first \(m\) powers. It is chosen separately for each prime and each
@@ -812,10 +814,10 @@ calculation isolates the potentially large factorial term.
 \begin{lemma}[absorption of the local factorial loss]\label{lem:factorial-budget}
 Assume
 \[
- b\ge4,\quad \log b\ge10^6,\quad
- b_1\le2b,\quad 60h_2^6\le b,\quad
- 30h_2^3\le b,\quad \log g\le22\log b,
- \quad m^2\le4x,\quad a\ge xb .
+ \begin{gathered}
+ b\ge4,\quad \log b\ge10^6,\quad b_1\le2b,\quad 60h_2^6\le b,\\
+ 30h_2^3\le b,\quad \log g\le22\log b,\quad m^2\le4x,\quad a\ge xb .
+ \end{gathered}
 \]
 Then
 \[
@@ -1034,7 +1036,7 @@ products and powers; the empty product has witness \(1,0,(0)_\ell\).
 \end{proof}
 \src{New/Heights/Heights.lean}{HeightLe.mono; HeightLe.of_le; HeightLe.mul; HeightLe.prod; HeightLe.pow}
 
-\subsection{Why a height bound for \(1\) cannot be negative}
+\subsection{Why the constant family has a nonnegative height bound}
 We give the field-theoretic details to avoid an implicit algebraicity assumption.
 
 \begin{lemma}[extension of embeddings]\label{lem:extend}

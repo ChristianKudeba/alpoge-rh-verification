@@ -305,5 +305,43 @@
       ]
     }
   ],
-  "completed_arithmetic_identity": "Full polarization proof of card_le_torsion_of_isotropic; source-specific global reciprocity remains pending"
+  "completed_arithmetic_identity": "Full polarization proof of card_le_torsion_of_isotropic; source-specific global reciprocity remains pending",
+  "reading_manifest_hash_checks": [
+    {
+      "path": "notes/fit-twists/fit-twists.tex",
+      "sha256": "dea3a3b062b59042188de6fee6c3da6074f4cc1519378cd69e8dd1fb82a178e5",
+      "expected": "dea3a3b062b59042188de6fee6c3da6074f4cc1519378cd69e8dd1fb82a178e5",
+      "match": true
+    },
+    {
+      "path": "notes/short-selmer-groups/short-selmer-groups.tex",
+      "sha256": "92f0697bbe51e206963f73bc8e4d3b8ca61868992d80e7f71bc9c22947d0d5b3",
+      "expected": "92f0697bbe51e206963f73bc8e4d3b8ca61868992d80e7f71bc9c22947d0d5b3",
+      "match": true
+    },
+    {
+      "path": "notes/heights/heights.tex",
+      "sha256": "33c7fd56d31706fcec93768430e557cdc701d6d8a01174fce225e6f8e62b67e0",
+      "expected": "33c7fd56d31706fcec93768430e557cdc701d6d8a01174fce225e6f8e62b67e0",
+      "match": true
+    },
+    {
+      "path": "notes/chain-volume/chain-volume.tex",
+      "sha256": "f6358efde789eeb92ebe2c84fa23d153936d5b51ce74f1012c5bdb15edec551b",
+      "expected": "f6358efde789eeb92ebe2c84fa23d153936d5b51ce74f1012c5bdb15edec551b",
+      "match": true
+    },
+    {
+      "path": "notes/lift-volume-height/lift-volume-height.tex",
+      "sha256": "5bede134677a7ff9e54a287bc4d0be0bea453747baa48c2c237b1f0919555b07",
+      "expected": "5bede134677a7ff9e54a287bc4d0be0bea453747baa48c2c237b1f0919555b07",
+      "match": true
+    },
+    {
+      "path": "notes/crude-rows/crude-rows.tex",
+      "sha256": "01d1d5477aa2ac547bcfdb89ccf1fbc66e179871b00ab04e292fa4515f925ad1",
+      "expected": "01d1d5477aa2ac547bcfdb89ccf1fbc66e179871b00ab04e292fa4515f925ad1",
+      "match": true
+    }
+  ]
 }
