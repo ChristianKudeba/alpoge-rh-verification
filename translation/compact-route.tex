@@ -48,8 +48,10 @@ powers of a twist, the determinant-specialization argument for finite relation m
 the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate, the global reciprocity calculation, bounded pencils of tied primes,
 the simultaneous compatible-twist selection, the balanced-row local calculation,
 the double-Cramer and one-prime operator formulas, the row-block determinant bound, the character-block Fitting theorem,
-the bounded Stickelberger integer and integral Fourier reconstruction,
-the finite-index crystalline duality and global defect sum, the glued-lattice indicator,
+the bounded Stickelberger integer, Jacobi-sum annihilator,
+Kolyvagin derivative family, detecting-point descent and global odd-class bound,
+the finite-index crystalline duality and global defect sum,
+the multi-prime patching algebra and its lattice descent, the glued-lattice indicator,
 the numerical budget comparisons, and the
 height and Gram-determinant calculus used at the end of Theorem C.
 The special-value interpolation, the complete Ribet and patching application,
@@ -3723,7 +3725,7 @@ This proves \(S_{N,e}\le2^{y^6}\).
 \src{Lib/Cyclotomic/Voronoi/StickelbergerInteger.lean}{exists_isStickelbergerBound}
 
 
-\section{The global odd-class bound: reduction to cyclotomic descent}
+\section{The global odd-class bound}
 \label{sec:odd-classes}
 We now give the global counting and character
 decomposition with its constants, including
@@ -3939,7 +3941,7 @@ No inverse of \(2\) or \(d\) has been used.
 \end{proof}
 \src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{the character projection in exists_length_shaOdd_le}
 
-\subsection{The precise descent still required}
+\subsection{The two cyclotomic descent statements}
 For \(S=S_{N,e}\) of Theorem~\ref{thm:stick-integer},
 the two source theorems needed are:
 \begin{enumerate}[label=(D\arabic*)]
@@ -3951,18 +3953,830 @@ the two source theorems needed are:
 whose evaluations detect \(\mathcal C_\psi\).
 \end{enumerate}
 These exact statements are stronger than a
-bare annihilator theorem. Their proofs in the
-source use Jacobi sums, Kummer cocycles,
-Artin reciprocity, and Kolyvagin's derivative
-descent. They are not treated here as proved
-merely from the special-value formula or
-from Theorem~\ref{thm:stick-integer}.
+bare annihilator theorem. Their proofs in the source use Jacobi sums, Kummer cocycles,
+Artin reciprocity, and Kolyvagin's derivative descent.
+The following subsections prove (D1) from finite Gauss sums
+and global reciprocity, then (D2) by an explicit derivative construction
+and finite descending induction. The second assertion does not follow
+merely from the annihilator (D1).
 \src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{nsmul_component_eq_zero}
 \src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{exists_detecting_points_component}
 
-\begin{theorem}[the global odd bound from (D1)--(D2)]
+
+\subsection{Jacobi elements from finite Gauss sums}
+\label{sec:jacobi-elements}
+We now prove (D1). We use the following
+normalization of the floor difference:
+\[
+ D_c(x)=\lfloor c\{x\}\rfloor-\lfloor c\{-x\}\rfloor,
+                    \qquad x\in\Q/\Z ,
+\]
+where \(\{x\}\in[0,1)\).
+This is an odd function of \(x\). It is not
+just \(\lfloor c\{x\}\rfloor\); the subtraction
+is responsible for a factor \(2\) below.
+
+\begin{lemma}[the Jacobi family]\label{lem:jacobi-family}
+Fix a rational prime \(p\), a place \(B\) above it,
+and an integer \(c\ge1\).
+For every \(x\in\Q/\Z\) killed by \(p-1\)
+there is \(J_c(x)\in\overline\Q^\times\) with:
+\begin{enumerate}[label=(\roman*)]
+\item if \(Mx=0,\ M\mid p-1\), then
+\(\sigma J_c(x)=J_c(\chi_M(\sigma)x)\);
+\item \(J_c(x)\) is a unit away from \(p\),
+\(v_B(J_c(x))=D_c(x)\), with \(v_B(p)=1\),
+and every complex conjugate has absolute value \(1\);
+\item if \(r\mid p-1,\ (c,r)=1\), then
+\(\prod_{b\bmod r}J_c(x+b/r)/J_c(rx)\)
+is a root of unity;
+\item at a prime over \(q\mid p-1\), with \(q\)
+prime and \(qb=0\),
+\(J_c(x+b)/J_c(x)\) is \(1\) modulo that prime.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Put \(r_0=p-1\), choose a primitive multiplicative
+character \(\eta:\F_p^\times\to\mu_{r_0}\)
+and a nontrivial additive character
+\(\epsilon:\F_p\to\mu_p\), and let
+\[
+ G(t)=\sum_{a\in\F_p^\times}\eta(a)^t\epsilon(a),
+                          \qquad t\in\Z/r_0.
+\]
+The elementary Gauss identities give
+\(G(0)=-1\) and
+\(G(t)G(-t)=\eta(-1)^t p\) for \(t\ne0\).
+For reference, the product identity follows
+by writing the double sum with \(a=ub\);
+the inner sum over \(b\ne0\) is \(p-1\)
+for \(u=-1\) and \(-1\) otherwise, and
+character orthogonality gives the result.
+The identical computation with complex
+conjugation gives \(|G(t)|=\sqrt p\) for
+\(t\ne0\). Thus all Gauss sums are nonzero
+algebraic integers and are units away from \(p\).
+
+At \(B\), the \(p\)-th roots reduce to \(1\).
+For \(t\ne0\), the reduction of \(G(t)\)
+is therefore the zero character sum
+\(\sum_{a\ne0}\eta(a)^t\). Hence
+\(v_B(G(t))>0\); the product identity gives
+\(v_B(G(t))<1\).
+Inertia above \(p\) fixes \(\mu_{p-1}\)
+and sends the additive character to a
+multiplicative translate. Its factor on
+\(G(t)\) is a character additive in \(t\).
+Consequently \(G(t+s)/(G(t)G(s))\) is
+fixed by inertia and has integer valuation.
+It follows that
+\[
+ t\longmapsto v_B(G(t))\pmod\Z
+\]
+is an injective homomorphism
+\(\Z/r_0\to\Q/\Z\): only \(t=0\) has
+valuation \(0\), by the strict bounds above.
+Its image is the group killed by \(r_0\).
+Name \(G_x\) by the resulting inverse
+bijection, so \(v_B(G_x)=\{x\}\).
+
+For an arbitrary Galois element \(\sigma\),
+a change of variable in the Gauss sum gives
+\(\sigma G_x=k_\sigma(x)G_{\chi_{r_0}(\sigma)x}\),
+where \(k_\sigma(x)\) is a root of unity
+and a homomorphism in \(x\).
+Define
+\[
+ j_c(x)=G_x^c/G_{cx},\qquad
+ J_c(x)=j_c(x)/j_c(-x).
+\]
+The \(k_\sigma\)-factors cancel in \(j_c\);
+this proves (i).
+The valuation is
+\[
+ c\{x\}-\{cx\}-c\{-x\}+\{-cx\}=D_c(x).
+\]
+The factors at \(x,-x\), and at \(cx,-cx\),
+have the same complex absolute values.
+This proves (ii), including at every complex
+embedding.
+
+The elementary fractional-part distribution
+identity
+\(\sum_{b=0}^{r-1}\{x+b/r\}=(r-1)/2+\{rx\}\)
+implies
+\(\sum_bD_c(x+b/r)=D_c(rx)\), since
+multiplication by \(c\) permutes \(b\bmod r\).
+Thus the quotient in (iii) has valuation zero
+at \(B\). By (i) the same is true at every
+place above \(p\), and by (ii) at every other
+finite place. All its complex absolute values
+are \(1\). It is an algebraic-integer unit,
+so Kronecker's theorem makes it a root of unity.
+
+For (iv), a multiplicative character of
+\(q\)-power order reduces to \(1\) at a prime
+above \(q\). Thus \(G_{x+b}\equiv G_x\)
+there whenever \(qb=0\).
+All these Gauss sums are units at \(q\ne p\).
+Apply the same observation at \(cx,-x,-cx\)
+in the formula for \(J_c\).
+Their quotient is \(1\) modulo that prime.
+\end{proof}
+\src{Lib/Cyclotomic/Stickelberger/GaussSums.lean}{exists_jacobi_family}
+
+The only local-field fact in the valuation
+argument is that an element fixed by inertia
+over \(\Q_p\) lies in an unramified extension,
+so its valuation, normalized by \(v(p)=1\),
+is an integer. For \(p=2\) the group of
+indices is trivial; the construction remains
+valid.
+
+\begin{lemma}[restricting the floor sum to units]
+\label{lem:unit-floor-sum}
+Let \(e>0\), \(\Upsilon_\psi(c_\infty)=-1\),
+and \(S=S_{N,e}\). For \(a\equiv1\pmod N\),
+\((a,\ell)=1\), put \(F=N\ell^\nu\) and
+\[
+ B_a=\sum_{u\in(\Z/F)^\times}
+               D_a(u/F)\,u^e\psi(u)\quad\text{in }A/\ell^\nu .
+\]
+Then \(B_a\mid(a^{e+1}-1)S\) in \(A/\ell^\nu\).
+\end{lemma}
+\begin{proof}
+The parity condition says
+\(\psi(-1)=-(-1)^e\).
+Replace the summation variable by its negative.
+Since \(F\) is divisible by \(\ell^\nu\),
+the replacement of its least representative
+in a degree-\(e\) power has no effect
+modulo \(\ell^\nu\).
+Thus the sum with \(D_a\), over all residues,
+is twice the sum with \(\lfloor au/F\rfloor\).
+Property (ii) of
+Theorem~\ref{thm:stick-integer} supplies a
+single \(w\) such that
+\[
+ (a^{e+1}-1)S\equiv w A_\nu\pmod{\ell^\nu},
+ \qquad
+ A_\nu=\sum_{u=0}^{N\ell^\nu-1}
+                         D_a(u/F)u^e\psi(u).
+\]
+Separate residues divisible by \(\ell\).
+Using multiplicativity of \(\psi\) and
+\(D_a(\ell u/(N\ell^\nu))
+ =D_a(u/(N\ell^{\nu-1}))\), we obtain
+\[
+ A_\nu=B_a+\ell^e\psi(\ell)A_{\nu-1}.
+\]
+Residues not prime to \(N\) contribute zero,
+so the first term is exactly the unit sum.
+The congruence at \(\nu-1\), multiplied by
+\(\ell^e\psi(\ell)\), is valid modulo
+\(\ell^\nu\), since \(e\ge1\).
+Subtracting it gives
+\[
+ wB_a=(1-\ell^e\psi(\ell))(a^{e+1}-1)S
+                                    \quad\text{in }A/\ell^\nu .
+\]
+The factor \(1-\ell^e\psi(\ell)\) is a unit.
+This proves the divisibility, including
+when \(\ell\mid N\), in which case
+\(\psi(\ell)=0\).
+For \(\nu=0\) the quotient is zero and
+the assertion is immediate.
+\end{proof}
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{sum_floorDiff_dvd}
+
+\begin{lemma}[the reciprocity relation]\label{lem:component-artin}
+Let \(x\in\mathcal C_\psi\), let
+\(a\equiv1\pmod N\), \((a,\ell)=1\), and
+let \(p\equiv1\pmod{N\ell^\nu}\).
+Choose an arithmetic Frobenius \(\phi\)
+at a place \(B\) above \(p\).
+For \(J=J_a(1/(N\ell^\nu))\), one has
+\[
+ 2(a^e-1)
+ \left(\sum_{u\in(\Z/(N\ell^\nu))^\times}
+                     D_a(u/(N\ell^\nu))u^e\psi(u)\right)
+                                     x(\phi)=0.
+\]
+\end{lemma}
+\begin{proof}
+Write \(F=N\ell^\nu\), \(K=\Q(\mu_F)\),
+and \(H_F=G_K\).
+The character \(\alpha_\psi\) acts trivially
+on \(A/\ell^\nu\) on \(H_F\), so \(x|_{H_F}\)
+is an additive homomorphism.
+It is unramified away from \(\ell\) by the
+component condition.
+We claim that \((a^e-1)x\) vanishes on the
+decomposition groups above \(\ell\) inside \(H_F\).
+Choose an inertia element \(\gamma\) above
+\(\ell\) with cyclotomic value \(a\).
+Such an element exists by local cyclotomic
+surjectivity; its action on \(\mu_N\) is
+trivial because \(a\equiv1\pmod N\).
+For \(g\) in this decomposition group,
+\([\gamma,g]\) is in \(\ker\chi\cap H_N\)
+and in the same decomposition group.
+The component local condition kills it.
+Comparing the cocycle identities for
+\(\gamma g\) and \(g\gamma\) now gives
+\[
+ (\alpha_\psi(\gamma)-1)x(g)=
+                         (\alpha_\psi(g)-1)x(\gamma)=0 .
+\]
+Here \(\alpha_\psi(g)=1\) on the coefficient
+quotient, and
+\(\alpha_\psi(\gamma)=a^{-e}\).
+This proves the claim.
+
+Let \(\lambda:A/\ell^\nu\to\Q/\Z\) be any
+additive character, and put
+\(b(g)=\lambda(2(a^e-1)x(g))\) on \(H_F\).
+This is a finite abelian Galois character.
+It is locally zero above \(\ell\), unramified
+at every other finite place, and zero at
+archimedean decomposition groups: their
+elements have order at most two and the
+displayed factor \(2\) kills their images.
+Global reciprocity for the principal idele
+\(J\in K^\times\) therefore gives
+\[
+ \sum_{w\mid p}v_w(J)\,b(\operatorname{Frob}_w)=0 .
+\]
+There are no other terms because \(J\) is a
+unit away from \(p\), and the character
+is zero on the local groups above \(\ell\).
+
+The prime \(p\) splits in \(K\).
+Index its places by \(u\in(\Z/F)^\times\),
+using lifts \(s_u\).
+The Jacobi family gives
+\(v_B(s_uJ)=D_a(u/F)\).
+The scalar cocycle conjugation formula gives
+\[
+ x(s_u^{-1}\phi s_u)
+       =\alpha_\psi(s_u)^{-1}x(\phi)
+       =u^e\psi(u)x(\phi),
+\]
+because \(\alpha_\psi(\phi)=1\) on the
+coefficient quotient.
+Substitution in the principal-idele
+identity proves that every \(\lambda\)
+kills the displayed expression.
+Additive characters into \(\Q/\Z\)
+separate points; hence that expression
+is zero, as asserted.
+\end{proof}
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{artin_law_component}
+
+\begin{theorem}[cyclotomic annihilation, including \(2\)]
+\label{thm:component-annihilation}
+Statement (D1) holds: \(4S_{N,e}^2\) kills
+every odd component \(\mathcal C_\psi\).
+\end{theorem}
+\begin{proof}
+Put \(S=S_{N,e}\).
+Choose \(a\) as in property (i) of
+Theorem~\ref{thm:stick-integer}, and write
+\((a^e-1)(a^{e+1}-1)\mid S\).
+Suppose \(4S^2x\ne0\), and let \(z=2S^2x\).
+The zero set of a locally constant scalar
+cocycle is an open subgroup.
+Its restriction cannot vanish on
+\(H_F=G_{\Q(\mu_{N\ell^\nu})}\).
+Indeed if it did, \(z\) would factor
+through the abelian quotient \(\Gamma/H_F\).
+Since \(z(c_\infty)=0\) and
+\(\alpha_\psi(c_\infty)=-1\), the commuting
+cocycle identities in that quotient would give
+\(-2z(g)=0\) for every \(g\).
+This contradicts \(4S^2x\ne0\).
+More explicitly, when \(z|_{H_F}=0\),
+the same identities apply modulo that subgroup;
+its action on the finite coefficient module
+is already trivial, so no descent of a
+characteristic-zero representation is needed.
+
+Chebotarev supplies a prime
+\(p\equiv1\pmod{N\ell^\nu}\) and Frobenius
+\(\phi\) in \(H_F\) with \(z(\phi)\ne0\).
+The finite quotient used here records both
+the representation and the locally constant
+cocycle; its kernel is open and normal.
+Avoiding the zero subgroup in \(H_F\)
+is a nonempty union of conjugacy classes,
+since the scalar action is trivial on
+\(H_F\). Thus this use of Chebotarev is legitimate.
+
+Lemma~\ref{lem:component-artin} gives
+\(2(a^e-1)B_a x(\phi)=0\).
+By Lemma~\ref{lem:unit-floor-sum},
+\(B_a\mid(a^{e+1}-1)S\).
+Therefore
+\(2(a^e-1)(a^{e+1}-1)Sx(\phi)=0\).
+Multiplying by
+\(S/((a^e-1)(a^{e+1}-1))\) yields
+\(2S^2x(\phi)=0\), contradicting the choice
+of \(\phi\).
+All factors \(2\) were multiplied, never
+inverted. The proof consequently includes
+\(\ell=2\).
+\end{proof}
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{nsmul_component_eq_zero}
+
+
+\subsection{Derivative cocycles with their local identity}
+\label{sec:kolyvagin-cocycles}
+We supply the Euler-system input to the detecting-point bound.
+It is useful to write the multiplicative group
+\(\overline\Q^\times\) additively in this subsection:
+a sum is a product, and multiplication by an integer is a power.
+A root of unity is then a torsion element.
+Fix \(m=\ell^n\), \(M=Nm\), an integer \(a\ge1\),
+and a finite set \(P\) of distinct primes
+\[
+ q\equiv1\pmod{aM}.
+\]
+Choose a prime \(p\equiv1\pmod{M\prod_{q\in P}q}\),
+a place above \(p\), and the Jacobi family \(J_a\)
+of Lemma~\ref{lem:jacobi-family}.
+Let \(\gamma\in G_\Q\) be fixed.
+Identify \(\mu_m\) additively with \(\Z/m\), embedded in \(A/m\).
+Write
+\[
+ u(g)=\chi_\ell(g)^e\psi(g),\qquad
+ b(g)=\chi_\ell(g)^{e+1}\psi(g).
+\]
+Here \(\psi(g)\) means evaluation on the cyclotomic character modulo \(N\).
+For each \(q\in P\), choose a surjection
+\(L_q:(\Z/q)^\times\longrightarrow\Z/m\).
+It exists because \(m\mid q-1\).
+
+\begin{lemma}[the derivative family]\label{lem:derivative-family}
+There are continuous \(b\)-cocycles
+\(\kappa_S:G_\Q\to A/m\), for \(S\subset P\), with:
+\begin{enumerate}[label=(\roman*)]
+\item \(\kappa_S(\gamma)=0\), and \(\kappa_S\) vanishes on
+inertia over \(\Q(\mu_N)\) away from \(\ell,p,S\);
+\item if \(\kappa_\emptyset\) vanishes on inertia above \(p\), then
+\[
+ (b(\gamma)-1)
+ \sum_{t\in(\Z/M)^\times}D_a(t/M)t^e\psi(t)=0
+                                      \quad\text{in }A/m;
+\]
+\item for \(q\in P\setminus S\) and any Frobenius \(\phi\)
+at a place above \(q\), there is \(\tau\) in its inertia group with
+\[
+ \kappa_{S\cup\{q\}}(\tau)=\kappa_S(\phi).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+All indices below are killed by
+\(M\prod_{q\in P}q\), hence by \(p-1\).
+Choose \(Y(x)\) with \(mY(x)=J_a(x)\), and put
+\[
+ F_g(x)=\gamma Y(x)-g\gamma g^{-1}Y(x)\in\mu_m.
+\]
+The two automorphisms have the same cyclotomic character, so
+they have the same action on \(J_a(x)\); this proves membership in \(\mu_m\).
+They also have the same action on every root of unity.
+Consequently \(F_g\) is independent of the choice of \(Y(x)\).
+
+For a function \(H\) on the indices and parameters
+\(d=(d_q)_{q\in S}\in(\Z/m)^S\), define
+\[
+ \Lambda_{S,d}(H)=
+ \sum_{\substack{t\in(\Z/M)^\times\\
+                  v_q\in(\Z/q)^\times,\ q\in S}}
+ t^e\psi(t)\prod_{q\in S}(L_q(v_q)-d_q)\,
+ H\left(\frac tM+\sum_{q\in S}\frac{v_q}{q}\right).
+\]
+Set \(\kappa_S(g)=\Lambda_{S,0}(F_g)\).
+
+We first establish the two identities that make this a cocycle.
+The distribution relation for \(J_a\) says that
+\[
+ R_q(x)=\sum_{v\bmod q}Y(x+v/q)-Y(qx)
+\]
+is a root of unity. Applying \(\gamma-g\gamma g^{-1}\) gives
+\begin{equation}\label{eq:F-distribution}
+ \sum_{v\bmod q}F_g(x+v/q)=F_g(qx).
+\end{equation}
+Second,
+\begin{equation}\label{eq:Lambda-shifts}
+ \Lambda_{S,d}(F_g)=\Lambda_{S,0}(F_g)
+                 \quad\text{for every }d.
+\end{equation}
+Here is an induction proving the second identity.
+Change one parameter \(d_q\).
+The difference is a scalar multiple of the functional for
+\(S\setminus\{q\}\) applied to
+\(\sum_{v\ne0}F_g(x+v/q)=F_g(qx)-F_g(x)\).
+In the first term, reindex \(t\) by multiplication by \(q\)
+and each remaining letter \(v_r\) by multiplication by \(q\).
+The first reindexing has no effect because \(q\equiv1\pmod M\).
+The other reindexings replace \(d_r\) by
+\(d_r+L_r(q)\). By the induction hypothesis the resulting
+functional is unchanged. The difference is therefore zero.
+This proves independence of each parameter, starting with the empty set.
+
+More generally, if \(h\) acts on all the index roots of unity
+by the integer \(c\), reindexing \(t\) and the letters gives
+\begin{equation}\label{eq:Lambda-covariance}
+ \Lambda_{S,0}\bigl(H(c\,\cdot)\bigr)
+            =u(h)^{-1}\Lambda_{S,0}(H)
+                      \quad(H=F_g).
+\end{equation}
+The powers and \(\psi\) contribute \(c^{-e}\psi(c)^{-1}\);
+the letter logarithms change only the parameters \(d_r\),
+which \eqref{eq:Lambda-shifts} removes.
+
+Independence of the roots \(Y\) also gives the pointwise identity
+\[
+ F_{gh}(x)=F_g(x)+\chi_\ell(g)F_h(\chi(g)^{-1}x).
+\]
+Indeed \(g^{-1}Y(x)-Y(\chi(g)^{-1}x)\) is an \(m\)-th root
+of unity, and \(\gamma-h\gamma h^{-1}\) kills it.
+Apply \(\Lambda_{S,0}\) and
+\eqref{eq:Lambda-covariance}: the second term becomes
+\(\chi_\ell(g)u(g)\kappa_S(h)=b(g)\kappa_S(h)\).
+This proves the cocycle identity.
+Also \(F_\gamma=0\).
+Only finitely many algebraic numbers and finite coefficients occur,
+so these cocycles are continuous.
+
+For the ramification assertion, at a prime different from
+\(\ell,p,S\), the indices have denominator supported on \(N,\ell,S\).
+Inertia over \(\Q(\mu_N)\) therefore fixes the indices.
+Every \(J_a(x)\) is a unit there.
+Taking an \(m\)-th root of a unit is unramified when the residue
+characteristic does not divide \(m\).
+The same assertion holds for all conjugates of these roots.
+Thus both terms defining \(F_i(x)\) agree for such an inertia element \(i\);
+this proves (i).
+
+For (ii), use just the indices killed by \(M\), and put
+\[
+ K_g(x)=gY(x)-Y(\chi(g)x)\in\mu_m,\qquad
+ z(g)=u(g)\Lambda_{\emptyset,0}(K_g).
+\]
+The reindexing in \((\Z/M)^\times\) shows that \(z\) is a
+\(b\)-cocycle. Expanding \(F_g\) in terms of \(K_g,K_\gamma\) gives
+\begin{equation}\label{eq:normalized-Kummer}
+ \kappa_\emptyset(g)=u(\gamma)^{-1}
+ \bigl((b(\gamma)-1)z(g)-(b(g)-1)z(\gamma)\bigr).
+\end{equation}
+For clarity, before applying \(\Lambda\) the four terms are
+\[
+ K_\gamma(x)-\chi_\ell(g)K_\gamma(\chi(g)^{-1}x)
+ -K_g(\chi(\gamma)\chi(g)^{-1}x)
+ +\chi_\ell(\gamma)K_g(\chi(g)^{-1}x).
+\]
+Reindexing each term gives exactly
+\eqref{eq:normalized-Kummer}.
+At \(p\), the field of the \(M\)-th roots is split,
+and \(p\ne\ell\).
+Choose an \(m\)-th root \(R\) of a uniformizer.
+The valuation formula for \(J_a(x)\) says that
+\(Y(x)-D_a(x)R\) is a root of a unit,
+hence fixed by inertia.
+For a tame generator \(\tau\) with \(\tau R-R=1\) in \(\mu_m\),
+\[
+ z(\tau)=\sum_tD_a(t/M)t^e\psi(t),\qquad b(\tau)=1.
+\]
+Equation~\eqref{eq:normalized-Kummer} now proves (ii).
+
+We finish by proving the local identity (iii).
+This also explains why no unspecified norm relation is needed.
+Fix \(q\in P\setminus S\), put \(M_0=M\prod_{r\in S}r\),
+and work at the chosen place above \(q\).
+Since \(q\nmid M_0m\), roots \(Y(x)\) for \(M_0x=0\)
+can be chosen in an unramified extension.
+By Lemma~\ref{lem:jacobi-family}(iv),
+\(J_a(x+v/q)/J_a(x)\) is a principal unit.
+Choose \(Y(x+v/q)/Y(x)\) to be its unique principal-unit
+\(m\)-th root.
+In the additive notation this says that \(Y(x+v/q)-Y(x)\)
+is a principal unit.
+These choices may be made simultaneously: the decomposition of an index
+into its \(M_0\)-part and its \(q\)-part is unique.
+
+Choose \(w\in(\Z/q)^\times\) with \(L_q(w)=-1\),
+and choose \(\tau\) in inertia whose action on \(\mu_q\)
+is multiplication by \(w\).
+It fixes \(\mu_{M_0m}\).
+Uniqueness of the principal-unit root gives
+\(\tau Y(x+v/q)=Y(x+wv/q)\).
+Writing \(K_\gamma(x)=\gamma Y(x)-Y(\chi(\gamma)x)\),
+we obtain, by reindexing \(v\),
+\begin{equation}\label{eq:derivative-tau}
+ \sum_{v\ne0}L_q(v)F_\tau(x+v/q)
+       =\sum_{v\ne0}K_\gamma(x+v/q).
+\end{equation}
+Indeed the two terms on the left before summation are
+\(K_\gamma(x+v/q)-K_\gamma(x+w^{-1}v/q)\);
+their weighted sum is \(-L_q(w)\sum_{v\ne0}K_\gamma(x+v/q)\).
+
+Let \(\phi\) be any Frobenius at \(q\).
+On the \(M_0\)-indices it acts by multiplication by \(q\).
+For such indices set \(K_\phi(x)=\phi Y(x)-Y(qx)\).
+The root of unity
+\(R_q(x)=\sum_{v\bmod q}Y(x+v/q)-Y(qx)\)
+satisfies
+\[
+ R_q(x)-K_\phi(x)=\sum_{v\bmod q}Y(x+v/q)-\phi Y(x).
+\]
+The right side reduces to zero in the additive notation:
+each \(Y(x+v/q)\) reduces to \(Y(x)\), and Frobenius
+raises the residue of \(Y(x)\) to its \(q\)-th power.
+It is therefore a principal-unit root of unity, hence of \(q\)-power order.
+This remains true after applying any Galois automorphism.
+
+Expanding \(\gamma R_q(x)-R_q(\chi(\gamma)x)\) gives
+\[
+ \sum_{v\ne0}K_\gamma(x+v/q)
+ \equiv K_\gamma(qx)-K_\gamma(x)
+       +\chi_\ell(\gamma)K_\phi(x)
+       -K_\phi(\chi(\gamma)x)
+                         \pmod{\mu_{q^\infty}}.
+\]
+The right side is \(F_\phi(qx)\):
+expand \(F_\phi\) by its four \(K\)-terms as above,
+and use \(\chi_\ell(\phi)=q=1\) on \(\mu_m\).
+Both sides lie in \(\mu_m\).
+Since \(\mu_m\cap\mu_{q^\infty}=0\), this is an equality.
+Apply \(\Lambda_{S,0}\) to
+\eqref{eq:derivative-tau}.
+Its right side is
+\(\Lambda_{S,0}(F_\phi(q\,\cdot))=\kappa_S(\phi)\),
+by \eqref{eq:Lambda-covariance} and \(q\equiv1\pmod M\).
+Its left side is \(\kappa_{S\cup\{q\}}(\tau)\).
+This proves (iii) and the lemma.
+\end{proof}
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{exists_kolyvagin_cocycles}
+
+
+\subsection{Reciprocity and the detecting-point bound}
+\label{sec:detecting-descent}
+We now prove (D2), using the derivative family just constructed.
+The only duality fact used in the next lemma is classical global
+reciprocity for the cup product, together with its unramified local
+formula; see \cite[Part I]{milneADT}.
+
+\begin{lemma}[reciprocity modulo a large prime]\label{lem:large-reciprocity}
+Suppose \(\ell>N+e+3\), \(A\) is unramified over \(\Z_\ell\),
+and \(x\in\mathcal C_\psi\) is killed by \(\ell\).
+Let \(T\) be a finite set of primes congruent to \(1\pmod{N\ell}\),
+let \(q\in T\), and let \(y\) be a cocycle for
+\(b=\chi_\ell^{e+1}\psi\), killed by \(\ell\),
+unramified over \(\Q(\mu_N)\) away from \(\ell,T\).
+Assume that \(x\) vanishes on every decomposition group above
+\(T\setminus\{q\}\), and is nonzero on a Frobenius above \(q\).
+Then \(y\) vanishes on inertia above \(q\).
+\end{lemma}
+\begin{proof}
+Write \(k=A/\ell\).
+The \(\ell\)-torsion in \(A/\ell^\nu\) is identified with \(k\)
+by multiplication by \(\ell^{\nu-1}\); the corresponding identification
+applies to the coefficient quotient containing \(y\).
+Normalize both cocycles in this way.
+Their characters are
+\(\alpha=(\chi_\ell^e\psi)^{-1}\) and \(b\);
+their product is the cyclotomic character.
+
+Choose \(a\equiv1\pmod N\) whose residue generates
+\(\F_\ell^\times\).
+Then \(a^e-1\) is a unit, since \(0<e<\ell-1\).
+The local commutator argument in
+Lemma~\ref{lem:component-artin} shows that \(x\) vanishes
+on the decomposition groups above \(\ell\) in
+\(G_K\), where \(K=\Q(\mu_{N\ell})\).
+Explicitly, choose local inertia \(\gamma\) with
+\(\chi_\ell(\gamma)=a\).
+For \(g\in G_K\) in the same local decomposition group,
+\([\gamma,g]\) belongs to the local subgroup
+\(\ker\chi_\ell\cap G_{\Q(\mu_N)}\) killed by \(x\).
+The cocycle identities give
+\((a^{-e}-1)x(g)=0\), and hence \(x(g)=0\).
+
+The cup product of \(x|_{G_K}\) and \(y|_{G_K}\), using
+multiplication in \(k\), takes values in \(k(1)\).
+Apply \(\operatorname{Tr}_{k/\F_\ell}(t\,\cdot)\) for each \(t\in k\).
+Global reciprocity says that the sum of its local invariants is zero.
+At places away from \(\ell,T\), both classes are unramified;
+the local product of two unramified classes is zero.
+Above \(\ell\), the first class is zero.
+Above \(T\setminus\{q\}\), it is zero by hypothesis.
+There is no infinite-place contribution, since \(\ell\) is odd.
+
+It remains to compute the sum above \(q\).
+This prime splits in \(K\).
+At a fixed place choose a tame generator \(\tau\), normalized
+by a fixed generator of \(\mu_\ell\).
+The local unramified cup formula is
+\(x(\phi)y(\tau)\), with a common sign depending only on the
+cup-product convention.
+Every conjugate place gives the same element of \(k\).
+Indeed, conjugation by \(s\) multiplies the Frobenius value by
+\(\alpha(s)^{-1}\). The tame generator at the conjugate place,
+normalized using the same \(\mu_\ell\), is the conjugate of
+\(\tau^{\chi_\ell(s)}\), so its \(y\)-value is multiplied by
+\(\chi_\ell(s)b(s)^{-1}\).
+The product of these two factors is \(1\).
+Thus reciprocity gives
+\[
+ \operatorname{Tr}_{k/\F_\ell}
+       \bigl(t\,\varphi(N\ell)x(\phi)y(\tau)\bigr)=0
+                                      \quad\text{for every }t\in k.
+\]
+The trace pairing is nondegenerate, and \(\varphi(N\ell)\) is a unit:
+\(\ell>N\) and \(\varphi(N)<\ell\).
+The field element \(x(\phi)\) is nonzero.
+Consequently \(y(\tau)=0\).
+A homomorphism from tame inertia to an additive group killed by \(\ell\)
+is determined by this generator; wild inertia has no such quotient
+at \(q\ne\ell\).
+The cocycle therefore vanishes on all inertia at \(q\).
+Conjugation gives the same conclusion at every place above \(q\).
+\end{proof}
+
+\begin{theorem}[large-prime detecting points]\label{thm:component-detectors}
+Let \(e>0\), \(\Upsilon_\psi(c_\infty)=-1\),
+and \(\ell>N+e+3\).
+Put \(s=v_\ell(S_{N,e})\).
+There are \(s+1\) elements of \(G_\Q\) whose evaluations detect
+\(\mathcal C_\psi\), for every coefficient exponent \(\nu\).
+\end{theorem}
+\begin{proof}
+First reduce to an unramified coefficient ring.
+The values of \(\psi\) have order dividing \(\varphi(N)\),
+which is prime to \(\ell\).
+Thus
+\(A_0=\Z_\ell[\psi(u):u\in(\Z/N)^\times]\)
+is the integer ring of an unramified extension of \(\Q_\ell\).
+All the scalar characters and all the component conditions
+are defined over \(A_0\).
+The ring \(A\) is finite free over \(A_0\).
+Expand values in an \(A_0\)-basis of \(A\);
+each coordinate is a component cocycle with values in
+\(A_0/\ell^\nu\).
+One tuple detecting the latter cocycles detects every coordinate.
+We may therefore assume \(A=A_0\).
+
+Set \(h=s+1\), \(R=A/\ell^h\), and \(M=N\ell^h\).
+Choose \(a\equiv1\pmod N\) primitive modulo \(\ell\).
+Both \(a^e-1\) and \(a^{e+1}-1\) are units, because
+\(0<e<e+1<\ell-1\).
+Choose inertia \(\gamma\) above \(\ell\) with
+\(\chi_\ell(\gamma)=a\).
+Then \(b(\gamma)=a^{e+1}\), so \(b(\gamma)-1\) is a unit.
+
+Suppose, for a contradiction, that no \(h\) evaluations detect the component.
+Let \(Z\) be its nonzero cocycles killed by \(\ell\).
+For every set \(T\) of at most \(h\) primes
+congruent to \(1\pmod{N\ell}\), there is \(x\in Z\)
+vanishing on every decomposition group above \(T\).
+To see this, choose one Frobenius \(\sigma_r\) at each \(r\in T\)
+and pad them to an \(h\)-tuple with identity elements.
+A nonzero common-kernel cocycle exists by assumption.
+Multiply it by a power of \(\ell\) to obtain a nonzero cocycle killed
+by \(\ell\).
+At these primes it is unramified, and its residual character
+is trivial on the local decomposition group.
+Its zero Frobenius value therefore kills that whole group.
+The conjugation formula, with trivial character on that group,
+gives the same assertion at every conjugate place.
+
+For such a finite set \(T\), let \(Y(T)\) be the \(R\)-valued
+\(b\)-cocycles that vanish at \(\gamma\) and on inertia over
+\(\Q(\mu_N)\) away from \(\ell,T\).
+These sets are finite, as is \(Z\).
+Here is the finiteness fact needed: a cocycle with finite coefficients
+and fixed finite character gives an affine representation into
+a fixed finite group. The ramification conditions make its field
+unramified outside the fixed finite set of primes dividing \(N\ell\prod T\).
+There are finitely many such fields of bounded degree by
+Hermite--Minkowski and the local discriminant bound for extensions
+of bounded degree. Each finite Galois group has only finitely many maps
+to the fixed finite affine group.
+
+Write \(J(T)\) for the property
+\[
+ \begin{gathered}
+ r\equiv1\pmod{N\ell}\quad(r\in T),\\
+ y\in Y(T),\quad \ell y=0\quad\Longrightarrow\quad y\in Y(\emptyset).
+ \end{gathered}
+\]
+We have \(J(\emptyset)\).
+There is a useful extension rule.
+For \(J(T)\) and \(|T|\le h\), choose the \(x\in Z\)
+just obtained, zero on every decomposition group above \(T\).
+If \(q\equiv1\pmod{N\ell}\) and \(x\) is nonzero on a decomposition
+group above \(q\), then
+\begin{equation}\label{eq:J-extension}
+ q\notin T,\qquad J(T\cup\{q\}).
+\end{equation}
+Indeed a cocycle in \(Y(T\cup\{q\})[\ell]\) has zero inertia
+at \(q\) by Lemma~\ref{lem:large-reciprocity};
+it then belongs to \(Y(T)[\ell]\) and hence to \(Y(\emptyset)\).
+
+We next choose a finite set of testing primes before constructing
+the derivatives.
+For every nonzero \(y\in Y(\emptyset)\) and every \(x\in Z\),
+choose by Chebotarev a prime \(q=q(y,x)\) with
+\[
+ q\equiv1\pmod{aM},\qquad
+ y(\phi_q)\ne0,\quad x(\phi_q)\ne0
+\]
+for one Frobenius \(\phi_q\).
+We justify simultaneous avoidance.
+Neither cocycle can vanish on all of
+\(H=G_{\Q(\mu_{aM})}\).
+If \(y|_H=0\), it descends to an abelian quotient,
+and the commuting cocycle identities with \(\gamma\) give
+\((b(\gamma)-1)y=0\), contradicting \(y\ne0\).
+For \(x\), the same argument uses \(c_\infty\),
+\(x(c_\infty)=0\), and \(\alpha(c_\infty)-1=-2\).
+Both scalar characters are trivial on \(H\) on the relevant
+coefficient modules.
+Their zero sets on \(H\) are proper subgroups,
+and two proper subgroups cannot cover a group.
+The nonempty complement is open and invariant under conjugation
+in the finite quotient recording the characters and cocycles.
+Chebotarev therefore applies.
+Let \(Q\) be the finite set of all these primes and keep each chosen witness.
+
+Choose \(z\in Z\), and choose, again by Chebotarev,
+a prime \(p\) and Frobenius \(\phi_p\) such that
+\[
+ p\equiv1\pmod{M\prod_{q\in Q}q},
+                   \qquad z(\phi_p)\ne0.
+\]
+The same abelian-quotient argument justifies this choice.
+In particular \(p\notin Q\), and
+\eqref{eq:J-extension}, starting with the empty set, gives \(J(\{p\})\).
+Construct the family \(\kappa_S\) for \(S\subset Q\)
+by Lemma~\ref{lem:derivative-family}, with coefficient quotient \(R\).
+
+We prove by descending induction on \(i=h,h-1,\ldots,0\) that
+\begin{equation}\label{eq:descending-kappa}
+ \begin{split}
+ S\subset Q,\quad |S|\le i,\quad J(\{p\}\cup S)
+ \quad\Longrightarrow\quad
+                   \ell^i\kappa_S\in Y(\emptyset).
+ \end{split}
+\end{equation}
+At \(i=h\) the cocycle is zero.
+Suppose the assertion holds at \(i+1\), and put \(T=\{p\}\cup S\)
+for a set at level \(i\).
+Then \(|T|\le i+1\le h\).
+Choose \(x\in Z\) zero on every decomposition group above \(T\).
+
+By the induction hypothesis,
+\(y=\ell^{i+1}\kappa_S\) belongs to \(Y(\emptyset)\).
+If \(y\ne0\), use the previously chosen prime \(q(y,x)\in Q\).
+Its \(x\)-value is nonzero; hence it is outside \(T\)
+and \(J(T\cup\{q\})\) by \eqref{eq:J-extension}.
+Its \(y\)-value is nonzero as well.
+The finite-singular identity supplies \(\tau\) in inertia at \(q\) with
+\[
+ \ell^{i+1}\kappa_{S\cup\{q\}}(\tau)
+                    =\ell^{i+1}\kappa_S(\phi_q)=y(\phi_q)\ne0.
+\]
+But the induction hypothesis applied to \(S\cup\{q\}\)
+puts the left-hand cocycle in \(Y(\emptyset)\);
+it is unramified at \(q\), a contradiction.
+Thus \(\ell^{i+1}\kappa_S=0\).
+Now \(\ell^i\kappa_S\in Y(T)[\ell]\);
+property \(J(T)\) puts it in \(Y(\emptyset)\).
+This completes the induction.
+
+Take \(i=0,S=\emptyset\) in
+\eqref{eq:descending-kappa}.
+The bottom cocycle is unramified at \(p\).
+By Lemma~\ref{lem:derivative-family}(ii) and the unit
+\(b(\gamma)-1\),
+\[
+ B_a=\sum_{t\in(\Z/M)^\times}D_a(t/M)t^e\psi(t)=0
+                                                     \quad\text{in }R.
+\]
+Lemma~\ref{lem:unit-floor-sum} says
+\(B_a\mid(a^{e+1}-1)S_{N,e}\) in \(R\).
+Since \(a^{e+1}-1\) is a unit,
+\(\ell^h\mid S_{N,e}\) in \(A\).
+This contradicts \(h=v_\ell(S_{N,e})+1\).
+The desired \(h\)-tuple of detecting elements therefore exists.
+\end{proof}
+\src{Lib/Cyclotomic/Kolyvagin/ComponentBound.lean}{reciprocity_mod_ell and exists_detecting_points_component}
+
+\begin{theorem}[the global odd-class bound]
 \label{thm:odd-global-assembly}
-Assume (D1)--(D2). For \(E\subset\Q(\mu_N)\)
+For \(E\subset\Q(\mu_N)\)
 a CM field and \(t\ge0\), there is one integer
 \[
  1\le X\le2^{4(N+t+3)^{27}}h_E
@@ -4028,8 +4842,8 @@ There are at most \(y\) factors, so
       \le y^{20}\,3y^7\le4y^{27}.
 \]
 This proves the advertised uniform size and
-length bounds, conditional exactly on the
-two displayed cyclotomic descent statements.
+length bounds. The two cyclotomic inputs have been proved in
+Theorems~\ref{thm:component-annihilation} and~\ref{thm:component-detectors}.
 \end{proof}
 \src{Lib/Cyclotomic/OddSha/OddShaBound.lean}{exists_length_shaOdd_le}
 
@@ -4315,6 +5129,280 @@ defect statement remains an explicit input.
 \src{New/Selmer/OnePlaceDefect.lean}{block_defect_le_at_place}
 \src{New/Selmer/CrystallineBound.lean}{crystalline_defect_le}
 \src{New/Lift/ExponentTheorems.lean}{tame_types_exponent; KummerChart.few_low_jumps}
+
+
+\section{Multi-prime patching and extraction of the top coefficient}
+\label{sec:multi-patching}
+We now prove the algebraic patching step from
+the one-prime relations. The local Hecke
+root-string theorem is still needed to obtain
+those relations on the actual automorphic
+spaces; the argument here gives their full
+combination, including the exponent \(|J|+1\).
+
+Let \(\Gamma=\prod_{j\in J}\Gamma_j\) be a
+finite product, with representation \(\rho\)
+on a module \(B\) killed by \(\ell^\nu\).
+Let a commutative algebra \(\mathcal H\)
+act on \(B\), commuting with \(\rho\) and
+with operators \(F_j\).
+The operators at distinct primes commute.
+Write
+\[
+ M_j=\sum_{g\in\Gamma_j}\rho_j(g),\qquad
+ N=\prod_jM_j=\sum_{g\in\Gamma}\rho(g),\qquad k=|J|+1.
+\]
+Fix a nonzero scalar \(c\) and an operator
+\(\Psi\) satisfying the averaging identity
+\begin{equation}\label{eq:higman-patch}
+ \sum_{g\in\Gamma}\rho(g)^{-1}\Psi\rho(g)=c\,1.
+\end{equation}
+For \(T\in\mathcal H\), suppose for every
+\(j,g\in\Gamma_j\) there is \(Z_{j,g}\) with
+\begin{equation}\label{eq:patch-invariance}
+ cF_j(\rho_j(g)-1)=M_jZ_{j,g},\qquad NTZ_{j,g}=0.
+\end{equation}
+These identities are in \(\operatorname{End}(B)\).
+
+For \(d\in\N^J\), put
+\[
+ \Theta_d=\prod_j
+  \begin{cases}F_j&d_j=0,\\M_j&d_j=1,\\0&d_j>1.\end{cases}
+ \qquad \mathbf1=(1)_{j\in J}.
+\]
+Thus \(\Theta_{\mathbf1}=N\);
+indices outside the cube give zero.
+
+\begin{lemma}[nilpotence of the deformed trace]
+\label{lem:patch-nilpotence}
+Put \(P=c^2T\). If \(NTz=0\), then
+\[
+ P^n\Theta_d z=0\qquad\text{whenever }k\le|d|+n.
+\]
+\end{lemma}
+\begin{proof}
+Induct on \(n\), uniformly in \(d,z\).
+For \(n=0\), a cube index has \(|d|\le|J|<k\);
+all other indices have \(\Theta_d=0\).
+
+Suppose the result holds at \(n\), and
+\(k\le|d|+n+1\). Put \(W=P^n\Theta_d c\).
+For each \(j,g\in\Gamma_j\),
+\[
+ W(\rho_j(g)-1)=P^n\Theta_{d+e_j}Z_{j,g}.
+\]
+For \(d_j=0\), this is
+\eqref{eq:patch-invariance} multiplied by the
+other local factors. For \(d_j=1\), both
+sides are zero because
+\(M_j(\rho_j(g)-1)=0\).
+For \(d_j>1\), both have a zero local factor.
+In the first case
+\(|d+e_j|=|d|+1\), and the inductive
+hypothesis applies to \(Z_{j,g}z'\) for
+every \(z'\), since \(NTZ_{j,g}=0\).
+Thus \(W\rho_j(g)=W\) as operators.
+The product factors generate \(\Gamma\),
+so \(W\rho(g)=W\) for every \(g\).
+
+Multiplying \eqref{eq:higman-patch} by \(W\)
+on the left now gives
+\[
+ Wc=\sum_g W\rho(g)^{-1}\Psi\rho(g)
+                         =W\Psi N.
+\]
+Apply this to \(Tz\).
+The right side is zero by \(NTz=0\);
+the left side is
+\(P^n\Theta_dc^2Tz=P^{n+1}\Theta_dz\).
+This completes the induction.
+\end{proof}
+
+Suppose \(\mathcal H\) also contains the
+trace generators \(t_{j,a},r_{j,a}\), for
+arbitrary indices \(a\), with
+\begin{equation}\label{eq:patch-trace-relations}
+ M_jt_{j,a}=0,\qquad
+ \kappa F_jt_{j,a}=\kappa M_jr_{j,a},
+\end{equation}
+where \(\kappa\) is a fixed scalar.
+The factor in the automorphic application is
+\(\kappa=2n_O!\).
+Let \(\mathfrak I\subset\mathcal H[X_j]\)
+be generated by \(\ell^\nu\) and
+\(t_{j,a}-X_jr_{j,a}\).
+Define the coefficient functional
+\[
+ \mathscr L(f)=\sum_{d\le\mathbf1}\Theta_d f_d,
+                  \qquad f=\sum_d f_dX^d.
+\]
+
+\begin{lemma}[the functional kills the trace ideal]
+\label{lem:patch-functional}
+For \(f\in\mathfrak I\),
+\(\kappa\mathscr L(f)=0\) on \(B\).
+If \(f_dy=0\) for every
+\(d<\mathbf1\), then
+\(\mathscr L(f)y=Nf_{\mathbf1}y\).
+\end{lemma}
+\begin{proof}
+The \(\ell^\nu\) generator acts as zero.
+For the generator at \(j,a\), and any
+coefficient \(h_e\), its contribution is
+\[
+ \kappa(\Theta_e t_{j,a}
+                   -\Theta_{e+e_j}r_{j,a})h_e.
+\]
+If \(e_j=0\), this is zero by the second
+identity of \eqref{eq:patch-trace-relations}.
+If \(e_j=1\), it is zero by the first;
+if \(e_j>1\), both terms are zero.
+Coefficients commute with every local
+operator, so summing proves the assertion
+for all multiples of all generators.
+The second assertion follows by deleting
+the zero summands from the cube sum:
+the only surviving index is \(\mathbf1\).
+It requires no assumption about terms
+outside the cube.
+\end{proof}
+\src{New/Patching/OnePrimeTie.lean}{the operators Theta, F2 and L in exists_diagOp_mem_ellIntegralForms}
+
+\subsection{The integral diagonal operator}
+We give the lattice argument as well.
+Let \(V\) be a vector space over the coefficient
+field, \(\Lambda\subset V\) its integral lattice,
+and \(\mathcal R\) an algebra of operators
+preserving \(\Lambda\).
+Assume \(\rho,\Psi,\mathcal H\) act through
+\(\mathcal R\), with
+\eqref{eq:higman-patch} already in
+\(\operatorname{End}(V)\).
+Let \(l,y\in V^\Gamma\), and suppose
+\[
+ \beta y=0,\quad
+ p(\beta)(l-y)=0,\quad p_0=p(0)\ne0 ,
+\]
+for \(\beta\in\mathcal H\) and
+\(p\in A[X]\).
+Choose \(A_1\in\mathcal H\), put
+\(T=A_1p(\beta)\), and suppose that on the
+module below the one-prime operators satisfy
+\eqref{eq:patch-invariance} and
+\eqref{eq:patch-trace-relations}.
+Suppose \(f\in\mathcal H[X_j]\) satisfies
+\[
+ f\beta\in\mathfrak I,\qquad
+ f_dy=0\quad(d<\mathbf1),
+ \qquad \kappa(p_0c^2)^k\mid\ell^\nu.
+\]
+
+\begin{theorem}[multi-prime patching]\label{thm:multi-patch}
+The diagonal Hecke operator
+\(\lambda=A_1^kf_{\mathbf1}\) satisfies
+\[
+ a\,c\,\lambda y\in\Lambda
+                       \quad\text{whenever }a\,l\in\Lambda,\ a\in A.
+\]
+At a distinguished system \(\pi\) where
+\(A_1(\pi)\) is a unit,
+\(v_\ell(m\lambda(\pi))
+ =v_\ell(m f_{\mathbf1}(\pi))\).
+Thus the Ribet coefficient valuation survives
+patching, without identifying the two
+eigenvalues.
+\end{theorem}
+\begin{proof}
+Consider the \(\mathcal R\)-module
+\[
+ B=\mathcal Rl/\ell^\nu\mathcal Rl
+\]
+and let \(z\) be the class of \(\Psi l\).
+This avoids treating \(y\) as an integral
+vector before it is known to be one.
+Since \(l\) is \(\Gamma\)-invariant,
+\eqref{eq:higman-patch} gives
+\(N\Psi l=c l\), after replacing \(g\)
+by \(g^{-1}\) in the finite sum.
+For every \(s\in T\mathcal H\),
+\[
+ Ns z=0
+ \quad\Longleftrightarrow\quad
+ \exists U\in\mathcal R,\quad
+                      \ell^\nu U l=c s y.            \tag{*}
+\]
+Indeed \(Ns\Psi l=csl\), since \(s\) commutes
+with \(N\), and \(sl=sy\), since \(s\)
+is a multiple of \(p(\beta)\).
+Membership in \(\ell^\nu\mathcal Rl\)
+is exactly the equation on the right.
+
+Set \(P=c^2T\), and choose \(w\in A\) with
+\(w\kappa(p_0c^2)^k=\ell^\nu\).
+Polynomial divisibility gives \(v_0\in\mathcal H\)
+with
+\[
+ P^k-(p_0c^2)^k A_1^k=\beta v_0.
+\]
+By Lemma~\ref{lem:patch-functional},
+\(\kappa\beta\mathscr L(f)=0\) on \(B\).
+It follows that
+\[
+ w\kappa P^k\mathscr L(f)=0,
+\]
+because the difference term contains
+\(\kappa\beta\mathscr L(f)\), while the
+remaining scalar multiple is \(\ell^\nu\).
+
+For every proper cube index \(d<\mathbf1\),
+equation (*) with \(s=Tf_d\), and \(f_dy=0\),
+gives \(NTf_dz=0\).
+Lemma~\ref{lem:patch-nilpotence}, with \(n=k\),
+therefore kills \(P^k\Theta_df_dz\).
+Only the top index remains, and we obtain
+\[
+ N\bigl(w\kappa P^k f_{\mathbf1}\bigr)z=0.
+\]
+The operator in parentheses is a multiple
+of \(T\), since \(k\ge1\).
+Applying (*) once more gives \(U\in\mathcal R\)
+with
+\[
+ \ell^\nu U l
+       =c\,w\kappa P^k f_{\mathbf1}y
+       =c\,\ell^\nu A_1^k f_{\mathbf1}y .
+\]
+The last equality uses \(\beta y=0\), so
+\(P^ky=(p_0c^2)^kA_1^ky\).
+Cancel the nonzero scalar \(\ell^\nu\)
+in the characteristic-zero vector space:
+\(Ul=c\lambda y\).
+Since \(U\) preserves \(\Lambda\), multiplication
+by any \(a\) with \(al\in\Lambda\) proves
+the integrality assertion.
+The last valuation identity follows from
+the unit \(A_1(\pi)^k\).
+\end{proof}
+\src{New/Patching/OnePrimeTie.lean}{BaseLevel.exists_diagOp_mem_ellIntegralForms}
+
+The factor \(A_1\) is obtained by a finite
+separation argument in the Hecke algebra.
+For each system where the desired root string
+fails while \(p(\beta)\ne0\), the source's
+residue-congruence hypothesis supplies an
+integral Hecke element vanishing at that
+system and a unit at \(\pi\).
+Their finite product is \(A_1\).
+It is a unit at \(\pi\), kills all bad
+systems, and forces the root-string
+hypothesis wherever \(T\ne0\).
+The numerical content still required is the
+construction of those root strings and the
+Ribet coefficient bound from the preceding
+character and defect estimates.
+The multi-prime algebra and the passage
+from its quotient module back to an
+integral vector are proved above.
 
 \section{The lattice joining the two theta factors}
 \label{sec:glued-lattice}
@@ -5236,15 +6324,21 @@ hypotheses, and Section~\ref{sec:balance-local} proves the local row budget.
 The integral Hecke-value interpolation in Section~\ref{sec:value-families}
 remains to be constructed geometrically. Section~\ref{sec:odd-classes} gives its local conditions, the zero twist,
 the uniform detecting-point count, the integral character decomposition,
-and the final estimate including all small primes. The two cyclotomic
-descent statements (D1)--(D2) remain to be proved. The bounded
+and the final estimate including all small primes. The cyclotomic annihilator (D1), the derivative family and the
+detecting-point bound (D2) are now proved in
+Theorem~\ref{thm:component-annihilation},
+Lemma~\ref{lem:derivative-family} and
+Theorem~\ref{thm:component-detectors}.
+Theorem~\ref{thm:odd-global-assembly} assembles them into the global bound. The bounded
 Stickelberger integer used there is proved in Section~\ref{sec:stickelberger}.
 The denominator section now gives the full double-Cramer operator,
 the first-order operator at one prime, and the character-block Fitting
 calculation under the precise triangular-cost hypotheses. Its application still requires
-the triangular auxiliary prime system, the cyclotomic descent statements
-(D1)--(D2), the quantitative local Kummer-chart bounds, and the Hecke
-root-string identities and multi-prime patching. These are needed for
+the triangular auxiliary prime system, the quantitative local
+Kummer-chart bounds, and the Hecke
+root-string identities. Section~\ref{sec:multi-patching} proves the
+multi-prime algebra and its integral-lattice conclusion from those
+one-prime relations. These are needed for
 the numerical denominator bound in Input~\ref{in:denominator}.
 
 The geometric section now constructs the glued lattice and proves its

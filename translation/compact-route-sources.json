@@ -13,26 +13,27 @@
   "principia": {
     "project": "d16ab288ed353bc5b10e292ace0ddbc1",
     "source_file_id": "9c8cc33a546414334e2d4da3aade5210",
-    "paper_file_id": "024f2fee3ca2bb69512a7317bcae4bed",
+    "paper_file_id": "bc9d0c927d9447f3a10568a2747a34b3",
     "paper_path": "alpoge-rh-consolidated-manuscript.pdf"
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 60,
+  "intermediate_proofs": 70,
   "unexpanded_source_input_groups": [
     "Integral interpolation and Euler-factor norm relations for Hecke values",
-    "Ribet and patching denominator construction",
+    "Numerical Ribet coefficient assembly, triangular primes, quantitative local crystalline estimates and automorphic root strings",
     "geometric comparison forms and Hecke-value heights",
     "chain factorization and scalar control",
     "crude integral completion rows"
   ],
   "additional_obligations": [
-    "odd Tate-class estimate",
     "admissible-data construction and further A/B estimates",
     "A and B",
     "weighted-prime inequality",
     "good-window analytic conclusion",
-    "Proofs of D1-D2 cyclotomic descent and quantitative Kummer-chart local bounds (now isolated precisely)"
+    "Quantitative Kummer-chart local bounds and their jump-window case analysis",
+    "Triangular auxiliary prime construction and the source-specific numerical Ribet assembly",
+    "Automorphic realization of local root strings and one-prime trace identities"
   ],
   "source_files": [
     {
@@ -362,9 +363,29 @@
     {
       "file": "Lib/General/Algebra/BlockFittingBound.lean",
       "translation": "Morita row isolation and Smith-normal-form proof of matrix rows with determinant valuation <= the annihilator length"
+    },
+    {
+      "file": "Lib/Cyclotomic/Stickelberger/GaussSums.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded prose proof with explicit classical background; pending independent review"
+    },
+    {
+      "file": "Lib/Cyclotomic/Kolyvagin/ComponentBound.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded prose proof with explicit classical background; pending independent review"
+    },
+    {
+      "file": "Lib/Cyclotomic/OddSha/OddShaBound.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded prose proof with explicit classical background; pending independent review"
+    },
+    {
+      "file": "New/Patching/OnePrimeTie.lean",
+      "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "scope": "Expanded prose proof with explicit classical background; pending independent review"
     }
   ],
-  "completed_arithmetic_identity": "Finite mirror estimate plus global reciprocity via the classical Greenberg-Wiles formula, bounded pencils, finite coordinates, and complete simultaneous twist selection under explicit local hypotheses; local balancing from explicit IsRow hypotheses; double Cramer and complete abstract one-prime patching formula",
+  "completed_arithmetic_identity": "Finite mirror estimate plus global reciprocity via the classical Greenberg-Wiles formula, bounded pencils, finite coordinates, and complete simultaneous twist selection under explicit local hypotheses; local balancing from explicit IsRow hypotheses; double Cramer and complete abstract one-prime patching formula; complete abstract multi-prime patching and return from quotient modules to the integral lattice",
   "reading_manifest_hash_checks": [
     {
       "path": "notes/fit-twists/fit-twists.tex",
@@ -425,12 +446,17 @@
     "uniform detecting-point count, including 2",
     "zero-twist class-number bound",
     "integral Fourier reconstruction",
-    "global X size and length bound conditional on exact cyclotomic statements D1-D2"
+    "Jacobi family from finite Gauss sums, all-prime component annihilation with 4S^2",
+    "explicit Kolyvagin derivative family, including the finite-singular identity",
+    "large-prime reciprocity via cup products after unramified coefficient reduction",
+    "full descending induction proving v_ell(S)+1 detecting points",
+    "global odd-class length and size bound, with small primes and ell=2"
   ],
   "completed_defect_steps": [
     "finite-index local duality via classical Tate/Bloch-Kato",
     "obeying-cocycle transfer to cup-orthogonal defect",
     "exponent-to-length bound",
     "global 4rf loss sum conditional on quantitative local Kummer bounds"
-  ]
+  ],
+  "completed_prose_review_status": "Author checks only; not an independent mathematical review"
 }
