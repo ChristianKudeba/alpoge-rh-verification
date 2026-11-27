@@ -1,5 +1,5 @@
 {
-  "edition_date": "2026-11-26",
+  "edition_date": "2026-11-27",
   "formal_source": {
     "repository": "lsernau/grh-lean",
     "commit": "72fead102f663d5c7a407964a13dc0cf9d977207",
@@ -7,20 +7,20 @@
   },
   "reading_source": {
     "repository": "nasqret/riemann-rev",
-    "commit": "abad2f1b7755ca045847f1d42f27cf88b4263fee",
+    "commit": "82252d4e71d9f4db30a38e370dba78283ab3a921",
     "license": "0BSD"
   },
   "principia": {
     "project": "d16ab288ed353bc5b10e292ace0ddbc1",
     "source_file_id": "9c8cc33a546414334e2d4da3aade5210",
-    "paper_file_id": "9d7ce36f0d34693480abddcac13f7b78",
+    "paper_file_id": "024f2fee3ca2bb69512a7317bcae4bed",
     "paper_path": "alpoge-rh-consolidated-manuscript.pdf"
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 25,
+  "intermediate_proofs": 33,
   "unexpanded_source_input_groups": [
-    "short compatible twisted Selmer groups",
+    "Local balancing and Hecke-value family verification for the automorphic rows",
     "Ribet and patching denominator construction",
     "geometric comparison forms and Hecke-value heights",
     "chain factorization and scalar control",
@@ -303,9 +303,29 @@
           "name": "exists_comparison_forms"
         }
       ]
+    },
+    {
+      "file": "Corepresentable.lean",
+      "edition": "grh-compact/src/New/Selmer/Corepresentable.lean",
+      "translation": "global Selmer construction; standard Tate duality/GW stated and cited in place of split-prime relation coordinates"
+    },
+    {
+      "file": "TiltingLemma.lean",
+      "edition": "grh-compact/src/New/Selmer/TiltingLemma.lean",
+      "translation": "global Selmer construction; standard Tate duality/GW stated and cited in place of split-prime relation coordinates"
+    },
+    {
+      "file": "TwistTheorem.lean",
+      "edition": "grh-compact/src/New/Selmer/TwistTheorem.lean",
+      "translation": "global Selmer construction; standard Tate duality/GW stated and cited in place of split-prime relation coordinates"
+    },
+    {
+      "file": "LinePointPowers.lean",
+      "edition": "grh-compact/src/New/Selmer/LinePointPowers.lean",
+      "translation": "global Selmer construction; standard Tate duality/GW stated and cited in place of split-prime relation coordinates"
     }
   ],
-  "completed_arithmetic_identity": "Full polarization proof of card_le_torsion_of_isotropic; source-specific global reciprocity remains pending",
+  "completed_arithmetic_identity": "Finite mirror estimate plus global reciprocity via the classical Greenberg-Wiles formula, bounded pencils, finite coordinates, and complete simultaneous twist selection under explicit local hypotheses",
   "reading_manifest_hash_checks": [
     {
       "path": "notes/fit-twists/fit-twists.tex",

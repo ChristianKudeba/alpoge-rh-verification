@@ -35,7 +35,7 @@
 \large Compatible twists, denominators, and the volume inequality}
 \author{A working exposition prepared for Christian Kudeba\\
 with reductions from Principia contributors}
-\date{26 November 2026}
+\date{27 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -45,9 +45,10 @@ We develop a prose account of the compact formal development at commit
 This revision starts with the arithmetic inputs and Theorem C of its three-theorem reduction.
 It gives full proofs of the degree-independent polynomial estimate used to choose compatible
 powers of a twist, the determinant-specialization argument for finite relation modules,
-the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate behind reciprocity, the numerical budget comparisons, and the
+the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate, the global reciprocity calculation, bounded pencils of tied primes,
+the simultaneous compatible-twist selection, the numerical budget comparisons, and the
 height and Gram-determinant calculus used at the end of Theorem C.
-The source-specific construction of short Selmer groups, the Ribet and patching operators,
+The local balancing and special-value verification for automorphic rows, the Ribet and patching operators,
 and the geometric comparison forms are explicitly identified as inputs still to be
 expanded here. Thus this revision is a partial exposition, not a standalone prose proof
 of RH. The formal development contains proofs of these inputs; an unexpanded input in
@@ -59,7 +60,7 @@ this text does not mean a missing lemma in that development.
 The proof under discussion is attributed to Levent Alp\"oge and Claude.
 The compact edition is due to Luke Sernau, colleagues at Anthropic, and Claude.
 We use Bartosz Naskr\k{e}cki's working reading as a guide, at commit
-\texttt{abad2f1b7755ca045847f1d42f27cf88b4263fee} of
+\texttt{82252d4e71d9f4db30a38e370dba78283ab3a921} of
 \texttt{nasqret/riemann-rev}. Its text is available under 0BSD.
 Relevant portions of the notes \emph{Short Selmer groups}, \emph{Fit twists}, \emph{Heights},
 \emph{Chain volume}, and \emph{Lift volume height} were compared with the corresponding
@@ -706,12 +707,1000 @@ Since their domain is a group, their images are units; the formulation
 above is the same condition. Stability \(c(H)\subseteq H\), together with
 \(c^2=1\), is equality. The proof does not add a condition \(c(U)=U\).
 
-This theorem supplies the cardinality bound once a global reciprocity
-argument gives \eqref{eq:mirror-isotropic} on a coset. Establishing that
-global isotropy, and bounding the scalar-difference torsion in the
-specific Galois rows, remain the next steps. Those statements are not
-consequences of the finite-group calculation alone.
+The next two sections prove the global isotropy and the bounded-pencil
+construction. Balancing the particular automorphic rows is a separate
+local arithmetic calculation.
 
+
+
+\section{Global Selmer groups and bounded pencils}\label{sec:global-selmer}
+We now connect the finite mirror estimate to global reciprocity.
+The conventions at conjugate places matter. Write \(G=G_E\), let
+\(c(g)\) denote conjugation by a fixed complex conjugation of the
+absolute Galois group of the maximal real subfield, and put
+\(g^-=(c(g))^{-1}\), \(g^+=g\).
+Thus \(c^2=1\), and the cyclotomic character satisfies
+\(\chi(c(g))=\chi(g)\). A tame generator at the conjugate place is
+\(\tau^-=(c(\tau))^{-1}\), rather than \(c(\tau)\).
+
+Throughout this section \(E\) is a CM number field,
+\(f=[E:\Q]/2\), and \(A\) is the ring of integers of a finite
+extension of \(\Q_\ell\). Its valuation \(v_A\) has value \(1\) on
+a uniformizer \(\pi\), and its residue field has order \(q_A\).
+Lengths in this section are unnormalized \(A\)-lengths.
+For nonzero \(a\in A\) put \(M_a=(A/a)^n\).
+If \(C\) is a finite \(A\)-module, then
+\(\#C=q_A^{\length_A C}\); this follows by a composition series,
+whose factors are all the residue field.
+
+A relation is a finitely supported family \(R=(R_g)_{g\in G}\)
+of matrices over \(A\); it requires
+\(\sum_gR_gz(g)=0\).
+For a matrix-valued function \(r:G\to M_n(A)\), a finite set \(S\)
+of finite places, and any set \(\mathcal L\) of relations, let
+\(\mathcal S(r,S,\mathcal L;B)\) consist of the locally constant
+functions \(z:G\to B^n\) satisfying
+\[
+ z(gh)=z(g)+r(g)z(h),\qquad
+ z|_{I_v}=0\ (v\notin S),\qquad
+ \sum_gR_gz(g)=0\ (R\in\mathcal L).
+\]
+Vanishing outside \(S\) is required at every place above \(v\).
+This definition makes sense even when \(r\) is not a representation.
+That flexibility is essential for polynomial specialization.
+
+\subsection{Finite coordinates, before specializing}
+\begin{proposition}[a uniform finite presentation]\label{prop:selmer-coordinates}
+Let \(\Lambda\) be a commutative ring, \(m\ge1\), and
+\(r:G\to M_n(\Lambda)\) any function.
+Fix a neighborhood \(W\) of \(1\), a finite set \(S\), and relations
+\(\mathcal L\).
+There are finitely many coordinates \(g_j,i_j\) and a submodule
+\(R\subseteq\Lambda^J\), containing \(m\Lambda^J\), such that
+evaluation identifies \(\mathcal S(r,S,\mathcal L;B)\) with
+\[
+ \{b\in B^J:\textstyle\sum_j u_jb_j=0\text{ for every }u\in R\}
+\]
+for every \(\Lambda\)-module \(B\) killed by \(m\) on which
+\(r(g)\) acts as the identity for all \(g\in W\).
+If \(\Lambda\) is Noetherian, \(R\) is finitely generated.
+\end{proposition}
+\begin{proof}
+Choose an open normal subgroup \(U\subset W\), and let \(F\) be
+its fixed field. The restriction to \(U\) of any allowed \(z\) is
+an additive homomorphism, because \(r(u)\) acts trivially on \(B^n\).
+It is unramified outside the finitely many places of \(F\)
+over \(S\).
+
+There are only finitely many continuous homomorphisms
+\(U\to\Z/m\) unramified outside these places.
+Here is the class field theory justification, including the
+bounded-conductor point. At a nonarchimedean completion of \(F\)
+the subgroup of \(m\)-th powers in its multiplicative group is
+open. For residue characteristic prime to \(m\), this follows
+from Hensel's lemma on the principal units. In residue
+characteristic dividing \(m\), a sufficiently deep principal-unit
+group is carried by the convergent local logarithm to an ideal
+in the local field; multiplication by \(m\) has open image in
+that ideal. Consequently every character of exponent \(m\)
+has bounded conductor at each of the permitted places.
+Global reciprocity now identifies the characters with characters
+of one finite ray class group. At the real places there is
+only the finite sign choice.
+
+Intersect their kernels and take the core in \(G\).
+The result is an open normal subgroup \(V\subset U\).
+Every allowed \(z\) vanishes on \(V\).
+Indeed additive characters into \(\Q/\Z\) separate points of
+every abelian group; for an \(m\)-torsion group their values lie
+in \((\Q/\Z)[m]\simeq\Z/m\).
+Applying such a character to each coordinate of \(z|_U\)
+gives one of the homomorphisms just killed.
+For clarity, the separation assertion follows by mapping a
+cyclic subgroup generated by a nonzero element of order \(d\)
+to \(1/d\pmod\Z\), and extending the character to the ambient
+abelian group. Such extension holds because \(\Q/\Z\) is
+divisible: when adjoining one new generator, its prescribed
+multiple has a preimage; a maximal extension then has full
+domain.
+
+Since \(z(gv)=z(g)\) for \(v\in V\), choose representatives for
+the finite set \(G/V\). Use their \(n\) coordinates as \(J\).
+Conversely a tuple \(b\in B^J\) defines a function constant on
+these cosets. In the free module \(\Lambda^J\), impose all its
+cocycle equations, its inertia equations outside \(S\), the
+relations \(\mathcal L\), and \(m\Lambda^J\).
+Let \(R\) be the submodule generated by these equations.
+Their simultaneous annihilator is exactly the displayed set,
+and a function on a finite quotient is locally constant.
+This proves both directions, with no representation assumption
+on \(r\). Finite generation of \(R\) is the Noetherian property.
+\end{proof}
+\src{New/Selmer/Corepresentable.lean}{exists_corepresenting_coords}
+
+Apply the proposition with
+\(\Lambda=A[X_v:v\in J]\) and
+\[
+ r_y(g)=\prod_{v\in J}y_v^{\widetilde h_v(g)}\rho(g),
+ \qquad 0\le\widetilde h_v(g)<\ell^N.
+\]
+A neighborhood on which every \(h_v\) vanishes and
+\(\rho\bmod\ell^M\) is the identity works uniformly.
+It follows that the finite relation matrices, and hence
+Proposition~\ref{prop:fitting}, apply before the \(y_v\) are
+roots of unity. In particular, one may choose a determinant
+polynomial sharp at any specified tuple; no continuity
+assertion about a nonexistent characteristic-zero
+representation at a general tuple is needed.
+
+\subsection{Auxiliary anticyclotomic primes}
+We use the following precise consequence of global class field
+theory and Chebotarev's theorem. A character is written
+additively in the statement.
+\begin{proposition}\label{prop:auxiliary-prime}
+Let \(T_0,R\) be finite sets of finite places of \(E\).
+Let \(z\) belong to the normal subgroup generated by inertia at
+\[
+ R\setminus(T_0\cup\bar T_0\cup\{v\mid\ell\}).
+\]
+For every neighborhood \(W\) of \(z\) and every \(N\ge1\),
+there are a place \(P\notin R\cup\bar R\) of rational prime
+norm, a place above it, an arithmetic Frobenius \(\phi\in W\),
+a tame generator \(\tau\), and a character
+\(h:G\to\Z/\ell^N\) such that
+\[
+ \begin{gathered}
+ NP\equiv1\pmod{\ell^N},\qquad h(\tau)=1,\quad h(\phi)=0,\\
+ h(c(g))=-h(g),\qquad
+ h|_{D_v}=0\quad(v\in T_0\cup\bar T_0\cup\{v\mid\ell\}).
+ \end{gathered}
+\]
+The character is tame and unramified outside \(P,\bar P\).
+It is induced by an idele-class character evaluated on
+\(x/\bar x\).
+One may enlarge the finite excluded set while retaining the
+assertion, provided the displayed inertia condition on \(z\)
+still holds.
+\end{proposition}
+\begin{proof}
+We give the construction, using the usual reciprocity
+isomorphism between finite abelian extensions and finite
+idele-class characters. Choose a finite set \(T\), containing
+\(T_0,\bar T_0\) and the places over \(\ell\), whose ideal classes
+generate the class group. The added places can avoid the
+places at which inertia is allowed in the displayed condition.
+To see this, each ideal class contains a prime outside any
+fixed finite set, by Chebotarev applied to the Hilbert class
+field. Thus one may choose one representative prime in each
+of a finite set of generating classes.
+
+The group of \(T\)-units is finitely generated. Let \(u_1,\ldots,u_s\)
+be generators, including its torsion generators, and form
+\[
+ L=E(\mu_{\ell^N},u_1^{1/\ell^N},\ldots,u_s^{1/\ell^N}).
+\]
+Take a finite Galois closure if needed.
+At a place outside \(T\) of residue characteristic different
+from \(\ell\), adjoining an \(\ell^N\)-th root of a unit is
+unramified: after adjoining the necessary residue roots its
+defining polynomial has unit derivative, so Hensel's lemma
+lifts it in an unramified extension.
+The same holds for the cyclotomic extension.
+Consequently the normal subgroup in the hypothesis fixes
+\(L\), and \(z\) fixes \(L\).
+
+Choose an open normal subgroup \(V\) so that \(zV\subset W\),
+and apply Chebotarev to the finite Galois extension cut out by
+\(V\) together with \(L\). We use its degree-one-prime form:
+an element of \(G_E\) can be approximated, with a chosen
+place above the prime, by Frobenius elements at primes of
+\(E\) of rational prime norm. This form follows by applying
+Chebotarev to a Galois closure over \(\Q\), extending the
+specified automorphism which fixes \(E\); its fixed embedding
+of \(E\) gives a degree-one prime. It gives infinitely many
+choices, so all finitely many excluded places and the
+ramified places of \(V\) can be avoided.
+We obtain an arithmetic Frobenius \(\sigma\in zV\) at \(P\)
+fixing \(L\). In particular \(NP\equiv1\pmod{\ell^N}\), and
+every \(u_j\) reduces to an \(\ell^N\)-th power in the residue
+field at \(P\).
+
+Choose a surjection
+\(\eta:(\mathcal O_E/P)^\times\to\Z/\ell^N\), normalized to
+take the chosen tame generator to \(1\) under local
+reciprocity. It kills the reductions of all \(T\)-units.
+The group of ideles which are units outside \(T\) surjects
+onto the idele class group: the class-group generating
+property of \(T\) permits the valuations of an arbitrary
+idele outside \(T\) to be canceled by a principal idele.
+On this group, reduction of its \(P\)-component followed by
+\(\eta\) kills the principal ideles in the group, precisely
+because they are the \(T\)-units. It therefore defines a
+continuous character \(\eta_0\) of the idele class group.
+It is trivial on the full local multiplicative groups at
+\(T\), on units at every place outside \(T\cup\{P\}\), and
+on principal units at \(P\).
+
+Set \(\eta_1(x)=\eta_0(x/\bar x)\), and let \(h\) be the
+corresponding Galois character. Because \(P\) has degree one,
+\(NP\equiv1\pmod{\ell^N}\), and the finitely many ramified
+places were avoided, \(P\ne\bar P\).
+The construction gives all the asserted local conditions,
+and \(h(\tau)=1\).
+Finally replace \(\sigma\) by
+\(\phi=\sigma\tau^{-h(\sigma)}\).
+It is still a Frobenius lift. The chosen \(P\) is unramified
+in the quotient \(G/V\), so this replacement remains in
+\(zV\subset W\). It has \(h(\phi)=0\).
+\end{proof}
+\src{New/Selmer/Corepresentable.lean}{exists_isAnticyclotomicAt}
+
+\subsection{Balanced rows and pencils}
+Here is the full numerical condition needed for the reciprocity
+argument. For each place \(v\) choose a decomposition group
+\(D_v\subset G\). Put \(C_v(\rho,\mathcal L;a)\) equal to the
+image on \(D_v\) of all global locally constant cocycles
+with values in \(M_a\) satisfying \(\mathcal L\), without
+a ramification restriction. It is an image of cocycles,
+not an arbitrarily chosen local crystalline subspace.
+Its length can depend on the chosen place above \(v\);
+write \(\min_{D_v}\) for the least such length.
+
+\begin{definition}\label{def:balanced}
+The row \((\rho,\mathcal L,\gamma)\) is balanced up to
+\(\beta\) modulo \(\ell^M\) if the following hold.
+The reduction of \(\rho\) modulo \(\ell^M\) is continuous,
+\(\rho\) is unramified outside \(S\), and its matrices span
+\(M_n(A)\). There is \(s\in A^\times\) with \(s-1,s+1\)
+units such that \(\gamma\) is inertial at a place of
+\(S\) away from \(\ell\),
+\[
+ \rho(\gamma)=\rho(\gamma^-)=sI.
+\]
+The residue field has more than \(4n+2\) elements.
+Every coboundary \(g\mapsto(\rho(g)-1)b\) satisfies
+\(\mathcal L\), for every coefficient quotient \(A/a\).
+Finally there are \(g,\alpha,\alpha'\) with
+\(\rho(g)=\alpha I,\rho(g^-)=\alpha'I\) such that,
+for every nonzero \(a\mid\ell^M\),
+\begin{equation}\label{eq:balanced-length}
+ \sum_{v\in S}\min_{D_v}\length_A C_v(\rho,\mathcal L;a)
+ +n v_A(\alpha-\chi(c(g))\alpha')
+ \le (|S|+f)\length_A M_a+\beta .
+\end{equation}
+\end{definition}
+The minimum exists: it is the minimum of a nonempty set
+of nonnegative integers. A bound \(\beta=+\infty\) is
+vacuous; all uses below have finite \(\beta\).
+
+Enlarge the fixed forbidden set \(S_0\supset S\) to contain
+its conjugate and the places over \(\ell\).
+A pencil consists of a finite auxiliary set \(J\), a helper
+\(P_0\in J\), data \((h_v,\tau_v,\phi_v)\) from
+Proposition~\ref{prop:auxiliary-prime}, and slopes
+\(t_{v,i}\in A\) for finitely many rows \(i\).
+The sets \(J,\bar J,S_0\) are pairwise disjoint where
+required, and every \(v\in J\) has rational prime norm.
+Its defining compatibilities are
+\begin{equation}\label{eq:pencil}
+ \begin{gathered}
+ h_w(\tau_v)=\delta_{wv},\qquad h_v(\phi_v)=0,\\
+ h_w(\phi_v)=\delta_{wP_0}\quad(v\ne P_0),\qquad
+ \phi_{P_0}\in W,\\
+ t_{v,i}\ne0\ \Longrightarrow\
+       \rho_i(\phi_v^\pm)\equiv1\pmod{\ell^M}.
+ \end{gathered}
+\end{equation}
+The characters are trivial on decomposition groups over
+\(\ell\). The first line for \(w\ne v\) follows from
+unramifiedness; the second line is an extra prescription
+at old Frobenii, and must not be omitted.
+The ties on row \(i\) are
+\(z(\tau_v^\pm)=t_{v,i}z(\phi_v^\pm)\).
+Take the helper slope to be zero initially.
+
+For one row suppress \(i\), and define
+\[
+ X_a(T)=\mathcal S\bigl(\rho,S\cup T\cup\bar T,
+       \mathcal L\cup\{\text{ties at }J\}\cup\{z(\gamma)=0\};
+       A/a\bigr).
+\]
+Thus \(X_a(J\cup\{P\})\) has the old ties only;
+the new prime is relaxed.
+
+\subsection{Global reciprocity detects an unseen class}
+The classical background used here consists of local Tate
+duality, global reciprocity for the cup product, and the
+Greenberg--Wiles cardinal formula. We state the latter
+explicitly to specify every factor. For a finite Galois
+module \(M_0\), its Cartier dual
+\(M_0^*=\operatorname{Hom}(M_0,\Q/\Z(1))\), and local
+cohomology subgroups \(L_v\) unramified at almost every
+finite place, the formula is
+\begin{equation}\label{eq:GW}
+ \frac{|\operatorname{Sel}_{L}(M_0)|}
+      {|\operatorname{Sel}_{L^\perp}(M_0^*)|}
+ =\frac{|H^0(E,M_0)|}{|H^0(E,M_0^*)|}
+      \prod_v\frac{|L_v|}{|H^0(E_v,M_0)|}.
+\end{equation}
+Here \(L_v^\perp\) is the annihilator for the perfect local
+cup-product pairing. At a complex place the factor is
+\(|M_0|^{-1}\). These standard duality theorems are used
+as established background, not as new results of this
+exposition; see \cite[Theorem 1.8]{smithGW} and \cite{milneADT}.
+The compact source obtains the inequality needed below
+by its equivalent split-prime relation construction.
+Using \eqref{eq:GW} avoids carrying those additional
+relation coordinates through the prose.
+
+\begin{theorem}[a group which no new prime detects is short]
+\label{thm:unseen}
+Suppose the row is balanced as in
+Definition~\ref{def:balanced}, \(a\ne0\) divides \(\ell^M\),
+and \(X_a(J)\) contains a cocycle \(y\) with a unit
+coordinate at some group element.
+Suppose also that for every new auxiliary datum
+\((P,h_P,\tau_P,\phi_P)\) which extends the pencil for
+every slope on this row,
+\begin{equation}\label{eq:unseen-inclusion}
+ \{(z(\phi_P),z(\phi_P^-)):z\in X_a(J)\}
+ \subseteq
+ \{(z'(\tau_P),z'(\tau_P^-)):
+                      z'\in X_a(J\cup\{P\})\}.
+\end{equation}
+Then \(\length_A X_a(J)\le\beta\).
+\end{theorem}
+\begin{proof}
+Put \(M_0=M_a\) and \(S'=S\cup J\cup\bar J\).
+At each \(v\in S'\), use the local condition \(C_v\) obtained
+by restricting the global cocycles obeying \(\mathcal L\)
+and the old ties, and then quotient by local coboundaries
+to obtain \(L_v\subset H^1(E_v,M_0)\).
+These conditions contain the local coboundaries.
+Indeed global coboundaries satisfy \(\mathcal L\).
+At a new tame generator \(\rho(\tau_v^\pm)=1\);
+if its slope is nonzero,
+\(\rho(\phi_v^\pm)\equiv1\pmod{\ell^M}\);
+if its slope is zero, no Frobenius term occurs.
+This checks the ties for every coboundary.
+Choose the place above each \(v\in S\) minimizing the
+length without the ties; at \(J,\bar J\) use the places
+specified by the pencil. Adding ties can only shrink
+a local image.
+
+Let \(Y=\operatorname{Sel}_L(M_0)\) and
+\(W^*=\operatorname{Sel}_{L^\perp}(M_0^*)\).
+Both are finite. Multiplication by \(s-1\) is invertible,
+so \(H^0(E,M_0)=0\). On the Cartier dual, \(\gamma\)
+acts by \(s^{-1}\), since \(\chi(\gamma)=1\);
+hence its global invariants also vanish.
+Each local coboundary group has cardinality
+\(|M_0|/|H^0(E_v,M_0)|\). Substituting
+\(|C_v|=|L_v|\,|M_0|/|H^0(E_v,M_0)|\)
+in \eqref{eq:GW} gives the exact identity
+\begin{equation}\label{eq:GW-cocycles}
+ |Y|\,|M_0|^{|S'|+f}=|W^*|\prod_{v\in S'}|C_v|.
+\end{equation}
+Outside \(S'\), the unramified local condition contributes
+factor \(1\). If necessary include the places over \(\ell\)
+in the set used to apply duality; this does not change the
+identity because those outside \(S'\) still have their
+unramified condition.
+
+Every cohomology class has a unique cocycle representative
+vanishing at \(\gamma\): evaluation of a coboundary at
+\(\gamma\) is \((s-1)b\), a bijection on \(M_0\).
+Consequently \(X_a(J)\) injects into \(Y\).
+It need not equal \(Y\); global relations may be stronger
+than their separate local images.
+
+We next bound \(W^*\) by the mirror theorem. Let
+\[
+ U=\ker(\rho\bmod\ell^M)\cap
+                 \ker(\chi\bmod\ell^{M+1}).
+\]
+Restriction of a class of \(W^*\) to \(U\) is a homomorphism
+\(x_w:U\to M_0^\vee\), after fixing the compatible roots of
+unity to identify the target with \(\Q/\Z\).
+Distinct classes give distinct homomorphisms.
+Here is the requisite injectivity argument.
+If a class restricts to zero, inflation--restriction
+places it in \(H^1(G/U,M_0^*)\).
+The image of \(\gamma\) is central in \(G/U\), because
+its representation is scalar and its cyclotomic value is
+\(1\). For a cocycle \(b\) of this quotient, commuting
+\(\gamma\) and \(g\) gives
+\[
+ (\gamma-1)b(g)=(g-1)b(\gamma).
+\]
+The operator \(\gamma-1=s^{-1}-1\) is invertible on the
+dual, so \(b(g)=(g-1)(\gamma-1)^{-1}b(\gamma)\) is a
+coboundary. This proves injectivity.
+The cocycle formula on the dual also gives exactly
+\eqref{eq:mirror-equivariance}; this formula concerns
+restriction to \(U\), so it is independent of the
+representatives chosen for \(w\).
+
+Let \(H\) be the intersection with \(U\) and \(c(U)\) of
+the commutator of \(G\) with the normal closure of
+\(\{\gamma,\gamma^-\}\). This is normal and \(c\)-stable.
+All \([k,\gamma]\) and their conjugates lie in \(U\cap c(U)\):
+their matrices are the identity since the matrices of
+\(\gamma,\gamma^-\) are scalar, and their cyclotomic
+characters are \(1\). Thus \(H\) has the commutators
+required in Theorem~\ref{thm:mirror}.
+Put \(z=\tau_{P_0}\). Both \(z\) and \(c(z)\) lie in \(U\)
+because the row is unramified at the helper prime and
+inertia away from \(\ell\) fixes the cyclotomic tower.
+
+Fix \(h\in H\). The element \(zh\) belongs to the normal
+closure of inertia at \(S_0\cup\{P_0,\bar P_0\}\), away
+from \(\ell\) and the old nonhelper primes.
+For every old character,
+\[
+ h_w(zh)=\delta_{wP_0};
+\]
+characters kill commutators. Apply
+Proposition~\ref{prop:auxiliary-prime} with the old
+nonhelper primes among \(T_0\).
+Choose its Frobenius \(\phi_P\) sufficiently close to
+\(zh\) that \(\phi_P,c(\phi_P)\in U\), that all old
+characters take these prescribed values, and that all
+the finitely many functions \(y,x_w\) take the same
+values as at \(zh,c(zh)\).
+Avoid also every ramified place of the finitely many
+dual cocycles. Its new character kills the old
+nonhelper decomposition groups and itself vanishes
+at \(\phi_P\). Thus \eqref{eq:pencil} holds with any
+new slope on the chosen row, and with zero slopes
+on the other rows.
+
+By \eqref{eq:unseen-inclusion} there is
+\(y'\in X_a(J\cup\{P\})\) with
+\(y'(\tau_P^\pm)=y(\phi_P^\pm)\).
+For every \(t\in A\), apply global cup-product reciprocity
+to \(ty'\) and a representative of \(w\in W^*\).
+At old places the local pairing is zero by the
+orthogonal local conditions. At all other finite
+places except \(P,\bar P\), both classes are unramified,
+so their pairing is zero. At a complex place it is zero.
+At \(P\) and \(\bar P\) the dual cocycle is unramified
+and \(\rho,\chi\) act trivially on the relevant
+finite quotient. The unramified--tame local pairing is
+evaluation of its Frobenius value on the tame value
+of the primal cocycle. The tame generator at \(\bar P\)
+is \((c(\tau_P))^{-1}\), which accounts for the minus
+sign. Reciprocity therefore reads
+\[
+ x_w(\phi_P)(t y'(\tau_P))
+       -x_w(c(\phi_P))(t y'(c(\tau_P)))=0.
+\]
+The identities with inverses introduce no extra
+matrix factor here, since the indicated elements
+act trivially on \(M_0\).
+Replace the tame values by those of \(y\), and then
+use the prescribed closeness to \(zh\).
+We obtain \eqref{eq:mirror-isotropic}, for all \(w,h,t\).
+Only finitely many \(w\) and \(t\bmod a\) occur, so
+one neighborhood suffices.
+
+Theorem~\ref{thm:mirror}, with
+\(\delta=\alpha-\chi(c(g))\alpha'\), now gives
+\[
+ |W^*|\le|M_0[\delta]|,\qquad
+ \length_A M_0[\delta]\le n v_A(\delta).
+\]
+For the latter bound use the cyclic summands of \(A/a\):
+the kernel length in one coordinate is
+\(\min(v_A(a),v_A(\delta))\).
+
+At each place in \(J\cup\bar J\), an allowed local
+cocycle is determined by its Frobenius value.
+Its tame value is fixed by the tie; wild inertia
+has no nontrivial homomorphism to an \(\ell\)-group
+at this residue characteristic, and the maximal
+pro-\(\ell\) tame inertia is generated by \(\tau_v^\pm\).
+Hence \(|C_v|\le|M_0|\).
+At \(S\) its length is at most the chosen minimum
+without ties. Taking \(q_A\)-logarithms in
+\eqref{eq:GW-cocycles}, canceling the \(2|J|\)
+new-prime factors, and using the injection into \(Y\),
+gives
+\[
+ \length_A X_a(J)
+ \le n v_A(\delta)+
+       \sum_{v\in S}\min_{D_v}\length_A
+                    C_v(\rho,\mathcal L;a)
+          -(|S|+f)\length_A M_a
+ \le\beta .
+\]
+This includes the local bookkeeping explicitly.
+\end{proof}
+\src{New/Selmer/TiltingLemma.lean}{IsPencil.length_le_of_unseen_class}
+
+\subsection{Tilting a local condition}
+\begin{lemma}[generic slopes have short kernels]\label{lem:tilting}
+Let \(I\ne0\) be an ideal of a DVR \(A\), let \(B\) be
+an \(A\)-module, \(Y\subset B\), and
+\(\Phi_0,\Phi_1:B\to(A/I)^d\) linear.
+Outside at most \(d\) residues \(s\bmod\pi\),
+\[
+ \length_A(Y\cap\ker(s\Phi_0-\Phi_1))
+ \le
+ \length_A\bigl(Y\cap\ker\Phi_0
+                   \cap\Phi_1^{-1}(\Phi_0Y)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Put \(Z=\sum_{s\in A}Y\cap\ker(s\Phi_0-\Phi_1)\).
+For every summand \(\Phi_1z=s\Phi_0z\), so
+\(\Phi_1Z\subset\Phi_0Z\).
+Let \(P\subset A^d\) be the inverse image of \(\Phi_0Z\)
+under reduction modulo \(I\). It is a free module of
+rank at most \(d\).
+Its map onto \(\Phi_0Z\) lifts through
+\(\Phi_0:Z\to\Phi_0Z\), because \(P\) is free.
+Choose such a lift \(\sigma:P\to Z\).
+The map \(\Phi_1\sigma:P\to\Phi_0Z\) in turn lifts
+through \(P\to\Phi_0Z\) to an endomorphism \(\Psi\)
+of \(P\).
+If \(\bar s\) is not a root of the characteristic
+polynomial of \(\Psi\bmod\pi\), the map \(s-\Psi\)
+is invertible on \(P\). There are at most
+\(\operatorname{rank}P\le d\) exceptional residues.
+For every other \(s\), reduction of
+\((s-\Psi)P=P\) gives
+\[
+ (s\Phi_0-\Phi_1)Z\supset\Phi_0Z.
+\]
+If \(Z\) has finite length, the two kernel--image
+exact sequences therefore imply
+\[
+ \length\ker((s\Phi_0-\Phi_1)|_Z)
+       \le\length\ker(\Phi_0|_Z).
+\]
+If \(Z\) has infinite length, both kernels have
+infinite length because their images are finite;
+the same inequality in extended lengths still holds.
+Every element of \(Z\cap\ker\Phi_0\) belongs to \(Y\)
+and has \(\Phi_1z\in\Phi_0Z\subset\Phi_0Y\).
+The asserted domain kernel is contained in the
+first kernel above. These two containments prove
+the claim.
+\end{proof}
+\src{New/Selmer/TiltingLemma.lean}{tilting}
+
+\begin{theorem}[boundedly many tied primes]\label{thm:bounded-pencil}
+For finitely many balanced rows over \(A\), a nonzero
+\(a\mid\ell^M\), and a neighborhood \(W\) of an element
+in the inertia subgroup specified in
+Proposition~\ref{prop:auxiliary-prime}, there is an integer
+\(J_0\), independent of \(N\), such that for every \(N\)
+there is a pencil with \(|J|\le J_0\) and
+\[
+ \length_A X_{i,a}(J)\le\beta_i\quad\hbox{for all }i.
+\]
+\end{theorem}
+\begin{proof}
+Induct on \(v_A(a)\). For a unit \(a\) all modules
+vanish. Proposition~\ref{prop:auxiliary-prime} supplies
+the helper, and \(J=\{P_0\}\), with all slopes zero,
+is a pencil.
+
+Suppose the result holds at \(a\), and \(\pi a\mid\ell^M\).
+Let \(J_1\) be its uniform bound.
+For fixed \(N\), start with an inductive pencil.
+Let \(T_i\) be the unramified-outside-\(S\) module
+at modulus \(\pi a\), with relations \(\mathcal L_i\)
+and value zero at \(\gamma_i\).
+It is finite, independently of \(N\), by
+Proposition~\ref{prop:selmer-coordinates}.
+Evaluating at the two tame generators for every
+prime in \(J\) shows
+\[
+ \length_A X_{i,\pi a}(J)
+       \le\length_A T_i+
+                2n_iJ_1\,\length_A(A/\pi a).
+\]
+Indeed the kernel has zero tame values, hence is
+unramified at all these new places and lies in \(T_i\).
+Set
+\[
+ C=J_1+\sum_i
+       \bigl(\length_A T_i+
+              2n_iJ_1\,\length_A(A/\pi a)\bigr).
+\]
+Consider pencils with the same helper, with all
+lengths at modulus \(a\) at most \(\beta_i\), and
+with
+\[
+ |J|+\sum_i\length_A X_{i,\pi a}(J)\le C .
+\]
+They form a nonempty class. Choose one minimizing the
+nonnegative integer sum in this inequality.
+
+Fix a row \(i\) whose length at \(\pi a\) exceeds
+\(\beta_i\). If all values of every cocycle are
+divisible by \(\pi\), use the injection
+\(A/a\to A/\pi a,\ b\mapsto\pi b\).
+Pulling back gives a cocycle obeying exactly the
+same ramification and relations at modulus \(a\).
+Thus its length would be at most \(\beta_i\), a
+contradiction. There is a cocycle with a unit
+coordinate. Theorem~\ref{thm:unseen} then implies
+that \eqref{eq:unseen-inclusion} fails at some
+admissible new datum \(P,\tau_P,\phi_P\).
+
+For \(b=a,\pi a\), let \(Y_b\) be the module relaxed
+at \(P,\bar P\), with the old ties, and use the maps
+\[
+ \Phi_0z=(z(\tau_P),z(\tau_P^-)),\qquad
+ \Phi_1z=(z(\phi_P),z(\phi_P^-)).
+\]
+Apply Lemma~\ref{lem:tilting} at both moduli.
+Together their exceptional lists have at most \(4n_i\)
+residues. Avoid these and zero; the residue-field
+hypothesis leaves a unit \(s\) available.
+Give the new prime slope \(s^{-1}\) on row \(i\)
+and zero on the other rows.
+
+For row \(i\) its new tied module is
+\(\ker(s\Phi_0-\Phi_1)\cap Y_b\). The tilting bound
+puts its length below that of
+\[
+ Y_b\cap\ker\Phi_0\cap\Phi_1^{-1}(\Phi_0Y_b).
+\]
+Zero tame values identify \(Y_b\cap\ker\Phi_0\)
+with the old module. At \(b=\pi a\) the last
+submodule is proper, exactly by the failure of
+\eqref{eq:unseen-inclusion}; its length drops by
+at least one. At \(b=a\) it is a submodule of the
+old module. For every other row, slope zero
+requires zero tame values, so its modules can
+only shrink at both moduli.
+The lower-modulus constraints are preserved, the
+sum at \(\pi a\) decreases by at least one, and the
+one added prime leaves the potential at most \(C\).
+This contradicts minimality.
+All rows therefore satisfy the desired bounds.
+The uniform choice \(J_0=C\) completes the induction.
+\end{proof}
+\src{New/Selmer/TwistTheorem.lean}{exists_isPencil}
+
+
+\section{From pencils to one compatible twist}\label{sec:pencil-twist}
+We prove the specialization construction with its quantifiers
+and its two different sorts of points.
+For finitely many balanced rows \(\rho_i\), choose an element
+\(z\) in the normal closure of inertia at \(S_0\) away from
+\(\ell\). Suppose the finite numbers \(B_i,c\) satisfy
+\begin{equation}\label{eq:twist-anchor}
+ \frac{\beta_i+
+    v_A\det(\rho_i(z)-1)+v_A\det(\rho_i(z^-)-1)}
+             {v_A(\ell)}\le B_i .
+\end{equation}
+We also allow finitely many value families \(V_k(I,\psi)\).
+Their hypotheses are exactly these:
+\begin{enumerate}[label=(\roman*)]
+\item there are finitely many continuous characters
+\(\mu_{k,t}:G\to\overline{\Q}_\ell^\times\);
+\item for each auxiliary \(I\), the value is a finite sum
+\(\sum_\alpha b_\alpha\psi(g_\alpha)\), with integral
+coefficients \(b_\alpha\);
+\item \(V_k(\varnothing,1)\ne0\), and adding an auxiliary
+place \(P\) increases its valuation by at most \(8d\)
+if
+\(v_\ell(1-\mu_{k,t}(\phi_P)\psi(\phi_P)^\epsilon)\le d\)
+for every \(t\) and \(\epsilon=\pm1\);
+\item \(v_\ell(\mu_{k,t}(z)-1)\le c\).
+\end{enumerate}
+All coefficients and character values needed in any finite
+construction lie in a sufficiently large finite extension of
+\(\Q_\ell\). A continuous character on the compact group \(G\)
+has unit absolute value: its absolute values form a compact
+subgroup of the positive reals, and that subgroup is trivial.
+
+\begin{lemma}[points on a torsion line]\label{lem:torsion-line}
+If \(u^{\ell^k}=1\), \(t\in A\), and \(y=1+t(u-1)\), then
+\[
+ \ell\mid(y-1)^{\ell^k},\qquad
+ \ell^D\mid y^{\ell^N}-1\quad(N\ge k+D).
+\]
+In particular \(N\ge k+2M\) makes \(y\) an
+\(\ell^N\)-th root of unity modulo \(\ell^{2M}\),
+and \(y^{\ell^{N-M}}\equiv1\pmod{\ell^M}\).
+\end{lemma}
+\begin{proof}
+In characteristic \(\ell\), the binomial theorem gives
+\((1+X)^{\ell^k}=1+X^{\ell^k}\).
+Since \(u^{\ell^k}=1\), it follows that
+\((u-1)^{\ell^k}\equiv0\pmod\ell\).
+Multiplication by \(t^{\ell^k}\) proves the first assertion.
+The same identity gives \(y^{\ell^k}\equiv1\pmod\ell\).
+If \(x\equiv1\pmod{\ell^d}\), \(d\ge1\), expansion of
+\(x^\ell=(1+\ell^d b)^\ell\) shows
+\(x^\ell\equiv1\pmod{\ell^{d+1}}\).
+For the terms with \(1<j<\ell\) use
+\(\ell\mid\binom\ell j\), and for the last term use
+\(d\ell\ge d+1\). This includes \(\ell=2\).
+Iteration proves the claimed divisibilities.
+\end{proof}
+\src{New/Selmer/LinePointPowers.lean}{dvd_one_add_mul_pow_sub_one}
+
+\begin{lemma}[the price of removing ties]\label{lem:remove-ties}
+Fix a pencil and row \(i\). Let \(u^{\ell^k}=1\),
+\(N\ge k+2M\), and put
+\[
+ y_{P_0}=u,\qquad
+ y_v=1+t_{v,i}(u-1)\quad(v\ne P_0).
+\]
+Let \(r_y\) be the matrix function obtained by these
+point coordinates. Removing the ties at a subset
+\(I\subseteq J\setminus\{P_0\}\) raises its Selmer
+length modulo \(\ell^M\) by at most
+\[
+ \sum_{v\in I,\ \epsilon=\pm}
+             v_A\det(u\rho_i(\phi_v^\epsilon)-1).
+\]
+At \(u=1\) one may also remove the helper tie;
+its cost is bounded by the two determinants for
+\(\rho_i(\phi_{P_0}^\pm)-1\).
+The assertions hold after any extension of coefficient DVRs.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:torsion-line}, \(r_y\bmod\ell^M\)
+is a genuine representation, though \(r_y\) itself
+need not be one. At a new prime the linear inertia
+action is multiplication by \(y_v\).
+A cocycle \(b\) defines the affine action
+\(w\mapsto b(g)+r_y(g)w\) on \((A/\ell^M)^{n_i}\).
+Its tame generator has order dividing \(\ell^N\).
+Indeed its linear part has order dividing
+\(\ell^{N-M}\) by the preceding lemma; taking that
+power leaves a translation, whose \(\ell^M\)-th
+power is the identity.
+Wild inertia has trivial image, since it is a
+pro-\(p\) group for \(p\ne\ell\), whereas the affine
+inertia image is an \(\ell\)-group.
+
+The relation between Frobenius and tame inertia is
+conjugation by the \(NP\)-th power. Since
+\(NP\equiv1\pmod{\ell^N}\), their affine images commute.
+Evaluation at zero gives
+\[
+ (r_y(\phi_v^\epsilon)-1)b(\tau_v^\epsilon)
+   =(r_y(\tau_v^\epsilon)-1)b(\phi_v^\epsilon).
+\]
+For a nonhelper place, the pencil identities give
+\(r_y(\phi_v^\epsilon)=u\rho_i(\phi_v^\epsilon)\)
+and \(r_y(\tau_v^\epsilon)=y_v\).
+If \(t_{v,i}\ne0\), the original Frobenius acts
+as the identity modulo \(\ell^M\); substituting
+\(y_v-1=t_{v,i}(u-1)\) therefore shows
+\[
+ (u\rho_i(\phi_v^\epsilon)-1)
+    \bigl(b(\tau_v^\epsilon)
+                   -t_{v,i}b(\phi_v^\epsilon)\bigr)=0.
+\]
+If the slope is zero, the same assertion follows
+directly from the commutation identity.
+At the helper with \(u=1\) the identical argument
+works: either the slope is zero or its original
+Frobenius is trivial, making the asserted matrix
+kernel the whole coefficient module.
+
+The defect maps in parentheses have simultaneous
+kernel equal to the module with the removed ties
+restored. The quotient by that kernel injects into
+the product of the matrix kernels just displayed.
+Smith normal form over \(A\) gives, for every
+square matrix \(T\),
+\[
+ \length_A\ker(T:(A/\ell^M)^n\to(A/\ell^M)^n)
+          \le v_A(\det T);
+\]
+if the determinant vanishes the right side is
+infinite. Add the kernel bounds. The proof uses
+only divisibility and finite-length exact
+sequences, so is unchanged over a larger DVR.
+\end{proof}
+\src{New/Selmer/TiltingLemma.lean}{IsPencil.length_le_of_drop_ties}
+
+\begin{theorem}[one anticyclotomic character for all powers]
+\label{thm:abstract-compatible-twist}
+Under the displayed balanced-row and value-family
+hypotheses, for every integer \(m\ge1\) and every
+\(\eta>0\) there are an auxiliary set \(J\) and a
+finite-order anticyclotomic character \(\psi\),
+trivial at the places above \(\ell\), such that
+for \(1\le d\le m\),
+\begin{align}
+ v_\ell V_k(J,\psi^d)
+      &\le v_\ell V_k(\varnothing,1)+8c+\eta,
+                              \label{eq:compatible-value}\\
+ \sum_{v\in J}v_\ell(\psi^d(\tau_v)-1)
+      &\le\eta,               \label{eq:compatible-conductor}\\
+ \lambda_\ell\mathcal S\bigl(\psi^d\rho_i,
+ S\cup J\cup\bar J,
+ \mathcal L_i\cup\{b(\gamma_i)=0\};A'/\ell^M\bigr)
+      &\le B_i+\eta .         \label{eq:compatible-selmer}
+\end{align}
+The last assertion holds over every sufficiently large
+coefficient ring \(A'\), with the evident scalar
+extension of the representation and relations.
+The same \(J,\psi\) work for every \(i,k,d\).
+\end{theorem}
+\begin{proof}
+Shrink a neighborhood \(W\) of \(z\) so that
+\(\rho_i(\phi^\pm)\bmod\ell^M\) are constant there,
+and \(v_\ell(\mu_{k,t}(\phi)-1)\le c\) there.
+The latter is an open condition on \(\phi\), since
+it is a lower bound for a nonzero absolute value.
+Let \(J_0\) be the uniform bound of
+Theorem~\ref{thm:bounded-pencil} at modulus \(\ell^M\).
+Choose \(\delta>0\) with
+\begin{equation}\label{eq:delta-twist}
+ (8J_0+2)\delta<\eta.
+\end{equation}
+All uses of the torsion-point theorem below are
+uniform in polynomial degree and coefficient ring.
+
+First choose \(k\) large enough for one-variable
+simultaneous evaluation with one power, the
+finitely many bounds \(B_i\) and
+\(v_\ell V_k(\varnothing,1)+8c\), tolerance
+\(\delta\), and the following upper bound on the
+total degree of the monic avoidance polynomials:
+\[
+ 2J_0\sum_i n_i+2J_0\sum_k|T_k|.
+\]
+Then choose \(N\ge k+2M\), large enough for
+Theorem~\ref{thm:many-torsion} with at most \(J_0\)
+variables, powers \(1,\ldots,m\), tolerance \(\delta\),
+the finite bounds just mentioned plus \(8J_0\delta+\delta\),
+and monic degree sum \(m(m+1)/2\).
+Here the closeness exponent in that theorem is
+\(\ell^k\), fixed before \(N\).
+Choose a pencil at this \(N\) with \(|J|\le J_0\).
+
+Write \(\theta_v=h_v\).
+For any tuple of actual \(\ell^N\)-th roots define
+\(\psi_y(g)=\prod_v y_v^{\widetilde\theta_v(g)}\).
+It is a character, anticyclotomic and induced by
+\(x/\bar x\) on ideles. If the nontrivial coordinates
+are in \(I\), it has the required modulus \(I\).
+The value-family formula supplies integral
+polynomials \(V_{k,I}(y)\) for all \(I\subseteq J\),
+after one finite coefficient extension. Explicitly
+replace each \(\psi_y(g_\alpha)\) in (ii) by
+\(\prod_v y_v^{\widetilde\theta_v(g_\alpha)}\).
+The finite number of subsets causes no uniformity
+problem.
+
+For each row choose a Fitting determinant polynomial
+\(G_i(y)\) for the Selmer module with ties at
+\(J\setminus\{P_0\}\), sharp at \(y=1\).
+The finite-coordinate proposition justifies its
+existence. The pencil bounds the module with all
+ties by \(\beta_i\). Removing the helper tie at
+\(y=1\), and using the constancy of its Frobenius
+modulo \(\ell^M\), bounds the remaining module
+by the length appearing in
+\eqref{eq:twist-anchor}.
+Consequently \(v_\ell G_i(1)\le B_i\).
+
+Restrict \(G_i\) to the row's own line
+\[
+ y_{P_0}=X,\qquad y_v=1+t_{v,i}(X-1).
+\]
+For value family \(k\), use instead the line
+\(y_{P_0}=X,\ y_v=1\) for \(v\ne P_0\).
+At \(X=1\), its helper-only polynomial
+\(V_{k,\{P_0\}}\) has valuation at most
+\(v_\ell V_k(\varnothing,1)+8c\), by (iii)
+at the helper. Apply the one-variable
+torsion theorem simultaneously to these line
+polynomials and to the monic polynomials
+\[
+ \det(X-\rho_i(\phi_v^\epsilon)^{-1}),\qquad
+ X-\mu_{k,t}(\phi_v)^\epsilon .
+\]
+The diagonal scalar notation in the determinant
+means \(XI-\rho_i(\phi_v^\epsilon)^{-1}\).
+We obtain a common \(u^{\ell^k}=1\), with losses
+at most \(\delta\) in all the line polynomials
+and valuation at most \(\delta\) for every
+avoidance polynomial. Coefficients and \(u\)
+may be put into one finite coefficient ring.
+
+Let \(y^{(i)}\) be the point on row \(i\)'s line
+at \(u\). It is generally only a torsion point
+modulo \(\ell^M\); we use the matrix-function
+definition of \(\mathcal S\) at this point.
+Lemma~\ref{lem:remove-ties} removes the remaining
+ties at cost at most \(2J_0\delta\).
+The determinant estimates follow from the monic
+characteristic polynomials above, since
+\(\det\rho_i(\phi_v^\epsilon)\) is a unit.
+Thus the normalized untied length at \(y^{(i)}\)
+is at most
+\(B_i+(2J_0+1)\delta\).
+Now choose an untied Fitting polynomial \(F_i\)
+\emph{sharp at this particular point}
+\(y^{(i)}\). Its value there satisfies the same
+bound, and its values everywhere bound the
+untied Selmer lengths from above. The sharpness
+point must be chosen after \(u\); sharpness at
+\(1\) would give the wrong direction for this step.
+
+For a value family put \(y^{(k)}_{P_0}=u\) and
+\(y^{(k)}_v=1\) elsewhere. This tuple is an actual
+torsion tuple. At a nonhelper Frobenius its
+character has value \(u\).
+The monic estimates imply
+\[
+ v_\ell(1-\mu_{k,t}(\phi_v)u^\epsilon)\le\delta.
+\]
+For \(\epsilon=1\) use
+\(X-\mu_{k,t}(\phi_v)^{-1}\), and for
+\(\epsilon=-1\) use \(X-\mu_{k,t}(\phi_v)\);
+multiplication by the units \(u,\mu_{k,t}\)
+does not affect valuation. Add the nonhelper
+places one at a time using (iii). This yields
+\[
+ v_\ell V_{k,J}(y^{(k)})
+ \le v_\ell V_k(\varnothing,1)+8c+
+                         (8J_0+1)\delta.
+\]
+Every anchor coordinate, of either type, satisfies
+\(\ell\mid(y_v-1)^{\ell^k}\).
+
+Apply Theorem~\ref{thm:many-torsion} with the
+polynomials \(F_i,V_{k,J}\), using the appropriate
+anchor \(y^{(i)}\) or \(y^{(k)}\) for every power
+\(d\). The polynomials are the same for each
+\(d\); their anchors are allowed to be different
+for different indices. Include
+\(D_d(X)=X^d-1,\ 1\le d\le m\), among the
+monic avoidance polynomials.
+We obtain a single tuple \(\zeta\) with
+\[
+ \zeta_v^{\ell^N}=1,\qquad
+ v_\ell(\zeta_v^d-1)\le\delta\quad(1\le d\le m),
+\]
+and all polynomial valuations at \(\zeta^d\)
+bounded by their anchor bounds plus \(\delta\).
+Set \(\psi=\psi_\zeta\).
+The pencil gives
+\(\psi^d(\tau_v)=\zeta_v^d\);
+hence the conductor sum is at most
+\(J_0\delta<\eta\).
+In particular none of these tame values is
+\(1\), so no power loses a required conductor
+place.
+
+The value loss is at most
+\((8J_0+2)\delta<\eta\), proving
+\eqref{eq:compatible-value}.
+For each row the untied Fitting polynomial
+bounds the length at the actual character
+\(\psi^d\) by
+\(B_i+(2J_0+2)\delta\le B_i+\eta\).
+The determinant bound holds under every
+further extension of the coefficient DVR,
+and normalized valuations are unchanged.
+This proves \eqref{eq:compatible-selmer}
+with its eventual-ring quantifier.
+\end{proof}
+\src{New/Selmer/TwistTheorem.lean}{exists_anticyclotomic_twist}
+
+The special value hypotheses, the balancing of the particular
+automorphic rows, and the constants in
+Input~\ref{in:twist} still have to be verified from their
+definitions. The theorem just proved supplies the complete
+global selection argument once those local and value inputs
+are given. It does not assume that a Fitting polynomial at a
+general tuple defines a characteristic-zero Galois character.
 
 \section{Local losses and their global budget}\label{sec:budget}
 Fix admissible data \(D\). Write \(f\) for the number of infinite places of
@@ -1142,13 +2131,12 @@ The same \(\tau\) works for all \(i,j,p,s\) in these statements.
 \end{sourceinput}
 \src{New/Selmer/TwistForRows.lean}{exists_mFoldTwist_selmerLengthLe}
 
-Theorems~\ref{thm:torsion} and \ref{thm:many-torsion}, together with
-Proposition~\ref{prop:fitting}, supply the specialization step of this
-input. Its remaining construction uses balanced rows, local reciprocity,
-and tied Frobenius--inertia conditions at auxiliary primes.
-Those arguments still require prose proofs here. Calling this input a
-consequence of polynomial avoidance alone would omit its principal
-arithmetic content.
+Theorem~\ref{thm:abstract-compatible-twist} proves the global selection
+argument, including finite coordinates, reciprocity, and the shortening
+by bounded pencils. To discharge the present input one must still verify
+the local balancing estimates and the value-family hypotheses for the
+specified automorphic rows and Hecke ratios. These source-specific
+verifications are not consequences of polynomial avoidance.
 
 \begin{sourceinput}[denominator construction]\label{in:denominator}
 Let \(\vartheta\) satisfy the auxiliary conditions in
@@ -1876,11 +2864,10 @@ proofs under their displayed hypotheses. They close several intermediate
 exposition obligations, but they do not close the source-specific
 arithmetic and geometry.
 
-The next arithmetic section must connect Theorem~\ref{thm:mirror} to global
-reciprocity for balanced rows and prove the construction of bounded pencils of tied primes;
-present the finite-coordinate Selmer module uniformly under specialization;
-and combine them with Theorem~\ref{thm:many-torsion} to discharge
-Input~\ref{in:twist}. The odd Tate-class estimate must be written with its
+Sections~\ref{sec:global-selmer}--\ref{sec:pencil-twist} prove the
+global Selmer construction under explicit balanced-row and value-family
+hypotheses. Input~\ref{in:twist} still requires their local verification
+for the automorphic rows and the Hecke values. The odd Tate-class estimate must be written with its
 precise local conditions and its treatment of small primes.
 The denominator section must then construct the triangular auxiliary
 prime system, the trace ideal, the Ribet element with its explicit
@@ -1911,10 +2898,18 @@ L. Alp\"oge and Claude; compact rewrite by L. Sernau and collaborators,
 \href{https://github.com/lsernau/grh-lean/tree/72fead102f663d5c7a407964a13dc0cf9d977207/grh-compact}{grh-compact source}.
 \bibitem{readback}
 B. Naskr\k{e}cki, \emph{The condensed Lean proof of RH and GRH: a reading},
-working draft, commit \texttt{abad2f1b7755ca045847f1d42f27cf88b4263fee},
-\href{https://github.com/nasqret/riemann-rev/tree/abad2f1b7755ca045847f1d42f27cf88b4263fee/writeup}{source and individual notes}.
+working draft, commit \texttt{82252d4e71d9f4db30a38e370dba78283ab3a921},
+\href{https://github.com/nasqret/riemann-rev/tree/82252d4e71d9f4db30a38e370dba78283ab3a921/writeup}{source and individual notes}.
 The notes were prepared with AI readers and writers and are not a
 human-refereed exposition.
+\bibitem{smithGW}
+A. Smith, \emph{Galois cohomology and the Greenberg--Wiles formula:
+CRM minicourse}, 6 May 2026, Theorem 1.8,
+\href{https://www.asmith-math.org/CRMnotes.pdf}{author's notes}.
+\bibitem{milneADT}
+J. S. Milne, \emph{Arithmetic Duality Theorems}, second edition,
+BookSurge, 2006, Part I,
+\href{https://www.jmilne.org/math/Books/ADT.pdf}{author's edition}.
 \bibitem{principia}
 \emph{Unpacking the proof of RH}, Principia project,
 \href{https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper}{paper record},
