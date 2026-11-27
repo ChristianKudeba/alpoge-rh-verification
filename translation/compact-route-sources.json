@@ -18,7 +18,7 @@
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 20,
+  "intermediate_proofs": 21,
   "unexpanded_source_input_groups": [
     "short compatible twisted Selmer groups",
     "Ribet and patching denominator construction",
@@ -304,5 +304,6 @@
         }
       ]
     }
-  ]
+  ],
+  "completed_arithmetic_identity": "Full polarization proof of card_le_torsion_of_isotropic; source-specific global reciprocity remains pending"
 }

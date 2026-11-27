@@ -14,7 +14,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
-\newtheorem{input}[theorem]{Source input}
+\newtheorem{sourceinput}[theorem]{Source input}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
@@ -45,7 +45,7 @@ We develop a prose account of the compact formal development at commit
 This revision starts with the arithmetic inputs and Theorem C of its three-theorem reduction.
 It gives full proofs of the degree-independent polynomial estimate used to choose compatible
 powers of a twist, the determinant-specialization argument for finite relation modules,
-the linear algebra that converts scalar operators into a denominator bound, and the
+the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate behind reciprocity, and the
 height and Gram-determinant calculus used at the end of Theorem C.
 The source-specific construction of short Selmer groups, the Ribet and patching operators,
 and the geometric comparison forms are explicitly identified as inputs still to be
@@ -61,7 +61,7 @@ The compact edition is due to Luke Sernau, colleagues at Anthropic, and Claude.
 We use Bartosz Naskr\k{e}cki's working reading as a guide, at commit
 \texttt{abad2f1b7755ca045847f1d42f27cf88b4263fee} of
 \texttt{nasqret/riemann-rev}. Its text is available under 0BSD.
-In particular the notes \emph{Short Selmer groups}, \emph{Fit twists}, \emph{Heights},
+Relevant portions of the notes \emph{Short Selmer groups}, \emph{Fit twists}, \emph{Heights},
 \emph{Chain volume}, and \emph{Lift volume height} were compared with the corresponding
 pinned Lean files for this revision. Their reference to an input or an outline is
 not treated as a complete proof of that input. The proofs below are rewritten in one
@@ -530,6 +530,187 @@ operators. That source-specific construction remains the input
 in Section~\ref{sec:fit}.
 
 
+\section{The mirror estimate for tied cocycles}\label{sec:mirror}
+This is the finite algebra behind the reciprocity step in the short-Selmer
+construction. We prove it without leaving the key identity to a formal
+linear-combination command.
+
+Let \(A\) be a commutative ring, \(I\) an ideal with \(A/I\) finite, and
+\(M=(A/I)^n\) with a specified coordinate \(i\).
+Let \(\Gamma\) be a group, \(c:\Gamma\to\Gamma\) an involutive automorphism,
+\(\rho:\Gamma\to\mathrm{GL}_n(A)\), and
+\(\chi:\Gamma\to A^\times\).
+Let \(H\) be a normal \(c\)-stable subgroup of \(\Gamma\), contained in
+a subgroup \(U\) that acts trivially on \(M\).
+Fix \(\gamma\in\Gamma\) such that \([k,\gamma]\in H\) for every \(k\in\Gamma\);
+our convention is \([a,b]=aba^{-1}b^{-1}\).
+Suppose \(s-1,s+1\) are units in \(A\), and
+\[
+ \rho(\gamma)=sI_n,\qquad \rho(c\gamma)^{-1}=sI_n,\qquad
+ \chi(\gamma)=\chi(c\gamma)=1.
+\]
+The scalar \(s\) is also a unit, since \(sI_n\) is invertible and \(n\ge1\).
+
+Let \(y:\Gamma\to M\) be a \(1\)-cocycle with \(y(\gamma)=0\), and choose
+\(g_0\) with \(y(g_0)_i\) a unit of \(A/I\).
+Assume the \(A\)-span of the matrices \(\rho(\Gamma)\) is all \(M_n(A)\).
+Choose \(z\in U\) with \(cz\in U\).
+For a set \(W\), suppose each \(w\in W\) gives functions
+\(x_w:\Gamma\to M^\vee\), where
+\(M^\vee=\operatorname{Hom}_{\rm add}(M,\Q/\Z)\).
+Their required equivariance is
+\begin{equation}\label{eq:mirror-equivariance}
+ x_w(a k b k^{-1})(v)
+   =x_w(a)(v)+x_w(b)(\chi(k)\rho(k)^{-1}v)
+ \quad(a,b\in U,\ k\in\Gamma,\ v\in M).
+\end{equation}
+Assume distinct \(w\)'s have distinct restrictions \(x_w|_U\), and
+\begin{equation}\label{eq:mirror-isotropic}
+ x_w(zh)(t\,y(zh))
+       =x_w(c(zh))(t\,y(c(zh)))
+ \quad(h\in H,\ t\in A).
+\end{equation}
+No \(A\)-linearity of \(x_w(g)\) is assumed: its additivity and the
+quantifier over \(t\) are both needed.
+
+\begin{theorem}[mirror estimate]\label{thm:mirror}
+If \(g\in\Gamma\) and
+\(\rho(g)=\alpha I_n,\ \rho(cg)^{-1}=\alpha'I_n\),
+put \(\delta=\alpha-\chi(cg)\alpha'\in A\).
+Then \(W\) is finite and
+\[
+ \#W\le\#M[\delta],\qquad
+ M[\delta]=\{v\in M:\delta v=0\}.
+\]
+\end{theorem}
+\begin{proof}
+We suppress \(w\) temporarily.
+Taking \(k=1\) in \eqref{eq:mirror-equivariance} shows that \(x|_U\)
+is an additive homomorphism, in multiplicative group notation:
+\(x(ab)=x(a)+x(b)\), and \(x(1)=0\).
+Taking \(a=1\) gives
+\[
+ x(k b k^{-1})(v)=x(b)(\chi(k)\rho(k)^{-1}v)\quad(b\in U).
+\]
+On \(U\), the cocycle \(y\) is likewise additive, because \(U\) acts
+trivially on \(M\).
+For \(b\in H\), the general cocycle identity gives
+\[
+ y(k b k^{-1})=(1-\rho(k b k^{-1}))y(k)+\rho(k)y(b)
+             =\rho(k)y(b),
+\]
+as \(H\) is normal and acts trivially on \(M\).
+
+Put \(\tau=[g_0,\gamma]\in H\).
+The cocycle identity, scalar action of \(\gamma\), and \(y(\gamma)=0\)
+give \(y(\tau)=(1-s)y(g_0)\). Thus \(y(\tau)_i\) is a unit.
+The vectors \(t\rho(k)y(\tau)\), \(t\in A,k\in\Gamma\), span \(M\)
+additively. Indeed the matrices \(\rho(k)\) span \(M_n(A)\).
+Every vector in \(M\) is a matrix over \(A/I\) applied to \(y(\tau)\):
+put the desired coordinates, divided by its unit \(i\)-th coordinate,
+in column \(i\), and set the other columns to zero.
+Lift that matrix to \(M_n(A)\) and use the spanning assumption.
+
+\emph{Polarization.}
+For \(a\in U\) with \(ca\in U\), define
+\(q_t(a)=x(a)(t y(a))-x(ca)(t y(ca))\).
+By \eqref{eq:mirror-isotropic}, \(q_t(zh)=0\) for \(h\in H\).
+Expand
+\[
+ q_t(zab)-q_t(za)-q_t(zb)+q_t(z)=0\quad(a,b\in H).
+\]
+Additivity of \(x,y\) on \(U\) and of their conjugates gives
+\begin{equation}\label{eq:mirror-polar}
+ x(a)(t y(b))+x(b)(t y(a))
+  =x(ca)(t y(cb))+x(cb)(t y(ca)).
+\end{equation}
+
+Fix \(b\in H\) and \(k\in\Gamma\), and insert
+\(a=k\tau k^{-1}\) into \eqref{eq:mirror-polar}.
+As additive functions of \(t\in A\), put
+\begin{align*}
+ A_0(t)&=x(b)(t\rho(k)y(\tau)),\\
+ B_0(t)&=x(\tau)(\chi(k)t\rho(k)^{-1}y(b)),\\
+ C_0(t)&=x(cb)(t\rho(ck)y(c\tau)),\\
+ D_0(t)&=x(c\tau)(\chi(ck)t\rho(ck)^{-1}y(cb)).
+\end{align*}
+Equation~\eqref{eq:mirror-polar} says \(A_0+B_0=C_0+D_0\).
+Replace \(b\) by \(\gamma b\gamma^{-1}\), which still lies in \(H\).
+Equivariance and the scalar hypotheses give
+\begin{align*}
+ x(\gamma b\gamma^{-1})(v)&=x(b)(s^{-1}v),
+ &y(\gamma b\gamma^{-1})&=s y(b),\\
+ x(c(\gamma b\gamma^{-1}))(v)&=x(cb)(s v),
+ &y(c(\gamma b\gamma^{-1}))&=s^{-1}y(cb).
+\end{align*}
+Thus the new polarization equation is
+\[
+ A_0(s^{-1}t)+B_0(st)=C_0(st)+D_0(s^{-1}t).
+\]
+Subtract the original equation evaluated at \(s^{-1}t\).
+It gives
+\((B_0-C_0)((s-s^{-1})t)=0\).
+Since \(s-s^{-1}=s^{-1}(s-1)(s+1)\) is a unit, \(B_0=C_0\);
+hence \(A_0=D_0\).
+We have proved the key identity
+\begin{equation}\label{eq:mirror-key}
+ x(b)(t\rho(k)y(\tau))
+   =x(c\tau)(\chi(ck)t\rho(ck)^{-1}y(cb))
+ \quad(b\in H,\ t\in A,\ k\in\Gamma).
+\end{equation}
+
+\emph{The scalar difference.}
+Let \(\ell_w=x_w(c\tau)\).
+Apply \eqref{eq:mirror-key} with \(b=c\tau\):
+\[
+ \ell_w(t\rho(k)y(\tau))
+   =\ell_w(\chi(ck)t\rho(ck)^{-1}y(\tau)).
+\]
+Compare this identity at \(kg,t\) with its instance at
+\(k,\chi(cg)\alpha't\). The right sides agree, while the difference of
+the left sides is
+\(\ell_w(\delta t\rho(k)y(\tau))\).
+The spanning assertion above shows that \(\ell_w\) annihilates
+\(\delta M\). It therefore descends to a character of \(M/\delta M\).
+
+\emph{Injectivity.}
+Suppose \(\ell_w=\ell_v\).
+Subtract \eqref{eq:mirror-key} for \(w,v\). Its right side vanishes.
+Spanning gives \(x_w(b)=x_v(b)\) for every \(b\in H\).
+For \(a\in U\), equivariance gives
+\[
+ x_w([a,\gamma])(m)
+   =x_w(a)(m)-x_w(a)(s^{-1}m)
+   =x_w(a)((1-s^{-1})m).
+\]
+The same formula holds for \(v\), and the commutator belongs to \(H\).
+As \(1-s^{-1}\) is a unit, multiplication by it is onto \(M\).
+Thus \(x_w(a)=x_v(a)\) for all \(a\in U\), whence \(w=v\).
+
+We have an injection
+\(W\hookrightarrow\operatorname{Hom}_{\rm add}(M/\delta M,\Q/\Z)\).
+A finite abelian group has as many such characters as elements:
+decompose it into cyclic groups, and note that a cyclic group of order
+\(r\) has exactly \(r\) possible images of a generator in \(\Q/\Z\).
+Finally a homomorphism \(\delta:M\to M\) of a finite group has
+\(\#(M/\delta M)=\#\ker\delta\), by counting fibers and image.
+This proves finiteness and the asserted bound.
+\end{proof}
+\src{New/Selmer/LinePointPowers.lean}{card_le_torsion_of_isotropic}
+
+The formal statement writes \(\rho\) as a homomorphism to the multiplicative
+monoid of matrices, and \(\chi\) to the multiplicative monoid of \(A\).
+Since their domain is a group, their images are units; the formulation
+above is the same condition. Stability \(c(H)\subseteq H\), together with
+\(c^2=1\), is equality. The proof does not add a condition \(c(U)=U\).
+
+This theorem supplies the cardinality bound once a global reciprocity
+argument gives \eqref{eq:mirror-isotropic} on a coset. Establishing that
+global isotropy, and bounding the scalar-difference torsion in the
+specific Galois rows, remain the next steps. Those statements are not
+consequences of the finite-group calculation alone.
+
+
 \section{Local losses and their global budget}\label{sec:budget}
 Fix admissible data \(D\). Write \(f\) for the number of infinite places of
 its CM field \(E\), and retain the source's positive integers
@@ -689,7 +870,7 @@ nondegenerate trace, scalar inertia, and full matrix span on sufficiently
 large coefficient lattices. These hypotheses are essential to the
 reciprocity argument which makes the Selmer groups short.
 
-\begin{input}[one twist for finitely many rows]\label{in:twist}
+\begin{sourceinput}[one twist for finitely many rows]\label{in:twist}
 Fix \(D,\ell,\iota\), finitely many admissible rows \(R_i\) of ranks \(r_i\),
 and an integer \(M\ge0\). There is one finite-order weight-zero tame
 character \(\tau\) whose first \(m\) powers are allowed twists. For
@@ -715,7 +896,7 @@ values satisfies
  \le\exp(9c_\ell\log\ell)\).
 \end{enumerate}
 The same \(\tau\) works for all \(i,j,p,s\) in these statements.
-\end{input}
+\end{sourceinput}
 \src{New/Selmer/TwistForRows.lean}{exists_mFoldTwist_selmerLengthLe}
 
 Theorems~\ref{thm:torsion} and \ref{thm:many-torsion}, together with
@@ -726,7 +907,7 @@ Those arguments still require prose proofs here. Calling this input a
 consequence of polynomial avoidance alone would omit its principal
 arithmetic content.
 
-\begin{input}[denominator construction]\label{in:denominator}
+\begin{sourceinput}[denominator construction]\label{in:denominator}
 Let \(\vartheta\) satisfy the auxiliary conditions in
 Input~\ref{in:twist}(i). Let \(O\) be an auxiliary pair of ranks
 \((r_O,n_O)\), \(e_0\) its specified group-algebra element, and
@@ -746,7 +927,7 @@ Then
  \operatorname{Den}_\iota(O,e_0,Z;\beta_\ell\log\ell)
 \]
 holds in the sense of \eqref{eq:den}.
-\end{input}
+\end{sourceinput}
 \src{New/Selmer/DenominatorBound.lean}{denominatorLe_rowBudget}
 
 The integer \(r\) in the truncation is the fixed rank of \(D\), not the
@@ -1236,7 +1417,7 @@ Fix a lift index \(j\). For each twist \(\vartheta\), let
 and write \(\lambda_j(\vartheta)=\det(u_\vartheta^*u_\vartheta)\).
 The source proves \(\dim U_j=d\), independent of \(j\).
 
-\begin{input}[comparison forms and Hecke values]\label{in:comparison}
+\begin{sourceinput}[comparison forms and Hecke values]\label{in:comparison}
 For every \(j\) there are a common table space \(T\), a surjection \(A:T\to U_j\),
 maps \(g_\vartheta:T\to V_{\vartheta,j}\), nonzero scalars \(\gamma_\vartheta\),
 a positive rational hook number \(\kappa_j\), and nonzero Hecke-value products
@@ -1255,7 +1436,7 @@ there. At a fit family of twists one also has
        {\left(H_j(\theta_{\ell,\iota}^j)/H_j(1)\right)^{-1}},
 \]
 where \(\mathcal U\) is the source's cost of one direction.
-\end{input}
+\end{sourceinput}
 \src{New/Rows/ComparisonForms.lean}{exists_comparison_forms}
 \src{New/Rows/HeckeValueHeight.lean}{heightLe_inv_heckeValueProd_div}
 
@@ -1311,7 +1492,7 @@ The quantities \(z(\vartheta)\) are already squared volumes.
 Their squares appearing below are fourth powers of volume factors;
 one must not remove the extra factor of \(2\) in the height calculation.
 
-\begin{input}[factorization of the chain]\label{in:factorization}
+\begin{sourceinput}[factorization of the chain]\label{in:factorization}
 All the maps \(\Theta_\vartheta\) are injective. There are nonzero complex
 numbers \(c(\vartheta)\) such that
 \[
@@ -1322,7 +1503,7 @@ At a fit family, the correction family has bound
 \[
  \HH{2L}{\left(\abs{c(\theta_{\ell,\iota})/c(1)}^{-2}\right)}.
 \]
-\end{input}
+\end{sourceinput}
 \src{New/Rows/RowVolume.lean}{Data.volume_iota_eq_prod_liftVolume}
 
 The determinant part of the factorization is elementary once its geometric
@@ -1338,7 +1519,7 @@ The source must also control the scalar \(c\), using the chain
 normalization and the norm of the modulus. Those pairing identities,
 transfer, and scalar estimates remain part of this input's translation.
 
-\begin{input}[crude completion rows]\label{in:crude}
+\begin{sourceinput}[crude completion rows]\label{in:crude}
 There is a spanning set \(S\) of the row space with base norms at most
 \(\exp(2x_1^2b^2)\) in squared conjugate norm.
 For each fit family, its twisted images become integral, at the primes
@@ -1350,7 +1531,7 @@ nonzero scalar \(\gamma_{\ell,\iota}\) with
 Their integral pairings satisfy \eqref{eq:pair-integral}.
 The metrics satisfy the mixed determinant comparison of
 Section~\ref{sec:gram}.
-\end{input}
+\end{sourceinput}
 \src{New/Exchange/CrudeRows.lean}{Data.crude_rows}
 \src{New/Endgame/LongForms.lean}{Data.heightLe_volume_rows}
 
@@ -1449,8 +1630,8 @@ proofs under their displayed hypotheses. They close several intermediate
 exposition obligations, but they do not close the source-specific
 arithmetic and geometry.
 
-The next arithmetic section must prove the balanced-row reciprocity
-inequality and the construction of bounded pencils of tied primes;
+The next arithmetic section must connect Theorem~\ref{thm:mirror} to global
+reciprocity for balanced rows and prove the construction of bounded pencils of tied primes;
 present the finite-coordinate Selmer module uniformly under specialization;
 and combine them with Theorem~\ref{thm:many-torsion} to discharge
 Input~\ref{in:twist}. The odd Tate-class estimate must be written with its
