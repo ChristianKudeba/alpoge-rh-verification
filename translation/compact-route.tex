@@ -47,7 +47,8 @@ It gives full proofs of the degree-independent polynomial estimate used to choos
 powers of a twist, the determinant-specialization argument for finite relation modules,
 the linear algebra that converts scalar operators into a denominator bound, the finite mirror estimate, the global reciprocity calculation, bounded pencils of tied primes,
 the simultaneous compatible-twist selection, the balanced-row local calculation,
-the double-Cramer and one-prime operator formulas, the glued-lattice indicator,
+the double-Cramer and one-prime operator formulas, the row-block determinant bound,
+the glued-lattice indicator,
 the numerical budget comparisons, and the
 height and Gram-determinant calculus used at the end of Theorem C.
 The special-value interpolation, the complete Ribet and patching application,
@@ -2882,6 +2883,136 @@ root-string condition. Replacing them by
 an assertion that the operator is integral
 would leave precisely the difficult local
 input unproved.
+
+
+\subsection{Obeying cocycles and the row-block determinant}
+\label{sec:ribet-modules}
+Two module arguments justify passing from a Selmer
+length to rows of the Ribet determinant.
+We give them separately from the character-block
+triangular estimate.
+
+\begin{lemma}[the graph of an obeying cocycle]
+\label{lem:obeying-graph}
+Let \(A\) be a DVR, \(a\ne0\), and
+\(u_x:\Gamma\to\mathrm{GL}_d(A)\) a finite family.
+Let \(\rho:\Gamma\to\mathrm{GL}_n(A)\), and suppose
+a cocycle \(b:\Gamma\to(A/a)^n\) satisfies
+\[
+ \sum_g t_g(u_x(g)-1)=0\text{ for every }x
+       \quad\Longrightarrow\quad\sum_g t_gb(g)=0
+\]
+for every finitely supported \(t:\Gamma\to A\).
+Put \(V=\prod_x M_d(A)\), with \(\Gamma\) acting
+by left multiplication by \(u_x\).
+For some integer \(k\), there is a stable submodule
+\(P\subset V\), containing \(a^kV\) and every
+\((u_x(g)-1)_x\), and an equivariant map
+\(\lambda:P\to(A/a)^n\) with
+\[
+ \lambda((u_x(g)-1)_x+a^kv)=b(g)\quad(v\in V).
+\]
+Its graph is a subrepresentation of
+\(V\oplus(A/a)^n\) projecting injectively to \(V\).
+If \(A\) has finite residue field and the \(u_x\)
+are continuous, then \(b\) is locally constant.
+If all \(u_x\) kill an inertia subgroup, so does \(b\).
+\end{lemma}
+\begin{proof}
+Let \(L\subset V\) be spanned by the
+\((u_x(g)-1)_x\).
+The displayed condition defines a unique linear
+map \(\lambda_0:L\to(A/a)^n\) taking these
+generators to \(b(g)\).
+Both \(L\) and its map are equivariant because
+\[
+ u(g)(u(h)-1)=(u(gh)-1)-(u(g)-1),\qquad
+ b(gh)-b(g)=\rho(g)b(h).
+\]
+Choose a basis of \(V\) in which
+\(L=\bigoplus_{j\le e}A\pi^{d_j}v_j\).
+For sufficiently large \(k\),
+\(k v_A(a)\ge v_A(a)+\max_j d_j\), unless \(a\)
+is a unit, in which case the target is zero.
+It follows coordinate by coordinate that
+\(L\cap a^kV\subset aL\).
+Therefore \(\lambda_0\) kills this intersection
+and extends to \(P=L+a^kV\) by setting it
+zero on \(a^kV\). This is well defined and
+equivariant, proving the graph assertions.
+For continuity, the map factors through
+\(P/a^kV\), a finite module, so composing with
+the continuous function \(g\mapsto(u_x(g)-1)_x\)
+is locally constant. The last assertion is
+immediate from its value at the zero vector.
+\end{proof}
+\src{New/Selmer/BlocksAndCocycles.lean}{obeyingCocycles.exists_graph_subrepresentation}
+
+\begin{proposition}[a short annihilator gives matrix rows]
+\label{prop:row-block-fitting}
+Let \(A\) be a DVR, \(\mathcal R\) an \(A\)-algebra,
+and \(\psi:\mathcal R\to M_d(A)\) surjective.
+Let \(N\subset\mathcal R^s\) be a left submodule,
+let \(p\ne0\), and suppose the space
+\[
+ Z=\{w\in((A/p)^d)^s:
+             \textstyle\sum_j\psi(t_j)w_j=0
+                                   \text{ for all }t\in N\}
+\]
+has length at most \(b<v_A(p)\).
+Then there is \(B\in M_s(\mathcal R)\), every row
+belonging to \(N\), whose flattened block matrix
+satisfies \(v_A\det\psi(B)\le b\).
+\end{proposition}
+\begin{proof}
+View the image of \(N\) as a space \(W\) of
+\(d\)-by-\(sd\) matrices, by concatenating blocks.
+Surjectivity of \(\psi\) makes \(W\) stable under
+left multiplication by every matrix unit.
+Let \(K\subset A^{sd}\) be the module generated
+by all rows of matrices in \(W\).
+Then \(W\) consists of \emph{all} matrices whose
+rows are in \(K\).
+Indeed multiplication by a matrix unit isolates
+any one row and places it at any chosen row
+index. Finite sums and scalar multiples produce
+each specified row of \(K\), independently.
+
+Use Smith normal form for \(K\).
+In a basis of \(A^{sd}\), its invariant exponents
+are \(e_1,\ldots,e_{sd}\), allowing \(+\infty\)
+for missing directions. The annihilator of its
+rows in \((A/p)^{sd}\) is exactly \(Z\);
+its length is
+\[
+ \sum_j\min(e_j,v_A(p)).
+\]
+Since this is at most \(b<v_A(p)\), every
+\(e_j\) is finite and smaller than \(v_A(p)\).
+Their sum is at most \(b\).
+Thus \(K\) has a basis whose square row matrix
+\(D\) has determinant valuation
+\(\sum_j e_j\le b\).
+Group the rows of \(D\) into \(s\) groups of
+\(d\). Each group belongs to \(W\), hence is
+the concatenated image of some \(t_i\in N\).
+Take these \(t_i\) as the rows of \(B\).
+Its flattened image is \(D\), so has the
+asserted determinant valuation.
+\end{proof}
+\src{Lib/General/Algebra/BlockFittingBound.lean}{exists_rows_addVal_det_le}
+
+The strict inequality \(b<v_A(p)\) is essential:
+it prevents a whole coordinate from disappearing
+behind the chosen modulus. This is the reason
+for choosing the truncation
+\(M=\lfloor r\beta_\ell\rfloor+1\) in the
+denominator application.
+The proposition controls the row block.
+The remaining character blocks require the
+first-order Fitting estimate with its triangular
+Tate-class conditions; that assertion is not
+part of the row-block linear algebra just proved.
 
 \subsection{What remains to apply these operators}
 The trace ideal in the application contains

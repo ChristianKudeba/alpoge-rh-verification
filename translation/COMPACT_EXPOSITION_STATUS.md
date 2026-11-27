@@ -1,15 +1,19 @@
-# Compact exposition checkpoint
+# Compact exposition status — 27 November 2026
 
-The current working installment is the **26-page partial exposition**, built from `903a8ea34996b3c01a49a318f22604fd4622149f`. It replaces the PDF attachment under the existing consolidated manuscript filename on [Principia](https://principia-math.com/projects/d16ab288ed353bc5b10e292ace0ddbc1/paper). It is not a complete standalone proof of RH.
+The same Principia LaTeX record is the master: `9c8cc33a546414334e2d4da3aade5210`, path `alpoge-rh-working-translation.tex`. The PDF is `alpoge-rh-consolidated-manuscript.pdf`; read `compact-publication.json` for its current receipt. Work was kept in memory and remote services; no manuscript files were written to the user's computer.
 
-See [compact-publication.json](compact-publication.json) for the current attachment id, exact hashes, build receipt, and archived previous edition. The existing LaTeX source record remains `9c8cc33a546414334e2d4da3aade5210`, path `alpoge-rh-working-translation.tex`. The publication receipt supersedes the old binary attachment id in the pre-publication source census.
+Formal source: lsernau/grh-lean at 72fead102f663d5c7a407964a13dc0cf9d977207, grh-compact. Reading notes: nasqret/riemann-rev at 82252d4e71d9f4db30a38e370dba78283ab3a921.
 
-Formal source: `lsernau/grh-lean`, `grh-compact`, commit `72fead102f663d5c7a407964a13dc0cf9d977207`. Consulted reading: Naskręcki's `nasqret/riemann-rev` writeup at `abad2f1b7755ca045847f1d42f27cf88b4263fee`; six note-file SHA-256 checks pass against its manifest. Relevant portions were reviewed, not the entire handout.
+The manuscript is PARTIAL, not a standalone RH proof. It has 43 intermediate proof environments; this is not a mathematical coverage percentage. New work includes finite Selmer coordinates, auxiliary anticyclotomic primes, global reciprocity using the stated classical Greenberg–Wiles formula, bounded pencils, generic tilting, removal of ties, full simultaneous twist selection under explicit local/value hypotheses, local row balancing from the IsRow assumptions, double Cramer, the explicit one-prime first-order operator, the obeying-cocycle graph, the row-block Fitting bound, and glued lattice/indicator/class-sum proofs. Classical inputs (CFT, Chebotarev, Tate duality, Bloch–Kato, Amitsur) are explicitly distinguished from the new exposition. These prose proofs have been compared with source; LaTeX/visual checks are not independent mathematical certification.
 
-Written in full under displayed hypotheses: 25 intermediate proofs, including degree-independent torsion-polynomial evaluation, simultaneous powers, the finite mirror estimate by polarization, determinant specialization, the scalar-operator denominator criterion, prime-loss summation, numerical budget absorption, height and product-formula tools, the one-determinant and completion arguments, and compressed Gram comparisons. Theorem C's final deduction is written; its source-specific geometric inputs remain explicit assumptions in this installment.
+Remaining source-specific input packages:
 
-The numerical sums of rowBudget and crudeUnit and all three Theorem C scale comparisons are now derived from admissibility, conditional on the precise stated odd-class integer bound. The theorem providing that integer itself remains to translate.
+1. Integral interpolation and Euler-factor norm relations for the Hecke values.
+2. Full denominator application: triangular primes, odd Tate-class estimate, character-block first-order Fitting bound, crystalline block defects, Hecke root-string identities and multi-prime patching, with all numerical losses.
+3. Global theta product/period/vanishing identities, convergence, filling/separation, integral Fock/Cartan gauges and metric/height estimates for comparison forms.
+4. Chain factorization with controlled scalar cost.
+5. Crude integral completion rows.
 
-Next: turn global reciprocity and balanced rows into the isotropy hypothesis for the mirror estimate; prove bounded pencils of tied primes and complete the compatible-twist construction. Then translate triangular primes, the Ribet trace-ideal element and the integral patching operator. Complete the geometric comparison forms, Hecke-value heights, chain scalar, and crude rows; integrate A/B, admissible-data existence and the compact good-window ending.
+Then integrate A/B, admissible data, weighted-prime comparison and good-window analytic conclusion. Do not label any unexpanded package as proved merely by citing its Lean declaration. Do not replace the corrected patched eigenvalue valuation bound with equality to the Ribet coefficient. Keep the distinction between vacuum at T and vacuum outside T.
 
-Keep one current consolidated PDF. Earlier conditional material remains in source history and the archived release; use it only after matching objects and normalizations. Other contributors' manuscripts remain untouched. No queue translation percentage is inferred from this manuscript's pages or intermediate-proof count. No files were saved on the user's computer; compilation, rendering, sources and artifacts are remote.
+Principia write_file currently returns an edit conflict even when it saved the body: always read back and compare. Existing-name PDF uploads fail; preserve a hash-verified remote release backup, then replace only our own PDF under the same filename. Never edit others' papers. See publication receipt. Keep incomplete status in the paper and workflow release.

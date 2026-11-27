@@ -18,7 +18,7 @@
   },
   "status": "partial exposition",
   "standalone_prose_complete": false,
-  "intermediate_proofs": 41,
+  "intermediate_proofs": 43,
   "unexpanded_source_input_groups": [
     "Integral interpolation and Euler-factor norm relations for Hecke values",
     "Ribet and patching denominator construction",
@@ -353,6 +353,14 @@
       "file": "Lib/Adelic/Hecke/ClassSumBounds.lean",
       "formal_pin": "72fead102f663d5c7a407964a13dc0cf9d977207",
       "scope": "Expanded intermediate argument; source application hypotheses stated"
+    },
+    {
+      "file": "New/Selmer/BlocksAndCocycles.lean",
+      "translation": "DVR graph construction with an explicit Smith-normal-form exponent"
+    },
+    {
+      "file": "Lib/General/Algebra/BlockFittingBound.lean",
+      "translation": "Morita row isolation and Smith-normal-form proof of matrix rows with determinant valuation <= the annihilator length"
     }
   ],
   "completed_arithmetic_identity": "Finite mirror estimate plus global reciprocity via the classical Greenberg-Wiles formula, bounded pencils, finite coordinates, and complete simultaneous twist selection under explicit local hypotheses; local balancing from explicit IsRow hypotheses; double Cramer and complete abstract one-prime patching formula",
